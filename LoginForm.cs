@@ -77,7 +77,7 @@ namespace TheByteClubPOS
             {
                 // Login successful
                 int employeeID = (int)employeeTableAdapter.GetEmployeeID(txtUsername.Text, txtPassword.Text);
-                MessageBox.Show("Login successful!");
+              
                 MainForm mainForm = new MainForm(employeeID);
                 mainForm.Show();
                 this.Close();
