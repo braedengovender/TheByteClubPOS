@@ -40,16 +40,38 @@ namespace TheByteClubPOS
                 string firstName = txtFirstName.Text.Trim();
                 string lastName = txtLastName.Text.Trim();
                 string email = txtEmailAddress.Text.Trim();
-                string idNumber = txtIdNumber.Text.Trim();
-                string phone = txtPhoneNumber.Text.Trim();
+                
+                maskedTextBox1.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals; //this ensures only the numbers are extracted
+                if (!maskedTextBox1.MaskFull)
+                {
+                    MessageBox.Show("Please enter full ID number"); //ensuring the masked textbox is fully filled out before attempting to extract the value, as it is a required field and must be unique in the database. This prevents empty or incomplete values from being inserted, which would violate database constraints and cause errors.    
+                    return;
+                }
+                string idNumber = maskedTextBox1.Text; //using a masked textbox for the ID number allows us to enforce a specific format (e.g., 13 digits for a South African ID) and ensures that only numbers are used.
 
+                maskedTextBox3.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
+                if (!maskedTextBox3.MaskFull)
+                {
+                    MessageBox.Show("Please enter full phone number");
+                    return;
+                }
+                string phone = maskedTextBox3.Text;
+              
                 // Nullable fields: If text is empty, pass null
                 string unitNumber = string.IsNullOrWhiteSpace(txtUnitNumber.Text) ? null : txtUnitNumber.Text.Trim();
                 string unitName = string.IsNullOrWhiteSpace(txtUnitName.Text) ? null : txtUnitName.Text.Trim();
                 string streetNumber = txtStreetNumber.Text.Trim();
                 string streetName = txtStreetName.Text.Trim();
                 string suburb = txtSuburb.Text.Trim();
-                string postalCode = txtPostalCode.Text.Trim();
+
+                maskedTextBox2.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
+                if (!maskedTextBox2.MaskFull)
+                {
+                    MessageBox.Show("Please enter full postal code");
+                    return;
+                }
+                string postalCode = maskedTextBox2.Text;
+     
                 string city = txtCity.Text.Trim();
 
                 // ComboBoxes (Make sure items match database types)
@@ -97,6 +119,11 @@ namespace TheByteClubPOS
             {
                 MessageBox.Show($"An unexpected error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void maskedTextBox2_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+
         }
     }
 }

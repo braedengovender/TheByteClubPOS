@@ -77,10 +77,7 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.txtFirstName = new System.Windows.Forms.TextBox();
             this.txtLastName = new System.Windows.Forms.TextBox();
-            this.txtPhoneNumber = new System.Windows.Forms.TextBox();
-            this.txtIdNumber = new System.Windows.Forms.TextBox();
             this.txtEmailAddress = new System.Windows.Forms.TextBox();
-            this.txtPostalCode = new System.Windows.Forms.TextBox();
             this.txtSuburb = new System.Windows.Forms.TextBox();
             this.txtStreetName = new System.Windows.Forms.TextBox();
             this.txtStreetNumber = new System.Windows.Forms.TextBox();
@@ -95,6 +92,9 @@
             this.cmbProvince = new System.Windows.Forms.ComboBox();
             this.dtpRegistrationDateTime = new System.Windows.Forms.DateTimePicker();
             this.button1 = new System.Windows.Forms.Button();
+            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
+            this.maskedTextBox2 = new System.Windows.Forms.MaskedTextBox();
+            this.maskedTextBox3 = new System.Windows.Forms.MaskedTextBox();
             customer_IDLabel = new System.Windows.Forms.Label();
             customer_FirstNameLabel = new System.Windows.Forms.Label();
             customer_LastNameLabel = new System.Windows.Forms.Label();
@@ -506,33 +506,12 @@
             this.txtLastName.Size = new System.Drawing.Size(200, 20);
             this.txtLastName.TabIndex = 42;
             // 
-            // txtPhoneNumber
-            // 
-            this.txtPhoneNumber.Location = new System.Drawing.Point(904, 237);
-            this.txtPhoneNumber.Name = "txtPhoneNumber";
-            this.txtPhoneNumber.Size = new System.Drawing.Size(200, 20);
-            this.txtPhoneNumber.TabIndex = 45;
-            // 
-            // txtIdNumber
-            // 
-            this.txtIdNumber.Location = new System.Drawing.Point(904, 211);
-            this.txtIdNumber.Name = "txtIdNumber";
-            this.txtIdNumber.Size = new System.Drawing.Size(200, 20);
-            this.txtIdNumber.TabIndex = 44;
-            // 
             // txtEmailAddress
             // 
             this.txtEmailAddress.Location = new System.Drawing.Point(904, 185);
             this.txtEmailAddress.Name = "txtEmailAddress";
             this.txtEmailAddress.Size = new System.Drawing.Size(200, 20);
             this.txtEmailAddress.TabIndex = 43;
-            // 
-            // txtPostalCode
-            // 
-            this.txtPostalCode.Location = new System.Drawing.Point(904, 393);
-            this.txtPostalCode.Name = "txtPostalCode";
-            this.txtPostalCode.Size = new System.Drawing.Size(200, 20);
-            this.txtPostalCode.TabIndex = 51;
             // 
             // txtSuburb
             // 
@@ -592,7 +571,6 @@
             // 
             // txtPassword
             // 
-            this.txtPassword.Enabled = false;
             this.txtPassword.Location = new System.Drawing.Point(904, 601);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(200, 20);
@@ -601,7 +579,6 @@
             // 
             // txtUsername
             // 
-            this.txtUsername.Enabled = false;
             this.txtUsername.Location = new System.Drawing.Point(904, 575);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(200, 20);
@@ -655,11 +632,41 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // maskedTextBox1
+            // 
+            this.maskedTextBox1.Location = new System.Drawing.Point(904, 211);
+            this.maskedTextBox1.Mask = "0000000000000";
+            this.maskedTextBox1.Name = "maskedTextBox1";
+            this.maskedTextBox1.Size = new System.Drawing.Size(200, 20);
+            this.maskedTextBox1.TabIndex = 64;
+            // 
+            // maskedTextBox2
+            // 
+            this.maskedTextBox2.Location = new System.Drawing.Point(904, 393);
+            this.maskedTextBox2.Mask = "0000";
+            this.maskedTextBox2.Name = "maskedTextBox2";
+            this.maskedTextBox2.Size = new System.Drawing.Size(200, 20);
+            this.maskedTextBox2.TabIndex = 65;
+            this.maskedTextBox2.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.maskedTextBox2_MaskInputRejected);
+            // 
+            // maskedTextBox3
+            // 
+            this.maskedTextBox3.Location = new System.Drawing.Point(904, 237);
+            this.maskedTextBox3.Mask = "(999) 000-0000";
+            this.maskedTextBox3.Name = "maskedTextBox3";
+            this.maskedTextBox3.Size = new System.Drawing.Size(200, 20);
+            this.maskedTextBox3.TabIndex = 66;
+            // 
             // ManageCustomerDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::TheByteClubPOS.Properties.Resources.Background;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1354, 712);
+            this.Controls.Add(this.maskedTextBox3);
+            this.Controls.Add(this.maskedTextBox2);
+            this.Controls.Add(this.maskedTextBox1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.dtpRegistrationDateTime);
             this.Controls.Add(this.cmbProvince);
@@ -669,14 +676,11 @@
             this.Controls.Add(this.txtLoyaltyPointsBalance);
             this.Controls.Add(this.txtCountry);
             this.Controls.Add(this.txtCity);
-            this.Controls.Add(this.txtPostalCode);
             this.Controls.Add(this.txtSuburb);
             this.Controls.Add(this.txtStreetName);
             this.Controls.Add(this.txtStreetNumber);
             this.Controls.Add(this.txtUnitName);
             this.Controls.Add(this.txtUnitNumber);
-            this.Controls.Add(this.txtPhoneNumber);
-            this.Controls.Add(this.txtIdNumber);
             this.Controls.Add(this.txtEmailAddress);
             this.Controls.Add(this.txtLastName);
             this.Controls.Add(this.txtFirstName);
@@ -743,10 +747,7 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox txtFirstName;
         private System.Windows.Forms.TextBox txtLastName;
-        private System.Windows.Forms.TextBox txtPhoneNumber;
-        private System.Windows.Forms.TextBox txtIdNumber;
         private System.Windows.Forms.TextBox txtEmailAddress;
-        private System.Windows.Forms.TextBox txtPostalCode;
         private System.Windows.Forms.TextBox txtSuburb;
         private System.Windows.Forms.TextBox txtStreetName;
         private System.Windows.Forms.TextBox txtStreetNumber;
@@ -761,5 +762,8 @@
         private System.Windows.Forms.ComboBox cmbProvince;
         private System.Windows.Forms.DateTimePicker dtpRegistrationDateTime;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
+        private System.Windows.Forms.MaskedTextBox maskedTextBox2;
+        private System.Windows.Forms.MaskedTextBox maskedTextBox3;
     }
 }
