@@ -39,8 +39,10 @@ namespace TheByteClubPOS
                 // 1. Extract values from UI controls
                 string firstName = txtFirstName.Text.Trim();
                 string lastName = txtLastName.Text.Trim();
+
                 string email = txtEmailAddress.Text.Trim();
                 
+
                 maskedTextBox1.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals; //this ensures only the numbers are extracted
                 if (!maskedTextBox1.MaskFull)
                 {
@@ -124,6 +126,24 @@ namespace TheByteClubPOS
         private void maskedTextBox2_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
         {
 
+        }
+
+        private void txtEmailAddress_TextChanged(object sender, EventArgs e)
+        {
+            string email = txtEmailAddress.Text.Trim();
+
+            bool hasAt = email.Contains("@");
+            bool hasDot = email.Contains(".");
+            bool hasSpace = email.Contains(" ");
+
+            if (hasAt && hasDot && !hasSpace)
+            {
+                toolTip1.SetToolTip(txtEmailAddress, "Valid email format");
+            }
+            else
+            {
+                toolTip1.SetToolTip(txtEmailAddress, "Invalid email (needs @, ., and no spaces)");
+            }
         }
     }
 }
