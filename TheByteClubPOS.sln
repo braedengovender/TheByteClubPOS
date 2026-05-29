@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.37216.2 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheByteClubPOS", "TheByteClubPOS.csproj", "{CF0C29E4-D0F6-4167-8BA9-0A45B68FB6F5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CF0C29E4-D0F6-4167-8BA9-0A45B68FB6F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF0C29E4-D0F6-4167-8BA9-0A45B68FB6F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF0C29E4-D0F6-4167-8BA9-0A45B68FB6F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF0C29E4-D0F6-4167-8BA9-0A45B68FB6F5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E600D8AA-7986-4750-95A9-192963A20D65}
+	EndGlobalSection
+EndGlobal
