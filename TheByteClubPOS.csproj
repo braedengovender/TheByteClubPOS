@@ -171,6 +171,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Background.png" />
+    <None Include="Resources\HideEye.jpg" />
+    <None Include="Resources\ShowEye.jpg" />
     <Content Include="Resources\Untitled design %281%29.png" />
     <None Include="Resources\Untitled design %281%291.png" />
   </ItemGroup>
