@@ -40,7 +40,6 @@ namespace TheByteClubPOS
             return errors;
         }
 
-
         private void employeeBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
             this.Validate();
@@ -51,17 +50,26 @@ namespace TheByteClubPOS
 
         private void LoginForm_Load(object sender, EventArgs e)
         {
-            try
+            bool loaded = false;
+            while(!loaded)
             {
-                // TODO: This line of code loads data into the 'dsSamsLiqourShop.Employee' table. You can move, or remove it, as needed.
-                this.employeeTableAdapter.Fill(this.dsSamsLiqourShop.Employee);
+                try
+                {
+                    // TODO: This line of code loads data into the 'dsSamsLiqourShop.Employee' table. You can move, or remove it, as needed.
+                    this.employeeTableAdapter.Fill(this.dsSamsLiqourShop.Employee);
+                    loaded = true;
+                }
+                catch (Exception ex)
+                {
+                    DialogResult result = MessageBox.Show("A network error occurred during login: " + Environment.NewLine + Environment.NewLine + "Technical Message: " + ex.Message + Environment.NewLine + Environment.NewLine + "Action Required: Please check internet and VPN connection OR contact administrator for assistance.", "Connectivity Error", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+                    if (result == DialogResult.Cancel)
+                    {
+                        MessageBox.Show("The application will now close. Please try again later.", "Closing Application", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        Application.Exit();
+                        return;
+                    }
+                }
             }
-            catch (Exception )
-            {
-                MessageBox.Show("An error occurred while loading data! Connect to Global Protect. ", "Error", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
-            }
-            
-
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -72,20 +80,38 @@ namespace TheByteClubPOS
                 return;
             }
 
-            int count = (int)employeeTableAdapter.FillByEmployeeLogin(txtUsername.Text, txtPassword.Text);
-            if (count > 0)
+            string username = txtUsername.Text.Trim();
+            string password = txtPassword.Text.Trim();
+
+            string passwordErrors = ValidatePasswordDetailed(password);
+            if (!string.IsNullOrEmpty(passwordErrors))
             {
-                // Login successful
-                int employeeID = (int)employeeTableAdapter.GetEmployeeID(txtUsername.Text, txtPassword.Text);
-              
-                MainForm mainForm = new MainForm(employeeID);
-                mainForm.Show();
-                this.Close();
+                MessageBox.Show("Password must include: Uppercase, Lowercase, Digit & Special Character.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtPassword.ForeColor = Color.Red;
+                return;
             }
-            else
+
+            try
             {
-                // Login failed
-                MessageBox.Show("Invalid username or password.");
+                int count = (int)employeeTableAdapter.FillByEmployeeLogin(txtUsername.Text, txtPassword.Text);
+                if (count > 0)
+                {
+                    // Login successful
+                    int employeeID = (int)employeeTableAdapter.GetEmployeeID(txtUsername.Text, txtPassword.Text);
+
+                    MainForm mainForm = new MainForm(employeeID);
+                    mainForm.Show();
+                    this.Close();
+                }
+                else
+                {
+                    // Login failed
+                    MessageBox.Show("Access Denied. Invalid username or password.", "Login Status", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred while attempting to log in:\n\n" + ex.Message, "Login Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -105,6 +131,13 @@ namespace TheByteClubPOS
         {
             txtUsername.Text = "";
             txtPassword.Text = "";
+
+            txtPassword.ForeColor = SystemColors.WindowText;
+            txtPassword.PasswordChar = '●';
+            toolTip1.SetToolTip(txtPassword, string.Empty);
+            pictureBox1.Image = Properties.Resources.ShowEye;
+
+            txtUsername.Focus();
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -129,7 +162,6 @@ namespace TheByteClubPOS
                 txtPassword.ForeColor = Color.Red;
                 toolTip1.SetToolTip(txtPassword, errors);
             }
-
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -144,6 +176,20 @@ namespace TheByteClubPOS
                 txtPassword.PasswordChar = '●';
                 pictureBox1.Image = Properties.Resources.ShowEye;
             }
+        }
+
+        private void txtPassword_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter) // checks if enter was pressed
+            {
+                e.SuppressKeyPress = true; // prevents the sound
+                btnLogin.PerformClick();   // triggers the login button click
+            }
+        }
+
+        private void LoginForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+
         }
     }
 }

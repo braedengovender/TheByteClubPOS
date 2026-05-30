@@ -117,7 +117,7 @@
             // 
             this.lblSystemName.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.lblSystemName.AutoSize = true;
-            this.lblSystemName.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSystemName.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSystemName.Location = new System.Drawing.Point(215, 329);
             this.lblSystemName.Name = "lblSystemName";
             this.lblSystemName.Size = new System.Drawing.Size(660, 33);
@@ -153,7 +153,7 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "LoadingForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "LoadingForm";
+            this.Text = "Sams Liquour Shop Point-Of-Sale System";
             this.Load += new System.EventHandler(this.LoadingForm_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();

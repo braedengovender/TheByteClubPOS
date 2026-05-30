@@ -75,7 +75,7 @@ namespace TheByteClubPOS
                 case 4:
                     // Starts at 99%
                     lblStatus.Text = "Starting The Byte Club POS...";
-                    progressBarLoading.Increment(1); // Snaps to 100% right here!
+                    //progressBarLoading.Increment(1); // Snaps to 100% right here!
                     progressBarLoading.Value = 100;
 
                     // Force the UI to show the 100% complete bar and text instantly

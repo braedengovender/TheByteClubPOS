@@ -24,7 +24,7 @@ namespace TheByteClubPOS
 
         private async void btnLogin_Click(object sender, EventArgs e)
         {
-            btnLogin.Enabled = false; // Disable button temporarily to prevent double-clicks
+            btnRecover.Enabled = false; // Disable button temporarily to prevent double-clicks
 
             try
             {
@@ -71,7 +71,8 @@ namespace TheByteClubPOS
             }
             finally
             {
-                btnLogin.Enabled = true; // Turn the button back on
+                btnRecover.Enabled = true; // Turn the button back on
+                txtEmployeeDetails.Text = "";
             }
         }
 
@@ -112,6 +113,20 @@ namespace TheByteClubPOS
 
             // 3. Close the current recovery form to clean up memory
             this.Close();
+        }
+
+        private void AccountRecoveryForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+
+        }
+
+        private void txtEmployeeDetails_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter) // checks if enter was pressed
+            {
+                e.SuppressKeyPress = true; // prevents the sound
+                btnRecover.PerformClick();   // triggers the login button click
+            }
         }
     }
 }
