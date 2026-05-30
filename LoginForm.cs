@@ -58,7 +58,7 @@ namespace TheByteClubPOS
             }
             catch (Exception )
             {
-                MessageBox.Show("An error occurred while loading employee data: ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("An error occurred while loading data! Connect to Global Protect. ", "Error", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
             }
             
 
