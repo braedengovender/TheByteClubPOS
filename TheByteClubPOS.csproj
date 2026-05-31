@@ -185,6 +185,9 @@
     <None Include="Resources\DiscountIcon.png" />
     <None Include="Resources\CalendarIcon.png" />
     <None Include="Resources\ClockIcon.png" />
+    <None Include="Resources\HomeIcon.png" />
+    <None Include="Resources\CartIcon.png" />
+    <None Include="Resources\ReceiptIcon.png" />
     <Content Include="Resources\Untitled design %281%29.png" />
     <None Include="Resources\Untitled design %281%291.png" />
   </ItemGroup>

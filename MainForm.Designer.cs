@@ -53,8 +53,8 @@
             this.manageAccountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manageMyProfileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logoutToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItemDate = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemTime = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemDate = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabelUser = new System.Windows.Forms.ToolStripStatusLabel();
@@ -72,10 +72,20 @@
             this.employeeTableAdapter = new TheByteClubPOS.dsSamsLiqourShopTableAdapters.EmployeeTableAdapter();
             this.tableAdapterManager = new TheByteClubPOS.dsSamsLiqourShopTableAdapters.TableAdapterManager();
             this.tmrClock = new System.Windows.Forms.Timer(this.components);
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.btnDashboard = new System.Windows.Forms.Button();
+            this.btnProcessSale = new System.Windows.Forms.Button();
+            this.btnManageSales = new System.Windows.Forms.Button();
+            this.btnProducts = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dsSamsLiqourShop)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeeBindingSource)).BeginInit();
+            this.panel1.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -261,14 +271,6 @@
             this.logoutToolStripMenuItem1.Text = "Logout";
             this.logoutToolStripMenuItem1.Click += new System.EventHandler(this.logoutToolStripMenuItem1_Click);
             // 
-            // toolStripMenuItemDate
-            // 
-            this.toolStripMenuItemDate.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toolStripMenuItemDate.Image = global::TheByteClubPOS.Properties.Resources.CalendarIcon;
-            this.toolStripMenuItemDate.Name = "toolStripMenuItemDate";
-            this.toolStripMenuItemDate.Size = new System.Drawing.Size(100, 20);
-            this.toolStripMenuItemDate.Text = "31 May 2026";
-            // 
             // toolStripMenuItemTime
             // 
             this.toolStripMenuItemTime.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
@@ -276,6 +278,14 @@
             this.toolStripMenuItemTime.Name = "toolStripMenuItemTime";
             this.toolStripMenuItemTime.Size = new System.Drawing.Size(77, 20);
             this.toolStripMenuItemTime.Text = "14:30:00";
+            // 
+            // toolStripMenuItemDate
+            // 
+            this.toolStripMenuItemDate.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripMenuItemDate.Image = global::TheByteClubPOS.Properties.Resources.CalendarIcon;
+            this.toolStripMenuItemDate.Name = "toolStripMenuItemDate";
+            this.toolStripMenuItemDate.Size = new System.Drawing.Size(100, 20);
+            this.toolStripMenuItemDate.Text = "31 May 2026";
             // 
             // statusStrip1
             // 
@@ -347,7 +357,7 @@
             // toolStripStatusLabelSpacer
             // 
             this.toolStripStatusLabelSpacer.Name = "toolStripStatusLabelSpacer";
-            this.toolStripStatusLabelSpacer.Size = new System.Drawing.Size(785, 17);
+            this.toolStripStatusLabelSpacer.Size = new System.Drawing.Size(754, 17);
             this.toolStripStatusLabelSpacer.Spring = true;
             // 
             // toolStripStatusLabelVersion
@@ -408,6 +418,93 @@
             this.tmrClock.Interval = 1000;
             this.tmrClock.Tick += new System.EventHandler(this.tmrClock_Tick);
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.flowLayoutPanel1);
+            this.panel1.Controls.Add(this.pictureBox1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel1.Location = new System.Drawing.Point(0, 24);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(220, 640);
+            this.panel1.TabIndex = 4;
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.AutoScroll = true;
+            this.flowLayoutPanel1.BackColor = System.Drawing.Color.Transparent;
+            this.flowLayoutPanel1.Controls.Add(this.btnDashboard);
+            this.flowLayoutPanel1.Controls.Add(this.btnProcessSale);
+            this.flowLayoutPanel1.Controls.Add(this.btnManageSales);
+            this.flowLayoutPanel1.Controls.Add(this.btnProducts);
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 130);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(10);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(220, 510);
+            this.flowLayoutPanel1.TabIndex = 1;
+            this.flowLayoutPanel1.WrapContents = false;
+            // 
+            // btnDashboard
+            // 
+            this.btnDashboard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDashboard.Image = global::TheByteClubPOS.Properties.Resources.HomeIcon;
+            this.btnDashboard.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDashboard.Location = new System.Drawing.Point(13, 13);
+            this.btnDashboard.Name = "btnDashboard";
+            this.btnDashboard.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.btnDashboard.Size = new System.Drawing.Size(200, 45);
+            this.btnDashboard.TabIndex = 0;
+            this.btnDashboard.Text = "Dashboard";
+            this.btnDashboard.UseVisualStyleBackColor = true;
+            // 
+            // btnProcessSale
+            // 
+            this.btnProcessSale.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnProcessSale.Image = global::TheByteClubPOS.Properties.Resources.CartIcon;
+            this.btnProcessSale.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnProcessSale.Location = new System.Drawing.Point(13, 64);
+            this.btnProcessSale.Name = "btnProcessSale";
+            this.btnProcessSale.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.btnProcessSale.Size = new System.Drawing.Size(200, 45);
+            this.btnProcessSale.TabIndex = 1;
+            this.btnProcessSale.Text = "Process Sale";
+            this.btnProcessSale.UseVisualStyleBackColor = true;
+            // 
+            // btnManageSales
+            // 
+            this.btnManageSales.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnManageSales.Image = ((System.Drawing.Image)(resources.GetObject("btnManageSales.Image")));
+            this.btnManageSales.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnManageSales.Location = new System.Drawing.Point(13, 115);
+            this.btnManageSales.Name = "btnManageSales";
+            this.btnManageSales.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.btnManageSales.Size = new System.Drawing.Size(200, 45);
+            this.btnManageSales.TabIndex = 2;
+            this.btnManageSales.Text = "Manage Sales";
+            this.btnManageSales.UseVisualStyleBackColor = true;
+            // 
+            // btnProducts
+            // 
+            this.btnProducts.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnProducts.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnProducts.Location = new System.Drawing.Point(13, 166);
+            this.btnProducts.Name = "btnProducts";
+            this.btnProducts.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.btnProducts.Size = new System.Drawing.Size(200, 45);
+            this.btnProducts.TabIndex = 3;
+            this.btnProducts.Text = "Products";
+            this.btnProducts.UseVisualStyleBackColor = true;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(220, 130);
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -415,6 +512,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1354, 686);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
             this.IsMdiContainer = true;
@@ -429,6 +527,9 @@
             this.statusStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dsSamsLiqourShop)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeeBindingSource)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.flowLayoutPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -478,5 +579,12 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemDate;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemTime;
         private System.Windows.Forms.Timer tmrClock;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.Button btnDashboard;
+        private System.Windows.Forms.Button btnProcessSale;
+        private System.Windows.Forms.Button btnManageSales;
+        private System.Windows.Forms.Button btnProducts;
     }
 }

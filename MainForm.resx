@@ -124,7 +124,7 @@
   <data name="manageAccountToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        EAAACxABrSO9dQAAARNJREFUSEvtlk1OAkEQhb+4kCUsJa7hCnIS4iHAY+iGaDyQLgFXEg4AGyKsMASC
+        DAAACwwBP0AiyAAAARNJREFUSEvtlk1OAkEQhb+4kCUsJa7hCnIS4iHAY+iGaDyQLgFXEg4AGyKsMASC
         S81L2sRUqvnrBo2ZL3nJZKaq3lR3TWeg4I9SAm6APrAK0nU7PDsKl8AA+IzoNcRkRd1sMv1pnrVzLa81
         iallk1N4cQxi6tnkFJaOQUyKzYYtvk3Z2KfjhU1O4df2WAeENYgp61Tr29Q3ak2sFHNuk1PRqbTJ/Cgn
         1zfqRkupfdTASd1wL3unBSflDGgAd8AzMAU+gt6AJ+AWuAqxyVSBe2DmTHFMeqkOcGGL7UIFeATWTuFd
@@ -161,6 +161,14 @@
   <metadata name="tmrClock.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>930, 17</value>
   </metadata>
+  <data name="btnManageSales.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        EAAACxABrSO9dQAAAI9JREFUSEvtkEEKgDAMBPdV4hcU/+Rf9egjlICFsm1ptgp66EAOaTJZEeg0ct41
+        ABiF3k0Q1HLDorfcqIK6LwvqfiLwryjN3bDAh0tzN6qg7idC6ct57oaFVwJmAHvlUInYsRsTLxh8vDXA
+        auMFIwwXAEdGqpU55oY+IQ5YxRDbNccd8KT+FcBvtf7bgE6WC/fdthdXnoJ8AAAAAElFTkSuQmCC
+</value>
+  </data>
   <data name="$this.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAABVoAAALVCAIAAAC+5M0zAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
