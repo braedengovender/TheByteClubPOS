@@ -12158,7 +12158,8 @@ WHERE        (Employee_ID = @employeeID)";
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
             this._commandCollection[2].CommandText = "SELECT        COUNT(*) AS Expr1\r\nFROM            Employee\r\nWHERE        (Employee" +
-                "_Username = @username) AND (Employee_Password = @password)";
+                "_Username = @username) AND (Employee_Password = @password) OR\r\n                 " +
+                "        (Employee_Password = @password) AND (Employee_EmailAddress = @username)";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@username", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Employee_Username", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@password", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Employee_Password", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -12171,7 +12172,8 @@ WHERE        (Employee_ID = @employeeID)";
             this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[4].Connection = this.Connection;
             this._commandCollection[4].CommandText = "SELECT        Employee_ID\r\nFROM            Employee\r\nWHERE        (Employee_Usern" +
-                "ame = @username) AND (Employee_Password = @password)";
+                "ame = @username) AND (Employee_Password = @password) OR\r\n                       " +
+                "  (Employee_Password = @password) AND (Employee_EmailAddress = @username)";
             this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@username", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Employee_Username", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@password", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Employee_Password", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));

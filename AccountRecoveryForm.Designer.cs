@@ -30,14 +30,15 @@
         {
             this.btnRecover = new System.Windows.Forms.Button();
             this.lblCredentials = new System.Windows.Forms.Label();
-            this.lblStatus = new System.Windows.Forms.Label();
+            this.lblDetails = new System.Windows.Forms.Label();
             this.txtEmployeeDetails = new System.Windows.Forms.TextBox();
-            this.lblEmailAddress = new System.Windows.Forms.Label();
+            this.lblEnterDetails = new System.Windows.Forms.Label();
             this.btnBackToLogin = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.saleLineTableAdapter1 = new TheByteClubPOS.dsSamsLiqourShopTableAdapters.SaleLineTableAdapter();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.saleLineTableAdapter1 = new TheByteClubPOS.dsSamsLiqourShopTableAdapters.SaleLineTableAdapter();
+            this.btnTheme = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
@@ -65,17 +66,17 @@
             this.lblCredentials.TabIndex = 4;
             this.lblCredentials.Text = "Forgot Credentials?";
             // 
-            // lblStatus
+            // lblDetails
             // 
-            this.lblStatus.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.lblStatus.AutoSize = true;
-            this.lblStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStatus.Location = new System.Drawing.Point(4, 99);
-            this.lblStatus.Name = "lblStatus";
-            this.lblStatus.Size = new System.Drawing.Size(414, 24);
-            this.lblStatus.TabIndex = 5;
-            this.lblStatus.Text = "Enter your details below to recover your account";
-            this.lblStatus.Click += new System.EventHandler(this.lblStatus_Click);
+            this.lblDetails.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.lblDetails.AutoSize = true;
+            this.lblDetails.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDetails.Location = new System.Drawing.Point(4, 99);
+            this.lblDetails.Name = "lblDetails";
+            this.lblDetails.Size = new System.Drawing.Size(414, 24);
+            this.lblDetails.TabIndex = 5;
+            this.lblDetails.Text = "Enter your details below to recover your account";
+            this.lblDetails.Click += new System.EventHandler(this.lblStatus_Click);
             // 
             // txtEmployeeDetails
             // 
@@ -87,16 +88,16 @@
             this.txtEmployeeDetails.TabIndex = 7;
             this.txtEmployeeDetails.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtEmployeeDetails_KeyDown);
             // 
-            // lblEmailAddress
+            // lblEnterDetails
             // 
-            this.lblEmailAddress.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblEmailAddress.AutoSize = true;
-            this.lblEmailAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEmailAddress.Location = new System.Drawing.Point(3, 211);
-            this.lblEmailAddress.Name = "lblEmailAddress";
-            this.lblEmailAddress.Size = new System.Drawing.Size(347, 24);
-            this.lblEmailAddress.TabIndex = 6;
-            this.lblEmailAddress.Text = "Registered Username or Email Address:";
+            this.lblEnterDetails.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblEnterDetails.AutoSize = true;
+            this.lblEnterDetails.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEnterDetails.Location = new System.Drawing.Point(3, 211);
+            this.lblEnterDetails.Name = "lblEnterDetails";
+            this.lblEnterDetails.Size = new System.Drawing.Size(347, 24);
+            this.lblEnterDetails.TabIndex = 6;
+            this.lblEnterDetails.Text = "Registered Username or Email Address:";
             // 
             // btnBackToLogin
             // 
@@ -123,14 +124,15 @@
             // 
             // tableLayoutPanel1
             // 
+            this.tableLayoutPanel1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tableLayoutPanel1.BackColor = System.Drawing.Color.Transparent;
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.Controls.Add(this.lblCredentials, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.lblEmailAddress, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.lblEnterDetails, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.btnBackToLogin, 0, 6);
             this.tableLayoutPanel1.Controls.Add(this.txtEmployeeDetails, 0, 3);
-            this.tableLayoutPanel1.Controls.Add(this.lblStatus, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.lblDetails, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 5);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(469, 96);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -144,10 +146,6 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 74F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(422, 532);
             this.tableLayoutPanel1.TabIndex = 0;
-            // 
-            // saleLineTableAdapter1
-            // 
-            this.saleLineTableAdapter1.ClearBeforeFill = true;
             // 
             // tableLayoutPanel2
             // 
@@ -164,6 +162,22 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(416, 53);
             this.tableLayoutPanel2.TabIndex = 9;
             // 
+            // saleLineTableAdapter1
+            // 
+            this.saleLineTableAdapter1.ClearBeforeFill = true;
+            // 
+            // btnTheme
+            // 
+            this.btnTheme.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnTheme.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTheme.Location = new System.Drawing.Point(1145, 12);
+            this.btnTheme.Name = "btnTheme";
+            this.btnTheme.Size = new System.Drawing.Size(197, 40);
+            this.btnTheme.TabIndex = 9;
+            this.btnTheme.Text = "Change to Dark Mode";
+            this.btnTheme.UseVisualStyleBackColor = true;
+            this.btnTheme.Click += new System.EventHandler(this.btnTheme_Click);
+            // 
             // AccountRecoveryForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -171,11 +185,14 @@
             this.BackgroundImage = global::TheByteClubPOS.Properties.Resources.Background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1354, 686);
+            this.Controls.Add(this.btnTheme);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "AccountRecoveryForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AccountRecoveryForm";
+            this.Activated += new System.EventHandler(this.AccountRecoveryForm_Activated);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AccountRecoveryForm_FormClosed);
+            this.Load += new System.EventHandler(this.AccountRecoveryForm_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
@@ -187,13 +204,14 @@
 
         private System.Windows.Forms.Button btnRecover;
         private System.Windows.Forms.Label lblCredentials;
-        private System.Windows.Forms.Label lblStatus;
+        private System.Windows.Forms.Label lblDetails;
         private System.Windows.Forms.TextBox txtEmployeeDetails;
-        private System.Windows.Forms.Label lblEmailAddress;
+        private System.Windows.Forms.Label lblEnterDetails;
         private System.Windows.Forms.Button btnBackToLogin;
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private dsSamsLiqourShopTableAdapters.SaleLineTableAdapter saleLineTableAdapter1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.Button btnTheme;
     }
 }
