@@ -170,9 +170,21 @@
     <None Include="Resources\POINT OF SALES.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\UserIcon.png" />
     <None Include="Resources\Background.png" />
     <None Include="Resources\HideEye.jpg" />
     <None Include="Resources\ShowEye.jpg" />
+    <None Include="Resources\BadgeIcon.png" />
+    <None Include="Resources\ComputerIcon.png" />
+    <None Include="Resources\InfoIcon.png" />
+    <None Include="Resources\GreenCircleIcon.png" />
+    <None Include="Resources\SalesIcon.png" />
+    <None Include="Resources\InventoryIcon.png" />
+    <None Include="Resources\CustomersIcon.png" />
+    <None Include="Resources\EmployeesIcon.png" />
+    <None Include="Resources\DiscountIcon.png" />
+    <None Include="Resources\CalendarIcon.png" />
+    <None Include="Resources\ClockIcon.png" />
     <Content Include="Resources\Untitled design %281%29.png" />
     <None Include="Resources\Untitled design %281%291.png" />
   </ItemGroup>

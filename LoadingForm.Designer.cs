@@ -153,7 +153,7 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "LoadingForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Sams Liquour Shop Point-Of-Sale System";
+            this.Text = "Sam\'s Liquor Shop - Point of Sale System";
             this.Load += new System.EventHandler(this.LoadingForm_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();

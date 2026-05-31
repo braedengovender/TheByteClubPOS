@@ -223,7 +223,7 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "AccountRecoveryForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "AccountRecoveryForm";
+            this.Text = "Sam\'s Liquor Shop - Point of Sale System";
             this.Activated += new System.EventHandler(this.AccountRecoveryForm_Activated);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AccountRecoveryForm_FormClosed);
             this.Load += new System.EventHandler(this.AccountRecoveryForm_Load);
