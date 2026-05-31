@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.btnRecover = new System.Windows.Forms.Button();
             this.lblCredentials = new System.Windows.Forms.Label();
             this.lblDetails = new System.Windows.Forms.Label();
@@ -37,10 +38,15 @@
             this.btnClear = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.saleLineTableAdapter1 = new TheByteClubPOS.dsSamsLiqourShopTableAdapters.SaleLineTableAdapter();
             this.btnTheme = new System.Windows.Forms.Button();
+            this.dsSamsLiqourShop = new TheByteClubPOS.dsSamsLiqourShop();
+            this.employeeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.employeeTableAdapter = new TheByteClubPOS.dsSamsLiqourShopTableAdapters.EmployeeTableAdapter();
+            this.tableAdapterManager = new TheByteClubPOS.dsSamsLiqourShopTableAdapters.TableAdapterManager();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dsSamsLiqourShop)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.employeeBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // btnRecover
@@ -134,7 +140,7 @@
             this.tableLayoutPanel1.Controls.Add(this.txtEmployeeDetails, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.lblDetails, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 5);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(469, 96);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(473, 96);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 7;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 48.93617F));
@@ -162,15 +168,11 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(416, 53);
             this.tableLayoutPanel2.TabIndex = 9;
             // 
-            // saleLineTableAdapter1
-            // 
-            this.saleLineTableAdapter1.ClearBeforeFill = true;
-            // 
             // btnTheme
             // 
             this.btnTheme.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnTheme.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTheme.Location = new System.Drawing.Point(1145, 12);
+            this.btnTheme.Location = new System.Drawing.Point(1153, 12);
             this.btnTheme.Name = "btnTheme";
             this.btnTheme.Size = new System.Drawing.Size(197, 40);
             this.btnTheme.TabIndex = 9;
@@ -178,13 +180,45 @@
             this.btnTheme.UseVisualStyleBackColor = true;
             this.btnTheme.Click += new System.EventHandler(this.btnTheme_Click);
             // 
+            // dsSamsLiqourShop
+            // 
+            this.dsSamsLiqourShop.DataSetName = "dsSamsLiqourShop";
+            this.dsSamsLiqourShop.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // employeeBindingSource
+            // 
+            this.employeeBindingSource.DataMember = "Employee";
+            this.employeeBindingSource.DataSource = this.dsSamsLiqourShop;
+            // 
+            // employeeTableAdapter
+            // 
+            this.employeeTableAdapter.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.CategoryTableAdapter = null;
+            this.tableAdapterManager.CustomerTableAdapter = null;
+            this.tableAdapterManager.DiscountTableAdapter = null;
+            this.tableAdapterManager.EmployeeTableAdapter = this.employeeTableAdapter;
+            this.tableAdapterManager.PaymentMethodTableAdapter = null;
+            this.tableAdapterManager.PaymentTableAdapter = null;
+            this.tableAdapterManager.ProductTableAdapter = null;
+            this.tableAdapterManager.PurchaseOrderLineTableAdapter = null;
+            this.tableAdapterManager.PurchaseOrderTableAdapter = null;
+            this.tableAdapterManager.SaleLineTableAdapter = null;
+            this.tableAdapterManager.SaleTableAdapter = null;
+            this.tableAdapterManager.SaleTypeTableAdapter = null;
+            this.tableAdapterManager.SupplierTableAdapter = null;
+            this.tableAdapterManager.UpdateOrder = TheByteClubPOS.dsSamsLiqourShopTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            // 
             // AccountRecoveryForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::TheByteClubPOS.Properties.Resources.Background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1354, 686);
+            this.ClientSize = new System.Drawing.Size(1362, 686);
             this.Controls.Add(this.btnTheme);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "AccountRecoveryForm";
@@ -196,6 +230,8 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dsSamsLiqourShop)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.employeeBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -210,8 +246,11 @@
         private System.Windows.Forms.Button btnBackToLogin;
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private dsSamsLiqourShopTableAdapters.SaleLineTableAdapter saleLineTableAdapter1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Button btnTheme;
+        private dsSamsLiqourShop dsSamsLiqourShop;
+        private System.Windows.Forms.BindingSource employeeBindingSource;
+        private dsSamsLiqourShopTableAdapters.EmployeeTableAdapter employeeTableAdapter;
+        private dsSamsLiqourShopTableAdapters.TableAdapterManager tableAdapterManager;
     }
 }

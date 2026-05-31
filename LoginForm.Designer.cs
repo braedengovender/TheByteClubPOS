@@ -32,10 +32,6 @@
             this.btnTestLoginCashier = new System.Windows.Forms.Button();
             this.btnTestLoginManager = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.dsSamsLiqourShop = new TheByteClubPOS.dsSamsLiqourShop();
-            this.employeeBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.employeeTableAdapter = new TheByteClubPOS.dsSamsLiqourShopTableAdapters.EmployeeTableAdapter();
-            this.tableAdapterManager = new TheByteClubPOS.dsSamsLiqourShopTableAdapters.TableAdapterManager();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.btnClear = new System.Windows.Forms.Button();
@@ -51,14 +47,18 @@
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.lblLogin = new System.Windows.Forms.Label();
             this.btnTheme = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dsSamsLiqourShop)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.employeeBindingSource)).BeginInit();
+            this.dsSamsLiqourShop = new TheByteClubPOS.dsSamsLiqourShop();
+            this.employeeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.employeeTableAdapter = new TheByteClubPOS.dsSamsLiqourShopTableAdapters.EmployeeTableAdapter();
+            this.tableAdapterManager = new TheByteClubPOS.dsSamsLiqourShopTableAdapters.TableAdapterManager();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tableLayoutPanel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dsSamsLiqourShop)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.employeeBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // btnTestLoginCashier
@@ -83,44 +83,12 @@
             this.btnTestLoginManager.UseVisualStyleBackColor = true;
             this.btnTestLoginManager.Click += new System.EventHandler(this.button3_Click);
             // 
-            // dsSamsLiqourShop
-            // 
-            this.dsSamsLiqourShop.DataSetName = "dsSamsLiqourShop";
-            this.dsSamsLiqourShop.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // employeeBindingSource
-            // 
-            this.employeeBindingSource.DataMember = "Employee";
-            this.employeeBindingSource.DataSource = this.dsSamsLiqourShop;
-            // 
-            // employeeTableAdapter
-            // 
-            this.employeeTableAdapter.ClearBeforeFill = true;
-            // 
-            // tableAdapterManager
-            // 
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.CategoryTableAdapter = null;
-            this.tableAdapterManager.CustomerTableAdapter = null;
-            this.tableAdapterManager.DiscountTableAdapter = null;
-            this.tableAdapterManager.EmployeeTableAdapter = this.employeeTableAdapter;
-            this.tableAdapterManager.PaymentMethodTableAdapter = null;
-            this.tableAdapterManager.PaymentTableAdapter = null;
-            this.tableAdapterManager.ProductTableAdapter = null;
-            this.tableAdapterManager.PurchaseOrderLineTableAdapter = null;
-            this.tableAdapterManager.PurchaseOrderTableAdapter = null;
-            this.tableAdapterManager.SaleLineTableAdapter = null;
-            this.tableAdapterManager.SaleTableAdapter = null;
-            this.tableAdapterManager.SaleTypeTableAdapter = null;
-            this.tableAdapterManager.SupplierTableAdapter = null;
-            this.tableAdapterManager.UpdateOrder = TheByteClubPOS.dsSamsLiqourShopTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tableLayoutPanel1.BackColor = System.Drawing.Color.Transparent;
             this.tableLayoutPanel1.ColumnCount = 1;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 580F));
             this.tableLayoutPanel1.Controls.Add(this.lblLogin, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.linkLabel1, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 1);
@@ -310,6 +278,38 @@
             this.btnTheme.UseVisualStyleBackColor = true;
             this.btnTheme.Click += new System.EventHandler(this.btnTheme_Click);
             // 
+            // dsSamsLiqourShop
+            // 
+            this.dsSamsLiqourShop.DataSetName = "dsSamsLiqourShop";
+            this.dsSamsLiqourShop.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // employeeBindingSource
+            // 
+            this.employeeBindingSource.DataMember = "Employee";
+            this.employeeBindingSource.DataSource = this.dsSamsLiqourShop;
+            // 
+            // employeeTableAdapter
+            // 
+            this.employeeTableAdapter.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.CategoryTableAdapter = null;
+            this.tableAdapterManager.CustomerTableAdapter = null;
+            this.tableAdapterManager.DiscountTableAdapter = null;
+            this.tableAdapterManager.EmployeeTableAdapter = this.employeeTableAdapter;
+            this.tableAdapterManager.PaymentMethodTableAdapter = null;
+            this.tableAdapterManager.PaymentTableAdapter = null;
+            this.tableAdapterManager.ProductTableAdapter = null;
+            this.tableAdapterManager.PurchaseOrderLineTableAdapter = null;
+            this.tableAdapterManager.PurchaseOrderTableAdapter = null;
+            this.tableAdapterManager.SaleLineTableAdapter = null;
+            this.tableAdapterManager.SaleTableAdapter = null;
+            this.tableAdapterManager.SaleTypeTableAdapter = null;
+            this.tableAdapterManager.SupplierTableAdapter = null;
+            this.tableAdapterManager.UpdateOrder = TheByteClubPOS.dsSamsLiqourShopTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -328,8 +328,6 @@
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.LoginForm_FormClosed);
             this.Load += new System.EventHandler(this.LoginForm_Load);
             this.Shown += new System.EventHandler(this.LoginForm_Shown);
-            ((System.ComponentModel.ISupportInitialize)(this.dsSamsLiqourShop)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.employeeBindingSource)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.tableLayoutPanel4.ResumeLayout(false);
@@ -340,6 +338,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tableLayoutPanel5.ResumeLayout(false);
             this.tableLayoutPanel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dsSamsLiqourShop)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.employeeBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
