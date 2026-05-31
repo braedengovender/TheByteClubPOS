@@ -124,7 +124,7 @@
             // customer_IDLabel
             // 
             customer_IDLabel.AutoSize = true;
-            customer_IDLabel.Location = new System.Drawing.Point(712, 110);
+            customer_IDLabel.Location = new System.Drawing.Point(700, 77);
             customer_IDLabel.Name = "customer_IDLabel";
             customer_IDLabel.Size = new System.Drawing.Size(68, 13);
             customer_IDLabel.TabIndex = 1;
@@ -133,7 +133,7 @@
             // customer_FirstNameLabel
             // 
             customer_FirstNameLabel.AutoSize = true;
-            customer_FirstNameLabel.Location = new System.Drawing.Point(712, 136);
+            customer_FirstNameLabel.Location = new System.Drawing.Point(700, 103);
             customer_FirstNameLabel.Name = "customer_FirstNameLabel";
             customer_FirstNameLabel.Size = new System.Drawing.Size(107, 13);
             customer_FirstNameLabel.TabIndex = 3;
@@ -142,7 +142,7 @@
             // customer_LastNameLabel
             // 
             customer_LastNameLabel.AutoSize = true;
-            customer_LastNameLabel.Location = new System.Drawing.Point(712, 162);
+            customer_LastNameLabel.Location = new System.Drawing.Point(700, 129);
             customer_LastNameLabel.Name = "customer_LastNameLabel";
             customer_LastNameLabel.Size = new System.Drawing.Size(108, 13);
             customer_LastNameLabel.TabIndex = 5;
@@ -151,7 +151,7 @@
             // customer_EmailAddressLabel
             // 
             customer_EmailAddressLabel.AutoSize = true;
-            customer_EmailAddressLabel.Location = new System.Drawing.Point(712, 188);
+            customer_EmailAddressLabel.Location = new System.Drawing.Point(700, 155);
             customer_EmailAddressLabel.Name = "customer_EmailAddressLabel";
             customer_EmailAddressLabel.Size = new System.Drawing.Size(123, 13);
             customer_EmailAddressLabel.TabIndex = 7;
@@ -160,7 +160,7 @@
             // customer_IDNumberLabel
             // 
             customer_IDNumberLabel.AutoSize = true;
-            customer_IDNumberLabel.Location = new System.Drawing.Point(712, 214);
+            customer_IDNumberLabel.Location = new System.Drawing.Point(700, 181);
             customer_IDNumberLabel.Name = "customer_IDNumberLabel";
             customer_IDNumberLabel.Size = new System.Drawing.Size(105, 13);
             customer_IDNumberLabel.TabIndex = 9;
@@ -169,7 +169,7 @@
             // customer_PhoneNumberLabel
             // 
             customer_PhoneNumberLabel.AutoSize = true;
-            customer_PhoneNumberLabel.Location = new System.Drawing.Point(712, 240);
+            customer_PhoneNumberLabel.Location = new System.Drawing.Point(700, 207);
             customer_PhoneNumberLabel.Name = "customer_PhoneNumberLabel";
             customer_PhoneNumberLabel.Size = new System.Drawing.Size(128, 13);
             customer_PhoneNumberLabel.TabIndex = 11;
@@ -178,7 +178,7 @@
             // customer_UnitNumberLabel
             // 
             customer_UnitNumberLabel.AutoSize = true;
-            customer_UnitNumberLabel.Location = new System.Drawing.Point(712, 266);
+            customer_UnitNumberLabel.Location = new System.Drawing.Point(700, 233);
             customer_UnitNumberLabel.Name = "customer_UnitNumberLabel";
             customer_UnitNumberLabel.Size = new System.Drawing.Size(116, 13);
             customer_UnitNumberLabel.TabIndex = 13;
@@ -187,7 +187,7 @@
             // customer_UnitNameLabel
             // 
             customer_UnitNameLabel.AutoSize = true;
-            customer_UnitNameLabel.Location = new System.Drawing.Point(712, 292);
+            customer_UnitNameLabel.Location = new System.Drawing.Point(700, 259);
             customer_UnitNameLabel.Name = "customer_UnitNameLabel";
             customer_UnitNameLabel.Size = new System.Drawing.Size(107, 13);
             customer_UnitNameLabel.TabIndex = 15;
@@ -196,7 +196,7 @@
             // customer_StreetNumberLabel
             // 
             customer_StreetNumberLabel.AutoSize = true;
-            customer_StreetNumberLabel.Location = new System.Drawing.Point(712, 318);
+            customer_StreetNumberLabel.Location = new System.Drawing.Point(700, 285);
             customer_StreetNumberLabel.Name = "customer_StreetNumberLabel";
             customer_StreetNumberLabel.Size = new System.Drawing.Size(125, 13);
             customer_StreetNumberLabel.TabIndex = 17;
@@ -205,7 +205,7 @@
             // customer_StreetNameLabel
             // 
             customer_StreetNameLabel.AutoSize = true;
-            customer_StreetNameLabel.Location = new System.Drawing.Point(712, 344);
+            customer_StreetNameLabel.Location = new System.Drawing.Point(700, 311);
             customer_StreetNameLabel.Name = "customer_StreetNameLabel";
             customer_StreetNameLabel.Size = new System.Drawing.Size(116, 13);
             customer_StreetNameLabel.TabIndex = 19;
@@ -214,7 +214,7 @@
             // customer_SuburbLabel
             // 
             customer_SuburbLabel.AutoSize = true;
-            customer_SuburbLabel.Location = new System.Drawing.Point(712, 370);
+            customer_SuburbLabel.Location = new System.Drawing.Point(700, 337);
             customer_SuburbLabel.Name = "customer_SuburbLabel";
             customer_SuburbLabel.Size = new System.Drawing.Size(91, 13);
             customer_SuburbLabel.TabIndex = 21;
@@ -223,7 +223,7 @@
             // customer_PostalCodeLabel
             // 
             customer_PostalCodeLabel.AutoSize = true;
-            customer_PostalCodeLabel.Location = new System.Drawing.Point(712, 396);
+            customer_PostalCodeLabel.Location = new System.Drawing.Point(700, 363);
             customer_PostalCodeLabel.Name = "customer_PostalCodeLabel";
             customer_PostalCodeLabel.Size = new System.Drawing.Size(114, 13);
             customer_PostalCodeLabel.TabIndex = 23;
@@ -232,7 +232,7 @@
             // customer_CityLabel
             // 
             customer_CityLabel.AutoSize = true;
-            customer_CityLabel.Location = new System.Drawing.Point(712, 422);
+            customer_CityLabel.Location = new System.Drawing.Point(700, 389);
             customer_CityLabel.Name = "customer_CityLabel";
             customer_CityLabel.Size = new System.Drawing.Size(74, 13);
             customer_CityLabel.TabIndex = 25;
@@ -241,7 +241,7 @@
             // customer_ProvinceLabel
             // 
             customer_ProvinceLabel.AutoSize = true;
-            customer_ProvinceLabel.Location = new System.Drawing.Point(712, 448);
+            customer_ProvinceLabel.Location = new System.Drawing.Point(700, 415);
             customer_ProvinceLabel.Name = "customer_ProvinceLabel";
             customer_ProvinceLabel.Size = new System.Drawing.Size(99, 13);
             customer_ProvinceLabel.TabIndex = 27;
@@ -250,7 +250,7 @@
             // customer_CountryLabel
             // 
             customer_CountryLabel.AutoSize = true;
-            customer_CountryLabel.Location = new System.Drawing.Point(712, 474);
+            customer_CountryLabel.Location = new System.Drawing.Point(700, 441);
             customer_CountryLabel.Name = "customer_CountryLabel";
             customer_CountryLabel.Size = new System.Drawing.Size(93, 13);
             customer_CountryLabel.TabIndex = 29;
@@ -259,7 +259,7 @@
             // customer_RegistrationDateTimeLabel
             // 
             customer_RegistrationDateTimeLabel.AutoSize = true;
-            customer_RegistrationDateTimeLabel.Location = new System.Drawing.Point(712, 501);
+            customer_RegistrationDateTimeLabel.Location = new System.Drawing.Point(700, 468);
             customer_RegistrationDateTimeLabel.Name = "customer_RegistrationDateTimeLabel";
             customer_RegistrationDateTimeLabel.Size = new System.Drawing.Size(165, 13);
             customer_RegistrationDateTimeLabel.TabIndex = 31;
@@ -268,7 +268,7 @@
             // customer_LoyaltyPointsBalanceLabel
             // 
             customer_LoyaltyPointsBalanceLabel.AutoSize = true;
-            customer_LoyaltyPointsBalanceLabel.Location = new System.Drawing.Point(712, 526);
+            customer_LoyaltyPointsBalanceLabel.Location = new System.Drawing.Point(700, 493);
             customer_LoyaltyPointsBalanceLabel.Name = "customer_LoyaltyPointsBalanceLabel";
             customer_LoyaltyPointsBalanceLabel.Size = new System.Drawing.Size(164, 13);
             customer_LoyaltyPointsBalanceLabel.TabIndex = 33;
@@ -277,7 +277,7 @@
             // customer_StatusLabel
             // 
             customer_StatusLabel.AutoSize = true;
-            customer_StatusLabel.Location = new System.Drawing.Point(712, 552);
+            customer_StatusLabel.Location = new System.Drawing.Point(700, 519);
             customer_StatusLabel.Name = "customer_StatusLabel";
             customer_StatusLabel.Size = new System.Drawing.Size(87, 13);
             customer_StatusLabel.TabIndex = 35;
@@ -286,7 +286,7 @@
             // customer_UsernameLabel
             // 
             customer_UsernameLabel.AutoSize = true;
-            customer_UsernameLabel.Location = new System.Drawing.Point(712, 578);
+            customer_UsernameLabel.Location = new System.Drawing.Point(700, 545);
             customer_UsernameLabel.Name = "customer_UsernameLabel";
             customer_UsernameLabel.Size = new System.Drawing.Size(105, 13);
             customer_UsernameLabel.TabIndex = 37;
@@ -295,7 +295,7 @@
             // customer_PasswordLabel
             // 
             customer_PasswordLabel.AutoSize = true;
-            customer_PasswordLabel.Location = new System.Drawing.Point(712, 604);
+            customer_PasswordLabel.Location = new System.Drawing.Point(700, 571);
             customer_PasswordLabel.Name = "customer_PasswordLabel";
             customer_PasswordLabel.Size = new System.Drawing.Size(103, 13);
             customer_PasswordLabel.TabIndex = 39;
@@ -359,7 +359,7 @@
             this.dataGridViewTextBoxColumn19,
             this.dataGridViewTextBoxColumn20});
             this.customerDataGridView.DataSource = this.customerBindingSource;
-            this.customerDataGridView.Location = new System.Drawing.Point(12, 108);
+            this.customerDataGridView.Location = new System.Drawing.Point(12, 74);
             this.customerDataGridView.Name = "customerDataGridView";
             this.customerDataGridView.Size = new System.Drawing.Size(644, 220);
             this.customerDataGridView.TabIndex = 40;
@@ -488,28 +488,28 @@
             // textBox1
             // 
             this.textBox1.Enabled = false;
-            this.textBox1.Location = new System.Drawing.Point(904, 107);
+            this.textBox1.Location = new System.Drawing.Point(892, 74);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(200, 20);
             this.textBox1.TabIndex = 0;
             // 
             // txtFirstName
             // 
-            this.txtFirstName.Location = new System.Drawing.Point(904, 133);
+            this.txtFirstName.Location = new System.Drawing.Point(892, 100);
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.Size = new System.Drawing.Size(200, 20);
             this.txtFirstName.TabIndex = 41;
             // 
             // txtLastName
             // 
-            this.txtLastName.Location = new System.Drawing.Point(904, 159);
+            this.txtLastName.Location = new System.Drawing.Point(892, 126);
             this.txtLastName.Name = "txtLastName";
             this.txtLastName.Size = new System.Drawing.Size(200, 20);
             this.txtLastName.TabIndex = 42;
             // 
             // txtEmailAddress
             // 
-            this.txtEmailAddress.Location = new System.Drawing.Point(904, 185);
+            this.txtEmailAddress.Location = new System.Drawing.Point(892, 152);
             this.txtEmailAddress.Name = "txtEmailAddress";
             this.txtEmailAddress.Size = new System.Drawing.Size(200, 20);
             this.txtEmailAddress.TabIndex = 43;
@@ -517,63 +517,63 @@
             // 
             // txtSuburb
             // 
-            this.txtSuburb.Location = new System.Drawing.Point(904, 367);
+            this.txtSuburb.Location = new System.Drawing.Point(892, 334);
             this.txtSuburb.Name = "txtSuburb";
             this.txtSuburb.Size = new System.Drawing.Size(200, 20);
             this.txtSuburb.TabIndex = 50;
             // 
             // txtStreetName
             // 
-            this.txtStreetName.Location = new System.Drawing.Point(904, 341);
+            this.txtStreetName.Location = new System.Drawing.Point(892, 308);
             this.txtStreetName.Name = "txtStreetName";
             this.txtStreetName.Size = new System.Drawing.Size(200, 20);
             this.txtStreetName.TabIndex = 49;
             // 
             // txtStreetNumber
             // 
-            this.txtStreetNumber.Location = new System.Drawing.Point(904, 315);
+            this.txtStreetNumber.Location = new System.Drawing.Point(892, 282);
             this.txtStreetNumber.Name = "txtStreetNumber";
             this.txtStreetNumber.Size = new System.Drawing.Size(200, 20);
             this.txtStreetNumber.TabIndex = 48;
             // 
             // txtUnitName
             // 
-            this.txtUnitName.Location = new System.Drawing.Point(904, 289);
+            this.txtUnitName.Location = new System.Drawing.Point(892, 256);
             this.txtUnitName.Name = "txtUnitName";
             this.txtUnitName.Size = new System.Drawing.Size(200, 20);
             this.txtUnitName.TabIndex = 47;
             // 
             // txtUnitNumber
             // 
-            this.txtUnitNumber.Location = new System.Drawing.Point(904, 263);
+            this.txtUnitNumber.Location = new System.Drawing.Point(892, 230);
             this.txtUnitNumber.Name = "txtUnitNumber";
             this.txtUnitNumber.Size = new System.Drawing.Size(200, 20);
             this.txtUnitNumber.TabIndex = 46;
             // 
             // txtLoyaltyPointsBalance
             // 
-            this.txtLoyaltyPointsBalance.Location = new System.Drawing.Point(904, 523);
+            this.txtLoyaltyPointsBalance.Location = new System.Drawing.Point(892, 490);
             this.txtLoyaltyPointsBalance.Name = "txtLoyaltyPointsBalance";
             this.txtLoyaltyPointsBalance.Size = new System.Drawing.Size(200, 20);
             this.txtLoyaltyPointsBalance.TabIndex = 56;
             // 
             // txtCountry
             // 
-            this.txtCountry.Location = new System.Drawing.Point(904, 471);
+            this.txtCountry.Location = new System.Drawing.Point(892, 438);
             this.txtCountry.Name = "txtCountry";
             this.txtCountry.Size = new System.Drawing.Size(200, 20);
             this.txtCountry.TabIndex = 54;
             // 
             // txtCity
             // 
-            this.txtCity.Location = new System.Drawing.Point(904, 419);
+            this.txtCity.Location = new System.Drawing.Point(892, 386);
             this.txtCity.Name = "txtCity";
             this.txtCity.Size = new System.Drawing.Size(200, 20);
             this.txtCity.TabIndex = 52;
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(904, 601);
+            this.txtPassword.Location = new System.Drawing.Point(892, 568);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(200, 20);
             this.txtPassword.TabIndex = 59;
@@ -581,7 +581,7 @@
             // 
             // txtUsername
             // 
-            this.txtUsername.Location = new System.Drawing.Point(904, 575);
+            this.txtUsername.Location = new System.Drawing.Point(892, 542);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(200, 20);
             this.txtUsername.TabIndex = 58;
@@ -594,7 +594,7 @@
             "Active",
             "Suspended",
             "Deactivated"});
-            this.cmbStatus.Location = new System.Drawing.Point(904, 549);
+            this.cmbStatus.Location = new System.Drawing.Point(892, 516);
             this.cmbStatus.Name = "cmbStatus";
             this.cmbStatus.Size = new System.Drawing.Size(199, 21);
             this.cmbStatus.TabIndex = 60;
@@ -612,21 +612,21 @@
             "North West",
             "Western Cape",
             "Free State"});
-            this.cmbProvince.Location = new System.Drawing.Point(904, 445);
+            this.cmbProvince.Location = new System.Drawing.Point(892, 412);
             this.cmbProvince.Name = "cmbProvince";
             this.cmbProvince.Size = new System.Drawing.Size(199, 21);
             this.cmbProvince.TabIndex = 61;
             // 
             // dtpRegistrationDateTime
             // 
-            this.dtpRegistrationDateTime.Location = new System.Drawing.Point(904, 496);
+            this.dtpRegistrationDateTime.Location = new System.Drawing.Point(892, 463);
             this.dtpRegistrationDateTime.Name = "dtpRegistrationDateTime";
             this.dtpRegistrationDateTime.Size = new System.Drawing.Size(200, 20);
             this.dtpRegistrationDateTime.TabIndex = 62;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(714, 638);
+            this.button1.Location = new System.Drawing.Point(702, 605);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(389, 32);
             this.button1.TabIndex = 63;
@@ -636,7 +636,7 @@
             // 
             // maskedTextBox1
             // 
-            this.maskedTextBox1.Location = new System.Drawing.Point(904, 211);
+            this.maskedTextBox1.Location = new System.Drawing.Point(892, 178);
             this.maskedTextBox1.Mask = "0000000000000";
             this.maskedTextBox1.Name = "maskedTextBox1";
             this.maskedTextBox1.Size = new System.Drawing.Size(200, 20);
@@ -644,7 +644,7 @@
             // 
             // maskedTextBox2
             // 
-            this.maskedTextBox2.Location = new System.Drawing.Point(904, 393);
+            this.maskedTextBox2.Location = new System.Drawing.Point(892, 360);
             this.maskedTextBox2.Mask = "0000";
             this.maskedTextBox2.Name = "maskedTextBox2";
             this.maskedTextBox2.Size = new System.Drawing.Size(200, 20);
@@ -653,7 +653,7 @@
             // 
             // maskedTextBox3
             // 
-            this.maskedTextBox3.Location = new System.Drawing.Point(904, 237);
+            this.maskedTextBox3.Location = new System.Drawing.Point(892, 204);
             this.maskedTextBox3.Mask = "(999) 000-0000";
             this.maskedTextBox3.Name = "maskedTextBox3";
             this.maskedTextBox3.Size = new System.Drawing.Size(200, 20);
@@ -665,7 +665,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::TheByteClubPOS.Properties.Resources.Background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1354, 712);
+            this.ClientSize = new System.Drawing.Size(1134, 666);
             this.Controls.Add(this.maskedTextBox3);
             this.Controls.Add(this.maskedTextBox2);
             this.Controls.Add(this.maskedTextBox1);

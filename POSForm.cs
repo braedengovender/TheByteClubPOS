@@ -140,7 +140,6 @@ namespace TheByteClubPOS
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            lblTime.Text = DateTime.Now.ToString("dddd, dd MMMM yyyy HH:mm:ss");
         }
 
         private void lblLoyaltyProgram_Click(object sender, EventArgs e)

@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
             this.productDataGridView = new System.Windows.Forms.DataGridView();
             this.productIDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.productImageDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -44,8 +44,6 @@
             this.dsSamsLiqourShop = new TheByteClubPOS.dsSamsLiqourShop();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.lblSearch = new System.Windows.Forms.Label();
-            this.lblTime = new System.Windows.Forms.Label();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.btnClear = new System.Windows.Forms.Button();
             this.lblCart = new System.Windows.Forms.Label();
             this.lblItemCount = new System.Windows.Forms.Label();
@@ -123,11 +121,11 @@
             this.productSellingPriceDataGridViewTextBoxColumn});
             this.productDataGridView.DataSource = this.productBindingSource;
             this.productDataGridView.EnableHeadersVisualStyles = false;
-            this.productDataGridView.Location = new System.Drawing.Point(230, 140);
+            this.productDataGridView.Location = new System.Drawing.Point(28, 146);
             this.productDataGridView.Name = "productDataGridView";
             this.productDataGridView.ReadOnly = true;
             this.productDataGridView.RowHeadersVisible = false;
-            this.productDataGridView.Size = new System.Drawing.Size(502, 522);
+            this.productDataGridView.Size = new System.Drawing.Size(502, 260);
             this.productDataGridView.TabIndex = 1;
             this.productDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.productDataGridView_CellContentClick);
             this.productDataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.productDataGridView_CellDoubleClick);
@@ -185,10 +183,10 @@
             // productSellingPriceDataGridViewTextBoxColumn
             // 
             this.productSellingPriceDataGridViewTextBoxColumn.DataPropertyName = "Product_SellingPrice";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle4.Format = "C2";
-            dataGridViewCellStyle4.NullValue = null;
-            this.productSellingPriceDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle16.Format = "C2";
+            dataGridViewCellStyle16.NullValue = null;
+            this.productSellingPriceDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle16;
             this.productSellingPriceDataGridViewTextBoxColumn.HeaderText = "Price";
             this.productSellingPriceDataGridViewTextBoxColumn.Name = "productSellingPriceDataGridViewTextBoxColumn";
             this.productSellingPriceDataGridViewTextBoxColumn.ReadOnly = true;
@@ -210,7 +208,7 @@
             this.txtSearch.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.txtSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSearch.ForeColor = System.Drawing.Color.DimGray;
-            this.txtSearch.Location = new System.Drawing.Point(230, 96);
+            this.txtSearch.Location = new System.Drawing.Point(28, 91);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(332, 26);
             this.txtSearch.TabIndex = 5;
@@ -223,35 +221,16 @@
             this.lblSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblSearch.AutoSize = true;
             this.lblSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSearch.Location = new System.Drawing.Point(226, 56);
+            this.lblSearch.Location = new System.Drawing.Point(24, 44);
             this.lblSearch.Name = "lblSearch";
             this.lblSearch.Size = new System.Drawing.Size(506, 24);
             this.lblSearch.TabIndex = 4;
             this.lblSearch.Text = "Search by Product Name, Type, Brand or Barcode Number";
             // 
-            // lblTime
-            // 
-            this.lblTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblTime.AutoSize = true;
-            this.lblTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTime.Location = new System.Drawing.Point(502, 0);
-            this.lblTime.Name = "lblTime";
-            this.lblTime.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.lblTime.Size = new System.Drawing.Size(53, 24);
-            this.lblTime.TabIndex = 6;
-            this.lblTime.Text = "Time";
-            this.lblTime.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            // 
-            // timer1
-            // 
-            this.timer1.Enabled = true;
-            this.timer1.Interval = 1000;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
             // btnClear
             // 
             this.btnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClear.Location = new System.Drawing.Point(580, 93);
+            this.btnClear.Location = new System.Drawing.Point(378, 84);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(152, 33);
             this.btnClear.TabIndex = 7;
@@ -274,7 +253,7 @@
             this.lblItemCount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblItemCount.AutoSize = true;
             this.lblItemCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblItemCount.Location = new System.Drawing.Point(751, 105);
+            this.lblItemCount.Location = new System.Drawing.Point(554, 91);
             this.lblItemCount.Name = "lblItemCount";
             this.lblItemCount.Size = new System.Drawing.Size(105, 24);
             this.lblItemCount.TabIndex = 9;
@@ -329,7 +308,7 @@
             this.lblPaymentMethod.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblPaymentMethod.AutoSize = true;
             this.lblPaymentMethod.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPaymentMethod.Location = new System.Drawing.Point(751, 554);
+            this.lblPaymentMethod.Location = new System.Drawing.Point(549, 534);
             this.lblPaymentMethod.Name = "lblPaymentMethod";
             this.lblPaymentMethod.Size = new System.Drawing.Size(157, 24);
             this.lblPaymentMethod.TabIndex = 14;
@@ -343,7 +322,7 @@
             this.comboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(1113, 550);
+            this.comboBox1.Location = new System.Drawing.Point(911, 535);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(197, 28);
             this.comboBox1.TabIndex = 15;
@@ -360,7 +339,7 @@
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(751, 588);
+            this.label2.Location = new System.Drawing.Point(549, 570);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(170, 24);
             this.label2.TabIndex = 16;
@@ -370,7 +349,7 @@
             // 
             this.txtAmountTendered.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.txtAmountTendered.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAmountTendered.Location = new System.Drawing.Point(1012, 586);
+            this.txtAmountTendered.Location = new System.Drawing.Point(810, 570);
             this.txtAmountTendered.Name = "txtAmountTendered";
             this.txtAmountTendered.Size = new System.Drawing.Size(301, 26);
             this.txtAmountTendered.TabIndex = 17;
@@ -378,7 +357,7 @@
             // btnClearCart
             // 
             this.btnClearCart.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClearCart.Location = new System.Drawing.Point(1161, 98);
+            this.btnClearCart.Location = new System.Drawing.Point(959, 86);
             this.btnClearCart.Name = "btnClearCart";
             this.btnClearCart.Size = new System.Drawing.Size(152, 40);
             this.btnClearCart.TabIndex = 18;
@@ -390,7 +369,7 @@
             // 
             this.btnCompleteSale.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnCompleteSale.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCompleteSale.Location = new System.Drawing.Point(969, 622);
+            this.btnCompleteSale.Location = new System.Drawing.Point(767, 610);
             this.btnCompleteSale.Name = "btnCompleteSale";
             this.btnCompleteSale.Size = new System.Drawing.Size(344, 40);
             this.btnCompleteSale.TabIndex = 19;
@@ -403,7 +382,7 @@
             this.lblLoyaltyProgram.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblLoyaltyProgram.AutoSize = true;
             this.lblLoyaltyProgram.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLoyaltyProgram.Location = new System.Drawing.Point(751, 517);
+            this.lblLoyaltyProgram.Location = new System.Drawing.Point(549, 501);
             this.lblLoyaltyProgram.Name = "lblLoyaltyProgram";
             this.lblLoyaltyProgram.Size = new System.Drawing.Size(149, 24);
             this.lblLoyaltyProgram.TabIndex = 20;
@@ -413,7 +392,7 @@
             // maskedTextBox1
             // 
             this.maskedTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.maskedTextBox1.Location = new System.Drawing.Point(1114, 515);
+            this.maskedTextBox1.Location = new System.Drawing.Point(912, 503);
             this.maskedTextBox1.Mask = "(999) 000-0000";
             this.maskedTextBox1.Name = "maskedTextBox1";
             this.maskedTextBox1.Size = new System.Drawing.Size(119, 26);
@@ -435,7 +414,7 @@
             this.saleLineSubtotalDataGridViewTextBoxColumn});
             this.cartDataGridView.DataSource = this.cartBindingSource;
             this.cartDataGridView.EnableHeadersVisualStyles = false;
-            this.cartDataGridView.Location = new System.Drawing.Point(755, 158);
+            this.cartDataGridView.Location = new System.Drawing.Point(553, 146);
             this.cartDataGridView.Name = "cartDataGridView";
             this.cartDataGridView.ReadOnly = true;
             this.cartDataGridView.RowHeadersVisible = false;
@@ -463,10 +442,10 @@
             // saleLineOriginalUnitPriceDataGridViewTextBoxColumn
             // 
             this.saleLineOriginalUnitPriceDataGridViewTextBoxColumn.DataPropertyName = "SaleLine_OriginalUnitPrice";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle5.Format = "C2";
-            dataGridViewCellStyle5.NullValue = null;
-            this.saleLineOriginalUnitPriceDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle17.Format = "C2";
+            dataGridViewCellStyle17.NullValue = null;
+            this.saleLineOriginalUnitPriceDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle17;
             this.saleLineOriginalUnitPriceDataGridViewTextBoxColumn.HeaderText = "Price";
             this.saleLineOriginalUnitPriceDataGridViewTextBoxColumn.Name = "saleLineOriginalUnitPriceDataGridViewTextBoxColumn";
             this.saleLineOriginalUnitPriceDataGridViewTextBoxColumn.ReadOnly = true;
@@ -508,10 +487,10 @@
             // saleLineSubtotalDataGridViewTextBoxColumn
             // 
             this.saleLineSubtotalDataGridViewTextBoxColumn.DataPropertyName = "SaleLine_Subtotal";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle6.Format = "C2";
-            dataGridViewCellStyle6.NullValue = null;
-            this.saleLineSubtotalDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle18.Format = "C2";
+            dataGridViewCellStyle18.NullValue = null;
+            this.saleLineSubtotalDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle18;
             this.saleLineSubtotalDataGridViewTextBoxColumn.HeaderText = "Subtotal";
             this.saleLineSubtotalDataGridViewTextBoxColumn.Name = "saleLineSubtotalDataGridViewTextBoxColumn";
             this.saleLineSubtotalDataGridViewTextBoxColumn.ReadOnly = true;
@@ -525,7 +504,7 @@
             // btnLookup
             // 
             this.btnLookup.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLookup.Location = new System.Drawing.Point(1239, 513);
+            this.btnLookup.Location = new System.Drawing.Point(1037, 501);
             this.btnLookup.Name = "btnLookup";
             this.btnLookup.Size = new System.Drawing.Size(71, 28);
             this.btnLookup.TabIndex = 22;
@@ -536,7 +515,7 @@
             // btnRemoveItem
             // 
             this.btnRemoveItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRemoveItem.Location = new System.Drawing.Point(755, 622);
+            this.btnRemoveItem.Location = new System.Drawing.Point(553, 610);
             this.btnRemoveItem.Name = "btnRemoveItem";
             this.btnRemoveItem.Size = new System.Drawing.Size(152, 40);
             this.btnRemoveItem.TabIndex = 23;
@@ -571,7 +550,7 @@
             this.lblCount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblCount.AutoSize = true;
             this.lblCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCount.Location = new System.Drawing.Point(862, 105);
+            this.lblCount.Location = new System.Drawing.Point(665, 91);
             this.lblCount.Name = "lblCount";
             this.lblCount.Size = new System.Drawing.Size(20, 24);
             this.lblCount.TabIndex = 24;
@@ -584,7 +563,7 @@
             // btnToggleTheme
             // 
             this.btnToggleTheme.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnToggleTheme.Location = new System.Drawing.Point(25, 622);
+            this.btnToggleTheme.Location = new System.Drawing.Point(28, 606);
             this.btnToggleTheme.Name = "btnToggleTheme";
             this.btnToggleTheme.Size = new System.Drawing.Size(183, 44);
             this.btnToggleTheme.TabIndex = 25;
@@ -606,7 +585,7 @@
             this.lblCustomer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblCustomer.AutoSize = true;
             this.lblCustomer.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCustomer.Location = new System.Drawing.Point(21, 58);
+            this.lblCustomer.Location = new System.Drawing.Point(24, 430);
             this.lblCustomer.Name = "lblCustomer";
             this.lblCustomer.Size = new System.Drawing.Size(151, 24);
             this.lblCustomer.TabIndex = 26;
@@ -617,7 +596,7 @@
             this.lblCustName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblCustName.AutoSize = true;
             this.lblCustName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCustName.Location = new System.Drawing.Point(21, 95);
+            this.lblCustName.Location = new System.Drawing.Point(24, 467);
             this.lblCustName.Name = "lblCustName";
             this.lblCustName.Size = new System.Drawing.Size(66, 24);
             this.lblCustName.TabIndex = 27;
@@ -628,7 +607,7 @@
             this.lblLoyaltyPoints.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblLoyaltyPoints.AutoSize = true;
             this.lblLoyaltyPoints.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLoyaltyPoints.Location = new System.Drawing.Point(21, 182);
+            this.lblLoyaltyPoints.Location = new System.Drawing.Point(24, 554);
             this.lblLoyaltyPoints.Name = "lblLoyaltyPoints";
             this.lblLoyaltyPoints.Size = new System.Drawing.Size(128, 24);
             this.lblLoyaltyPoints.TabIndex = 28;
@@ -639,7 +618,7 @@
             this.lblPointsAmount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblPointsAmount.AutoSize = true;
             this.lblPointsAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPointsAmount.Location = new System.Drawing.Point(155, 182);
+            this.lblPointsAmount.Location = new System.Drawing.Point(158, 554);
             this.lblPointsAmount.Name = "lblPointsAmount";
             this.lblPointsAmount.Size = new System.Drawing.Size(20, 24);
             this.lblPointsAmount.TabIndex = 30;
@@ -650,7 +629,7 @@
             this.lblName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblName.AutoSize = true;
             this.lblName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblName.Location = new System.Drawing.Point(21, 133);
+            this.lblName.Location = new System.Drawing.Point(24, 505);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(158, 24);
             this.lblName.TabIndex = 29;
@@ -671,8 +650,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.Controls.Add(this.lblCart, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.lblTime, 1, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(755, 56);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(553, 44);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -688,7 +666,7 @@
             this.tableLayoutPanel2.Controls.Add(this.lblTotal, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.lblTotalAmount, 1, 1);
             this.tableLayoutPanel2.Controls.Add(this.lblSubtotalAmount, 1, 0);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(755, 433);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(553, 421);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -709,7 +687,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1354, 686);
+            this.ClientSize = new System.Drawing.Size(1134, 666);
             this.Controls.Add(this.tableLayoutPanel2);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.lblPointsAmount);
@@ -765,8 +743,6 @@
         private System.Windows.Forms.DataGridView productDataGridView;
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Label lblSearch;
-        private System.Windows.Forms.Label lblTime;
-        private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Label lblCart;
         private System.Windows.Forms.Label lblItemCount;

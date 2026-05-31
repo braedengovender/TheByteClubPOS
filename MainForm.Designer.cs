@@ -78,6 +78,9 @@
             this.btnProcessSale = new System.Windows.Forms.Button();
             this.btnManageSales = new System.Windows.Forms.Button();
             this.btnProducts = new System.Windows.Forms.Button();
+            this.btnCustomers = new System.Windows.Forms.Button();
+            this.btnSuppliers = new System.Windows.Forms.Button();
+            this.btnLogout = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -357,7 +360,7 @@
             // toolStripStatusLabelSpacer
             // 
             this.toolStripStatusLabelSpacer.Name = "toolStripStatusLabelSpacer";
-            this.toolStripStatusLabelSpacer.Size = new System.Drawing.Size(754, 17);
+            this.toolStripStatusLabelSpacer.Size = new System.Drawing.Size(785, 17);
             this.toolStripStatusLabelSpacer.Spring = true;
             // 
             // toolStripStatusLabelVersion
@@ -436,6 +439,9 @@
             this.flowLayoutPanel1.Controls.Add(this.btnProcessSale);
             this.flowLayoutPanel1.Controls.Add(this.btnManageSales);
             this.flowLayoutPanel1.Controls.Add(this.btnProducts);
+            this.flowLayoutPanel1.Controls.Add(this.btnCustomers);
+            this.flowLayoutPanel1.Controls.Add(this.btnSuppliers);
+            this.flowLayoutPanel1.Controls.Add(this.btnLogout);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 130);
@@ -457,6 +463,7 @@
             this.btnDashboard.TabIndex = 0;
             this.btnDashboard.Text = "Dashboard";
             this.btnDashboard.UseVisualStyleBackColor = true;
+            this.btnDashboard.Click += new System.EventHandler(this.btnDashboard_Click);
             // 
             // btnProcessSale
             // 
@@ -470,6 +477,7 @@
             this.btnProcessSale.TabIndex = 1;
             this.btnProcessSale.Text = "Process Sale";
             this.btnProcessSale.UseVisualStyleBackColor = true;
+            this.btnProcessSale.Click += new System.EventHandler(this.btnProcessSale_Click);
             // 
             // btnManageSales
             // 
@@ -487,14 +495,55 @@
             // btnProducts
             // 
             this.btnProducts.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnProducts.Image = ((System.Drawing.Image)(resources.GetObject("btnProducts.Image")));
             this.btnProducts.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnProducts.Location = new System.Drawing.Point(13, 166);
             this.btnProducts.Name = "btnProducts";
             this.btnProducts.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
             this.btnProducts.Size = new System.Drawing.Size(200, 45);
             this.btnProducts.TabIndex = 3;
-            this.btnProducts.Text = "Products";
+            this.btnProducts.Text = "View Products";
             this.btnProducts.UseVisualStyleBackColor = true;
+            // 
+            // btnCustomers
+            // 
+            this.btnCustomers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCustomers.Image = global::TheByteClubPOS.Properties.Resources.CustomerIcon;
+            this.btnCustomers.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCustomers.Location = new System.Drawing.Point(13, 217);
+            this.btnCustomers.Name = "btnCustomers";
+            this.btnCustomers.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.btnCustomers.Size = new System.Drawing.Size(200, 45);
+            this.btnCustomers.TabIndex = 4;
+            this.btnCustomers.Text = "View Customers";
+            this.btnCustomers.UseVisualStyleBackColor = true;
+            // 
+            // btnSuppliers
+            // 
+            this.btnSuppliers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSuppliers.Image = global::TheByteClubPOS.Properties.Resources.TruckIcon;
+            this.btnSuppliers.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSuppliers.Location = new System.Drawing.Point(13, 268);
+            this.btnSuppliers.Name = "btnSuppliers";
+            this.btnSuppliers.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.btnSuppliers.Size = new System.Drawing.Size(200, 45);
+            this.btnSuppliers.TabIndex = 5;
+            this.btnSuppliers.Text = "Suppliers";
+            this.btnSuppliers.UseVisualStyleBackColor = true;
+            // 
+            // btnLogout
+            // 
+            this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLogout.Image = global::TheByteClubPOS.Properties.Resources.LogoutIcon;
+            this.btnLogout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLogout.Location = new System.Drawing.Point(13, 319);
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.btnLogout.Size = new System.Drawing.Size(200, 45);
+            this.btnLogout.TabIndex = 6;
+            this.btnLogout.Text = "Logout";
+            this.btnLogout.UseVisualStyleBackColor = true;
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
             // pictureBox1
             // 
@@ -586,5 +635,8 @@
         private System.Windows.Forms.Button btnProcessSale;
         private System.Windows.Forms.Button btnManageSales;
         private System.Windows.Forms.Button btnProducts;
+        private System.Windows.Forms.Button btnCustomers;
+        private System.Windows.Forms.Button btnSuppliers;
+        private System.Windows.Forms.Button btnLogout;
     }
 }

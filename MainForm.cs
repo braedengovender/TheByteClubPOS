@@ -121,5 +121,20 @@ namespace TheByteClubPOS
             toolStripMenuItemDate.Text = DateTime.Now.ToString("dddd, dd MMM yyyy");
             toolStripMenuItemTime.Text = DateTime.Now.ToString("HH:mm:ss");
         }
+
+        private void btnDashboard_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnProcessSale_Click(object sender, EventArgs e)
+        {
+            processSaleToolStripMenuItem1.PerformClick();
+        }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            logoutToolStripMenuItem1.PerformClick();
+        }
     }
 }

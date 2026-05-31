@@ -326,7 +326,7 @@
             // 
             this.btnSave.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSave.Location = new System.Drawing.Point(549, 577);
+            this.btnSave.Location = new System.Drawing.Point(424, 568);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(270, 40);
             this.btnSave.TabIndex = 23;
@@ -339,7 +339,7 @@
             this.lblSystemName.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.lblSystemName.AutoSize = true;
             this.lblSystemName.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSystemName.Location = new System.Drawing.Point(543, 99);
+            this.lblSystemName.Location = new System.Drawing.Point(432, 72);
             this.lblSystemName.Name = "lblSystemName";
             this.lblSystemName.Size = new System.Drawing.Size(281, 33);
             this.lblSystemName.TabIndex = 24;
@@ -348,7 +348,7 @@
             // btnShow
             // 
             this.btnShow.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnShow.Location = new System.Drawing.Point(923, 462);
+            this.btnShow.Location = new System.Drawing.Point(798, 453);
             this.btnShow.Name = "btnShow";
             this.btnShow.Size = new System.Drawing.Size(152, 40);
             this.btnShow.TabIndex = 25;
@@ -375,7 +375,6 @@
             this.tableLayoutPanel1.Controls.Add(employee_HireDateLabel, 0, 7);
             this.tableLayoutPanel1.Controls.Add(this.employee_PhoneNumberTextBox, 1, 6);
             this.tableLayoutPanel1.Controls.Add(employee_PhoneNumberLabel, 0, 6);
-            this.tableLayoutPanel1.Controls.Add(this.employee_EmailAddressTextBox, 1, 5);
             this.tableLayoutPanel1.Controls.Add(employee_EmailAddressLabel, 0, 5);
             this.tableLayoutPanel1.Controls.Add(this.employee_RoleTextBox, 1, 4);
             this.tableLayoutPanel1.Controls.Add(employee_RoleLabel, 0, 4);
@@ -383,7 +382,8 @@
             this.tableLayoutPanel1.Controls.Add(employee_IDNumberLabel, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.employee_LastNameTextBox, 1, 2);
             this.tableLayoutPanel1.Controls.Add(employee_LastNameLabel, 0, 2);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(466, 167);
+            this.tableLayoutPanel1.Controls.Add(this.employee_EmailAddressTextBox, 1, 5);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(341, 158);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 11;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 53.62319F));
@@ -404,7 +404,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1354, 686);
+            this.ClientSize = new System.Drawing.Size(1134, 666);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.btnShow);
             this.Controls.Add(this.lblSystemName);

@@ -123,6 +123,16 @@ namespace TheByteClubPOS.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap CustomerIcon {
+            get {
+                object obj = ResourceManager.GetObject("CustomerIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap CustomersIcon {
             get {
                 object obj = ResourceManager.GetObject("CustomersIcon", resourceCulture);
@@ -203,9 +213,29 @@ namespace TheByteClubPOS.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap LogoutIcon {
+            get {
+                object obj = ResourceManager.GetObject("LogoutIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap POINT_OF_SALES {
             get {
                 object obj = ResourceManager.GetObject("POINT OF SALES", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ProductIcon {
+            get {
+                object obj = ResourceManager.GetObject("ProductIcon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -236,6 +266,16 @@ namespace TheByteClubPOS.Properties {
         internal static System.Drawing.Bitmap ShowEye {
             get {
                 object obj = ResourceManager.GetObject("ShowEye", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap TruckIcon {
+            get {
+                object obj = ResourceManager.GetObject("TruckIcon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

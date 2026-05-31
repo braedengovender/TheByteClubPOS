@@ -55,6 +55,12 @@
     <Compile Include="AccountRecoveryForm.Designer.cs">
       <DependentUpon>AccountRecoveryForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="DashboardForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DashboardForm.Designer.cs">
+      <DependentUpon>DashboardForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="dsSamsLiqourShop.cs">
       <DependentUpon>dsSamsLiqourShop.xsd</DependentUpon>
     </Compile>
@@ -109,6 +115,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AccountRecoveryForm.resx">
       <DependentUpon>AccountRecoveryForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DashboardForm.resx">
+      <DependentUpon>DashboardForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoadingForm.resx">
       <DependentUpon>LoadingForm.cs</DependentUpon>
@@ -188,6 +197,10 @@
     <None Include="Resources\HomeIcon.png" />
     <None Include="Resources\CartIcon.png" />
     <None Include="Resources\ReceiptIcon.png" />
+    <None Include="Resources\ProductIcon.png" />
+    <None Include="Resources\TruckIcon.png" />
+    <None Include="Resources\LogoutIcon.png" />
+    <None Include="Resources\CustomerIcon.png" />
     <Content Include="Resources\Untitled design %281%29.png" />
     <None Include="Resources\Untitled design %281%291.png" />
   </ItemGroup>

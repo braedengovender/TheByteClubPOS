@@ -35,6 +35,7 @@
             this.saleBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.saleTableAdapter = new TheByteClubPOS.dsSamsLiqourShopTableAdapters.SaleTableAdapter();
             this.tableAdapterManager = new TheByteClubPOS.dsSamsLiqourShopTableAdapters.TableAdapterManager();
+            this.saleLineTableAdapter = new TheByteClubPOS.dsSamsLiqourShopTableAdapters.SaleLineTableAdapter();
             this.saleDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -48,7 +49,6 @@
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.saleLineBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.saleLineTableAdapter = new TheByteClubPOS.dsSamsLiqourShopTableAdapters.SaleLineTableAdapter();
             this.saleLineDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -69,7 +69,7 @@
             this.lblManageSales.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.lblManageSales.AutoSize = true;
             this.lblManageSales.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblManageSales.Location = new System.Drawing.Point(24, 82);
+            this.lblManageSales.Location = new System.Drawing.Point(24, 44);
             this.lblManageSales.Name = "lblManageSales";
             this.lblManageSales.Size = new System.Drawing.Size(212, 33);
             this.lblManageSales.TabIndex = 5;
@@ -80,7 +80,7 @@
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(24, 380);
+            this.label1.Location = new System.Drawing.Point(24, 345);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(159, 31);
             this.label1.TabIndex = 6;
@@ -118,6 +118,10 @@
             this.tableAdapterManager.SupplierTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = TheByteClubPOS.dsSamsLiqourShopTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
+            // saleLineTableAdapter
+            // 
+            this.saleLineTableAdapter.ClearBeforeFill = true;
+            // 
             // saleDataGridView
             // 
             this.saleDataGridView.AutoGenerateColumns = false;
@@ -136,9 +140,9 @@
             this.dataGridViewTextBoxColumn10,
             this.dataGridViewTextBoxColumn11});
             this.saleDataGridView.DataSource = this.saleBindingSource;
-            this.saleDataGridView.Location = new System.Drawing.Point(30, 144);
+            this.saleDataGridView.Location = new System.Drawing.Point(30, 105);
             this.saleDataGridView.Name = "saleDataGridView";
-            this.saleDataGridView.Size = new System.Drawing.Size(1279, 220);
+            this.saleDataGridView.Size = new System.Drawing.Size(1071, 220);
             this.saleDataGridView.TabIndex = 7;
             // 
             // dataGridViewTextBoxColumn1
@@ -213,10 +217,6 @@
             this.saleLineBindingSource.DataMember = "SaleLine";
             this.saleLineBindingSource.DataSource = this.dsSamsLiqourShop;
             // 
-            // saleLineTableAdapter
-            // 
-            this.saleLineTableAdapter.ClearBeforeFill = true;
-            // 
             // saleLineDataGridView
             // 
             this.saleLineDataGridView.AutoGenerateColumns = false;
@@ -231,9 +231,9 @@
             this.dataGridViewTextBoxColumn17,
             this.dataGridViewTextBoxColumn18});
             this.saleLineDataGridView.DataSource = this.saleLineBindingSource;
-            this.saleLineDataGridView.Location = new System.Drawing.Point(30, 436);
+            this.saleLineDataGridView.Location = new System.Drawing.Point(30, 394);
             this.saleLineDataGridView.Name = "saleLineDataGridView";
-            this.saleLineDataGridView.Size = new System.Drawing.Size(1279, 245);
+            this.saleLineDataGridView.Size = new System.Drawing.Size(1071, 245);
             this.saleLineDataGridView.TabIndex = 7;
             // 
             // dataGridViewTextBoxColumn12
@@ -282,7 +282,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1354, 732);
+            this.ClientSize = new System.Drawing.Size(1134, 666);
             this.Controls.Add(this.saleLineDataGridView);
             this.Controls.Add(this.saleDataGridView);
             this.Controls.Add(this.label1);
