@@ -120,6 +120,9 @@
   <metadata name="productBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>172, 17</value>
   </metadata>
+  <metadata name="productBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>172, 17</value>
+  </metadata>
   <metadata name="dsSamsLiqourShop.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
@@ -128,6 +131,12 @@
   </metadata>
   <metadata name="paymentMethodBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>919, 17</value>
+  </metadata>
+  <metadata name="paymentMethodBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>919, 17</value>
+  </metadata>
+  <metadata name="cartBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>768, 17</value>
   </metadata>
   <metadata name="cartBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>768, 17</value>
@@ -159,4 +168,55 @@
   <metadata name="saleLineTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>1053, 54</value>
   </metadata>
+  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>81</value>
+  </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAABAAEAIBMAAAEAIAD0CQAAFgAAACgAAAAgAAAAJgAAAAEAIAAAAAAAgAkAAMMOAADDDgAAAAAAAAAA
+        AADa0bz/2M+8/9jPvP/X0Lv/2NC7/9jQu//Yzrv/2M+5/9fPuP/Wzrj/18+5/9fOuP/Yzrf/1822/9fM
+        tf/Wy7X/1su1/9bLtf/Vy7X/1cu1/9XLtP/VybL/1sux/9TIr//UyLD/1Miw/9PIr//TyK3/08ir/9TG
+        q//Vxqr/1Maq/9nQu//Zz7z/2c+9/9jQvP/Y0Lv/2NC7/9jPu//Xzrr/2M+6/9jPu//Xzrr/1825/9nO
+        t//Yzbb/1sy1/9fMtv/Yy7X/1sy1/9XLtP/Vy7T/1su0/9bKtP/WyrL/1cmw/9XJsf/VybH/1Miw/9TJ
+        r//UyK3/1Mat/9bHq//Vxqr/2tG9/9rRvf/a0L3/2dC8/9rQvf/c1ML/3NTC/9zTwv/f18j/5uDU/+DZ
+        yv/c08H/29G8/9vRvP/b0b3/29C8/9vQvf/a0Lz/2c+6/9nQvP/az7v/2c64/9nOuP/az7n/2s+6/9jN
+        uP/WybP/1cmw/9bIr//Wx6//1ces/9XHrP/a0b7/29G+/9rQvf/Zz77/2tG//+fh1P/i283/6uTZ/+nk
+        2f/j3c7/6OLW/+Te0P/i2sr/5d7Q/+Pbzf/o4tb/6ePY/+DYyP/f1sX/5+HU/+ji1f/k3cz/6ePW/+Pb
+        y//j2sv/6eLW/97Uwv/VyLH/1sew/9fIsP/VyK7/1ciu/9rQv//a0L//29C//9rQvv/b0r//5+HU/9zT
+        wv/p49j/6ePY/+Hayv/r59z/4tvM/+PazP/m3tL/49vN/+vl2v/r5dr/39fH/+Lbyv/m39L/5uDS/+Xe
+        z//q5tv/49rM/+TbzP/r5dr/6OHV/9rRvP/VyLD/1smw/9fJr//VyK7/29DA/9vQwP/a0L//29K+/9vS
+        v//h2cn/3NPB/+HZyv/f2Mj/3tjH/9/Xxf/g18X/3tbE/97Wxf/e1sX/3tbF/9/YyP/Z0b7/29PA/97X
+        xP/e18X/3dTA/97Vwf/e08H/3tXC/97Vw//e1cP/1823/9XKsv/WybL/1smv/9XIrv/b0MD/29HB/9rQ
+        v//a0L7/29G+/9rRvf/a0b7/2tC+/9rRvf/Y0bz/2dC7/9vQu//Zz7v/2M+6/9jPuv/Yz7r/1865/9fO
+        uv/Wzbn/1s64/9XMt//XzLb/18u1/9jMtf/Wy7X/1cu1/9bLtf/Xy7T/1suz/9TKsv/XybH/1smw/9vR
+        wf/c0cH/29HA/9rQv//b0L//29G//9vRv//a0L7/2dC9/9jRvf/Y0bz/2NG8/9nQu//Z0Lv/2M+7/9nP
+        u//Yz7r/1866/9bNuf/Wzbf/1s24/9bNuP/Xzbj/2My3/9fMtv/Wy7X/18y1/9bLtP/Vy7P/1sqz/9fJ
+        sv/WyLL/3NLA/9vRwP/d08P/4NfJ/+LZzP/i2s3/3tXF/97Vxv/h2cr/29TC/9nRvv/c1cT/4NjJ/9/W
+        xv/f18f/3NTC/9nRvP/a0b//2NC7/97Xxf/e18X/2dC6/9fNtv/Yzbf/3NK+/93Vwf/f18T/3dXC/9fM
+        tv/WyrT/1sqx/9XIsf/c0sD/29HA/+HYyv/v6uP/4djL/+Tc0P/v6+P/5t7T/+vm3f/c1ML/2dG+/+Pd
+        0P/39fH/5N3P/+rk2f/d1sX/5N7Q/+vn3v/Z0L7/7+vj/+/q4v/Z0Lv/1864/9fOt//o4tb/5+HS/9zT
+        vv/q5Nn/5d7Q/9bLtP/Wy7L/1sqy/9zSwP/c0sD/4djK/+fg1f/b0L//4NfI//f18f/l3ND/5t7S/93T
+        wv/b0b//6+bc//Ht5v/b0b//5N3P/9vTwP/w7OX/8e7n/9zTwf/t6N//7eng/9bOuf/Wzrn/1865/+Xd
+        0P/c07//1cu0/+nj1//w7OT/18y1/9bKs//Xy7P/29PA/9vTwP/c1ML/3dPD/+HYy//z7+r/9PHs/9/W
+        xf/j283/5uDU/+Lbzv/28+//5d/S/9rQvv/k3dD/4trN//bz7v/l39D/49vN/+7p4P/t6eD/2M65/9jO
+        uv/Yzrr/2dC9/9jPu//m4NP/+Pby/+bf0f/Xy7X/18u0/9fLs//a0sD/2tLA/9vSwf/o4db/+Pby//Ds
+        5f/g18f/29G//93UxP/k3tL/5d7T//Xy7f/e1sT/29LA/+Te0P/t6N7/8Ozm/9zSwf/l39D/7+vj/+7q
+        4f/Y0Lv/2NC8/9fOuf/a0b//7+zk//b07//l3tD/2M64/9fNtv/Xzbb/2M20/9rSwf/a0sH/3tbI//bz
+        7//p4tf/3NLB/+HYyP/c08H/29LA/+Te0f/y7+r/7Ofe/9rSwP/a0sD/5uHV//b07//m39L/2c+9/+La
+        zP/08ez/7urg/9nQvP/g2cj/3NXD/+jj1//z8On/29PB/9rRvP/c1MD/1863/9jNtv/XzrX/2tLB/9vS
+        wf/f18n/8u7o/+DXyP/f18j/7eje/93Uwv/b0r//39rK//b07//i28v/29K+/9vSwP/u6uL/9/Tw/97V
+        w//a0L7/3dTD//b07//v6+P/29LA/+3p4P/o5Nj/5uLV/+rk2f/Yz7r/5eDR/+Tezv/Xzbj/2c23/9jN
+        t//a08D/2tPB/9rSwf/i3M//597T/+Pd0f/l3dL/3NLD/9zSwf/b1ML/493P/9vUwf/b0r//39bG/+nk
+        2f/m39L/29G//9vRvv/b0b//5t/T/+nj2P/e1cX/6+Xb/+Lbzf/Z0r//5N3Q/+HbzP/i287/3dfD/9fO
+        t//Yzrj/2M63/9rTwP/b08H/2tLB/9rSwf/c0cH/2tHB/9vRwf/c0sD/3NK+/9vSv//a0cH/2tLB/9zT
+        wP/d08D/29G+/9vRvv/b0b//29G//9zSwP/b0b//29K//9vRvv/b0b7/2c+9/9nPvP/Yz7z/2NG+/9jP
+        u//Xz7n/2M+7/9jQuf/Xz7j/3NLB/9zSwf/b0cD/2tLB/9rRwP/a0cH/3NLB/9zSwP/b0b//3NLB/9zS
+        wv/c08L/3NPA/9zSwf/c0cH/3NLB/9vRwf/c0cH/3NK//9zSwP/b0r//2tK//9nRvv/Z0b7/2dC8/9rQ
+        vP/Z0bz/2tG8/9nQu//Z0Lr/2c+6/9fPuP/c0sH/3NHB/9zSwf/a0sH/2tLB/9vSwf/c0sL/29LB/9vR
+        wf/b0cD/3NHB/9zRwf/c0cD/3NLA/9vRwf/a0MH/29K//9zTwP/c0sD/29K//9vSv//a0r//2dG//9nR
+        vv/a0b7/2tG9/9rRvf/a0bz/2dC8/9nPuv/Zz7v/18+5/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=
+</value>
+  </data>
 </root>

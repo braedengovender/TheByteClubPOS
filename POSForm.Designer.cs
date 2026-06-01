@@ -29,9 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(POSForm));
             this.productDataGridView = new System.Windows.Forms.DataGridView();
             this.productIDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.productImageDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -183,10 +184,10 @@
             // productSellingPriceDataGridViewTextBoxColumn
             // 
             this.productSellingPriceDataGridViewTextBoxColumn.DataPropertyName = "Product_SellingPrice";
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle16.Format = "C2";
-            dataGridViewCellStyle16.NullValue = null;
-            this.productSellingPriceDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle7.Format = "C2";
+            dataGridViewCellStyle7.NullValue = null;
+            this.productSellingPriceDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle7;
             this.productSellingPriceDataGridViewTextBoxColumn.HeaderText = "Price";
             this.productSellingPriceDataGridViewTextBoxColumn.Name = "productSellingPriceDataGridViewTextBoxColumn";
             this.productSellingPriceDataGridViewTextBoxColumn.ReadOnly = true;
@@ -442,10 +443,10 @@
             // saleLineOriginalUnitPriceDataGridViewTextBoxColumn
             // 
             this.saleLineOriginalUnitPriceDataGridViewTextBoxColumn.DataPropertyName = "SaleLine_OriginalUnitPrice";
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle17.Format = "C2";
-            dataGridViewCellStyle17.NullValue = null;
-            this.saleLineOriginalUnitPriceDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle8.Format = "C2";
+            dataGridViewCellStyle8.NullValue = null;
+            this.saleLineOriginalUnitPriceDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle8;
             this.saleLineOriginalUnitPriceDataGridViewTextBoxColumn.HeaderText = "Price";
             this.saleLineOriginalUnitPriceDataGridViewTextBoxColumn.Name = "saleLineOriginalUnitPriceDataGridViewTextBoxColumn";
             this.saleLineOriginalUnitPriceDataGridViewTextBoxColumn.ReadOnly = true;
@@ -487,10 +488,10 @@
             // saleLineSubtotalDataGridViewTextBoxColumn
             // 
             this.saleLineSubtotalDataGridViewTextBoxColumn.DataPropertyName = "SaleLine_Subtotal";
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle18.Format = "C2";
-            dataGridViewCellStyle18.NullValue = null;
-            this.saleLineSubtotalDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle9.Format = "C2";
+            dataGridViewCellStyle9.NullValue = null;
+            this.saleLineSubtotalDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle9;
             this.saleLineSubtotalDataGridViewTextBoxColumn.HeaderText = "Subtotal";
             this.saleLineSubtotalDataGridViewTextBoxColumn.Name = "saleLineSubtotalDataGridViewTextBoxColumn";
             this.saleLineSubtotalDataGridViewTextBoxColumn.ReadOnly = true;
@@ -687,6 +688,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::TheByteClubPOS.Properties.Resources.Background;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1134, 666);
             this.Controls.Add(this.tableLayoutPanel2);
             this.Controls.Add(this.tableLayoutPanel1);
@@ -713,6 +716,7 @@
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.lblSearch);
             this.Controls.Add(this.productDataGridView);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "POSForm";
             this.Text = "POSForm";
             this.Load += new System.EventHandler(this.POSForm_Load);

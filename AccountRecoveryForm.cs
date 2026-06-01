@@ -143,7 +143,7 @@ namespace TheByteClubPOS
             if (LoginForm.IsDarkMode)
             {
                 // 1. Dark Mode Rules
-                //this.BackgroundImage = Properties.Resources.DarkBackground;
+                this.BackgroundImage = Properties.Resources.DarkMode_Background;
 
                 // Labels turned completely white
                 lblCredentials.ForeColor = Color.White;
@@ -183,7 +183,7 @@ namespace TheByteClubPOS
             else
             {
                 // 2. Light Mode Rules (Resets completely back to standard Windows defaults)
-                //this.BackgroundImage = Properties.Resources.LightBackground;
+                this.BackgroundImage = Properties.Resources.Background;
 
                 // Labels reset back to system default text color
                 lblCredentials.ForeColor = SystemColors.ControlText;
