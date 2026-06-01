@@ -57,7 +57,7 @@ namespace TheByteClubPOS
             {
                 // Dark Mode Rules
                 // Swap 'DarkBackground' with the exact name of your resource image file
-                this.BackgroundImage = Properties.Resources.DarkMode_Background;
+                this.BackgroundImage = Properties.Resources.DarkMode_LogIn;
 
                 lblLogin.ForeColor = Color.White;
                 lblUsername.ForeColor = Color.White;
@@ -94,7 +94,7 @@ namespace TheByteClubPOS
             {
                 // Light Mode Rules
                 // Swap 'LightBackground' with your original image name, or set to null if it used a default color
-                this.BackgroundImage = Properties.Resources.Background;
+                this.BackgroundImage = Properties.Resources.Untitled_design__1_;
 
                 lblLogin.ForeColor = SystemColors.ControlText;
                 lblUsername.ForeColor = SystemColors.ControlText;
@@ -315,6 +315,11 @@ namespace TheByteClubPOS
                 txtUsername.ForeColor = Color.Black;
                 txtUsername.Font = new Font(txtUsername.Font, FontStyle.Regular);
             }
+        }
+
+        private void txtUsername_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

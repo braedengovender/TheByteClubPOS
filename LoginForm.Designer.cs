@@ -170,6 +170,7 @@
             this.txtUsername.TabIndex = 0;
             this.txtUsername.Text = "Enter username";
             this.txtUsername.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtUsername_MouseClick);
+            this.txtUsername.TextChanged += new System.EventHandler(this.txtUsername_TextChanged);
             // 
             // tableLayoutPanel3
             // 
@@ -327,6 +328,7 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.btnTestLoginManager);
             this.Controls.Add(this.btnTestLoginCashier);
+            this.DoubleBuffered = true;
             this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sam\'s Liquor Shop - Point of Sale System";
