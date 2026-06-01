@@ -69,6 +69,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dsSamsLiqourShop.xsd</DependentUpon>
     </Compile>
+    <Compile Include="SalesReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SalesReport.Designer.cs">
+      <DependentUpon>SalesReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="LoadingForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -159,6 +165,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="SalesReport.resx">
+      <DependentUpon>SalesReport.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="dsSamsLiqourShop.xsc">
       <DependentUpon>dsSamsLiqourShop.xsd</DependentUpon>
     </None>
