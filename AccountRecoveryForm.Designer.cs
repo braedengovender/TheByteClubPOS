@@ -87,11 +87,14 @@
             // txtEmployeeDetails
             // 
             this.txtEmployeeDetails.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtEmployeeDetails.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEmployeeDetails.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEmployeeDetails.ForeColor = System.Drawing.Color.DarkGray;
             this.txtEmployeeDetails.Location = new System.Drawing.Point(3, 253);
             this.txtEmployeeDetails.Name = "txtEmployeeDetails";
             this.txtEmployeeDetails.Size = new System.Drawing.Size(416, 26);
             this.txtEmployeeDetails.TabIndex = 7;
+            this.txtEmployeeDetails.Text = "Enter Username or Email Address";
+            this.txtEmployeeDetails.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtEmployeeDetails_MouseClick);
             this.txtEmployeeDetails.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtEmployeeDetails_KeyDown);
             // 
             // lblEnterDetails

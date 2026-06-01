@@ -14,12 +14,21 @@ namespace TheByteClubPOS
 {
     public partial class LoginForm : Form
     {
+        int btnClearClickCount = 0;
+        int btnClearClickCount2 = 0;
         public static bool IsDarkMode = false;
         public LoginForm()
         {
             InitializeComponent();
             txtPassword.PasswordChar = '●';
             pictureBox1.Image = Properties.Resources.ShowEye;
+
+
+          /* txtPassword.UseSystemPasswordChar = false;
+            txtPassword.PasswordChar = '\0'; // Removes masking
+
+            txtPassword.Text = "Enter Password";
+            txtPassword.ForeColor = Color.Gray;*/
         }
         private string ValidatePasswordDetailed(string password)
         {
@@ -284,6 +293,28 @@ namespace TheByteClubPOS
         private void LoginForm_Activated(object sender, EventArgs e)
         {
             ApplyTheme();
+        }
+
+        private void txtUsername_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (btnClearClickCount == 0)
+            {
+                txtUsername.Text = "";
+                btnClearClickCount++;
+                txtUsername.ForeColor = Color.Black;
+                txtUsername.Font = new Font(txtUsername.Font, FontStyle.Regular);
+            }
+        }
+
+        private void txtPassword_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (btnClearClickCount == 0)
+            {
+                txtUsername.Text = "";
+                btnClearClickCount++;
+                txtUsername.ForeColor = Color.Black;
+                txtUsername.Font = new Font(txtUsername.Font, FontStyle.Regular);
+            }
         }
     }
 }

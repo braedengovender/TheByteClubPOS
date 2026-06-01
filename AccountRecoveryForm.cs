@@ -14,6 +14,7 @@ namespace TheByteClubPOS
 {
     public partial class AccountRecoveryForm : Form
     {
+        int btnClearClickCount3 = 0;
         // Secret Resend API key here
         private readonly string resendApiKey = "re_f847CzLx_EWHwBfQgKrR22NXkpKjbHTzb";
 
@@ -293,6 +294,17 @@ namespace TheByteClubPOS
 
             // 2. Refresh the theme on THIS form instantly
             ApplyTheme();
+        }
+
+        private void txtEmployeeDetails_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (btnClearClickCount3 == 0)
+            {
+                txtEmployeeDetails.Text = "";
+                btnClearClickCount3++;
+                txtEmployeeDetails.ForeColor = Color.Black;
+                txtEmployeeDetails.Font = new Font(txtEmployeeDetails.Font, FontStyle.Regular);
+            }
         }
     }
 }
