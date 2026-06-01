@@ -90,8 +90,8 @@ namespace TheByteClubPOS
                 string status = cmbStatus.SelectedItem?.ToString();
 
                 // Nullable Account Fields
-                string username = string.IsNullOrWhiteSpace(txtUsername.Text) ? null : txtUsername.Text.Trim();
-                string password = string.IsNullOrWhiteSpace(txtPassword.Text) ? null : txtPassword.Text.Trim();
+                //string username = string.IsNullOrWhiteSpace(txtUsername.Text) ? null : txtUsername.Text.Trim();
+                //string password = string.IsNullOrWhiteSpace(txtPassword.Text) ? null : txtPassword.Text.Trim();
 
 
                 // 2. Basic validation for non-null database fields
@@ -102,7 +102,7 @@ namespace TheByteClubPOS
                 }
 
                 // 3. Call the TableAdapter Insert query method
-                this.customerTableAdapter.InsertQueryNewCustomer(firstName, lastName, email, idNumber, phone, unitNumber, unitName, streetNumber, streetName, suburb, postalCode, city, province, country, registrationDate.ToString(), loyaltyPoints, status, username, password);
+                this.customerTableAdapter.InsertQueryNewCustomer(firstName, lastName, email, idNumber, phone, unitNumber, unitName, streetNumber, streetName, suburb, postalCode, city, province, country, registrationDate.ToString(), loyaltyPoints, status, null, null);
                 this.customerTableAdapter.Fill(this.dsSamsLiqourShop.Customer);
                 MessageBox.Show("Customer added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }

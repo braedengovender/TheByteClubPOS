@@ -15,7 +15,7 @@ namespace TheByteClubPOS
     public partial class LoginForm : Form
     {
         int btnClearClickCount = 0;
-        int btnClearClickCount2 = 0;
+        //int btnClearClickCount2 = 0;
         public static bool IsDarkMode = false;
         public LoginForm()
         {
