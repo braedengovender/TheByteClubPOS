@@ -157,8 +157,8 @@
   <data name="DiscountIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\DiscountIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="CalendarIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\CalendarIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="DarkMode_Background" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DarkMode_Background.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="CustomerIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\CustomerIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -166,8 +166,8 @@
   <data name="BadgeIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\BadgeIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="DarkMode_Background" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\DarkMode_Background.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="CalendarIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CalendarIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ProductIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ProductIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -196,7 +196,7 @@
   <data name="ClockIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ClockIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="DarkMode_LogIn" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\DarkMode_LogIn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="DarkModeLogin" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DarkModeLogin.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

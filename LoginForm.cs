@@ -57,7 +57,7 @@ namespace TheByteClubPOS
             {
                 // Dark Mode Rules
                 // Swap 'DarkBackground' with the exact name of your resource image file
-                this.BackgroundImage = Properties.Resources.DarkMode_LogIn;
+                this.BackgroundImage = Properties.Resources.DarkModeLogin;
 
                 lblLogin.ForeColor = Color.White;
                 lblUsername.ForeColor = Color.White;

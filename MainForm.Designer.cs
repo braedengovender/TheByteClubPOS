@@ -561,7 +561,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::TheByteClubPOS.Properties.Resources.Sam_s_Liqour_Store;
+            this.BackgroundImage = global::TheByteClubPOS.Properties.Resources.POINT_OF_SALES;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1354, 686);
             this.Controls.Add(this.panel1);
