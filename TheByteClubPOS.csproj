@@ -211,6 +211,7 @@
     <None Include="Resources\LogoutIcon.png" />
     <None Include="Resources\CustomerIcon.png" />
     <None Include="Resources\DarkMode_Background.png" />
+    <None Include="Resources\Sam%27s Liqour Store.png" />
     <Content Include="Resources\Untitled design %281%29.png" />
     <None Include="Resources\Untitled design %281%291.png" />
   </ItemGroup>
