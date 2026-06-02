@@ -13934,7 +13934,7 @@ SELECT Product_ID, Category_ID, Supplier_ID, Discount_ID, Product_Name, Product_
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[4];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[5];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = @"SELECT Product_ID, Category_ID, Supplier_ID, Discount_ID, Product_Name, Product_Description, Product_Brand, Product_Type, Product_Flavour, Product_AlcoholPercentage, Product_OriginRegion, Product_Ingredients, Product_SizeML, Product_BarcodeNumber, Product_SellingPrice, Product_CostPrice, Product_QuantityInStock, Product_ReorderQuantity, Product_Status, Product_Image FROM dbo.Product";
@@ -13960,11 +13960,19 @@ WHERE        (Product_Name LIKE @productDetail + '%') OR
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@productDetail", global::System.Data.SqlDbType.VarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "Product_Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[3].Connection = this.Connection;
-            this._commandCollection[3].CommandText = "UPDATE       Product\r\nSET                Product_QuantityInStock = Product_Quanti" +
-                "tyInStock + @prodQuantity\r\nWHERE        (Product_ID = @prodID); \r\n";
+            this._commandCollection[3].CommandText = @"SELECT Product_ID, Category_ID, Supplier_ID, Discount_ID, Product_Name, Product_Description, Product_Brand, Product_Type, Product_Flavour, Product_AlcoholPercentage, Product_OriginRegion, Product_Ingredients, Product_SizeML, Product_BarcodeNumber, Product_SellingPrice, 
+             Product_CostPrice, Product_QuantityInStock, Product_ReorderQuantity, Product_Status, Product_Image
+FROM   Product
+WHERE (Product_Name LIKE @ProductName + '%')";
             this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@prodID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Product_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@prodQuantity", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Product_QuantityInStock", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ProductName", global::System.Data.SqlDbType.VarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "Product_Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[4].Connection = this.Connection;
+            this._commandCollection[4].CommandText = "UPDATE       Product\r\nSET                Product_QuantityInStock = Product_Quanti" +
+                "tyInStock + @prodQuantity\r\nWHERE        (Product_ID = @prodID); \r\n";
+            this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@prodID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Product_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@prodQuantity", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Product_QuantityInStock", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -14027,6 +14035,42 @@ WHERE        (Product_Name LIKE @productDetail + '%') OR
             }
             int returnValue = this.Adapter.Fill(dataTable);
             return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByProName(dsSamsLiqourShop.ProductDataTable dataTable, string ProductName) {
+            this.Adapter.SelectCommand = this.CommandCollection[3];
+            if ((ProductName == null)) {
+                throw new global::System.ArgumentNullException("ProductName");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(ProductName));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual dsSamsLiqourShop.ProductDataTable GetDataBy3(string ProductName) {
+            this.Adapter.SelectCommand = this.CommandCollection[3];
+            if ((ProductName == null)) {
+                throw new global::System.ArgumentNullException("ProductName");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(ProductName));
+            }
+            dsSamsLiqourShop.ProductDataTable dataTable = new dsSamsLiqourShop.ProductDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -14607,7 +14651,7 @@ WHERE        (Product_Name LIKE @productDetail + '%') OR
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
         public virtual int UpdateQueryProductQuantity(int prodID, int prodQuantity) {
-            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[3];
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[4];
             command.Parameters[0].Value = ((int)(prodID));
             command.Parameters[1].Value = ((int)(prodQuantity));
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;

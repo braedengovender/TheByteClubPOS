@@ -107,7 +107,6 @@
             this.toolStripMenuItemDate});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(6, 2, 0, 2);
             this.menuStrip1.Size = new System.Drawing.Size(2031, 36);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
@@ -261,7 +260,7 @@
             this.logoutToolStripMenuItem1});
             this.manageAccountToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("manageAccountToolStripMenuItem.Image")));
             this.manageAccountToolStripMenuItem.Name = "manageAccountToolStripMenuItem";
-            this.manageAccountToolStripMenuItem.Size = new System.Drawing.Size(117, 32);
+            this.manageAccountToolStripMenuItem.Size = new System.Drawing.Size(117, 30);
             this.manageAccountToolStripMenuItem.Text = "Account";
             this.manageAccountToolStripMenuItem.Click += new System.EventHandler(this.manageAccountToolStripMenuItem_Click);
             // 
@@ -454,7 +453,7 @@
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 200);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(15, 15, 15, 15);
+            this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(15);
             this.flowLayoutPanel1.Size = new System.Drawing.Size(330, 787);
             this.flowLayoutPanel1.TabIndex = 1;
             this.flowLayoutPanel1.WrapContents = false;

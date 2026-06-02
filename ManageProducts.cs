@@ -12,6 +12,8 @@ namespace TheByteClubPOS
 {
     public partial class ManageProducts : Form
     {
+        private int currentEditingProductId = -1;
+
         public ManageProducts()
         {
             InitializeComponent();
@@ -19,41 +21,145 @@ namespace TheByteClubPOS
 
         private void ManageProducts_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'dsSamsLiqourShop.Discount' table. You can move, or remove it, as needed.
+            // Load lookup tables and products
             this.discountTableAdapter.Fill(this.dsSamsLiqourShop.Discount);
-            // TODO: This line of code loads data into the 'dsSamsLiqourShop.Supplier' table. You can move, or remove it, as needed.
             this.supplierTableAdapter.Fill(this.dsSamsLiqourShop.Supplier);
-            // TODO: This line of code loads data into the 'dsSamsLiqourShop.Category' table. You can move, or remove it, as needed.
             this.categoryTableAdapter.Fill(this.dsSamsLiqourShop.Category);
-            // TODO: This line of code loads data into the 'dsSamsLiqourShop.Product' table. You can move, or remove it, as needed.
             this.productTableAdapter.Fill(this.dsSamsLiqourShop.Product);
 
+            // Wire all radio buttons and search box to the same filter method
+            rbBeer.CheckedChanged += ViewFilter_Changed;
+            rbWines.CheckedChanged += ViewFilter_Changed;
+            rbWhiskies.CheckedChanged += ViewFilter_Changed;
+            rbSpirits.CheckedChanged += ViewFilter_Changed;
+            rbRTD.CheckedChanged += ViewFilter_Changed;
+            rbNonAlcoholic.CheckedChanged += ViewFilter_Changed;
+            rbAccessories.CheckedChanged += ViewFilter_Changed;
+            rbSnacks.CheckedChanged += ViewFilter_Changed;
+            rbTobacco.CheckedChanged += ViewFilter_Changed;
+
+            rbName.CheckedChanged += ViewFilter_Changed;
+            rbPrice.CheckedChanged += ViewFilter_Changed;
+            rbStock.CheckedChanged += ViewFilter_Changed;
+
+            rbAscending.CheckedChanged += ViewFilter_Changed;
+            rbDescending.CheckedChanged += ViewFilter_Changed;
+
+            // Search box
+            this.textBox17.TextChanged += (s, ev) => ApplyViewFilters();
+
+            // Initial population
+            ApplyViewFilters();
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        // Shared handler for radio checked changes
+        private void ViewFilter_Changed(object sender, EventArgs e)
         {
-
+            // Only apply when a radio's Checked state changed
+            ApplyViewFilters();
         }
 
-        private void label2_Click(object sender, EventArgs e)
+        // Apply filters and sorting to dataGridView4
+        private void ApplyViewFilters()
         {
+            try
+            {
+                // Ensure the dataset is current
+                this.productTableAdapter.Fill(this.dsSamsLiqourShop.Product);
 
+                // Work on a copy so we can safely filter/sort
+                DataTable dt = this.dsSamsLiqourShop.Product.Copy();
+                DataView dv = dt.DefaultView;
+
+                var filters = new List<string>();
+
+                // 1) Text search
+                string search = (textBox17?.Text ?? "").Trim();
+                if (!string.IsNullOrEmpty(search))
+                {
+                    string esc = search.Replace("'", "''");
+                    filters.Add($"(Product_Name LIKE '%{esc}%' OR Product_Description LIKE '%{esc}%' OR Product_Brand LIKE '%{esc}%' OR Product_BarcodeNumber LIKE '%{esc}%')");
+                }
+
+                // 2) Category filter from radio buttons
+                int? categoryId = GetSelectedCategoryIdFromRadio();
+                if (categoryId.HasValue)
+                {
+                    filters.Add($"Category_ID = {categoryId.Value}");
+                }
+
+                dv.RowFilter = (filters.Count == 0) ? "" : string.Join(" AND ", filters);
+
+                // 3) Sort column
+                string sortCol = "Product_Name";
+                if (rbPrice.Checked) sortCol = "Product_SellingPrice";
+                else if (rbStock.Checked) sortCol = "Product_QuantityInStock";
+
+                // 4) Order direction
+                string direction = rbDescending.Checked ? "DESC" : "ASC";
+
+                dv.Sort = $"{sortCol} {direction}";
+
+                // Bind
+                this.dataGridView4.DataSource = dv;
+                // Adjust column widths for readability
+                this.dataGridView4.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Failed to apply view filter/sort: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
-        private void label4_Click(object sender, EventArgs e)
+        // Determine Category_ID based on which filter radio is checked.
+        // Uses substring match against category names in dataset (case-insensitive).
+        // Returns null when no category filter selected (show all).
+        private int? GetSelectedCategoryIdFromRadio()
         {
+            // No selection -> null
+            bool anyCategoryChecked = rbBeer.Checked || rbWines.Checked || rbWhiskies.Checked ||
+                                      rbSpirits.Checked || rbRTD.Checked || rbNonAlcoholic.Checked ||
+                                      rbAccessories.Checked || rbSnacks.Checked || rbTobacco.Checked;
+            if (!anyCategoryChecked) return null;
 
+            string keyword = null;
+            if (rbBeer.Checked) keyword = "beer";
+            else if (rbWines.Checked) keyword = "wine";
+            else if (rbWhiskies.Checked) keyword = "whisk";
+            else if (rbSpirits.Checked) keyword = "spirit";
+            else if (rbRTD.Checked) keyword = "ready"; // 'Ready to drink'
+            else if (rbNonAlcoholic.Checked) keyword = "non"; // 'Non-Alcoholic'
+            else if (rbAccessories.Checked) keyword = "access";
+            else if (rbSnacks.Checked) keyword = "snack";
+            else if (rbTobacco.Checked) keyword = "tobacco";
+
+            if (string.IsNullOrEmpty(keyword)) return null;
+
+            // lookup category table for a matching name
+            foreach (DataRow r in this.dsSamsLiqourShop.Category.Rows)
+            {
+                if (r.IsNull("Category_Name")) continue;
+                string catName = Convert.ToString(r["Category_Name"]);
+                if (catName.IndexOf(keyword, StringComparison.OrdinalIgnoreCase) >= 0)
+                {
+                    return Convert.ToInt32(r["Category_ID"]);
+                }
+            }
+
+            // fallback: no matching category found — show none
+            return null;
         }
 
-        private void tabPage1_Click(object sender, EventArgs e)
-        {
+        // Existing add / update / delete / update-tab code remains unchanged below...
+        private void label1_Click(object sender, EventArgs e) { }
 
-        }
+        private void label2_Click(object sender, EventArgs e) { }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
+        private void label4_Click(object sender, EventArgs e) { }
 
-        }
+        private void tabPage1_Click(object sender, EventArgs e) { }
+
+        private void textBox1_TextChanged(object sender, EventArgs e) { }
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -211,7 +317,299 @@ namespace TheByteClubPOS
             {
                 MessageBox.Show("An error occurred while deleting the product:\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
+        }
+
+        // When a row in the Update tab grid is clicked, populate controls for editing
+        private void dataGridView3_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0) return;
+
+            try
+            {
+                var row = this.dataGridView3.Rows[e.RowIndex];
+                var idCell = row.Cells["productIDDataGridViewTextBoxColumn2"].Value;
+                if (idCell == null || idCell == DBNull.Value)
+                {
+                    MessageBox.Show("Selected row does not contain a valid Product ID.", "Invalid row", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                int productId = Convert.ToInt32(idCell);
+                LoadProductIntoUpdateControls(productId);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Failed to load selected product:\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void LoadProductIntoUpdateControls(int productId)
+        {
+            try
+            {
+                // Ensure the Product table is loaded and get the typed row
+                this.productTableAdapter.Fill(this.dsSamsLiqourShop.Product);
+                var productRow = this.dsSamsLiqourShop.Product.FindByProduct_ID(productId);
+
+                if (productRow == null)
+                {
+                    MessageBox.Show($"Product with ID {productId} not found in dataset.", "Not found", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                currentEditingProductId = productId;
+
+                // Helper readers that avoid relying on generated IsXxxNull() methods
+                Func<string, string> readString = col => (productRow[col] == DBNull.Value) ? "" : Convert.ToString(productRow[col]);
+                Func<string, object> readValueOrNull = col => (productRow[col] == DBNull.Value) ? null : productRow[col];
+
+                // Populate combo boxes (they are bound by ValueMember to ID)
+                var catVal = readValueOrNull("Category_ID");
+                var supVal = readValueOrNull("Supplier_ID");
+                var discVal = readValueOrNull("Discount_ID");
+
+                cmbCategory.SelectedValue = (catVal == null) ? (object)null : Convert.ToInt32(catVal);
+                cmbSupplier.SelectedValue = (supVal == null) ? (object)null : Convert.ToInt32(supVal);
+                if (discVal == null) cmbDiscount.SelectedIndex = -1;
+                else cmbDiscount.SelectedValue = Convert.ToInt32(discVal);
+
+                // Populate textboxes using column names from the dataset
+                txtName.Text = readString("Product_Name");
+                txtDescription.Text = readString("Product_Description");
+                txtBrand.Text = readString("Product_Brand");
+                txtType.Text = readString("Product_Type");
+                txtFlavour.Text = readString("Product_Flavour");
+                txtOrigin.Text = readString("Product_OriginRegion");
+                txtIngredients.Text = readString("Product_Ingredients");
+                txtBarcode.Text = readString("Product_BarcodeNumber");
+                txtStatus.Text = readString("Product_Status");
+                txtImage.Text = readString("Product_Image");
+
+                // Numeric fields displayed as text (empty when null)
+                txtPercentage.Text = readString("Product_AlcoholPercentage");
+                txtSize.Text = readString("Product_SizeML");
+                txtSellPrice.Text = readString("Product_SellingPrice");
+                txtCostPrice.Text = readString("Product_CostPrice");
+                txtQIS.Text = readString("Product_QuantityInStock");
+                txtROQ.Text = readString("Product_ReorderQuantity");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Failed to load product into update controls:\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        // Update button: persist edits back to the dataset and database
+        private void button2_Click(object sender, EventArgs e){
+           
+            try
+            {
+                if (currentEditingProductId == -1)
+                {
+                    MessageBox.Show("Please select a product first.",
+                        "No Product Selected",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning);
+                    return;
+                }
+
+                // Reload products
+                this.productTableAdapter.Fill(this.dsSamsLiqourShop.Product);
+
+                var productRow =
+                    this.dsSamsLiqourShop.Product.FindByProduct_ID(currentEditingProductId);
+
+                if (productRow == null)
+                {
+                    MessageBox.Show("Product not found.",
+                        "Error",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+                    return;
+                }
+
+                // ComboBoxes
+                productRow.Category_ID = Convert.ToInt32(cmbCategory.SelectedValue);
+                productRow.Supplier_ID = Convert.ToInt32(cmbSupplier.SelectedValue);
+
+                if (cmbDiscount.SelectedValue != null)
+                    productRow.Discount_ID = Convert.ToInt32(cmbDiscount.SelectedValue);
+                else
+                    productRow.SetDiscount_IDNull();
+
+                // Text Fields
+                productRow.Product_Name = txtName.Text.Trim();
+                productRow.Product_Description = txtDescription.Text.Trim();
+                productRow.Product_Brand = txtBrand.Text.Trim();
+                productRow.Product_Type = txtType.Text.Trim();
+                productRow.Product_Flavour = txtFlavour.Text.Trim();
+                productRow.Product_OriginRegion = txtOrigin.Text.Trim();
+                productRow.Product_Ingredients = txtIngredients.Text.Trim();
+                productRow.Product_BarcodeNumber = txtBarcode.Text.Trim();
+                productRow.Product_Status = txtStatus.Text.Trim();
+                productRow.Product_Image = txtImage.Text.Trim();
+
+                // Decimal
+                if (decimal.TryParse(txtPercentage.Text, out decimal alc))
+                    productRow.Product_AlcoholPercentage = alc;
+                else
+                    productRow.SetProduct_AlcoholPercentageNull();
+
+                // Int
+                if (int.TryParse(txtSize.Text, out int size))
+                    productRow.Product_SizeML = size;
+
+                if (int.TryParse(txtQIS.Text, out int stock))
+                    productRow.Product_QuantityInStock = stock;
+
+                if (int.TryParse(txtROQ.Text, out int reorder))
+                    productRow.Product_ReorderQuantity = reorder;
+
+                // Prices
+                if (!decimal.TryParse(txtSellPrice.Text, out decimal sellPrice))
+                {
+                    MessageBox.Show("Invalid Selling Price.");
+                    return;
+                }
+
+                if (!decimal.TryParse(txtCostPrice.Text, out decimal costPrice))
+                {
+                    MessageBox.Show("Invalid Cost Price.");
+                    return;
+                }
+
+                productRow.Product_SellingPrice = sellPrice;
+                productRow.Product_CostPrice = costPrice;
+
+                // Save changes
+                this.productTableAdapter.Update(this.dsSamsLiqourShop.Product);
+
+                MessageBox.Show("Product updated successfully.",
+                    "Success",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+
+                // Refresh grid
+                this.productTableAdapter.Fill(this.dsSamsLiqourShop.Product);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    "Error updating product:\n" + ex.Message,
+                    "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+        }
         
-    }
+
+        private void dataGridView3_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+          /*  try
+            {
+                // Ensure a row is selected
+                if (dataGridView3.CurrentRow == null)
+                {
+                    MessageBox.Show("Please select a product row first.", "No selection", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                // Read product ID from the selected grid row
+                object idCell = dataGridView3.CurrentRow.Cells["productIDDataGridViewTextBoxColumn2"].Value;
+                if (idCell == null || idCell == DBNull.Value)
+                {
+                    MessageBox.Show("Selected row does not contain a valid Product ID.", "Invalid row", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                int productId = Convert.ToInt32(idCell);
+
+                // Ensure the Product table is loaded and find the typed row by Product_ID.
+                this.productTableAdapter.Fill(this.dsSamsLiqourShop.Product);
+                var productRow = this.dsSamsLiqourShop.Product.FindByProduct_ID(productId);
+
+                if (productRow == null)
+                {
+                    MessageBox.Show($"Product with ID {productId} not found in dataset.", "Not found", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                // Track currently edited product id
+                currentEditingProductId = productId;
+
+                // Helper to safely read columns without relying on typed IsXxxNull() methods
+                Func<string, string> readString = col => (productRow[col] == DBNull.Value) ? "" : Convert.ToString(productRow[col]);
+                Func<string, object> readValueOrNull = col => (productRow[col] == DBNull.Value) ? null : productRow[col];
+
+                // Populate combo boxes (they are bound by ValueMember to ID)
+                var catVal = readValueOrNull("Category_ID");
+                var supVal = readValueOrNull("Supplier_ID");
+                var discVal = readValueOrNull("Discount_ID");
+
+                cmbCategory.SelectedValue = (catVal == null) ? (object)null : Convert.ToInt32(catVal);
+                cmbSupplier.SelectedValue = (supVal == null) ? (object)null : Convert.ToInt32(supVal);
+                if (discVal == null)
+                    cmbDiscount.SelectedIndex = -1;
+                else
+                    cmbDiscount.SelectedValue = Convert.ToInt32(discVal);
+
+                // Populate textboxes using column names from the dataset
+                txtName.Text = readString("Product_Name");
+                txtDescription.Text = readString("Product_Description");
+                txtBrand.Text = readString("Product_Brand");
+                txtType.Text = readString("Product_Type");
+                txtFlavour.Text = readString("Product_Flavour");
+                txtOrigin.Text = readString("Product_OriginRegion");
+                txtIngredients.Text = readString("Product_Ingredients");
+                txtBarcode.Text = readString("Product_BarcodeNumber");
+                txtStatus.Text = readString("Product_Status");
+                txtImage.Text = readString("Product_Image");
+
+                // Numeric fields displayed as text (empty when null)
+                txtPercentage.Text = readString("Product_AlcoholPercentage");
+                txtSize.Text = readString("Product_SizeML");
+                txtSellPrice.Text = readString("Product_SellingPrice");
+                txtCostPrice.Text = readString("Product_CostPrice");
+                txtQIS.Text = readString("Product_QuantityInStock");
+                txtROQ.Text = readString("Product_ReorderQuantity");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Failed to load selected product into the update controls:\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }*/
+          
+            if (dataGridView3.CurrentRow == null)
+            {
+                MessageBox.Show("Please select a product.");
+                return;
+            }
+
+            int productId = Convert.ToInt32(
+                dataGridView3.CurrentRow.Cells["productIDDataGridViewTextBoxColumn2"].Value);
+
+            LoadProductIntoUpdateControls(productId);
+        }
+
+        private void textBox17_TextChanged(object sender, EventArgs e)
+        {
+            productTableAdapter.FillByProName(dsSamsLiqourShop.Product, textBox17.Text.Trim());
+        }
+
+        private void l(object sender, EventArgs e)
+        {
+
+        }
+
+        private void rbBeer_CheckedChanged(object sender, EventArgs e)
+        {
+            // handled by shared handler assigned in Load
+        }
     }
 }

@@ -98,15 +98,10 @@
             this.productImageDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.productBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.productTableAdapter = new TheByteClubPOS.dsSamsLiqourShopTableAdapters.ProductTableAdapter();
-            this.categoryTableAdapter = new TheByteClubPOS.dsSamsLiqourShopTableAdapters.CategoryTableAdapter();
-            this.supplierTableAdapter = new TheByteClubPOS.dsSamsLiqourShopTableAdapters.SupplierTableAdapter();
-            this.discountTableAdapter = new TheByteClubPOS.dsSamsLiqourShopTableAdapters.DiscountTableAdapter();
-            this.dsSamsLiqourShop1 = new TheByteClubPOS.dsSamsLiqourShop();
+            this.btnDeleteP = new System.Windows.Forms.Button();
+            this.txtDel = new System.Windows.Forms.TextBox();
+            this.label20 = new System.Windows.Forms.Label();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.productBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.productIDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.categoryIDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.supplierIDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -127,9 +122,125 @@
             this.productReorderQuantityDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.productStatusDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.productImageDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label20 = new System.Windows.Forms.Label();
-            this.txtDel = new System.Windows.Forms.TextBox();
-            this.btnDeleteP = new System.Windows.Forms.Button();
+            this.productBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.button3 = new System.Windows.Forms.Button();
+            this.txtIDpro = new System.Windows.Forms.TextBox();
+            this.label40 = new System.Windows.Forms.Label();
+            this.txtImage = new System.Windows.Forms.TextBox();
+            this.txtStatus = new System.Windows.Forms.TextBox();
+            this.txtROQ = new System.Windows.Forms.TextBox();
+            this.txtQIS = new System.Windows.Forms.TextBox();
+            this.txtCostPrice = new System.Windows.Forms.TextBox();
+            this.txtSellPrice = new System.Windows.Forms.TextBox();
+            this.txtBarcode = new System.Windows.Forms.TextBox();
+            this.txtSize = new System.Windows.Forms.TextBox();
+            this.txtIngredients = new System.Windows.Forms.TextBox();
+            this.txtOrigin = new System.Windows.Forms.TextBox();
+            this.txtPercentage = new System.Windows.Forms.TextBox();
+            this.txtFlavour = new System.Windows.Forms.TextBox();
+            this.txtType = new System.Windows.Forms.TextBox();
+            this.txtBrand = new System.Windows.Forms.TextBox();
+            this.txtDescription = new System.Windows.Forms.TextBox();
+            this.txtName = new System.Windows.Forms.TextBox();
+            this.cmbDiscount = new System.Windows.Forms.ComboBox();
+            this.discountBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+            this.discountBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.cmbSupplier = new System.Windows.Forms.ComboBox();
+            this.supplierBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
+            this.supplierBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+            this.cmbCategory = new System.Windows.Forms.ComboBox();
+            this.categoryBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+            this.categoryBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.button2 = new System.Windows.Forms.Button();
+            this.label39 = new System.Windows.Forms.Label();
+            this.label38 = new System.Windows.Forms.Label();
+            this.label37 = new System.Windows.Forms.Label();
+            this.label36 = new System.Windows.Forms.Label();
+            this.label35 = new System.Windows.Forms.Label();
+            this.label34 = new System.Windows.Forms.Label();
+            this.label33 = new System.Windows.Forms.Label();
+            this.label32 = new System.Windows.Forms.Label();
+            this.label31 = new System.Windows.Forms.Label();
+            this.label30 = new System.Windows.Forms.Label();
+            this.label29 = new System.Windows.Forms.Label();
+            this.label28 = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.productIDDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.categoryIDDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.supplierIDDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.discountIDDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productNameDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productDescriptionDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productBrandDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productTypeDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productFlavourDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productAlcoholPercentageDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productOriginRegionDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productIngredientsDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productSizeMLDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productBarcodeNumberDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productSellingPriceDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productCostPriceDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productQuantityInStockDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productReorderQuantityDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productStatusDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productImageDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.rbDescending = new System.Windows.Forms.RadioButton();
+            this.rbAscending = new System.Windows.Forms.RadioButton();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.rbStock = new System.Windows.Forms.RadioButton();
+            this.rbPrice = new System.Windows.Forms.RadioButton();
+            this.rbName = new System.Windows.Forms.RadioButton();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.rbTobacco = new System.Windows.Forms.RadioButton();
+            this.rbSnacks = new System.Windows.Forms.RadioButton();
+            this.rbAccessories = new System.Windows.Forms.RadioButton();
+            this.rbNonAlcoholic = new System.Windows.Forms.RadioButton();
+            this.rbRTD = new System.Windows.Forms.RadioButton();
+            this.rbSpirits = new System.Windows.Forms.RadioButton();
+            this.rbWhiskies = new System.Windows.Forms.RadioButton();
+            this.rbWines = new System.Windows.Forms.RadioButton();
+            this.rbBeer = new System.Windows.Forms.RadioButton();
+            this.textBox17 = new System.Windows.Forms.TextBox();
+            this.label41 = new System.Windows.Forms.Label();
+            this.dataGridView4 = new System.Windows.Forms.DataGridView();
+            this.productIDDataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.categoryIDDataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.supplierIDDataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.discountIDDataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productNameDataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productDescriptionDataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productBrandDataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productTypeDataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productFlavourDataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productAlcoholPercentageDataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productOriginRegionDataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productIngredientsDataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productSizeMLDataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productBarcodeNumberDataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productSellingPriceDataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productCostPriceDataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productQuantityInStockDataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productReorderQuantityDataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productStatusDataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productImageDataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
+            this.productTableAdapter = new TheByteClubPOS.dsSamsLiqourShopTableAdapters.ProductTableAdapter();
+            this.categoryTableAdapter = new TheByteClubPOS.dsSamsLiqourShopTableAdapters.CategoryTableAdapter();
+            this.supplierTableAdapter = new TheByteClubPOS.dsSamsLiqourShopTableAdapters.SupplierTableAdapter();
+            this.discountTableAdapter = new TheByteClubPOS.dsSamsLiqourShopTableAdapters.DiscountTableAdapter();
+            this.dsSamsLiqourShop1 = new TheByteClubPOS.dsSamsLiqourShop();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.discountBindingSource)).BeginInit();
@@ -140,9 +251,24 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).BeginInit();
             this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dsSamsLiqourShop1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource1)).BeginInit();
+            this.tabPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.discountBindingSource2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.discountBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.supplierBindingSource3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.supplierBindingSource2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.categoryBindingSource2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.categoryBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productBindingSource2)).BeginInit();
+            this.tabPage4.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productBindingSource3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsSamsLiqourShop1)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -780,46 +906,31 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Discontinue Product";
             // 
-            // tabPage3
+            // btnDeleteP
             // 
-            this.tabPage3.Location = new System.Drawing.Point(4, 46);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(1811, 1507);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "tabPage3";
-            this.tabPage3.UseVisualStyleBackColor = true;
+            this.btnDeleteP.Location = new System.Drawing.Point(413, 847);
+            this.btnDeleteP.Name = "btnDeleteP";
+            this.btnDeleteP.Size = new System.Drawing.Size(240, 140);
+            this.btnDeleteP.TabIndex = 3;
+            this.btnDeleteP.Text = "Discontinue Product";
+            this.btnDeleteP.UseVisualStyleBackColor = true;
+            this.btnDeleteP.Click += new System.EventHandler(this.btnDeleteP_Click);
             // 
-            // tabPage4
+            // txtDel
             // 
-            this.tabPage4.Location = new System.Drawing.Point(4, 46);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(1811, 1507);
-            this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "tabPage4";
-            this.tabPage4.UseVisualStyleBackColor = true;
+            this.txtDel.Location = new System.Drawing.Point(411, 721);
+            this.txtDel.Name = "txtDel";
+            this.txtDel.Size = new System.Drawing.Size(198, 44);
+            this.txtDel.TabIndex = 2;
             // 
-            // productTableAdapter
+            // label20
             // 
-            this.productTableAdapter.ClearBeforeFill = true;
-            // 
-            // categoryTableAdapter
-            // 
-            this.categoryTableAdapter.ClearBeforeFill = true;
-            // 
-            // supplierTableAdapter
-            // 
-            this.supplierTableAdapter.ClearBeforeFill = true;
-            // 
-            // discountTableAdapter
-            // 
-            this.discountTableAdapter.ClearBeforeFill = true;
-            // 
-            // dsSamsLiqourShop1
-            // 
-            this.dsSamsLiqourShop1.DataSetName = "dsSamsLiqourShop";
-            this.dsSamsLiqourShop1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(127, 721);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(269, 37);
+            this.label20.TabIndex = 1;
+            this.label20.Text = "Enter ProductID:";
             // 
             // dataGridView2
             // 
@@ -853,11 +964,6 @@
             this.dataGridView2.RowTemplate.Height = 28;
             this.dataGridView2.Size = new System.Drawing.Size(1708, 562);
             this.dataGridView2.TabIndex = 0;
-            // 
-            // productBindingSource1
-            // 
-            this.productBindingSource1.DataMember = "Product";
-            this.productBindingSource1.DataSource = this.dsSamsLiqourShop;
             // 
             // productIDDataGridViewTextBoxColumn1
             // 
@@ -1020,31 +1126,1097 @@
             this.productImageDataGridViewTextBoxColumn1.Name = "productImageDataGridViewTextBoxColumn1";
             this.productImageDataGridViewTextBoxColumn1.Width = 150;
             // 
-            // label20
+            // productBindingSource1
             // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(127, 721);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(269, 37);
-            this.label20.TabIndex = 1;
-            this.label20.Text = "Enter ProductID:";
+            this.productBindingSource1.DataMember = "Product";
+            this.productBindingSource1.DataSource = this.dsSamsLiqourShop;
             // 
-            // txtDel
+            // tabPage3
             // 
-            this.txtDel.Location = new System.Drawing.Point(411, 721);
-            this.txtDel.Name = "txtDel";
-            this.txtDel.Size = new System.Drawing.Size(198, 44);
-            this.txtDel.TabIndex = 2;
+            this.tabPage3.BackColor = System.Drawing.Color.MidnightBlue;
+            this.tabPage3.Controls.Add(this.button3);
+            this.tabPage3.Controls.Add(this.txtIDpro);
+            this.tabPage3.Controls.Add(this.label40);
+            this.tabPage3.Controls.Add(this.txtImage);
+            this.tabPage3.Controls.Add(this.txtStatus);
+            this.tabPage3.Controls.Add(this.txtROQ);
+            this.tabPage3.Controls.Add(this.txtQIS);
+            this.tabPage3.Controls.Add(this.txtCostPrice);
+            this.tabPage3.Controls.Add(this.txtSellPrice);
+            this.tabPage3.Controls.Add(this.txtBarcode);
+            this.tabPage3.Controls.Add(this.txtSize);
+            this.tabPage3.Controls.Add(this.txtIngredients);
+            this.tabPage3.Controls.Add(this.txtOrigin);
+            this.tabPage3.Controls.Add(this.txtPercentage);
+            this.tabPage3.Controls.Add(this.txtFlavour);
+            this.tabPage3.Controls.Add(this.txtType);
+            this.tabPage3.Controls.Add(this.txtBrand);
+            this.tabPage3.Controls.Add(this.txtDescription);
+            this.tabPage3.Controls.Add(this.txtName);
+            this.tabPage3.Controls.Add(this.cmbDiscount);
+            this.tabPage3.Controls.Add(this.cmbSupplier);
+            this.tabPage3.Controls.Add(this.cmbCategory);
+            this.tabPage3.Controls.Add(this.button2);
+            this.tabPage3.Controls.Add(this.label39);
+            this.tabPage3.Controls.Add(this.label38);
+            this.tabPage3.Controls.Add(this.label37);
+            this.tabPage3.Controls.Add(this.label36);
+            this.tabPage3.Controls.Add(this.label35);
+            this.tabPage3.Controls.Add(this.label34);
+            this.tabPage3.Controls.Add(this.label33);
+            this.tabPage3.Controls.Add(this.label32);
+            this.tabPage3.Controls.Add(this.label31);
+            this.tabPage3.Controls.Add(this.label30);
+            this.tabPage3.Controls.Add(this.label29);
+            this.tabPage3.Controls.Add(this.label28);
+            this.tabPage3.Controls.Add(this.label27);
+            this.tabPage3.Controls.Add(this.label26);
+            this.tabPage3.Controls.Add(this.label25);
+            this.tabPage3.Controls.Add(this.label24);
+            this.tabPage3.Controls.Add(this.label23);
+            this.tabPage3.Controls.Add(this.label22);
+            this.tabPage3.Controls.Add(this.label21);
+            this.tabPage3.Controls.Add(this.dataGridView3);
+            this.tabPage3.Location = new System.Drawing.Point(4, 46);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(1811, 1507);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Update Product";
             // 
-            // btnDeleteP
+            // button3
             // 
-            this.btnDeleteP.Location = new System.Drawing.Point(413, 847);
-            this.btnDeleteP.Name = "btnDeleteP";
-            this.btnDeleteP.Size = new System.Drawing.Size(240, 140);
-            this.btnDeleteP.TabIndex = 3;
-            this.btnDeleteP.Text = "Discontinue Product";
-            this.btnDeleteP.UseVisualStyleBackColor = true;
-            this.btnDeleteP.Click += new System.EventHandler(this.btnDeleteP_Click);
+            this.button3.Location = new System.Drawing.Point(866, 397);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(271, 83);
+            this.button3.TabIndex = 65;
+            this.button3.Text = "DISPLAY product";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // txtIDpro
+            // 
+            this.txtIDpro.Location = new System.Drawing.Point(361, 396);
+            this.txtIDpro.Name = "txtIDpro";
+            this.txtIDpro.Size = new System.Drawing.Size(444, 44);
+            this.txtIDpro.TabIndex = 64;
+            // 
+            // label40
+            // 
+            this.label40.AutoSize = true;
+            this.label40.Location = new System.Drawing.Point(30, 392);
+            this.label40.Name = "label40";
+            this.label40.Size = new System.Drawing.Size(315, 37);
+            this.label40.TabIndex = 63;
+            this.label40.Text = "Enter ID of product:";
+            // 
+            // txtImage
+            // 
+            this.txtImage.Location = new System.Drawing.Point(1039, 1082);
+            this.txtImage.Name = "txtImage";
+            this.txtImage.Size = new System.Drawing.Size(573, 44);
+            this.txtImage.TabIndex = 61;
+            // 
+            // txtStatus
+            // 
+            this.txtStatus.Location = new System.Drawing.Point(1038, 983);
+            this.txtStatus.Name = "txtStatus";
+            this.txtStatus.Size = new System.Drawing.Size(574, 44);
+            this.txtStatus.TabIndex = 60;
+            // 
+            // txtROQ
+            // 
+            this.txtROQ.Location = new System.Drawing.Point(1212, 899);
+            this.txtROQ.Name = "txtROQ";
+            this.txtROQ.Size = new System.Drawing.Size(400, 44);
+            this.txtROQ.TabIndex = 59;
+            // 
+            // txtQIS
+            // 
+            this.txtQIS.Location = new System.Drawing.Point(1201, 807);
+            this.txtQIS.Name = "txtQIS";
+            this.txtQIS.Size = new System.Drawing.Size(411, 44);
+            this.txtQIS.TabIndex = 58;
+            // 
+            // txtCostPrice
+            // 
+            this.txtCostPrice.Location = new System.Drawing.Point(1140, 722);
+            this.txtCostPrice.Name = "txtCostPrice";
+            this.txtCostPrice.Size = new System.Drawing.Size(472, 44);
+            this.txtCostPrice.TabIndex = 57;
+            // 
+            // txtSellPrice
+            // 
+            this.txtSellPrice.Location = new System.Drawing.Point(1136, 638);
+            this.txtSellPrice.Name = "txtSellPrice";
+            this.txtSellPrice.Size = new System.Drawing.Size(476, 44);
+            this.txtSellPrice.TabIndex = 56;
+            // 
+            // txtBarcode
+            // 
+            this.txtBarcode.Location = new System.Drawing.Point(1132, 555);
+            this.txtBarcode.Name = "txtBarcode";
+            this.txtBarcode.Size = new System.Drawing.Size(480, 44);
+            this.txtBarcode.TabIndex = 55;
+            // 
+            // txtSize
+            // 
+            this.txtSize.Location = new System.Drawing.Point(183, 1420);
+            this.txtSize.Name = "txtSize";
+            this.txtSize.Size = new System.Drawing.Size(622, 44);
+            this.txtSize.TabIndex = 54;
+            // 
+            // txtIngredients
+            // 
+            this.txtIngredients.Location = new System.Drawing.Point(281, 1348);
+            this.txtIngredients.Name = "txtIngredients";
+            this.txtIngredients.Size = new System.Drawing.Size(524, 44);
+            this.txtIngredients.TabIndex = 53;
+            // 
+            // txtOrigin
+            // 
+            this.txtOrigin.Location = new System.Drawing.Point(335, 1266);
+            this.txtOrigin.Name = "txtOrigin";
+            this.txtOrigin.Size = new System.Drawing.Size(470, 44);
+            this.txtOrigin.TabIndex = 52;
+            // 
+            // txtPercentage
+            // 
+            this.txtPercentage.Location = new System.Drawing.Point(406, 1182);
+            this.txtPercentage.Name = "txtPercentage";
+            this.txtPercentage.Size = new System.Drawing.Size(399, 44);
+            this.txtPercentage.TabIndex = 51;
+            // 
+            // txtFlavour
+            // 
+            this.txtFlavour.Location = new System.Drawing.Point(350, 1099);
+            this.txtFlavour.Name = "txtFlavour";
+            this.txtFlavour.Size = new System.Drawing.Size(455, 44);
+            this.txtFlavour.TabIndex = 50;
+            // 
+            // txtType
+            // 
+            this.txtType.Location = new System.Drawing.Point(334, 1013);
+            this.txtType.Name = "txtType";
+            this.txtType.Size = new System.Drawing.Size(471, 44);
+            this.txtType.TabIndex = 49;
+            // 
+            // txtBrand
+            // 
+            this.txtBrand.Location = new System.Drawing.Point(336, 931);
+            this.txtBrand.Name = "txtBrand";
+            this.txtBrand.Size = new System.Drawing.Size(469, 44);
+            this.txtBrand.TabIndex = 48;
+            // 
+            // txtDescription
+            // 
+            this.txtDescription.Location = new System.Drawing.Point(412, 857);
+            this.txtDescription.Name = "txtDescription";
+            this.txtDescription.Size = new System.Drawing.Size(393, 44);
+            this.txtDescription.TabIndex = 47;
+            // 
+            // txtName
+            // 
+            this.txtName.Location = new System.Drawing.Point(335, 780);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(470, 44);
+            this.txtName.TabIndex = 46;
+            // 
+            // cmbDiscount
+            // 
+            this.cmbDiscount.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.discountBindingSource2, "Discount_ID", true));
+            this.cmbDiscount.DataSource = this.discountBindingSource1;
+            this.cmbDiscount.DisplayMember = "Discount_Name";
+            this.cmbDiscount.FormattingEnabled = true;
+            this.cmbDiscount.Location = new System.Drawing.Point(260, 705);
+            this.cmbDiscount.Name = "cmbDiscount";
+            this.cmbDiscount.Size = new System.Drawing.Size(343, 45);
+            this.cmbDiscount.TabIndex = 45;
+            this.cmbDiscount.ValueMember = "Discount_ID";
+            // 
+            // discountBindingSource2
+            // 
+            this.discountBindingSource2.DataMember = "Discount";
+            this.discountBindingSource2.DataSource = this.dsSamsLiqourShop;
+            // 
+            // discountBindingSource1
+            // 
+            this.discountBindingSource1.DataMember = "Discount";
+            this.discountBindingSource1.DataSource = this.dsSamsLiqourShop;
+            // 
+            // cmbSupplier
+            // 
+            this.cmbSupplier.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.supplierBindingSource3, "Supplier_ID", true));
+            this.cmbSupplier.DataSource = this.supplierBindingSource2;
+            this.cmbSupplier.DisplayMember = "Supplier_Name";
+            this.cmbSupplier.FormattingEnabled = true;
+            this.cmbSupplier.Location = new System.Drawing.Point(256, 629);
+            this.cmbSupplier.Name = "cmbSupplier";
+            this.cmbSupplier.Size = new System.Drawing.Size(347, 45);
+            this.cmbSupplier.TabIndex = 44;
+            this.cmbSupplier.ValueMember = "Supplier_ID";
+            // 
+            // supplierBindingSource3
+            // 
+            this.supplierBindingSource3.DataMember = "Supplier";
+            this.supplierBindingSource3.DataSource = this.dsSamsLiqourShop;
+            // 
+            // supplierBindingSource2
+            // 
+            this.supplierBindingSource2.DataMember = "Supplier";
+            this.supplierBindingSource2.DataSource = this.dsSamsLiqourShop;
+            // 
+            // cmbCategory
+            // 
+            this.cmbCategory.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.categoryBindingSource2, "Category_ID", true));
+            this.cmbCategory.DataSource = this.categoryBindingSource1;
+            this.cmbCategory.DisplayMember = "Category_Name";
+            this.cmbCategory.FormattingEnabled = true;
+            this.cmbCategory.Location = new System.Drawing.Point(255, 557);
+            this.cmbCategory.Name = "cmbCategory";
+            this.cmbCategory.Size = new System.Drawing.Size(348, 45);
+            this.cmbCategory.TabIndex = 43;
+            this.cmbCategory.ValueMember = "Category_ID";
+            // 
+            // categoryBindingSource2
+            // 
+            this.categoryBindingSource2.DataMember = "Category";
+            this.categoryBindingSource2.DataSource = this.dsSamsLiqourShop;
+            // 
+            // categoryBindingSource1
+            // 
+            this.categoryBindingSource1.DataMember = "Category";
+            this.categoryBindingSource1.DataSource = this.dsSamsLiqourShop;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(981, 1261);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(323, 93);
+            this.button2.TabIndex = 42;
+            this.button2.Text = "Update";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // label39
+            // 
+            this.label39.AutoSize = true;
+            this.label39.Location = new System.Drawing.Point(905, 1075);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(120, 37);
+            this.label39.TabIndex = 41;
+            this.label39.Text = "Image:";
+            // 
+            // label38
+            // 
+            this.label38.AutoSize = true;
+            this.label38.Location = new System.Drawing.Point(905, 980);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(124, 37);
+            this.label38.TabIndex = 30;
+            this.label38.Text = "Status:";
+            // 
+            // label37
+            // 
+            this.label37.AutoSize = true;
+            this.label37.Location = new System.Drawing.Point(905, 899);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(303, 37);
+            this.label37.TabIndex = 29;
+            this.label37.Text = "Re-Order Quantity:";
+            // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.Location = new System.Drawing.Point(905, 807);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(286, 37);
+            this.label36.TabIndex = 28;
+            this.label36.Text = "Quantity in Stock:";
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Location = new System.Drawing.Point(905, 721);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(184, 37);
+            this.label35.TabIndex = 27;
+            this.label35.Text = "Cost Price:";
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Location = new System.Drawing.Point(905, 634);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(216, 37);
+            this.label34.TabIndex = 26;
+            this.label34.Text = "Selling Price:";
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Location = new System.Drawing.Point(905, 549);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(207, 37);
+            this.label33.TabIndex = 25;
+            this.label33.Text = "Barcode No:";
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Location = new System.Drawing.Point(76, 1428);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(92, 37);
+            this.label32.TabIndex = 24;
+            this.label32.Text = "Size:";
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Location = new System.Drawing.Point(76, 1348);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(195, 37);
+            this.label31.TabIndex = 23;
+            this.label31.Text = "Ingredients:";
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Location = new System.Drawing.Point(76, 1265);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(247, 37);
+            this.label30.TabIndex = 22;
+            this.label30.Text = "Product Origin:";
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Location = new System.Drawing.Point(76, 1178);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(322, 37);
+            this.label29.TabIndex = 20;
+            this.label29.Text = "Alcohol Percentage:";
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(76, 1092);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(269, 37);
+            this.label28.TabIndex = 16;
+            this.label28.Text = "Product Flavour:";
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(76, 1006);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(229, 37);
+            this.label27.TabIndex = 15;
+            this.label27.Text = "Product Type:";
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(76, 927);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(246, 37);
+            this.label26.TabIndex = 14;
+            this.label26.Text = "Product Brand:";
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(76, 854);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(321, 37);
+            this.label25.TabIndex = 10;
+            this.label25.Text = "Product description:";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(76, 772);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(245, 37);
+            this.label24.TabIndex = 9;
+            this.label24.Text = "Product Name:";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(76, 698);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(160, 37);
+            this.label23.TabIndex = 8;
+            this.label23.Text = "Discount:";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(72, 623);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(152, 37);
+            this.label22.TabIndex = 3;
+            this.label22.Text = "Supplier:";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(72, 549);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(164, 37);
+            this.label21.TabIndex = 2;
+            this.label21.Text = "Category:";
+            // 
+            // dataGridView3
+            // 
+            this.dataGridView3.AutoGenerateColumns = false;
+            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.productIDDataGridViewTextBoxColumn2,
+            this.categoryIDDataGridViewTextBoxColumn2,
+            this.supplierIDDataGridViewTextBoxColumn2,
+            this.discountIDDataGridViewTextBoxColumn2,
+            this.productNameDataGridViewTextBoxColumn2,
+            this.productDescriptionDataGridViewTextBoxColumn2,
+            this.productBrandDataGridViewTextBoxColumn2,
+            this.productTypeDataGridViewTextBoxColumn2,
+            this.productFlavourDataGridViewTextBoxColumn2,
+            this.productAlcoholPercentageDataGridViewTextBoxColumn2,
+            this.productOriginRegionDataGridViewTextBoxColumn2,
+            this.productIngredientsDataGridViewTextBoxColumn2,
+            this.productSizeMLDataGridViewTextBoxColumn2,
+            this.productBarcodeNumberDataGridViewTextBoxColumn2,
+            this.productSellingPriceDataGridViewTextBoxColumn2,
+            this.productCostPriceDataGridViewTextBoxColumn2,
+            this.productQuantityInStockDataGridViewTextBoxColumn2,
+            this.productReorderQuantityDataGridViewTextBoxColumn2,
+            this.productStatusDataGridViewTextBoxColumn2,
+            this.productImageDataGridViewTextBoxColumn2});
+            this.dataGridView3.DataSource = this.productBindingSource2;
+            this.dataGridView3.Location = new System.Drawing.Point(19, 54);
+            this.dataGridView3.Name = "dataGridView3";
+            this.dataGridView3.RowHeadersWidth = 62;
+            this.dataGridView3.RowTemplate.Height = 28;
+            this.dataGridView3.Size = new System.Drawing.Size(1754, 314);
+            this.dataGridView3.TabIndex = 0;
+            this.dataGridView3.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView3_CellContentClick);
+            // 
+            // productIDDataGridViewTextBoxColumn2
+            // 
+            this.productIDDataGridViewTextBoxColumn2.DataPropertyName = "Product_ID";
+            this.productIDDataGridViewTextBoxColumn2.HeaderText = "Product_ID";
+            this.productIDDataGridViewTextBoxColumn2.MinimumWidth = 8;
+            this.productIDDataGridViewTextBoxColumn2.Name = "productIDDataGridViewTextBoxColumn2";
+            this.productIDDataGridViewTextBoxColumn2.ReadOnly = true;
+            this.productIDDataGridViewTextBoxColumn2.Width = 150;
+            // 
+            // categoryIDDataGridViewTextBoxColumn2
+            // 
+            this.categoryIDDataGridViewTextBoxColumn2.DataPropertyName = "Category_ID";
+            this.categoryIDDataGridViewTextBoxColumn2.HeaderText = "Category_ID";
+            this.categoryIDDataGridViewTextBoxColumn2.MinimumWidth = 8;
+            this.categoryIDDataGridViewTextBoxColumn2.Name = "categoryIDDataGridViewTextBoxColumn2";
+            this.categoryIDDataGridViewTextBoxColumn2.Width = 150;
+            // 
+            // supplierIDDataGridViewTextBoxColumn2
+            // 
+            this.supplierIDDataGridViewTextBoxColumn2.DataPropertyName = "Supplier_ID";
+            this.supplierIDDataGridViewTextBoxColumn2.HeaderText = "Supplier_ID";
+            this.supplierIDDataGridViewTextBoxColumn2.MinimumWidth = 8;
+            this.supplierIDDataGridViewTextBoxColumn2.Name = "supplierIDDataGridViewTextBoxColumn2";
+            this.supplierIDDataGridViewTextBoxColumn2.Width = 150;
+            // 
+            // discountIDDataGridViewTextBoxColumn2
+            // 
+            this.discountIDDataGridViewTextBoxColumn2.DataPropertyName = "Discount_ID";
+            this.discountIDDataGridViewTextBoxColumn2.HeaderText = "Discount_ID";
+            this.discountIDDataGridViewTextBoxColumn2.MinimumWidth = 8;
+            this.discountIDDataGridViewTextBoxColumn2.Name = "discountIDDataGridViewTextBoxColumn2";
+            this.discountIDDataGridViewTextBoxColumn2.Width = 150;
+            // 
+            // productNameDataGridViewTextBoxColumn2
+            // 
+            this.productNameDataGridViewTextBoxColumn2.DataPropertyName = "Product_Name";
+            this.productNameDataGridViewTextBoxColumn2.HeaderText = "Product_Name";
+            this.productNameDataGridViewTextBoxColumn2.MinimumWidth = 8;
+            this.productNameDataGridViewTextBoxColumn2.Name = "productNameDataGridViewTextBoxColumn2";
+            this.productNameDataGridViewTextBoxColumn2.Width = 150;
+            // 
+            // productDescriptionDataGridViewTextBoxColumn2
+            // 
+            this.productDescriptionDataGridViewTextBoxColumn2.DataPropertyName = "Product_Description";
+            this.productDescriptionDataGridViewTextBoxColumn2.HeaderText = "Product_Description";
+            this.productDescriptionDataGridViewTextBoxColumn2.MinimumWidth = 8;
+            this.productDescriptionDataGridViewTextBoxColumn2.Name = "productDescriptionDataGridViewTextBoxColumn2";
+            this.productDescriptionDataGridViewTextBoxColumn2.Width = 150;
+            // 
+            // productBrandDataGridViewTextBoxColumn2
+            // 
+            this.productBrandDataGridViewTextBoxColumn2.DataPropertyName = "Product_Brand";
+            this.productBrandDataGridViewTextBoxColumn2.HeaderText = "Product_Brand";
+            this.productBrandDataGridViewTextBoxColumn2.MinimumWidth = 8;
+            this.productBrandDataGridViewTextBoxColumn2.Name = "productBrandDataGridViewTextBoxColumn2";
+            this.productBrandDataGridViewTextBoxColumn2.Width = 150;
+            // 
+            // productTypeDataGridViewTextBoxColumn2
+            // 
+            this.productTypeDataGridViewTextBoxColumn2.DataPropertyName = "Product_Type";
+            this.productTypeDataGridViewTextBoxColumn2.HeaderText = "Product_Type";
+            this.productTypeDataGridViewTextBoxColumn2.MinimumWidth = 8;
+            this.productTypeDataGridViewTextBoxColumn2.Name = "productTypeDataGridViewTextBoxColumn2";
+            this.productTypeDataGridViewTextBoxColumn2.Width = 150;
+            // 
+            // productFlavourDataGridViewTextBoxColumn2
+            // 
+            this.productFlavourDataGridViewTextBoxColumn2.DataPropertyName = "Product_Flavour";
+            this.productFlavourDataGridViewTextBoxColumn2.HeaderText = "Product_Flavour";
+            this.productFlavourDataGridViewTextBoxColumn2.MinimumWidth = 8;
+            this.productFlavourDataGridViewTextBoxColumn2.Name = "productFlavourDataGridViewTextBoxColumn2";
+            this.productFlavourDataGridViewTextBoxColumn2.Width = 150;
+            // 
+            // productAlcoholPercentageDataGridViewTextBoxColumn2
+            // 
+            this.productAlcoholPercentageDataGridViewTextBoxColumn2.DataPropertyName = "Product_AlcoholPercentage";
+            this.productAlcoholPercentageDataGridViewTextBoxColumn2.HeaderText = "Product_AlcoholPercentage";
+            this.productAlcoholPercentageDataGridViewTextBoxColumn2.MinimumWidth = 8;
+            this.productAlcoholPercentageDataGridViewTextBoxColumn2.Name = "productAlcoholPercentageDataGridViewTextBoxColumn2";
+            this.productAlcoholPercentageDataGridViewTextBoxColumn2.Width = 150;
+            // 
+            // productOriginRegionDataGridViewTextBoxColumn2
+            // 
+            this.productOriginRegionDataGridViewTextBoxColumn2.DataPropertyName = "Product_OriginRegion";
+            this.productOriginRegionDataGridViewTextBoxColumn2.HeaderText = "Product_OriginRegion";
+            this.productOriginRegionDataGridViewTextBoxColumn2.MinimumWidth = 8;
+            this.productOriginRegionDataGridViewTextBoxColumn2.Name = "productOriginRegionDataGridViewTextBoxColumn2";
+            this.productOriginRegionDataGridViewTextBoxColumn2.Width = 150;
+            // 
+            // productIngredientsDataGridViewTextBoxColumn2
+            // 
+            this.productIngredientsDataGridViewTextBoxColumn2.DataPropertyName = "Product_Ingredients";
+            this.productIngredientsDataGridViewTextBoxColumn2.HeaderText = "Product_Ingredients";
+            this.productIngredientsDataGridViewTextBoxColumn2.MinimumWidth = 8;
+            this.productIngredientsDataGridViewTextBoxColumn2.Name = "productIngredientsDataGridViewTextBoxColumn2";
+            this.productIngredientsDataGridViewTextBoxColumn2.Width = 150;
+            // 
+            // productSizeMLDataGridViewTextBoxColumn2
+            // 
+            this.productSizeMLDataGridViewTextBoxColumn2.DataPropertyName = "Product_SizeML";
+            this.productSizeMLDataGridViewTextBoxColumn2.HeaderText = "Product_SizeML";
+            this.productSizeMLDataGridViewTextBoxColumn2.MinimumWidth = 8;
+            this.productSizeMLDataGridViewTextBoxColumn2.Name = "productSizeMLDataGridViewTextBoxColumn2";
+            this.productSizeMLDataGridViewTextBoxColumn2.Width = 150;
+            // 
+            // productBarcodeNumberDataGridViewTextBoxColumn2
+            // 
+            this.productBarcodeNumberDataGridViewTextBoxColumn2.DataPropertyName = "Product_BarcodeNumber";
+            this.productBarcodeNumberDataGridViewTextBoxColumn2.HeaderText = "Product_BarcodeNumber";
+            this.productBarcodeNumberDataGridViewTextBoxColumn2.MinimumWidth = 8;
+            this.productBarcodeNumberDataGridViewTextBoxColumn2.Name = "productBarcodeNumberDataGridViewTextBoxColumn2";
+            this.productBarcodeNumberDataGridViewTextBoxColumn2.Width = 150;
+            // 
+            // productSellingPriceDataGridViewTextBoxColumn2
+            // 
+            this.productSellingPriceDataGridViewTextBoxColumn2.DataPropertyName = "Product_SellingPrice";
+            this.productSellingPriceDataGridViewTextBoxColumn2.HeaderText = "Product_SellingPrice";
+            this.productSellingPriceDataGridViewTextBoxColumn2.MinimumWidth = 8;
+            this.productSellingPriceDataGridViewTextBoxColumn2.Name = "productSellingPriceDataGridViewTextBoxColumn2";
+            this.productSellingPriceDataGridViewTextBoxColumn2.Width = 150;
+            // 
+            // productCostPriceDataGridViewTextBoxColumn2
+            // 
+            this.productCostPriceDataGridViewTextBoxColumn2.DataPropertyName = "Product_CostPrice";
+            this.productCostPriceDataGridViewTextBoxColumn2.HeaderText = "Product_CostPrice";
+            this.productCostPriceDataGridViewTextBoxColumn2.MinimumWidth = 8;
+            this.productCostPriceDataGridViewTextBoxColumn2.Name = "productCostPriceDataGridViewTextBoxColumn2";
+            this.productCostPriceDataGridViewTextBoxColumn2.Width = 150;
+            // 
+            // productQuantityInStockDataGridViewTextBoxColumn2
+            // 
+            this.productQuantityInStockDataGridViewTextBoxColumn2.DataPropertyName = "Product_QuantityInStock";
+            this.productQuantityInStockDataGridViewTextBoxColumn2.HeaderText = "Product_QuantityInStock";
+            this.productQuantityInStockDataGridViewTextBoxColumn2.MinimumWidth = 8;
+            this.productQuantityInStockDataGridViewTextBoxColumn2.Name = "productQuantityInStockDataGridViewTextBoxColumn2";
+            this.productQuantityInStockDataGridViewTextBoxColumn2.Width = 150;
+            // 
+            // productReorderQuantityDataGridViewTextBoxColumn2
+            // 
+            this.productReorderQuantityDataGridViewTextBoxColumn2.DataPropertyName = "Product_ReorderQuantity";
+            this.productReorderQuantityDataGridViewTextBoxColumn2.HeaderText = "Product_ReorderQuantity";
+            this.productReorderQuantityDataGridViewTextBoxColumn2.MinimumWidth = 8;
+            this.productReorderQuantityDataGridViewTextBoxColumn2.Name = "productReorderQuantityDataGridViewTextBoxColumn2";
+            this.productReorderQuantityDataGridViewTextBoxColumn2.Width = 150;
+            // 
+            // productStatusDataGridViewTextBoxColumn2
+            // 
+            this.productStatusDataGridViewTextBoxColumn2.DataPropertyName = "Product_Status";
+            this.productStatusDataGridViewTextBoxColumn2.HeaderText = "Product_Status";
+            this.productStatusDataGridViewTextBoxColumn2.MinimumWidth = 8;
+            this.productStatusDataGridViewTextBoxColumn2.Name = "productStatusDataGridViewTextBoxColumn2";
+            this.productStatusDataGridViewTextBoxColumn2.Width = 150;
+            // 
+            // productImageDataGridViewTextBoxColumn2
+            // 
+            this.productImageDataGridViewTextBoxColumn2.DataPropertyName = "Product_Image";
+            this.productImageDataGridViewTextBoxColumn2.HeaderText = "Product_Image";
+            this.productImageDataGridViewTextBoxColumn2.MinimumWidth = 8;
+            this.productImageDataGridViewTextBoxColumn2.Name = "productImageDataGridViewTextBoxColumn2";
+            this.productImageDataGridViewTextBoxColumn2.Width = 150;
+            // 
+            // productBindingSource2
+            // 
+            this.productBindingSource2.DataMember = "Product";
+            this.productBindingSource2.DataSource = this.dsSamsLiqourShop;
+            // 
+            // tabPage4
+            // 
+            this.tabPage4.Controls.Add(this.groupBox3);
+            this.tabPage4.Controls.Add(this.groupBox2);
+            this.tabPage4.Controls.Add(this.groupBox1);
+            this.tabPage4.Controls.Add(this.textBox17);
+            this.tabPage4.Controls.Add(this.label41);
+            this.tabPage4.Controls.Add(this.dataGridView4);
+            this.tabPage4.Location = new System.Drawing.Point(4, 46);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(1811, 1507);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "View Products";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.rbDescending);
+            this.groupBox3.Controls.Add(this.rbAscending);
+            this.groupBox3.Location = new System.Drawing.Point(494, 1198);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(415, 253);
+            this.groupBox3.TabIndex = 5;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Order :";
+            // 
+            // rbDescending
+            // 
+            this.rbDescending.AutoSize = true;
+            this.rbDescending.Location = new System.Drawing.Point(53, 160);
+            this.rbDescending.Name = "rbDescending";
+            this.rbDescending.Size = new System.Drawing.Size(220, 41);
+            this.rbDescending.TabIndex = 1;
+            this.rbDescending.TabStop = true;
+            this.rbDescending.Text = "Descending";
+            this.rbDescending.UseVisualStyleBackColor = true;
+            // 
+            // rbAscending
+            // 
+            this.rbAscending.AutoSize = true;
+            this.rbAscending.Location = new System.Drawing.Point(53, 76);
+            this.rbAscending.Name = "rbAscending";
+            this.rbAscending.Size = new System.Drawing.Size(201, 41);
+            this.rbAscending.TabIndex = 0;
+            this.rbAscending.TabStop = true;
+            this.rbAscending.Text = "Ascending";
+            this.rbAscending.UseVisualStyleBackColor = true;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.rbStock);
+            this.groupBox2.Controls.Add(this.rbPrice);
+            this.groupBox2.Controls.Add(this.rbName);
+            this.groupBox2.Location = new System.Drawing.Point(488, 780);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(421, 367);
+            this.groupBox2.TabIndex = 4;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Sort by:";
+            // 
+            // rbStock
+            // 
+            this.rbStock.AutoSize = true;
+            this.rbStock.Location = new System.Drawing.Point(69, 244);
+            this.rbStock.Name = "rbStock";
+            this.rbStock.Size = new System.Drawing.Size(311, 41);
+            this.rbStock.TabIndex = 2;
+            this.rbStock.TabStop = true;
+            this.rbStock.Text = "Quantity in Stock:";
+            this.rbStock.UseVisualStyleBackColor = true;
+            // 
+            // rbPrice
+            // 
+            this.rbPrice.AutoSize = true;
+            this.rbPrice.Location = new System.Drawing.Point(69, 150);
+            this.rbPrice.Name = "rbPrice";
+            this.rbPrice.Size = new System.Drawing.Size(241, 41);
+            this.rbPrice.TabIndex = 1;
+            this.rbPrice.TabStop = true;
+            this.rbPrice.Text = "Selling Price:";
+            this.rbPrice.UseVisualStyleBackColor = true;
+            // 
+            // rbName
+            // 
+            this.rbName.AutoSize = true;
+            this.rbName.Location = new System.Drawing.Point(69, 59);
+            this.rbName.Name = "rbName";
+            this.rbName.Size = new System.Drawing.Size(142, 41);
+            this.rbName.TabIndex = 0;
+            this.rbName.TabStop = true;
+            this.rbName.Text = "Name:";
+            this.rbName.UseVisualStyleBackColor = true;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.rbTobacco);
+            this.groupBox1.Controls.Add(this.rbSnacks);
+            this.groupBox1.Controls.Add(this.rbAccessories);
+            this.groupBox1.Controls.Add(this.rbNonAlcoholic);
+            this.groupBox1.Controls.Add(this.rbRTD);
+            this.groupBox1.Controls.Add(this.rbSpirits);
+            this.groupBox1.Controls.Add(this.rbWhiskies);
+            this.groupBox1.Controls.Add(this.rbWines);
+            this.groupBox1.Controls.Add(this.rbBeer);
+            this.groupBox1.Location = new System.Drawing.Point(39, 765);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(380, 686);
+            this.groupBox1.TabIndex = 3;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Filter by :";
+            // 
+            // rbTobacco
+            // 
+            this.rbTobacco.AutoSize = true;
+            this.rbTobacco.Location = new System.Drawing.Point(44, 613);
+            this.rbTobacco.Name = "rbTobacco";
+            this.rbTobacco.Size = new System.Drawing.Size(329, 41);
+            this.rbTobacco.TabIndex = 7;
+            this.rbTobacco.TabStop = true;
+            this.rbTobacco.Text = "Tobacco and Vape";
+            this.rbTobacco.UseVisualStyleBackColor = true;
+            // 
+            // rbSnacks
+            // 
+            this.rbSnacks.AutoSize = true;
+            this.rbSnacks.Location = new System.Drawing.Point(44, 551);
+            this.rbSnacks.Name = "rbSnacks";
+            this.rbSnacks.Size = new System.Drawing.Size(297, 41);
+            this.rbSnacks.TabIndex = 6;
+            this.rbSnacks.TabStop = true;
+            this.rbSnacks.Text = "Snacks and food";
+            this.rbSnacks.UseVisualStyleBackColor = true;
+            // 
+            // rbAccessories
+            // 
+            this.rbAccessories.AutoSize = true;
+            this.rbAccessories.Location = new System.Drawing.Point(44, 482);
+            this.rbAccessories.Name = "rbAccessories";
+            this.rbAccessories.Size = new System.Drawing.Size(225, 41);
+            this.rbAccessories.TabIndex = 5;
+            this.rbAccessories.TabStop = true;
+            this.rbAccessories.Text = "Accessories";
+            this.rbAccessories.UseVisualStyleBackColor = true;
+            // 
+            // rbNonAlcoholic
+            // 
+            this.rbNonAlcoholic.AutoSize = true;
+            this.rbNonAlcoholic.Location = new System.Drawing.Point(44, 414);
+            this.rbNonAlcoholic.Name = "rbNonAlcoholic";
+            this.rbNonAlcoholic.Size = new System.Drawing.Size(254, 41);
+            this.rbNonAlcoholic.TabIndex = 4;
+            this.rbNonAlcoholic.TabStop = true;
+            this.rbNonAlcoholic.Text = "Non-Alcoholic";
+            this.rbNonAlcoholic.UseVisualStyleBackColor = true;
+            // 
+            // rbRTD
+            // 
+            this.rbRTD.AutoSize = true;
+            this.rbRTD.Location = new System.Drawing.Point(44, 340);
+            this.rbRTD.Name = "rbRTD";
+            this.rbRTD.Size = new System.Drawing.Size(261, 41);
+            this.rbRTD.TabIndex = 4;
+            this.rbRTD.TabStop = true;
+            this.rbRTD.Text = "Ready to drink";
+            this.rbRTD.UseVisualStyleBackColor = true;
+            // 
+            // rbSpirits
+            // 
+            this.rbSpirits.AutoSize = true;
+            this.rbSpirits.Location = new System.Drawing.Point(44, 272);
+            this.rbSpirits.Name = "rbSpirits";
+            this.rbSpirits.Size = new System.Drawing.Size(138, 41);
+            this.rbSpirits.TabIndex = 3;
+            this.rbSpirits.TabStop = true;
+            this.rbSpirits.Text = "Spirits";
+            this.rbSpirits.UseVisualStyleBackColor = true;
+            // 
+            // rbWhiskies
+            // 
+            this.rbWhiskies.AutoSize = true;
+            this.rbWhiskies.Location = new System.Drawing.Point(44, 195);
+            this.rbWhiskies.Name = "rbWhiskies";
+            this.rbWhiskies.Size = new System.Drawing.Size(178, 41);
+            this.rbWhiskies.TabIndex = 2;
+            this.rbWhiskies.TabStop = true;
+            this.rbWhiskies.Text = "Whiskies";
+            this.rbWhiskies.UseVisualStyleBackColor = true;
+            // 
+            // rbWines
+            // 
+            this.rbWines.AutoSize = true;
+            this.rbWines.Location = new System.Drawing.Point(44, 123);
+            this.rbWines.Name = "rbWines";
+            this.rbWines.Size = new System.Drawing.Size(136, 41);
+            this.rbWines.TabIndex = 1;
+            this.rbWines.TabStop = true;
+            this.rbWines.Text = "Wines";
+            this.rbWines.UseVisualStyleBackColor = true;
+            // 
+            // rbBeer
+            // 
+            this.rbBeer.AutoSize = true;
+            this.rbBeer.Location = new System.Drawing.Point(44, 53);
+            this.rbBeer.Name = "rbBeer";
+            this.rbBeer.Size = new System.Drawing.Size(287, 41);
+            this.rbBeer.TabIndex = 0;
+            this.rbBeer.TabStop = true;
+            this.rbBeer.Text = "Beer and Ciders";
+            this.rbBeer.UseVisualStyleBackColor = true;
+            this.rbBeer.CheckedChanged += new System.EventHandler(this.rbBeer_CheckedChanged);
+            // 
+            // textBox17
+            // 
+            this.textBox17.Location = new System.Drawing.Point(322, 53);
+            this.textBox17.Name = "textBox17";
+            this.textBox17.Size = new System.Drawing.Size(343, 44);
+            this.textBox17.TabIndex = 2;
+            this.textBox17.TextChanged += new System.EventHandler(this.l);
+            // 
+            // label41
+            // 
+            this.label41.AutoSize = true;
+            this.label41.Location = new System.Drawing.Point(16, 56);
+            this.label41.Name = "label41";
+            this.label41.Size = new System.Drawing.Size(307, 37);
+            this.label41.TabIndex = 1;
+            this.label41.Text = "Search by Product:";
+            // 
+            // dataGridView4
+            // 
+            this.dataGridView4.AutoGenerateColumns = false;
+            this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView4.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.productIDDataGridViewTextBoxColumn3,
+            this.categoryIDDataGridViewTextBoxColumn3,
+            this.supplierIDDataGridViewTextBoxColumn3,
+            this.discountIDDataGridViewTextBoxColumn3,
+            this.productNameDataGridViewTextBoxColumn3,
+            this.productDescriptionDataGridViewTextBoxColumn3,
+            this.productBrandDataGridViewTextBoxColumn3,
+            this.productTypeDataGridViewTextBoxColumn3,
+            this.productFlavourDataGridViewTextBoxColumn3,
+            this.productAlcoholPercentageDataGridViewTextBoxColumn3,
+            this.productOriginRegionDataGridViewTextBoxColumn3,
+            this.productIngredientsDataGridViewTextBoxColumn3,
+            this.productSizeMLDataGridViewTextBoxColumn3,
+            this.productBarcodeNumberDataGridViewTextBoxColumn3,
+            this.productSellingPriceDataGridViewTextBoxColumn3,
+            this.productCostPriceDataGridViewTextBoxColumn3,
+            this.productQuantityInStockDataGridViewTextBoxColumn3,
+            this.productReorderQuantityDataGridViewTextBoxColumn3,
+            this.productStatusDataGridViewTextBoxColumn3,
+            this.productImageDataGridViewTextBoxColumn3});
+            this.dataGridView4.DataSource = this.productBindingSource3;
+            this.dataGridView4.Location = new System.Drawing.Point(14, 159);
+            this.dataGridView4.Name = "dataGridView4";
+            this.dataGridView4.RowHeadersWidth = 62;
+            this.dataGridView4.RowTemplate.Height = 28;
+            this.dataGridView4.Size = new System.Drawing.Size(1789, 570);
+            this.dataGridView4.TabIndex = 0;
+            // 
+            // productIDDataGridViewTextBoxColumn3
+            // 
+            this.productIDDataGridViewTextBoxColumn3.DataPropertyName = "Product_ID";
+            this.productIDDataGridViewTextBoxColumn3.HeaderText = "Product_ID";
+            this.productIDDataGridViewTextBoxColumn3.MinimumWidth = 8;
+            this.productIDDataGridViewTextBoxColumn3.Name = "productIDDataGridViewTextBoxColumn3";
+            this.productIDDataGridViewTextBoxColumn3.ReadOnly = true;
+            this.productIDDataGridViewTextBoxColumn3.Width = 150;
+            // 
+            // categoryIDDataGridViewTextBoxColumn3
+            // 
+            this.categoryIDDataGridViewTextBoxColumn3.DataPropertyName = "Category_ID";
+            this.categoryIDDataGridViewTextBoxColumn3.HeaderText = "Category_ID";
+            this.categoryIDDataGridViewTextBoxColumn3.MinimumWidth = 8;
+            this.categoryIDDataGridViewTextBoxColumn3.Name = "categoryIDDataGridViewTextBoxColumn3";
+            this.categoryIDDataGridViewTextBoxColumn3.Width = 150;
+            // 
+            // supplierIDDataGridViewTextBoxColumn3
+            // 
+            this.supplierIDDataGridViewTextBoxColumn3.DataPropertyName = "Supplier_ID";
+            this.supplierIDDataGridViewTextBoxColumn3.HeaderText = "Supplier_ID";
+            this.supplierIDDataGridViewTextBoxColumn3.MinimumWidth = 8;
+            this.supplierIDDataGridViewTextBoxColumn3.Name = "supplierIDDataGridViewTextBoxColumn3";
+            this.supplierIDDataGridViewTextBoxColumn3.Width = 150;
+            // 
+            // discountIDDataGridViewTextBoxColumn3
+            // 
+            this.discountIDDataGridViewTextBoxColumn3.DataPropertyName = "Discount_ID";
+            this.discountIDDataGridViewTextBoxColumn3.HeaderText = "Discount_ID";
+            this.discountIDDataGridViewTextBoxColumn3.MinimumWidth = 8;
+            this.discountIDDataGridViewTextBoxColumn3.Name = "discountIDDataGridViewTextBoxColumn3";
+            this.discountIDDataGridViewTextBoxColumn3.Width = 150;
+            // 
+            // productNameDataGridViewTextBoxColumn3
+            // 
+            this.productNameDataGridViewTextBoxColumn3.DataPropertyName = "Product_Name";
+            this.productNameDataGridViewTextBoxColumn3.HeaderText = "Product_Name";
+            this.productNameDataGridViewTextBoxColumn3.MinimumWidth = 8;
+            this.productNameDataGridViewTextBoxColumn3.Name = "productNameDataGridViewTextBoxColumn3";
+            this.productNameDataGridViewTextBoxColumn3.Width = 150;
+            // 
+            // productDescriptionDataGridViewTextBoxColumn3
+            // 
+            this.productDescriptionDataGridViewTextBoxColumn3.DataPropertyName = "Product_Description";
+            this.productDescriptionDataGridViewTextBoxColumn3.HeaderText = "Product_Description";
+            this.productDescriptionDataGridViewTextBoxColumn3.MinimumWidth = 8;
+            this.productDescriptionDataGridViewTextBoxColumn3.Name = "productDescriptionDataGridViewTextBoxColumn3";
+            this.productDescriptionDataGridViewTextBoxColumn3.Width = 150;
+            // 
+            // productBrandDataGridViewTextBoxColumn3
+            // 
+            this.productBrandDataGridViewTextBoxColumn3.DataPropertyName = "Product_Brand";
+            this.productBrandDataGridViewTextBoxColumn3.HeaderText = "Product_Brand";
+            this.productBrandDataGridViewTextBoxColumn3.MinimumWidth = 8;
+            this.productBrandDataGridViewTextBoxColumn3.Name = "productBrandDataGridViewTextBoxColumn3";
+            this.productBrandDataGridViewTextBoxColumn3.Width = 150;
+            // 
+            // productTypeDataGridViewTextBoxColumn3
+            // 
+            this.productTypeDataGridViewTextBoxColumn3.DataPropertyName = "Product_Type";
+            this.productTypeDataGridViewTextBoxColumn3.HeaderText = "Product_Type";
+            this.productTypeDataGridViewTextBoxColumn3.MinimumWidth = 8;
+            this.productTypeDataGridViewTextBoxColumn3.Name = "productTypeDataGridViewTextBoxColumn3";
+            this.productTypeDataGridViewTextBoxColumn3.Width = 150;
+            // 
+            // productFlavourDataGridViewTextBoxColumn3
+            // 
+            this.productFlavourDataGridViewTextBoxColumn3.DataPropertyName = "Product_Flavour";
+            this.productFlavourDataGridViewTextBoxColumn3.HeaderText = "Product_Flavour";
+            this.productFlavourDataGridViewTextBoxColumn3.MinimumWidth = 8;
+            this.productFlavourDataGridViewTextBoxColumn3.Name = "productFlavourDataGridViewTextBoxColumn3";
+            this.productFlavourDataGridViewTextBoxColumn3.Width = 150;
+            // 
+            // productAlcoholPercentageDataGridViewTextBoxColumn3
+            // 
+            this.productAlcoholPercentageDataGridViewTextBoxColumn3.DataPropertyName = "Product_AlcoholPercentage";
+            this.productAlcoholPercentageDataGridViewTextBoxColumn3.HeaderText = "Product_AlcoholPercentage";
+            this.productAlcoholPercentageDataGridViewTextBoxColumn3.MinimumWidth = 8;
+            this.productAlcoholPercentageDataGridViewTextBoxColumn3.Name = "productAlcoholPercentageDataGridViewTextBoxColumn3";
+            this.productAlcoholPercentageDataGridViewTextBoxColumn3.Width = 150;
+            // 
+            // productOriginRegionDataGridViewTextBoxColumn3
+            // 
+            this.productOriginRegionDataGridViewTextBoxColumn3.DataPropertyName = "Product_OriginRegion";
+            this.productOriginRegionDataGridViewTextBoxColumn3.HeaderText = "Product_OriginRegion";
+            this.productOriginRegionDataGridViewTextBoxColumn3.MinimumWidth = 8;
+            this.productOriginRegionDataGridViewTextBoxColumn3.Name = "productOriginRegionDataGridViewTextBoxColumn3";
+            this.productOriginRegionDataGridViewTextBoxColumn3.Width = 150;
+            // 
+            // productIngredientsDataGridViewTextBoxColumn3
+            // 
+            this.productIngredientsDataGridViewTextBoxColumn3.DataPropertyName = "Product_Ingredients";
+            this.productIngredientsDataGridViewTextBoxColumn3.HeaderText = "Product_Ingredients";
+            this.productIngredientsDataGridViewTextBoxColumn3.MinimumWidth = 8;
+            this.productIngredientsDataGridViewTextBoxColumn3.Name = "productIngredientsDataGridViewTextBoxColumn3";
+            this.productIngredientsDataGridViewTextBoxColumn3.Width = 150;
+            // 
+            // productSizeMLDataGridViewTextBoxColumn3
+            // 
+            this.productSizeMLDataGridViewTextBoxColumn3.DataPropertyName = "Product_SizeML";
+            this.productSizeMLDataGridViewTextBoxColumn3.HeaderText = "Product_SizeML";
+            this.productSizeMLDataGridViewTextBoxColumn3.MinimumWidth = 8;
+            this.productSizeMLDataGridViewTextBoxColumn3.Name = "productSizeMLDataGridViewTextBoxColumn3";
+            this.productSizeMLDataGridViewTextBoxColumn3.Width = 150;
+            // 
+            // productBarcodeNumberDataGridViewTextBoxColumn3
+            // 
+            this.productBarcodeNumberDataGridViewTextBoxColumn3.DataPropertyName = "Product_BarcodeNumber";
+            this.productBarcodeNumberDataGridViewTextBoxColumn3.HeaderText = "Product_BarcodeNumber";
+            this.productBarcodeNumberDataGridViewTextBoxColumn3.MinimumWidth = 8;
+            this.productBarcodeNumberDataGridViewTextBoxColumn3.Name = "productBarcodeNumberDataGridViewTextBoxColumn3";
+            this.productBarcodeNumberDataGridViewTextBoxColumn3.Width = 150;
+            // 
+            // productSellingPriceDataGridViewTextBoxColumn3
+            // 
+            this.productSellingPriceDataGridViewTextBoxColumn3.DataPropertyName = "Product_SellingPrice";
+            this.productSellingPriceDataGridViewTextBoxColumn3.HeaderText = "Product_SellingPrice";
+            this.productSellingPriceDataGridViewTextBoxColumn3.MinimumWidth = 8;
+            this.productSellingPriceDataGridViewTextBoxColumn3.Name = "productSellingPriceDataGridViewTextBoxColumn3";
+            this.productSellingPriceDataGridViewTextBoxColumn3.Width = 150;
+            // 
+            // productCostPriceDataGridViewTextBoxColumn3
+            // 
+            this.productCostPriceDataGridViewTextBoxColumn3.DataPropertyName = "Product_CostPrice";
+            this.productCostPriceDataGridViewTextBoxColumn3.HeaderText = "Product_CostPrice";
+            this.productCostPriceDataGridViewTextBoxColumn3.MinimumWidth = 8;
+            this.productCostPriceDataGridViewTextBoxColumn3.Name = "productCostPriceDataGridViewTextBoxColumn3";
+            this.productCostPriceDataGridViewTextBoxColumn3.Width = 150;
+            // 
+            // productQuantityInStockDataGridViewTextBoxColumn3
+            // 
+            this.productQuantityInStockDataGridViewTextBoxColumn3.DataPropertyName = "Product_QuantityInStock";
+            this.productQuantityInStockDataGridViewTextBoxColumn3.HeaderText = "Product_QuantityInStock";
+            this.productQuantityInStockDataGridViewTextBoxColumn3.MinimumWidth = 8;
+            this.productQuantityInStockDataGridViewTextBoxColumn3.Name = "productQuantityInStockDataGridViewTextBoxColumn3";
+            this.productQuantityInStockDataGridViewTextBoxColumn3.Width = 150;
+            // 
+            // productReorderQuantityDataGridViewTextBoxColumn3
+            // 
+            this.productReorderQuantityDataGridViewTextBoxColumn3.DataPropertyName = "Product_ReorderQuantity";
+            this.productReorderQuantityDataGridViewTextBoxColumn3.HeaderText = "Product_ReorderQuantity";
+            this.productReorderQuantityDataGridViewTextBoxColumn3.MinimumWidth = 8;
+            this.productReorderQuantityDataGridViewTextBoxColumn3.Name = "productReorderQuantityDataGridViewTextBoxColumn3";
+            this.productReorderQuantityDataGridViewTextBoxColumn3.Width = 150;
+            // 
+            // productStatusDataGridViewTextBoxColumn3
+            // 
+            this.productStatusDataGridViewTextBoxColumn3.DataPropertyName = "Product_Status";
+            this.productStatusDataGridViewTextBoxColumn3.HeaderText = "Product_Status";
+            this.productStatusDataGridViewTextBoxColumn3.MinimumWidth = 8;
+            this.productStatusDataGridViewTextBoxColumn3.Name = "productStatusDataGridViewTextBoxColumn3";
+            this.productStatusDataGridViewTextBoxColumn3.Width = 150;
+            // 
+            // productImageDataGridViewTextBoxColumn3
+            // 
+            this.productImageDataGridViewTextBoxColumn3.DataPropertyName = "Product_Image";
+            this.productImageDataGridViewTextBoxColumn3.HeaderText = "Product_Image";
+            this.productImageDataGridViewTextBoxColumn3.MinimumWidth = 8;
+            this.productImageDataGridViewTextBoxColumn3.Name = "productImageDataGridViewTextBoxColumn3";
+            this.productImageDataGridViewTextBoxColumn3.Width = 150;
+            // 
+            // productBindingSource3
+            // 
+            this.productBindingSource3.DataMember = "Product";
+            this.productBindingSource3.DataSource = this.dsSamsLiqourShop;
+            // 
+            // productTableAdapter
+            // 
+            this.productTableAdapter.ClearBeforeFill = true;
+            // 
+            // categoryTableAdapter
+            // 
+            this.categoryTableAdapter.ClearBeforeFill = true;
+            // 
+            // supplierTableAdapter
+            // 
+            this.supplierTableAdapter.ClearBeforeFill = true;
+            // 
+            // discountTableAdapter
+            // 
+            this.discountTableAdapter.ClearBeforeFill = true;
+            // 
+            // dsSamsLiqourShop1
+            // 
+            this.dsSamsLiqourShop1.DataSetName = "dsSamsLiqourShop";
+            this.dsSamsLiqourShop1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // ManageProducts
             // 
@@ -1067,9 +2239,29 @@
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dsSamsLiqourShop1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource1)).EndInit();
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.discountBindingSource2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.discountBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.supplierBindingSource3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.supplierBindingSource2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.categoryBindingSource2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.categoryBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productBindingSource2)).EndInit();
+            this.tabPage4.ResumeLayout(false);
+            this.tabPage4.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productBindingSource3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsSamsLiqourShop1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1177,5 +2369,116 @@
         private System.Windows.Forms.Button btnDeleteP;
         private System.Windows.Forms.TextBox txtDel;
         private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.DataGridView dataGridView3;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.DataGridViewTextBoxColumn productIDDataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn categoryIDDataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn supplierIDDataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn discountIDDataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn productNameDataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn productDescriptionDataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn productBrandDataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn productTypeDataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn productFlavourDataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn productAlcoholPercentageDataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn productOriginRegionDataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn productIngredientsDataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn productSizeMLDataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn productBarcodeNumberDataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn productSellingPriceDataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn productCostPriceDataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn productQuantityInStockDataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn productReorderQuantityDataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn productStatusDataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn productImageDataGridViewTextBoxColumn2;
+        private System.Windows.Forms.BindingSource productBindingSource2;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label32;
+        private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label label39;
+        private System.Windows.Forms.Label label38;
+        private System.Windows.Forms.Label label37;
+        private System.Windows.Forms.Label label36;
+        private System.Windows.Forms.Label label35;
+        private System.Windows.Forms.Label label34;
+        private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.ComboBox cmbDiscount;
+        private System.Windows.Forms.ComboBox cmbSupplier;
+        private System.Windows.Forms.BindingSource supplierBindingSource3;
+        private System.Windows.Forms.BindingSource supplierBindingSource2;
+        private System.Windows.Forms.ComboBox cmbCategory;
+        private System.Windows.Forms.BindingSource categoryBindingSource2;
+        private System.Windows.Forms.BindingSource categoryBindingSource1;
+        private System.Windows.Forms.TextBox txtSize;
+        private System.Windows.Forms.TextBox txtIngredients;
+        private System.Windows.Forms.TextBox txtOrigin;
+        private System.Windows.Forms.TextBox txtPercentage;
+        private System.Windows.Forms.TextBox txtFlavour;
+        private System.Windows.Forms.TextBox txtType;
+        private System.Windows.Forms.TextBox txtBrand;
+        private System.Windows.Forms.TextBox txtDescription;
+        private System.Windows.Forms.TextBox txtName;
+        private System.Windows.Forms.BindingSource discountBindingSource2;
+        private System.Windows.Forms.BindingSource discountBindingSource1;
+        private System.Windows.Forms.TextBox txtImage;
+        private System.Windows.Forms.TextBox txtStatus;
+        private System.Windows.Forms.TextBox txtROQ;
+        private System.Windows.Forms.TextBox txtQIS;
+        private System.Windows.Forms.TextBox txtCostPrice;
+        private System.Windows.Forms.TextBox txtSellPrice;
+        private System.Windows.Forms.TextBox txtBarcode;
+        private System.Windows.Forms.TextBox txtIDpro;
+        private System.Windows.Forms.Label label40;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.TextBox textBox17;
+        private System.Windows.Forms.Label label41;
+        private System.Windows.Forms.DataGridView dataGridView4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn productIDDataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn categoryIDDataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn supplierIDDataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn discountIDDataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn productNameDataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn productDescriptionDataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn productBrandDataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn productTypeDataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn productFlavourDataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn productAlcoholPercentageDataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn productOriginRegionDataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn productIngredientsDataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn productSizeMLDataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn productBarcodeNumberDataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn productSellingPriceDataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn productCostPriceDataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn productQuantityInStockDataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn productReorderQuantityDataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn productStatusDataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn productImageDataGridViewTextBoxColumn3;
+        private System.Windows.Forms.BindingSource productBindingSource3;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.RadioButton rbTobacco;
+        private System.Windows.Forms.RadioButton rbSnacks;
+        private System.Windows.Forms.RadioButton rbAccessories;
+        private System.Windows.Forms.RadioButton rbNonAlcoholic;
+        private System.Windows.Forms.RadioButton rbRTD;
+        private System.Windows.Forms.RadioButton rbSpirits;
+        private System.Windows.Forms.RadioButton rbWhiskies;
+        private System.Windows.Forms.RadioButton rbWines;
+        private System.Windows.Forms.RadioButton rbBeer;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.RadioButton rbDescending;
+        private System.Windows.Forms.RadioButton rbAscending;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.RadioButton rbStock;
+        private System.Windows.Forms.RadioButton rbPrice;
+        private System.Windows.Forms.RadioButton rbName;
     }
 }
