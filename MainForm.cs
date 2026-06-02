@@ -136,5 +136,11 @@ namespace TheByteClubPOS
         {
             logoutToolStripMenuItem1.PerformClick();
         }
+
+        private void manageProductsToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            ManageProducts manageProducts = new ManageProducts();
+            manageProducts.Show();
+        }
     }
 }
