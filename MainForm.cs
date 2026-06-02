@@ -142,5 +142,17 @@ namespace TheByteClubPOS
             ManageProducts manageProducts = new ManageProducts();
             manageProducts.Show();
         }
+
+        private void btnProducts_Click(object sender, EventArgs e)
+        {
+            ManageProducts manageProducts = new ManageProducts();
+            manageProducts.Show();
+        }
+
+        private void manageProducToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ManageProductCategories manageProductCategories = new ManageProductCategories();
+            manageProductCategories.Show(); 
+        }
     }
 }
