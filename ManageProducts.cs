@@ -161,5 +161,57 @@ namespace TheByteClubPOS
             }
         
     }
+
+        private void btnDeleteP_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Prompt user for Product ID (allows you to keep the designer unchanged).
+                string input = txtDel.Text;
+                if (string.IsNullOrWhiteSpace(input)) return;
+
+                if (!int.TryParse(input.Trim(), out int productId))
+                {
+                    MessageBox.Show("Please enter a valid numeric Product ID.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                // Ensure the Product table is loaded
+                this.productTableAdapter.Fill(this.dsSamsLiqourShop.Product);
+
+                // Find the product row in the strongly-typed DataTable
+                var productRow = this.dsSamsLiqourShop.Product.FindByProduct_ID(productId);
+                if (productRow == null)
+                {
+                    MessageBox.Show($"Product with ID {productId} was not found.", "Not Found", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+
+                // Confirm deletion with the user
+                var confirm = MessageBox.Show($"Are you sure you want to delete product '{productRow.Product_Name}' (ID: {productId})?", "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (confirm != DialogResult.Yes) return;
+
+                // Mark the row for deletion and push the change to the database via the TableAdapter update
+                productRow.Delete();
+                int rowsAffected = this.productTableAdapter.Update(this.dsSamsLiqourShop.Product);
+
+                if (rowsAffected > 0)
+                {
+                    MessageBox.Show("Product deleted successfully.", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("No rows were deleted. Verify permissions and try again.", "Delete Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+
+                // Refresh grid
+                this.productTableAdapter.Fill(this.dsSamsLiqourShop.Product);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred while deleting the product:\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        
+    }
     }
 }
