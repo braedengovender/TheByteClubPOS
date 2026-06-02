@@ -124,9 +124,6 @@
             this.productImageDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.productBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.button3 = new System.Windows.Forms.Button();
-            this.txtIDpro = new System.Windows.Forms.TextBox();
-            this.label40 = new System.Windows.Forms.Label();
             this.txtImage = new System.Windows.Forms.TextBox();
             this.txtStatus = new System.Windows.Forms.TextBox();
             this.txtROQ = new System.Windows.Forms.TextBox();
@@ -1134,9 +1131,6 @@
             // tabPage3
             // 
             this.tabPage3.BackColor = System.Drawing.Color.MidnightBlue;
-            this.tabPage3.Controls.Add(this.button3);
-            this.tabPage3.Controls.Add(this.txtIDpro);
-            this.tabPage3.Controls.Add(this.label40);
             this.tabPage3.Controls.Add(this.txtImage);
             this.tabPage3.Controls.Add(this.txtStatus);
             this.tabPage3.Controls.Add(this.txtROQ);
@@ -1183,32 +1177,6 @@
             this.tabPage3.Size = new System.Drawing.Size(1811, 1507);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Update Product";
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(866, 397);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(271, 83);
-            this.button3.TabIndex = 65;
-            this.button3.Text = "DISPLAY product";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // txtIDpro
-            // 
-            this.txtIDpro.Location = new System.Drawing.Point(361, 396);
-            this.txtIDpro.Name = "txtIDpro";
-            this.txtIDpro.Size = new System.Drawing.Size(444, 44);
-            this.txtIDpro.TabIndex = 64;
-            // 
-            // label40
-            // 
-            this.label40.AutoSize = true;
-            this.label40.Location = new System.Drawing.Point(30, 392);
-            this.label40.Name = "label40";
-            this.label40.Size = new System.Drawing.Size(315, 37);
-            this.label40.TabIndex = 63;
-            this.label40.Text = "Enter ID of product:";
             // 
             // txtImage
             // 
@@ -2436,9 +2404,6 @@
         private System.Windows.Forms.TextBox txtCostPrice;
         private System.Windows.Forms.TextBox txtSellPrice;
         private System.Windows.Forms.TextBox txtBarcode;
-        private System.Windows.Forms.TextBox txtIDpro;
-        private System.Windows.Forms.Label label40;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.TextBox textBox17;
         private System.Windows.Forms.Label label41;
         private System.Windows.Forms.DataGridView dataGridView4;
