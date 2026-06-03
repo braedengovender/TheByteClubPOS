@@ -41,7 +41,7 @@ namespace TheByteClubPOS
                 string lastName = txtLastName.Text.Trim();
 
                 string email = txtEmailAddress.Text.Trim();
-                
+
 
                 maskedTextBox1.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals; //this ensures only the numbers are extracted
                 if (!maskedTextBox1.MaskFull)
@@ -58,7 +58,7 @@ namespace TheByteClubPOS
                     return;
                 }
                 string phone = maskedTextBox3.Text;
-              
+
                 // Nullable fields: If text is empty, pass null
                 string unitNumber = string.IsNullOrWhiteSpace(txtUnitNumber.Text) ? null : txtUnitNumber.Text.Trim();
                 string unitName = string.IsNullOrWhiteSpace(txtUnitName.Text) ? null : txtUnitName.Text.Trim();
@@ -73,7 +73,7 @@ namespace TheByteClubPOS
                     return;
                 }
                 string postalCode = maskedTextBox2.Text;
-     
+
                 string city = txtCity.Text.Trim();
 
                 // ComboBoxes (Make sure items match database types)
@@ -153,18 +153,38 @@ namespace TheByteClubPOS
 
         private void button2_Click_1(object sender, EventArgs e)
         {
-           /* if (customerDataGridView.SelectedRows.Count > 0)
+            if (customerDataGridView.SelectedRows.Count > 0)
             {
                 int customerID = Convert.ToInt32(customerDataGridView.SelectedRows[0].Cells[0].Value);
 
-              //  customerTableAdapter.UpdateQueryStatus( customerID);
+                customerTableAdapter.UpdateQueryStatus(customerID, customerID);
+                customerTableAdapter.Fill(this.dsSamsLiqourShop.Customer);
 
                 MessageBox.Show("Customer deactivated successfully.");
             }
             else
             {
                 MessageBox.Show("Please select a customer first.");
-            }*/
+            }
+        }
+
+        private void customerDataGridView_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (customerDataGridView.Rows[e.RowIndex].Cells[17].Value != null)
+            {
+                string status = customerDataGridView.Rows[e.RowIndex].Cells[17].Value.ToString();
+
+                if (status == "Inactive")
+                {
+                    customerDataGridView.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.Red;
+                    customerDataGridView.Rows[e.RowIndex].DefaultCellStyle.ForeColor = Color.Black;
+                }
+                else
+                {
+                    customerDataGridView.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.White;
+                    customerDataGridView.Rows[e.RowIndex].DefaultCellStyle.ForeColor = Color.Black;
+                }
+            }
         }
     }
 }

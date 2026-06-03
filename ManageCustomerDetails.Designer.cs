@@ -49,9 +49,12 @@
             System.Windows.Forms.Label customer_StatusLabel;
             System.Windows.Forms.Label customer_UsernameLabel;
             System.Windows.Forms.Label customer_PasswordLabel;
+            System.Windows.Forms.Label customer_FirstNameLabel1;
+            System.Windows.Forms.Label customer_LastNameLabel1;
+            System.Windows.Forms.Label customer_IDNumberLabel1;
+            System.Windows.Forms.Label customer_StatusLabel1;
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.maskedTextBox3 = new System.Windows.Forms.MaskedTextBox();
             this.maskedTextBox2 = new System.Windows.Forms.MaskedTextBox();
             this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
@@ -61,8 +64,6 @@
             this.cmbStatus = new System.Windows.Forms.ComboBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.txtUsername = new System.Windows.Forms.TextBox();
-            this.tableAdapterManager = new TheByteClubPOS.dsSamsLiqourShopTableAdapters.TableAdapterManager();
-            this.customerTableAdapter = new TheByteClubPOS.dsSamsLiqourShopTableAdapters.CustomerTableAdapter();
             this.txtLoyaltyPointsBalance = new System.Windows.Forms.TextBox();
             this.txtCountry = new System.Windows.Forms.TextBox();
             this.txtCity = new System.Windows.Forms.TextBox();
@@ -75,9 +76,8 @@
             this.txtLastName = new System.Windows.Forms.TextBox();
             this.txtFirstName = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.customerBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dsSamsLiqourShop = new TheByteClubPOS.dsSamsLiqourShop();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.button2 = new System.Windows.Forms.Button();
             this.customerDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -99,7 +99,15 @@
             this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.button2 = new System.Windows.Forms.Button();
+            this.customerBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dsSamsLiqourShop = new TheByteClubPOS.dsSamsLiqourShop();
+            this.tableAdapterManager = new TheByteClubPOS.dsSamsLiqourShopTableAdapters.TableAdapterManager();
+            this.customerTableAdapter = new TheByteClubPOS.dsSamsLiqourShopTableAdapters.CustomerTableAdapter();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.customer_FirstNameTextBox = new System.Windows.Forms.TextBox();
+            this.customer_LastNameTextBox = new System.Windows.Forms.TextBox();
+            this.customer_IDNumberTextBox = new System.Windows.Forms.TextBox();
+            this.customer_StatusTextBox = new System.Windows.Forms.TextBox();
             customer_IDLabel = new System.Windows.Forms.Label();
             customer_FirstNameLabel = new System.Windows.Forms.Label();
             customer_LastNameLabel = new System.Windows.Forms.Label();
@@ -120,282 +128,17 @@
             customer_StatusLabel = new System.Windows.Forms.Label();
             customer_UsernameLabel = new System.Windows.Forms.Label();
             customer_PasswordLabel = new System.Windows.Forms.Label();
+            customer_FirstNameLabel1 = new System.Windows.Forms.Label();
+            customer_LastNameLabel1 = new System.Windows.Forms.Label();
+            customer_IDNumberLabel1 = new System.Windows.Forms.Label();
+            customer_StatusLabel1 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.customerDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.customerBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsSamsLiqourShop)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.customerDataGridView)).BeginInit();
             this.SuspendLayout();
-            // 
-            // tabControl1
-            // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Location = new System.Drawing.Point(0, 0);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1134, 749);
-            this.tabControl1.TabIndex = 0;
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.BackgroundImage = global::TheByteClubPOS.Properties.Resources.Background;
-            this.tabPage1.Controls.Add(this.maskedTextBox3);
-            this.tabPage1.Controls.Add(this.maskedTextBox2);
-            this.tabPage1.Controls.Add(this.maskedTextBox1);
-            this.tabPage1.Controls.Add(this.button1);
-            this.tabPage1.Controls.Add(this.dtpRegistrationDateTime);
-            this.tabPage1.Controls.Add(this.cmbProvince);
-            this.tabPage1.Controls.Add(this.cmbStatus);
-            this.tabPage1.Controls.Add(this.txtPassword);
-            this.tabPage1.Controls.Add(this.txtUsername);
-            this.tabPage1.Controls.Add(this.txtLoyaltyPointsBalance);
-            this.tabPage1.Controls.Add(this.txtCountry);
-            this.tabPage1.Controls.Add(this.txtCity);
-            this.tabPage1.Controls.Add(this.txtSuburb);
-            this.tabPage1.Controls.Add(this.txtStreetName);
-            this.tabPage1.Controls.Add(this.txtStreetNumber);
-            this.tabPage1.Controls.Add(this.txtUnitName);
-            this.tabPage1.Controls.Add(this.txtUnitNumber);
-            this.tabPage1.Controls.Add(this.txtEmailAddress);
-            this.tabPage1.Controls.Add(this.txtLastName);
-            this.tabPage1.Controls.Add(this.txtFirstName);
-            this.tabPage1.Controls.Add(this.textBox1);
-            this.tabPage1.Controls.Add(customer_IDLabel);
-            this.tabPage1.Controls.Add(customer_FirstNameLabel);
-            this.tabPage1.Controls.Add(customer_LastNameLabel);
-            this.tabPage1.Controls.Add(customer_EmailAddressLabel);
-            this.tabPage1.Controls.Add(customer_IDNumberLabel);
-            this.tabPage1.Controls.Add(customer_PhoneNumberLabel);
-            this.tabPage1.Controls.Add(customer_UnitNumberLabel);
-            this.tabPage1.Controls.Add(customer_UnitNameLabel);
-            this.tabPage1.Controls.Add(customer_StreetNumberLabel);
-            this.tabPage1.Controls.Add(customer_StreetNameLabel);
-            this.tabPage1.Controls.Add(customer_SuburbLabel);
-            this.tabPage1.Controls.Add(customer_PostalCodeLabel);
-            this.tabPage1.Controls.Add(customer_CityLabel);
-            this.tabPage1.Controls.Add(customer_ProvinceLabel);
-            this.tabPage1.Controls.Add(customer_CountryLabel);
-            this.tabPage1.Controls.Add(customer_RegistrationDateTimeLabel);
-            this.tabPage1.Controls.Add(customer_LoyaltyPointsBalanceLabel);
-            this.tabPage1.Controls.Add(customer_StatusLabel);
-            this.tabPage1.Controls.Add(customer_UsernameLabel);
-            this.tabPage1.Controls.Add(customer_PasswordLabel);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1126, 723);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Add Customer";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.BackgroundImage = global::TheByteClubPOS.Properties.Resources.Background;
-            this.tabPage2.Controls.Add(this.button2);
-            this.tabPage2.Controls.Add(this.customerDataGridView);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1126, 723);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Deactivate Customer";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // maskedTextBox3
-            // 
-            this.maskedTextBox3.Location = new System.Drawing.Point(559, 177);
-            this.maskedTextBox3.Mask = "(999) 000-0000";
-            this.maskedTextBox3.Name = "maskedTextBox3";
-            this.maskedTextBox3.Size = new System.Drawing.Size(200, 20);
-            this.maskedTextBox3.TabIndex = 108;
-            // 
-            // maskedTextBox2
-            // 
-            this.maskedTextBox2.Location = new System.Drawing.Point(559, 333);
-            this.maskedTextBox2.Mask = "0000";
-            this.maskedTextBox2.Name = "maskedTextBox2";
-            this.maskedTextBox2.Size = new System.Drawing.Size(200, 20);
-            this.maskedTextBox2.TabIndex = 107;
-            // 
-            // maskedTextBox1
-            // 
-            this.maskedTextBox1.Location = new System.Drawing.Point(559, 151);
-            this.maskedTextBox1.Mask = "0000000000000";
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(200, 20);
-            this.maskedTextBox1.TabIndex = 106;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(369, 578);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(389, 32);
-            this.button1.TabIndex = 105;
-            this.button1.Text = "Add Customer";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // dtpRegistrationDateTime
-            // 
-            this.dtpRegistrationDateTime.Location = new System.Drawing.Point(559, 436);
-            this.dtpRegistrationDateTime.Name = "dtpRegistrationDateTime";
-            this.dtpRegistrationDateTime.Size = new System.Drawing.Size(200, 20);
-            this.dtpRegistrationDateTime.TabIndex = 104;
-            // 
-            // cmbProvince
-            // 
-            this.cmbProvince.FormattingEnabled = true;
-            this.cmbProvince.Items.AddRange(new object[] {
-            "Eastern Cape",
-            "Gauteng",
-            "KwaZulu-Natal",
-            "Limpopo",
-            "Mpumalanga",
-            "Northern Cape",
-            "North West",
-            "Western Cape",
-            "Free State"});
-            this.cmbProvince.Location = new System.Drawing.Point(559, 385);
-            this.cmbProvince.Name = "cmbProvince";
-            this.cmbProvince.Size = new System.Drawing.Size(199, 21);
-            this.cmbProvince.TabIndex = 103;
-            // 
-            // cmbStatus
-            // 
-            this.cmbStatus.FormattingEnabled = true;
-            this.cmbStatus.Items.AddRange(new object[] {
-            "Active",
-            "Suspended",
-            "Deactivated"});
-            this.cmbStatus.Location = new System.Drawing.Point(559, 489);
-            this.cmbStatus.Name = "cmbStatus";
-            this.cmbStatus.Size = new System.Drawing.Size(199, 21);
-            this.cmbStatus.TabIndex = 102;
-            // 
-            // txtPassword
-            // 
-            this.txtPassword.Location = new System.Drawing.Point(559, 541);
-            this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(200, 20);
-            this.txtPassword.TabIndex = 101;
-            this.txtPassword.Text = "null";
-            // 
-            // txtUsername
-            // 
-            this.txtUsername.Location = new System.Drawing.Point(559, 515);
-            this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(200, 20);
-            this.txtUsername.TabIndex = 100;
-            this.txtUsername.Text = "null";
-            // 
-            // tableAdapterManager
-            // 
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.CategoryTableAdapter = null;
-            this.tableAdapterManager.CustomerTableAdapter = this.customerTableAdapter;
-            this.tableAdapterManager.DiscountTableAdapter = null;
-            this.tableAdapterManager.EmployeeTableAdapter = null;
-            this.tableAdapterManager.PaymentMethodTableAdapter = null;
-            this.tableAdapterManager.PaymentTableAdapter = null;
-            this.tableAdapterManager.ProductTableAdapter = null;
-            this.tableAdapterManager.PurchaseOrderLineTableAdapter = null;
-            this.tableAdapterManager.PurchaseOrderTableAdapter = null;
-            this.tableAdapterManager.SaleLineTableAdapter = null;
-            this.tableAdapterManager.SaleTableAdapter = null;
-            this.tableAdapterManager.SaleTypeTableAdapter = null;
-            this.tableAdapterManager.SupplierTableAdapter = null;
-            this.tableAdapterManager.UpdateOrder = TheByteClubPOS.dsSamsLiqourShopTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            // 
-            // customerTableAdapter
-            // 
-            this.customerTableAdapter.ClearBeforeFill = true;
-            // 
-            // txtLoyaltyPointsBalance
-            // 
-            this.txtLoyaltyPointsBalance.Location = new System.Drawing.Point(559, 463);
-            this.txtLoyaltyPointsBalance.Name = "txtLoyaltyPointsBalance";
-            this.txtLoyaltyPointsBalance.Size = new System.Drawing.Size(200, 20);
-            this.txtLoyaltyPointsBalance.TabIndex = 99;
-            // 
-            // txtCountry
-            // 
-            this.txtCountry.Location = new System.Drawing.Point(559, 411);
-            this.txtCountry.Name = "txtCountry";
-            this.txtCountry.Size = new System.Drawing.Size(200, 20);
-            this.txtCountry.TabIndex = 98;
-            // 
-            // txtCity
-            // 
-            this.txtCity.Location = new System.Drawing.Point(559, 359);
-            this.txtCity.Name = "txtCity";
-            this.txtCity.Size = new System.Drawing.Size(200, 20);
-            this.txtCity.TabIndex = 97;
-            // 
-            // txtSuburb
-            // 
-            this.txtSuburb.Location = new System.Drawing.Point(559, 307);
-            this.txtSuburb.Name = "txtSuburb";
-            this.txtSuburb.Size = new System.Drawing.Size(200, 20);
-            this.txtSuburb.TabIndex = 96;
-            // 
-            // txtStreetName
-            // 
-            this.txtStreetName.Location = new System.Drawing.Point(559, 281);
-            this.txtStreetName.Name = "txtStreetName";
-            this.txtStreetName.Size = new System.Drawing.Size(200, 20);
-            this.txtStreetName.TabIndex = 95;
-            // 
-            // txtStreetNumber
-            // 
-            this.txtStreetNumber.Location = new System.Drawing.Point(559, 255);
-            this.txtStreetNumber.Name = "txtStreetNumber";
-            this.txtStreetNumber.Size = new System.Drawing.Size(200, 20);
-            this.txtStreetNumber.TabIndex = 94;
-            // 
-            // txtUnitName
-            // 
-            this.txtUnitName.Location = new System.Drawing.Point(559, 229);
-            this.txtUnitName.Name = "txtUnitName";
-            this.txtUnitName.Size = new System.Drawing.Size(200, 20);
-            this.txtUnitName.TabIndex = 93;
-            // 
-            // txtUnitNumber
-            // 
-            this.txtUnitNumber.Location = new System.Drawing.Point(559, 203);
-            this.txtUnitNumber.Name = "txtUnitNumber";
-            this.txtUnitNumber.Size = new System.Drawing.Size(200, 20);
-            this.txtUnitNumber.TabIndex = 92;
-            // 
-            // txtEmailAddress
-            // 
-            this.txtEmailAddress.Location = new System.Drawing.Point(559, 125);
-            this.txtEmailAddress.Name = "txtEmailAddress";
-            this.txtEmailAddress.Size = new System.Drawing.Size(200, 20);
-            this.txtEmailAddress.TabIndex = 91;
-            // 
-            // txtLastName
-            // 
-            this.txtLastName.Location = new System.Drawing.Point(559, 99);
-            this.txtLastName.Name = "txtLastName";
-            this.txtLastName.Size = new System.Drawing.Size(200, 20);
-            this.txtLastName.TabIndex = 90;
-            // 
-            // txtFirstName
-            // 
-            this.txtFirstName.Location = new System.Drawing.Point(559, 73);
-            this.txtFirstName.Name = "txtFirstName";
-            this.txtFirstName.Size = new System.Drawing.Size(200, 20);
-            this.txtFirstName.TabIndex = 89;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Enabled = false;
-            this.textBox1.Location = new System.Drawing.Point(559, 47);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(200, 20);
-            this.textBox1.TabIndex = 68;
             // 
             // customer_IDLabel
             // 
@@ -477,16 +220,6 @@
             customer_StreetNumberLabel.Size = new System.Drawing.Size(125, 13);
             customer_StreetNumberLabel.TabIndex = 77;
             customer_StreetNumberLabel.Text = "Customer Street Number:";
-            // 
-            // customerBindingSource
-            // 
-            this.customerBindingSource.DataMember = "Customer";
-            this.customerBindingSource.DataSource = this.dsSamsLiqourShop;
-            // 
-            // dsSamsLiqourShop
-            // 
-            this.dsSamsLiqourShop.DataSetName = "dsSamsLiqourShop";
-            this.dsSamsLiqourShop.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // customer_StreetNameLabel
             // 
@@ -587,6 +320,271 @@
             customer_PasswordLabel.TabIndex = 88;
             customer_PasswordLabel.Text = "Customer Password:";
             // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.Location = new System.Drawing.Point(0, 0);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(1134, 749);
+            this.tabControl1.TabIndex = 0;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.BackgroundImage = global::TheByteClubPOS.Properties.Resources.Background;
+            this.tabPage1.Controls.Add(this.maskedTextBox3);
+            this.tabPage1.Controls.Add(this.maskedTextBox2);
+            this.tabPage1.Controls.Add(this.maskedTextBox1);
+            this.tabPage1.Controls.Add(this.button1);
+            this.tabPage1.Controls.Add(this.dtpRegistrationDateTime);
+            this.tabPage1.Controls.Add(this.cmbProvince);
+            this.tabPage1.Controls.Add(this.cmbStatus);
+            this.tabPage1.Controls.Add(this.txtPassword);
+            this.tabPage1.Controls.Add(this.txtUsername);
+            this.tabPage1.Controls.Add(this.txtLoyaltyPointsBalance);
+            this.tabPage1.Controls.Add(this.txtCountry);
+            this.tabPage1.Controls.Add(this.txtCity);
+            this.tabPage1.Controls.Add(this.txtSuburb);
+            this.tabPage1.Controls.Add(this.txtStreetName);
+            this.tabPage1.Controls.Add(this.txtStreetNumber);
+            this.tabPage1.Controls.Add(this.txtUnitName);
+            this.tabPage1.Controls.Add(this.txtUnitNumber);
+            this.tabPage1.Controls.Add(this.txtEmailAddress);
+            this.tabPage1.Controls.Add(this.txtLastName);
+            this.tabPage1.Controls.Add(this.txtFirstName);
+            this.tabPage1.Controls.Add(this.textBox1);
+            this.tabPage1.Controls.Add(customer_IDLabel);
+            this.tabPage1.Controls.Add(customer_FirstNameLabel);
+            this.tabPage1.Controls.Add(customer_LastNameLabel);
+            this.tabPage1.Controls.Add(customer_EmailAddressLabel);
+            this.tabPage1.Controls.Add(customer_IDNumberLabel);
+            this.tabPage1.Controls.Add(customer_PhoneNumberLabel);
+            this.tabPage1.Controls.Add(customer_UnitNumberLabel);
+            this.tabPage1.Controls.Add(customer_UnitNameLabel);
+            this.tabPage1.Controls.Add(customer_StreetNumberLabel);
+            this.tabPage1.Controls.Add(customer_StreetNameLabel);
+            this.tabPage1.Controls.Add(customer_SuburbLabel);
+            this.tabPage1.Controls.Add(customer_PostalCodeLabel);
+            this.tabPage1.Controls.Add(customer_CityLabel);
+            this.tabPage1.Controls.Add(customer_ProvinceLabel);
+            this.tabPage1.Controls.Add(customer_CountryLabel);
+            this.tabPage1.Controls.Add(customer_RegistrationDateTimeLabel);
+            this.tabPage1.Controls.Add(customer_LoyaltyPointsBalanceLabel);
+            this.tabPage1.Controls.Add(customer_StatusLabel);
+            this.tabPage1.Controls.Add(customer_UsernameLabel);
+            this.tabPage1.Controls.Add(customer_PasswordLabel);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(1126, 723);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "Add Customer";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // maskedTextBox3
+            // 
+            this.maskedTextBox3.Location = new System.Drawing.Point(559, 177);
+            this.maskedTextBox3.Mask = "(999) 000-0000";
+            this.maskedTextBox3.Name = "maskedTextBox3";
+            this.maskedTextBox3.Size = new System.Drawing.Size(200, 20);
+            this.maskedTextBox3.TabIndex = 108;
+            // 
+            // maskedTextBox2
+            // 
+            this.maskedTextBox2.Location = new System.Drawing.Point(559, 333);
+            this.maskedTextBox2.Mask = "0000";
+            this.maskedTextBox2.Name = "maskedTextBox2";
+            this.maskedTextBox2.Size = new System.Drawing.Size(200, 20);
+            this.maskedTextBox2.TabIndex = 107;
+            // 
+            // maskedTextBox1
+            // 
+            this.maskedTextBox1.Location = new System.Drawing.Point(559, 151);
+            this.maskedTextBox1.Mask = "0000000000000";
+            this.maskedTextBox1.Name = "maskedTextBox1";
+            this.maskedTextBox1.Size = new System.Drawing.Size(200, 20);
+            this.maskedTextBox1.TabIndex = 106;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(369, 578);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(389, 32);
+            this.button1.TabIndex = 105;
+            this.button1.Text = "Add Customer";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // dtpRegistrationDateTime
+            // 
+            this.dtpRegistrationDateTime.Location = new System.Drawing.Point(559, 436);
+            this.dtpRegistrationDateTime.Name = "dtpRegistrationDateTime";
+            this.dtpRegistrationDateTime.Size = new System.Drawing.Size(200, 20);
+            this.dtpRegistrationDateTime.TabIndex = 104;
+            // 
+            // cmbProvince
+            // 
+            this.cmbProvince.FormattingEnabled = true;
+            this.cmbProvince.Items.AddRange(new object[] {
+            "Eastern Cape",
+            "Gauteng",
+            "KwaZulu-Natal",
+            "Limpopo",
+            "Mpumalanga",
+            "Northern Cape",
+            "North West",
+            "Western Cape",
+            "Free State"});
+            this.cmbProvince.Location = new System.Drawing.Point(559, 385);
+            this.cmbProvince.Name = "cmbProvince";
+            this.cmbProvince.Size = new System.Drawing.Size(199, 21);
+            this.cmbProvince.TabIndex = 103;
+            // 
+            // cmbStatus
+            // 
+            this.cmbStatus.FormattingEnabled = true;
+            this.cmbStatus.Items.AddRange(new object[] {
+            "Active",
+            "Suspended",
+            "Deactivated"});
+            this.cmbStatus.Location = new System.Drawing.Point(559, 489);
+            this.cmbStatus.Name = "cmbStatus";
+            this.cmbStatus.Size = new System.Drawing.Size(199, 21);
+            this.cmbStatus.TabIndex = 102;
+            // 
+            // txtPassword
+            // 
+            this.txtPassword.Location = new System.Drawing.Point(559, 541);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.Size = new System.Drawing.Size(200, 20);
+            this.txtPassword.TabIndex = 101;
+            this.txtPassword.Text = "null";
+            // 
+            // txtUsername
+            // 
+            this.txtUsername.Location = new System.Drawing.Point(559, 515);
+            this.txtUsername.Name = "txtUsername";
+            this.txtUsername.Size = new System.Drawing.Size(200, 20);
+            this.txtUsername.TabIndex = 100;
+            this.txtUsername.Text = "null";
+            // 
+            // txtLoyaltyPointsBalance
+            // 
+            this.txtLoyaltyPointsBalance.Location = new System.Drawing.Point(559, 463);
+            this.txtLoyaltyPointsBalance.Name = "txtLoyaltyPointsBalance";
+            this.txtLoyaltyPointsBalance.Size = new System.Drawing.Size(200, 20);
+            this.txtLoyaltyPointsBalance.TabIndex = 99;
+            // 
+            // txtCountry
+            // 
+            this.txtCountry.Location = new System.Drawing.Point(559, 411);
+            this.txtCountry.Name = "txtCountry";
+            this.txtCountry.Size = new System.Drawing.Size(200, 20);
+            this.txtCountry.TabIndex = 98;
+            // 
+            // txtCity
+            // 
+            this.txtCity.Location = new System.Drawing.Point(559, 359);
+            this.txtCity.Name = "txtCity";
+            this.txtCity.Size = new System.Drawing.Size(200, 20);
+            this.txtCity.TabIndex = 97;
+            // 
+            // txtSuburb
+            // 
+            this.txtSuburb.Location = new System.Drawing.Point(559, 307);
+            this.txtSuburb.Name = "txtSuburb";
+            this.txtSuburb.Size = new System.Drawing.Size(200, 20);
+            this.txtSuburb.TabIndex = 96;
+            // 
+            // txtStreetName
+            // 
+            this.txtStreetName.Location = new System.Drawing.Point(559, 281);
+            this.txtStreetName.Name = "txtStreetName";
+            this.txtStreetName.Size = new System.Drawing.Size(200, 20);
+            this.txtStreetName.TabIndex = 95;
+            // 
+            // txtStreetNumber
+            // 
+            this.txtStreetNumber.Location = new System.Drawing.Point(559, 255);
+            this.txtStreetNumber.Name = "txtStreetNumber";
+            this.txtStreetNumber.Size = new System.Drawing.Size(200, 20);
+            this.txtStreetNumber.TabIndex = 94;
+            // 
+            // txtUnitName
+            // 
+            this.txtUnitName.Location = new System.Drawing.Point(559, 229);
+            this.txtUnitName.Name = "txtUnitName";
+            this.txtUnitName.Size = new System.Drawing.Size(200, 20);
+            this.txtUnitName.TabIndex = 93;
+            // 
+            // txtUnitNumber
+            // 
+            this.txtUnitNumber.Location = new System.Drawing.Point(559, 203);
+            this.txtUnitNumber.Name = "txtUnitNumber";
+            this.txtUnitNumber.Size = new System.Drawing.Size(200, 20);
+            this.txtUnitNumber.TabIndex = 92;
+            // 
+            // txtEmailAddress
+            // 
+            this.txtEmailAddress.Location = new System.Drawing.Point(559, 125);
+            this.txtEmailAddress.Name = "txtEmailAddress";
+            this.txtEmailAddress.Size = new System.Drawing.Size(200, 20);
+            this.txtEmailAddress.TabIndex = 91;
+            // 
+            // txtLastName
+            // 
+            this.txtLastName.Location = new System.Drawing.Point(559, 99);
+            this.txtLastName.Name = "txtLastName";
+            this.txtLastName.Size = new System.Drawing.Size(200, 20);
+            this.txtLastName.TabIndex = 90;
+            // 
+            // txtFirstName
+            // 
+            this.txtFirstName.Location = new System.Drawing.Point(559, 73);
+            this.txtFirstName.Name = "txtFirstName";
+            this.txtFirstName.Size = new System.Drawing.Size(200, 20);
+            this.txtFirstName.TabIndex = 89;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Enabled = false;
+            this.textBox1.Location = new System.Drawing.Point(559, 47);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(200, 20);
+            this.textBox1.TabIndex = 68;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.BackgroundImage = global::TheByteClubPOS.Properties.Resources.Background;
+            this.tabPage2.Controls.Add(customer_StatusLabel1);
+            this.tabPage2.Controls.Add(this.customer_StatusTextBox);
+            this.tabPage2.Controls.Add(customer_IDNumberLabel1);
+            this.tabPage2.Controls.Add(this.customer_IDNumberTextBox);
+            this.tabPage2.Controls.Add(customer_LastNameLabel1);
+            this.tabPage2.Controls.Add(this.customer_LastNameTextBox);
+            this.tabPage2.Controls.Add(customer_FirstNameLabel1);
+            this.tabPage2.Controls.Add(this.customer_FirstNameTextBox);
+            this.tabPage2.Controls.Add(this.button2);
+            this.tabPage2.Controls.Add(this.customerDataGridView);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(1126, 723);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Deactivate Customer";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(40, 351);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(142, 65);
+            this.button2.TabIndex = 110;
+            this.button2.Text = "Deactivate Customer";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click_1);
+            // 
             // customerDataGridView
             // 
             this.customerDataGridView.AutoGenerateColumns = false;
@@ -613,10 +611,11 @@
             this.dataGridViewTextBoxColumn19,
             this.dataGridViewTextBoxColumn20});
             this.customerDataGridView.DataSource = this.customerBindingSource;
-            this.customerDataGridView.Location = new System.Drawing.Point(47, 41);
+            this.customerDataGridView.Location = new System.Drawing.Point(8, 41);
             this.customerDataGridView.Name = "customerDataGridView";
-            this.customerDataGridView.Size = new System.Drawing.Size(758, 220);
+            this.customerDataGridView.Size = new System.Drawing.Size(1097, 279);
             this.customerDataGridView.TabIndex = 0;
+            this.customerDataGridView.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.customerDataGridView_CellFormatting);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -739,15 +738,105 @@
             this.dataGridViewTextBoxColumn20.HeaderText = "Customer_Password";
             this.dataGridViewTextBoxColumn20.Name = "dataGridViewTextBoxColumn20";
             // 
-            // button2
+            // customerBindingSource
             // 
-            this.button2.Location = new System.Drawing.Point(526, 350);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 110;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click_1);
+            this.customerBindingSource.DataMember = "Customer";
+            this.customerBindingSource.DataSource = this.dsSamsLiqourShop;
+            // 
+            // dsSamsLiqourShop
+            // 
+            this.dsSamsLiqourShop.DataSetName = "dsSamsLiqourShop";
+            this.dsSamsLiqourShop.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.CategoryTableAdapter = null;
+            this.tableAdapterManager.CustomerTableAdapter = this.customerTableAdapter;
+            this.tableAdapterManager.DiscountTableAdapter = null;
+            this.tableAdapterManager.EmployeeTableAdapter = null;
+            this.tableAdapterManager.PaymentMethodTableAdapter = null;
+            this.tableAdapterManager.PaymentTableAdapter = null;
+            this.tableAdapterManager.ProductTableAdapter = null;
+            this.tableAdapterManager.PurchaseOrderLineTableAdapter = null;
+            this.tableAdapterManager.PurchaseOrderTableAdapter = null;
+            this.tableAdapterManager.SaleLineTableAdapter = null;
+            this.tableAdapterManager.SaleTableAdapter = null;
+            this.tableAdapterManager.SaleTypeTableAdapter = null;
+            this.tableAdapterManager.SupplierTableAdapter = null;
+            this.tableAdapterManager.UpdateOrder = TheByteClubPOS.dsSamsLiqourShopTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            // 
+            // customerTableAdapter
+            // 
+            this.customerTableAdapter.ClearBeforeFill = true;
+            // 
+            // customer_FirstNameLabel1
+            // 
+            customer_FirstNameLabel1.AutoSize = true;
+            customer_FirstNameLabel1.Location = new System.Drawing.Point(371, 356);
+            customer_FirstNameLabel1.Name = "customer_FirstNameLabel1";
+            customer_FirstNameLabel1.Size = new System.Drawing.Size(107, 13);
+            customer_FirstNameLabel1.TabIndex = 110;
+            customer_FirstNameLabel1.Text = "Customer First Name:";
+            // 
+            // customer_FirstNameTextBox
+            // 
+            this.customer_FirstNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customerBindingSource, "Customer_FirstName", true));
+            this.customer_FirstNameTextBox.Location = new System.Drawing.Point(484, 353);
+            this.customer_FirstNameTextBox.Name = "customer_FirstNameTextBox";
+            this.customer_FirstNameTextBox.Size = new System.Drawing.Size(100, 20);
+            this.customer_FirstNameTextBox.TabIndex = 111;
+            // 
+            // customer_LastNameLabel1
+            // 
+            customer_LastNameLabel1.AutoSize = true;
+            customer_LastNameLabel1.Location = new System.Drawing.Point(370, 384);
+            customer_LastNameLabel1.Name = "customer_LastNameLabel1";
+            customer_LastNameLabel1.Size = new System.Drawing.Size(108, 13);
+            customer_LastNameLabel1.TabIndex = 111;
+            customer_LastNameLabel1.Text = "Customer Last Name:";
+            // 
+            // customer_LastNameTextBox
+            // 
+            this.customer_LastNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customerBindingSource, "Customer_LastName", true));
+            this.customer_LastNameTextBox.Location = new System.Drawing.Point(484, 381);
+            this.customer_LastNameTextBox.Name = "customer_LastNameTextBox";
+            this.customer_LastNameTextBox.Size = new System.Drawing.Size(100, 20);
+            this.customer_LastNameTextBox.TabIndex = 112;
+            // 
+            // customer_IDNumberLabel1
+            // 
+            customer_IDNumberLabel1.AutoSize = true;
+            customer_IDNumberLabel1.Location = new System.Drawing.Point(373, 410);
+            customer_IDNumberLabel1.Name = "customer_IDNumberLabel1";
+            customer_IDNumberLabel1.Size = new System.Drawing.Size(105, 13);
+            customer_IDNumberLabel1.TabIndex = 112;
+            customer_IDNumberLabel1.Text = "Customer IDNumber:";
+            // 
+            // customer_IDNumberTextBox
+            // 
+            this.customer_IDNumberTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customerBindingSource, "Customer_IDNumber", true));
+            this.customer_IDNumberTextBox.Location = new System.Drawing.Point(484, 407);
+            this.customer_IDNumberTextBox.Name = "customer_IDNumberTextBox";
+            this.customer_IDNumberTextBox.Size = new System.Drawing.Size(100, 20);
+            this.customer_IDNumberTextBox.TabIndex = 113;
+            // 
+            // customer_StatusLabel1
+            // 
+            customer_StatusLabel1.AutoSize = true;
+            customer_StatusLabel1.Location = new System.Drawing.Point(391, 436);
+            customer_StatusLabel1.Name = "customer_StatusLabel1";
+            customer_StatusLabel1.Size = new System.Drawing.Size(87, 13);
+            customer_StatusLabel1.TabIndex = 113;
+            customer_StatusLabel1.Text = "Customer Status:";
+            // 
+            // customer_StatusTextBox
+            // 
+            this.customer_StatusTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customerBindingSource, "Customer_Status", true));
+            this.customer_StatusTextBox.Location = new System.Drawing.Point(484, 433);
+            this.customer_StatusTextBox.Name = "customer_StatusTextBox";
+            this.customer_StatusTextBox.Size = new System.Drawing.Size(100, 20);
+            this.customer_StatusTextBox.TabIndex = 114;
             // 
             // ManageCustomerDetails
             // 
@@ -764,9 +853,10 @@
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.customerDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.customerBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsSamsLiqourShop)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.customerDataGridView)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -824,5 +914,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn19;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn20;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.TextBox customer_IDNumberTextBox;
+        private System.Windows.Forms.TextBox customer_LastNameTextBox;
+        private System.Windows.Forms.TextBox customer_FirstNameTextBox;
+        private System.Windows.Forms.TextBox customer_StatusTextBox;
     }
 }
