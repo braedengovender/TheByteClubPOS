@@ -154,5 +154,11 @@ namespace TheByteClubPOS
             ManageProductCategories manageProductCategories = new ManageProductCategories();
             manageProductCategories.Show(); 
         }
+
+        private void btnCustomers_Click(object sender, EventArgs e)
+        {
+            ViewCustomer customer = new ViewCustomer();
+            OpenChildForm(customer);
+        }
     }
 }
