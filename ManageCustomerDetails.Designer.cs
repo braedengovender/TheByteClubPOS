@@ -334,6 +334,7 @@
             // tabPage1
             // 
             this.tabPage1.BackgroundImage = global::TheByteClubPOS.Properties.Resources.Background;
+            this.tabPage1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.tabPage1.Controls.Add(this.txtStatus);
             this.tabPage1.Controls.Add(this.maskedTextBox3);
             this.tabPage1.Controls.Add(this.maskedTextBox2);
@@ -548,6 +549,7 @@
             // tabPage2
             // 
             this.tabPage2.BackgroundImage = global::TheByteClubPOS.Properties.Resources.Background;
+            this.tabPage2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.tabPage2.Controls.Add(customer_StatusLabel1);
             this.tabPage2.Controls.Add(this.customer_StatusTextBox);
             this.tabPage2.Controls.Add(customer_IDNumberLabel1);

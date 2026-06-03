@@ -140,13 +140,13 @@ namespace TheByteClubPOS
         private void manageProductsToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             ManageProducts manageProducts = new ManageProducts();
-            manageProducts.Show();
+            OpenChildForm(manageProducts);
         }
 
         private void btnProducts_Click(object sender, EventArgs e)
         {
             ManageProducts manageProducts = new ManageProducts();
-            manageProducts.Show();
+            OpenChildForm(manageProducts);
         }
 
         private void manageProducToolStripMenuItem_Click(object sender, EventArgs e)
