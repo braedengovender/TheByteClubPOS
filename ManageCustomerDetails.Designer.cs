@@ -61,7 +61,6 @@
             this.button1 = new System.Windows.Forms.Button();
             this.dtpRegistrationDateTime = new System.Windows.Forms.DateTimePicker();
             this.cmbProvince = new System.Windows.Forms.ComboBox();
-            this.cmbStatus = new System.Windows.Forms.ComboBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.txtUsername = new System.Windows.Forms.TextBox();
             this.txtLoyaltyPointsBalance = new System.Windows.Forms.TextBox();
@@ -108,6 +107,7 @@
             this.customer_LastNameTextBox = new System.Windows.Forms.TextBox();
             this.customer_IDNumberTextBox = new System.Windows.Forms.TextBox();
             this.customer_StatusTextBox = new System.Windows.Forms.TextBox();
+            this.txtStatus = new System.Windows.Forms.TextBox();
             customer_IDLabel = new System.Windows.Forms.Label();
             customer_FirstNameLabel = new System.Windows.Forms.Label();
             customer_LastNameLabel = new System.Windows.Forms.Label();
@@ -334,13 +334,13 @@
             // tabPage1
             // 
             this.tabPage1.BackgroundImage = global::TheByteClubPOS.Properties.Resources.Background;
+            this.tabPage1.Controls.Add(this.txtStatus);
             this.tabPage1.Controls.Add(this.maskedTextBox3);
             this.tabPage1.Controls.Add(this.maskedTextBox2);
             this.tabPage1.Controls.Add(this.maskedTextBox1);
             this.tabPage1.Controls.Add(this.button1);
             this.tabPage1.Controls.Add(this.dtpRegistrationDateTime);
             this.tabPage1.Controls.Add(this.cmbProvince);
-            this.tabPage1.Controls.Add(this.cmbStatus);
             this.tabPage1.Controls.Add(this.txtPassword);
             this.tabPage1.Controls.Add(this.txtUsername);
             this.tabPage1.Controls.Add(this.txtLoyaltyPointsBalance);
@@ -415,6 +415,7 @@
             this.button1.TabIndex = 105;
             this.button1.Text = "Add Customer";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // dtpRegistrationDateTime
             // 
@@ -441,18 +442,6 @@
             this.cmbProvince.Size = new System.Drawing.Size(199, 21);
             this.cmbProvince.TabIndex = 103;
             // 
-            // cmbStatus
-            // 
-            this.cmbStatus.FormattingEnabled = true;
-            this.cmbStatus.Items.AddRange(new object[] {
-            "Active",
-            "Suspended",
-            "Deactivated"});
-            this.cmbStatus.Location = new System.Drawing.Point(559, 489);
-            this.cmbStatus.Name = "cmbStatus";
-            this.cmbStatus.Size = new System.Drawing.Size(199, 21);
-            this.cmbStatus.TabIndex = 102;
-            // 
             // txtPassword
             // 
             this.txtPassword.Location = new System.Drawing.Point(559, 541);
@@ -473,8 +462,10 @@
             // 
             this.txtLoyaltyPointsBalance.Location = new System.Drawing.Point(559, 463);
             this.txtLoyaltyPointsBalance.Name = "txtLoyaltyPointsBalance";
+            this.txtLoyaltyPointsBalance.ReadOnly = true;
             this.txtLoyaltyPointsBalance.Size = new System.Drawing.Size(200, 20);
             this.txtLoyaltyPointsBalance.TabIndex = 99;
+            this.txtLoyaltyPointsBalance.Text = "0";
             // 
             // txtCountry
             // 
@@ -838,6 +829,15 @@
             this.customer_StatusTextBox.Size = new System.Drawing.Size(100, 20);
             this.customer_StatusTextBox.TabIndex = 114;
             // 
+            // txtStatus
+            // 
+            this.txtStatus.Location = new System.Drawing.Point(558, 489);
+            this.txtStatus.Name = "txtStatus";
+            this.txtStatus.ReadOnly = true;
+            this.txtStatus.Size = new System.Drawing.Size(200, 20);
+            this.txtStatus.TabIndex = 109;
+            this.txtStatus.Text = "Active";
+            // 
             // ManageCustomerDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -871,7 +871,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DateTimePicker dtpRegistrationDateTime;
         private System.Windows.Forms.ComboBox cmbProvince;
-        private System.Windows.Forms.ComboBox cmbStatus;
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.TextBox txtUsername;
         private System.Windows.Forms.TextBox txtLoyaltyPointsBalance;
@@ -918,5 +917,6 @@
         private System.Windows.Forms.TextBox customer_LastNameTextBox;
         private System.Windows.Forms.TextBox customer_FirstNameTextBox;
         private System.Windows.Forms.TextBox customer_StatusTextBox;
+        private System.Windows.Forms.TextBox txtStatus;
     }
 }
