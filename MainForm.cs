@@ -160,5 +160,12 @@ namespace TheByteClubPOS
             ViewCustomer customer = new ViewCustomer();
             OpenChildForm(customer);
         }
+
+        private void manageCustomersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            ManageCustomerDetails manageCustomerDetails = new ManageCustomerDetails();
+            OpenChildForm(manageCustomerDetails);
+        }
     }
 }

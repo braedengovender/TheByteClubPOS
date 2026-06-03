@@ -145,5 +145,26 @@ namespace TheByteClubPOS
                 toolTip1.SetToolTip(txtEmailAddress, "Invalid email (needs @, ., and no spaces)");
             }
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+           /* if (customerDataGridView.SelectedRows.Count > 0)
+            {
+                int customerID = Convert.ToInt32(customerDataGridView.SelectedRows[0].Cells[0].Value);
+
+              //  customerTableAdapter.UpdateQueryStatus( customerID);
+
+                MessageBox.Show("Customer deactivated successfully.");
+            }
+            else
+            {
+                MessageBox.Show("Please select a customer first.");
+            }*/
+        }
     }
 }
