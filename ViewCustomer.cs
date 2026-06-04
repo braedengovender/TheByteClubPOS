@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.VisualBasic;
 
 namespace TheByteClubPOS
 {
@@ -74,7 +75,77 @@ namespace TheByteClubPOS
 
         private void radioButton3_CheckedChanged(object sender, EventArgs e)
         {
-            dv.Sort = "Customer_Datecreated DESC";
+            dv.Sort = "Customer_RegistrationDateTime DESC";
+        }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void radioButton4_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbCity.Checked)
+            {
+                // Prompt user for city filter
+                string city = Microsoft.VisualBasic.Interaction.InputBox(
+                    "Enter city to filter by:",
+                    "City Filter",
+                    ""
+                );
+
+                if (!string.IsNullOrWhiteSpace(city))
+                {
+                    dv.RowFilter = $"Customer_City LIKE '%{city.Replace("'", "''")}%'";
+                }
+            }
+        }
+
+        private void radioButton5_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbCountry.Checked)
+            {
+                // Prompt user for country filter
+                string country = Microsoft.VisualBasic.Interaction.InputBox(
+                    "Enter country to filter by:",
+                    "Country Filter",
+                    ""
+                );
+
+                if (!string.IsNullOrWhiteSpace(country))
+                {
+                    dv.RowFilter = $"Customer_Country LIKE '%{country.Replace("'", "''")}%'";
+                }
+            }
+        }
+
+        private void radioButton6_CheckedChanged(object sender, EventArgs e)
+        {
+            dv.RowFilter = "Customer_Status = 'Inactive'";
+        
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            dv.RowFilter = ""; // Clear Filter
+
+            rbCity.Checked = false;
+            rbCountry.Checked = false; //Unchecl Radio Buttons
+            rbInactive.Checked = false;
+
+            customerDataGridView.DataSource = dv; // Refresh DataGridView
+
+        }
+
+        private void BtnSort_Click(object sender, EventArgs e)
+        {
+            dv.Sort = ""; // Clear Sort
+
+            rbFirstName.Checked = false;
+            rbSurname.Checked = false; //Uncheck Radio Buttons
+            rbDateCreated.Checked = false;
+
+            customerDataGridView.DataSource = dv; // Refresh DataGridView
         }
     }
 }
