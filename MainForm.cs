@@ -170,8 +170,7 @@ namespace TheByteClubPOS
 
         private void deactivateCustomerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            DeactivateCustomer deactivateCustomer = new DeactivateCustomer();
-            OpenChildForm(deactivateCustomer);
+          
         }
     }
 }

@@ -62,12 +62,6 @@
     <Compile Include="DashboardForm.Designer.cs">
       <DependentUpon>DashboardForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="DeactivateCustomer.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="DeactivateCustomer.Designer.cs">
-      <DependentUpon>DeactivateCustomer.cs</DependentUpon>
-    </Compile>
     <Compile Include="dsSamsLiqourShop.cs">
       <DependentUpon>dsSamsLiqourShop.xsd</DependentUpon>
     </Compile>
@@ -155,9 +149,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DashboardForm.resx">
       <DependentUpon>DashboardForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DeactivateCustomer.resx">
-      <DependentUpon>DeactivateCustomer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ManageProductCategories.resx">
       <DependentUpon>ManageProductCategories.cs</DependentUpon>
