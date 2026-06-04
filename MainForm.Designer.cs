@@ -82,6 +82,7 @@
             this.employeeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.employeeTableAdapter = new TheByteClubPOS.dsSamsLiqourShopTableAdapters.EmployeeTableAdapter();
             this.tableAdapterManager = new TheByteClubPOS.dsSamsLiqourShopTableAdapters.TableAdapterManager();
+            this.deactivateCustomerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -205,7 +206,8 @@
             // 
             this.manageCustomerToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.manageCustomersToolStripMenuItem,
-            this.addCustomerToolStripMenuItem});
+            this.addCustomerToolStripMenuItem,
+            this.deactivateCustomerToolStripMenuItem});
             this.manageCustomerToolStripMenuItem.Image = global::TheByteClubPOS.Properties.Resources.CustomersIcon;
             this.manageCustomerToolStripMenuItem.Name = "manageCustomerToolStripMenuItem";
             this.manageCustomerToolStripMenuItem.Size = new System.Drawing.Size(100, 28);
@@ -214,14 +216,14 @@
             // manageCustomersToolStripMenuItem
             // 
             this.manageCustomersToolStripMenuItem.Name = "manageCustomersToolStripMenuItem";
-            this.manageCustomersToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.manageCustomersToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
             this.manageCustomersToolStripMenuItem.Text = "Manage Customers";
             this.manageCustomersToolStripMenuItem.Click += new System.EventHandler(this.manageCustomersToolStripMenuItem_Click);
             // 
             // addCustomerToolStripMenuItem
             // 
             this.addCustomerToolStripMenuItem.Name = "addCustomerToolStripMenuItem";
-            this.addCustomerToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.addCustomerToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
             this.addCustomerToolStripMenuItem.Text = "Add Customer";
             this.addCustomerToolStripMenuItem.Click += new System.EventHandler(this.addCustomerToolStripMenuItem_Click);
             // 
@@ -562,6 +564,13 @@
             this.tableAdapterManager.SupplierTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = TheByteClubPOS.dsSamsLiqourShopTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
+            // deactivateCustomerToolStripMenuItem
+            // 
+            this.deactivateCustomerToolStripMenuItem.Name = "deactivateCustomerToolStripMenuItem";
+            this.deactivateCustomerToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.deactivateCustomerToolStripMenuItem.Text = "Deactivate Customer";
+            this.deactivateCustomerToolStripMenuItem.Click += new System.EventHandler(this.deactivateCustomerToolStripMenuItem_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -646,5 +655,6 @@
         private System.Windows.Forms.Button btnCustomers;
         private System.Windows.Forms.Button btnSuppliers;
         private System.Windows.Forms.Button btnLogout;
+        private System.Windows.Forms.ToolStripMenuItem deactivateCustomerToolStripMenuItem;
     }
 }

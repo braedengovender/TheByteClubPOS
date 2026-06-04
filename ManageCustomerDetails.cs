@@ -15,10 +15,10 @@ namespace TheByteClubPOS
         public ManageCustomerDetails()
         {
             InitializeComponent();
-       
+
         }
-       
-    
+
+
 
         private void customerBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
@@ -69,38 +69,12 @@ namespace TheByteClubPOS
 
         private void button2_Click_1(object sender, EventArgs e)
         {
-            if (customerDataGridView.SelectedRows.Count > 0)
-            {
-                int customerID = Convert.ToInt32(customerDataGridView.SelectedRows[0].Cells[0].Value);
-
-                customerTableAdapter.UpdateQueryStatus(customerID, customerID);
-                customerTableAdapter.Fill(this.dsSamsLiqourShop.Customer);
-
-                MessageBox.Show("Customer deactivated successfully.");
-            }
-            else
-            {
-                MessageBox.Show("Please select a customer first.");
-            }
+            
         }
 
         private void customerDataGridView_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            if (customerDataGridView.Rows[e.RowIndex].Cells[17].Value != null)
-            {
-                string status = customerDataGridView.Rows[e.RowIndex].Cells[17].Value.ToString();
-
-                if (status == "Inactive")
-                {
-                    customerDataGridView.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.Red;
-                    customerDataGridView.Rows[e.RowIndex].DefaultCellStyle.ForeColor = Color.Black;
-                }
-                else
-                {
-                    customerDataGridView.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.White;
-                    customerDataGridView.Rows[e.RowIndex].DefaultCellStyle.ForeColor = Color.Black;
-                }
-            }
+            
         }
 
         private void button1_Click_1(object sender, EventArgs e)
@@ -198,5 +172,510 @@ namespace TheByteClubPOS
         {
 
         }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+            customerTableAdapter.FillByCustomerName(dsSamsLiqourShop.Customer, textBox2.Text);
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            DateTime selectedDate = customer_RegistrationDateTimeDateTimePicker.Value;
+
+         customerTableAdapter.UpdateQueryCustomerDetails(
+    customer_FirstNameTextBox1.Text,
+    customer_LastNameTextBox1.Text,
+    customer_EmailAddressTextBox.Text,
+    customer_IDNumberTextBox1.Text,
+    customer_PhoneNumberTextBox.Text,
+    customer_UnitNumberTextBox.Text,
+    customer_UnitNameTextBox.Text,
+    customer_StreetNumberTextBox.Text,
+    customer_StreetNameTextBox.Text,
+    customer_SuburbTextBox.Text,
+    customer_PostalCodeTextBox.Text,
+    customer_CityTextBox.Text,
+    customer_ProvinceTextBox.Text,
+    customer_CountryTextBox.Text,
+    selectedDate.ToString(),
+    Convert.ToInt32(customer_LoyaltyPointsBalanceTextBox.Text),
+    customer_StatusTextBox1.Text,
+    customer_UsernameTextBox.Text,
+    customer_PasswordTextBox.Text,
+    Convert.ToInt32(customer_IDTextBox.Text)
+);
+            customerTableAdapter.Fill(this.dsSamsLiqourShop.Customer);
+            MessageBox.Show("Customer details updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void customer_FirstNameLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void customer_LastNameLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void customer_EmailAddressLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void customer_IDNumberLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void customer_PhoneNumberLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void customer_UnitNumberLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void customer_UnitNameLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void customer_StreetNumberLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void customer_StreetNameLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void customer_SuburbLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void customer_PostalCodeLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void customer_CityLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void customer_ProvinceLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void customer_CountryLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void customer_RegistrationDateTimeLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void customer_LoyaltyPointsBalanceLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void customer_StatusLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void customer_UsernameLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void customer_PasswordLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void customer_FirstNameLabel1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void customer_LastNameLabel1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void customer_IDNumberLabel1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void customer_StatusLabel1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void customer_IDLabel1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void customer_FirstNameLabel2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void customer_LastNameLabel2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void customer_EmailAddressLabel1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void customer_IDNumberLabel2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void customer_PhoneNumberLabel1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void customer_UnitNumberLabel1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void customer_UnitNameLabel1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void customer_StreetNumberLabel1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void customer_StreetNameLabel1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void customer_SuburbLabel1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void customer_PostalCodeLabel1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void customer_CityLabel1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void customer_ProvinceLabel1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void customer_CountryLabel1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void customer_RegistrationDateTimeLabel1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void customer_LoyaltyPointsBalanceLabel1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void customer_StatusLabel2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void customer_UsernameLabel1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void customer_PasswordLabel1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabPage1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void customer_IDLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtStatus_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void maskedTextBox3_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+
+        }
+
+        private void maskedTextBox2_MaskInputRejected_1(object sender, MaskInputRejectedEventArgs e)
+        {
+
+        }
+
+        private void maskedTextBox1_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+
+        }
+
+        private void dtpRegistrationDateTime_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbProvince_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtPassword_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtUsername_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtLoyaltyPointsBalance_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtCountry_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtCity_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtSuburb_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtStreetName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtStreetNumber_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtUnitName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtUnitNumber_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtEmailAddress_TextChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtLastName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtFirstName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void customer_StatusTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void customerBindingSource_CurrentChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void customer_IDNumberTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void customer_LastNameTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void customer_FirstNameTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void customerDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void tabPage3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void customer_IDTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void customer_FirstNameTextBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void customer_LastNameTextBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void customer_EmailAddressTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void customer_IDNumberTextBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void customer_PhoneNumberTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void customer_UnitNumberTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void customer_UnitNameTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void customer_StreetNumberTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void customer_StreetNameTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void customer_SuburbTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void customer_PostalCodeTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void customer_CityTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void customer_ProvinceTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void customer_CountryTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void customer_RegistrationDateTimeDateTimePicker_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void customer_LoyaltyPointsBalanceTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void customer_StatusTextBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void customer_UsernameTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void customer_PasswordTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolTip1_Popup(object sender, PopupEventArgs e)
+        {
+
+        }
     }
-    }
+}
