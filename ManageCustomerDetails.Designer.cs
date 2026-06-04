@@ -55,6 +55,7 @@
             System.Windows.Forms.Label customer_StatusLabel1;
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.txtStatus = new System.Windows.Forms.TextBox();
             this.maskedTextBox3 = new System.Windows.Forms.MaskedTextBox();
             this.maskedTextBox2 = new System.Windows.Forms.MaskedTextBox();
             this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
@@ -76,6 +77,12 @@
             this.txtFirstName = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.customer_StatusTextBox = new System.Windows.Forms.TextBox();
+            this.customerBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dsSamsLiqourShop = new TheByteClubPOS.dsSamsLiqourShop();
+            this.customer_IDNumberTextBox = new System.Windows.Forms.TextBox();
+            this.customer_LastNameTextBox = new System.Windows.Forms.TextBox();
+            this.customer_FirstNameTextBox = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.customerDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -98,16 +105,9 @@
             this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.customerBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dsSamsLiqourShop = new TheByteClubPOS.dsSamsLiqourShop();
             this.tableAdapterManager = new TheByteClubPOS.dsSamsLiqourShopTableAdapters.TableAdapterManager();
             this.customerTableAdapter = new TheByteClubPOS.dsSamsLiqourShopTableAdapters.CustomerTableAdapter();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.customer_FirstNameTextBox = new System.Windows.Forms.TextBox();
-            this.customer_LastNameTextBox = new System.Windows.Forms.TextBox();
-            this.customer_IDNumberTextBox = new System.Windows.Forms.TextBox();
-            this.customer_StatusTextBox = new System.Windows.Forms.TextBox();
-            this.txtStatus = new System.Windows.Forms.TextBox();
             customer_IDLabel = new System.Windows.Forms.Label();
             customer_FirstNameLabel = new System.Windows.Forms.Label();
             customer_LastNameLabel = new System.Windows.Forms.Label();
@@ -135,9 +135,9 @@
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.customerDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.customerBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsSamsLiqourShop)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.customerDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // customer_IDLabel
@@ -320,6 +320,42 @@
             customer_PasswordLabel.TabIndex = 88;
             customer_PasswordLabel.Text = "Customer Password:";
             // 
+            // customer_FirstNameLabel1
+            // 
+            customer_FirstNameLabel1.AutoSize = true;
+            customer_FirstNameLabel1.Location = new System.Drawing.Point(371, 356);
+            customer_FirstNameLabel1.Name = "customer_FirstNameLabel1";
+            customer_FirstNameLabel1.Size = new System.Drawing.Size(107, 13);
+            customer_FirstNameLabel1.TabIndex = 110;
+            customer_FirstNameLabel1.Text = "Customer First Name:";
+            // 
+            // customer_LastNameLabel1
+            // 
+            customer_LastNameLabel1.AutoSize = true;
+            customer_LastNameLabel1.Location = new System.Drawing.Point(370, 384);
+            customer_LastNameLabel1.Name = "customer_LastNameLabel1";
+            customer_LastNameLabel1.Size = new System.Drawing.Size(108, 13);
+            customer_LastNameLabel1.TabIndex = 111;
+            customer_LastNameLabel1.Text = "Customer Last Name:";
+            // 
+            // customer_IDNumberLabel1
+            // 
+            customer_IDNumberLabel1.AutoSize = true;
+            customer_IDNumberLabel1.Location = new System.Drawing.Point(373, 410);
+            customer_IDNumberLabel1.Name = "customer_IDNumberLabel1";
+            customer_IDNumberLabel1.Size = new System.Drawing.Size(105, 13);
+            customer_IDNumberLabel1.TabIndex = 112;
+            customer_IDNumberLabel1.Text = "Customer IDNumber:";
+            // 
+            // customer_StatusLabel1
+            // 
+            customer_StatusLabel1.AutoSize = true;
+            customer_StatusLabel1.Location = new System.Drawing.Point(391, 436);
+            customer_StatusLabel1.Name = "customer_StatusLabel1";
+            customer_StatusLabel1.Size = new System.Drawing.Size(87, 13);
+            customer_StatusLabel1.TabIndex = 113;
+            customer_StatusLabel1.Text = "Customer Status:";
+            // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
@@ -383,6 +419,15 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Add Customer";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // txtStatus
+            // 
+            this.txtStatus.Location = new System.Drawing.Point(558, 489);
+            this.txtStatus.Name = "txtStatus";
+            this.txtStatus.ReadOnly = true;
+            this.txtStatus.Size = new System.Drawing.Size(200, 20);
+            this.txtStatus.TabIndex = 109;
+            this.txtStatus.Text = "Active";
             // 
             // maskedTextBox3
             // 
@@ -567,6 +612,49 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Deactivate Customer";
             this.tabPage2.UseVisualStyleBackColor = true;
+            this.tabPage2.Click += new System.EventHandler(this.tabPage2_Click);
+            // 
+            // customer_StatusTextBox
+            // 
+            this.customer_StatusTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customerBindingSource, "Customer_Status", true));
+            this.customer_StatusTextBox.Location = new System.Drawing.Point(484, 433);
+            this.customer_StatusTextBox.Name = "customer_StatusTextBox";
+            this.customer_StatusTextBox.Size = new System.Drawing.Size(100, 20);
+            this.customer_StatusTextBox.TabIndex = 114;
+            // 
+            // customerBindingSource
+            // 
+            this.customerBindingSource.DataMember = "Customer";
+            this.customerBindingSource.DataSource = this.dsSamsLiqourShop;
+            // 
+            // dsSamsLiqourShop
+            // 
+            this.dsSamsLiqourShop.DataSetName = "dsSamsLiqourShop";
+            this.dsSamsLiqourShop.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // customer_IDNumberTextBox
+            // 
+            this.customer_IDNumberTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customerBindingSource, "Customer_IDNumber", true));
+            this.customer_IDNumberTextBox.Location = new System.Drawing.Point(484, 407);
+            this.customer_IDNumberTextBox.Name = "customer_IDNumberTextBox";
+            this.customer_IDNumberTextBox.Size = new System.Drawing.Size(100, 20);
+            this.customer_IDNumberTextBox.TabIndex = 113;
+            // 
+            // customer_LastNameTextBox
+            // 
+            this.customer_LastNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customerBindingSource, "Customer_LastName", true));
+            this.customer_LastNameTextBox.Location = new System.Drawing.Point(484, 381);
+            this.customer_LastNameTextBox.Name = "customer_LastNameTextBox";
+            this.customer_LastNameTextBox.Size = new System.Drawing.Size(100, 20);
+            this.customer_LastNameTextBox.TabIndex = 112;
+            // 
+            // customer_FirstNameTextBox
+            // 
+            this.customer_FirstNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customerBindingSource, "Customer_FirstName", true));
+            this.customer_FirstNameTextBox.Location = new System.Drawing.Point(484, 353);
+            this.customer_FirstNameTextBox.Name = "customer_FirstNameTextBox";
+            this.customer_FirstNameTextBox.Size = new System.Drawing.Size(100, 20);
+            this.customer_FirstNameTextBox.TabIndex = 111;
             // 
             // button2
             // 
@@ -731,16 +819,6 @@
             this.dataGridViewTextBoxColumn20.HeaderText = "Customer_Password";
             this.dataGridViewTextBoxColumn20.Name = "dataGridViewTextBoxColumn20";
             // 
-            // customerBindingSource
-            // 
-            this.customerBindingSource.DataMember = "Customer";
-            this.customerBindingSource.DataSource = this.dsSamsLiqourShop;
-            // 
-            // dsSamsLiqourShop
-            // 
-            this.dsSamsLiqourShop.DataSetName = "dsSamsLiqourShop";
-            this.dsSamsLiqourShop.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // tableAdapterManager
             // 
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
@@ -763,83 +841,6 @@
             // 
             this.customerTableAdapter.ClearBeforeFill = true;
             // 
-            // customer_FirstNameLabel1
-            // 
-            customer_FirstNameLabel1.AutoSize = true;
-            customer_FirstNameLabel1.Location = new System.Drawing.Point(371, 356);
-            customer_FirstNameLabel1.Name = "customer_FirstNameLabel1";
-            customer_FirstNameLabel1.Size = new System.Drawing.Size(107, 13);
-            customer_FirstNameLabel1.TabIndex = 110;
-            customer_FirstNameLabel1.Text = "Customer First Name:";
-            // 
-            // customer_FirstNameTextBox
-            // 
-            this.customer_FirstNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customerBindingSource, "Customer_FirstName", true));
-            this.customer_FirstNameTextBox.Location = new System.Drawing.Point(484, 353);
-            this.customer_FirstNameTextBox.Name = "customer_FirstNameTextBox";
-            this.customer_FirstNameTextBox.Size = new System.Drawing.Size(100, 20);
-            this.customer_FirstNameTextBox.TabIndex = 111;
-            // 
-            // customer_LastNameLabel1
-            // 
-            customer_LastNameLabel1.AutoSize = true;
-            customer_LastNameLabel1.Location = new System.Drawing.Point(370, 384);
-            customer_LastNameLabel1.Name = "customer_LastNameLabel1";
-            customer_LastNameLabel1.Size = new System.Drawing.Size(108, 13);
-            customer_LastNameLabel1.TabIndex = 111;
-            customer_LastNameLabel1.Text = "Customer Last Name:";
-            // 
-            // customer_LastNameTextBox
-            // 
-            this.customer_LastNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customerBindingSource, "Customer_LastName", true));
-            this.customer_LastNameTextBox.Location = new System.Drawing.Point(484, 381);
-            this.customer_LastNameTextBox.Name = "customer_LastNameTextBox";
-            this.customer_LastNameTextBox.Size = new System.Drawing.Size(100, 20);
-            this.customer_LastNameTextBox.TabIndex = 112;
-            // 
-            // customer_IDNumberLabel1
-            // 
-            customer_IDNumberLabel1.AutoSize = true;
-            customer_IDNumberLabel1.Location = new System.Drawing.Point(373, 410);
-            customer_IDNumberLabel1.Name = "customer_IDNumberLabel1";
-            customer_IDNumberLabel1.Size = new System.Drawing.Size(105, 13);
-            customer_IDNumberLabel1.TabIndex = 112;
-            customer_IDNumberLabel1.Text = "Customer IDNumber:";
-            // 
-            // customer_IDNumberTextBox
-            // 
-            this.customer_IDNumberTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customerBindingSource, "Customer_IDNumber", true));
-            this.customer_IDNumberTextBox.Location = new System.Drawing.Point(484, 407);
-            this.customer_IDNumberTextBox.Name = "customer_IDNumberTextBox";
-            this.customer_IDNumberTextBox.Size = new System.Drawing.Size(100, 20);
-            this.customer_IDNumberTextBox.TabIndex = 113;
-            // 
-            // customer_StatusLabel1
-            // 
-            customer_StatusLabel1.AutoSize = true;
-            customer_StatusLabel1.Location = new System.Drawing.Point(391, 436);
-            customer_StatusLabel1.Name = "customer_StatusLabel1";
-            customer_StatusLabel1.Size = new System.Drawing.Size(87, 13);
-            customer_StatusLabel1.TabIndex = 113;
-            customer_StatusLabel1.Text = "Customer Status:";
-            // 
-            // customer_StatusTextBox
-            // 
-            this.customer_StatusTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customerBindingSource, "Customer_Status", true));
-            this.customer_StatusTextBox.Location = new System.Drawing.Point(484, 433);
-            this.customer_StatusTextBox.Name = "customer_StatusTextBox";
-            this.customer_StatusTextBox.Size = new System.Drawing.Size(100, 20);
-            this.customer_StatusTextBox.TabIndex = 114;
-            // 
-            // txtStatus
-            // 
-            this.txtStatus.Location = new System.Drawing.Point(558, 489);
-            this.txtStatus.Name = "txtStatus";
-            this.txtStatus.ReadOnly = true;
-            this.txtStatus.Size = new System.Drawing.Size(200, 20);
-            this.txtStatus.TabIndex = 109;
-            this.txtStatus.Text = "Active";
-            // 
             // ManageCustomerDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -856,9 +857,9 @@
             this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.customerDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.customerBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsSamsLiqourShop)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.customerDataGridView)).EndInit();
             this.ResumeLayout(false);
 
         }

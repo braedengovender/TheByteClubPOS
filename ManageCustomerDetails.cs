@@ -15,7 +15,10 @@ namespace TheByteClubPOS
         public ManageCustomerDetails()
         {
             InitializeComponent();
+       
         }
+       
+    
 
         private void customerBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
@@ -189,6 +192,11 @@ namespace TheByteClubPOS
             {
                 MessageBox.Show($"An unexpected error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void tabPage2_Click(object sender, EventArgs e)
+        {
+
         }
     }
     }

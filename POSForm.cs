@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using static TheByteClubPOS.dsSamsLiqourShop;
 
 namespace TheByteClubPOS
 {
@@ -353,6 +355,7 @@ namespace TheByteClubPOS
 
         private void btnLookup_Click(object sender, EventArgs e)
         {
+            
             maskedTextBox1.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
 
             string idOrPhoneNumber = maskedTextBox1.Text.Trim();
@@ -369,11 +372,26 @@ namespace TheByteClubPOS
                 if (this.dsSamsLiqourShop.Customer.Rows.Count > 0)
                 {
                     DataRow customerRow = this.dsSamsLiqourShop.Customer.Rows[0];
+                    string customerStatus = customerRow["Customer_Status"].ToString();
                     currentCustomerID = Convert.ToInt32(customerRow["Customer_ID"]);
                     lblName.Text = customerRow["Customer_FirstName"].ToString() + " " + customerRow["Customer_LastName"].ToString();
                     lblPointsAmount.Text = customerRow["Customer_LoyaltyPointsBalance"].ToString();
-                    // SUCCESS POPUP: Gives clear confirmation to the cashier
-                    MessageBox.Show($"Customer profile found successfully!\n\nName: {lblName.Text}", "Profile Loaded", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+
+                    if (customerStatus == "Inactive")
+                    {
+                        MessageBox.Show(
+                            "This customer account is inactive. Loyalty points will not be added to purchases.",
+                            "Inactive Customer",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Warning);
+                    }
+                    else
+                    {
+                        // SUCCESS POPUP: Gives clear confirmation to the cashier
+                        MessageBox.Show($"Customer profile found successfully!\n\nName: {lblName.Text}", "Profile Loaded", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                       
                 }
                 else
                 {
@@ -466,6 +484,7 @@ namespace TheByteClubPOS
                 updateStockQuantityInDatabase();
 
                 if (currentCustomerID != null)
+              
                 {
                     customerTableAdapter.UpdateQueryCustLoyaltyPoints(Convert.ToInt32(currentCustomerID), loyaltyPointsEarned);
                 }
