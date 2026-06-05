@@ -12490,7 +12490,7 @@ SELECT Employee_ID, Employee_FirstName, Employee_LastName, Employee_IDNumber, Em
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[7];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[10];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT Employee_ID, Employee_FirstName, Employee_LastName, Employee_IDNumber, Emp" +
@@ -12541,6 +12541,46 @@ WHERE        (Employee_ID = @employeeID)";
             this._commandCollection[6].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@username", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Employee_Username", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@password", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Employee_Password", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[7] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[7].Connection = this.Connection;
+            this._commandCollection[7].CommandText = @"INSERT INTO Employee
+             (Employee_FirstName, Employee_LastName, Employee_IDNumber, Employee_Role, Employee_EmailAddress, Employee_PhoneNumber, Employee_HireDate, Employee_Username, Employee_Password, Employee_Status)
+VALUES (@Employee_FirstName,@Employee_LastName,@Employee_IDNumber,@Employee_Role,@Employee_EmailAddress,@Employee_PhoneNumber,@Employee_HireDate,@Employee_Username,@Employee_Password,@Employee_Status); 
+";
+            this._commandCollection[7].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Employee_FirstName", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Employee_FirstName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Employee_LastName", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Employee_LastName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Employee_IDNumber", global::System.Data.SqlDbType.VarChar, 13, global::System.Data.ParameterDirection.Input, 0, 0, "Employee_IDNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Employee_Role", global::System.Data.SqlDbType.VarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "Employee_Role", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Employee_EmailAddress", global::System.Data.SqlDbType.VarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "Employee_EmailAddress", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Employee_PhoneNumber", global::System.Data.SqlDbType.VarChar, 12, global::System.Data.ParameterDirection.Input, 0, 0, "Employee_PhoneNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Employee_HireDate", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Employee_HireDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Employee_Username", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Employee_Username", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Employee_Password", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Employee_Password", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Employee_Status", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "Employee_Status", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[8] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[8].Connection = this.Connection;
+            this._commandCollection[8].CommandText = @"UPDATE Employee
+SET       Employee_FirstName = @Employee_FirstName, Employee_LastName = @Employee_LastName, Employee_IDNumber = @Employee_IDNumber, Employee_Role = @Employee_Role, Employee_EmailAddress = @Employee_EmailAddress, 
+             Employee_PhoneNumber = @Employee_PhoneNumber, Employee_HireDate = @Employee_HireDate, Employee_Username = @Employee_Username, Employee_Password = @Employee_Password, Employee_Status = @Employee_Status
+WHERE (Employee_ID = @Employee_ID)";
+            this._commandCollection[8].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[8].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Employee_FirstName", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Employee_FirstName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[8].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Employee_LastName", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Employee_LastName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[8].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Employee_IDNumber", global::System.Data.SqlDbType.VarChar, 13, global::System.Data.ParameterDirection.Input, 0, 0, "Employee_IDNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[8].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Employee_Role", global::System.Data.SqlDbType.VarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "Employee_Role", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[8].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Employee_EmailAddress", global::System.Data.SqlDbType.VarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "Employee_EmailAddress", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[8].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Employee_PhoneNumber", global::System.Data.SqlDbType.VarChar, 12, global::System.Data.ParameterDirection.Input, 0, 0, "Employee_PhoneNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[8].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Employee_HireDate", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Employee_HireDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[8].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Employee_Username", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Employee_Username", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[8].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Employee_Password", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Employee_Password", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[8].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Employee_Status", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "Employee_Status", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[8].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Employee_ID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Employee_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._commandCollection[9] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[9].Connection = this.Connection;
+            this._commandCollection[9].CommandText = "SELECT COUNT(*)\r\nFROM Employee\r\n WHERE Employee_Username = @Employee_Username";
+            this._commandCollection[9].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[9].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Employee_Username", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Employee_Username", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -13084,6 +13124,207 @@ WHERE        (Employee_ID = @employeeID)";
             }
             else {
                 return ((object)(returnValue));
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
+        public virtual int InsertEmployee(string Employee_FirstName, string Employee_LastName, string Employee_IDNumber, string Employee_Role, string Employee_EmailAddress, string Employee_PhoneNumber, string Employee_HireDate, string Employee_Username, string Employee_Password, string Employee_Status) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[7];
+            if ((Employee_FirstName == null)) {
+                throw new global::System.ArgumentNullException("Employee_FirstName");
+            }
+            else {
+                command.Parameters[0].Value = ((string)(Employee_FirstName));
+            }
+            if ((Employee_LastName == null)) {
+                throw new global::System.ArgumentNullException("Employee_LastName");
+            }
+            else {
+                command.Parameters[1].Value = ((string)(Employee_LastName));
+            }
+            if ((Employee_IDNumber == null)) {
+                throw new global::System.ArgumentNullException("Employee_IDNumber");
+            }
+            else {
+                command.Parameters[2].Value = ((string)(Employee_IDNumber));
+            }
+            if ((Employee_Role == null)) {
+                throw new global::System.ArgumentNullException("Employee_Role");
+            }
+            else {
+                command.Parameters[3].Value = ((string)(Employee_Role));
+            }
+            if ((Employee_EmailAddress == null)) {
+                throw new global::System.ArgumentNullException("Employee_EmailAddress");
+            }
+            else {
+                command.Parameters[4].Value = ((string)(Employee_EmailAddress));
+            }
+            if ((Employee_PhoneNumber == null)) {
+                throw new global::System.ArgumentNullException("Employee_PhoneNumber");
+            }
+            else {
+                command.Parameters[5].Value = ((string)(Employee_PhoneNumber));
+            }
+            if ((Employee_HireDate == null)) {
+                throw new global::System.ArgumentNullException("Employee_HireDate");
+            }
+            else {
+                command.Parameters[6].Value = ((string)(Employee_HireDate));
+            }
+            if ((Employee_Username == null)) {
+                throw new global::System.ArgumentNullException("Employee_Username");
+            }
+            else {
+                command.Parameters[7].Value = ((string)(Employee_Username));
+            }
+            if ((Employee_Password == null)) {
+                throw new global::System.ArgumentNullException("Employee_Password");
+            }
+            else {
+                command.Parameters[8].Value = ((string)(Employee_Password));
+            }
+            if ((Employee_Status == null)) {
+                throw new global::System.ArgumentNullException("Employee_Status");
+            }
+            else {
+                command.Parameters[9].Value = ((string)(Employee_Status));
+            }
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            int returnValue;
+            try {
+                returnValue = command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
+        public virtual int UpdateEmployee(string Employee_FirstName, string Employee_LastName, string Employee_IDNumber, string Employee_Role, string Employee_EmailAddress, string Employee_PhoneNumber, string Employee_HireDate, string Employee_Username, string Employee_Password, string Employee_Status, int Employee_ID) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[8];
+            if ((Employee_FirstName == null)) {
+                throw new global::System.ArgumentNullException("Employee_FirstName");
+            }
+            else {
+                command.Parameters[0].Value = ((string)(Employee_FirstName));
+            }
+            if ((Employee_LastName == null)) {
+                throw new global::System.ArgumentNullException("Employee_LastName");
+            }
+            else {
+                command.Parameters[1].Value = ((string)(Employee_LastName));
+            }
+            if ((Employee_IDNumber == null)) {
+                throw new global::System.ArgumentNullException("Employee_IDNumber");
+            }
+            else {
+                command.Parameters[2].Value = ((string)(Employee_IDNumber));
+            }
+            if ((Employee_Role == null)) {
+                throw new global::System.ArgumentNullException("Employee_Role");
+            }
+            else {
+                command.Parameters[3].Value = ((string)(Employee_Role));
+            }
+            if ((Employee_EmailAddress == null)) {
+                throw new global::System.ArgumentNullException("Employee_EmailAddress");
+            }
+            else {
+                command.Parameters[4].Value = ((string)(Employee_EmailAddress));
+            }
+            if ((Employee_PhoneNumber == null)) {
+                throw new global::System.ArgumentNullException("Employee_PhoneNumber");
+            }
+            else {
+                command.Parameters[5].Value = ((string)(Employee_PhoneNumber));
+            }
+            if ((Employee_HireDate == null)) {
+                throw new global::System.ArgumentNullException("Employee_HireDate");
+            }
+            else {
+                command.Parameters[6].Value = ((string)(Employee_HireDate));
+            }
+            if ((Employee_Username == null)) {
+                throw new global::System.ArgumentNullException("Employee_Username");
+            }
+            else {
+                command.Parameters[7].Value = ((string)(Employee_Username));
+            }
+            if ((Employee_Password == null)) {
+                throw new global::System.ArgumentNullException("Employee_Password");
+            }
+            else {
+                command.Parameters[8].Value = ((string)(Employee_Password));
+            }
+            if ((Employee_Status == null)) {
+                throw new global::System.ArgumentNullException("Employee_Status");
+            }
+            else {
+                command.Parameters[9].Value = ((string)(Employee_Status));
+            }
+            command.Parameters[10].Value = ((int)(Employee_ID));
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            int returnValue;
+            try {
+                returnValue = command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual global::System.Nullable<int> UsernameExists(string Employee_Username) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[9];
+            if ((Employee_Username == null)) {
+                throw new global::System.ArgumentNullException("Employee_Username");
+            }
+            else {
+                command.Parameters[0].Value = ((string)(Employee_Username));
+            }
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            object returnValue;
+            try {
+                returnValue = command.ExecuteScalar();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            if (((returnValue == null) 
+                        || (returnValue.GetType() == typeof(global::System.DBNull)))) {
+                return new global::System.Nullable<int>();
+            }
+            else {
+                return new global::System.Nullable<int>(((int)(returnValue)));
             }
         }
     }

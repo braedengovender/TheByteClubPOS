@@ -321,5 +321,12 @@ namespace TheByteClubPOS
         {
 
         }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            ManageEmployeeDetailsForm employeeDetailsForm = new ManageEmployeeDetailsForm();
+            employeeDetailsForm.Show();
+            this.Hide();
+        }
     }
 }
