@@ -151,6 +151,7 @@
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.tableAdapterManager = new TheByteClubPOS.dsSamsLiqourShopTableAdapters.TableAdapterManager();
             this.customerTableAdapter = new TheByteClubPOS.dsSamsLiqourShopTableAdapters.CustomerTableAdapter();
+            this.label1 = new System.Windows.Forms.Label();
             customer_IDLabel = new System.Windows.Forms.Label();
             customer_FirstNameLabel = new System.Windows.Forms.Label();
             customer_LastNameLabel = new System.Windows.Forms.Label();
@@ -1140,6 +1141,7 @@
             // 
             this.tabPage3.BackgroundImage = global::TheByteClubPOS.Properties.Resources.Background;
             this.tabPage3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.tabPage3.Controls.Add(this.label1);
             this.tabPage3.Controls.Add(this.button3);
             this.tabPage3.Controls.Add(this.textBox2);
             this.tabPage3.Controls.Add(customer_IDLabel1);
@@ -1421,6 +1423,16 @@
             // 
             this.customerTableAdapter.ClearBeforeFill = true;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(55, 71);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(254, 20);
+            this.label1.TabIndex = 42;
+            this.label1.Text = "Search for customer by First Name";
+            // 
             // ManageCustomerDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1526,5 +1538,6 @@
         private System.Windows.Forms.TextBox customer_PasswordTextBox;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Label label1;
     }
 }
