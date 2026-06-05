@@ -29,59 +29,495 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            this.employeeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dsSamsLiqourShopBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dsSamsLiqourShop = new TheByteClubPOS.dsSamsLiqourShop();
+            this.btnExit = new System.Windows.Forms.Button();
+            this.lblTitle = new System.Windows.Forms.Label();
+            this.grpFilter = new System.Windows.Forms.GroupBox();
+            this.rdoAll = new System.Windows.Forms.RadioButton();
+            this.rdoAdmin = new System.Windows.Forms.RadioButton();
+            this.rdoCashier = new System.Windows.Forms.RadioButton();
+            this.rdoManager = new System.Windows.Forms.RadioButton();
+            this.txtSearch = new System.Windows.Forms.TextBox();
+            this.lblSearch = new System.Windows.Forms.Label();
+            this.grpOrderby = new System.Windows.Forms.GroupBox();
+            this.rdoDesc = new System.Windows.Forms.RadioButton();
+            this.rdoAsc = new System.Windows.Forms.RadioButton();
+            this.grpSort = new System.Windows.Forms.GroupBox();
+            this.rdoID = new System.Windows.Forms.RadioButton();
+            this.rdoUsername = new System.Windows.Forms.RadioButton();
+            this.rdoSurname = new System.Windows.Forms.RadioButton();
+            this.rdoName = new System.Windows.Forms.RadioButton();
+            this.btnReset = new System.Windows.Forms.Button();
+            this.btnRemove = new System.Windows.Forms.Button();
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.btnEdit = new System.Windows.Forms.Button();
             this.dgvEmployees = new System.Windows.Forms.DataGridView();
+            this.Employee_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Employee_FirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Employee_LastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Employee_IDNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Employee_Role = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Employee_EmailAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Employee_PhoneNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Employee_HireDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Employee_Username = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Employee_Password = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Employee_Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.employeeHireDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.employeeUsernameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.employeePasswordDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.employeeStatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.employeeBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dsSamsLiqourShopBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dsSamsLiqourShop = new TheByteClubPOS.dsSamsLiqourShop();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.radioButton6 = new System.Windows.Forms.RadioButton();
-            this.radioButton5 = new System.Windows.Forms.RadioButton();
-            this.radioButton4 = new System.Windows.Forms.RadioButton();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.radioButton8 = new System.Windows.Forms.RadioButton();
-            this.radioButton7 = new System.Windows.Forms.RadioButton();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.label2 = new System.Windows.Forms.Label();
             this.employeeTableAdapter = new TheByteClubPOS.dsSamsLiqourShopTableAdapters.EmployeeTableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvEmployees)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeeBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsSamsLiqourShopBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsSamsLiqourShop)).BeginInit();
-            this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            this.grpFilter.SuspendLayout();
+            this.grpOrderby.SuspendLayout();
+            this.grpSort.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEmployees)).BeginInit();
             this.SuspendLayout();
+            // 
+            // employeeBindingSource
+            // 
+            this.employeeBindingSource.DataMember = "Employee";
+            this.employeeBindingSource.DataSource = this.dsSamsLiqourShopBindingSource;
+            // 
+            // dsSamsLiqourShopBindingSource
+            // 
+            this.dsSamsLiqourShopBindingSource.DataSource = this.dsSamsLiqourShop;
+            this.dsSamsLiqourShopBindingSource.Position = 0;
+            // 
+            // dsSamsLiqourShop
+            // 
+            this.dsSamsLiqourShop.DataSetName = "dsSamsLiqourShop";
+            this.dsSamsLiqourShop.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // btnExit
+            // 
+            this.btnExit.Location = new System.Drawing.Point(1096, 719);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(92, 35);
+            this.btnExit.TabIndex = 25;
+            this.btnExit.Text = "Exit";
+            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
+            // lblTitle
+            // 
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.Font = new System.Drawing.Font("Modern No. 20", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.Location = new System.Drawing.Point(33, 18);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(235, 30);
+            this.lblTitle.TabIndex = 24;
+            this.lblTitle.Text = "Employee Details:";
+            // 
+            // grpFilter
+            // 
+            this.grpFilter.Controls.Add(this.rdoAll);
+            this.grpFilter.Controls.Add(this.rdoAdmin);
+            this.grpFilter.Controls.Add(this.rdoCashier);
+            this.grpFilter.Controls.Add(this.rdoManager);
+            this.grpFilter.Location = new System.Drawing.Point(360, 481);
+            this.grpFilter.Name = "grpFilter";
+            this.grpFilter.Size = new System.Drawing.Size(295, 198);
+            this.grpFilter.TabIndex = 23;
+            this.grpFilter.TabStop = false;
+            this.grpFilter.Text = "Filter by:";
+            // 
+            // rdoAll
+            // 
+            this.rdoAll.AutoSize = true;
+            this.rdoAll.Location = new System.Drawing.Point(46, 26);
+            this.rdoAll.Name = "rdoAll";
+            this.rdoAll.Size = new System.Drawing.Size(51, 24);
+            this.rdoAll.TabIndex = 3;
+            this.rdoAll.TabStop = true;
+            this.rdoAll.Text = "All";
+            this.rdoAll.UseVisualStyleBackColor = true;
+            this.rdoAll.CheckedChanged += new System.EventHandler(this.rdoAll_CheckedChanged);
+            this.rdoAll.Click += new System.EventHandler(this.rdoAll_CheckedChanged);
+            // 
+            // rdoAdmin
+            // 
+            this.rdoAdmin.AutoSize = true;
+            this.rdoAdmin.Location = new System.Drawing.Point(46, 157);
+            this.rdoAdmin.Name = "rdoAdmin";
+            this.rdoAdmin.Size = new System.Drawing.Size(79, 24);
+            this.rdoAdmin.TabIndex = 2;
+            this.rdoAdmin.TabStop = true;
+            this.rdoAdmin.Text = "Admin";
+            this.rdoAdmin.UseVisualStyleBackColor = true;
+            this.rdoAdmin.Click += new System.EventHandler(this.rdoAdmin_CheckedChanged);
+            // 
+            // rdoCashier
+            // 
+            this.rdoCashier.AutoSize = true;
+            this.rdoCashier.Location = new System.Drawing.Point(46, 111);
+            this.rdoCashier.Name = "rdoCashier";
+            this.rdoCashier.Size = new System.Drawing.Size(88, 24);
+            this.rdoCashier.TabIndex = 1;
+            this.rdoCashier.TabStop = true;
+            this.rdoCashier.Text = "Cashier";
+            this.rdoCashier.UseVisualStyleBackColor = true;
+            this.rdoCashier.Click += new System.EventHandler(this.rdoCashier_CheckedChanged);
+            // 
+            // rdoManager
+            // 
+            this.rdoManager.AutoSize = true;
+            this.rdoManager.Location = new System.Drawing.Point(46, 68);
+            this.rdoManager.Name = "rdoManager";
+            this.rdoManager.Size = new System.Drawing.Size(97, 24);
+            this.rdoManager.TabIndex = 0;
+            this.rdoManager.TabStop = true;
+            this.rdoManager.Text = "Manager";
+            this.rdoManager.UseVisualStyleBackColor = true;
+            this.rdoManager.CheckedChanged += new System.EventHandler(this.rdoManager_CheckedChanged);
+            this.rdoManager.Click += new System.EventHandler(this.rdoManager_CheckedChanged);
+            // 
+            // txtSearch
+            // 
+            this.txtSearch.Location = new System.Drawing.Point(426, 424);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(229, 26);
+            this.txtSearch.TabIndex = 22;
+            this.txtSearch.Click += new System.EventHandler(this.txtSearch_TextChanged);
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
+            // 
+            // lblSearch
+            // 
+            this.lblSearch.AutoSize = true;
+            this.lblSearch.Location = new System.Drawing.Point(356, 427);
+            this.lblSearch.Name = "lblSearch";
+            this.lblSearch.Size = new System.Drawing.Size(64, 20);
+            this.lblSearch.TabIndex = 21;
+            this.lblSearch.Text = "Search:";
+            // 
+            // grpOrderby
+            // 
+            this.grpOrderby.Controls.Add(this.rdoDesc);
+            this.grpOrderby.Controls.Add(this.rdoAsc);
+            this.grpOrderby.Location = new System.Drawing.Point(995, 412);
+            this.grpOrderby.Name = "grpOrderby";
+            this.grpOrderby.Size = new System.Drawing.Size(257, 183);
+            this.grpOrderby.TabIndex = 20;
+            this.grpOrderby.TabStop = false;
+            this.grpOrderby.Text = "Order by:";
+            // 
+            // rdoDesc
+            // 
+            this.rdoDesc.AutoSize = true;
+            this.rdoDesc.Location = new System.Drawing.Point(38, 115);
+            this.rdoDesc.Name = "rdoDesc";
+            this.rdoDesc.Size = new System.Drawing.Size(119, 24);
+            this.rdoDesc.TabIndex = 2;
+            this.rdoDesc.TabStop = true;
+            this.rdoDesc.Text = "Descending";
+            this.rdoDesc.UseVisualStyleBackColor = true;
+            this.rdoDesc.Click += new System.EventHandler(this.rdoDesc_CheckedChanged);
+            // 
+            // rdoAsc
+            // 
+            this.rdoAsc.AutoSize = true;
+            this.rdoAsc.Location = new System.Drawing.Point(38, 44);
+            this.rdoAsc.Name = "rdoAsc";
+            this.rdoAsc.Size = new System.Drawing.Size(109, 24);
+            this.rdoAsc.TabIndex = 1;
+            this.rdoAsc.TabStop = true;
+            this.rdoAsc.Text = "Ascending";
+            this.rdoAsc.UseVisualStyleBackColor = true;
+            this.rdoAsc.Click += new System.EventHandler(this.rdoAsc_CheckedChanged);
+            // 
+            // grpSort
+            // 
+            this.grpSort.Controls.Add(this.rdoID);
+            this.grpSort.Controls.Add(this.rdoUsername);
+            this.grpSort.Controls.Add(this.rdoSurname);
+            this.grpSort.Controls.Add(this.rdoName);
+            this.grpSort.Location = new System.Drawing.Point(690, 412);
+            this.grpSort.Name = "grpSort";
+            this.grpSort.Size = new System.Drawing.Size(275, 267);
+            this.grpSort.TabIndex = 19;
+            this.grpSort.TabStop = false;
+            this.grpSort.Text = "Sort by:";
+            // 
+            // rdoID
+            // 
+            this.rdoID.AutoSize = true;
+            this.rdoID.Location = new System.Drawing.Point(35, 226);
+            this.rdoID.Name = "rdoID";
+            this.rdoID.Size = new System.Drawing.Size(51, 24);
+            this.rdoID.TabIndex = 4;
+            this.rdoID.TabStop = true;
+            this.rdoID.Text = "ID";
+            this.rdoID.UseVisualStyleBackColor = true;
+            this.rdoID.Click += new System.EventHandler(this.rdoID_CheckedChanged);
+            // 
+            // rdoUsername
+            // 
+            this.rdoUsername.AutoSize = true;
+            this.rdoUsername.Location = new System.Drawing.Point(35, 169);
+            this.rdoUsername.Name = "rdoUsername";
+            this.rdoUsername.Size = new System.Drawing.Size(108, 24);
+            this.rdoUsername.TabIndex = 3;
+            this.rdoUsername.TabStop = true;
+            this.rdoUsername.Text = "Username";
+            this.rdoUsername.UseVisualStyleBackColor = true;
+            this.rdoUsername.Click += new System.EventHandler(this.rdoUsername_CheckedChanged);
+            // 
+            // rdoSurname
+            // 
+            this.rdoSurname.AutoSize = true;
+            this.rdoSurname.Location = new System.Drawing.Point(35, 105);
+            this.rdoSurname.Name = "rdoSurname";
+            this.rdoSurname.Size = new System.Drawing.Size(99, 24);
+            this.rdoSurname.TabIndex = 2;
+            this.rdoSurname.TabStop = true;
+            this.rdoSurname.Text = "Surname";
+            this.rdoSurname.UseVisualStyleBackColor = true;
+            this.rdoSurname.Click += new System.EventHandler(this.rdoSurname_CheckedChanged);
+            // 
+            // rdoName
+            // 
+            this.rdoName.AutoSize = true;
+            this.rdoName.Location = new System.Drawing.Point(35, 44);
+            this.rdoName.Name = "rdoName";
+            this.rdoName.Size = new System.Drawing.Size(76, 24);
+            this.rdoName.TabIndex = 1;
+            this.rdoName.TabStop = true;
+            this.rdoName.Text = "Name";
+            this.rdoName.UseVisualStyleBackColor = true;
+            this.rdoName.Click += new System.EventHandler(this.rdoName_CheckedChanged);
+            // 
+            // btnReset
+            // 
+            this.btnReset.Location = new System.Drawing.Point(1043, 611);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(161, 68);
+            this.btnReset.TabIndex = 18;
+            this.btnReset.Text = "Reset Filter";
+            this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
+            // 
+            // btnRemove
+            // 
+            this.btnRemove.Location = new System.Drawing.Point(106, 611);
+            this.btnRemove.Name = "btnRemove";
+            this.btnRemove.Size = new System.Drawing.Size(161, 68);
+            this.btnRemove.TabIndex = 17;
+            this.btnRemove.Text = "Remove Employee";
+            this.btnRemove.UseVisualStyleBackColor = true;
+            this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.Location = new System.Drawing.Point(106, 517);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(161, 68);
+            this.btnAdd.TabIndex = 16;
+            this.btnAdd.Text = "Add Employee";
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
+            // btnEdit
+            // 
+            this.btnEdit.Location = new System.Drawing.Point(106, 412);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(161, 68);
+            this.btnEdit.TabIndex = 15;
+            this.btnEdit.Text = "Edit Details";
+            this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // dgvEmployees
             // 
             this.dgvEmployees.AutoGenerateColumns = false;
             this.dgvEmployees.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvEmployees.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Employee_ID,
+            this.Employee_FirstName,
+            this.Employee_LastName,
+            this.Employee_IDNumber,
+            this.Employee_Role,
+            this.Employee_EmailAddress,
+            this.Employee_PhoneNumber,
+            this.Employee_HireDate,
+            this.Employee_Username,
+            this.Employee_Password,
+            this.Employee_Status,
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4,
+            this.dataGridViewTextBoxColumn5,
+            this.dataGridViewTextBoxColumn6,
+            this.dataGridViewTextBoxColumn7,
             this.employeeHireDateDataGridViewTextBoxColumn,
             this.employeeUsernameDataGridViewTextBoxColumn,
             this.employeePasswordDataGridViewTextBoxColumn,
             this.employeeStatusDataGridViewTextBoxColumn});
             this.dgvEmployees.DataSource = this.employeeBindingSource;
-            this.dgvEmployees.Location = new System.Drawing.Point(8, 44);
-            this.dgvEmployees.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvEmployees.Location = new System.Drawing.Point(13, 68);
             this.dgvEmployees.Name = "dgvEmployees";
             this.dgvEmployees.RowHeadersWidth = 62;
             this.dgvEmployees.RowTemplate.Height = 28;
-            this.dgvEmployees.Size = new System.Drawing.Size(1097, 194);
-            this.dgvEmployees.TabIndex = 0;
+            this.dgvEmployees.Size = new System.Drawing.Size(1239, 299);
+            this.dgvEmployees.TabIndex = 14;
+            // 
+            // Employee_ID
+            // 
+            this.Employee_ID.DataPropertyName = "Employee_ID";
+            this.Employee_ID.HeaderText = "ID";
+            this.Employee_ID.MinimumWidth = 8;
+            this.Employee_ID.Name = "Employee_ID";
+            this.Employee_ID.ReadOnly = true;
+            this.Employee_ID.Width = 80;
+            // 
+            // Employee_FirstName
+            // 
+            this.Employee_FirstName.DataPropertyName = "Employee_FirstName";
+            this.Employee_FirstName.HeaderText = "FirstName";
+            this.Employee_FirstName.MinimumWidth = 8;
+            this.Employee_FirstName.Name = "Employee_FirstName";
+            this.Employee_FirstName.Width = 110;
+            // 
+            // Employee_LastName
+            // 
+            this.Employee_LastName.DataPropertyName = "Employee_LastName";
+            this.Employee_LastName.HeaderText = "LastName";
+            this.Employee_LastName.MinimumWidth = 8;
+            this.Employee_LastName.Name = "Employee_LastName";
+            this.Employee_LastName.Width = 110;
+            // 
+            // Employee_IDNumber
+            // 
+            this.Employee_IDNumber.DataPropertyName = "Employee_IDNumber";
+            this.Employee_IDNumber.HeaderText = "IDNumber";
+            this.Employee_IDNumber.MinimumWidth = 8;
+            this.Employee_IDNumber.Name = "Employee_IDNumber";
+            this.Employee_IDNumber.Width = 110;
+            // 
+            // Employee_Role
+            // 
+            this.Employee_Role.DataPropertyName = "Employee_Role";
+            this.Employee_Role.HeaderText = "Role";
+            this.Employee_Role.MinimumWidth = 8;
+            this.Employee_Role.Name = "Employee_Role";
+            this.Employee_Role.Width = 150;
+            // 
+            // Employee_EmailAddress
+            // 
+            this.Employee_EmailAddress.DataPropertyName = "Employee_EmailAddress";
+            this.Employee_EmailAddress.HeaderText = "EmailAddress";
+            this.Employee_EmailAddress.MinimumWidth = 8;
+            this.Employee_EmailAddress.Name = "Employee_EmailAddress";
+            this.Employee_EmailAddress.Width = 120;
+            // 
+            // Employee_PhoneNumber
+            // 
+            this.Employee_PhoneNumber.DataPropertyName = "Employee_PhoneNumber";
+            this.Employee_PhoneNumber.HeaderText = "PhoneNumber";
+            this.Employee_PhoneNumber.MinimumWidth = 8;
+            this.Employee_PhoneNumber.Name = "Employee_PhoneNumber";
+            this.Employee_PhoneNumber.Width = 125;
+            // 
+            // Employee_HireDate
+            // 
+            this.Employee_HireDate.DataPropertyName = "Employee_HireDate";
+            this.Employee_HireDate.HeaderText = "HireDate";
+            this.Employee_HireDate.MinimumWidth = 8;
+            this.Employee_HireDate.Name = "Employee_HireDate";
+            this.Employee_HireDate.Width = 110;
+            // 
+            // Employee_Username
+            // 
+            this.Employee_Username.DataPropertyName = "Employee_Username";
+            this.Employee_Username.HeaderText = "Username";
+            this.Employee_Username.MinimumWidth = 8;
+            this.Employee_Username.Name = "Employee_Username";
+            this.Employee_Username.Width = 110;
+            // 
+            // Employee_Password
+            // 
+            this.Employee_Password.DataPropertyName = "Employee_Password";
+            this.Employee_Password.HeaderText = "Password";
+            this.Employee_Password.MinimumWidth = 8;
+            this.Employee_Password.Name = "Employee_Password";
+            this.Employee_Password.Width = 110;
+            // 
+            // Employee_Status
+            // 
+            this.Employee_Status.DataPropertyName = "Employee_Status";
+            this.Employee_Status.HeaderText = "Status";
+            this.Employee_Status.MinimumWidth = 8;
+            this.Employee_Status.Name = "Employee_Status";
+            this.Employee_Status.Width = 80;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "Employee_ID";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Employee_ID";
+            this.dataGridViewTextBoxColumn1.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Width = 150;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "Employee_FirstName";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Employee_FirstName";
+            this.dataGridViewTextBoxColumn2.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.Width = 150;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "Employee_LastName";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Employee_LastName";
+            this.dataGridViewTextBoxColumn3.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.Width = 150;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "Employee_IDNumber";
+            this.dataGridViewTextBoxColumn4.HeaderText = "Employee_IDNumber";
+            this.dataGridViewTextBoxColumn4.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.Width = 150;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "Employee_Role";
+            this.dataGridViewTextBoxColumn5.HeaderText = "Employee_Role";
+            this.dataGridViewTextBoxColumn5.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.Width = 150;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "Employee_EmailAddress";
+            this.dataGridViewTextBoxColumn6.HeaderText = "Employee_EmailAddress";
+            this.dataGridViewTextBoxColumn6.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.Width = 150;
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.DataPropertyName = "Employee_PhoneNumber";
+            this.dataGridViewTextBoxColumn7.HeaderText = "Employee_PhoneNumber";
+            this.dataGridViewTextBoxColumn7.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.Width = 150;
             // 
             // employeeHireDateDataGridViewTextBoxColumn
             // 
@@ -115,287 +551,47 @@
             this.employeeStatusDataGridViewTextBoxColumn.Name = "employeeStatusDataGridViewTextBoxColumn";
             this.employeeStatusDataGridViewTextBoxColumn.Width = 150;
             // 
-            // employeeBindingSource
-            // 
-            this.employeeBindingSource.DataMember = "Employee";
-            this.employeeBindingSource.DataSource = this.dsSamsLiqourShopBindingSource;
-            // 
-            // dsSamsLiqourShopBindingSource
-            // 
-            this.dsSamsLiqourShopBindingSource.DataSource = this.dsSamsLiqourShop;
-            this.dsSamsLiqourShopBindingSource.Position = 0;
-            // 
-            // dsSamsLiqourShop
-            // 
-            this.dsSamsLiqourShop.DataSetName = "dsSamsLiqourShop";
-            this.dsSamsLiqourShop.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(77, 268);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(107, 44);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Edit Details";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(77, 337);
-            this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(107, 44);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "Add Employee";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(77, 398);
-            this.button3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(107, 44);
-            this.button3.TabIndex = 3;
-            this.button3.Text = "Remove Employee";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(701, 398);
-            this.button4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(107, 44);
-            this.button4.TabIndex = 4;
-            this.button4.Text = "Reset Filter";
-            this.button4.UseVisualStyleBackColor = true;
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.radioButton6);
-            this.groupBox2.Controls.Add(this.radioButton5);
-            this.groupBox2.Controls.Add(this.radioButton4);
-            this.groupBox2.Controls.Add(this.radioButton3);
-            this.groupBox2.Location = new System.Drawing.Point(466, 268);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.groupBox2.Size = new System.Drawing.Size(183, 174);
-            this.groupBox2.TabIndex = 6;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Sort by:";
-            // 
-            // radioButton6
-            // 
-            this.radioButton6.AutoSize = true;
-            this.radioButton6.Location = new System.Drawing.Point(23, 147);
-            this.radioButton6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.radioButton6.Name = "radioButton6";
-            this.radioButton6.Size = new System.Drawing.Size(36, 17);
-            this.radioButton6.TabIndex = 4;
-            this.radioButton6.TabStop = true;
-            this.radioButton6.Text = "ID";
-            this.radioButton6.UseVisualStyleBackColor = true;
-            // 
-            // radioButton5
-            // 
-            this.radioButton5.AutoSize = true;
-            this.radioButton5.Location = new System.Drawing.Point(23, 110);
-            this.radioButton5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.radioButton5.Name = "radioButton5";
-            this.radioButton5.Size = new System.Drawing.Size(73, 17);
-            this.radioButton5.TabIndex = 3;
-            this.radioButton5.TabStop = true;
-            this.radioButton5.Text = "Username";
-            this.radioButton5.UseVisualStyleBackColor = true;
-            // 
-            // radioButton4
-            // 
-            this.radioButton4.AutoSize = true;
-            this.radioButton4.Location = new System.Drawing.Point(23, 68);
-            this.radioButton4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.radioButton4.Name = "radioButton4";
-            this.radioButton4.Size = new System.Drawing.Size(67, 17);
-            this.radioButton4.TabIndex = 2;
-            this.radioButton4.TabStop = true;
-            this.radioButton4.Text = "Surname";
-            this.radioButton4.UseVisualStyleBackColor = true;
-            // 
-            // radioButton3
-            // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(23, 29);
-            this.radioButton3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(53, 17);
-            this.radioButton3.TabIndex = 1;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "Name";
-            this.radioButton3.UseVisualStyleBackColor = true;
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.radioButton8);
-            this.groupBox3.Controls.Add(this.radioButton7);
-            this.groupBox3.Location = new System.Drawing.Point(669, 268);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.groupBox3.Size = new System.Drawing.Size(171, 119);
-            this.groupBox3.TabIndex = 7;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Order by:";
-            // 
-            // radioButton8
-            // 
-            this.radioButton8.AutoSize = true;
-            this.radioButton8.Location = new System.Drawing.Point(25, 75);
-            this.radioButton8.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.radioButton8.Name = "radioButton8";
-            this.radioButton8.Size = new System.Drawing.Size(82, 17);
-            this.radioButton8.TabIndex = 2;
-            this.radioButton8.TabStop = true;
-            this.radioButton8.Text = "Descending";
-            this.radioButton8.UseVisualStyleBackColor = true;
-            // 
-            // radioButton7
-            // 
-            this.radioButton7.AutoSize = true;
-            this.radioButton7.Location = new System.Drawing.Point(25, 29);
-            this.radioButton7.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.radioButton7.Name = "radioButton7";
-            this.radioButton7.Size = new System.Drawing.Size(75, 17);
-            this.radioButton7.TabIndex = 1;
-            this.radioButton7.TabStop = true;
-            this.radioButton7.Text = "Ascending";
-            this.radioButton7.UseVisualStyleBackColor = true;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(243, 278);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(44, 13);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "Search:";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(290, 276);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(154, 20);
-            this.textBox1.TabIndex = 9;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.radioButton2);
-            this.groupBox1.Controls.Add(this.radioButton1);
-            this.groupBox1.Location = new System.Drawing.Point(246, 326);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.groupBox1.Size = new System.Drawing.Size(197, 116);
-            this.groupBox1.TabIndex = 10;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Filter by:";
-            // 
-            // radioButton2
-            // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(31, 77);
-            this.radioButton2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(60, 17);
-            this.radioButton2.TabIndex = 1;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Cashier";
-            this.radioButton2.UseVisualStyleBackColor = true;
-            // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(31, 32);
-            this.radioButton1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(67, 17);
-            this.radioButton1.TabIndex = 0;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Manager";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Modern No. 20", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(28, 12);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(168, 21);
-            this.label2.TabIndex = 11;
-            this.label2.Text = "Employee Details:";
-            // 
             // employeeTableAdapter
             // 
             this.employeeTableAdapter.ClearBeforeFill = true;
             // 
             // ManageEmployeeDetailsForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1134, 666);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(1282, 763);
+            this.Controls.Add(this.btnExit);
+            this.Controls.Add(this.lblTitle);
+            this.Controls.Add(this.grpFilter);
+            this.Controls.Add(this.txtSearch);
+            this.Controls.Add(this.lblSearch);
+            this.Controls.Add(this.grpOrderby);
+            this.Controls.Add(this.grpSort);
+            this.Controls.Add(this.btnReset);
+            this.Controls.Add(this.btnRemove);
+            this.Controls.Add(this.btnAdd);
+            this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.dgvEmployees);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "ManageEmployeeDetailsForm";
             this.Text = "ManageEmployeeDetailsForm";
             this.Load += new System.EventHandler(this.ManageEmployeeDetailsForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvEmployees)).EndInit();
+            this.Click += new System.EventHandler(this.ManageEmployeeDetailsForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.employeeBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsSamsLiqourShopBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsSamsLiqourShop)).EndInit();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.grpFilter.ResumeLayout(false);
+            this.grpFilter.PerformLayout();
+            this.grpOrderby.ResumeLayout(false);
+            this.grpOrderby.PerformLayout();
+            this.grpSort.ResumeLayout(false);
+            this.grpSort.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEmployees)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridView dgvEmployees;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.RadioButton radioButton6;
-        private System.Windows.Forms.RadioButton radioButton5;
-        private System.Windows.Forms.RadioButton radioButton4;
-        private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.RadioButton radioButton8;
-        private System.Windows.Forms.RadioButton radioButton7;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.BindingSource dsSamsLiqourShopBindingSource;
         private dsSamsLiqourShop dsSamsLiqourShop;
         private System.Windows.Forms.BindingSource employeeBindingSource;
@@ -407,6 +603,46 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn employeeRoleDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn employeeEmailAddressDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn employeePhoneNumberDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.Label lblTitle;
+        private System.Windows.Forms.GroupBox grpFilter;
+        private System.Windows.Forms.RadioButton rdoAll;
+        private System.Windows.Forms.RadioButton rdoAdmin;
+        private System.Windows.Forms.RadioButton rdoCashier;
+        private System.Windows.Forms.RadioButton rdoManager;
+        private System.Windows.Forms.TextBox txtSearch;
+        private System.Windows.Forms.Label lblSearch;
+        private System.Windows.Forms.GroupBox grpOrderby;
+        private System.Windows.Forms.RadioButton rdoDesc;
+        private System.Windows.Forms.RadioButton rdoAsc;
+        private System.Windows.Forms.GroupBox grpSort;
+        private System.Windows.Forms.RadioButton rdoID;
+        private System.Windows.Forms.RadioButton rdoUsername;
+        private System.Windows.Forms.RadioButton rdoSurname;
+        private System.Windows.Forms.RadioButton rdoName;
+        private System.Windows.Forms.Button btnReset;
+        private System.Windows.Forms.Button btnRemove;
+        private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.Button btnEdit;
+        private System.Windows.Forms.DataGridView dgvEmployees;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Employee_ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Employee_FirstName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Employee_LastName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Employee_IDNumber;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Employee_Role;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Employee_EmailAddress;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Employee_PhoneNumber;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Employee_HireDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Employee_Username;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Employee_Password;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Employee_Status;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
         private System.Windows.Forms.DataGridViewTextBoxColumn employeeHireDateDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn employeeUsernameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn employeePasswordDataGridViewTextBoxColumn;
