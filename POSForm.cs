@@ -19,6 +19,11 @@ namespace TheByteClubPOS
         int currentEmployeeID;
         int? currentCustomerID = null;
         public int selectedPaymentMethodID = 0;
+
+        public System.Windows.Forms.Button btnChangeTheme
+        { 
+            get {  return btnToggleTheme; }
+        }
         public int getItemCount()
         {
             int count = 0;
@@ -131,7 +136,15 @@ namespace TheByteClubPOS
             // Default your combo box selection
             if (comboBox1.Items.Count > 0) comboBox1.SelectedIndex = 0;
 
-
+            // Automatically match theme state when initialized
+            if (this.MdiParent is MainForm mainForm && mainForm.IsDarkMode)
+            {
+                ApplyDarkMode();
+            }
+            else
+            {
+                ApplyLightMode();
+            }
         }
 
         private void txtUsername_TextChanged(object sender, EventArgs e)
@@ -249,9 +262,9 @@ namespace TheByteClubPOS
 
         private bool isDarkMode = false;
 
-        private void ApplyDarkMode()
+        public void ApplyDarkMode()
         {
-            this.BackgroundImage = Properties.Resources.DarkMode_Background;
+            this.BackgroundImage = Properties.Resources.Dark_Background;
             this.BackColor = Color.FromArgb(32, 32, 32); // Dark Charcoal
             this.ForeColor = Color.White;
             btnToggleTheme.Text = "Switch to Light Mode";
@@ -287,7 +300,7 @@ namespace TheByteClubPOS
             UpdateControlThemes(this.Controls, Color.FromArgb(32, 32, 32), Color.White);
         }
 
-        private void ApplyLightMode()
+        public void ApplyLightMode()
         {
             this.BackgroundImage = Properties.Resources.Background;
             this.BackColor = SystemColors.Control;

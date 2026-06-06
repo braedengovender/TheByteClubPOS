@@ -163,6 +163,16 @@ namespace TheByteClubPOS.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap DarkModeIcon {
+            get {
+                object obj = ResourceManager.GetObject("DarkModeIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap DarkModeLogin {
             get {
                 object obj = ResourceManager.GetObject("DarkModeLogin", resourceCulture);
@@ -236,6 +246,16 @@ namespace TheByteClubPOS.Properties {
         internal static System.Drawing.Bitmap InventoryIcon {
             get {
                 object obj = ResourceManager.GetObject("InventoryIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap LightModeIcon {
+            get {
+                object obj = ResourceManager.GetObject("LightModeIcon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

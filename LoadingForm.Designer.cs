@@ -115,11 +115,11 @@
             this.lblSystemName.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.lblSystemName.AutoSize = true;
             this.lblSystemName.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSystemName.Location = new System.Drawing.Point(215, 329);
+            this.lblSystemName.Location = new System.Drawing.Point(211, 329);
             this.lblSystemName.Name = "lblSystemName";
-            this.lblSystemName.Size = new System.Drawing.Size(660, 33);
+            this.lblSystemName.Size = new System.Drawing.Size(667, 33);
             this.lblSystemName.TabIndex = 2;
-            this.lblSystemName.Text = "Point of Sale && Inventory Management System";
+            this.lblSystemName.Text = "Point Of Sale && Inventory Management System";
             // 
             // tmrProgressBar
             // 

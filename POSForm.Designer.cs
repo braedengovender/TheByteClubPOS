@@ -77,7 +77,6 @@
             this.tableAdapterManager = new TheByteClubPOS.dsSamsLiqourShopTableAdapters.TableAdapterManager();
             this.lblCount = new System.Windows.Forms.Label();
             this.paymentMethodTableAdapter = new TheByteClubPOS.dsSamsLiqourShopTableAdapters.PaymentMethodTableAdapter();
-            this.btnToggleTheme = new System.Windows.Forms.Button();
             this.customerBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.customerTableAdapter = new TheByteClubPOS.dsSamsLiqourShopTableAdapters.CustomerTableAdapter();
             this.lblCustomer = new System.Windows.Forms.Label();
@@ -91,6 +90,7 @@
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.saleLineBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.saleLineTableAdapter = new TheByteClubPOS.dsSamsLiqourShopTableAdapters.SaleLineTableAdapter();
+            this.btnToggleTheme = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.productDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsSamsLiqourShop)).BeginInit();
@@ -254,6 +254,7 @@
             // 
             this.lblItemCount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblItemCount.AutoSize = true;
+            this.lblItemCount.BackColor = System.Drawing.Color.Transparent;
             this.lblItemCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblItemCount.Location = new System.Drawing.Point(554, 91);
             this.lblItemCount.Name = "lblItemCount";
@@ -554,6 +555,7 @@
             // 
             this.lblCount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblCount.AutoSize = true;
+            this.lblCount.BackColor = System.Drawing.Color.Transparent;
             this.lblCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCount.Location = new System.Drawing.Point(665, 91);
             this.lblCount.Name = "lblCount";
@@ -564,17 +566,6 @@
             // paymentMethodTableAdapter
             // 
             this.paymentMethodTableAdapter.ClearBeforeFill = true;
-            // 
-            // btnToggleTheme
-            // 
-            this.btnToggleTheme.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnToggleTheme.Location = new System.Drawing.Point(28, 606);
-            this.btnToggleTheme.Name = "btnToggleTheme";
-            this.btnToggleTheme.Size = new System.Drawing.Size(183, 44);
-            this.btnToggleTheme.TabIndex = 25;
-            this.btnToggleTheme.Text = "Change to Dark Mode";
-            this.btnToggleTheme.UseVisualStyleBackColor = true;
-            this.btnToggleTheme.Click += new System.EventHandler(this.btnToggleTheme_Click);
             // 
             // customerBindingSource
             // 
@@ -625,6 +616,7 @@
             // 
             this.lblPointsAmount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblPointsAmount.AutoSize = true;
+            this.lblPointsAmount.BackColor = System.Drawing.Color.Transparent;
             this.lblPointsAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPointsAmount.Location = new System.Drawing.Point(158, 554);
             this.lblPointsAmount.Name = "lblPointsAmount";
@@ -693,6 +685,18 @@
             // saleLineTableAdapter
             // 
             this.saleLineTableAdapter.ClearBeforeFill = true;
+            // 
+            // btnToggleTheme
+            // 
+            this.btnToggleTheme.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnToggleTheme.Location = new System.Drawing.Point(28, 606);
+            this.btnToggleTheme.Name = "btnToggleTheme";
+            this.btnToggleTheme.Size = new System.Drawing.Size(183, 44);
+            this.btnToggleTheme.TabIndex = 25;
+            this.btnToggleTheme.Text = "Change to Dark Mode";
+            this.btnToggleTheme.UseVisualStyleBackColor = true;
+            this.btnToggleTheme.Visible = false;
+            this.btnToggleTheme.Click += new System.EventHandler(this.btnToggleTheme_Click);
             // 
             // POSForm
             // 
@@ -779,7 +783,6 @@
         private System.Windows.Forms.Label lblCount;
         private System.Windows.Forms.BindingSource paymentMethodBindingSource;
         private dsSamsLiqourShopTableAdapters.PaymentMethodTableAdapter paymentMethodTableAdapter;
-        private System.Windows.Forms.Button btnToggleTheme;
         private System.Windows.Forms.BindingSource customerBindingSource;
         private dsSamsLiqourShopTableAdapters.CustomerTableAdapter customerTableAdapter;
         private System.Windows.Forms.Label lblCustomer;
@@ -808,5 +811,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn productSellingPriceDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource saleLineBindingSource;
         private dsSamsLiqourShopTableAdapters.SaleLineTableAdapter saleLineTableAdapter;
+        private System.Windows.Forms.Button btnToggleTheme;
     }
 }

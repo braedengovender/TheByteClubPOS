@@ -52,6 +52,7 @@
             this.employeeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.employeeTableAdapter = new TheByteClubPOS.dsSamsLiqourShopTableAdapters.EmployeeTableAdapter();
             this.tableAdapterManager = new TheByteClubPOS.dsSamsLiqourShopTableAdapters.TableAdapterManager();
+            this.button1 = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
@@ -65,9 +66,9 @@
             // btnTestLoginCashier
             // 
             this.btnTestLoginCashier.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTestLoginCashier.Location = new System.Drawing.Point(1045, 488);
+            this.btnTestLoginCashier.Location = new System.Drawing.Point(1031, 432);
             this.btnTestLoginCashier.Name = "btnTestLoginCashier";
-            this.btnTestLoginCashier.Size = new System.Drawing.Size(145, 40);
+            this.btnTestLoginCashier.Size = new System.Drawing.Size(188, 40);
             this.btnTestLoginCashier.TabIndex = 5;
             this.btnTestLoginCashier.Text = "Login as Cashier";
             this.btnTestLoginCashier.UseVisualStyleBackColor = true;
@@ -76,9 +77,9 @@
             // btnTestLoginManager
             // 
             this.btnTestLoginManager.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTestLoginManager.Location = new System.Drawing.Point(1045, 549);
+            this.btnTestLoginManager.Location = new System.Drawing.Point(1031, 493);
             this.btnTestLoginManager.Name = "btnTestLoginManager";
-            this.btnTestLoginManager.Size = new System.Drawing.Size(145, 40);
+            this.btnTestLoginManager.Size = new System.Drawing.Size(188, 40);
             this.btnTestLoginManager.TabIndex = 6;
             this.btnTestLoginManager.Text = "Login as Manager";
             this.btnTestLoginManager.UseVisualStyleBackColor = true;
@@ -278,9 +279,9 @@
             // 
             this.btnTheme.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnTheme.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTheme.Location = new System.Drawing.Point(1145, 12);
+            this.btnTheme.Location = new System.Drawing.Point(1031, 372);
             this.btnTheme.Name = "btnTheme";
-            this.btnTheme.Size = new System.Drawing.Size(197, 40);
+            this.btnTheme.Size = new System.Drawing.Size(188, 40);
             this.btnTheme.TabIndex = 8;
             this.btnTheme.Text = "Change to Dark Mode";
             this.btnTheme.UseVisualStyleBackColor = true;
@@ -318,6 +319,17 @@
             this.tableAdapterManager.SupplierTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = TheByteClubPOS.dsSamsLiqourShopTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(1031, 549);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(188, 40);
+            this.button1.TabIndex = 9;
+            this.button1.Text = "Login as Admin";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -325,6 +337,7 @@
             this.BackgroundImage = global::TheByteClubPOS.Properties.Resources.Untitled_design__1_;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1354, 686);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnTheme);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.btnTestLoginManager);
@@ -377,5 +390,6 @@
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Button btnTheme;
+        private System.Windows.Forms.Button button1;
     }
 }

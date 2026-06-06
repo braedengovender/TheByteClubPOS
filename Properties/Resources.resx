@@ -121,6 +121,9 @@
   <data name="EmployeesIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\EmployeesIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="DarkModeIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DarkModeIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="ComputerIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ComputerIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -175,6 +178,9 @@
   <data name="TruckIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\TruckIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="LoadingFormBackground" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\LoadingFormBackground.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="POINT OF SALES" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\POINT OF SALES.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -202,7 +208,7 @@
   <data name="ClockIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ClockIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="LoadingFormBackground" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\LoadingFormBackground.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="LightModeIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\LightModeIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

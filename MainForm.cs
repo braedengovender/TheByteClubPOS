@@ -13,14 +13,51 @@ namespace TheByteClubPOS
 {
     public partial class MainForm : Form
     {
+        // Create a public property so child forms can look up here to see if dark mode is on
+        public bool IsDarkMode { get; private set; }
         public int employeeID { get; set; }
         string employeeFullName;
         string employeeRole;
 
-        public MainForm(int employeeID)
+        private void ApplyRolePermissions()
+        {
+            // Convert to lowercase to prevent typos/case mismatch bugs
+            switch (employeeRole.ToLower())
+            {
+                case "cashier":
+                    // Hide management/admin buttons
+                    btnManageSales.Visible = false;
+                    btnSuppliers.Visible = false;
+                    btnCustomers.Visible = false;
+
+                    // Hide main menu items (Strip Menu components)
+                    manageSalesToolStripMenuItem.Visible = false;
+                    manageCustomerToolStripMenuItem.Visible = false;
+                    inventoryToolStripMenuItem.Visible = false;
+                    manageEmployeesToolStripMenuItem.Visible = false;
+                    manageDiscountsToolStripMenuItem.Visible = false;
+
+                    break;
+
+                case "manager":
+                    btnProcessSale.Visible = false; // Managers don't process sales, so hide the button
+                    processSaleToolStripMenuItem1.Visible = false; // Hide the menu item for processing sales
+                    break;
+                case "admin":
+                    break;
+
+                default:
+                    MessageBox.Show("Unknown role detected.", "Security Warning");
+                    break;
+            }
+        }
+
+        public MainForm(int employeeID, bool IsDarkMode)
         {
             InitializeComponent();
             this.employeeID = employeeID;
+
+            this.IsDarkMode = IsDarkMode; // Sync dark mode state with the login form
 
             var employeeTable = employeeTableAdapter.GetDataByEmployeeID(employeeID);
 
@@ -34,12 +71,24 @@ namespace TheByteClubPOS
                 toolStripStatusLabelUser.Text = $"Logged in as: {employeeFullName}";
                 toolStripStatusLabelRole.Text = $"Role: {employeeRole}";
 
-
+                ApplyRolePermissions();
             }
 
             toolStripStatusLabelTerminal.Text = "Terminal: POS-01";
             toolStripStatusLabelVersion.Text = "Version: 1.2";
             toolStripStatusLabelConnection.Text = "Status: Connected";
+
+            
+        }
+
+        private void ApplyDarkMode()
+        {
+
+        }
+
+        private void ApplyLightMode()
+        {
+
         }
 
         private void OpenChildForm(Form childForm)
@@ -52,6 +101,8 @@ namespace TheByteClubPOS
 
             // Open new child form
             childForm.MdiParent = this;
+
+            childForm.ControlBox = false; // Removes the minimize, maximize, and close buttons
             childForm.WindowState = FormWindowState.Maximized;
             childForm.FormBorderStyle = FormBorderStyle.None;
 
@@ -66,6 +117,23 @@ namespace TheByteClubPOS
             toolStripMenuItemDate.Text = DateTime.Now.ToString("dddd, dd MMM yyyy");
             toolStripMenuItemTime.Text = DateTime.Now.ToString("HH:mm:ss");
             tmrClock.Start();
+
+            // ====== APPLY THEME ON LOAD ======
+            if (this.IsDarkMode)
+            {
+                
+                ApplyDarkMode();
+                darkModeToolStripMenuItem.Text = "Light Mode"; // Set text to the opposite action
+                darkModeToolStripMenuItem.Image = Properties.Resources.LightModeIcon; // Set to the light icon
+            }
+            else
+            {
+                ApplyLightMode();
+                darkModeToolStripMenuItem.Text = "Dark Mode"; // Set text to the opposite action
+                darkModeToolStripMenuItem.Image = Properties.Resources.DarkModeIcon; // Set to the dark icon
+            }
+
+            btnDashboard.PerformClick();
 
         }
 
@@ -124,8 +192,17 @@ namespace TheByteClubPOS
 
         private void btnDashboard_Click(object sender, EventArgs e)
         {
-            DashboardForm dashboardForm = new DashboardForm();
-            OpenChildForm(dashboardForm);
+            if (employeeRole.ToLower() == "cashier")
+            {
+                SalesReport salesReports = new SalesReport();
+                OpenChildForm(salesReports);
+            }
+            else
+            {
+                SalesReport salesReports = new SalesReport();
+                OpenChildForm(salesReports);
+            }
+            
         }
 
         private void btnProcessSale_Click(object sender, EventArgs e)
@@ -190,6 +267,42 @@ namespace TheByteClubPOS
         {
             ManageSales manageSales = new ManageSales();
             OpenChildForm(manageSales);
+        }
+
+        private void darkModeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Flip our global state variable
+            IsDarkMode = !IsDarkMode;
+
+            if (IsDarkMode)
+                ApplyDarkMode();
+            else
+                ApplyLightMode();
+
+            // Update the parent form's UI text/icons
+            darkModeToolStripMenuItem.Text = IsDarkMode ? "Light Mode" : "Dark Mode";
+            darkModeToolStripMenuItem.Image = IsDarkMode ? Properties.Resources.LightModeIcon : Properties.Resources.DarkModeIcon;
+
+            // IF a child form is currently active, update it immediately!
+            if (this.ActiveMdiChild != null)
+            {
+                if (IsDarkMode)
+                {
+                    // Explicitly execute custom theme methods if open screen is POSForm
+                    if (this.ActiveMdiChild is POSForm posForm)
+                    {
+                        posForm.ApplyDarkMode();
+                    }
+                }
+                else
+                {
+
+                    if (this.ActiveMdiChild is POSForm posForm)
+                    {
+                        posForm.ApplyLightMode();
+                    }
+                }
+            }
         }
     }
 }

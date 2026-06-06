@@ -180,7 +180,7 @@ namespace TheByteClubPOS
                     // Login successful
                     int employeeID = (int)employeeTableAdapter.GetEmployeeID(username, password);
 
-                    MainForm mainForm = new MainForm(employeeID);
+                    MainForm mainForm = new MainForm(employeeID, IsDarkMode);
                     mainForm.Show();
                     this.Close();
                 }
@@ -322,5 +322,10 @@ namespace TheByteClubPOS
 
         }
 
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            txtUsername.Text = "naledi.khumalo@liquorstore.co.za";
+            txtPassword.Text = "NalediAdmin2023#";
+        }
     }
 }
