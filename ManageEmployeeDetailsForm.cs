@@ -80,7 +80,7 @@ namespace TheByteClubPOS
                     employeeBindingSource.Filter =
                         "Employee_Role = 'Admin'";
                 }
-                else
+                else if (rdoAll.Checked)
                 {
                     employeeBindingSource.RemoveFilter();
                 }
@@ -254,7 +254,7 @@ namespace TheByteClubPOS
 
         private void rdoAll_CheckedChanged(object sender, EventArgs e)
         {
-
+            ApplyRoleFilter();
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -267,6 +267,7 @@ namespace TheByteClubPOS
             employeeTableAdapter.Fill(dsSamsLiqourShop.Employee);
         }
 
+     
     }
 }
 
