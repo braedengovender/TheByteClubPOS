@@ -451,7 +451,7 @@ namespace TheByteClubPOS
                 txtIngredients.Text = readString("Product_Ingredients");
                 txtBarcode.Text = readString("Product_BarcodeNumber");
                 txtStatus.Text = readString("Product_Status");
-                txtImage.Text = readString("Product_Image");
+                // txtImage.Text = readString("Product_Image"); image is not a text LOL
 
                 // Numeric fields displayed as text (empty when null)
                 txtPercentage.Text = readString("Product_AlcoholPercentage");
@@ -613,7 +613,7 @@ namespace TheByteClubPOS
                 productRow.Product_Ingredients = txtIngredients.Text.Trim();
                 productRow.Product_BarcodeNumber = txtBarcode.Text.Trim();
                 productRow.Product_Status = txtStatus.Text.Trim();
-                productRow.Product_Image = txtImage.Text.Trim();
+                // productRow.Product_Image = txtImage.Text.Trim(); image is not a text LOL
 
                 // Decimal
                 if (decimal.TryParse(txtPercentage.Text, out decimal alc))

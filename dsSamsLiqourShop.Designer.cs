@@ -3537,7 +3537,7 @@ namespace TheByteClubPOS {
                         int Product_QuantityInStock, 
                         int Product_ReorderQuantity, 
                         string Product_Status, 
-                        string Product_Image) {
+                        byte[] Product_Image) {
                 ProductRow rowProductRow = ((ProductRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -3661,7 +3661,7 @@ namespace TheByteClubPOS {
                 base.Columns.Add(this.columnProduct_ReorderQuantity);
                 this.columnProduct_Status = new global::System.Data.DataColumn("Product_Status", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnProduct_Status);
-                this.columnProduct_Image = new global::System.Data.DataColumn("Product_Image", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnProduct_Image = new global::System.Data.DataColumn("Product_Image", typeof(byte[]), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnProduct_Image);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnProduct_ID}, true));
@@ -3690,7 +3690,6 @@ namespace TheByteClubPOS {
                 this.columnProduct_ReorderQuantity.AllowDBNull = false;
                 this.columnProduct_Status.AllowDBNull = false;
                 this.columnProduct_Status.MaxLength = 20;
-                this.columnProduct_Image.MaxLength = 255;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7975,10 +7974,10 @@ namespace TheByteClubPOS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string Product_Image {
+            public byte[] Product_Image {
                 get {
                     try {
-                        return ((string)(this[this.tableProduct.Product_ImageColumn]));
+                        return ((byte[])(this[this.tableProduct.Product_ImageColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'Product_Image\' in table \'Product\' is DBNull.", e);
@@ -14561,7 +14560,7 @@ WHERE (Product_Name LIKE @ProductName + '%')";
             this._commandCollection[4].Connection = this.Connection;
             this._commandCollection[4].CommandText = "UPDATE Product SET Product_Image = @ProductImage WHERE (Product_ID = @prodID);";
             this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ProductImage", global::System.Data.SqlDbType.VarBinary, 255, global::System.Data.ParameterDirection.Input, 0, 0, "Product_Image", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ProductImage", global::System.Data.SqlDbType.VarBinary, 2147483647, global::System.Data.ParameterDirection.Input, 0, 0, "Product_Image", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@prodID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Product_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._commandCollection[5] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[5].Connection = this.Connection;

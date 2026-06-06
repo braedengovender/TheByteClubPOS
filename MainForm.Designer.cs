@@ -109,7 +109,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 1, 0, 1);
-            this.menuStrip1.Size = new System.Drawing.Size(1283, 30);
+            this.menuStrip1.Size = new System.Drawing.Size(1354, 30);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -322,9 +322,9 @@
             this.toolStripStatusLabelVersion,
             this.toolStripStatusLabel5,
             this.toolStripStatusLabelConnection});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 653);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 657);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1283, 29);
+            this.statusStrip1.Size = new System.Drawing.Size(1354, 29);
             this.statusStrip1.TabIndex = 2;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -371,7 +371,7 @@
             // toolStripStatusLabelSpacer
             // 
             this.toolStripStatusLabelSpacer.Name = "toolStripStatusLabelSpacer";
-            this.toolStripStatusLabelSpacer.Size = new System.Drawing.Size(684, 24);
+            this.toolStripStatusLabelSpacer.Size = new System.Drawing.Size(755, 24);
             this.toolStripStatusLabelSpacer.Spring = true;
             // 
             // toolStripStatusLabelVersion
@@ -407,7 +407,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 30);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(220, 623);
+            this.panel1.Size = new System.Drawing.Size(220, 627);
             this.panel1.TabIndex = 4;
             // 
             // flowLayoutPanel1
@@ -427,7 +427,7 @@
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 130);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(10, 10, 10, 10);
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(220, 493);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(220, 497);
             this.flowLayoutPanel1.TabIndex = 1;
             this.flowLayoutPanel1.WrapContents = false;
             // 
@@ -533,9 +533,9 @@
             this.button1.Location = new System.Drawing.Point(12, 369);
             this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(50, 45);
+            this.button1.Size = new System.Drawing.Size(201, 45);
             this.button1.TabIndex = 7;
-            this.button1.Text = "button1";
+            this.button1.Text = "Add Product Image";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -587,7 +587,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::TheByteClubPOS.Properties.Resources.POINT_OF_SALES;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1283, 682);
+            this.ClientSize = new System.Drawing.Size(1354, 686);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
