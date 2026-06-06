@@ -196,7 +196,7 @@ namespace TheByteClubPOS
 
         private void tabPage2_Click(object sender, EventArgs e)
         {
-
+            customerTableAdapter.Fill(this.dsSamsLiqourShop.Customer);
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)

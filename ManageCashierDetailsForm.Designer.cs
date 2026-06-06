@@ -40,6 +40,7 @@
             System.Windows.Forms.Label employee_UsernameLabel;
             System.Windows.Forms.Label employee_PasswordLabel;
             System.Windows.Forms.Label employee_StatusLabel;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ManageCashierDetailsForm));
             this.dsSamsLiqourShop = new TheByteClubPOS.dsSamsLiqourShop();
             this.employeeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.employeeTableAdapter = new TheByteClubPOS.dsSamsLiqourShopTableAdapters.EmployeeTableAdapter();
@@ -413,6 +414,7 @@
             this.Controls.Add(this.btnShow);
             this.Controls.Add(this.lblSystemName);
             this.Controls.Add(this.btnSave);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ManageCashierDetailsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "ManageCashierDetailsForm";

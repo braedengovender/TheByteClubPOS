@@ -213,7 +213,7 @@
             // manageCustomersToolStripMenuItem
             // 
             this.manageCustomersToolStripMenuItem.Name = "manageCustomersToolStripMenuItem";
-            this.manageCustomersToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.manageCustomersToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
             this.manageCustomersToolStripMenuItem.Text = "Manage Customers";
             this.manageCustomersToolStripMenuItem.Click += new System.EventHandler(this.manageCustomersToolStripMenuItem_Click);
             // 
@@ -229,7 +229,7 @@
             // manageEmployeesToolStripMenuItem1
             // 
             this.manageEmployeesToolStripMenuItem1.Name = "manageEmployeesToolStripMenuItem1";
-            this.manageEmployeesToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.manageEmployeesToolStripMenuItem1.Size = new System.Drawing.Size(177, 22);
             this.manageEmployeesToolStripMenuItem1.Text = "Manage Employees";
             this.manageEmployeesToolStripMenuItem1.Click += new System.EventHandler(this.manageEmployeesToolStripMenuItem1_Click);
             // 
@@ -566,6 +566,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainForm";

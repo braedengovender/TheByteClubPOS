@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AccountRecoveryForm));
             this.btnRecover = new System.Windows.Forms.Button();
             this.lblCredentials = new System.Windows.Forms.Label();
             this.lblDetails = new System.Windows.Forms.Label();
@@ -224,6 +225,7 @@
             this.ClientSize = new System.Drawing.Size(1354, 686);
             this.Controls.Add(this.btnTheme);
             this.Controls.Add(this.tableLayoutPanel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AccountRecoveryForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sam\'s Liquor Shop - Point of Sale System";

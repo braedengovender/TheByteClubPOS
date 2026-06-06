@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ManageSales));
             this.lblManageSales = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dsSamsLiqourShop = new TheByteClubPOS.dsSamsLiqourShop();
@@ -291,6 +292,7 @@
             this.Controls.Add(this.saleDataGridView);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblManageSales);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ManageSales";
             this.Text = "ManageSales";
             this.Load += new System.EventHandler(this.ManageSales_Load);
