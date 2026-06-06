@@ -14561,7 +14561,7 @@ WHERE (Product_Name LIKE @ProductName + '%')";
             this._commandCollection[4].Connection = this.Connection;
             this._commandCollection[4].CommandText = "UPDATE Product SET Product_Image = @ProductImage WHERE (Product_ID = @prodID);";
             this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ProductImage", global::System.Data.SqlDbType.TinyInt, 255, global::System.Data.ParameterDirection.Input, 0, 0, "Product_Image", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ProductImage", global::System.Data.SqlDbType.VarBinary, 255, global::System.Data.ParameterDirection.Input, 0, 0, "Product_Image", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@prodID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Product_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._commandCollection[5] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[5].Connection = this.Connection;
@@ -15247,13 +15247,13 @@ WHERE (Product_Name LIKE @ProductName + '%')";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
-        public virtual int UpdateQuery(global::System.Nullable<byte> ProductImage, int prodID) {
+        public virtual int UpdateQuery(byte[] ProductImage, int prodID) {
             global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[4];
-            if ((ProductImage.HasValue == true)) {
-                command.Parameters[0].Value = ((byte)(ProductImage.Value));
+            if ((ProductImage == null)) {
+                command.Parameters[0].Value = global::System.DBNull.Value;
             }
             else {
-                command.Parameters[0].Value = global::System.DBNull.Value;
+                command.Parameters[0].Value = ((byte[])(ProductImage));
             }
             command.Parameters[1].Value = ((int)(prodID));
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;

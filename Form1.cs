@@ -53,7 +53,7 @@ namespace TheByteClubPOS
 
                     byte[] imageBytes = System.IO.File.ReadAllBytes(openFileDialog1.FileName);
 
-                  //  productTableAdapter.UpdateQuery(imageBytes, selectedProductID);
+                    productTableAdapter.UpdateQuery(imageBytes, selectedProductID);
 
                     using (System.IO.MemoryStream ms = new System.IO.MemoryStream(imageBytes))
                     {
