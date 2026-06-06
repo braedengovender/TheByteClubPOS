@@ -143,7 +143,7 @@
             this.tableLayoutPanel1.Controls.Add(this.txtEmployeeDetails, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.lblDetails, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 5);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(473, 96);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(469, 96);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 7;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 48.93617F));
@@ -175,7 +175,7 @@
             // 
             this.btnTheme.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnTheme.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTheme.Location = new System.Drawing.Point(1153, 12);
+            this.btnTheme.Location = new System.Drawing.Point(1145, 12);
             this.btnTheme.Name = "btnTheme";
             this.btnTheme.Size = new System.Drawing.Size(197, 40);
             this.btnTheme.TabIndex = 9;
@@ -221,7 +221,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::TheByteClubPOS.Properties.Resources.Background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1362, 686);
+            this.ClientSize = new System.Drawing.Size(1354, 686);
             this.Controls.Add(this.btnTheme);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "AccountRecoveryForm";

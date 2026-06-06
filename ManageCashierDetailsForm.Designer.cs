@@ -338,6 +338,7 @@
             // 
             this.lblSystemName.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.lblSystemName.AutoSize = true;
+            this.lblSystemName.BackColor = System.Drawing.Color.Transparent;
             this.lblSystemName.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSystemName.Location = new System.Drawing.Point(432, 72);
             this.lblSystemName.Name = "lblSystemName";
@@ -358,6 +359,7 @@
             // 
             // tableLayoutPanel1
             // 
+            this.tableLayoutPanel1.BackColor = System.Drawing.Color.Transparent;
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -404,6 +406,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::TheByteClubPOS.Properties.Resources.Background;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1134, 666);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.btnShow);

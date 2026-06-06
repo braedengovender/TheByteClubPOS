@@ -39,7 +39,7 @@ namespace TheByteClubPOS
 
             toolStripStatusLabelTerminal.Text = "Terminal: POS-01";
             toolStripStatusLabelVersion.Text = "Version: 1.2";
-            toolStripStatusLabelConnection.Text = "Sttaus: Connected";
+            toolStripStatusLabelConnection.Text = "Status: Connected";
         }
 
         private void OpenChildForm(Form childForm)
@@ -78,8 +78,7 @@ namespace TheByteClubPOS
 
         private void manageSalesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ManageSales manageSales = new ManageSales();
-            OpenChildForm(manageSales);
+            
         }
 
         private void addCustomerToolStripMenuItem_Click(object sender, EventArgs e)
@@ -92,6 +91,7 @@ namespace TheByteClubPOS
         {
             POSForm posForm = new POSForm();
             OpenChildForm(posForm);
+
         }
 
         private void toolStripStatusLabel1_Click(object sender, EventArgs e)
@@ -124,7 +124,8 @@ namespace TheByteClubPOS
 
         private void btnDashboard_Click(object sender, EventArgs e)
         {
-
+            DashboardForm dashboardForm = new DashboardForm();
+            OpenChildForm(dashboardForm);
         }
 
         private void btnProcessSale_Click(object sender, EventArgs e)
@@ -152,7 +153,7 @@ namespace TheByteClubPOS
         private void manageProducToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ManageProductCategories manageProductCategories = new ManageProductCategories();
-            manageProductCategories.Show(); 
+            OpenChildForm(manageProductCategories);
         }
 
         private void btnCustomers_Click(object sender, EventArgs e)
@@ -171,6 +172,24 @@ namespace TheByteClubPOS
         private void deactivateCustomerToolStripMenuItem_Click(object sender, EventArgs e)
         {
           
+        }
+
+        private void manageEmployeesToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            ManageEmployeeDetailsForm employeeDetailsForm = new ManageEmployeeDetailsForm();
+            OpenChildForm(employeeDetailsForm);
+        }
+
+        private void btnManageSales_Click(object sender, EventArgs e)
+        {
+            ManageSales manageSalesForm = new ManageSales();
+            OpenChildForm(manageSalesForm);
+        }
+
+        private void manageSalesToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            ManageSales manageSales = new ManageSales();
+            OpenChildForm(manageSales);
         }
     }
 }

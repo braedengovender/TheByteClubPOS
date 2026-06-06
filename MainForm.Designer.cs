@@ -45,7 +45,6 @@
             this.manageSuppliersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manageCustomerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manageCustomersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.addCustomerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manageEmployeesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manageEmployeesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.manageDiscountsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -82,7 +81,6 @@
             this.employeeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.employeeTableAdapter = new TheByteClubPOS.dsSamsLiqourShopTableAdapters.EmployeeTableAdapter();
             this.tableAdapterManager = new TheByteClubPOS.dsSamsLiqourShopTableAdapters.TableAdapterManager();
-            this.deactivateCustomerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -108,7 +106,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 1, 0, 1);
-            this.menuStrip1.Size = new System.Drawing.Size(913, 30);
+            this.menuStrip1.Size = new System.Drawing.Size(1354, 30);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -138,6 +136,7 @@
             this.manageSalesToolStripMenuItem1.Name = "manageSalesToolStripMenuItem1";
             this.manageSalesToolStripMenuItem1.Size = new System.Drawing.Size(217, 22);
             this.manageSalesToolStripMenuItem1.Text = "Manage Sales";
+            this.manageSalesToolStripMenuItem1.Click += new System.EventHandler(this.manageSalesToolStripMenuItem1_Click);
             // 
             // managePaymentsToolStripMenuItem
             // 
@@ -205,9 +204,7 @@
             // manageCustomerToolStripMenuItem
             // 
             this.manageCustomerToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.manageCustomersToolStripMenuItem,
-            this.addCustomerToolStripMenuItem,
-            this.deactivateCustomerToolStripMenuItem});
+            this.manageCustomersToolStripMenuItem});
             this.manageCustomerToolStripMenuItem.Image = global::TheByteClubPOS.Properties.Resources.CustomersIcon;
             this.manageCustomerToolStripMenuItem.Name = "manageCustomerToolStripMenuItem";
             this.manageCustomerToolStripMenuItem.Size = new System.Drawing.Size(100, 28);
@@ -219,13 +216,6 @@
             this.manageCustomersToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
             this.manageCustomersToolStripMenuItem.Text = "Manage Customers";
             this.manageCustomersToolStripMenuItem.Click += new System.EventHandler(this.manageCustomersToolStripMenuItem_Click);
-            // 
-            // addCustomerToolStripMenuItem
-            // 
-            this.addCustomerToolStripMenuItem.Name = "addCustomerToolStripMenuItem";
-            this.addCustomerToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
-            this.addCustomerToolStripMenuItem.Text = "Add Customer";
-            this.addCustomerToolStripMenuItem.Click += new System.EventHandler(this.addCustomerToolStripMenuItem_Click);
             // 
             // manageEmployeesToolStripMenuItem
             // 
@@ -239,8 +229,9 @@
             // manageEmployeesToolStripMenuItem1
             // 
             this.manageEmployeesToolStripMenuItem1.Name = "manageEmployeesToolStripMenuItem1";
-            this.manageEmployeesToolStripMenuItem1.Size = new System.Drawing.Size(177, 22);
+            this.manageEmployeesToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.manageEmployeesToolStripMenuItem1.Text = "Manage Employees";
+            this.manageEmployeesToolStripMenuItem1.Click += new System.EventHandler(this.manageEmployeesToolStripMenuItem1_Click);
             // 
             // manageDiscountsToolStripMenuItem
             // 
@@ -313,9 +304,9 @@
             this.toolStripStatusLabelVersion,
             this.toolStripStatusLabel5,
             this.toolStripStatusLabelConnection});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 458);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 657);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(913, 29);
+            this.statusStrip1.Size = new System.Drawing.Size(1354, 29);
             this.statusStrip1.TabIndex = 2;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -368,7 +359,7 @@
             // toolStripStatusLabelSpacer
             // 
             this.toolStripStatusLabelSpacer.Name = "toolStripStatusLabelSpacer";
-            this.toolStripStatusLabelSpacer.Size = new System.Drawing.Size(304, 24);
+            this.toolStripStatusLabelSpacer.Size = new System.Drawing.Size(745, 24);
             this.toolStripStatusLabelSpacer.Spring = true;
             // 
             // toolStripStatusLabelVersion
@@ -404,7 +395,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 30);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(220, 428);
+            this.panel1.Size = new System.Drawing.Size(220, 627);
             this.panel1.TabIndex = 4;
             // 
             // flowLayoutPanel1
@@ -423,7 +414,7 @@
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 130);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(10);
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(220, 298);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(220, 497);
             this.flowLayoutPanel1.TabIndex = 1;
             this.flowLayoutPanel1.WrapContents = false;
             // 
@@ -467,6 +458,7 @@
             this.btnManageSales.TabIndex = 2;
             this.btnManageSales.Text = "Manage Sales";
             this.btnManageSales.UseVisualStyleBackColor = true;
+            this.btnManageSales.Click += new System.EventHandler(this.btnManageSales_Click);
             // 
             // btnProducts
             // 
@@ -564,20 +556,13 @@
             this.tableAdapterManager.SupplierTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = TheByteClubPOS.dsSamsLiqourShopTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
-            // deactivateCustomerToolStripMenuItem
-            // 
-            this.deactivateCustomerToolStripMenuItem.Name = "deactivateCustomerToolStripMenuItem";
-            this.deactivateCustomerToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
-            this.deactivateCustomerToolStripMenuItem.Text = "Deactivate Customer";
-            this.deactivateCustomerToolStripMenuItem.Click += new System.EventHandler(this.deactivateCustomerToolStripMenuItem_Click);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::TheByteClubPOS.Properties.Resources.POINT_OF_SALES;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(913, 487);
+            this.ClientSize = new System.Drawing.Size(1354, 686);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
@@ -611,7 +596,6 @@
         private System.Windows.Forms.ToolStripMenuItem manageAccountToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem manageSalesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem manageCustomerToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem addCustomerToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem manageEmployeesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem managePaymentsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem managePaymentMethodsToolStripMenuItem;
@@ -655,6 +639,5 @@
         private System.Windows.Forms.Button btnCustomers;
         private System.Windows.Forms.Button btnSuppliers;
         private System.Windows.Forms.Button btnLogout;
-        private System.Windows.Forms.ToolStripMenuItem deactivateCustomerToolStripMenuItem;
     }
 }

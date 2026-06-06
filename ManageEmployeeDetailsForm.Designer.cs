@@ -32,7 +32,6 @@
             this.employeeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dsSamsLiqourShopBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dsSamsLiqourShop = new TheByteClubPOS.dsSamsLiqourShop();
-            this.btnExit = new System.Windows.Forms.Button();
             this.lblTitle = new System.Windows.Forms.Label();
             this.grpFilter = new System.Windows.Forms.GroupBox();
             this.rdoAll = new System.Windows.Forms.RadioButton();
@@ -101,35 +100,30 @@
             this.dsSamsLiqourShop.DataSetName = "dsSamsLiqourShop";
             this.dsSamsLiqourShop.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // btnExit
-            // 
-            this.btnExit.Location = new System.Drawing.Point(1096, 719);
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(92, 35);
-            this.btnExit.TabIndex = 25;
-            this.btnExit.Text = "Exit";
-            this.btnExit.UseVisualStyleBackColor = true;
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
-            // 
             // lblTitle
             // 
             this.lblTitle.AutoSize = true;
+            this.lblTitle.BackColor = System.Drawing.Color.Transparent;
             this.lblTitle.Font = new System.Drawing.Font("Modern No. 20", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.Location = new System.Drawing.Point(33, 18);
+            this.lblTitle.Location = new System.Drawing.Point(21, 45);
+            this.lblTitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(235, 30);
+            this.lblTitle.Size = new System.Drawing.Size(168, 21);
             this.lblTitle.TabIndex = 24;
             this.lblTitle.Text = "Employee Details:";
             // 
             // grpFilter
             // 
+            this.grpFilter.BackColor = System.Drawing.Color.Transparent;
             this.grpFilter.Controls.Add(this.rdoAll);
             this.grpFilter.Controls.Add(this.rdoAdmin);
             this.grpFilter.Controls.Add(this.rdoCashier);
             this.grpFilter.Controls.Add(this.rdoManager);
-            this.grpFilter.Location = new System.Drawing.Point(360, 481);
+            this.grpFilter.Location = new System.Drawing.Point(363, 482);
+            this.grpFilter.Margin = new System.Windows.Forms.Padding(2);
             this.grpFilter.Name = "grpFilter";
-            this.grpFilter.Size = new System.Drawing.Size(295, 198);
+            this.grpFilter.Padding = new System.Windows.Forms.Padding(2);
+            this.grpFilter.Size = new System.Drawing.Size(197, 129);
             this.grpFilter.TabIndex = 23;
             this.grpFilter.TabStop = false;
             this.grpFilter.Text = "Filter by:";
@@ -137,9 +131,10 @@
             // rdoAll
             // 
             this.rdoAll.AutoSize = true;
-            this.rdoAll.Location = new System.Drawing.Point(46, 26);
+            this.rdoAll.Location = new System.Drawing.Point(31, 17);
+            this.rdoAll.Margin = new System.Windows.Forms.Padding(2);
             this.rdoAll.Name = "rdoAll";
-            this.rdoAll.Size = new System.Drawing.Size(51, 24);
+            this.rdoAll.Size = new System.Drawing.Size(36, 17);
             this.rdoAll.TabIndex = 3;
             this.rdoAll.TabStop = true;
             this.rdoAll.Text = "All";
@@ -150,9 +145,10 @@
             // rdoAdmin
             // 
             this.rdoAdmin.AutoSize = true;
-            this.rdoAdmin.Location = new System.Drawing.Point(46, 157);
+            this.rdoAdmin.Location = new System.Drawing.Point(31, 102);
+            this.rdoAdmin.Margin = new System.Windows.Forms.Padding(2);
             this.rdoAdmin.Name = "rdoAdmin";
-            this.rdoAdmin.Size = new System.Drawing.Size(79, 24);
+            this.rdoAdmin.Size = new System.Drawing.Size(54, 17);
             this.rdoAdmin.TabIndex = 2;
             this.rdoAdmin.TabStop = true;
             this.rdoAdmin.Text = "Admin";
@@ -162,9 +158,10 @@
             // rdoCashier
             // 
             this.rdoCashier.AutoSize = true;
-            this.rdoCashier.Location = new System.Drawing.Point(46, 111);
+            this.rdoCashier.Location = new System.Drawing.Point(31, 72);
+            this.rdoCashier.Margin = new System.Windows.Forms.Padding(2);
             this.rdoCashier.Name = "rdoCashier";
-            this.rdoCashier.Size = new System.Drawing.Size(88, 24);
+            this.rdoCashier.Size = new System.Drawing.Size(60, 17);
             this.rdoCashier.TabIndex = 1;
             this.rdoCashier.TabStop = true;
             this.rdoCashier.Text = "Cashier";
@@ -174,9 +171,10 @@
             // rdoManager
             // 
             this.rdoManager.AutoSize = true;
-            this.rdoManager.Location = new System.Drawing.Point(46, 68);
+            this.rdoManager.Location = new System.Drawing.Point(31, 44);
+            this.rdoManager.Margin = new System.Windows.Forms.Padding(2);
             this.rdoManager.Name = "rdoManager";
-            this.rdoManager.Size = new System.Drawing.Size(97, 24);
+            this.rdoManager.Size = new System.Drawing.Size(67, 17);
             this.rdoManager.TabIndex = 0;
             this.rdoManager.TabStop = true;
             this.rdoManager.Text = "Manager";
@@ -186,9 +184,10 @@
             // 
             // txtSearch
             // 
-            this.txtSearch.Location = new System.Drawing.Point(426, 424);
+            this.txtSearch.Location = new System.Drawing.Point(407, 445);
+            this.txtSearch.Margin = new System.Windows.Forms.Padding(2);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(229, 26);
+            this.txtSearch.Size = new System.Drawing.Size(154, 20);
             this.txtSearch.TabIndex = 22;
             this.txtSearch.Click += new System.EventHandler(this.txtSearch_TextChanged);
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
@@ -196,19 +195,24 @@
             // lblSearch
             // 
             this.lblSearch.AutoSize = true;
-            this.lblSearch.Location = new System.Drawing.Point(356, 427);
+            this.lblSearch.BackColor = System.Drawing.Color.Transparent;
+            this.lblSearch.Location = new System.Drawing.Point(360, 447);
+            this.lblSearch.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblSearch.Name = "lblSearch";
-            this.lblSearch.Size = new System.Drawing.Size(64, 20);
+            this.lblSearch.Size = new System.Drawing.Size(44, 13);
             this.lblSearch.TabIndex = 21;
             this.lblSearch.Text = "Search:";
             // 
             // grpOrderby
             // 
+            this.grpOrderby.BackColor = System.Drawing.Color.Transparent;
             this.grpOrderby.Controls.Add(this.rdoDesc);
             this.grpOrderby.Controls.Add(this.rdoAsc);
-            this.grpOrderby.Location = new System.Drawing.Point(995, 412);
+            this.grpOrderby.Location = new System.Drawing.Point(786, 437);
+            this.grpOrderby.Margin = new System.Windows.Forms.Padding(2);
             this.grpOrderby.Name = "grpOrderby";
-            this.grpOrderby.Size = new System.Drawing.Size(257, 183);
+            this.grpOrderby.Padding = new System.Windows.Forms.Padding(2);
+            this.grpOrderby.Size = new System.Drawing.Size(171, 119);
             this.grpOrderby.TabIndex = 20;
             this.grpOrderby.TabStop = false;
             this.grpOrderby.Text = "Order by:";
@@ -216,9 +220,10 @@
             // rdoDesc
             // 
             this.rdoDesc.AutoSize = true;
-            this.rdoDesc.Location = new System.Drawing.Point(38, 115);
+            this.rdoDesc.Location = new System.Drawing.Point(25, 75);
+            this.rdoDesc.Margin = new System.Windows.Forms.Padding(2);
             this.rdoDesc.Name = "rdoDesc";
-            this.rdoDesc.Size = new System.Drawing.Size(119, 24);
+            this.rdoDesc.Size = new System.Drawing.Size(82, 17);
             this.rdoDesc.TabIndex = 2;
             this.rdoDesc.TabStop = true;
             this.rdoDesc.Text = "Descending";
@@ -228,9 +233,10 @@
             // rdoAsc
             // 
             this.rdoAsc.AutoSize = true;
-            this.rdoAsc.Location = new System.Drawing.Point(38, 44);
+            this.rdoAsc.Location = new System.Drawing.Point(25, 29);
+            this.rdoAsc.Margin = new System.Windows.Forms.Padding(2);
             this.rdoAsc.Name = "rdoAsc";
-            this.rdoAsc.Size = new System.Drawing.Size(109, 24);
+            this.rdoAsc.Size = new System.Drawing.Size(75, 17);
             this.rdoAsc.TabIndex = 1;
             this.rdoAsc.TabStop = true;
             this.rdoAsc.Text = "Ascending";
@@ -239,13 +245,16 @@
             // 
             // grpSort
             // 
+            this.grpSort.BackColor = System.Drawing.Color.Transparent;
             this.grpSort.Controls.Add(this.rdoID);
             this.grpSort.Controls.Add(this.rdoUsername);
             this.grpSort.Controls.Add(this.rdoSurname);
             this.grpSort.Controls.Add(this.rdoName);
-            this.grpSort.Location = new System.Drawing.Point(690, 412);
+            this.grpSort.Location = new System.Drawing.Point(583, 437);
+            this.grpSort.Margin = new System.Windows.Forms.Padding(2);
             this.grpSort.Name = "grpSort";
-            this.grpSort.Size = new System.Drawing.Size(275, 267);
+            this.grpSort.Padding = new System.Windows.Forms.Padding(2);
+            this.grpSort.Size = new System.Drawing.Size(183, 174);
             this.grpSort.TabIndex = 19;
             this.grpSort.TabStop = false;
             this.grpSort.Text = "Sort by:";
@@ -253,9 +262,10 @@
             // rdoID
             // 
             this.rdoID.AutoSize = true;
-            this.rdoID.Location = new System.Drawing.Point(35, 226);
+            this.rdoID.Location = new System.Drawing.Point(23, 147);
+            this.rdoID.Margin = new System.Windows.Forms.Padding(2);
             this.rdoID.Name = "rdoID";
-            this.rdoID.Size = new System.Drawing.Size(51, 24);
+            this.rdoID.Size = new System.Drawing.Size(36, 17);
             this.rdoID.TabIndex = 4;
             this.rdoID.TabStop = true;
             this.rdoID.Text = "ID";
@@ -265,9 +275,10 @@
             // rdoUsername
             // 
             this.rdoUsername.AutoSize = true;
-            this.rdoUsername.Location = new System.Drawing.Point(35, 169);
+            this.rdoUsername.Location = new System.Drawing.Point(23, 110);
+            this.rdoUsername.Margin = new System.Windows.Forms.Padding(2);
             this.rdoUsername.Name = "rdoUsername";
-            this.rdoUsername.Size = new System.Drawing.Size(108, 24);
+            this.rdoUsername.Size = new System.Drawing.Size(73, 17);
             this.rdoUsername.TabIndex = 3;
             this.rdoUsername.TabStop = true;
             this.rdoUsername.Text = "Username";
@@ -277,9 +288,10 @@
             // rdoSurname
             // 
             this.rdoSurname.AutoSize = true;
-            this.rdoSurname.Location = new System.Drawing.Point(35, 105);
+            this.rdoSurname.Location = new System.Drawing.Point(23, 68);
+            this.rdoSurname.Margin = new System.Windows.Forms.Padding(2);
             this.rdoSurname.Name = "rdoSurname";
-            this.rdoSurname.Size = new System.Drawing.Size(99, 24);
+            this.rdoSurname.Size = new System.Drawing.Size(67, 17);
             this.rdoSurname.TabIndex = 2;
             this.rdoSurname.TabStop = true;
             this.rdoSurname.Text = "Surname";
@@ -289,9 +301,10 @@
             // rdoName
             // 
             this.rdoName.AutoSize = true;
-            this.rdoName.Location = new System.Drawing.Point(35, 44);
+            this.rdoName.Location = new System.Drawing.Point(23, 29);
+            this.rdoName.Margin = new System.Windows.Forms.Padding(2);
             this.rdoName.Name = "rdoName";
-            this.rdoName.Size = new System.Drawing.Size(76, 24);
+            this.rdoName.Size = new System.Drawing.Size(53, 17);
             this.rdoName.TabIndex = 1;
             this.rdoName.TabStop = true;
             this.rdoName.Text = "Name";
@@ -300,9 +313,10 @@
             // 
             // btnReset
             // 
-            this.btnReset.Location = new System.Drawing.Point(1043, 611);
+            this.btnReset.Location = new System.Drawing.Point(818, 566);
+            this.btnReset.Margin = new System.Windows.Forms.Padding(2);
             this.btnReset.Name = "btnReset";
-            this.btnReset.Size = new System.Drawing.Size(161, 68);
+            this.btnReset.Size = new System.Drawing.Size(107, 44);
             this.btnReset.TabIndex = 18;
             this.btnReset.Text = "Reset Filter";
             this.btnReset.UseVisualStyleBackColor = true;
@@ -310,9 +324,10 @@
             // 
             // btnRemove
             // 
-            this.btnRemove.Location = new System.Drawing.Point(106, 611);
+            this.btnRemove.Location = new System.Drawing.Point(194, 566);
+            this.btnRemove.Margin = new System.Windows.Forms.Padding(2);
             this.btnRemove.Name = "btnRemove";
-            this.btnRemove.Size = new System.Drawing.Size(161, 68);
+            this.btnRemove.Size = new System.Drawing.Size(107, 44);
             this.btnRemove.TabIndex = 17;
             this.btnRemove.Text = "Remove Employee";
             this.btnRemove.UseVisualStyleBackColor = true;
@@ -320,9 +335,10 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(106, 517);
+            this.btnAdd.Location = new System.Drawing.Point(194, 498);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(2);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(161, 68);
+            this.btnAdd.Size = new System.Drawing.Size(107, 44);
             this.btnAdd.TabIndex = 16;
             this.btnAdd.Text = "Add Employee";
             this.btnAdd.UseVisualStyleBackColor = true;
@@ -330,9 +346,10 @@
             // 
             // btnEdit
             // 
-            this.btnEdit.Location = new System.Drawing.Point(106, 412);
+            this.btnEdit.Location = new System.Drawing.Point(194, 437);
+            this.btnEdit.Margin = new System.Windows.Forms.Padding(2);
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(161, 68);
+            this.btnEdit.Size = new System.Drawing.Size(107, 44);
             this.btnEdit.TabIndex = 15;
             this.btnEdit.Text = "Edit Details";
             this.btnEdit.UseVisualStyleBackColor = true;
@@ -366,11 +383,12 @@
             this.employeePasswordDataGridViewTextBoxColumn,
             this.employeeStatusDataGridViewTextBoxColumn});
             this.dgvEmployees.DataSource = this.employeeBindingSource;
-            this.dgvEmployees.Location = new System.Drawing.Point(13, 68);
+            this.dgvEmployees.Location = new System.Drawing.Point(8, 77);
+            this.dgvEmployees.Margin = new System.Windows.Forms.Padding(2);
             this.dgvEmployees.Name = "dgvEmployees";
             this.dgvEmployees.RowHeadersWidth = 62;
             this.dgvEmployees.RowTemplate.Height = 28;
-            this.dgvEmployees.Size = new System.Drawing.Size(1239, 299);
+            this.dgvEmployees.Size = new System.Drawing.Size(1114, 319);
             this.dgvEmployees.TabIndex = 14;
             // 
             // Employee_ID
@@ -557,10 +575,11 @@
             // 
             // ManageEmployeeDetailsForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1282, 763);
-            this.Controls.Add(this.btnExit);
+            this.BackgroundImage = global::TheByteClubPOS.Properties.Resources.Background;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(1134, 666);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.grpFilter);
             this.Controls.Add(this.txtSearch);
@@ -572,6 +591,7 @@
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.dgvEmployees);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ManageEmployeeDetailsForm";
             this.Text = "ManageEmployeeDetailsForm";
             this.Load += new System.EventHandler(this.ManageEmployeeDetailsForm_Load);
@@ -603,7 +623,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn employeeRoleDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn employeeEmailAddressDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn employeePhoneNumberDataGridViewTextBoxColumn;
-        private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.GroupBox grpFilter;
         private System.Windows.Forms.RadioButton rdoAll;

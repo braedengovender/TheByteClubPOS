@@ -68,6 +68,7 @@
             // 
             this.lblManageSales.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.lblManageSales.AutoSize = true;
+            this.lblManageSales.BackColor = System.Drawing.Color.Transparent;
             this.lblManageSales.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblManageSales.Location = new System.Drawing.Point(24, 44);
             this.lblManageSales.Name = "lblManageSales";
@@ -79,6 +80,7 @@
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(24, 345);
             this.label1.Name = "label1";
@@ -282,6 +284,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::TheByteClubPOS.Properties.Resources.Background;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1134, 666);
             this.Controls.Add(this.saleLineDataGridView);
             this.Controls.Add(this.saleDataGridView);

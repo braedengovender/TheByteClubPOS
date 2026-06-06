@@ -100,16 +100,18 @@
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage5);
             this.tabControl1.Controls.Add(this.tabPage6);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabControl1.Location = new System.Drawing.Point(0, 0);
+            this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabControl1.Location = new System.Drawing.Point(10, 32);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(2);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1791, 1122);
+            this.tabControl1.Size = new System.Drawing.Size(1134, 625);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
             // 
+            this.tabPage1.BackgroundImage = global::TheByteClubPOS.Properties.Resources.Background;
+            this.tabPage1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.tabPage1.Controls.Add(this.btnCategory);
             this.tabPage1.Controls.Add(this.label3);
             this.tabPage1.Controls.Add(this.label2);
@@ -119,19 +121,21 @@
             this.tabPage1.Controls.Add(this.txtCategoryName);
             this.tabPage1.Controls.Add(this.dataGridView1);
             this.tabPage1.Controls.Add(this.tabControl2);
-            this.tabPage1.Location = new System.Drawing.Point(4, 46);
+            this.tabPage1.Location = new System.Drawing.Point(4, 29);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1783, 1072);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(2);
+            this.tabPage1.Size = new System.Drawing.Size(1126, 592);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Add Category";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // btnCategory
             // 
-            this.btnCategory.Location = new System.Drawing.Point(541, 879);
+            this.btnCategory.Location = new System.Drawing.Point(361, 491);
+            this.btnCategory.Margin = new System.Windows.Forms.Padding(2);
             this.btnCategory.Name = "btnCategory";
-            this.btnCategory.Size = new System.Drawing.Size(307, 89);
+            this.btnCategory.Size = new System.Drawing.Size(205, 58);
             this.btnCategory.TabIndex = 8;
             this.btnCategory.Text = "Add Category";
             this.btnCategory.UseVisualStyleBackColor = true;
@@ -140,27 +144,30 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(297, 745);
+            this.label3.Location = new System.Drawing.Point(197, 442);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(203, 37);
+            this.label3.Size = new System.Drawing.Size(109, 20);
             this.label3.TabIndex = 7;
             this.label3.Text = "DiscountID :";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(257, 653);
+            this.label2.Location = new System.Drawing.Point(170, 382);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(198, 37);
+            this.label2.Size = new System.Drawing.Size(105, 20);
             this.label2.TabIndex = 6;
             this.label2.Text = "Description:";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(195, 548);
+            this.label1.Location = new System.Drawing.Point(129, 314);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(264, 37);
+            this.label1.Size = new System.Drawing.Size(137, 20);
             this.label1.TabIndex = 5;
             this.label1.Text = "Category Name:";
             // 
@@ -170,9 +177,10 @@
             this.cmbDiscount.DataSource = this.categoryBindingSource;
             this.cmbDiscount.DisplayMember = "Discount_ID";
             this.cmbDiscount.FormattingEnabled = true;
-            this.cmbDiscount.Location = new System.Drawing.Point(543, 742);
+            this.cmbDiscount.Location = new System.Drawing.Point(361, 440);
+            this.cmbDiscount.Margin = new System.Windows.Forms.Padding(2);
             this.cmbDiscount.Name = "cmbDiscount";
-            this.cmbDiscount.Size = new System.Drawing.Size(317, 45);
+            this.cmbDiscount.Size = new System.Drawing.Size(213, 28);
             this.cmbDiscount.TabIndex = 4;
             this.cmbDiscount.ValueMember = "Discount_ID";
             // 
@@ -188,16 +196,18 @@
             // 
             // txtCatDescription
             // 
-            this.txtCatDescription.Location = new System.Drawing.Point(536, 641);
+            this.txtCatDescription.Location = new System.Drawing.Point(356, 375);
+            this.txtCatDescription.Margin = new System.Windows.Forms.Padding(2);
             this.txtCatDescription.Name = "txtCatDescription";
-            this.txtCatDescription.Size = new System.Drawing.Size(324, 44);
+            this.txtCatDescription.Size = new System.Drawing.Size(217, 26);
             this.txtCatDescription.TabIndex = 3;
             // 
             // txtCategoryName
             // 
-            this.txtCategoryName.Location = new System.Drawing.Point(531, 548);
+            this.txtCategoryName.Location = new System.Drawing.Point(353, 314);
+            this.txtCategoryName.Margin = new System.Windows.Forms.Padding(2);
             this.txtCategoryName.Name = "txtCategoryName";
-            this.txtCategoryName.Size = new System.Drawing.Size(329, 44);
+            this.txtCategoryName.Size = new System.Drawing.Size(221, 26);
             this.txtCategoryName.TabIndex = 2;
             // 
             // dataGridView1
@@ -211,11 +221,12 @@
             this.categoryDescriptionDataGridViewTextBoxColumn,
             this.discountIDDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.categoryBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(38, 35);
+            this.dataGridView1.Location = new System.Drawing.Point(25, 23);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 62;
             this.dataGridView1.RowTemplate.Height = 28;
-            this.dataGridView1.Size = new System.Drawing.Size(1470, 407);
+            this.dataGridView1.Size = new System.Drawing.Size(980, 265);
             this.dataGridView1.TabIndex = 1;
             // 
             // categoryIDDataGridViewTextBoxColumn
@@ -255,51 +266,58 @@
             // 
             this.tabControl2.Controls.Add(this.tabPage3);
             this.tabControl2.Controls.Add(this.tabPage4);
-            this.tabControl2.Location = new System.Drawing.Point(1628, 956);
+            this.tabControl2.Location = new System.Drawing.Point(1085, 621);
+            this.tabControl2.Margin = new System.Windows.Forms.Padding(2);
             this.tabControl2.Name = "tabControl2";
             this.tabControl2.SelectedIndex = 0;
-            this.tabControl2.Size = new System.Drawing.Size(12, 12);
+            this.tabControl2.Size = new System.Drawing.Size(8, 8);
             this.tabControl2.TabIndex = 0;
             // 
             // tabPage3
             // 
-            this.tabPage3.Location = new System.Drawing.Point(4, 46);
+            this.tabPage3.Location = new System.Drawing.Point(4, 29);
+            this.tabPage3.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(4, 0);
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(2);
+            this.tabPage3.Size = new System.Drawing.Size(0, 0);
             this.tabPage3.TabIndex = 0;
             this.tabPage3.Text = "tabPage3";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // tabPage4
             // 
-            this.tabPage4.Location = new System.Drawing.Point(4, 46);
+            this.tabPage4.Location = new System.Drawing.Point(4, 34);
+            this.tabPage4.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(4, 0);
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(2);
+            this.tabPage4.Size = new System.Drawing.Size(0, 0);
             this.tabPage4.TabIndex = 1;
             this.tabPage4.Text = "tabPage4";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
             // tabPage2
             // 
+            this.tabPage2.BackgroundImage = global::TheByteClubPOS.Properties.Resources.Background;
+            this.tabPage2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.tabPage2.Controls.Add(this.btnCDel);
             this.tabPage2.Controls.Add(this.txtDel);
             this.tabPage2.Controls.Add(this.label4);
             this.tabPage2.Controls.Add(this.dataGridView2);
-            this.tabPage2.Location = new System.Drawing.Point(4, 46);
+            this.tabPage2.Location = new System.Drawing.Point(4, 29);
+            this.tabPage2.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1783, 1072);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(2);
+            this.tabPage2.Size = new System.Drawing.Size(1126, 592);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Delete Category";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // btnCDel
             // 
-            this.btnCDel.Location = new System.Drawing.Point(610, 754);
+            this.btnCDel.Location = new System.Drawing.Point(407, 490);
+            this.btnCDel.Margin = new System.Windows.Forms.Padding(2);
             this.btnCDel.Name = "btnCDel";
-            this.btnCDel.Size = new System.Drawing.Size(268, 107);
+            this.btnCDel.Size = new System.Drawing.Size(179, 70);
             this.btnCDel.TabIndex = 3;
             this.btnCDel.Text = "Delete Category";
             this.btnCDel.UseVisualStyleBackColor = true;
@@ -307,17 +325,19 @@
             // 
             // txtDel
             // 
-            this.txtDel.Location = new System.Drawing.Point(585, 597);
+            this.txtDel.Location = new System.Drawing.Point(390, 388);
+            this.txtDel.Margin = new System.Windows.Forms.Padding(2);
             this.txtDel.Name = "txtDel";
-            this.txtDel.Size = new System.Drawing.Size(322, 44);
+            this.txtDel.Size = new System.Drawing.Size(216, 26);
             this.txtDel.TabIndex = 2;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(274, 599);
+            this.label4.Location = new System.Drawing.Point(183, 389);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(288, 37);
+            this.label4.Size = new System.Drawing.Size(154, 20);
             this.label4.TabIndex = 1;
             this.label4.Text = "Enter CategoryID:";
             // 
@@ -331,11 +351,12 @@
             this.categoryDescriptionDataGridViewTextBoxColumn1,
             this.discountIDDataGridViewTextBoxColumn1});
             this.dataGridView2.DataSource = this.categoryBindingSource;
-            this.dataGridView2.Location = new System.Drawing.Point(122, 57);
+            this.dataGridView2.Location = new System.Drawing.Point(81, 37);
+            this.dataGridView2.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.RowHeadersWidth = 62;
             this.dataGridView2.RowTemplate.Height = 28;
-            this.dataGridView2.Size = new System.Drawing.Size(1249, 403);
+            this.dataGridView2.Size = new System.Drawing.Size(833, 262);
             this.dataGridView2.TabIndex = 0;
             // 
             // categoryIDDataGridViewTextBoxColumn1
@@ -373,6 +394,8 @@
             // 
             // tabPage5
             // 
+            this.tabPage5.BackgroundImage = global::TheByteClubPOS.Properties.Resources.Background;
+            this.tabPage5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.tabPage5.Controls.Add(this.button3);
             this.tabPage5.Controls.Add(this.textBox6);
             this.tabPage5.Controls.Add(this.comboBox2);
@@ -382,19 +405,21 @@
             this.tabPage5.Controls.Add(this.label6);
             this.tabPage5.Controls.Add(this.label5);
             this.tabPage5.Controls.Add(this.dataGridView3);
-            this.tabPage5.Location = new System.Drawing.Point(4, 46);
+            this.tabPage5.Location = new System.Drawing.Point(4, 29);
+            this.tabPage5.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(1783, 1072);
+            this.tabPage5.Padding = new System.Windows.Forms.Padding(2);
+            this.tabPage5.Size = new System.Drawing.Size(1126, 592);
             this.tabPage5.TabIndex = 2;
             this.tabPage5.Text = "Update Category";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(663, 836);
+            this.button3.Location = new System.Drawing.Point(709, 471);
+            this.button3.Margin = new System.Windows.Forms.Padding(2);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(196, 88);
+            this.button3.Size = new System.Drawing.Size(131, 57);
             this.button3.TabIndex = 15;
             this.button3.Text = "Update";
             this.button3.UseVisualStyleBackColor = true;
@@ -402,57 +427,64 @@
             // 
             // textBox6
             // 
-            this.textBox6.Location = new System.Drawing.Point(351, 465);
+            this.textBox6.Location = new System.Drawing.Point(234, 302);
+            this.textBox6.Margin = new System.Windows.Forms.Padding(2);
             this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(379, 44);
+            this.textBox6.Size = new System.Drawing.Size(254, 26);
             this.textBox6.TabIndex = 13;
             // 
             // comboBox2
             // 
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(499, 748);
+            this.comboBox2.Location = new System.Drawing.Point(333, 486);
+            this.comboBox2.Margin = new System.Windows.Forms.Padding(2);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(479, 45);
+            this.comboBox2.Size = new System.Drawing.Size(321, 28);
             this.comboBox2.TabIndex = 11;
             // 
             // textBox5
             // 
-            this.textBox5.Location = new System.Drawing.Point(536, 646);
+            this.textBox5.Location = new System.Drawing.Point(357, 420);
+            this.textBox5.Margin = new System.Windows.Forms.Padding(2);
             this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(442, 44);
+            this.textBox5.Size = new System.Drawing.Size(296, 26);
             this.textBox5.TabIndex = 10;
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(588, 529);
+            this.textBox4.Location = new System.Drawing.Point(392, 344);
+            this.textBox4.Margin = new System.Windows.Forms.Padding(2);
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(390, 44);
+            this.textBox4.Size = new System.Drawing.Size(261, 26);
             this.textBox4.TabIndex = 9;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(299, 746);
+            this.label7.Location = new System.Drawing.Point(199, 485);
+            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(160, 37);
+            this.label7.Size = new System.Drawing.Size(85, 20);
             this.label7.TabIndex = 8;
             this.label7.Text = "Discount:";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(299, 637);
+            this.label6.Location = new System.Drawing.Point(199, 414);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(198, 37);
+            this.label6.Size = new System.Drawing.Size(105, 20);
             this.label6.TabIndex = 7;
             this.label6.Text = "Description:";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(299, 530);
+            this.label5.Location = new System.Drawing.Point(199, 344);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(264, 37);
+            this.label5.Size = new System.Drawing.Size(137, 20);
             this.label5.TabIndex = 6;
             this.label5.Text = "Category Name:";
             // 
@@ -466,11 +498,12 @@
             this.categoryDescriptionDataGridViewTextBoxColumn2,
             this.discountIDDataGridViewTextBoxColumn2});
             this.dataGridView3.DataSource = this.categoryBindingSource;
-            this.dataGridView3.Location = new System.Drawing.Point(85, 55);
+            this.dataGridView3.Location = new System.Drawing.Point(57, 36);
+            this.dataGridView3.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView3.Name = "dataGridView3";
             this.dataGridView3.RowHeadersWidth = 62;
             this.dataGridView3.RowTemplate.Height = 28;
-            this.dataGridView3.Size = new System.Drawing.Size(1549, 366);
+            this.dataGridView3.Size = new System.Drawing.Size(1033, 238);
             this.dataGridView3.TabIndex = 0;
             // 
             // categoryIDDataGridViewTextBoxColumn2
@@ -508,31 +541,36 @@
             // 
             // tabPage6
             // 
+            this.tabPage6.BackgroundImage = global::TheByteClubPOS.Properties.Resources.Background;
+            this.tabPage6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.tabPage6.Controls.Add(this.textBox7);
             this.tabPage6.Controls.Add(this.label9);
             this.tabPage6.Controls.Add(this.dataGridView4);
-            this.tabPage6.Location = new System.Drawing.Point(4, 46);
+            this.tabPage6.Location = new System.Drawing.Point(4, 29);
+            this.tabPage6.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage6.Size = new System.Drawing.Size(1783, 1072);
+            this.tabPage6.Padding = new System.Windows.Forms.Padding(2);
+            this.tabPage6.Size = new System.Drawing.Size(1126, 592);
             this.tabPage6.TabIndex = 3;
             this.tabPage6.Text = "View Category";
             this.tabPage6.UseVisualStyleBackColor = true;
             // 
             // textBox7
             // 
-            this.textBox7.Location = new System.Drawing.Point(471, 26);
+            this.textBox7.Location = new System.Drawing.Point(314, 17);
+            this.textBox7.Margin = new System.Windows.Forms.Padding(2);
             this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(320, 44);
+            this.textBox7.Size = new System.Drawing.Size(215, 26);
             this.textBox7.TabIndex = 2;
             this.textBox7.TextChanged += new System.EventHandler(this.textBox7_TextChanged);
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(185, 27);
+            this.label9.Location = new System.Drawing.Point(123, 18);
+            this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(281, 37);
+            this.label9.Size = new System.Drawing.Size(148, 20);
             this.label9.TabIndex = 1;
             this.label9.Text = "Search Category:";
             // 
@@ -546,11 +584,12 @@
             this.categoryDescriptionDataGridViewTextBoxColumn3,
             this.discountIDDataGridViewTextBoxColumn3});
             this.dataGridView4.DataSource = this.categoryBindingSource;
-            this.dataGridView4.Location = new System.Drawing.Point(96, 83);
+            this.dataGridView4.Location = new System.Drawing.Point(64, 54);
+            this.dataGridView4.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView4.Name = "dataGridView4";
             this.dataGridView4.RowHeadersWidth = 62;
             this.dataGridView4.RowTemplate.Height = 28;
-            this.dataGridView4.Size = new System.Drawing.Size(1565, 385);
+            this.dataGridView4.Size = new System.Drawing.Size(1043, 250);
             this.dataGridView4.TabIndex = 0;
             // 
             // categoryIDDataGridViewTextBoxColumn3
@@ -592,10 +631,12 @@
             // 
             // ManageProductCategories
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1791, 1122);
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(1134, 666);
             this.Controls.Add(this.tabControl1);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ManageProductCategories";
             this.Text = "Manage Product Categories";
             this.Load += new System.EventHandler(this.ManageProductCategories_Load);

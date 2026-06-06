@@ -65,11 +65,112 @@
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
+            // employee_FirstNameLabel
+            // 
+            employee_FirstNameLabel.AutoSize = true;
+            employee_FirstNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            employee_FirstNameLabel.Location = new System.Drawing.Point(3, 3);
+            employee_FirstNameLabel.Name = "employee_FirstNameLabel";
+            employee_FirstNameLabel.Size = new System.Drawing.Size(90, 20);
+            employee_FirstNameLabel.TabIndex = 3;
+            employee_FirstNameLabel.Text = "First Name:";
+            // 
+            // employee_StatusLabel
+            // 
+            employee_StatusLabel.AutoSize = true;
+            employee_StatusLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            employee_StatusLabel.Location = new System.Drawing.Point(3, 349);
+            employee_StatusLabel.Name = "employee_StatusLabel";
+            employee_StatusLabel.Size = new System.Drawing.Size(60, 20);
+            employee_StatusLabel.TabIndex = 21;
+            employee_StatusLabel.Text = "Status:";
+            // 
+            // employee_PasswordLabel
+            // 
+            employee_PasswordLabel.AutoSize = true;
+            employee_PasswordLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            employee_PasswordLabel.Location = new System.Drawing.Point(3, 311);
+            employee_PasswordLabel.Name = "employee_PasswordLabel";
+            employee_PasswordLabel.Size = new System.Drawing.Size(82, 20);
+            employee_PasswordLabel.TabIndex = 19;
+            employee_PasswordLabel.Text = "Password:";
+            // 
+            // employee_UsernameLabel
+            // 
+            employee_UsernameLabel.AutoSize = true;
+            employee_UsernameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            employee_UsernameLabel.Location = new System.Drawing.Point(3, 275);
+            employee_UsernameLabel.Name = "employee_UsernameLabel";
+            employee_UsernameLabel.Size = new System.Drawing.Size(87, 20);
+            employee_UsernameLabel.TabIndex = 17;
+            employee_UsernameLabel.Text = "Username:";
+            // 
+            // employee_HireDateLabel
+            // 
+            employee_HireDateLabel.AutoSize = true;
+            employee_HireDateLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            employee_HireDateLabel.Location = new System.Drawing.Point(3, 238);
+            employee_HireDateLabel.Name = "employee_HireDateLabel";
+            employee_HireDateLabel.Size = new System.Drawing.Size(81, 20);
+            employee_HireDateLabel.TabIndex = 15;
+            employee_HireDateLabel.Text = "Hire Date:";
+            // 
+            // employee_PhoneNumberLabel
+            // 
+            employee_PhoneNumberLabel.AutoSize = true;
+            employee_PhoneNumberLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            employee_PhoneNumberLabel.Location = new System.Drawing.Point(3, 202);
+            employee_PhoneNumberLabel.Name = "employee_PhoneNumberLabel";
+            employee_PhoneNumberLabel.Size = new System.Drawing.Size(119, 20);
+            employee_PhoneNumberLabel.TabIndex = 13;
+            employee_PhoneNumberLabel.Text = "Phone Number:";
+            // 
+            // employee_EmailAddressLabel
+            // 
+            employee_EmailAddressLabel.AutoSize = true;
+            employee_EmailAddressLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            employee_EmailAddressLabel.Location = new System.Drawing.Point(3, 166);
+            employee_EmailAddressLabel.Name = "employee_EmailAddressLabel";
+            employee_EmailAddressLabel.Size = new System.Drawing.Size(115, 20);
+            employee_EmailAddressLabel.TabIndex = 11;
+            employee_EmailAddressLabel.Text = "Email Address:";
+            // 
+            // employee_RoleLabel
+            // 
+            employee_RoleLabel.AutoSize = true;
+            employee_RoleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            employee_RoleLabel.Location = new System.Drawing.Point(3, 133);
+            employee_RoleLabel.Name = "employee_RoleLabel";
+            employee_RoleLabel.Size = new System.Drawing.Size(46, 20);
+            employee_RoleLabel.TabIndex = 9;
+            employee_RoleLabel.Text = "Role:";
+            // 
+            // employee_IDNumberLabel
+            // 
+            employee_IDNumberLabel.AutoSize = true;
+            employee_IDNumberLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            employee_IDNumberLabel.Location = new System.Drawing.Point(3, 88);
+            employee_IDNumberLabel.Name = "employee_IDNumberLabel";
+            employee_IDNumberLabel.Size = new System.Drawing.Size(90, 20);
+            employee_IDNumberLabel.TabIndex = 7;
+            employee_IDNumberLabel.Text = "ID Number:";
+            // 
+            // employee_LastNameLabel
+            // 
+            employee_LastNameLabel.AutoSize = true;
+            employee_LastNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            employee_LastNameLabel.Location = new System.Drawing.Point(3, 45);
+            employee_LastNameLabel.Name = "employee_LastNameLabel";
+            employee_LastNameLabel.Size = new System.Drawing.Size(90, 20);
+            employee_LastNameLabel.TabIndex = 5;
+            employee_LastNameLabel.Text = "Last Name:";
+            // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(683, 696);
+            this.btnCancel.Location = new System.Drawing.Point(732, 525);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(2);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(90, 53);
+            this.btnCancel.Size = new System.Drawing.Size(60, 34);
             this.btnCancel.TabIndex = 38;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
@@ -79,17 +180,19 @@
             // 
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.Location = new System.Drawing.Point(346, 20);
+            this.lblTitle.Location = new System.Drawing.Point(508, 86);
+            this.lblTitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(183, 29);
+            this.lblTitle.Size = new System.Drawing.Size(124, 20);
             this.lblTitle.TabIndex = 37;
             this.lblTitle.Text = "Add Employee";
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(312, 696);
+            this.btnUpdate.Location = new System.Drawing.Point(485, 525);
+            this.btnUpdate.Margin = new System.Windows.Forms.Padding(2);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(232, 53);
+            this.btnUpdate.Size = new System.Drawing.Size(155, 34);
             this.btnUpdate.TabIndex = 36;
             this.btnUpdate.Text = "SAVE";
             this.btnUpdate.UseVisualStyleBackColor = true;
@@ -97,6 +200,7 @@
             // 
             // tableLayoutPanel1
             // 
+            this.tableLayoutPanel1.BackColor = System.Drawing.Color.Transparent;
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 48.77676F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 51.22324F));
@@ -120,233 +224,119 @@
             this.tableLayoutPanel1.Controls.Add(this.employee_EmailAddressTextBox, 1, 5);
             this.tableLayoutPanel1.Controls.Add(this.employee_StatusComboBox, 1, 10);
             this.tableLayoutPanel1.Controls.Add(this.employee_RoleComboBox, 1, 4);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(119, 97);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(356, 136);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 11;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.017544F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 92.98245F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 66F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 69F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 51F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 56F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 56F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 57F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 56F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 58F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 46F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(654, 585);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 43F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 45F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 33F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 37F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 38F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(436, 380);
             this.tableLayoutPanel1.TabIndex = 35;
-            // 
-            // employee_FirstNameLabel
-            // 
-            employee_FirstNameLabel.AutoSize = true;
-            employee_FirstNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            employee_FirstNameLabel.Location = new System.Drawing.Point(4, 4);
-            employee_FirstNameLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            employee_FirstNameLabel.Name = "employee_FirstNameLabel";
-            employee_FirstNameLabel.Size = new System.Drawing.Size(137, 29);
-            employee_FirstNameLabel.TabIndex = 3;
-            employee_FirstNameLabel.Text = "First Name:";
             // 
             // employee_FirstNameTextBox
             // 
             this.employee_FirstNameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.employee_FirstNameTextBox.Location = new System.Drawing.Point(323, 9);
-            this.employee_FirstNameTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.employee_FirstNameTextBox.Location = new System.Drawing.Point(215, 6);
             this.employee_FirstNameTextBox.Name = "employee_FirstNameTextBox";
-            this.employee_FirstNameTextBox.Size = new System.Drawing.Size(298, 35);
+            this.employee_FirstNameTextBox.Size = new System.Drawing.Size(200, 26);
             this.employee_FirstNameTextBox.TabIndex = 4;
-            // 
-            // employee_StatusLabel
-            // 
-            employee_StatusLabel.AutoSize = true;
-            employee_StatusLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            employee_StatusLabel.Location = new System.Drawing.Point(4, 538);
-            employee_StatusLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            employee_StatusLabel.Name = "employee_StatusLabel";
-            employee_StatusLabel.Size = new System.Drawing.Size(85, 29);
-            employee_StatusLabel.TabIndex = 21;
-            employee_StatusLabel.Text = "Status:";
             // 
             // employee_PasswordTextBox
             // 
             this.employee_PasswordTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.employee_PasswordTextBox.Location = new System.Drawing.Point(323, 485);
-            this.employee_PasswordTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.employee_PasswordTextBox.Location = new System.Drawing.Point(215, 314);
             this.employee_PasswordTextBox.Name = "employee_PasswordTextBox";
-            this.employee_PasswordTextBox.Size = new System.Drawing.Size(298, 35);
+            this.employee_PasswordTextBox.Size = new System.Drawing.Size(200, 26);
             this.employee_PasswordTextBox.TabIndex = 20;
             this.employee_PasswordTextBox.UseSystemPasswordChar = true;
-            // 
-            // employee_PasswordLabel
-            // 
-            employee_PasswordLabel.AutoSize = true;
-            employee_PasswordLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            employee_PasswordLabel.Location = new System.Drawing.Point(4, 480);
-            employee_PasswordLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            employee_PasswordLabel.Name = "employee_PasswordLabel";
-            employee_PasswordLabel.Size = new System.Drawing.Size(126, 29);
-            employee_PasswordLabel.TabIndex = 19;
-            employee_PasswordLabel.Text = "Password:";
             // 
             // employee_UsernameTextBox
             // 
             this.employee_UsernameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.employee_UsernameTextBox.Location = new System.Drawing.Point(323, 429);
-            this.employee_UsernameTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.employee_UsernameTextBox.Location = new System.Drawing.Point(215, 278);
             this.employee_UsernameTextBox.Name = "employee_UsernameTextBox";
-            this.employee_UsernameTextBox.Size = new System.Drawing.Size(298, 35);
+            this.employee_UsernameTextBox.Size = new System.Drawing.Size(200, 26);
             this.employee_UsernameTextBox.TabIndex = 18;
-            // 
-            // employee_UsernameLabel
-            // 
-            employee_UsernameLabel.AutoSize = true;
-            employee_UsernameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            employee_UsernameLabel.Location = new System.Drawing.Point(4, 424);
-            employee_UsernameLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            employee_UsernameLabel.Name = "employee_UsernameLabel";
-            employee_UsernameLabel.Size = new System.Drawing.Size(130, 29);
-            employee_UsernameLabel.TabIndex = 17;
-            employee_UsernameLabel.Text = "Username:";
             // 
             // employee_HireDateDateTimePicker
             // 
             this.employee_HireDateDateTimePicker.Enabled = false;
             this.employee_HireDateDateTimePicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.employee_HireDateDateTimePicker.Location = new System.Drawing.Point(323, 372);
-            this.employee_HireDateDateTimePicker.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.employee_HireDateDateTimePicker.Location = new System.Drawing.Point(215, 241);
             this.employee_HireDateDateTimePicker.Name = "employee_HireDateDateTimePicker";
-            this.employee_HireDateDateTimePicker.Size = new System.Drawing.Size(298, 35);
+            this.employee_HireDateDateTimePicker.Size = new System.Drawing.Size(200, 26);
             this.employee_HireDateDateTimePicker.TabIndex = 16;
-            // 
-            // employee_HireDateLabel
-            // 
-            employee_HireDateLabel.AutoSize = true;
-            employee_HireDateLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            employee_HireDateLabel.Location = new System.Drawing.Point(4, 367);
-            employee_HireDateLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            employee_HireDateLabel.Name = "employee_HireDateLabel";
-            employee_HireDateLabel.Size = new System.Drawing.Size(120, 29);
-            employee_HireDateLabel.TabIndex = 15;
-            employee_HireDateLabel.Text = "Hire Date:";
             // 
             // employee_PhoneNumberTextBox
             // 
             this.employee_PhoneNumberTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.employee_PhoneNumberTextBox.Location = new System.Drawing.Point(323, 316);
-            this.employee_PhoneNumberTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.employee_PhoneNumberTextBox.Location = new System.Drawing.Point(215, 205);
             this.employee_PhoneNumberTextBox.Name = "employee_PhoneNumberTextBox";
-            this.employee_PhoneNumberTextBox.Size = new System.Drawing.Size(298, 35);
+            this.employee_PhoneNumberTextBox.Size = new System.Drawing.Size(200, 26);
             this.employee_PhoneNumberTextBox.TabIndex = 14;
-            // 
-            // employee_PhoneNumberLabel
-            // 
-            employee_PhoneNumberLabel.AutoSize = true;
-            employee_PhoneNumberLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            employee_PhoneNumberLabel.Location = new System.Drawing.Point(4, 311);
-            employee_PhoneNumberLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            employee_PhoneNumberLabel.Name = "employee_PhoneNumberLabel";
-            employee_PhoneNumberLabel.Size = new System.Drawing.Size(182, 29);
-            employee_PhoneNumberLabel.TabIndex = 13;
-            employee_PhoneNumberLabel.Text = "Phone Number:";
-            // 
-            // employee_EmailAddressLabel
-            // 
-            employee_EmailAddressLabel.AutoSize = true;
-            employee_EmailAddressLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            employee_EmailAddressLabel.Location = new System.Drawing.Point(4, 255);
-            employee_EmailAddressLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            employee_EmailAddressLabel.Name = "employee_EmailAddressLabel";
-            employee_EmailAddressLabel.Size = new System.Drawing.Size(175, 29);
-            employee_EmailAddressLabel.TabIndex = 11;
-            employee_EmailAddressLabel.Text = "Email Address:";
-            // 
-            // employee_RoleLabel
-            // 
-            employee_RoleLabel.AutoSize = true;
-            employee_RoleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            employee_RoleLabel.Location = new System.Drawing.Point(4, 204);
-            employee_RoleLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            employee_RoleLabel.Name = "employee_RoleLabel";
-            employee_RoleLabel.Size = new System.Drawing.Size(70, 29);
-            employee_RoleLabel.TabIndex = 9;
-            employee_RoleLabel.Text = "Role:";
             // 
             // employee_IDNumberTextBox
             // 
             this.employee_IDNumberTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.employee_IDNumberTextBox.Location = new System.Drawing.Point(323, 140);
-            this.employee_IDNumberTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.employee_IDNumberTextBox.Location = new System.Drawing.Point(215, 91);
             this.employee_IDNumberTextBox.Name = "employee_IDNumberTextBox";
-            this.employee_IDNumberTextBox.Size = new System.Drawing.Size(298, 35);
+            this.employee_IDNumberTextBox.Size = new System.Drawing.Size(200, 26);
             this.employee_IDNumberTextBox.TabIndex = 8;
-            // 
-            // employee_IDNumberLabel
-            // 
-            employee_IDNumberLabel.AutoSize = true;
-            employee_IDNumberLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            employee_IDNumberLabel.Location = new System.Drawing.Point(4, 135);
-            employee_IDNumberLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            employee_IDNumberLabel.Name = "employee_IDNumberLabel";
-            employee_IDNumberLabel.Size = new System.Drawing.Size(135, 29);
-            employee_IDNumberLabel.TabIndex = 7;
-            employee_IDNumberLabel.Text = "ID Number:";
             // 
             // employee_LastNameTextBox
             // 
             this.employee_LastNameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.employee_LastNameTextBox.Location = new System.Drawing.Point(323, 74);
-            this.employee_LastNameTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.employee_LastNameTextBox.Location = new System.Drawing.Point(215, 48);
             this.employee_LastNameTextBox.Name = "employee_LastNameTextBox";
-            this.employee_LastNameTextBox.Size = new System.Drawing.Size(298, 35);
+            this.employee_LastNameTextBox.Size = new System.Drawing.Size(200, 26);
             this.employee_LastNameTextBox.TabIndex = 6;
-            // 
-            // employee_LastNameLabel
-            // 
-            employee_LastNameLabel.AutoSize = true;
-            employee_LastNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            employee_LastNameLabel.Location = new System.Drawing.Point(4, 69);
-            employee_LastNameLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            employee_LastNameLabel.Name = "employee_LastNameLabel";
-            employee_LastNameLabel.Size = new System.Drawing.Size(134, 29);
-            employee_LastNameLabel.TabIndex = 5;
-            employee_LastNameLabel.Text = "Last Name:";
             // 
             // employee_EmailAddressTextBox
             // 
             this.employee_EmailAddressTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.employee_EmailAddressTextBox.Location = new System.Drawing.Point(323, 260);
-            this.employee_EmailAddressTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.employee_EmailAddressTextBox.Location = new System.Drawing.Point(215, 169);
             this.employee_EmailAddressTextBox.Name = "employee_EmailAddressTextBox";
-            this.employee_EmailAddressTextBox.Size = new System.Drawing.Size(298, 35);
+            this.employee_EmailAddressTextBox.Size = new System.Drawing.Size(200, 26);
             this.employee_EmailAddressTextBox.TabIndex = 12;
             // 
             // employee_StatusComboBox
             // 
             this.employee_StatusComboBox.FormattingEnabled = true;
-            this.employee_StatusComboBox.Location = new System.Drawing.Point(322, 541);
+            this.employee_StatusComboBox.Location = new System.Drawing.Point(214, 351);
+            this.employee_StatusComboBox.Margin = new System.Windows.Forms.Padding(2);
             this.employee_StatusComboBox.Name = "employee_StatusComboBox";
-            this.employee_StatusComboBox.Size = new System.Drawing.Size(299, 28);
+            this.employee_StatusComboBox.Size = new System.Drawing.Size(201, 21);
             this.employee_StatusComboBox.TabIndex = 24;
             // 
             // employee_RoleComboBox
             // 
             this.employee_RoleComboBox.FormattingEnabled = true;
-            this.employee_RoleComboBox.Location = new System.Drawing.Point(322, 207);
+            this.employee_RoleComboBox.Location = new System.Drawing.Point(214, 135);
+            this.employee_RoleComboBox.Margin = new System.Windows.Forms.Padding(2);
             this.employee_RoleComboBox.Name = "employee_RoleComboBox";
-            this.employee_RoleComboBox.Size = new System.Drawing.Size(299, 28);
+            this.employee_RoleComboBox.Size = new System.Drawing.Size(201, 21);
             this.employee_RoleComboBox.TabIndex = 23;
             // 
             // AddEmployeeForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(884, 768);
+            this.BackgroundImage = global::TheByteClubPOS.Properties.Resources.Background;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(1134, 666);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.tableLayoutPanel1);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "AddEmployeeForm";
             this.Text = "AddEmployeeForm";
             this.Load += new System.EventHandler(this.AddEmployeeForm_Load);
