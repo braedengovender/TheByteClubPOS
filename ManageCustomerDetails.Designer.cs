@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.Label customer_IDLabel;
             System.Windows.Forms.Label customer_FirstNameLabel;
             System.Windows.Forms.Label customer_LastNameLabel;
             System.Windows.Forms.Label customer_EmailAddressLabel;
@@ -96,7 +95,6 @@
             this.txtEmailAddress = new System.Windows.Forms.TextBox();
             this.txtLastName = new System.Windows.Forms.TextBox();
             this.txtFirstName = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.customer_StatusTextBox = new System.Windows.Forms.TextBox();
             this.customerBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -153,7 +151,9 @@
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.tableAdapterManager = new TheByteClubPOS.dsSamsLiqourShopTableAdapters.TableAdapterManager();
             this.customerTableAdapter = new TheByteClubPOS.dsSamsLiqourShopTableAdapters.CustomerTableAdapter();
-            customer_IDLabel = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
             customer_FirstNameLabel = new System.Windows.Forms.Label();
             customer_LastNameLabel = new System.Windows.Forms.Label();
             customer_EmailAddressLabel = new System.Windows.Forms.Label();
@@ -204,206 +204,199 @@
             ((System.ComponentModel.ISupportInitialize)(this.dsSamsLiqourShop)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.customerDataGridView)).BeginInit();
             this.tabPage3.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // customer_IDLabel
-            // 
-            customer_IDLabel.AutoSize = true;
-            customer_IDLabel.Location = new System.Drawing.Point(366, 27);
-            customer_IDLabel.Name = "customer_IDLabel";
-            customer_IDLabel.Size = new System.Drawing.Size(68, 13);
-            customer_IDLabel.TabIndex = 69;
-            customer_IDLabel.Text = "Customer ID:";
-            customer_IDLabel.Click += new System.EventHandler(this.customer_IDLabel_Click);
             // 
             // customer_FirstNameLabel
             // 
             customer_FirstNameLabel.AutoSize = true;
-            customer_FirstNameLabel.Location = new System.Drawing.Point(366, 53);
+            customer_FirstNameLabel.Location = new System.Drawing.Point(5, 32);
             customer_FirstNameLabel.Name = "customer_FirstNameLabel";
-            customer_FirstNameLabel.Size = new System.Drawing.Size(107, 13);
+            customer_FirstNameLabel.Size = new System.Drawing.Size(60, 13);
             customer_FirstNameLabel.TabIndex = 70;
-            customer_FirstNameLabel.Text = "Customer First Name:";
+            customer_FirstNameLabel.Text = "First Name:";
             customer_FirstNameLabel.Click += new System.EventHandler(this.customer_FirstNameLabel_Click);
             // 
             // customer_LastNameLabel
             // 
             customer_LastNameLabel.AutoSize = true;
-            customer_LastNameLabel.Location = new System.Drawing.Point(366, 79);
+            customer_LastNameLabel.Location = new System.Drawing.Point(260, 32);
             customer_LastNameLabel.Name = "customer_LastNameLabel";
-            customer_LastNameLabel.Size = new System.Drawing.Size(108, 13);
+            customer_LastNameLabel.Size = new System.Drawing.Size(61, 13);
             customer_LastNameLabel.TabIndex = 71;
-            customer_LastNameLabel.Text = "Customer Last Name:";
+            customer_LastNameLabel.Text = "Last Name:";
             customer_LastNameLabel.Click += new System.EventHandler(this.customer_LastNameLabel_Click);
             // 
             // customer_EmailAddressLabel
             // 
             customer_EmailAddressLabel.AutoSize = true;
-            customer_EmailAddressLabel.Location = new System.Drawing.Point(366, 105);
+            customer_EmailAddressLabel.Location = new System.Drawing.Point(516, 32);
             customer_EmailAddressLabel.Name = "customer_EmailAddressLabel";
-            customer_EmailAddressLabel.Size = new System.Drawing.Size(123, 13);
+            customer_EmailAddressLabel.Size = new System.Drawing.Size(76, 13);
             customer_EmailAddressLabel.TabIndex = 72;
-            customer_EmailAddressLabel.Text = "Customer Email Address:";
+            customer_EmailAddressLabel.Text = "Email Address:";
             customer_EmailAddressLabel.Click += new System.EventHandler(this.customer_EmailAddressLabel_Click);
             // 
             // customer_IDNumberLabel
             // 
             customer_IDNumberLabel.AutoSize = true;
-            customer_IDNumberLabel.Location = new System.Drawing.Point(366, 131);
+            customer_IDNumberLabel.Location = new System.Drawing.Point(6, 88);
             customer_IDNumberLabel.Name = "customer_IDNumberLabel";
-            customer_IDNumberLabel.Size = new System.Drawing.Size(105, 13);
+            customer_IDNumberLabel.Size = new System.Drawing.Size(61, 13);
             customer_IDNumberLabel.TabIndex = 73;
-            customer_IDNumberLabel.Text = "Customer IDNumber:";
+            customer_IDNumberLabel.Text = "ID Number:";
             customer_IDNumberLabel.Click += new System.EventHandler(this.customer_IDNumberLabel_Click);
             // 
             // customer_PhoneNumberLabel
             // 
             customer_PhoneNumberLabel.AutoSize = true;
-            customer_PhoneNumberLabel.Location = new System.Drawing.Point(366, 157);
+            customer_PhoneNumberLabel.Location = new System.Drawing.Point(259, 88);
             customer_PhoneNumberLabel.Name = "customer_PhoneNumberLabel";
-            customer_PhoneNumberLabel.Size = new System.Drawing.Size(128, 13);
+            customer_PhoneNumberLabel.Size = new System.Drawing.Size(81, 13);
             customer_PhoneNumberLabel.TabIndex = 74;
-            customer_PhoneNumberLabel.Text = "Customer Phone Number:";
+            customer_PhoneNumberLabel.Text = "Phone Number:";
             customer_PhoneNumberLabel.Click += new System.EventHandler(this.customer_PhoneNumberLabel_Click);
             // 
             // customer_UnitNumberLabel
             // 
             customer_UnitNumberLabel.AutoSize = true;
-            customer_UnitNumberLabel.Location = new System.Drawing.Point(366, 183);
+            customer_UnitNumberLabel.Location = new System.Drawing.Point(7, 39);
             customer_UnitNumberLabel.Name = "customer_UnitNumberLabel";
-            customer_UnitNumberLabel.Size = new System.Drawing.Size(116, 13);
+            customer_UnitNumberLabel.Size = new System.Drawing.Size(69, 13);
             customer_UnitNumberLabel.TabIndex = 75;
-            customer_UnitNumberLabel.Text = "Customer Unit Number:";
+            customer_UnitNumberLabel.Text = "Unit Number:";
             customer_UnitNumberLabel.Click += new System.EventHandler(this.customer_UnitNumberLabel_Click);
             // 
             // customer_UnitNameLabel
             // 
             customer_UnitNameLabel.AutoSize = true;
-            customer_UnitNameLabel.Location = new System.Drawing.Point(366, 209);
+            customer_UnitNameLabel.Location = new System.Drawing.Point(261, 39);
             customer_UnitNameLabel.Name = "customer_UnitNameLabel";
-            customer_UnitNameLabel.Size = new System.Drawing.Size(107, 13);
+            customer_UnitNameLabel.Size = new System.Drawing.Size(60, 13);
             customer_UnitNameLabel.TabIndex = 76;
-            customer_UnitNameLabel.Text = "Customer Unit Name:";
+            customer_UnitNameLabel.Text = "Unit Name:";
             customer_UnitNameLabel.Click += new System.EventHandler(this.customer_UnitNameLabel_Click);
             // 
             // customer_StreetNumberLabel
             // 
             customer_StreetNumberLabel.AutoSize = true;
-            customer_StreetNumberLabel.Location = new System.Drawing.Point(366, 235);
+            customer_StreetNumberLabel.Location = new System.Drawing.Point(518, 39);
             customer_StreetNumberLabel.Name = "customer_StreetNumberLabel";
-            customer_StreetNumberLabel.Size = new System.Drawing.Size(125, 13);
+            customer_StreetNumberLabel.Size = new System.Drawing.Size(78, 13);
             customer_StreetNumberLabel.TabIndex = 77;
-            customer_StreetNumberLabel.Text = "Customer Street Number:";
+            customer_StreetNumberLabel.Text = "Street Number:";
             customer_StreetNumberLabel.Click += new System.EventHandler(this.customer_StreetNumberLabel_Click);
             // 
             // customer_StreetNameLabel
             // 
             customer_StreetNameLabel.AutoSize = true;
-            customer_StreetNameLabel.Location = new System.Drawing.Point(366, 261);
+            customer_StreetNameLabel.Location = new System.Drawing.Point(8, 91);
             customer_StreetNameLabel.Name = "customer_StreetNameLabel";
-            customer_StreetNameLabel.Size = new System.Drawing.Size(116, 13);
+            customer_StreetNameLabel.Size = new System.Drawing.Size(69, 13);
             customer_StreetNameLabel.TabIndex = 78;
-            customer_StreetNameLabel.Text = "Customer Street Name:";
+            customer_StreetNameLabel.Text = "Street Name:";
             customer_StreetNameLabel.Click += new System.EventHandler(this.customer_StreetNameLabel_Click);
             // 
             // customer_SuburbLabel
             // 
             customer_SuburbLabel.AutoSize = true;
-            customer_SuburbLabel.Location = new System.Drawing.Point(366, 287);
+            customer_SuburbLabel.Location = new System.Drawing.Point(262, 91);
             customer_SuburbLabel.Name = "customer_SuburbLabel";
-            customer_SuburbLabel.Size = new System.Drawing.Size(91, 13);
+            customer_SuburbLabel.Size = new System.Drawing.Size(44, 13);
             customer_SuburbLabel.TabIndex = 79;
-            customer_SuburbLabel.Text = "Customer Suburb:";
+            customer_SuburbLabel.Text = "Suburb:";
             customer_SuburbLabel.Click += new System.EventHandler(this.customer_SuburbLabel_Click);
             // 
             // customer_PostalCodeLabel
             // 
             customer_PostalCodeLabel.AutoSize = true;
-            customer_PostalCodeLabel.Location = new System.Drawing.Point(366, 313);
+            customer_PostalCodeLabel.Location = new System.Drawing.Point(519, 91);
             customer_PostalCodeLabel.Name = "customer_PostalCodeLabel";
-            customer_PostalCodeLabel.Size = new System.Drawing.Size(114, 13);
+            customer_PostalCodeLabel.Size = new System.Drawing.Size(67, 13);
             customer_PostalCodeLabel.TabIndex = 80;
-            customer_PostalCodeLabel.Text = "Customer Postal Code:";
+            customer_PostalCodeLabel.Text = "Postal Code:";
             customer_PostalCodeLabel.Click += new System.EventHandler(this.customer_PostalCodeLabel_Click);
             // 
             // customer_CityLabel
             // 
             customer_CityLabel.AutoSize = true;
-            customer_CityLabel.Location = new System.Drawing.Point(366, 339);
+            customer_CityLabel.Location = new System.Drawing.Point(10, 147);
             customer_CityLabel.Name = "customer_CityLabel";
-            customer_CityLabel.Size = new System.Drawing.Size(74, 13);
+            customer_CityLabel.Size = new System.Drawing.Size(27, 13);
             customer_CityLabel.TabIndex = 81;
-            customer_CityLabel.Text = "Customer City:";
+            customer_CityLabel.Text = "City:";
             customer_CityLabel.Click += new System.EventHandler(this.customer_CityLabel_Click);
             // 
             // customer_ProvinceLabel
             // 
             customer_ProvinceLabel.AutoSize = true;
-            customer_ProvinceLabel.Location = new System.Drawing.Point(366, 365);
+            customer_ProvinceLabel.Location = new System.Drawing.Point(262, 147);
             customer_ProvinceLabel.Name = "customer_ProvinceLabel";
-            customer_ProvinceLabel.Size = new System.Drawing.Size(99, 13);
+            customer_ProvinceLabel.Size = new System.Drawing.Size(52, 13);
             customer_ProvinceLabel.TabIndex = 82;
-            customer_ProvinceLabel.Text = "Customer Province:";
+            customer_ProvinceLabel.Text = "Province:";
             customer_ProvinceLabel.Click += new System.EventHandler(this.customer_ProvinceLabel_Click);
             // 
             // customer_CountryLabel
             // 
             customer_CountryLabel.AutoSize = true;
-            customer_CountryLabel.Location = new System.Drawing.Point(366, 391);
+            customer_CountryLabel.Location = new System.Drawing.Point(517, 149);
             customer_CountryLabel.Name = "customer_CountryLabel";
-            customer_CountryLabel.Size = new System.Drawing.Size(93, 13);
+            customer_CountryLabel.Size = new System.Drawing.Size(46, 13);
             customer_CountryLabel.TabIndex = 83;
-            customer_CountryLabel.Text = "Customer Country:";
+            customer_CountryLabel.Text = "Country:";
             customer_CountryLabel.Click += new System.EventHandler(this.customer_CountryLabel_Click);
             // 
             // customer_RegistrationDateTimeLabel
             // 
             customer_RegistrationDateTimeLabel.AutoSize = true;
-            customer_RegistrationDateTimeLabel.Location = new System.Drawing.Point(366, 418);
+            customer_RegistrationDateTimeLabel.Location = new System.Drawing.Point(10, 30);
             customer_RegistrationDateTimeLabel.Name = "customer_RegistrationDateTimeLabel";
-            customer_RegistrationDateTimeLabel.Size = new System.Drawing.Size(165, 13);
+            customer_RegistrationDateTimeLabel.Size = new System.Drawing.Size(140, 13);
             customer_RegistrationDateTimeLabel.TabIndex = 84;
-            customer_RegistrationDateTimeLabel.Text = "Customer Registration Date Time:";
+            customer_RegistrationDateTimeLabel.Text = "Registration Date And Time:";
             customer_RegistrationDateTimeLabel.Click += new System.EventHandler(this.customer_RegistrationDateTimeLabel_Click);
             // 
             // customer_LoyaltyPointsBalanceLabel
             // 
             customer_LoyaltyPointsBalanceLabel.AutoSize = true;
-            customer_LoyaltyPointsBalanceLabel.Location = new System.Drawing.Point(366, 443);
+            customer_LoyaltyPointsBalanceLabel.Location = new System.Drawing.Point(261, 29);
             customer_LoyaltyPointsBalanceLabel.Name = "customer_LoyaltyPointsBalanceLabel";
-            customer_LoyaltyPointsBalanceLabel.Size = new System.Drawing.Size(164, 13);
+            customer_LoyaltyPointsBalanceLabel.Size = new System.Drawing.Size(114, 13);
             customer_LoyaltyPointsBalanceLabel.TabIndex = 85;
-            customer_LoyaltyPointsBalanceLabel.Text = "Customer Loyalty Points Balance:";
+            customer_LoyaltyPointsBalanceLabel.Text = "Loyalty Points Balance";
             customer_LoyaltyPointsBalanceLabel.Click += new System.EventHandler(this.customer_LoyaltyPointsBalanceLabel_Click);
             // 
             // customer_StatusLabel
             // 
             customer_StatusLabel.AutoSize = true;
-            customer_StatusLabel.Location = new System.Drawing.Point(366, 469);
+            customer_StatusLabel.Location = new System.Drawing.Point(518, 30);
             customer_StatusLabel.Name = "customer_StatusLabel";
-            customer_StatusLabel.Size = new System.Drawing.Size(87, 13);
+            customer_StatusLabel.Size = new System.Drawing.Size(40, 13);
             customer_StatusLabel.TabIndex = 86;
-            customer_StatusLabel.Text = "Customer Status:";
+            customer_StatusLabel.Text = "Status:";
             customer_StatusLabel.Click += new System.EventHandler(this.customer_StatusLabel_Click);
             // 
             // customer_UsernameLabel
             // 
             customer_UsernameLabel.AutoSize = true;
-            customer_UsernameLabel.Location = new System.Drawing.Point(366, 495);
+            customer_UsernameLabel.Location = new System.Drawing.Point(8, 89);
             customer_UsernameLabel.Name = "customer_UsernameLabel";
-            customer_UsernameLabel.Size = new System.Drawing.Size(105, 13);
+            customer_UsernameLabel.Size = new System.Drawing.Size(58, 13);
             customer_UsernameLabel.TabIndex = 87;
-            customer_UsernameLabel.Text = "Customer Username:";
+            customer_UsernameLabel.Text = "Username:";
             customer_UsernameLabel.Click += new System.EventHandler(this.customer_UsernameLabel_Click);
             // 
             // customer_PasswordLabel
             // 
             customer_PasswordLabel.AutoSize = true;
-            customer_PasswordLabel.Location = new System.Drawing.Point(366, 521);
+            customer_PasswordLabel.Location = new System.Drawing.Point(262, 89);
             customer_PasswordLabel.Name = "customer_PasswordLabel";
-            customer_PasswordLabel.Size = new System.Drawing.Size(103, 13);
+            customer_PasswordLabel.Size = new System.Drawing.Size(56, 13);
             customer_PasswordLabel.TabIndex = 88;
-            customer_PasswordLabel.Text = "Customer Password:";
+            customer_PasswordLabel.Text = "Password:";
             customer_PasswordLabel.Click += new System.EventHandler(this.customer_PasswordLabel_Click);
             // 
             // customer_FirstNameLabel1
@@ -663,47 +656,11 @@
             // 
             this.tabPage1.BackgroundImage = global::TheByteClubPOS.Properties.Resources.Background;
             this.tabPage1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.tabPage1.Controls.Add(this.txtStatus);
-            this.tabPage1.Controls.Add(this.maskedTextBox3);
-            this.tabPage1.Controls.Add(this.maskedTextBox2);
-            this.tabPage1.Controls.Add(this.maskedTextBox1);
             this.tabPage1.Controls.Add(this.button1);
-            this.tabPage1.Controls.Add(this.dtpRegistrationDateTime);
-            this.tabPage1.Controls.Add(this.cmbProvince);
-            this.tabPage1.Controls.Add(this.txtPassword);
-            this.tabPage1.Controls.Add(this.txtUsername);
-            this.tabPage1.Controls.Add(this.txtLoyaltyPointsBalance);
             this.tabPage1.Controls.Add(this.txtCountry);
-            this.tabPage1.Controls.Add(this.txtCity);
-            this.tabPage1.Controls.Add(this.txtSuburb);
-            this.tabPage1.Controls.Add(this.txtStreetName);
-            this.tabPage1.Controls.Add(this.txtStreetNumber);
-            this.tabPage1.Controls.Add(this.txtUnitName);
-            this.tabPage1.Controls.Add(this.txtUnitNumber);
-            this.tabPage1.Controls.Add(this.txtEmailAddress);
-            this.tabPage1.Controls.Add(this.txtLastName);
-            this.tabPage1.Controls.Add(this.txtFirstName);
-            this.tabPage1.Controls.Add(this.textBox1);
-            this.tabPage1.Controls.Add(customer_IDLabel);
-            this.tabPage1.Controls.Add(customer_FirstNameLabel);
-            this.tabPage1.Controls.Add(customer_LastNameLabel);
-            this.tabPage1.Controls.Add(customer_EmailAddressLabel);
-            this.tabPage1.Controls.Add(customer_IDNumberLabel);
-            this.tabPage1.Controls.Add(customer_PhoneNumberLabel);
-            this.tabPage1.Controls.Add(customer_UnitNumberLabel);
-            this.tabPage1.Controls.Add(customer_UnitNameLabel);
-            this.tabPage1.Controls.Add(customer_StreetNumberLabel);
-            this.tabPage1.Controls.Add(customer_StreetNameLabel);
-            this.tabPage1.Controls.Add(customer_SuburbLabel);
-            this.tabPage1.Controls.Add(customer_PostalCodeLabel);
-            this.tabPage1.Controls.Add(customer_CityLabel);
-            this.tabPage1.Controls.Add(customer_ProvinceLabel);
-            this.tabPage1.Controls.Add(customer_CountryLabel);
-            this.tabPage1.Controls.Add(customer_RegistrationDateTimeLabel);
-            this.tabPage1.Controls.Add(customer_LoyaltyPointsBalanceLabel);
-            this.tabPage1.Controls.Add(customer_StatusLabel);
-            this.tabPage1.Controls.Add(customer_UsernameLabel);
-            this.tabPage1.Controls.Add(customer_PasswordLabel);
+            this.tabPage1.Controls.Add(this.groupBox1);
+            this.tabPage1.Controls.Add(this.groupBox2);
+            this.tabPage1.Controls.Add(this.groupBox3);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -715,7 +672,7 @@
             // 
             // txtStatus
             // 
-            this.txtStatus.Location = new System.Drawing.Point(557, 466);
+            this.txtStatus.Location = new System.Drawing.Point(520, 46);
             this.txtStatus.Name = "txtStatus";
             this.txtStatus.ReadOnly = true;
             this.txtStatus.Size = new System.Drawing.Size(200, 20);
@@ -725,7 +682,7 @@
             // 
             // maskedTextBox3
             // 
-            this.maskedTextBox3.Location = new System.Drawing.Point(558, 154);
+            this.maskedTextBox3.Location = new System.Drawing.Point(262, 104);
             this.maskedTextBox3.Mask = "(999) 000-0000";
             this.maskedTextBox3.Name = "maskedTextBox3";
             this.maskedTextBox3.Size = new System.Drawing.Size(200, 20);
@@ -734,7 +691,7 @@
             // 
             // maskedTextBox2
             // 
-            this.maskedTextBox2.Location = new System.Drawing.Point(558, 310);
+            this.maskedTextBox2.Location = new System.Drawing.Point(519, 107);
             this.maskedTextBox2.Mask = "0000";
             this.maskedTextBox2.Name = "maskedTextBox2";
             this.maskedTextBox2.Size = new System.Drawing.Size(200, 20);
@@ -743,7 +700,7 @@
             // 
             // maskedTextBox1
             // 
-            this.maskedTextBox1.Location = new System.Drawing.Point(558, 128);
+            this.maskedTextBox1.Location = new System.Drawing.Point(6, 104);
             this.maskedTextBox1.Mask = "0000000000000";
             this.maskedTextBox1.Name = "maskedTextBox1";
             this.maskedTextBox1.Size = new System.Drawing.Size(200, 20);
@@ -752,17 +709,17 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(368, 557);
+            this.button1.Location = new System.Drawing.Point(894, 318);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(389, 32);
+            this.button1.Size = new System.Drawing.Size(224, 83);
             this.button1.TabIndex = 105;
-            this.button1.Text = "Add Customer";
+            this.button1.Text = "ADD CUSTOMER";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // dtpRegistrationDateTime
             // 
-            this.dtpRegistrationDateTime.Location = new System.Drawing.Point(558, 413);
+            this.dtpRegistrationDateTime.Location = new System.Drawing.Point(10, 46);
             this.dtpRegistrationDateTime.Name = "dtpRegistrationDateTime";
             this.dtpRegistrationDateTime.Size = new System.Drawing.Size(200, 20);
             this.dtpRegistrationDateTime.TabIndex = 104;
@@ -781,7 +738,7 @@
             "North West",
             "Western Cape",
             "Free State"});
-            this.cmbProvince.Location = new System.Drawing.Point(558, 362);
+            this.cmbProvince.Location = new System.Drawing.Point(262, 162);
             this.cmbProvince.Name = "cmbProvince";
             this.cmbProvince.Size = new System.Drawing.Size(199, 21);
             this.cmbProvince.TabIndex = 103;
@@ -789,7 +746,7 @@
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(558, 518);
+            this.txtPassword.Location = new System.Drawing.Point(264, 105);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(200, 20);
             this.txtPassword.TabIndex = 101;
@@ -798,7 +755,7 @@
             // 
             // txtUsername
             // 
-            this.txtUsername.Location = new System.Drawing.Point(558, 492);
+            this.txtUsername.Location = new System.Drawing.Point(11, 105);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(200, 20);
             this.txtUsername.TabIndex = 100;
@@ -807,7 +764,7 @@
             // 
             // txtLoyaltyPointsBalance
             // 
-            this.txtLoyaltyPointsBalance.Location = new System.Drawing.Point(558, 440);
+            this.txtLoyaltyPointsBalance.Location = new System.Drawing.Point(263, 46);
             this.txtLoyaltyPointsBalance.Name = "txtLoyaltyPointsBalance";
             this.txtLoyaltyPointsBalance.ReadOnly = true;
             this.txtLoyaltyPointsBalance.Size = new System.Drawing.Size(200, 20);
@@ -817,7 +774,7 @@
             // 
             // txtCountry
             // 
-            this.txtCountry.Location = new System.Drawing.Point(558, 388);
+            this.txtCountry.Location = new System.Drawing.Point(545, 390);
             this.txtCountry.Name = "txtCountry";
             this.txtCountry.Size = new System.Drawing.Size(200, 20);
             this.txtCountry.TabIndex = 98;
@@ -825,7 +782,7 @@
             // 
             // txtCity
             // 
-            this.txtCity.Location = new System.Drawing.Point(558, 336);
+            this.txtCity.Location = new System.Drawing.Point(10, 163);
             this.txtCity.Name = "txtCity";
             this.txtCity.Size = new System.Drawing.Size(200, 20);
             this.txtCity.TabIndex = 97;
@@ -833,7 +790,7 @@
             // 
             // txtSuburb
             // 
-            this.txtSuburb.Location = new System.Drawing.Point(558, 284);
+            this.txtSuburb.Location = new System.Drawing.Point(262, 106);
             this.txtSuburb.Name = "txtSuburb";
             this.txtSuburb.Size = new System.Drawing.Size(200, 20);
             this.txtSuburb.TabIndex = 96;
@@ -841,7 +798,7 @@
             // 
             // txtStreetName
             // 
-            this.txtStreetName.Location = new System.Drawing.Point(558, 258);
+            this.txtStreetName.Location = new System.Drawing.Point(10, 106);
             this.txtStreetName.Name = "txtStreetName";
             this.txtStreetName.Size = new System.Drawing.Size(200, 20);
             this.txtStreetName.TabIndex = 95;
@@ -849,7 +806,7 @@
             // 
             // txtStreetNumber
             // 
-            this.txtStreetNumber.Location = new System.Drawing.Point(558, 232);
+            this.txtStreetNumber.Location = new System.Drawing.Point(519, 54);
             this.txtStreetNumber.Name = "txtStreetNumber";
             this.txtStreetNumber.Size = new System.Drawing.Size(200, 20);
             this.txtStreetNumber.TabIndex = 94;
@@ -857,7 +814,7 @@
             // 
             // txtUnitName
             // 
-            this.txtUnitName.Location = new System.Drawing.Point(558, 206);
+            this.txtUnitName.Location = new System.Drawing.Point(263, 54);
             this.txtUnitName.Name = "txtUnitName";
             this.txtUnitName.Size = new System.Drawing.Size(200, 20);
             this.txtUnitName.TabIndex = 93;
@@ -865,7 +822,7 @@
             // 
             // txtUnitNumber
             // 
-            this.txtUnitNumber.Location = new System.Drawing.Point(558, 180);
+            this.txtUnitNumber.Location = new System.Drawing.Point(10, 54);
             this.txtUnitNumber.Name = "txtUnitNumber";
             this.txtUnitNumber.Size = new System.Drawing.Size(200, 20);
             this.txtUnitNumber.TabIndex = 92;
@@ -873,7 +830,7 @@
             // 
             // txtEmailAddress
             // 
-            this.txtEmailAddress.Location = new System.Drawing.Point(558, 102);
+            this.txtEmailAddress.Location = new System.Drawing.Point(518, 48);
             this.txtEmailAddress.Name = "txtEmailAddress";
             this.txtEmailAddress.Size = new System.Drawing.Size(200, 20);
             this.txtEmailAddress.TabIndex = 91;
@@ -881,7 +838,7 @@
             // 
             // txtLastName
             // 
-            this.txtLastName.Location = new System.Drawing.Point(558, 76);
+            this.txtLastName.Location = new System.Drawing.Point(262, 48);
             this.txtLastName.Name = "txtLastName";
             this.txtLastName.Size = new System.Drawing.Size(200, 20);
             this.txtLastName.TabIndex = 90;
@@ -889,20 +846,11 @@
             // 
             // txtFirstName
             // 
-            this.txtFirstName.Location = new System.Drawing.Point(558, 50);
+            this.txtFirstName.Location = new System.Drawing.Point(6, 48);
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.Size = new System.Drawing.Size(200, 20);
             this.txtFirstName.TabIndex = 89;
             this.txtFirstName.TextChanged += new System.EventHandler(this.txtFirstName_TextChanged);
-            // 
-            // textBox1
-            // 
-            this.textBox1.Enabled = false;
-            this.textBox1.Location = new System.Drawing.Point(558, 24);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(200, 20);
-            this.textBox1.TabIndex = 68;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // tabPage2
             // 
@@ -1434,6 +1382,71 @@
             // 
             this.customerTableAdapter.ClearBeforeFill = true;
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.txtFirstName);
+            this.groupBox1.Controls.Add(this.maskedTextBox3);
+            this.groupBox1.Controls.Add(customer_FirstNameLabel);
+            this.groupBox1.Controls.Add(this.txtLastName);
+            this.groupBox1.Controls.Add(this.maskedTextBox1);
+            this.groupBox1.Controls.Add(customer_LastNameLabel);
+            this.groupBox1.Controls.Add(this.txtEmailAddress);
+            this.groupBox1.Controls.Add(customer_EmailAddressLabel);
+            this.groupBox1.Controls.Add(customer_IDNumberLabel);
+            this.groupBox1.Controls.Add(customer_PhoneNumberLabel);
+            this.groupBox1.Location = new System.Drawing.Point(27, 50);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(846, 146);
+            this.groupBox1.TabIndex = 110;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "ENTER PERSONAL DETAILS";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.txtUnitNumber);
+            this.groupBox2.Controls.Add(this.maskedTextBox2);
+            this.groupBox2.Controls.Add(customer_UnitNumberLabel);
+            this.groupBox2.Controls.Add(this.txtUnitName);
+            this.groupBox2.Controls.Add(customer_UnitNameLabel);
+            this.groupBox2.Controls.Add(this.cmbProvince);
+            this.groupBox2.Controls.Add(this.txtStreetName);
+            this.groupBox2.Controls.Add(customer_CountryLabel);
+            this.groupBox2.Controls.Add(customer_StreetNumberLabel);
+            this.groupBox2.Controls.Add(this.txtStreetNumber);
+            this.groupBox2.Controls.Add(customer_StreetNameLabel);
+            this.groupBox2.Controls.Add(this.txtSuburb);
+            this.groupBox2.Controls.Add(customer_PostalCodeLabel);
+            this.groupBox2.Controls.Add(customer_SuburbLabel);
+            this.groupBox2.Controls.Add(this.txtCity);
+            this.groupBox2.Controls.Add(customer_CityLabel);
+            this.groupBox2.Controls.Add(customer_ProvinceLabel);
+            this.groupBox2.Location = new System.Drawing.Point(27, 226);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(846, 204);
+            this.groupBox2.TabIndex = 111;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "ENTER ADDRESS DETAILS";
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.txtStatus);
+            this.groupBox3.Controls.Add(this.dtpRegistrationDateTime);
+            this.groupBox3.Controls.Add(customer_StatusLabel);
+            this.groupBox3.Controls.Add(customer_RegistrationDateTimeLabel);
+            this.groupBox3.Controls.Add(this.txtPassword);
+            this.groupBox3.Controls.Add(this.txtLoyaltyPointsBalance);
+            this.groupBox3.Controls.Add(customer_PasswordLabel);
+            this.groupBox3.Controls.Add(this.txtUsername);
+            this.groupBox3.Controls.Add(customer_LoyaltyPointsBalanceLabel);
+            this.groupBox3.Controls.Add(customer_UsernameLabel);
+            this.groupBox3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.groupBox3.Location = new System.Drawing.Point(27, 469);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(846, 134);
+            this.groupBox3.TabIndex = 112;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "ACCOUNT DETAILS";
+            // 
             // ManageCustomerDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1456,6 +1469,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.customerDataGridView)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1483,7 +1502,6 @@
         private System.Windows.Forms.TextBox txtEmailAddress;
         private System.Windows.Forms.TextBox txtLastName;
         private System.Windows.Forms.TextBox txtFirstName;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TabPage tabPage2;
         private dsSamsLiqourShopTableAdapters.TableAdapterManager tableAdapterManager;
         private dsSamsLiqourShopTableAdapters.CustomerTableAdapter customerTableAdapter;
@@ -1541,5 +1559,8 @@
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox groupBox3;
     }
 }
