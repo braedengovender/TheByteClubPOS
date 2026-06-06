@@ -29,17 +29,14 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoadingForm));
             this.progressBarLoading = new System.Windows.Forms.ProgressBar();
             this.lblStatus = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.lblCopyright = new System.Windows.Forms.Label();
             this.lblSystemName = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tmrProgressBar = new System.Windows.Forms.Timer(this.components);
             this.tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // progressBarLoading
@@ -75,7 +72,6 @@
             this.tableLayoutPanel1.Controls.Add(this.progressBarLoading, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.lblStatus, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.lblSystemName, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.pictureBox1, 0, 0);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(140, 45);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 6;
@@ -124,19 +120,6 @@
             this.lblSystemName.TabIndex = 2;
             this.lblSystemName.Text = "Point of Sale && Inventory Management System";
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1084, 299);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 3;
-            this.pictureBox1.TabStop = false;
-            // 
             // tmrProgressBar
             // 
             this.tmrProgressBar.Enabled = true;
@@ -147,7 +130,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::TheByteClubPOS.Properties.Resources.Background;
+            this.BackgroundImage = global::TheByteClubPOS.Properties.Resources.LoadingFormBackground;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1354, 686);
             this.Controls.Add(this.tableLayoutPanel1);
@@ -157,7 +140,6 @@
             this.Load += new System.EventHandler(this.LoadingForm_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -168,7 +150,6 @@
         private System.Windows.Forms.Label lblStatus;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label lblSystemName;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label lblCopyright;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Timer tmrProgressBar;

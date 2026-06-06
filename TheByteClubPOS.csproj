@@ -269,6 +269,7 @@
     <None Include="Resources\Sam%27s Liqour Store.png" />
     <None Include="Resources\DarkModeLogin.png" />
     <None Include="Resources\Dark_Background.png" />
+    <None Include="Resources\LoadingFormBackground.png" />
     <Content Include="Resources\Untitled design %281%29.png" />
     <None Include="Resources\Untitled design %281%291.png" />
   </ItemGroup>
