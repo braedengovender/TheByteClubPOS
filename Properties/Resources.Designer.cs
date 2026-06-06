@@ -263,6 +263,16 @@ namespace TheByteClubPOS.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap LoadingForm_Background {
+            get {
+                object obj = ResourceManager.GetObject("LoadingForm_Background", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap LoadingFormBackground {
             get {
                 object obj = ResourceManager.GetObject("LoadingFormBackground", resourceCulture);
@@ -276,6 +286,26 @@ namespace TheByteClubPOS.Properties {
         internal static System.Drawing.Bitmap LogoutIcon {
             get {
                 object obj = ResourceManager.GetObject("LogoutIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MainFormImage {
+            get {
+                object obj = ResourceManager.GetObject("MainFormImage", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MainFormPanel {
+            get {
+                object obj = ResourceManager.GetObject("MainFormPanel", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -921,7 +921,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1126, 604);
+            this.tabPage2.Size = new System.Drawing.Size(1126, 640);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Deactivate Customer";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -1188,7 +1188,7 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(1126, 604);
+            this.tabPage3.Size = new System.Drawing.Size(1126, 640);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Update Customer Details";
             this.tabPage3.UseVisualStyleBackColor = true;

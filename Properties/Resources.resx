@@ -142,11 +142,17 @@
   <data name="GreenCircleIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\GreenCircleIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="MainFormPanel" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MainFormPanel.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Untitled design (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Untitled design (1)1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="UserIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\UserIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="LoadingForm_Background" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\LoadingForm_Background.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ReceiptIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ReceiptIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -178,6 +184,9 @@
   <data name="TruckIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\TruckIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="LightModeIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\LightModeIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="LoadingFormBackground" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\LoadingFormBackground.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -208,7 +217,7 @@
   <data name="ClockIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ClockIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="LightModeIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\LightModeIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="MainFormImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MainFormImage.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

@@ -1006,7 +1006,7 @@
             this.tabPage2.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPage2.Size = new System.Drawing.Size(1126, 1028);
+            this.tabPage2.Size = new System.Drawing.Size(1126, 716);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Discontinue Product";
             // 
@@ -1288,7 +1288,7 @@
             this.tabPage3.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPage3.Size = new System.Drawing.Size(1126, 1028);
+            this.tabPage3.Size = new System.Drawing.Size(1126, 716);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Update Product";
             // 
@@ -1923,7 +1923,7 @@
             this.tabPage4.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPage4.Size = new System.Drawing.Size(1126, 1028);
+            this.tabPage4.Size = new System.Drawing.Size(1126, 716);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "View Products";
             this.tabPage4.UseVisualStyleBackColor = true;

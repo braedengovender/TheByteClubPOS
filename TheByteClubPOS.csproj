@@ -280,8 +280,12 @@
     <None Include="Resources\Dark_Background.png" />
     <None Include="Resources\LoadingFormBackground.png" />
     <None Include="Resources\DarkModeIcon.png" />
+    <Content Include="Resources\FormIcon.ico" />
     <Content Include="Resources\Icon2.ico" />
     <None Include="Resources\LightModeIcon.png" />
+    <None Include="Resources\LoadingForm_Background.png" />
+    <None Include="Resources\MainFormPanel.png" />
+    <None Include="Resources\MainFormImage.png" />
     <Content Include="Resources\Untitled design %281%29.png" />
     <None Include="Resources\Untitled design %281%291.png" />
   </ItemGroup>
