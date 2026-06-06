@@ -49,12 +49,12 @@
             this.manageEmployeesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.manageDiscountsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manageDiscountsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.darkModeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manageAccountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manageMyProfileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logoutToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemTime = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemDate = new System.Windows.Forms.ToolStripMenuItem();
-            this.darkModeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabelUser = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
@@ -81,6 +81,7 @@
             this.employeeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.employeeTableAdapter = new TheByteClubPOS.dsSamsLiqourShopTableAdapters.EmployeeTableAdapter();
             this.tableAdapterManager = new TheByteClubPOS.dsSamsLiqourShopTableAdapters.TableAdapterManager();
+            this.changesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -249,6 +250,16 @@
             this.manageDiscountsToolStripMenuItem1.Size = new System.Drawing.Size(172, 22);
             this.manageDiscountsToolStripMenuItem1.Text = "Manage Discounts";
             // 
+            // darkModeToolStripMenuItem
+            // 
+            this.darkModeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.changesToolStripMenuItem});
+            this.darkModeToolStripMenuItem.Image = global::TheByteClubPOS.Properties.Resources.DarkModeIcon;
+            this.darkModeToolStripMenuItem.Name = "darkModeToolStripMenuItem";
+            this.darkModeToolStripMenuItem.Size = new System.Drawing.Size(101, 28);
+            this.darkModeToolStripMenuItem.Text = "Dark Mode";
+            this.darkModeToolStripMenuItem.Click += new System.EventHandler(this.darkModeToolStripMenuItem_Click);
+            // 
             // manageAccountToolStripMenuItem
             // 
             this.manageAccountToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -288,14 +299,6 @@
             this.toolStripMenuItemDate.Name = "toolStripMenuItemDate";
             this.toolStripMenuItemDate.Size = new System.Drawing.Size(108, 28);
             this.toolStripMenuItemDate.Text = "31 May 2026";
-            // 
-            // darkModeToolStripMenuItem
-            // 
-            this.darkModeToolStripMenuItem.Image = global::TheByteClubPOS.Properties.Resources.DarkModeIcon;
-            this.darkModeToolStripMenuItem.Name = "darkModeToolStripMenuItem";
-            this.darkModeToolStripMenuItem.Size = new System.Drawing.Size(101, 28);
-            this.darkModeToolStripMenuItem.Text = "Dark Mode";
-            this.darkModeToolStripMenuItem.Click += new System.EventHandler(this.darkModeToolStripMenuItem_Click);
             // 
             // statusStrip1
             // 
@@ -559,6 +562,12 @@
             this.tableAdapterManager.SupplierTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = TheByteClubPOS.dsSamsLiqourShopTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
+            // changesToolStripMenuItem
+            // 
+            this.changesToolStripMenuItem.Name = "changesToolStripMenuItem";
+            this.changesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.changesToolStripMenuItem.Text = "Changes";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -643,5 +652,6 @@
         private System.Windows.Forms.Button btnSuppliers;
         private System.Windows.Forms.Button btnLogout;
         private System.Windows.Forms.ToolStripMenuItem darkModeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem changesToolStripMenuItem;
     }
 }
