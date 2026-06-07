@@ -1,48 +1,44 @@
-﻿namespace TheByteClubPOS
+// DashboardForm.Designer.cs
+// Minimal designer stub — all controls are built in DashboardForm.cs.
+// Replace your existing DashboardForm.Designer.cs with this file.
+
+namespace TheByteClubPOS
 {
     partial class DashboardForm
     {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
-            if (disposing && (components != null))
-            {
+            if (disposing && components != null)
                 components.Dispose();
-            }
             base.Dispose(disposing);
         }
 
         #region Windows Form Designer generated code
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DashboardForm));
-            this.SuspendLayout();
-            // 
-            // DashboardForm
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::TheByteClubPOS.Properties.Resources.Background;
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1134, 666);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "DashboardForm";
-            this.Text = "Dashboard";
-            this.ResumeLayout(false);
+            System.ComponentModel.ComponentResourceManager resources =
+                new System.ComponentModel.ComponentResourceManager(typeof(DashboardForm));
 
+            this.SuspendLayout();
+
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode       = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor           = System.Drawing.Color.FromArgb(245, 247, 250);
+            this.ClientSize          = new System.Drawing.Size(1280, 780);
+            this.Name                = "DashboardForm";
+            this.Text                = "Dashboard";
+
+            // Preserve the original form icon stored in the .resx
+            try
+            {
+                this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            }
+            catch { /* no icon resource — harmless */ }
+
+            this.ResumeLayout(false);
         }
 
         #endregion

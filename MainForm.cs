@@ -192,7 +192,7 @@ namespace TheByteClubPOS
 
         private void btnDashboard_Click(object sender, EventArgs e)
         {
-            if (employeeRole.ToLower() == "cashier")
+            /*if (employeeRole.ToLower() == "cashier")
             {
                 SalesReport salesReports = new SalesReport();
                 OpenChildForm(salesReports);
@@ -202,7 +202,13 @@ namespace TheByteClubPOS
                 SalesReport salesReports = new SalesReport();
                 OpenChildForm(salesReports);
             }
-            
+            */
+            DashboardForm dashboard = new DashboardForm(
+                employeeID,
+                employeeFullName,
+                employeeRole
+            );
+            OpenChildForm(dashboard);
         }
 
         private void btnProcessSale_Click(object sender, EventArgs e)
