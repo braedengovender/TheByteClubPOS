@@ -31,12 +31,6 @@ namespace TheByteClubPOS
             this.Name                = "DashboardForm";
             this.Text                = "Dashboard";
 
-            // Preserve the original form icon stored in the .resx
-            try
-            {
-                this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            }
-            catch { /* no icon resource — harmless */ }
 
             this.ResumeLayout(false);
         }
