@@ -182,7 +182,7 @@
             // btnCancel
             // 
             this.btnCancel.Location = new System.Drawing.Point(711, 519);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(2);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(50, 34);
             this.btnCancel.TabIndex = 35;
@@ -193,7 +193,7 @@
             // btnUpdate
             // 
             this.btnUpdate.Location = new System.Drawing.Point(466, 519);
-            this.btnUpdate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnUpdate.Margin = new System.Windows.Forms.Padding(2);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(155, 34);
             this.btnUpdate.TabIndex = 33;
@@ -217,7 +217,7 @@
             "Cashier",
             "Admin"});
             this.employee_RoleComboBox.Location = new System.Drawing.Point(220, 148);
-            this.employee_RoleComboBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.employee_RoleComboBox.Margin = new System.Windows.Forms.Padding(2);
             this.employee_RoleComboBox.Name = "employee_RoleComboBox";
             this.employee_RoleComboBox.Size = new System.Drawing.Size(201, 21);
             this.employee_RoleComboBox.TabIndex = 23;
@@ -229,7 +229,7 @@
             "Active",
             "In-Active"});
             this.employee_StatusComboBox.Location = new System.Drawing.Point(220, 351);
-            this.employee_StatusComboBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.employee_StatusComboBox.Margin = new System.Windows.Forms.Padding(2);
             this.employee_StatusComboBox.Name = "employee_StatusComboBox";
             this.employee_StatusComboBox.Size = new System.Drawing.Size(201, 21);
             this.employee_StatusComboBox.TabIndex = 24;
@@ -365,13 +365,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::TheByteClubPOS.Properties.Resources.Background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(913, 487);
+            this.ClientSize = new System.Drawing.Size(1134, 666);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "UpdateEmployeesForm";
             this.Text = "UpdateEmployeesForm";
             this.Load += new System.EventHandler(this.UpdateEmployeesForm_Load);

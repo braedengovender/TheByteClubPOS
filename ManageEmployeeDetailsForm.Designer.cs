@@ -65,7 +65,6 @@
             this.Employee_Username = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Employee_Password = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Employee_Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.employeeTableAdapter = new TheByteClubPOS.dsSamsLiqourShopTableAdapters.EmployeeTableAdapter();
             this.employeeIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.employeeFirstNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.employeeLastNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -77,6 +76,7 @@
             this.employeeUsernameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.employeePasswordDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.employeeStatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.employeeTableAdapter = new TheByteClubPOS.dsSamsLiqourShopTableAdapters.EmployeeTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.employeeBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsSamsLiqourShopBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsSamsLiqourShop)).BeginInit();
@@ -121,9 +121,9 @@
             this.grpFilter.Controls.Add(this.rdoCashier);
             this.grpFilter.Controls.Add(this.rdoManager);
             this.grpFilter.Location = new System.Drawing.Point(363, 482);
-            this.grpFilter.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grpFilter.Margin = new System.Windows.Forms.Padding(2);
             this.grpFilter.Name = "grpFilter";
-            this.grpFilter.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grpFilter.Padding = new System.Windows.Forms.Padding(2);
             this.grpFilter.Size = new System.Drawing.Size(197, 129);
             this.grpFilter.TabIndex = 23;
             this.grpFilter.TabStop = false;
@@ -133,7 +133,7 @@
             // 
             this.rdoAll.AutoSize = true;
             this.rdoAll.Location = new System.Drawing.Point(31, 17);
-            this.rdoAll.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rdoAll.Margin = new System.Windows.Forms.Padding(2);
             this.rdoAll.Name = "rdoAll";
             this.rdoAll.Size = new System.Drawing.Size(36, 17);
             this.rdoAll.TabIndex = 3;
@@ -147,7 +147,7 @@
             // 
             this.rdoAdmin.AutoSize = true;
             this.rdoAdmin.Location = new System.Drawing.Point(31, 102);
-            this.rdoAdmin.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rdoAdmin.Margin = new System.Windows.Forms.Padding(2);
             this.rdoAdmin.Name = "rdoAdmin";
             this.rdoAdmin.Size = new System.Drawing.Size(54, 17);
             this.rdoAdmin.TabIndex = 2;
@@ -160,7 +160,7 @@
             // 
             this.rdoCashier.AutoSize = true;
             this.rdoCashier.Location = new System.Drawing.Point(31, 72);
-            this.rdoCashier.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rdoCashier.Margin = new System.Windows.Forms.Padding(2);
             this.rdoCashier.Name = "rdoCashier";
             this.rdoCashier.Size = new System.Drawing.Size(60, 17);
             this.rdoCashier.TabIndex = 1;
@@ -173,7 +173,7 @@
             // 
             this.rdoManager.AutoSize = true;
             this.rdoManager.Location = new System.Drawing.Point(31, 44);
-            this.rdoManager.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rdoManager.Margin = new System.Windows.Forms.Padding(2);
             this.rdoManager.Name = "rdoManager";
             this.rdoManager.Size = new System.Drawing.Size(67, 17);
             this.rdoManager.TabIndex = 0;
@@ -186,7 +186,7 @@
             // txtSearch
             // 
             this.txtSearch.Location = new System.Drawing.Point(407, 445);
-            this.txtSearch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtSearch.Margin = new System.Windows.Forms.Padding(2);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(154, 20);
             this.txtSearch.TabIndex = 22;
@@ -210,9 +210,9 @@
             this.grpOrderby.Controls.Add(this.rdoDesc);
             this.grpOrderby.Controls.Add(this.rdoAsc);
             this.grpOrderby.Location = new System.Drawing.Point(786, 437);
-            this.grpOrderby.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grpOrderby.Margin = new System.Windows.Forms.Padding(2);
             this.grpOrderby.Name = "grpOrderby";
-            this.grpOrderby.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grpOrderby.Padding = new System.Windows.Forms.Padding(2);
             this.grpOrderby.Size = new System.Drawing.Size(171, 119);
             this.grpOrderby.TabIndex = 20;
             this.grpOrderby.TabStop = false;
@@ -222,7 +222,7 @@
             // 
             this.rdoDesc.AutoSize = true;
             this.rdoDesc.Location = new System.Drawing.Point(25, 75);
-            this.rdoDesc.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rdoDesc.Margin = new System.Windows.Forms.Padding(2);
             this.rdoDesc.Name = "rdoDesc";
             this.rdoDesc.Size = new System.Drawing.Size(82, 17);
             this.rdoDesc.TabIndex = 2;
@@ -235,7 +235,7 @@
             // 
             this.rdoAsc.AutoSize = true;
             this.rdoAsc.Location = new System.Drawing.Point(25, 29);
-            this.rdoAsc.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rdoAsc.Margin = new System.Windows.Forms.Padding(2);
             this.rdoAsc.Name = "rdoAsc";
             this.rdoAsc.Size = new System.Drawing.Size(75, 17);
             this.rdoAsc.TabIndex = 1;
@@ -252,9 +252,9 @@
             this.grpSort.Controls.Add(this.rdoSurname);
             this.grpSort.Controls.Add(this.rdoName);
             this.grpSort.Location = new System.Drawing.Point(583, 437);
-            this.grpSort.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grpSort.Margin = new System.Windows.Forms.Padding(2);
             this.grpSort.Name = "grpSort";
-            this.grpSort.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grpSort.Padding = new System.Windows.Forms.Padding(2);
             this.grpSort.Size = new System.Drawing.Size(183, 174);
             this.grpSort.TabIndex = 19;
             this.grpSort.TabStop = false;
@@ -264,7 +264,7 @@
             // 
             this.rdoID.AutoSize = true;
             this.rdoID.Location = new System.Drawing.Point(23, 147);
-            this.rdoID.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rdoID.Margin = new System.Windows.Forms.Padding(2);
             this.rdoID.Name = "rdoID";
             this.rdoID.Size = new System.Drawing.Size(36, 17);
             this.rdoID.TabIndex = 4;
@@ -277,7 +277,7 @@
             // 
             this.rdoUsername.AutoSize = true;
             this.rdoUsername.Location = new System.Drawing.Point(23, 110);
-            this.rdoUsername.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rdoUsername.Margin = new System.Windows.Forms.Padding(2);
             this.rdoUsername.Name = "rdoUsername";
             this.rdoUsername.Size = new System.Drawing.Size(73, 17);
             this.rdoUsername.TabIndex = 3;
@@ -290,7 +290,7 @@
             // 
             this.rdoSurname.AutoSize = true;
             this.rdoSurname.Location = new System.Drawing.Point(23, 68);
-            this.rdoSurname.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rdoSurname.Margin = new System.Windows.Forms.Padding(2);
             this.rdoSurname.Name = "rdoSurname";
             this.rdoSurname.Size = new System.Drawing.Size(67, 17);
             this.rdoSurname.TabIndex = 2;
@@ -303,7 +303,7 @@
             // 
             this.rdoName.AutoSize = true;
             this.rdoName.Location = new System.Drawing.Point(23, 29);
-            this.rdoName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rdoName.Margin = new System.Windows.Forms.Padding(2);
             this.rdoName.Name = "rdoName";
             this.rdoName.Size = new System.Drawing.Size(53, 17);
             this.rdoName.TabIndex = 1;
@@ -315,7 +315,7 @@
             // btnReset
             // 
             this.btnReset.Location = new System.Drawing.Point(818, 566);
-            this.btnReset.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnReset.Margin = new System.Windows.Forms.Padding(2);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(107, 44);
             this.btnReset.TabIndex = 18;
@@ -326,7 +326,7 @@
             // btnRemove
             // 
             this.btnRemove.Location = new System.Drawing.Point(194, 566);
-            this.btnRemove.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnRemove.Margin = new System.Windows.Forms.Padding(2);
             this.btnRemove.Name = "btnRemove";
             this.btnRemove.Size = new System.Drawing.Size(107, 44);
             this.btnRemove.TabIndex = 17;
@@ -337,7 +337,7 @@
             // btnAdd
             // 
             this.btnAdd.Location = new System.Drawing.Point(194, 498);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(2);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(107, 44);
             this.btnAdd.TabIndex = 16;
@@ -348,7 +348,7 @@
             // btnEdit
             // 
             this.btnEdit.Location = new System.Drawing.Point(194, 437);
-            this.btnEdit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnEdit.Margin = new System.Windows.Forms.Padding(2);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(107, 44);
             this.btnEdit.TabIndex = 15;
@@ -385,7 +385,7 @@
             this.employeeStatusDataGridViewTextBoxColumn});
             this.dgvEmployees.DataSource = this.employeeBindingSource;
             this.dgvEmployees.Location = new System.Drawing.Point(8, 77);
-            this.dgvEmployees.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvEmployees.Margin = new System.Windows.Forms.Padding(2);
             this.dgvEmployees.Name = "dgvEmployees";
             this.dgvEmployees.RowHeadersWidth = 62;
             this.dgvEmployees.RowTemplate.Height = 28;
@@ -481,10 +481,6 @@
             this.Employee_Status.Name = "Employee_Status";
             this.Employee_Status.Width = 80;
             // 
-            // employeeTableAdapter
-            // 
-            this.employeeTableAdapter.ClearBeforeFill = true;
-            // 
             // employeeIDDataGridViewTextBoxColumn
             // 
             this.employeeIDDataGridViewTextBoxColumn.DataPropertyName = "Employee_ID";
@@ -552,13 +548,17 @@
             this.employeeStatusDataGridViewTextBoxColumn.HeaderText = "Employee_Status";
             this.employeeStatusDataGridViewTextBoxColumn.Name = "employeeStatusDataGridViewTextBoxColumn";
             // 
+            // employeeTableAdapter
+            // 
+            this.employeeTableAdapter.ClearBeforeFill = true;
+            // 
             // ManageEmployeeDetailsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::TheByteClubPOS.Properties.Resources.Background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(913, 487);
+            this.ClientSize = new System.Drawing.Size(1134, 666);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.grpFilter);
             this.Controls.Add(this.txtSearch);
@@ -571,7 +571,7 @@
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.dgvEmployees);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ManageEmployeeDetailsForm";
             this.Text = "ManageEmployeeDetailsForm";
             this.Load += new System.EventHandler(this.ManageEmployeeDetailsForm_Load);

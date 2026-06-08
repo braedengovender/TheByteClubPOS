@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Common;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -37,6 +38,36 @@ namespace TheByteClubPOS
             return count;
         }
 
+        private decimal getSubtotal()
+        {
+            decimal subtotal = 0;
+            foreach (DataRow row in this.dsSamsLiqourShop.Cart.Rows)
+            {
+                if (row.RowState != DataRowState.Deleted)
+                {
+                    subtotal += Convert.ToDecimal(row["SaleLine_OriginalUnitPrice"]) * Convert.ToDecimal(row["SaleLine_Quantity"]);
+                }
+            }
+            return subtotal;
+        }
+
+        private decimal getDiscountAmount()
+        {
+            decimal discountAmount = 0;
+            foreach (DataRow row in this.dsSamsLiqourShop.Cart.Rows)
+            {
+                if (row.RowState != DataRowState.Deleted)
+                {
+                    decimal originalPrice = row["SaleLine_OriginalUnitPrice"] == DBNull.Value ? 0 : Convert.ToDecimal(row["SaleLine_OriginalUnitPrice"]);
+
+                    decimal discountedPrice = row["SaleLine_UnitPriceAfterDiscount"] == DBNull.Value ? originalPrice : Convert.ToDecimal(row["SaleLine_UnitPriceAfterDiscount"]);
+
+                    discountAmount += originalPrice - discountedPrice;
+                }
+            }
+            return discountAmount;
+        }
+
         private decimal getTotal()
         {
             decimal total = 0;
@@ -50,6 +81,11 @@ namespace TheByteClubPOS
             return total;
         }
 
+        private decimal getVat()
+        {
+            decimal vat = getTotal() * (15m / 115m);
+            return vat;
+        }
         private void updateStockQuantityInDatabase()
         {
             foreach (DataRow row in this.dsSamsLiqourShop.Cart.Rows)
@@ -85,8 +121,10 @@ namespace TheByteClubPOS
             txtAmountTendered.Text = "";
 
             // 5. Recalculate and refresh the total labels to show zero values
-            lblSubtotalAmount.Text = getTotal().ToString("C2");
+            lblSubtotalAmount.Text = getSubtotal().ToString("C2");
+            lblDiscountAmount.Text = getDiscountAmount().ToString("C2");
             lblTotalAmount.Text = getTotal().ToString("C2");
+            lblVatAmount.Text = getVat().ToString("C2");
             lblCount.Text = getItemCount().ToString();
 
             // REFRESH THE PRODUCT DATAGRID HERE
@@ -98,14 +136,6 @@ namespace TheByteClubPOS
         public POSForm()
         {
             InitializeComponent();
-        }
-
-        private void productBindingNavigatorSaveItem_Click(object sender, EventArgs e)
-        {
-            this.Validate();
-            this.productBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.dsSamsLiqourShop);
-
         }
 
         private void POSForm_Load(object sender, EventArgs e)
@@ -149,12 +179,7 @@ namespace TheByteClubPOS
 
         private void txtUsername_TextChanged(object sender, EventArgs e)
         {
-            
             productTableAdapter.FillByProductSearch(dsSamsLiqourShop.Product, txtSearch.Text);
-        }
-
-        private void timer1_Tick(object sender, EventArgs e)
-        {
         }
 
         private void lblLoyaltyProgram_Click(object sender, EventArgs e)
@@ -176,6 +201,13 @@ namespace TheByteClubPOS
             int productID = Convert.ToInt32(this.productDataGridView.CurrentRow.Cells[0].Value);
             string productName = this.productDataGridView.CurrentRow.Cells[2].Value.ToString();
             decimal price = Convert.ToDecimal(this.productDataGridView.CurrentRow.Cells[6].Value);
+
+            // Extract Discount Info using your exact column specifications
+            /*int discountID = 0;
+            if (this.productDataGridView.CurrentRow.Cells["Discount_ID"].Value != DBNull.Value)
+            {
+                discountID = Convert.ToInt32(this.productDataGridView.CurrentRow.Cells["Discount_ID"].Value);
+            }*/
 
             bool itemExistsInCart = false;
 
@@ -207,8 +239,10 @@ namespace TheByteClubPOS
                 this.dsSamsLiqourShop.Cart.Rows.Add(productID, productName, price, null, null, null, initialQuantity, initialSubtotal);
             }
 
-            lblSubtotalAmount.Text = getTotal().ToString("C2");
+            lblSubtotalAmount.Text = getSubtotal().ToString("C2");
+            lblDiscountAmount.Text = getDiscountAmount().ToString("C2");
             lblTotalAmount.Text = getTotal().ToString("C2");
+            lblVatAmount.Text = getVat().ToString("C2");
             lblCount.Text = getItemCount().ToString();
         }
 
@@ -224,20 +258,21 @@ namespace TheByteClubPOS
             lblSubtotalAmount.Text = "R0000.00";
             lblTotalAmount.Text = "R0000.00";
             lblCount.Text = "0";
-
+            lblVatAmount.Text = "R0000.00";
+            lblDiscountAmount.Text = "R0000.00";
         }
 
         private void btnRemoveItem_Click(object sender, EventArgs e)
         {
-            
-
             // Check if there is actually a row selected in the grid
             if (cartDataGridView.CurrentRow != null)
             {
                 this.dsSamsLiqourShop.Cart.Rows[cartDataGridView.CurrentRow.Index].Delete();
 
-                lblSubtotalAmount.Text = getTotal().ToString("C2");
+                lblSubtotalAmount.Text = getSubtotal().ToString("C2");
+                lblDiscountAmount.Text = getDiscountAmount().ToString("C2");
                 lblTotalAmount.Text = getTotal().ToString("C2");
+                lblVatAmount.Text = getVat().ToString("C2");
                 lblCount.Text = getItemCount().ToString();
             }
         }
@@ -256,8 +291,6 @@ namespace TheByteClubPOS
                 txtSearch.ForeColor = Color.Black;
                 txtSearch.Font = new Font(txtSearch.Font, FontStyle.Regular);
             }
-
-
         }
 
         private bool isDarkMode = false;
@@ -338,7 +371,6 @@ namespace TheByteClubPOS
             UpdateControlThemes(this.Controls, SystemColors.Control, SystemColors.ControlText);
         }
 
-        // Paste this inside your form class, before the final closing brace
         private void UpdateControlThemes(Control.ControlCollection controls, Color backColor, Color foreColor)
         {
             foreach (Control c in controls)
@@ -356,6 +388,7 @@ namespace TheByteClubPOS
                 }
             }
         }
+       
         private void btnToggleTheme_Click(object sender, EventArgs e)
         {
             isDarkMode = !isDarkMode;
@@ -490,7 +523,7 @@ namespace TheByteClubPOS
 
             try
             {
-                int saleID = (int)saleTableAdapter.InsertQueryNewSale(currentCustomerID, currentEmployeeID, 1, null, DateTime.Now, getTotal(), null, getTotal(), loyaltyPointsEarned, "Completed");
+                int saleID = (int)saleTableAdapter.InsertQueryNewSale(currentCustomerID, currentEmployeeID, 1, null, DateTime.Now, getSubtotal(), getDiscountAmount(), getTotal(), loyaltyPointsEarned, "Completed");
                 MessageBox.Show("Sale completed successfully! ID: " + saleID + " Loyalty points earned: " + loyaltyPointsEarned, "Transaction Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 
                 saveSaleLines(saleID);
