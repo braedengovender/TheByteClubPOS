@@ -771,5 +771,50 @@ namespace TheByteClubPOS
             }
             string postalCode = maskedTextBox2.Text;
         }
+
+        private void customer_LoyaltyPointsBalanceLabel1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void customer_LoyaltyPointsBalanceTextBox_TextChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void customer_StatusLabel2_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void customer_StatusTextBox1_TextChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void customer_UsernameLabel1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void customer_UsernameTextBox_TextChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void customer_PasswordLabel1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void customer_PasswordTextBox_TextChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel5_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
