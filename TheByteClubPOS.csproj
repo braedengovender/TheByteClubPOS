@@ -285,6 +285,7 @@
     <None Include="Resources\ContactDetailsIcon.png" />
     <None Include="Resources\AddressDetailsIcon.png" />
     <None Include="Resources\AccountDetailsIcon.png" />
+    <None Include="Resources\CustomerProfile.png" />
     <Content Include="Resources\FormIcon.ico" />
     <Content Include="Resources\Icon2.ico" />
     <None Include="Resources\LightModeIcon.png" />

@@ -118,8 +118,14 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="ClockIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ClockIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="EmployeesIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\EmployeesIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AccountDetailsIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AccountDetailsIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ContactDetailsIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ContactDetailsIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -202,9 +208,6 @@
   <data name="HideEye" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\HideEye.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="MainFormImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\MainFormImage.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="LogoutIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\LogoutIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -223,10 +226,10 @@
   <data name="Dark_Background" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Dark_Background.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ClockIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ClockIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="MainFormImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MainFormImage.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="AccountDetailsIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\AccountDetailsIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="CustomerProfile" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CustomerProfile.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

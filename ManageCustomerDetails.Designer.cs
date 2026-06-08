@@ -52,7 +52,6 @@
             System.Windows.Forms.Label customer_LastNameLabel1;
             System.Windows.Forms.Label customer_IDNumberLabel1;
             System.Windows.Forms.Label customer_StatusLabel1;
-            System.Windows.Forms.Label customer_IDLabel1;
             System.Windows.Forms.Label customer_FirstNameLabel2;
             System.Windows.Forms.Label customer_LastNameLabel2;
             System.Windows.Forms.Label customer_IDNumberLabel2;
@@ -73,6 +72,7 @@
             System.Windows.Forms.Label customer_UsernameLabel1;
             System.Windows.Forms.Label customer_PasswordLabel1;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ManageCustomerDetails));
+            System.Windows.Forms.Label label11;
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.button1 = new System.Windows.Forms.Button();
@@ -150,6 +150,7 @@
             this.customer_PostalCodeTextBox = new System.Windows.Forms.TextBox();
             this.customer_SuburbTextBox = new System.Windows.Forms.TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.customer_EmailAddressTextBox = new System.Windows.Forms.TextBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
             this.customer_PhoneNumberTextBox = new System.Windows.Forms.TextBox();
@@ -163,12 +164,15 @@
             this.label1 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.customer_IDTextBox = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.tableAdapterManager = new TheByteClubPOS.dsSamsLiqourShopTableAdapters.TableAdapterManager();
             this.customerTableAdapter = new TheByteClubPOS.dsSamsLiqourShopTableAdapters.CustomerTableAdapter();
-            this.customer_EmailAddressTextBox = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.customer_IDTextBox = new System.Windows.Forms.TextBox();
             customer_FirstNameLabel = new System.Windows.Forms.Label();
             customer_LastNameLabel = new System.Windows.Forms.Label();
             customer_EmailAddressLabel = new System.Windows.Forms.Label();
@@ -192,7 +196,6 @@
             customer_LastNameLabel1 = new System.Windows.Forms.Label();
             customer_IDNumberLabel1 = new System.Windows.Forms.Label();
             customer_StatusLabel1 = new System.Windows.Forms.Label();
-            customer_IDLabel1 = new System.Windows.Forms.Label();
             customer_FirstNameLabel2 = new System.Windows.Forms.Label();
             customer_LastNameLabel2 = new System.Windows.Forms.Label();
             customer_IDNumberLabel2 = new System.Windows.Forms.Label();
@@ -212,6 +215,7 @@
             customer_StatusLabel2 = new System.Windows.Forms.Label();
             customer_UsernameLabel1 = new System.Windows.Forms.Label();
             customer_PasswordLabel1 = new System.Windows.Forms.Label();
+            label11 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -231,6 +235,7 @@
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.SuspendLayout();
             // 
             // customer_FirstNameLabel
@@ -463,16 +468,6 @@
             customer_StatusLabel1.Text = "Customer Status:";
             customer_StatusLabel1.Click += new System.EventHandler(this.customer_StatusLabel1_Click);
             // 
-            // customer_IDLabel1
-            // 
-            customer_IDLabel1.AutoSize = true;
-            customer_IDLabel1.Location = new System.Drawing.Point(3, 86);
-            customer_IDLabel1.Name = "customer_IDLabel1";
-            customer_IDLabel1.Size = new System.Drawing.Size(68, 13);
-            customer_IDLabel1.TabIndex = 0;
-            customer_IDLabel1.Text = "Customer ID:";
-            customer_IDLabel1.Click += new System.EventHandler(this.customer_IDLabel1_Click);
-            // 
             // customer_FirstNameLabel2
             // 
             customer_FirstNameLabel2.AutoSize = true;
@@ -482,7 +477,6 @@
             customer_FirstNameLabel2.Size = new System.Drawing.Size(79, 17);
             customer_FirstNameLabel2.TabIndex = 2;
             customer_FirstNameLabel2.Text = "First Name:";
-            customer_FirstNameLabel2.Click += new System.EventHandler(this.customer_FirstNameLabel2_Click);
             // 
             // customer_LastNameLabel2
             // 
@@ -493,7 +487,6 @@
             customer_LastNameLabel2.Size = new System.Drawing.Size(77, 17);
             customer_LastNameLabel2.TabIndex = 4;
             customer_LastNameLabel2.Text = "Last Name:";
-            customer_LastNameLabel2.Click += new System.EventHandler(this.customer_LastNameLabel2_Click);
             // 
             // customer_IDNumberLabel2
             // 
@@ -504,7 +497,6 @@
             customer_IDNumberLabel2.Size = new System.Drawing.Size(81, 17);
             customer_IDNumberLabel2.TabIndex = 8;
             customer_IDNumberLabel2.Text = "ID Number:";
-            customer_IDNumberLabel2.Click += new System.EventHandler(this.customer_IDNumberLabel2_Click);
             // 
             // customer_PhoneNumberLabel1
             // 
@@ -515,7 +507,6 @@
             customer_PhoneNumberLabel1.Size = new System.Drawing.Size(106, 17);
             customer_PhoneNumberLabel1.TabIndex = 10;
             customer_PhoneNumberLabel1.Text = "Phone Number:";
-            customer_PhoneNumberLabel1.Click += new System.EventHandler(this.customer_PhoneNumberLabel1_Click);
             // 
             // customer_UnitNumberLabel1
             // 
@@ -526,7 +517,6 @@
             customer_UnitNumberLabel1.Size = new System.Drawing.Size(93, 17);
             customer_UnitNumberLabel1.TabIndex = 12;
             customer_UnitNumberLabel1.Text = "Unit Number:";
-            customer_UnitNumberLabel1.Click += new System.EventHandler(this.customer_UnitNumberLabel1_Click);
             // 
             // customer_UnitNameLabel1
             // 
@@ -537,7 +527,6 @@
             customer_UnitNameLabel1.Size = new System.Drawing.Size(78, 17);
             customer_UnitNameLabel1.TabIndex = 14;
             customer_UnitNameLabel1.Text = "Unit Name:";
-            customer_UnitNameLabel1.Click += new System.EventHandler(this.customer_UnitNameLabel1_Click);
             // 
             // customer_StreetNumberLabel1
             // 
@@ -548,7 +537,6 @@
             customer_StreetNumberLabel1.Size = new System.Drawing.Size(103, 17);
             customer_StreetNumberLabel1.TabIndex = 16;
             customer_StreetNumberLabel1.Text = "Street Number:";
-            customer_StreetNumberLabel1.Click += new System.EventHandler(this.customer_StreetNumberLabel1_Click);
             // 
             // customer_StreetNameLabel1
             // 
@@ -559,7 +547,6 @@
             customer_StreetNameLabel1.Size = new System.Drawing.Size(88, 17);
             customer_StreetNameLabel1.TabIndex = 18;
             customer_StreetNameLabel1.Text = "Street Name:";
-            customer_StreetNameLabel1.Click += new System.EventHandler(this.customer_StreetNameLabel1_Click);
             // 
             // customer_SuburbLabel1
             // 
@@ -570,7 +557,6 @@
             customer_SuburbLabel1.Size = new System.Drawing.Size(56, 17);
             customer_SuburbLabel1.TabIndex = 20;
             customer_SuburbLabel1.Text = "Suburb:";
-            customer_SuburbLabel1.Click += new System.EventHandler(this.customer_SuburbLabel1_Click);
             // 
             // customer_PostalCodeLabel1
             // 
@@ -581,7 +567,6 @@
             customer_PostalCodeLabel1.Size = new System.Drawing.Size(85, 17);
             customer_PostalCodeLabel1.TabIndex = 22;
             customer_PostalCodeLabel1.Text = "Postal Code:";
-            customer_PostalCodeLabel1.Click += new System.EventHandler(this.customer_PostalCodeLabel1_Click);
             // 
             // customer_CityLabel1
             // 
@@ -592,7 +577,6 @@
             customer_CityLabel1.Size = new System.Drawing.Size(36, 17);
             customer_CityLabel1.TabIndex = 24;
             customer_CityLabel1.Text = "City:";
-            customer_CityLabel1.Click += new System.EventHandler(this.customer_CityLabel1_Click);
             // 
             // customer_ProvinceLabel1
             // 
@@ -603,7 +587,6 @@
             customer_ProvinceLabel1.Size = new System.Drawing.Size(65, 17);
             customer_ProvinceLabel1.TabIndex = 26;
             customer_ProvinceLabel1.Text = "Province:";
-            customer_ProvinceLabel1.Click += new System.EventHandler(this.customer_ProvinceLabel1_Click);
             // 
             // customer_CountryLabel1
             // 
@@ -614,7 +597,6 @@
             customer_CountryLabel1.Size = new System.Drawing.Size(62, 17);
             customer_CountryLabel1.TabIndex = 28;
             customer_CountryLabel1.Text = "Country:";
-            customer_CountryLabel1.Click += new System.EventHandler(this.customer_CountryLabel1_Click);
             // 
             // label6
             // 
@@ -656,7 +638,6 @@
             customer_StatusLabel2.Size = new System.Drawing.Size(113, 17);
             customer_StatusLabel2.TabIndex = 44;
             customer_StatusLabel2.Text = "Customer Status:";
-            customer_StatusLabel2.Click += new System.EventHandler(this.customer_StatusLabel2_Click_1);
             // 
             // customer_UsernameLabel1
             // 
@@ -667,7 +648,6 @@
             customer_UsernameLabel1.Size = new System.Drawing.Size(136, 17);
             customer_UsernameLabel1.TabIndex = 46;
             customer_UsernameLabel1.Text = "Customer Username:";
-            customer_UsernameLabel1.Click += new System.EventHandler(this.customer_UsernameLabel1_Click_1);
             // 
             // customer_PasswordLabel1
             // 
@@ -678,7 +658,6 @@
             customer_PasswordLabel1.Size = new System.Drawing.Size(133, 17);
             customer_PasswordLabel1.TabIndex = 48;
             customer_PasswordLabel1.Text = "Customer Password:";
-            customer_PasswordLabel1.Click += new System.EventHandler(this.customer_PasswordLabel1_Click_1);
             // 
             // tabControl1
             // 
@@ -1202,17 +1181,16 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.AutoScroll = true;
             this.tabPage3.BackColor = System.Drawing.Color.Transparent;
             this.tabPage3.BackgroundImage = global::TheByteClubPOS.Properties.Resources.Background;
             this.tabPage3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.tabPage3.Controls.Add(this.button4);
             this.tabPage3.Controls.Add(this.panel5);
             this.tabPage3.Controls.Add(this.panel4);
             this.tabPage3.Controls.Add(this.panel3);
             this.tabPage3.Controls.Add(this.panel2);
             this.tabPage3.Controls.Add(this.label2);
             this.tabPage3.Controls.Add(this.label1);
-            this.tabPage3.Controls.Add(this.button3);
             this.tabPage3.Controls.Add(this.textBox2);
             this.tabPage3.Controls.Add(this.panel1);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
@@ -1225,7 +1203,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(939, 6);
+            this.button4.Location = new System.Drawing.Point(276, 63);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(99, 41);
             this.button4.TabIndex = 49;
@@ -1297,7 +1275,6 @@
             this.customer_StatusTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customerBindingSource, "Customer_Status", true));
             this.customer_StatusTextBox1.Location = new System.Drawing.Point(190, 127);
             this.customer_StatusTextBox1.Name = "customer_StatusTextBox1";
-            this.customer_StatusTextBox1.ReadOnly = true;
             this.customer_StatusTextBox1.Size = new System.Drawing.Size(227, 20);
             this.customer_StatusTextBox1.TabIndex = 45;
             this.customer_StatusTextBox1.TextChanged += new System.EventHandler(this.customer_StatusTextBox1_TextChanged_1);
@@ -1464,6 +1441,14 @@
             this.panel3.Size = new System.Drawing.Size(481, 222);
             this.panel3.TabIndex = 46;
             // 
+            // customer_EmailAddressTextBox
+            // 
+            this.customer_EmailAddressTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customerBindingSource, "Customer_EmailAddress", true));
+            this.customer_EmailAddressTextBox.Location = new System.Drawing.Point(190, 105);
+            this.customer_EmailAddressTextBox.Name = "customer_EmailAddressTextBox";
+            this.customer_EmailAddressTextBox.Size = new System.Drawing.Size(227, 20);
+            this.customer_EmailAddressTextBox.TabIndex = 46;
+            // 
             // pictureBox2
             // 
             this.pictureBox2.Image = global::TheByteClubPOS.Properties.Resources.ContactDetailsIcon;
@@ -1497,6 +1482,8 @@
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(label11);
+            this.panel2.Controls.Add(this.customer_IDTextBox);
             this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.customer_LastNameTextBox1);
@@ -1564,7 +1551,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(6, 5);
+            this.label2.Location = new System.Drawing.Point(15, 6);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(256, 30);
             this.label2.TabIndex = 43;
@@ -1573,50 +1560,54 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(8, 52);
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(18, 47);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(126, 17);
+            this.label1.Size = new System.Drawing.Size(131, 17);
             this.label1.TabIndex = 42;
             this.label1.Text = "Search for customer";
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(834, 6);
+            this.button3.Location = new System.Drawing.Point(276, 19);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(99, 41);
             this.button3.TabIndex = 41;
-            this.button3.Text = "Save Changes";
+            this.button3.Text = "Update Customer Details";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(140, 52);
+            this.textBox2.Location = new System.Drawing.Point(150, 47);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(224, 20);
             this.textBox2.TabIndex = 40;
             this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
-            // customer_IDTextBox
-            // 
-            this.customer_IDTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customerBindingSource, "Customer_ID", true));
-            this.customer_IDTextBox.Location = new System.Drawing.Point(133, 83);
-            this.customer_IDTextBox.Name = "customer_IDTextBox";
-            this.customer_IDTextBox.ReadOnly = true;
-            this.customer_IDTextBox.Size = new System.Drawing.Size(224, 20);
-            this.customer_IDTextBox.TabIndex = 1;
-            this.customer_IDTextBox.TextChanged += new System.EventHandler(this.customer_EmailAddressTextBox_TextChanged);
-            // 
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(customer_IDLabel1);
-            this.panel1.Controls.Add(this.customer_IDTextBox);
-            this.panel1.Location = new System.Drawing.Point(6, 0);
+            this.panel1.Controls.Add(this.button4);
+            this.panel1.Controls.Add(this.label10);
+            this.panel1.Controls.Add(this.label9);
+            this.panel1.Controls.Add(this.label8);
+            this.panel1.Controls.Add(this.pictureBox5);
+            this.panel1.Controls.Add(this.button3);
+            this.panel1.Location = new System.Drawing.Point(639, 6);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(392, 121);
             this.panel1.TabIndex = 44;
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Image = global::TheByteClubPOS.Properties.Resources.CustomerProfile;
+            this.pictureBox5.Location = new System.Drawing.Point(13, 20);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(87, 78);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox5.TabIndex = 0;
+            this.pictureBox5.TabStop = false;
             // 
             // toolTip1
             // 
@@ -1644,13 +1635,55 @@
             // 
             this.customerTableAdapter.ClearBeforeFill = true;
             // 
-            // customer_EmailAddressTextBox
+            // label8
             // 
-            this.customer_EmailAddressTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customerBindingSource, "Customer_EmailAddress", true));
-            this.customer_EmailAddressTextBox.Location = new System.Drawing.Point(190, 105);
-            this.customer_EmailAddressTextBox.Name = "customer_EmailAddressTextBox";
-            this.customer_EmailAddressTextBox.Size = new System.Drawing.Size(227, 20);
-            this.customer_EmailAddressTextBox.TabIndex = 46;
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(106, 32);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(83, 15);
+            this.label8.TabIndex = 1;
+            this.label8.Text = "CustomerID : ";
+            this.label8.Click += new System.EventHandler(this.label8_Click);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(105, 50);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(56, 21);
+            this.label9.TabIndex = 2;
+            this.label9.Text = "Name";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(106, 76);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(42, 15);
+            this.label10.TabIndex = 3;
+            this.label10.Text = "Status";
+            // 
+            // customer_IDTextBox
+            // 
+            this.customer_IDTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customerBindingSource, "Customer_ID", true));
+            this.customer_IDTextBox.Location = new System.Drawing.Point(183, 178);
+            this.customer_IDTextBox.Name = "customer_IDTextBox";
+            this.customer_IDTextBox.ReadOnly = true;
+            this.customer_IDTextBox.Size = new System.Drawing.Size(227, 20);
+            this.customer_IDTextBox.TabIndex = 50;
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label11.Location = new System.Drawing.Point(12, 180);
+            label11.Name = "label11";
+            label11.Size = new System.Drawing.Size(89, 17);
+            label11.TabIndex = 51;
+            label11.Text = "Customer ID:";
             // 
             // ManageCustomerDetails
             // 
@@ -1694,6 +1727,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1755,7 +1789,6 @@
         private System.Windows.Forms.TextBox customer_StatusTextBox;
         private System.Windows.Forms.TextBox txtStatus;
         private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.TextBox customer_IDTextBox;
         private System.Windows.Forms.TextBox customer_FirstNameTextBox1;
         private System.Windows.Forms.TextBox customer_LastNameTextBox1;
         private System.Windows.Forms.TextBox customer_IDNumberTextBox1;
@@ -1796,5 +1829,10 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.TextBox customer_EmailAddressTextBox;
+        private System.Windows.Forms.PictureBox pictureBox5;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox customer_IDTextBox;
     }
 }

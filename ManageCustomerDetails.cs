@@ -33,9 +33,33 @@ namespace TheByteClubPOS
         {
             // TODO: This line of code loads data into the 'dsSamsLiqourShop.Customer' table. You can move, or remove it, as needed.
             this.customerTableAdapter.Fill(this.dsSamsLiqourShop.Customer);
+            UpdateCustomerCard(); //call the method to update the customer card display when the form loads
 
+
+           
         }
 
+        private void UpdateCustomerCard() //method for the updateCustomer tab to display ID , name and loyalty points in panel
+        {
+            label8.Text = "Customer ID : " + customer_IDTextBox.Text;
+
+            label9.Text = customer_FirstNameTextBox1.Text +
+                          " " +
+                          customer_LastNameTextBox1.Text;
+
+            label10.Text = customer_StatusTextBox1.Text;
+
+            if (label10.Text == "Active")
+            {
+                label10.BackColor = Color.LightGreen;
+                label10.ForeColor = Color.DarkGreen;
+            }
+            else
+            {
+                label10.BackColor = Color.LightCoral;
+                label10.ForeColor = Color.DarkRed;
+            }
+        }
         private void button1_Click(object sender, EventArgs e)
         {
         }
@@ -183,39 +207,53 @@ namespace TheByteClubPOS
             customerTableAdapter.Fill(this.dsSamsLiqourShop.Customer);
         }
 
+
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
             customerTableAdapter.FillByCustomerName(dsSamsLiqourShop.Customer, textBox2.Text);
+            UpdateCustomerCard();
+
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            DateTime selectedDate = customer_RegistrationDateTimeDateTimePicker.Value;
+            DialogResult dialogResult = MessageBox.Show("Are you sure you want to update this customer's details?", "Confirm Update", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dialogResult == DialogResult.Yes)
+            {
 
-            customerTableAdapter.UpdateQueryCustomerDetails(
-       customer_FirstNameTextBox1.Text,
-       customer_LastNameTextBox1.Text,
-       customer_EmailAddressTextBox.Text,
-       customer_IDNumberTextBox1.Text,
-       customer_PhoneNumberTextBox.Text,
-       customer_UnitNumberTextBox.Text,
-       customer_UnitNameTextBox.Text,
-       customer_StreetNumberTextBox.Text,
-       customer_StreetNameTextBox.Text,
-       customer_SuburbTextBox.Text,
-       customer_PostalCodeTextBox.Text,
-       customer_CityTextBox.Text,
-       customer_ProvinceTextBox.Text,
-       customer_CountryTextBox.Text,
-       selectedDate.ToString(),
-       Convert.ToInt32(customer_LoyaltyPointsBalanceTextBox.Text),
-       customer_StatusTextBox1.Text,
-       customer_UsernameTextBox.Text,
-       customer_PasswordTextBox.Text,
-       Convert.ToInt32(customer_IDTextBox.Text)
-   );
-            customerTableAdapter.Fill(this.dsSamsLiqourShop.Customer);
-            MessageBox.Show("Customer details updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                DateTime selectedDate = customer_RegistrationDateTimeDateTimePicker.Value;
+
+                customerTableAdapter.UpdateQueryCustomerDetails(
+           customer_FirstNameTextBox1.Text,
+           customer_LastNameTextBox1.Text,
+           customer_EmailAddressTextBox.Text,
+           customer_IDNumberTextBox1.Text,
+           customer_PhoneNumberTextBox.Text,
+           customer_UnitNumberTextBox.Text,
+           customer_UnitNameTextBox.Text,
+           customer_StreetNumberTextBox.Text,
+           customer_StreetNameTextBox.Text,
+           customer_SuburbTextBox.Text,
+           customer_PostalCodeTextBox.Text,
+           customer_CityTextBox.Text,
+           customer_ProvinceTextBox.Text,
+           customer_CountryTextBox.Text,
+           selectedDate.ToString(),
+           Convert.ToInt32(customer_LoyaltyPointsBalanceTextBox.Text),
+           customer_StatusTextBox1.Text,
+           customer_UsernameTextBox.Text,
+           customer_PasswordTextBox.Text,
+           Convert.ToInt32(customer_IDTextBox.Text)
+       );
+                customerTableAdapter.Fill(this.dsSamsLiqourShop.Customer);
+                MessageBox.Show("Customer details updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+            else   
+            {
+                MessageBox.Show("Customer update cancelled.", "Cancelled", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
@@ -813,6 +851,11 @@ namespace TheByteClubPOS
         }
 
         private void panel5_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label8_Click(object sender, EventArgs e)
         {
 
         }
