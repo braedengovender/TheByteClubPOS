@@ -75,26 +75,29 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ManageCustomerDetails));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.txtStatus = new System.Windows.Forms.TextBox();
-            this.maskedTextBox3 = new System.Windows.Forms.MaskedTextBox();
-            this.maskedTextBox2 = new System.Windows.Forms.MaskedTextBox();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.dtpRegistrationDateTime = new System.Windows.Forms.DateTimePicker();
-            this.cmbProvince = new System.Windows.Forms.ComboBox();
-            this.txtPassword = new System.Windows.Forms.TextBox();
-            this.txtUsername = new System.Windows.Forms.TextBox();
-            this.txtLoyaltyPointsBalance = new System.Windows.Forms.TextBox();
             this.txtCountry = new System.Windows.Forms.TextBox();
-            this.txtCity = new System.Windows.Forms.TextBox();
-            this.txtSuburb = new System.Windows.Forms.TextBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtFirstName = new System.Windows.Forms.TextBox();
+            this.maskedTextBox3 = new System.Windows.Forms.MaskedTextBox();
+            this.txtLastName = new System.Windows.Forms.TextBox();
+            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
+            this.txtEmailAddress = new System.Windows.Forms.TextBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txtUnitNumber = new System.Windows.Forms.TextBox();
+            this.maskedTextBox2 = new System.Windows.Forms.MaskedTextBox();
+            this.txtUnitName = new System.Windows.Forms.TextBox();
+            this.cmbProvince = new System.Windows.Forms.ComboBox();
             this.txtStreetName = new System.Windows.Forms.TextBox();
             this.txtStreetNumber = new System.Windows.Forms.TextBox();
-            this.txtUnitName = new System.Windows.Forms.TextBox();
-            this.txtUnitNumber = new System.Windows.Forms.TextBox();
-            this.txtEmailAddress = new System.Windows.Forms.TextBox();
-            this.txtLastName = new System.Windows.Forms.TextBox();
-            this.txtFirstName = new System.Windows.Forms.TextBox();
+            this.txtSuburb = new System.Windows.Forms.TextBox();
+            this.txtCity = new System.Windows.Forms.TextBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.txtStatus = new System.Windows.Forms.TextBox();
+            this.dtpRegistrationDateTime = new System.Windows.Forms.DateTimePicker();
+            this.txtPassword = new System.Windows.Forms.TextBox();
+            this.txtLoyaltyPointsBalance = new System.Windows.Forms.TextBox();
+            this.txtUsername = new System.Windows.Forms.TextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.customer_StatusTextBox = new System.Windows.Forms.TextBox();
             this.customerBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -151,9 +154,6 @@
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.tableAdapterManager = new TheByteClubPOS.dsSamsLiqourShopTableAdapters.TableAdapterManager();
             this.customerTableAdapter = new TheByteClubPOS.dsSamsLiqourShopTableAdapters.CustomerTableAdapter();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
             customer_FirstNameLabel = new System.Windows.Forms.Label();
             customer_LastNameLabel = new System.Windows.Forms.Label();
             customer_EmailAddressLabel = new System.Windows.Forms.Label();
@@ -199,14 +199,14 @@
             customer_PasswordLabel1 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.customerBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsSamsLiqourShop)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.customerDataGridView)).BeginInit();
             this.tabPage3.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // customer_FirstNameLabel
@@ -671,43 +671,6 @@
             this.tabPage1.UseVisualStyleBackColor = true;
             this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
             // 
-            // txtStatus
-            // 
-            this.txtStatus.Location = new System.Drawing.Point(520, 46);
-            this.txtStatus.Name = "txtStatus";
-            this.txtStatus.ReadOnly = true;
-            this.txtStatus.Size = new System.Drawing.Size(200, 20);
-            this.txtStatus.TabIndex = 109;
-            this.txtStatus.Text = "Active";
-            this.txtStatus.TextChanged += new System.EventHandler(this.txtStatus_TextChanged);
-            // 
-            // maskedTextBox3
-            // 
-            this.maskedTextBox3.Location = new System.Drawing.Point(262, 104);
-            this.maskedTextBox3.Mask = "(999) 000-0000";
-            this.maskedTextBox3.Name = "maskedTextBox3";
-            this.maskedTextBox3.Size = new System.Drawing.Size(200, 20);
-            this.maskedTextBox3.TabIndex = 108;
-            this.maskedTextBox3.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.maskedTextBox3_MaskInputRejected);
-            // 
-            // maskedTextBox2
-            // 
-            this.maskedTextBox2.Location = new System.Drawing.Point(519, 107);
-            this.maskedTextBox2.Mask = "0000";
-            this.maskedTextBox2.Name = "maskedTextBox2";
-            this.maskedTextBox2.Size = new System.Drawing.Size(200, 20);
-            this.maskedTextBox2.TabIndex = 107;
-            this.maskedTextBox2.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.maskedTextBox2_MaskInputRejected_1);
-            // 
-            // maskedTextBox1
-            // 
-            this.maskedTextBox1.Location = new System.Drawing.Point(6, 104);
-            this.maskedTextBox1.Mask = "0000000000000";
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(200, 20);
-            this.maskedTextBox1.TabIndex = 106;
-            this.maskedTextBox1.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.maskedTextBox1_MaskInputRejected);
-            // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(894, 318);
@@ -718,13 +681,132 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
-            // dtpRegistrationDateTime
+            // txtCountry
             // 
-            this.dtpRegistrationDateTime.Location = new System.Drawing.Point(10, 46);
-            this.dtpRegistrationDateTime.Name = "dtpRegistrationDateTime";
-            this.dtpRegistrationDateTime.Size = new System.Drawing.Size(200, 20);
-            this.dtpRegistrationDateTime.TabIndex = 104;
-            this.dtpRegistrationDateTime.ValueChanged += new System.EventHandler(this.dtpRegistrationDateTime_ValueChanged);
+            this.txtCountry.Location = new System.Drawing.Point(545, 390);
+            this.txtCountry.Name = "txtCountry";
+            this.txtCountry.Size = new System.Drawing.Size(200, 20);
+            this.txtCountry.TabIndex = 98;
+            this.txtCountry.TextChanged += new System.EventHandler(this.txtCountry_TextChanged);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.txtFirstName);
+            this.groupBox1.Controls.Add(this.maskedTextBox3);
+            this.groupBox1.Controls.Add(customer_FirstNameLabel);
+            this.groupBox1.Controls.Add(this.txtLastName);
+            this.groupBox1.Controls.Add(this.maskedTextBox1);
+            this.groupBox1.Controls.Add(customer_LastNameLabel);
+            this.groupBox1.Controls.Add(this.txtEmailAddress);
+            this.groupBox1.Controls.Add(customer_EmailAddressLabel);
+            this.groupBox1.Controls.Add(customer_IDNumberLabel);
+            this.groupBox1.Controls.Add(customer_PhoneNumberLabel);
+            this.groupBox1.Location = new System.Drawing.Point(27, 50);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(846, 146);
+            this.groupBox1.TabIndex = 110;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "ENTER PERSONAL DETAILS";
+            // 
+            // txtFirstName
+            // 
+            this.txtFirstName.Location = new System.Drawing.Point(6, 48);
+            this.txtFirstName.Name = "txtFirstName";
+            this.txtFirstName.Size = new System.Drawing.Size(200, 20);
+            this.txtFirstName.TabIndex = 89;
+            this.txtFirstName.TextChanged += new System.EventHandler(this.txtFirstName_TextChanged);
+            this.txtFirstName.Leave += new System.EventHandler(this.txtFirstName_Leave);
+            // 
+            // maskedTextBox3
+            // 
+            this.maskedTextBox3.Location = new System.Drawing.Point(262, 104);
+            this.maskedTextBox3.Mask = "(999) 000-0000";
+            this.maskedTextBox3.Name = "maskedTextBox3";
+            this.maskedTextBox3.Size = new System.Drawing.Size(200, 20);
+            this.maskedTextBox3.TabIndex = 108;
+            this.maskedTextBox3.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.maskedTextBox3_MaskInputRejected);
+            this.maskedTextBox3.Leave += new System.EventHandler(this.maskedTextBox3_Leave);
+            // 
+            // txtLastName
+            // 
+            this.txtLastName.Location = new System.Drawing.Point(262, 48);
+            this.txtLastName.Name = "txtLastName";
+            this.txtLastName.Size = new System.Drawing.Size(200, 20);
+            this.txtLastName.TabIndex = 90;
+            this.txtLastName.TextChanged += new System.EventHandler(this.txtLastName_TextChanged);
+            this.txtLastName.Leave += new System.EventHandler(this.txtLastName_Leave);
+            // 
+            // maskedTextBox1
+            // 
+            this.maskedTextBox1.Location = new System.Drawing.Point(6, 104);
+            this.maskedTextBox1.Mask = "0000000000000";
+            this.maskedTextBox1.Name = "maskedTextBox1";
+            this.maskedTextBox1.Size = new System.Drawing.Size(200, 20);
+            this.maskedTextBox1.TabIndex = 106;
+            this.maskedTextBox1.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.maskedTextBox1_MaskInputRejected);
+            this.maskedTextBox1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.maskedTextBox1_MouseClick);
+            this.maskedTextBox1.Leave += new System.EventHandler(this.maskedTextBox1_Leave);
+            // 
+            // txtEmailAddress
+            // 
+            this.txtEmailAddress.Location = new System.Drawing.Point(518, 48);
+            this.txtEmailAddress.Name = "txtEmailAddress";
+            this.txtEmailAddress.Size = new System.Drawing.Size(200, 20);
+            this.txtEmailAddress.TabIndex = 91;
+            this.txtEmailAddress.TextChanged += new System.EventHandler(this.txtEmailAddress_TextChanged_1);
+            this.txtEmailAddress.Leave += new System.EventHandler(this.txtEmailAddress_Leave);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.txtUnitNumber);
+            this.groupBox2.Controls.Add(this.maskedTextBox2);
+            this.groupBox2.Controls.Add(customer_UnitNumberLabel);
+            this.groupBox2.Controls.Add(this.txtUnitName);
+            this.groupBox2.Controls.Add(customer_UnitNameLabel);
+            this.groupBox2.Controls.Add(this.cmbProvince);
+            this.groupBox2.Controls.Add(this.txtStreetName);
+            this.groupBox2.Controls.Add(customer_CountryLabel);
+            this.groupBox2.Controls.Add(customer_StreetNumberLabel);
+            this.groupBox2.Controls.Add(this.txtStreetNumber);
+            this.groupBox2.Controls.Add(customer_StreetNameLabel);
+            this.groupBox2.Controls.Add(this.txtSuburb);
+            this.groupBox2.Controls.Add(customer_PostalCodeLabel);
+            this.groupBox2.Controls.Add(customer_SuburbLabel);
+            this.groupBox2.Controls.Add(this.txtCity);
+            this.groupBox2.Controls.Add(customer_CityLabel);
+            this.groupBox2.Controls.Add(customer_ProvinceLabel);
+            this.groupBox2.Location = new System.Drawing.Point(27, 226);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(846, 204);
+            this.groupBox2.TabIndex = 111;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "ENTER ADDRESS DETAILS";
+            // 
+            // txtUnitNumber
+            // 
+            this.txtUnitNumber.Location = new System.Drawing.Point(10, 54);
+            this.txtUnitNumber.Name = "txtUnitNumber";
+            this.txtUnitNumber.Size = new System.Drawing.Size(200, 20);
+            this.txtUnitNumber.TabIndex = 92;
+            this.txtUnitNumber.TextChanged += new System.EventHandler(this.txtUnitNumber_TextChanged);
+            // 
+            // maskedTextBox2
+            // 
+            this.maskedTextBox2.Location = new System.Drawing.Point(519, 107);
+            this.maskedTextBox2.Mask = "0000";
+            this.maskedTextBox2.Name = "maskedTextBox2";
+            this.maskedTextBox2.Size = new System.Drawing.Size(200, 20);
+            this.maskedTextBox2.TabIndex = 107;
+            this.maskedTextBox2.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.maskedTextBox2_MaskInputRejected_1);
+            this.maskedTextBox2.Leave += new System.EventHandler(this.maskedTextBox2_Leave);
+            // 
+            // txtUnitName
+            // 
+            this.txtUnitName.Location = new System.Drawing.Point(263, 54);
+            this.txtUnitName.Name = "txtUnitName";
+            this.txtUnitName.Size = new System.Drawing.Size(200, 20);
+            this.txtUnitName.TabIndex = 93;
+            this.txtUnitName.TextChanged += new System.EventHandler(this.txtUnitName_TextChanged);
             // 
             // cmbProvince
             // 
@@ -745,58 +827,6 @@
             this.cmbProvince.TabIndex = 103;
             this.cmbProvince.SelectedIndexChanged += new System.EventHandler(this.cmbProvince_SelectedIndexChanged);
             // 
-            // txtPassword
-            // 
-            this.txtPassword.Location = new System.Drawing.Point(264, 105);
-            this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(200, 20);
-            this.txtPassword.TabIndex = 101;
-            this.txtPassword.Text = "null";
-            this.txtPassword.TextChanged += new System.EventHandler(this.txtPassword_TextChanged);
-            // 
-            // txtUsername
-            // 
-            this.txtUsername.Location = new System.Drawing.Point(11, 105);
-            this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(200, 20);
-            this.txtUsername.TabIndex = 100;
-            this.txtUsername.Text = "null";
-            this.txtUsername.TextChanged += new System.EventHandler(this.txtUsername_TextChanged);
-            // 
-            // txtLoyaltyPointsBalance
-            // 
-            this.txtLoyaltyPointsBalance.Location = new System.Drawing.Point(263, 46);
-            this.txtLoyaltyPointsBalance.Name = "txtLoyaltyPointsBalance";
-            this.txtLoyaltyPointsBalance.ReadOnly = true;
-            this.txtLoyaltyPointsBalance.Size = new System.Drawing.Size(200, 20);
-            this.txtLoyaltyPointsBalance.TabIndex = 99;
-            this.txtLoyaltyPointsBalance.Text = "0";
-            this.txtLoyaltyPointsBalance.TextChanged += new System.EventHandler(this.txtLoyaltyPointsBalance_TextChanged);
-            // 
-            // txtCountry
-            // 
-            this.txtCountry.Location = new System.Drawing.Point(545, 390);
-            this.txtCountry.Name = "txtCountry";
-            this.txtCountry.Size = new System.Drawing.Size(200, 20);
-            this.txtCountry.TabIndex = 98;
-            this.txtCountry.TextChanged += new System.EventHandler(this.txtCountry_TextChanged);
-            // 
-            // txtCity
-            // 
-            this.txtCity.Location = new System.Drawing.Point(10, 163);
-            this.txtCity.Name = "txtCity";
-            this.txtCity.Size = new System.Drawing.Size(200, 20);
-            this.txtCity.TabIndex = 97;
-            this.txtCity.TextChanged += new System.EventHandler(this.txtCity_TextChanged);
-            // 
-            // txtSuburb
-            // 
-            this.txtSuburb.Location = new System.Drawing.Point(262, 106);
-            this.txtSuburb.Name = "txtSuburb";
-            this.txtSuburb.Size = new System.Drawing.Size(200, 20);
-            this.txtSuburb.TabIndex = 96;
-            this.txtSuburb.TextChanged += new System.EventHandler(this.txtSuburb_TextChanged);
-            // 
             // txtStreetName
             // 
             this.txtStreetName.Location = new System.Drawing.Point(10, 106);
@@ -813,45 +843,87 @@
             this.txtStreetNumber.TabIndex = 94;
             this.txtStreetNumber.TextChanged += new System.EventHandler(this.txtStreetNumber_TextChanged);
             // 
-            // txtUnitName
+            // txtSuburb
             // 
-            this.txtUnitName.Location = new System.Drawing.Point(263, 54);
-            this.txtUnitName.Name = "txtUnitName";
-            this.txtUnitName.Size = new System.Drawing.Size(200, 20);
-            this.txtUnitName.TabIndex = 93;
-            this.txtUnitName.TextChanged += new System.EventHandler(this.txtUnitName_TextChanged);
+            this.txtSuburb.Location = new System.Drawing.Point(262, 106);
+            this.txtSuburb.Name = "txtSuburb";
+            this.txtSuburb.Size = new System.Drawing.Size(200, 20);
+            this.txtSuburb.TabIndex = 96;
+            this.txtSuburb.TextChanged += new System.EventHandler(this.txtSuburb_TextChanged);
             // 
-            // txtUnitNumber
+            // txtCity
             // 
-            this.txtUnitNumber.Location = new System.Drawing.Point(10, 54);
-            this.txtUnitNumber.Name = "txtUnitNumber";
-            this.txtUnitNumber.Size = new System.Drawing.Size(200, 20);
-            this.txtUnitNumber.TabIndex = 92;
-            this.txtUnitNumber.TextChanged += new System.EventHandler(this.txtUnitNumber_TextChanged);
+            this.txtCity.Location = new System.Drawing.Point(10, 163);
+            this.txtCity.Name = "txtCity";
+            this.txtCity.Size = new System.Drawing.Size(200, 20);
+            this.txtCity.TabIndex = 97;
+            this.txtCity.TextChanged += new System.EventHandler(this.txtCity_TextChanged);
             // 
-            // txtEmailAddress
+            // groupBox3
             // 
-            this.txtEmailAddress.Location = new System.Drawing.Point(518, 48);
-            this.txtEmailAddress.Name = "txtEmailAddress";
-            this.txtEmailAddress.Size = new System.Drawing.Size(200, 20);
-            this.txtEmailAddress.TabIndex = 91;
-            this.txtEmailAddress.TextChanged += new System.EventHandler(this.txtEmailAddress_TextChanged_1);
+            this.groupBox3.Controls.Add(this.txtStatus);
+            this.groupBox3.Controls.Add(this.dtpRegistrationDateTime);
+            this.groupBox3.Controls.Add(customer_StatusLabel);
+            this.groupBox3.Controls.Add(customer_RegistrationDateTimeLabel);
+            this.groupBox3.Controls.Add(this.txtPassword);
+            this.groupBox3.Controls.Add(this.txtLoyaltyPointsBalance);
+            this.groupBox3.Controls.Add(customer_PasswordLabel);
+            this.groupBox3.Controls.Add(this.txtUsername);
+            this.groupBox3.Controls.Add(customer_LoyaltyPointsBalanceLabel);
+            this.groupBox3.Controls.Add(customer_UsernameLabel);
+            this.groupBox3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.groupBox3.Location = new System.Drawing.Point(27, 469);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(846, 134);
+            this.groupBox3.TabIndex = 112;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "ACCOUNT DETAILS";
             // 
-            // txtLastName
+            // txtStatus
             // 
-            this.txtLastName.Location = new System.Drawing.Point(262, 48);
-            this.txtLastName.Name = "txtLastName";
-            this.txtLastName.Size = new System.Drawing.Size(200, 20);
-            this.txtLastName.TabIndex = 90;
-            this.txtLastName.TextChanged += new System.EventHandler(this.txtLastName_TextChanged);
+            this.txtStatus.Location = new System.Drawing.Point(520, 46);
+            this.txtStatus.Name = "txtStatus";
+            this.txtStatus.ReadOnly = true;
+            this.txtStatus.Size = new System.Drawing.Size(200, 20);
+            this.txtStatus.TabIndex = 109;
+            this.txtStatus.Text = "Active";
+            this.txtStatus.TextChanged += new System.EventHandler(this.txtStatus_TextChanged);
             // 
-            // txtFirstName
+            // dtpRegistrationDateTime
             // 
-            this.txtFirstName.Location = new System.Drawing.Point(6, 48);
-            this.txtFirstName.Name = "txtFirstName";
-            this.txtFirstName.Size = new System.Drawing.Size(200, 20);
-            this.txtFirstName.TabIndex = 89;
-            this.txtFirstName.TextChanged += new System.EventHandler(this.txtFirstName_TextChanged);
+            this.dtpRegistrationDateTime.Location = new System.Drawing.Point(10, 46);
+            this.dtpRegistrationDateTime.Name = "dtpRegistrationDateTime";
+            this.dtpRegistrationDateTime.Size = new System.Drawing.Size(200, 20);
+            this.dtpRegistrationDateTime.TabIndex = 104;
+            this.dtpRegistrationDateTime.ValueChanged += new System.EventHandler(this.dtpRegistrationDateTime_ValueChanged);
+            // 
+            // txtPassword
+            // 
+            this.txtPassword.Location = new System.Drawing.Point(264, 105);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.Size = new System.Drawing.Size(200, 20);
+            this.txtPassword.TabIndex = 101;
+            this.txtPassword.Text = "null";
+            this.txtPassword.TextChanged += new System.EventHandler(this.txtPassword_TextChanged);
+            // 
+            // txtLoyaltyPointsBalance
+            // 
+            this.txtLoyaltyPointsBalance.Location = new System.Drawing.Point(263, 46);
+            this.txtLoyaltyPointsBalance.Name = "txtLoyaltyPointsBalance";
+            this.txtLoyaltyPointsBalance.ReadOnly = true;
+            this.txtLoyaltyPointsBalance.Size = new System.Drawing.Size(200, 20);
+            this.txtLoyaltyPointsBalance.TabIndex = 99;
+            this.txtLoyaltyPointsBalance.Text = "0";
+            this.txtLoyaltyPointsBalance.TextChanged += new System.EventHandler(this.txtLoyaltyPointsBalance_TextChanged);
+            // 
+            // txtUsername
+            // 
+            this.txtUsername.Location = new System.Drawing.Point(11, 105);
+            this.txtUsername.Name = "txtUsername";
+            this.txtUsername.Size = new System.Drawing.Size(200, 20);
+            this.txtUsername.TabIndex = 100;
+            this.txtUsername.Text = "null";
+            this.txtUsername.TextChanged += new System.EventHandler(this.txtUsername_TextChanged);
             // 
             // tabPage2
             // 
@@ -1179,7 +1251,7 @@
             this.customer_IDTextBox.ReadOnly = true;
             this.customer_IDTextBox.Size = new System.Drawing.Size(200, 20);
             this.customer_IDTextBox.TabIndex = 1;
-            this.customer_IDTextBox.TextChanged += new System.EventHandler(this.customer_IDTextBox_TextChanged);
+            this.customer_IDTextBox.TextChanged += new System.EventHandler(this.customer_EmailAddressTextBox_TextChanged);
             // 
             // customer_FirstNameTextBox1
             // 
@@ -1189,7 +1261,6 @@
             this.customer_FirstNameTextBox1.ReadOnly = true;
             this.customer_FirstNameTextBox1.Size = new System.Drawing.Size(200, 20);
             this.customer_FirstNameTextBox1.TabIndex = 3;
-            this.customer_FirstNameTextBox1.TextChanged += new System.EventHandler(this.customer_FirstNameTextBox1_TextChanged);
             // 
             // customer_LastNameTextBox1
             // 
@@ -1383,71 +1454,6 @@
             // 
             this.customerTableAdapter.ClearBeforeFill = true;
             // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.txtFirstName);
-            this.groupBox1.Controls.Add(this.maskedTextBox3);
-            this.groupBox1.Controls.Add(customer_FirstNameLabel);
-            this.groupBox1.Controls.Add(this.txtLastName);
-            this.groupBox1.Controls.Add(this.maskedTextBox1);
-            this.groupBox1.Controls.Add(customer_LastNameLabel);
-            this.groupBox1.Controls.Add(this.txtEmailAddress);
-            this.groupBox1.Controls.Add(customer_EmailAddressLabel);
-            this.groupBox1.Controls.Add(customer_IDNumberLabel);
-            this.groupBox1.Controls.Add(customer_PhoneNumberLabel);
-            this.groupBox1.Location = new System.Drawing.Point(27, 50);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(846, 146);
-            this.groupBox1.TabIndex = 110;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "ENTER PERSONAL DETAILS";
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.txtUnitNumber);
-            this.groupBox2.Controls.Add(this.maskedTextBox2);
-            this.groupBox2.Controls.Add(customer_UnitNumberLabel);
-            this.groupBox2.Controls.Add(this.txtUnitName);
-            this.groupBox2.Controls.Add(customer_UnitNameLabel);
-            this.groupBox2.Controls.Add(this.cmbProvince);
-            this.groupBox2.Controls.Add(this.txtStreetName);
-            this.groupBox2.Controls.Add(customer_CountryLabel);
-            this.groupBox2.Controls.Add(customer_StreetNumberLabel);
-            this.groupBox2.Controls.Add(this.txtStreetNumber);
-            this.groupBox2.Controls.Add(customer_StreetNameLabel);
-            this.groupBox2.Controls.Add(this.txtSuburb);
-            this.groupBox2.Controls.Add(customer_PostalCodeLabel);
-            this.groupBox2.Controls.Add(customer_SuburbLabel);
-            this.groupBox2.Controls.Add(this.txtCity);
-            this.groupBox2.Controls.Add(customer_CityLabel);
-            this.groupBox2.Controls.Add(customer_ProvinceLabel);
-            this.groupBox2.Location = new System.Drawing.Point(27, 226);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(846, 204);
-            this.groupBox2.TabIndex = 111;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "ENTER ADDRESS DETAILS";
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.txtStatus);
-            this.groupBox3.Controls.Add(this.dtpRegistrationDateTime);
-            this.groupBox3.Controls.Add(customer_StatusLabel);
-            this.groupBox3.Controls.Add(customer_RegistrationDateTimeLabel);
-            this.groupBox3.Controls.Add(this.txtPassword);
-            this.groupBox3.Controls.Add(this.txtLoyaltyPointsBalance);
-            this.groupBox3.Controls.Add(customer_PasswordLabel);
-            this.groupBox3.Controls.Add(this.txtUsername);
-            this.groupBox3.Controls.Add(customer_LoyaltyPointsBalanceLabel);
-            this.groupBox3.Controls.Add(customer_UsernameLabel);
-            this.groupBox3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.groupBox3.Location = new System.Drawing.Point(27, 469);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(846, 134);
-            this.groupBox3.TabIndex = 112;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "ACCOUNT DETAILS";
-            // 
             // ManageCustomerDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1463,6 +1469,12 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.customerBindingSource)).EndInit();
@@ -1470,12 +1482,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.customerDataGridView)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
 
         }

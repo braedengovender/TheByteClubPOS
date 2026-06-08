@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
 
 namespace TheByteClubPOS
 {
@@ -101,7 +102,7 @@ namespace TheByteClubPOS
                     customerDataGridView.Rows[e.RowIndex].DefaultCellStyle.ForeColor = Color.Black;
                 }
             }
-            }
+        }
 
         private void button1_Click_1(object sender, EventArgs e)
         {
@@ -114,21 +115,8 @@ namespace TheByteClubPOS
                 string email = txtEmailAddress.Text.Trim();
 
 
-                maskedTextBox1.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals; //this ensures only the numbers are extracted
-                if (!maskedTextBox1.MaskFull)
-                {
-                    MessageBox.Show("Please enter full ID number"); //ensuring the masked textbox is fully filled out before attempting to extract the value, as it is a required field and must be unique in the database. This prevents empty or incomplete values from being inserted, which would violate database constraints and cause errors.    
-                    return;
-                }
-                string idNumber = maskedTextBox1.Text; //using a masked textbox for the ID number allows us to enforce a specific format (e.g., 13 digits for a South African ID) and ensures that only numbers are used.
-
-                maskedTextBox3.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
-                if (!maskedTextBox3.MaskFull)
-                {
-                    MessageBox.Show("Please enter full phone number");
-                    return;
-                }
-                string phone = maskedTextBox3.Text;
+               
+                
 
                 // Nullable fields: If text is empty, pass null
                 string unitNumber = string.IsNullOrWhiteSpace(txtUnitNumber.Text) ? null : txtUnitNumber.Text.Trim();
@@ -137,13 +125,7 @@ namespace TheByteClubPOS
                 string streetName = txtStreetName.Text.Trim();
                 string suburb = txtSuburb.Text.Trim();
 
-                maskedTextBox2.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
-                if (!maskedTextBox2.MaskFull)
-                {
-                    MessageBox.Show("Please enter full postal code");
-                    return;
-                }
-                string postalCode = maskedTextBox2.Text;
+                
 
                 string city = txtCity.Text.Trim();
 
@@ -164,7 +146,7 @@ namespace TheByteClubPOS
                 string username = string.IsNullOrWhiteSpace(txtUsername.Text) ? null : txtUsername.Text.Trim();
                 string password = string.IsNullOrWhiteSpace(txtPassword.Text) ? null : txtPassword.Text.Trim();
 
-
+                string idNumber = maskedTextBox1.Text;
                 // 2. Basic validation for non-null database fields
                 if (string.IsNullOrEmpty(firstName) || string.IsNullOrEmpty(lastName) || string.IsNullOrEmpty(email) || string.IsNullOrEmpty(idNumber))
                 {
@@ -172,6 +154,8 @@ namespace TheByteClubPOS
                     return;
                 }
 
+                string phone = maskedTextBox3.Text;
+                string postalCode = maskedTextBox2.Text;
                 // 3. Call the TableAdapter Insert query method
                 this.customerTableAdapter.InsertQueryNewCustomer(firstName, lastName, email, idNumber, phone, unitNumber, unitName, streetNumber, streetName, suburb, postalCode, city, province, country, registrationDate.ToString(), loyaltyPoints, status, username, password);
                 this.customerTableAdapter.Fill(this.dsSamsLiqourShop.Customer);
@@ -208,28 +192,28 @@ namespace TheByteClubPOS
         {
             DateTime selectedDate = customer_RegistrationDateTimeDateTimePicker.Value;
 
-         customerTableAdapter.UpdateQueryCustomerDetails(
-    customer_FirstNameTextBox1.Text,
-    customer_LastNameTextBox1.Text,
-    customer_EmailAddressTextBox.Text,
-    customer_IDNumberTextBox1.Text,
-    customer_PhoneNumberTextBox.Text,
-    customer_UnitNumberTextBox.Text,
-    customer_UnitNameTextBox.Text,
-    customer_StreetNumberTextBox.Text,
-    customer_StreetNameTextBox.Text,
-    customer_SuburbTextBox.Text,
-    customer_PostalCodeTextBox.Text,
-    customer_CityTextBox.Text,
-    customer_ProvinceTextBox.Text,
-    customer_CountryTextBox.Text,
-    selectedDate.ToString(),
-    Convert.ToInt32(customer_LoyaltyPointsBalanceTextBox.Text),
-    customer_StatusTextBox1.Text,
-    customer_UsernameTextBox.Text,
-    customer_PasswordTextBox.Text,
-    Convert.ToInt32(customer_IDTextBox.Text)
-);
+            customerTableAdapter.UpdateQueryCustomerDetails(
+       customer_FirstNameTextBox1.Text,
+       customer_LastNameTextBox1.Text,
+       customer_EmailAddressTextBox.Text,
+       customer_IDNumberTextBox1.Text,
+       customer_PhoneNumberTextBox.Text,
+       customer_UnitNumberTextBox.Text,
+       customer_UnitNameTextBox.Text,
+       customer_StreetNumberTextBox.Text,
+       customer_StreetNameTextBox.Text,
+       customer_SuburbTextBox.Text,
+       customer_PostalCodeTextBox.Text,
+       customer_CityTextBox.Text,
+       customer_ProvinceTextBox.Text,
+       customer_CountryTextBox.Text,
+       selectedDate.ToString(),
+       Convert.ToInt32(customer_LoyaltyPointsBalanceTextBox.Text),
+       customer_StatusTextBox1.Text,
+       customer_UsernameTextBox.Text,
+       customer_PasswordTextBox.Text,
+       Convert.ToInt32(customer_IDTextBox.Text)
+   );
             customerTableAdapter.Fill(this.dsSamsLiqourShop.Customer);
             MessageBox.Show("Customer details updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
@@ -702,6 +686,90 @@ namespace TheByteClubPOS
         private void toolTip1_Popup(object sender, PopupEventArgs e)
         {
 
+        }
+
+
+
+        private bool IsValidEmail(string email)
+        {
+            string pattern = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
+
+            return Regex.IsMatch(email, pattern);
+        }
+
+        private void txtEmailAddress_Leave(object sender, EventArgs e)
+        {
+            if (!IsValidEmail(txtEmailAddress.Text.Trim()))
+            {
+                MessageBox.Show(
+                    "Please enter a valid email address.",
+                    "Invalid Email",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
+                txtEmailAddress.BackColor = Color.MistyRose;
+                txtEmailAddress.Focus();
+            }
+            else
+            {
+                txtEmailAddress.BackColor = Color.White;
+            }
+        }
+        private void maskedTextBox1_MouseClick(object sender, MouseEventArgs e)
+        {
+            maskedTextBox1.SelectionStart = 0;
+        }
+
+        private void txtFirstName_Leave(object sender, EventArgs e)
+        {
+            if (!txtFirstName.Text.All(c => char.IsLetter(c) || c == ' '))
+            {
+                MessageBox.Show("First Name may only contain letters.");
+                txtFirstName.Focus();
+            }
+        }
+
+        private void txtLastName_Leave(object sender, EventArgs e)
+        {
+            if (!txtLastName.Text.All(c => char.IsLetter(c) || c == ' '))
+            {
+                MessageBox.Show("Last Name may only contain letters.");
+                txtLastName.Focus();
+            }
+        }
+
+        private void maskedTextBox1_Leave(object sender, EventArgs e)
+        {
+            maskedTextBox1.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals; //this ensures only the numbers are extracted
+            if (!maskedTextBox1.MaskFull)
+            {
+                MessageBox.Show("Please enter full ID number"); //ensuring the masked textbox is fully filled out before attempting to extract the value, as it is a required field and must be unique in the database. This prevents empty or incomplete values from being inserted, which would violate database constraints and cause errors.    
+                return;
+            }
+            string idNumber = maskedTextBox1.Text; //using a masked textbox for the ID number allows us to enforce a specific format (e.g., 13 digits for a South African ID) and ensures that only numbers are used.
+
+        }
+
+        private void maskedTextBox3_Leave(object sender, EventArgs e)
+        {
+            maskedTextBox3.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
+            if (!maskedTextBox3.MaskFull)
+            {
+                MessageBox.Show("Please enter full phone number");
+                return;
+            }
+            string phone = maskedTextBox3.Text;
+        }
+
+        private void maskedTextBox2_Leave(object sender, EventArgs e)
+        {
+            maskedTextBox2.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
+            if (!maskedTextBox2.MaskFull)
+            {
+                MessageBox.Show("Please enter full postal code");
+                return;
+            }
+            string postalCode = maskedTextBox2.Text;
         }
     }
 }
