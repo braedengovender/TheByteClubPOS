@@ -29,11 +29,18 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(POSForm));
             this.productDataGridView = new System.Windows.Forms.DataGridView();
+            this.productIDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productImageDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productNameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productBrandDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productQuantityInStockDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productSellingPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.productBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dsSamsLiqourShop = new TheByteClubPOS.dsSamsLiqourShop();
             this.txtSearch = new System.Windows.Forms.TextBox();
@@ -48,7 +55,7 @@
             this.lblPaymentMethod = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.paymentMethodBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblAmountTendered = new System.Windows.Forms.Label();
             this.txtAmountTendered = new System.Windows.Forms.TextBox();
             this.btnClearCart = new System.Windows.Forms.Button();
             this.btnCompleteSale = new System.Windows.Forms.Button();
@@ -81,20 +88,13 @@
             this.saleTableAdapter = new TheByteClubPOS.dsSamsLiqourShopTableAdapters.SaleTableAdapter();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.saleLineBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.saleLineTableAdapter = new TheByteClubPOS.dsSamsLiqourShopTableAdapters.SaleLineTableAdapter();
-            this.btnToggleTheme = new System.Windows.Forms.Button();
+            this.lblVatAmount = new System.Windows.Forms.Label();
             this.lblDiscount = new System.Windows.Forms.Label();
             this.lblDiscountAmount = new System.Windows.Forms.Label();
             this.lblVat = new System.Windows.Forms.Label();
-            this.lblVatAmount = new System.Windows.Forms.Label();
-            this.productIDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.productImageDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.productNameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.productBrandDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.productTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.productQuantityInStockDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.productSellingPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.saleLineBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.saleLineTableAdapter = new TheByteClubPOS.dsSamsLiqourShopTableAdapters.SaleLineTableAdapter();
+            this.btnToggleTheme = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.productDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsSamsLiqourShop)).BeginInit();
@@ -134,6 +134,69 @@
             this.productDataGridView.TabIndex = 1;
             this.productDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.productDataGridView_CellContentClick);
             this.productDataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.productDataGridView_CellDoubleClick);
+            // 
+            // productIDDataGridViewTextBoxColumn1
+            // 
+            this.productIDDataGridViewTextBoxColumn1.DataPropertyName = "Product_ID";
+            this.productIDDataGridViewTextBoxColumn1.HeaderText = "Product_ID";
+            this.productIDDataGridViewTextBoxColumn1.Name = "productIDDataGridViewTextBoxColumn1";
+            this.productIDDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.productIDDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // productImageDataGridViewTextBoxColumn
+            // 
+            this.productImageDataGridViewTextBoxColumn.DataPropertyName = "Product_Image";
+            this.productImageDataGridViewTextBoxColumn.HeaderText = "Product_Image";
+            this.productImageDataGridViewTextBoxColumn.Name = "productImageDataGridViewTextBoxColumn";
+            this.productImageDataGridViewTextBoxColumn.ReadOnly = true;
+            this.productImageDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // productNameDataGridViewTextBoxColumn1
+            // 
+            this.productNameDataGridViewTextBoxColumn1.DataPropertyName = "Product_Name";
+            this.productNameDataGridViewTextBoxColumn1.HeaderText = "Product";
+            this.productNameDataGridViewTextBoxColumn1.Name = "productNameDataGridViewTextBoxColumn1";
+            this.productNameDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.productNameDataGridViewTextBoxColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.productNameDataGridViewTextBoxColumn1.Width = 242;
+            // 
+            // productBrandDataGridViewTextBoxColumn
+            // 
+            this.productBrandDataGridViewTextBoxColumn.DataPropertyName = "Product_Brand";
+            this.productBrandDataGridViewTextBoxColumn.HeaderText = "Product_Brand";
+            this.productBrandDataGridViewTextBoxColumn.Name = "productBrandDataGridViewTextBoxColumn";
+            this.productBrandDataGridViewTextBoxColumn.ReadOnly = true;
+            this.productBrandDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // productTypeDataGridViewTextBoxColumn
+            // 
+            this.productTypeDataGridViewTextBoxColumn.DataPropertyName = "Product_Type";
+            this.productTypeDataGridViewTextBoxColumn.HeaderText = "Product_Type";
+            this.productTypeDataGridViewTextBoxColumn.Name = "productTypeDataGridViewTextBoxColumn";
+            this.productTypeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.productTypeDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // productQuantityInStockDataGridViewTextBoxColumn
+            // 
+            this.productQuantityInStockDataGridViewTextBoxColumn.DataPropertyName = "Product_QuantityInStock";
+            this.productQuantityInStockDataGridViewTextBoxColumn.HeaderText = "Quantity in Stock";
+            this.productQuantityInStockDataGridViewTextBoxColumn.Name = "productQuantityInStockDataGridViewTextBoxColumn";
+            this.productQuantityInStockDataGridViewTextBoxColumn.ReadOnly = true;
+            this.productQuantityInStockDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.productQuantityInStockDataGridViewTextBoxColumn.Width = 120;
+            // 
+            // productSellingPriceDataGridViewTextBoxColumn
+            // 
+            this.productSellingPriceDataGridViewTextBoxColumn.DataPropertyName = "Product_SellingPrice";
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle1.Format = "C2";
+            dataGridViewCellStyle1.NullValue = null;
+            this.productSellingPriceDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
+            this.productSellingPriceDataGridViewTextBoxColumn.HeaderText = "Price";
+            this.productSellingPriceDataGridViewTextBoxColumn.Name = "productSellingPriceDataGridViewTextBoxColumn";
+            this.productSellingPriceDataGridViewTextBoxColumn.ReadOnly = true;
+            this.productSellingPriceDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.productSellingPriceDataGridViewTextBoxColumn.Width = 120;
             // 
             // productBindingSource
             // 
@@ -279,17 +342,17 @@
             this.paymentMethodBindingSource.DataMember = "PaymentMethod";
             this.paymentMethodBindingSource.DataSource = this.dsSamsLiqourShop;
             // 
-            // label2
+            // lblAmountTendered
             // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(549, 566);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(170, 24);
-            this.label2.TabIndex = 16;
-            this.label2.Text = "Amount Tendered:";
+            this.lblAmountTendered.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblAmountTendered.AutoSize = true;
+            this.lblAmountTendered.BackColor = System.Drawing.Color.Transparent;
+            this.lblAmountTendered.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAmountTendered.Location = new System.Drawing.Point(549, 566);
+            this.lblAmountTendered.Name = "lblAmountTendered";
+            this.lblAmountTendered.Size = new System.Drawing.Size(170, 24);
+            this.lblAmountTendered.TabIndex = 16;
+            this.lblAmountTendered.Text = "Amount Tendered:";
             // 
             // txtAmountTendered
             // 
@@ -626,26 +689,16 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(558, 119);
             this.tableLayoutPanel2.TabIndex = 32;
             // 
-            // saleLineBindingSource
+            // lblVatAmount
             // 
-            this.saleLineBindingSource.DataMember = "SaleLine";
-            this.saleLineBindingSource.DataSource = this.dsSamsLiqourShop;
-            // 
-            // saleLineTableAdapter
-            // 
-            this.saleLineTableAdapter.ClearBeforeFill = true;
-            // 
-            // btnToggleTheme
-            // 
-            this.btnToggleTheme.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnToggleTheme.Location = new System.Drawing.Point(347, 606);
-            this.btnToggleTheme.Name = "btnToggleTheme";
-            this.btnToggleTheme.Size = new System.Drawing.Size(183, 44);
-            this.btnToggleTheme.TabIndex = 25;
-            this.btnToggleTheme.Text = "Change to Dark Mode";
-            this.btnToggleTheme.UseVisualStyleBackColor = true;
-            this.btnToggleTheme.Visible = false;
-            this.btnToggleTheme.Click += new System.EventHandler(this.btnToggleTheme_Click);
+            this.lblVatAmount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblVatAmount.AutoSize = true;
+            this.lblVatAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblVatAmount.Location = new System.Drawing.Point(467, 66);
+            this.lblVatAmount.Name = "lblVatAmount";
+            this.lblVatAmount.Size = new System.Drawing.Size(88, 24);
+            this.lblVatAmount.TabIndex = 17;
+            this.lblVatAmount.Text = "R0000.00";
             // 
             // lblDiscount
             // 
@@ -680,79 +733,26 @@
             this.lblVat.TabIndex = 16;
             this.lblVat.Text = "VAT (15%):";
             // 
-            // lblVatAmount
+            // saleLineBindingSource
             // 
-            this.lblVatAmount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblVatAmount.AutoSize = true;
-            this.lblVatAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblVatAmount.Location = new System.Drawing.Point(467, 66);
-            this.lblVatAmount.Name = "lblVatAmount";
-            this.lblVatAmount.Size = new System.Drawing.Size(88, 24);
-            this.lblVatAmount.TabIndex = 17;
-            this.lblVatAmount.Text = "R0000.00";
+            this.saleLineBindingSource.DataMember = "SaleLine";
+            this.saleLineBindingSource.DataSource = this.dsSamsLiqourShop;
             // 
-            // productIDDataGridViewTextBoxColumn1
+            // saleLineTableAdapter
             // 
-            this.productIDDataGridViewTextBoxColumn1.DataPropertyName = "Product_ID";
-            this.productIDDataGridViewTextBoxColumn1.HeaderText = "Product_ID";
-            this.productIDDataGridViewTextBoxColumn1.Name = "productIDDataGridViewTextBoxColumn1";
-            this.productIDDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.productIDDataGridViewTextBoxColumn1.Visible = false;
+            this.saleLineTableAdapter.ClearBeforeFill = true;
             // 
-            // productImageDataGridViewTextBoxColumn
+            // btnToggleTheme
             // 
-            this.productImageDataGridViewTextBoxColumn.DataPropertyName = "Product_Image";
-            this.productImageDataGridViewTextBoxColumn.HeaderText = "Product_Image";
-            this.productImageDataGridViewTextBoxColumn.Name = "productImageDataGridViewTextBoxColumn";
-            this.productImageDataGridViewTextBoxColumn.ReadOnly = true;
-            this.productImageDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // productNameDataGridViewTextBoxColumn1
-            // 
-            this.productNameDataGridViewTextBoxColumn1.DataPropertyName = "Product_Name";
-            this.productNameDataGridViewTextBoxColumn1.HeaderText = "Product";
-            this.productNameDataGridViewTextBoxColumn1.Name = "productNameDataGridViewTextBoxColumn1";
-            this.productNameDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.productNameDataGridViewTextBoxColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.productNameDataGridViewTextBoxColumn1.Width = 242;
-            // 
-            // productBrandDataGridViewTextBoxColumn
-            // 
-            this.productBrandDataGridViewTextBoxColumn.DataPropertyName = "Product_Brand";
-            this.productBrandDataGridViewTextBoxColumn.HeaderText = "Product_Brand";
-            this.productBrandDataGridViewTextBoxColumn.Name = "productBrandDataGridViewTextBoxColumn";
-            this.productBrandDataGridViewTextBoxColumn.ReadOnly = true;
-            this.productBrandDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // productTypeDataGridViewTextBoxColumn
-            // 
-            this.productTypeDataGridViewTextBoxColumn.DataPropertyName = "Product_Type";
-            this.productTypeDataGridViewTextBoxColumn.HeaderText = "Product_Type";
-            this.productTypeDataGridViewTextBoxColumn.Name = "productTypeDataGridViewTextBoxColumn";
-            this.productTypeDataGridViewTextBoxColumn.ReadOnly = true;
-            this.productTypeDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // productQuantityInStockDataGridViewTextBoxColumn
-            // 
-            this.productQuantityInStockDataGridViewTextBoxColumn.DataPropertyName = "Product_QuantityInStock";
-            this.productQuantityInStockDataGridViewTextBoxColumn.HeaderText = "Quantity in Stock";
-            this.productQuantityInStockDataGridViewTextBoxColumn.Name = "productQuantityInStockDataGridViewTextBoxColumn";
-            this.productQuantityInStockDataGridViewTextBoxColumn.ReadOnly = true;
-            this.productQuantityInStockDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.productQuantityInStockDataGridViewTextBoxColumn.Width = 120;
-            // 
-            // productSellingPriceDataGridViewTextBoxColumn
-            // 
-            this.productSellingPriceDataGridViewTextBoxColumn.DataPropertyName = "Product_SellingPrice";
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle1.Format = "C2";
-            dataGridViewCellStyle1.NullValue = null;
-            this.productSellingPriceDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
-            this.productSellingPriceDataGridViewTextBoxColumn.HeaderText = "Price";
-            this.productSellingPriceDataGridViewTextBoxColumn.Name = "productSellingPriceDataGridViewTextBoxColumn";
-            this.productSellingPriceDataGridViewTextBoxColumn.ReadOnly = true;
-            this.productSellingPriceDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.productSellingPriceDataGridViewTextBoxColumn.Width = 120;
+            this.btnToggleTheme.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnToggleTheme.Location = new System.Drawing.Point(347, 606);
+            this.btnToggleTheme.Name = "btnToggleTheme";
+            this.btnToggleTheme.Size = new System.Drawing.Size(183, 44);
+            this.btnToggleTheme.TabIndex = 25;
+            this.btnToggleTheme.Text = "Change to Dark Mode";
+            this.btnToggleTheme.UseVisualStyleBackColor = true;
+            this.btnToggleTheme.Visible = false;
+            this.btnToggleTheme.Click += new System.EventHandler(this.btnToggleTheme_Click);
             // 
             // POSForm
             // 
@@ -778,7 +778,7 @@
             this.Controls.Add(this.btnCompleteSale);
             this.Controls.Add(this.btnClearCart);
             this.Controls.Add(this.txtAmountTendered);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lblAmountTendered);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.lblPaymentMethod);
             this.Controls.Add(this.lblItemCount);
@@ -826,7 +826,7 @@
         private System.Windows.Forms.Label lblTotal;
         private System.Windows.Forms.Label lblPaymentMethod;
         private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblAmountTendered;
         private System.Windows.Forms.TextBox txtAmountTendered;
         private System.Windows.Forms.Button btnClearCart;
         private System.Windows.Forms.Button btnCompleteSale;

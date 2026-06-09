@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using static TheByteClubPOS.dsSamsLiqourShop;
+using Microsoft.VisualBasic; // Required for Interaction.InputBox
 
 namespace TheByteClubPOS
 {
@@ -25,6 +26,110 @@ namespace TheByteClubPOS
         { 
             get {  return btnToggleTheme; }
         }
+
+        private bool IsCashPaymentValid()
+        {
+            // If the payment method isn't Cash, skip validation entirely
+            if (!comboBox1.Text.Trim().Equals("Cash", StringComparison.OrdinalIgnoreCase))
+            {
+                return true;
+            }
+
+            // 1. Guard Check: Empty textbox
+            if (string.IsNullOrWhiteSpace(txtAmountTendered.Text))
+            {
+                MessageBox.Show("Please enter the amount of cash tendered by the customer.", "Tendered Amount Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtAmountTendered.Focus();
+                return false;
+            }
+
+            // 2. Guard Check: Invalid format
+            decimal amountTendered;
+            if (!decimal.TryParse(txtAmountTendered.Text.Trim(), out amountTendered))
+            {
+                MessageBox.Show("Invalid amount entered! Please type a valid cash number.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtAmountTendered.Focus();
+                return false;
+            }
+
+            // 3. Guard Check: Negative values
+            if (amountTendered < 0m)
+            {
+                MessageBox.Show("Tendered amount cannot be negative.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtAmountTendered.Focus();
+                return false;
+            }
+
+            // 4. Guard Check: Short Payment
+            decimal totalPayable = getTotal();
+            if (amountTendered < totalPayable)
+            {
+                decimal shortAmount = totalPayable - amountTendered;
+                MessageBox.Show($"Insufficient funds! The customer gave R{amountTendered.ToString("F2")}, but the total is R{totalPayable.ToString("F2")}.\nThey still owe: R{shortAmount.ToString("F2")}", "Short Payment", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                txtAmountTendered.Focus();
+                return false;
+            }
+
+            return true; // The numbers are good to go!
+        }
+        private bool IsCustomerOfAge()
+        {
+            // 1. Prompt the cashier to type in the customer's 13-digit SA ID number
+            string idNumber = Interaction.InputBox("Please enter the customer's 13-digit South African ID number for age verification:", "Age Verification", "");
+
+            // Clean up any accidental spaces typed by the cashier
+            idNumber = idNumber.Trim();
+
+            // 2. Validate basic length requirements
+            if (idNumber.Length != 13)
+            {
+                MessageBox.Show("Invalid ID number! It must be exactly 13 digits long.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+            try
+            {
+                // 3. Extract birth date components from the first 6 digits (YYMMDD)
+                int yearPart = Convert.ToInt32(idNumber.Substring(0, 2));
+                int month = Convert.ToInt32(idNumber.Substring(2, 2));
+                int day = Convert.ToInt32(idNumber.Substring(4, 2));
+
+                // 4. Determine the correct century for the birth year
+                // If year digits are less than or equal to current year (e.g., 26), it's 20xx. Otherwise, 19xx.
+                int currentYearTwoDigits = DateTime.Today.Year % 100; // e.g., 26
+                int fullBirthYear = (yearPart <= currentYearTwoDigits) ? (2000 + yearPart) : (1900 + yearPart);
+
+                // 5. Build the birth date object safely
+                DateTime birthDate = new DateTime(fullBirthYear, month, day);
+
+                // 6. Calculate age relative to today
+                int age = DateTime.Today.Year - birthDate.Year;
+
+                // Adjust age downward if the customer hasn't had their birthday yet this year
+                if (DateTime.Today < birthDate.AddYears(age))
+                {
+                    age--;
+                }
+
+                // 7. Check if they meet the legal liquor consumption threshold
+                if (age >= 18)
+                {
+                    return true; // Verification passed
+                }
+                else
+                {
+                    MessageBox.Show($"Customer is UNDERAGE! The customer is only {age} years old.", "Sale Blocked", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                    return false;
+                }
+            }
+            catch
+            {
+                // Catches conversion errors if someone types letters instead of numbers, or invalid dates like month 15
+                MessageBox.Show("Could not process ID number. Ensure it contains a valid date sequence.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+
         public int getItemCount()
         {
             int count = 0;
@@ -465,15 +570,43 @@ namespace TheByteClubPOS
             // 4. Activate amount tendered IF the option is "Cash" (case-insensitive check)
             if (comboBox1.Text.Trim().Equals("Cash", StringComparison.OrdinalIgnoreCase))
             {
+                txtAmountTendered.Visible = true;
+                lblAmountTendered.Visible = true;
                 txtAmountTendered.Enabled = true;
                 txtAmountTendered.BackColor = Color.White; // Highlighting it as active
                 txtAmountTendered.Focus();                 // Automatically place the cursor inside
+                lblAmountTendered.Text = "Amount Tendered:";
+            }
+            else if (comboBox1.Text.Trim().Equals("Card", StringComparison.OrdinalIgnoreCase))
+            {
+                txtAmountTendered.Enabled = false;
+                txtAmountTendered.Visible = false;
+                lblAmountTendered.Visible = false;
+
+            }
+            else if (comboBox1.Text.Trim().Equals("Loyalty Points", StringComparison.OrdinalIgnoreCase))
+            {
+                txtAmountTendered.Visible = true;
+                lblAmountTendered.Visible = true;
+                txtAmountTendered.Enabled = true;
+                txtAmountTendered.BackColor = Color.White; // Highlighting it as active
+                txtAmountTendered.Focus();
+                lblAmountTendered.Text = "Loyalty Points to Use:";
+            }
+            else if (comboBox1.Text.Trim().Equals("Voucher", StringComparison.OrdinalIgnoreCase))
+            {
+                txtAmountTendered.Visible = true;
+                lblAmountTendered.Visible = true;
+                txtAmountTendered.Enabled = true;
+                txtAmountTendered.BackColor = Color.White; // Highlighting it as active
+                txtAmountTendered.Focus();
+                lblAmountTendered.Text = "Voucher Number:";
             }
             else
             {
                 txtAmountTendered.Enabled = false;
                 txtAmountTendered.Text = "";
-                txtAmountTendered.BackColor = Color.LightGray; // Grayed out style visual cue
+                //txtAmountTendered.BackColor = Color.LightGray; // Grayed out style visual cue
 
                 // For non-cash transactions, Amount Tendered is automatically the exact total
                 //lblChangeAmount.Text = "R 0.00";
@@ -510,6 +643,17 @@ namespace TheByteClubPOS
                 return;
             }
 
+            // Cash & Tendered validation check
+            if (IsCashPaymentValid() == false)
+            {
+                return; // Stops the sale if cash calculations fail or money is short
+            }
+
+            if (IsCustomerOfAge() == false)
+            {
+                return; // Stops the sale immediately if underage or invalid ID
+            }
+
             if (currentCustomerID == null && !string.IsNullOrWhiteSpace(maskedTextBox1.Text.Replace("-", "").Trim()))
             {
                 // Programmatically trigger the lookup button click!
@@ -524,15 +668,38 @@ namespace TheByteClubPOS
             try
             {
                 int saleID = (int)saleTableAdapter.InsertQueryNewSale(currentCustomerID, currentEmployeeID, 1, null, DateTime.Now, getSubtotal(), getDiscountAmount(), getTotal(), loyaltyPointsEarned, "Completed");
-                MessageBox.Show("Sale completed successfully! ID: " + saleID + " Loyalty points earned: " + loyaltyPointsEarned, "Transaction Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                
                 
                 saveSaleLines(saleID);
                 updateStockQuantityInDatabase();
 
                 if (currentCustomerID != null)
-              
                 {
                     customerTableAdapter.UpdateQueryCustLoyaltyPoints(Convert.ToInt32(currentCustomerID), loyaltyPointsEarned);
+                }
+
+                // Sale is completely successful, now show change due to customer
+                if (comboBox1.Text.Trim().Equals("Cash", StringComparison.OrdinalIgnoreCase))
+                {
+                    decimal amountTendered = Convert.ToDecimal(txtAmountTendered.Text.Trim());
+                    decimal totalPayable = getTotal();
+                    decimal changeDue = amountTendered - totalPayable;
+
+                    if (changeDue > 0m)
+                    {
+                        MessageBox.Show($"\n\nTotal: R{totalPayable.ToString("F2")}\nTendered: R{amountTendered.ToString("F2")}\n\nCHANGE DUE: R{changeDue.ToString("F2")}", "Change Dispensation", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Exact change provided. No change due.", "Change Dispensation", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+
+                    MessageBox.Show("Sale completed successfully! ID: " + saleID + " Loyalty points earned: " + loyaltyPointsEarned, "Transaction Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    // Fallback success message for Card/Other payment types
+                    MessageBox.Show("Sale completed successfully! ID: " + saleID + " Loyalty points earned: " + loyaltyPointsEarned, "Transaction Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
                 DialogResult result = MessageBox.Show("Print receipt...", "Sale Completion", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
