@@ -141,9 +141,20 @@ namespace TheByteClubPOS
 
             employee_StatusComboBox.Text =
                 row.Employee_Status;
-            lblID.Text = row.Employee_ID.ToString();
+            lblID.Text = "Employee ID : " + row.Employee_ID.ToString();
             lblName.Text = row.Employee_FirstName + " " + row.Employee_LastName;
             lblStatus.Text = row.Employee_Status;
+
+            if (lblStatus.Text == "Active")
+            {
+                lblStatus.BackColor = Color.LightGreen;
+                lblStatus.ForeColor = Color.DarkGreen;
+            }
+            else
+            {
+                lblStatus.BackColor = Color.LightCoral;
+                lblStatus.ForeColor = Color.DarkRed;
+            }
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

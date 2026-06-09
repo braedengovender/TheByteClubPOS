@@ -23,6 +23,10 @@ namespace TheByteClubPOS
             this.employeeTableAdapter.Fill(this.dsSamsLiqourShop.Employee);
 
         }
+
+
+
+
         private void ApplySorting()
         {
             try
@@ -242,9 +246,10 @@ namespace TheByteClubPOS
                     selectedRow["Employee_ID"]);
 
             // Open Edit Form
-            UpdateEmployeesForm updateemployees =
-                new UpdateEmployeesForm(employeeID);
-            
+           UpdateEmployeesForm updateemployees =
+                new UpdateEmployeesForm(employeeID); 
+          
+
 
             updateemployees.ShowDialog();
 
