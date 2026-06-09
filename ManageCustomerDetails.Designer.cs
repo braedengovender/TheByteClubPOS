@@ -29,25 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.Label customer_FirstNameLabel;
-            System.Windows.Forms.Label customer_LastNameLabel;
-            System.Windows.Forms.Label customer_EmailAddressLabel;
-            System.Windows.Forms.Label customer_IDNumberLabel;
-            System.Windows.Forms.Label customer_PhoneNumberLabel;
-            System.Windows.Forms.Label customer_UnitNumberLabel;
-            System.Windows.Forms.Label customer_UnitNameLabel;
-            System.Windows.Forms.Label customer_StreetNumberLabel;
-            System.Windows.Forms.Label customer_StreetNameLabel;
-            System.Windows.Forms.Label customer_SuburbLabel;
-            System.Windows.Forms.Label customer_PostalCodeLabel;
-            System.Windows.Forms.Label customer_CityLabel;
-            System.Windows.Forms.Label customer_ProvinceLabel;
-            System.Windows.Forms.Label customer_CountryLabel;
-            System.Windows.Forms.Label customer_RegistrationDateTimeLabel;
-            System.Windows.Forms.Label customer_LoyaltyPointsBalanceLabel;
-            System.Windows.Forms.Label customer_StatusLabel;
-            System.Windows.Forms.Label customer_UsernameLabel;
-            System.Windows.Forms.Label customer_PasswordLabel;
             System.Windows.Forms.Label customer_FirstNameLabel2;
             System.Windows.Forms.Label customer_LastNameLabel2;
             System.Windows.Forms.Label customer_IDNumberLabel2;
@@ -69,17 +50,33 @@
             System.Windows.Forms.Label customer_PasswordLabel1;
             System.Windows.Forms.Label label11;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ManageCustomerDetails));
+            System.Windows.Forms.Label label14;
+            System.Windows.Forms.Label label15;
+            System.Windows.Forms.Label label16;
+            System.Windows.Forms.Label label17;
+            System.Windows.Forms.Label label18;
+            System.Windows.Forms.Label label20;
+            System.Windows.Forms.Label label21;
+            System.Windows.Forms.Label label22;
+            System.Windows.Forms.Label label23;
+            System.Windows.Forms.Label label24;
+            System.Windows.Forms.Label label25;
+            System.Windows.Forms.Label label26;
+            System.Windows.Forms.Label label27;
+            System.Windows.Forms.Label label28;
+            System.Windows.Forms.Label label30;
+            System.Windows.Forms.Label label31;
+            System.Windows.Forms.Label label32;
+            System.Windows.Forms.Label label33;
+            System.Windows.Forms.Label label34;
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.button1 = new System.Windows.Forms.Button();
             this.txtCountry = new System.Windows.Forms.TextBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtFirstName = new System.Windows.Forms.TextBox();
             this.maskedTextBox3 = new System.Windows.Forms.MaskedTextBox();
             this.txtLastName = new System.Windows.Forms.TextBox();
             this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
             this.txtEmailAddress = new System.Windows.Forms.TextBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.txtUnitNumber = new System.Windows.Forms.TextBox();
             this.maskedTextBox2 = new System.Windows.Forms.MaskedTextBox();
             this.txtUnitName = new System.Windows.Forms.TextBox();
@@ -88,10 +85,8 @@
             this.txtStreetNumber = new System.Windows.Forms.TextBox();
             this.txtSuburb = new System.Windows.Forms.TextBox();
             this.txtCity = new System.Windows.Forms.TextBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.txtStatus = new System.Windows.Forms.TextBox();
             this.dtpRegistrationDateTime = new System.Windows.Forms.DateTimePicker();
-            this.txtPassword = new System.Windows.Forms.TextBox();
             this.txtLoyaltyPointsBalance = new System.Windows.Forms.TextBox();
             this.txtUsername = new System.Windows.Forms.TextBox();
             this.customerBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -142,25 +137,20 @@
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.tableAdapterManager = new TheByteClubPOS.dsSamsLiqourShopTableAdapters.TableAdapterManager();
             this.customerTableAdapter = new TheByteClubPOS.dsSamsLiqourShopTableAdapters.CustomerTableAdapter();
-            customer_FirstNameLabel = new System.Windows.Forms.Label();
-            customer_LastNameLabel = new System.Windows.Forms.Label();
-            customer_EmailAddressLabel = new System.Windows.Forms.Label();
-            customer_IDNumberLabel = new System.Windows.Forms.Label();
-            customer_PhoneNumberLabel = new System.Windows.Forms.Label();
-            customer_UnitNumberLabel = new System.Windows.Forms.Label();
-            customer_UnitNameLabel = new System.Windows.Forms.Label();
-            customer_StreetNumberLabel = new System.Windows.Forms.Label();
-            customer_StreetNameLabel = new System.Windows.Forms.Label();
-            customer_SuburbLabel = new System.Windows.Forms.Label();
-            customer_PostalCodeLabel = new System.Windows.Forms.Label();
-            customer_CityLabel = new System.Windows.Forms.Label();
-            customer_ProvinceLabel = new System.Windows.Forms.Label();
-            customer_CountryLabel = new System.Windows.Forms.Label();
-            customer_RegistrationDateTimeLabel = new System.Windows.Forms.Label();
-            customer_LoyaltyPointsBalanceLabel = new System.Windows.Forms.Label();
-            customer_StatusLabel = new System.Windows.Forms.Label();
-            customer_UsernameLabel = new System.Windows.Forms.Label();
-            customer_PasswordLabel = new System.Windows.Forms.Label();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.pictureBox8 = new System.Windows.Forms.PictureBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.txtPassword = new System.Windows.Forms.TextBox();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.pictureBox9 = new System.Windows.Forms.PictureBox();
+            this.label29 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             customer_FirstNameLabel2 = new System.Windows.Forms.Label();
             customer_LastNameLabel2 = new System.Windows.Forms.Label();
             customer_IDNumberLabel2 = new System.Windows.Forms.Label();
@@ -181,11 +171,27 @@
             customer_UsernameLabel1 = new System.Windows.Forms.Label();
             customer_PasswordLabel1 = new System.Windows.Forms.Label();
             label11 = new System.Windows.Forms.Label();
+            label14 = new System.Windows.Forms.Label();
+            label15 = new System.Windows.Forms.Label();
+            label16 = new System.Windows.Forms.Label();
+            label17 = new System.Windows.Forms.Label();
+            label18 = new System.Windows.Forms.Label();
+            label20 = new System.Windows.Forms.Label();
+            label21 = new System.Windows.Forms.Label();
+            label22 = new System.Windows.Forms.Label();
+            label23 = new System.Windows.Forms.Label();
+            label24 = new System.Windows.Forms.Label();
+            label25 = new System.Windows.Forms.Label();
+            label26 = new System.Windows.Forms.Label();
+            label27 = new System.Windows.Forms.Label();
+            label28 = new System.Windows.Forms.Label();
+            label30 = new System.Windows.Forms.Label();
+            label31 = new System.Windows.Forms.Label();
+            label32 = new System.Windows.Forms.Label();
+            label33 = new System.Windows.Forms.Label();
+            label34 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.customerBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsSamsLiqourShop)).BeginInit();
             this.tabPage3.SuspendLayout();
@@ -199,197 +205,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            this.panel6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
+            this.panel7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
+            this.panel8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
+            this.panel9.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             this.SuspendLayout();
-            // 
-            // customer_FirstNameLabel
-            // 
-            customer_FirstNameLabel.AutoSize = true;
-            customer_FirstNameLabel.Location = new System.Drawing.Point(5, 32);
-            customer_FirstNameLabel.Name = "customer_FirstNameLabel";
-            customer_FirstNameLabel.Size = new System.Drawing.Size(60, 13);
-            customer_FirstNameLabel.TabIndex = 70;
-            customer_FirstNameLabel.Text = "First Name:";
-            customer_FirstNameLabel.Click += new System.EventHandler(this.customer_FirstNameLabel_Click);
-            // 
-            // customer_LastNameLabel
-            // 
-            customer_LastNameLabel.AutoSize = true;
-            customer_LastNameLabel.Location = new System.Drawing.Point(260, 32);
-            customer_LastNameLabel.Name = "customer_LastNameLabel";
-            customer_LastNameLabel.Size = new System.Drawing.Size(61, 13);
-            customer_LastNameLabel.TabIndex = 71;
-            customer_LastNameLabel.Text = "Last Name:";
-            customer_LastNameLabel.Click += new System.EventHandler(this.customer_LastNameLabel_Click);
-            // 
-            // customer_EmailAddressLabel
-            // 
-            customer_EmailAddressLabel.AutoSize = true;
-            customer_EmailAddressLabel.Location = new System.Drawing.Point(516, 32);
-            customer_EmailAddressLabel.Name = "customer_EmailAddressLabel";
-            customer_EmailAddressLabel.Size = new System.Drawing.Size(76, 13);
-            customer_EmailAddressLabel.TabIndex = 72;
-            customer_EmailAddressLabel.Text = "Email Address:";
-            customer_EmailAddressLabel.Click += new System.EventHandler(this.customer_EmailAddressLabel_Click);
-            // 
-            // customer_IDNumberLabel
-            // 
-            customer_IDNumberLabel.AutoSize = true;
-            customer_IDNumberLabel.Location = new System.Drawing.Point(6, 88);
-            customer_IDNumberLabel.Name = "customer_IDNumberLabel";
-            customer_IDNumberLabel.Size = new System.Drawing.Size(61, 13);
-            customer_IDNumberLabel.TabIndex = 73;
-            customer_IDNumberLabel.Text = "ID Number:";
-            customer_IDNumberLabel.Click += new System.EventHandler(this.customer_IDNumberLabel_Click);
-            // 
-            // customer_PhoneNumberLabel
-            // 
-            customer_PhoneNumberLabel.AutoSize = true;
-            customer_PhoneNumberLabel.Location = new System.Drawing.Point(259, 88);
-            customer_PhoneNumberLabel.Name = "customer_PhoneNumberLabel";
-            customer_PhoneNumberLabel.Size = new System.Drawing.Size(81, 13);
-            customer_PhoneNumberLabel.TabIndex = 74;
-            customer_PhoneNumberLabel.Text = "Phone Number:";
-            customer_PhoneNumberLabel.Click += new System.EventHandler(this.customer_PhoneNumberLabel_Click);
-            // 
-            // customer_UnitNumberLabel
-            // 
-            customer_UnitNumberLabel.AutoSize = true;
-            customer_UnitNumberLabel.Location = new System.Drawing.Point(7, 39);
-            customer_UnitNumberLabel.Name = "customer_UnitNumberLabel";
-            customer_UnitNumberLabel.Size = new System.Drawing.Size(69, 13);
-            customer_UnitNumberLabel.TabIndex = 75;
-            customer_UnitNumberLabel.Text = "Unit Number:";
-            customer_UnitNumberLabel.Click += new System.EventHandler(this.customer_UnitNumberLabel_Click);
-            // 
-            // customer_UnitNameLabel
-            // 
-            customer_UnitNameLabel.AutoSize = true;
-            customer_UnitNameLabel.Location = new System.Drawing.Point(261, 39);
-            customer_UnitNameLabel.Name = "customer_UnitNameLabel";
-            customer_UnitNameLabel.Size = new System.Drawing.Size(60, 13);
-            customer_UnitNameLabel.TabIndex = 76;
-            customer_UnitNameLabel.Text = "Unit Name:";
-            customer_UnitNameLabel.Click += new System.EventHandler(this.customer_UnitNameLabel_Click);
-            // 
-            // customer_StreetNumberLabel
-            // 
-            customer_StreetNumberLabel.AutoSize = true;
-            customer_StreetNumberLabel.Location = new System.Drawing.Point(518, 39);
-            customer_StreetNumberLabel.Name = "customer_StreetNumberLabel";
-            customer_StreetNumberLabel.Size = new System.Drawing.Size(78, 13);
-            customer_StreetNumberLabel.TabIndex = 77;
-            customer_StreetNumberLabel.Text = "Street Number:";
-            customer_StreetNumberLabel.Click += new System.EventHandler(this.customer_StreetNumberLabel_Click);
-            // 
-            // customer_StreetNameLabel
-            // 
-            customer_StreetNameLabel.AutoSize = true;
-            customer_StreetNameLabel.Location = new System.Drawing.Point(8, 91);
-            customer_StreetNameLabel.Name = "customer_StreetNameLabel";
-            customer_StreetNameLabel.Size = new System.Drawing.Size(69, 13);
-            customer_StreetNameLabel.TabIndex = 78;
-            customer_StreetNameLabel.Text = "Street Name:";
-            customer_StreetNameLabel.Click += new System.EventHandler(this.customer_StreetNameLabel_Click);
-            // 
-            // customer_SuburbLabel
-            // 
-            customer_SuburbLabel.AutoSize = true;
-            customer_SuburbLabel.Location = new System.Drawing.Point(262, 91);
-            customer_SuburbLabel.Name = "customer_SuburbLabel";
-            customer_SuburbLabel.Size = new System.Drawing.Size(44, 13);
-            customer_SuburbLabel.TabIndex = 79;
-            customer_SuburbLabel.Text = "Suburb:";
-            customer_SuburbLabel.Click += new System.EventHandler(this.customer_SuburbLabel_Click);
-            // 
-            // customer_PostalCodeLabel
-            // 
-            customer_PostalCodeLabel.AutoSize = true;
-            customer_PostalCodeLabel.Location = new System.Drawing.Point(519, 91);
-            customer_PostalCodeLabel.Name = "customer_PostalCodeLabel";
-            customer_PostalCodeLabel.Size = new System.Drawing.Size(67, 13);
-            customer_PostalCodeLabel.TabIndex = 80;
-            customer_PostalCodeLabel.Text = "Postal Code:";
-            customer_PostalCodeLabel.Click += new System.EventHandler(this.customer_PostalCodeLabel_Click);
-            // 
-            // customer_CityLabel
-            // 
-            customer_CityLabel.AutoSize = true;
-            customer_CityLabel.Location = new System.Drawing.Point(10, 147);
-            customer_CityLabel.Name = "customer_CityLabel";
-            customer_CityLabel.Size = new System.Drawing.Size(27, 13);
-            customer_CityLabel.TabIndex = 81;
-            customer_CityLabel.Text = "City:";
-            customer_CityLabel.Click += new System.EventHandler(this.customer_CityLabel_Click);
-            // 
-            // customer_ProvinceLabel
-            // 
-            customer_ProvinceLabel.AutoSize = true;
-            customer_ProvinceLabel.Location = new System.Drawing.Point(262, 147);
-            customer_ProvinceLabel.Name = "customer_ProvinceLabel";
-            customer_ProvinceLabel.Size = new System.Drawing.Size(52, 13);
-            customer_ProvinceLabel.TabIndex = 82;
-            customer_ProvinceLabel.Text = "Province:";
-            customer_ProvinceLabel.Click += new System.EventHandler(this.customer_ProvinceLabel_Click);
-            // 
-            // customer_CountryLabel
-            // 
-            customer_CountryLabel.AutoSize = true;
-            customer_CountryLabel.Location = new System.Drawing.Point(517, 149);
-            customer_CountryLabel.Name = "customer_CountryLabel";
-            customer_CountryLabel.Size = new System.Drawing.Size(46, 13);
-            customer_CountryLabel.TabIndex = 83;
-            customer_CountryLabel.Text = "Country:";
-            customer_CountryLabel.Click += new System.EventHandler(this.customer_CountryLabel_Click);
-            // 
-            // customer_RegistrationDateTimeLabel
-            // 
-            customer_RegistrationDateTimeLabel.AutoSize = true;
-            customer_RegistrationDateTimeLabel.Location = new System.Drawing.Point(10, 30);
-            customer_RegistrationDateTimeLabel.Name = "customer_RegistrationDateTimeLabel";
-            customer_RegistrationDateTimeLabel.Size = new System.Drawing.Size(140, 13);
-            customer_RegistrationDateTimeLabel.TabIndex = 84;
-            customer_RegistrationDateTimeLabel.Text = "Registration Date And Time:";
-            customer_RegistrationDateTimeLabel.Click += new System.EventHandler(this.customer_RegistrationDateTimeLabel_Click);
-            // 
-            // customer_LoyaltyPointsBalanceLabel
-            // 
-            customer_LoyaltyPointsBalanceLabel.AutoSize = true;
-            customer_LoyaltyPointsBalanceLabel.Location = new System.Drawing.Point(261, 29);
-            customer_LoyaltyPointsBalanceLabel.Name = "customer_LoyaltyPointsBalanceLabel";
-            customer_LoyaltyPointsBalanceLabel.Size = new System.Drawing.Size(114, 13);
-            customer_LoyaltyPointsBalanceLabel.TabIndex = 85;
-            customer_LoyaltyPointsBalanceLabel.Text = "Loyalty Points Balance";
-            customer_LoyaltyPointsBalanceLabel.Click += new System.EventHandler(this.customer_LoyaltyPointsBalanceLabel_Click);
-            // 
-            // customer_StatusLabel
-            // 
-            customer_StatusLabel.AutoSize = true;
-            customer_StatusLabel.Location = new System.Drawing.Point(518, 30);
-            customer_StatusLabel.Name = "customer_StatusLabel";
-            customer_StatusLabel.Size = new System.Drawing.Size(40, 13);
-            customer_StatusLabel.TabIndex = 86;
-            customer_StatusLabel.Text = "Status:";
-            customer_StatusLabel.Click += new System.EventHandler(this.customer_StatusLabel_Click);
-            // 
-            // customer_UsernameLabel
-            // 
-            customer_UsernameLabel.AutoSize = true;
-            customer_UsernameLabel.Location = new System.Drawing.Point(8, 89);
-            customer_UsernameLabel.Name = "customer_UsernameLabel";
-            customer_UsernameLabel.Size = new System.Drawing.Size(58, 13);
-            customer_UsernameLabel.TabIndex = 87;
-            customer_UsernameLabel.Text = "Username:";
-            customer_UsernameLabel.Click += new System.EventHandler(this.customer_UsernameLabel_Click);
-            // 
-            // customer_PasswordLabel
-            // 
-            customer_PasswordLabel.AutoSize = true;
-            customer_PasswordLabel.Location = new System.Drawing.Point(262, 89);
-            customer_PasswordLabel.Name = "customer_PasswordLabel";
-            customer_PasswordLabel.Size = new System.Drawing.Size(56, 13);
-            customer_PasswordLabel.TabIndex = 88;
-            customer_PasswordLabel.Text = "Password:";
-            customer_PasswordLabel.Click += new System.EventHandler(this.customer_PasswordLabel_Click);
             // 
             // customer_FirstNameLabel2
             // 
@@ -608,10 +432,10 @@
             this.tabPage1.BackgroundImage = global::TheByteClubPOS.Properties.Resources.Background;
             this.tabPage1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.tabPage1.Controls.Add(this.button1);
-            this.tabPage1.Controls.Add(this.txtCountry);
-            this.tabPage1.Controls.Add(this.groupBox1);
-            this.tabPage1.Controls.Add(this.groupBox2);
-            this.tabPage1.Controls.Add(this.groupBox3);
+            this.tabPage1.Controls.Add(this.panel9);
+            this.tabPage1.Controls.Add(this.panel8);
+            this.tabPage1.Controls.Add(this.panel7);
+            this.tabPage1.Controls.Add(this.panel6);
             this.tabPage1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
@@ -622,74 +446,50 @@
             this.tabPage1.UseVisualStyleBackColor = true;
             this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(894, 318);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(224, 83);
-            this.button1.TabIndex = 105;
-            this.button1.Text = "ADD CUSTOMER";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
-            // 
             // txtCountry
             // 
-            this.txtCountry.Location = new System.Drawing.Point(545, 390);
+            this.txtCountry.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCountry.Location = new System.Drawing.Point(138, 196);
             this.txtCountry.Name = "txtCountry";
-            this.txtCountry.Size = new System.Drawing.Size(200, 20);
+            this.txtCountry.Size = new System.Drawing.Size(124, 26);
             this.txtCountry.TabIndex = 98;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.txtFirstName);
-            this.groupBox1.Controls.Add(this.maskedTextBox3);
-            this.groupBox1.Controls.Add(customer_FirstNameLabel);
-            this.groupBox1.Controls.Add(this.txtLastName);
-            this.groupBox1.Controls.Add(this.maskedTextBox1);
-            this.groupBox1.Controls.Add(customer_LastNameLabel);
-            this.groupBox1.Controls.Add(this.txtEmailAddress);
-            this.groupBox1.Controls.Add(customer_EmailAddressLabel);
-            this.groupBox1.Controls.Add(customer_IDNumberLabel);
-            this.groupBox1.Controls.Add(customer_PhoneNumberLabel);
-            this.groupBox1.Location = new System.Drawing.Point(27, 50);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(846, 146);
-            this.groupBox1.TabIndex = 110;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "ENTER PERSONAL DETAILS";
             // 
             // txtFirstName
             // 
-            this.txtFirstName.Location = new System.Drawing.Point(6, 48);
+            this.txtFirstName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFirstName.Location = new System.Drawing.Point(177, 73);
             this.txtFirstName.Name = "txtFirstName";
-            this.txtFirstName.Size = new System.Drawing.Size(200, 20);
+            this.txtFirstName.Size = new System.Drawing.Size(277, 26);
             this.txtFirstName.TabIndex = 89;
             this.txtFirstName.Leave += new System.EventHandler(this.txtFirstName_Leave);
             // 
             // maskedTextBox3
             // 
-            this.maskedTextBox3.Location = new System.Drawing.Point(262, 104);
+            this.maskedTextBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.maskedTextBox3.Location = new System.Drawing.Point(174, 66);
             this.maskedTextBox3.Mask = "(999) 000-0000";
             this.maskedTextBox3.Name = "maskedTextBox3";
-            this.maskedTextBox3.Size = new System.Drawing.Size(200, 20);
+            this.maskedTextBox3.Size = new System.Drawing.Size(277, 26);
             this.maskedTextBox3.TabIndex = 108;
             this.maskedTextBox3.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.maskedTextBox3_MaskInputRejected);
             this.maskedTextBox3.Leave += new System.EventHandler(this.maskedTextBox3_Leave);
             // 
             // txtLastName
             // 
-            this.txtLastName.Location = new System.Drawing.Point(262, 48);
+            this.txtLastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtLastName.Location = new System.Drawing.Point(177, 106);
             this.txtLastName.Name = "txtLastName";
-            this.txtLastName.Size = new System.Drawing.Size(200, 20);
+            this.txtLastName.Size = new System.Drawing.Size(277, 26);
             this.txtLastName.TabIndex = 90;
             this.txtLastName.Leave += new System.EventHandler(this.txtLastName_Leave);
             // 
             // maskedTextBox1
             // 
-            this.maskedTextBox1.Location = new System.Drawing.Point(6, 104);
+            this.maskedTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.maskedTextBox1.Location = new System.Drawing.Point(177, 136);
             this.maskedTextBox1.Mask = "0000000000000";
             this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(200, 20);
+            this.maskedTextBox1.Size = new System.Drawing.Size(277, 26);
             this.maskedTextBox1.TabIndex = 106;
             this.maskedTextBox1.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.maskedTextBox1_MaskInputRejected);
             this.maskedTextBox1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.maskedTextBox1_MouseClick);
@@ -697,64 +497,43 @@
             // 
             // txtEmailAddress
             // 
-            this.txtEmailAddress.Location = new System.Drawing.Point(518, 48);
+            this.txtEmailAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEmailAddress.Location = new System.Drawing.Point(174, 102);
             this.txtEmailAddress.Name = "txtEmailAddress";
-            this.txtEmailAddress.Size = new System.Drawing.Size(200, 20);
+            this.txtEmailAddress.Size = new System.Drawing.Size(277, 26);
             this.txtEmailAddress.TabIndex = 91;
             this.txtEmailAddress.Leave += new System.EventHandler(this.txtEmailAddress_Leave);
             // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.txtUnitNumber);
-            this.groupBox2.Controls.Add(this.maskedTextBox2);
-            this.groupBox2.Controls.Add(customer_UnitNumberLabel);
-            this.groupBox2.Controls.Add(this.txtUnitName);
-            this.groupBox2.Controls.Add(customer_UnitNameLabel);
-            this.groupBox2.Controls.Add(this.cmbProvince);
-            this.groupBox2.Controls.Add(this.txtStreetName);
-            this.groupBox2.Controls.Add(customer_CountryLabel);
-            this.groupBox2.Controls.Add(customer_StreetNumberLabel);
-            this.groupBox2.Controls.Add(this.txtStreetNumber);
-            this.groupBox2.Controls.Add(customer_StreetNameLabel);
-            this.groupBox2.Controls.Add(this.txtSuburb);
-            this.groupBox2.Controls.Add(customer_PostalCodeLabel);
-            this.groupBox2.Controls.Add(customer_SuburbLabel);
-            this.groupBox2.Controls.Add(this.txtCity);
-            this.groupBox2.Controls.Add(customer_CityLabel);
-            this.groupBox2.Controls.Add(customer_ProvinceLabel);
-            this.groupBox2.Location = new System.Drawing.Point(27, 226);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(846, 204);
-            this.groupBox2.TabIndex = 111;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "ENTER ADDRESS DETAILS";
-            // 
             // txtUnitNumber
             // 
-            this.txtUnitNumber.Location = new System.Drawing.Point(10, 54);
+            this.txtUnitNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUnitNumber.Location = new System.Drawing.Point(138, 57);
             this.txtUnitNumber.Name = "txtUnitNumber";
-            this.txtUnitNumber.Size = new System.Drawing.Size(200, 20);
+            this.txtUnitNumber.Size = new System.Drawing.Size(124, 26);
             this.txtUnitNumber.TabIndex = 92;
             // 
             // maskedTextBox2
             // 
-            this.maskedTextBox2.Location = new System.Drawing.Point(519, 107);
+            this.maskedTextBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.maskedTextBox2.Location = new System.Drawing.Point(137, 127);
             this.maskedTextBox2.Mask = "0000";
             this.maskedTextBox2.Name = "maskedTextBox2";
-            this.maskedTextBox2.Size = new System.Drawing.Size(200, 20);
+            this.maskedTextBox2.Size = new System.Drawing.Size(124, 26);
             this.maskedTextBox2.TabIndex = 107;
             this.maskedTextBox2.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.maskedTextBox2_MaskInputRejected_1);
             this.maskedTextBox2.Leave += new System.EventHandler(this.maskedTextBox2_Leave);
             // 
             // txtUnitName
             // 
-            this.txtUnitName.Location = new System.Drawing.Point(263, 54);
+            this.txtUnitName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUnitName.Location = new System.Drawing.Point(372, 58);
             this.txtUnitName.Name = "txtUnitName";
-            this.txtUnitName.Size = new System.Drawing.Size(200, 20);
+            this.txtUnitName.Size = new System.Drawing.Size(146, 26);
             this.txtUnitName.TabIndex = 93;
             // 
             // cmbProvince
             // 
+            this.cmbProvince.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbProvince.FormattingEnabled = true;
             this.cmbProvince.Items.AddRange(new object[] {
             "Eastern Cape",
@@ -766,99 +545,79 @@
             "North West",
             "Western Cape",
             "Free State"});
-            this.cmbProvince.Location = new System.Drawing.Point(262, 162);
+            this.cmbProvince.Location = new System.Drawing.Point(138, 161);
             this.cmbProvince.Name = "cmbProvince";
-            this.cmbProvince.Size = new System.Drawing.Size(199, 21);
+            this.cmbProvince.Size = new System.Drawing.Size(123, 28);
             this.cmbProvince.TabIndex = 103;
             this.cmbProvince.SelectedIndexChanged += new System.EventHandler(this.cmbProvince_SelectedIndexChanged);
             // 
             // txtStreetName
             // 
-            this.txtStreetName.Location = new System.Drawing.Point(10, 106);
+            this.txtStreetName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtStreetName.Location = new System.Drawing.Point(372, 97);
             this.txtStreetName.Name = "txtStreetName";
-            this.txtStreetName.Size = new System.Drawing.Size(200, 20);
+            this.txtStreetName.Size = new System.Drawing.Size(146, 26);
             this.txtStreetName.TabIndex = 95;
             // 
             // txtStreetNumber
             // 
-            this.txtStreetNumber.Location = new System.Drawing.Point(519, 54);
+            this.txtStreetNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtStreetNumber.Location = new System.Drawing.Point(138, 95);
             this.txtStreetNumber.Name = "txtStreetNumber";
-            this.txtStreetNumber.Size = new System.Drawing.Size(200, 20);
+            this.txtStreetNumber.Size = new System.Drawing.Size(124, 26);
             this.txtStreetNumber.TabIndex = 94;
             // 
             // txtSuburb
             // 
-            this.txtSuburb.Location = new System.Drawing.Point(262, 106);
+            this.txtSuburb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSuburb.Location = new System.Drawing.Point(372, 132);
             this.txtSuburb.Name = "txtSuburb";
-            this.txtSuburb.Size = new System.Drawing.Size(200, 20);
+            this.txtSuburb.Size = new System.Drawing.Size(146, 26);
             this.txtSuburb.TabIndex = 96;
             // 
             // txtCity
             // 
-            this.txtCity.Location = new System.Drawing.Point(10, 163);
+            this.txtCity.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCity.Location = new System.Drawing.Point(372, 166);
             this.txtCity.Name = "txtCity";
-            this.txtCity.Size = new System.Drawing.Size(200, 20);
+            this.txtCity.Size = new System.Drawing.Size(146, 26);
             this.txtCity.TabIndex = 97;
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.txtStatus);
-            this.groupBox3.Controls.Add(this.dtpRegistrationDateTime);
-            this.groupBox3.Controls.Add(customer_StatusLabel);
-            this.groupBox3.Controls.Add(customer_RegistrationDateTimeLabel);
-            this.groupBox3.Controls.Add(this.txtPassword);
-            this.groupBox3.Controls.Add(this.txtLoyaltyPointsBalance);
-            this.groupBox3.Controls.Add(customer_PasswordLabel);
-            this.groupBox3.Controls.Add(this.txtUsername);
-            this.groupBox3.Controls.Add(customer_LoyaltyPointsBalanceLabel);
-            this.groupBox3.Controls.Add(customer_UsernameLabel);
-            this.groupBox3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.groupBox3.Location = new System.Drawing.Point(27, 469);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(846, 134);
-            this.groupBox3.TabIndex = 112;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "ACCOUNT DETAILS";
             // 
             // txtStatus
             // 
-            this.txtStatus.Location = new System.Drawing.Point(520, 46);
+            this.txtStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtStatus.Location = new System.Drawing.Point(174, 131);
             this.txtStatus.Name = "txtStatus";
             this.txtStatus.ReadOnly = true;
-            this.txtStatus.Size = new System.Drawing.Size(200, 20);
+            this.txtStatus.Size = new System.Drawing.Size(277, 26);
             this.txtStatus.TabIndex = 109;
             this.txtStatus.Text = "Active";
             // 
             // dtpRegistrationDateTime
             // 
-            this.dtpRegistrationDateTime.Location = new System.Drawing.Point(10, 46);
+            this.dtpRegistrationDateTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpRegistrationDateTime.Location = new System.Drawing.Point(174, 61);
             this.dtpRegistrationDateTime.Name = "dtpRegistrationDateTime";
-            this.dtpRegistrationDateTime.Size = new System.Drawing.Size(200, 20);
+            this.dtpRegistrationDateTime.Size = new System.Drawing.Size(277, 26);
             this.dtpRegistrationDateTime.TabIndex = 104;
             this.dtpRegistrationDateTime.ValueChanged += new System.EventHandler(this.dtpRegistrationDateTime_ValueChanged);
             // 
-            // txtPassword
-            // 
-            this.txtPassword.Location = new System.Drawing.Point(264, 105);
-            this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(200, 20);
-            this.txtPassword.TabIndex = 101;
-            this.txtPassword.Text = "null";
-            // 
             // txtLoyaltyPointsBalance
             // 
-            this.txtLoyaltyPointsBalance.Location = new System.Drawing.Point(263, 46);
+            this.txtLoyaltyPointsBalance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtLoyaltyPointsBalance.Location = new System.Drawing.Point(174, 96);
             this.txtLoyaltyPointsBalance.Name = "txtLoyaltyPointsBalance";
             this.txtLoyaltyPointsBalance.ReadOnly = true;
-            this.txtLoyaltyPointsBalance.Size = new System.Drawing.Size(200, 20);
+            this.txtLoyaltyPointsBalance.Size = new System.Drawing.Size(277, 26);
             this.txtLoyaltyPointsBalance.TabIndex = 99;
             this.txtLoyaltyPointsBalance.Text = "0";
             // 
             // txtUsername
             // 
-            this.txtUsername.Location = new System.Drawing.Point(11, 105);
+            this.txtUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUsername.Location = new System.Drawing.Point(174, 165);
             this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(200, 20);
+            this.txtUsername.Size = new System.Drawing.Size(277, 26);
             this.txtUsername.TabIndex = 100;
             this.txtUsername.Text = "null";
             // 
@@ -1375,6 +1134,377 @@
             // 
             this.customerTableAdapter.ClearBeforeFill = true;
             // 
+            // panel6
+            // 
+            this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel6.Controls.Add(this.txtFirstName);
+            this.panel6.Controls.Add(this.pictureBox6);
+            this.panel6.Controls.Add(this.label13);
+            this.panel6.Controls.Add(label14);
+            this.panel6.Controls.Add(this.txtLastName);
+            this.panel6.Controls.Add(this.maskedTextBox1);
+            this.panel6.Controls.Add(label15);
+            this.panel6.Controls.Add(label16);
+            this.panel6.Location = new System.Drawing.Point(19, 24);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(525, 241);
+            this.panel6.TabIndex = 113;
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
+            this.pictureBox6.Location = new System.Drawing.Point(8, 6);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(44, 39);
+            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox6.TabIndex = 45;
+            this.pictureBox6.TabStop = false;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.SystemColors.MenuHighlight;
+            this.label13.Location = new System.Drawing.Point(48, 17);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(121, 20);
+            this.label13.TabIndex = 44;
+            this.label13.Text = "Personal Details";
+            // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label14.Location = new System.Drawing.Point(6, 144);
+            label14.Name = "label14";
+            label14.Size = new System.Drawing.Size(99, 21);
+            label14.TabIndex = 8;
+            label14.Text = "ID Number:";
+            // 
+            // label15
+            // 
+            label15.AutoSize = true;
+            label15.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label15.Location = new System.Drawing.Point(6, 111);
+            label15.Name = "label15";
+            label15.Size = new System.Drawing.Size(94, 21);
+            label15.TabIndex = 4;
+            label15.Text = "Last Name:";
+            // 
+            // label16
+            // 
+            label16.AutoSize = true;
+            label16.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label16.Location = new System.Drawing.Point(6, 78);
+            label16.Name = "label16";
+            label16.Size = new System.Drawing.Size(96, 21);
+            label16.TabIndex = 2;
+            label16.Text = "First Name:";
+            // 
+            // panel7
+            // 
+            this.panel7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel7.Controls.Add(this.maskedTextBox3);
+            this.panel7.Controls.Add(this.txtEmailAddress);
+            this.panel7.Controls.Add(this.pictureBox7);
+            this.panel7.Controls.Add(this.label12);
+            this.panel7.Controls.Add(label17);
+            this.panel7.Controls.Add(label18);
+            this.panel7.Location = new System.Drawing.Point(582, 24);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(525, 241);
+            this.panel7.TabIndex = 114;
+            // 
+            // pictureBox7
+            // 
+            this.pictureBox7.Image = global::TheByteClubPOS.Properties.Resources.ContactDetailsIcon;
+            this.pictureBox7.Location = new System.Drawing.Point(8, 6);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(44, 39);
+            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox7.TabIndex = 45;
+            this.pictureBox7.TabStop = false;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.SystemColors.MenuHighlight;
+            this.label12.Location = new System.Drawing.Point(48, 17);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(115, 20);
+            this.label12.TabIndex = 44;
+            this.label12.Text = "Contact Details";
+            // 
+            // label17
+            // 
+            label17.AutoSize = true;
+            label17.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label17.Location = new System.Drawing.Point(3, 107);
+            label17.Name = "label17";
+            label17.Size = new System.Drawing.Size(121, 21);
+            label17.TabIndex = 6;
+            label17.Text = "Email Address:";
+            // 
+            // label18
+            // 
+            label18.AutoSize = true;
+            label18.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label18.Location = new System.Drawing.Point(3, 68);
+            label18.Name = "label18";
+            label18.Size = new System.Drawing.Size(131, 21);
+            label18.TabIndex = 10;
+            label18.Text = "Phone Number:";
+            // 
+            // panel8
+            // 
+            this.panel8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel8.Controls.Add(this.maskedTextBox2);
+            this.panel8.Controls.Add(this.txtUnitNumber);
+            this.panel8.Controls.Add(this.pictureBox8);
+            this.panel8.Controls.Add(this.txtCountry);
+            this.panel8.Controls.Add(this.txtStreetNumber);
+            this.panel8.Controls.Add(this.txtUnitName);
+            this.panel8.Controls.Add(this.cmbProvince);
+            this.panel8.Controls.Add(this.label19);
+            this.panel8.Controls.Add(label20);
+            this.panel8.Controls.Add(label21);
+            this.panel8.Controls.Add(this.txtStreetName);
+            this.panel8.Controls.Add(label22);
+            this.panel8.Controls.Add(this.txtCity);
+            this.panel8.Controls.Add(this.txtSuburb);
+            this.panel8.Controls.Add(label23);
+            this.panel8.Controls.Add(label24);
+            this.panel8.Controls.Add(label25);
+            this.panel8.Controls.Add(label26);
+            this.panel8.Controls.Add(label27);
+            this.panel8.Controls.Add(label28);
+            this.panel8.Location = new System.Drawing.Point(19, 289);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(525, 241);
+            this.panel8.TabIndex = 115;
+            // 
+            // pictureBox8
+            // 
+            this.pictureBox8.Image = global::TheByteClubPOS.Properties.Resources.AddressDetailsIcon;
+            this.pictureBox8.Location = new System.Drawing.Point(8, 6);
+            this.pictureBox8.Name = "pictureBox8";
+            this.pictureBox8.Size = new System.Drawing.Size(44, 39);
+            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox8.TabIndex = 45;
+            this.pictureBox8.TabStop = false;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.ForeColor = System.Drawing.SystemColors.MenuHighlight;
+            this.label19.Location = new System.Drawing.Point(48, 17);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(118, 20);
+            this.label19.TabIndex = 44;
+            this.label19.Text = "Address Details";
+            // 
+            // label20
+            // 
+            label20.AutoSize = true;
+            label20.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label20.Location = new System.Drawing.Point(268, 98);
+            label20.Name = "label20";
+            label20.Size = new System.Drawing.Size(101, 20);
+            label20.TabIndex = 18;
+            label20.Text = "Street Name:";
+            // 
+            // label21
+            // 
+            label21.AutoSize = true;
+            label21.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label21.Location = new System.Drawing.Point(16, 98);
+            label21.Name = "label21";
+            label21.Size = new System.Drawing.Size(118, 20);
+            label21.TabIndex = 16;
+            label21.Text = "Street Number:";
+            // 
+            // label22
+            // 
+            label22.AutoSize = true;
+            label22.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label22.Location = new System.Drawing.Point(268, 61);
+            label22.Name = "label22";
+            label22.Size = new System.Drawing.Size(89, 20);
+            label22.TabIndex = 14;
+            label22.Text = "Unit Name:";
+            // 
+            // label23
+            // 
+            label23.AutoSize = true;
+            label23.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label23.Location = new System.Drawing.Point(16, 197);
+            label23.Name = "label23";
+            label23.Size = new System.Drawing.Size(70, 20);
+            label23.TabIndex = 28;
+            label23.Text = "Country:";
+            // 
+            // label24
+            // 
+            label24.AutoSize = true;
+            label24.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label24.Location = new System.Drawing.Point(16, 164);
+            label24.Name = "label24";
+            label24.Size = new System.Drawing.Size(73, 20);
+            label24.TabIndex = 26;
+            label24.Text = "Province:";
+            // 
+            // label25
+            // 
+            label25.AutoSize = true;
+            label25.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label25.Location = new System.Drawing.Point(268, 167);
+            label25.Name = "label25";
+            label25.Size = new System.Drawing.Size(40, 20);
+            label25.TabIndex = 24;
+            label25.Text = "City:";
+            // 
+            // label26
+            // 
+            label26.AutoSize = true;
+            label26.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label26.Location = new System.Drawing.Point(16, 130);
+            label26.Name = "label26";
+            label26.Size = new System.Drawing.Size(95, 20);
+            label26.TabIndex = 22;
+            label26.Text = "Postal Code:";
+            // 
+            // label27
+            // 
+            label27.AutoSize = true;
+            label27.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label27.Location = new System.Drawing.Point(268, 136);
+            label27.Name = "label27";
+            label27.Size = new System.Drawing.Size(63, 20);
+            label27.TabIndex = 20;
+            label27.Text = "Suburb:";
+            // 
+            // label28
+            // 
+            label28.AutoSize = true;
+            label28.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label28.Location = new System.Drawing.Point(16, 61);
+            label28.Name = "label28";
+            label28.Size = new System.Drawing.Size(106, 20);
+            label28.TabIndex = 12;
+            label28.Text = "Unit Number:";
+            // 
+            // txtPassword
+            // 
+            this.txtPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPassword.Location = new System.Drawing.Point(174, 190);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.Size = new System.Drawing.Size(277, 26);
+            this.txtPassword.TabIndex = 101;
+            this.txtPassword.Text = "null";
+            // 
+            // panel9
+            // 
+            this.panel9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel9.Controls.Add(this.pictureBox9);
+            this.panel9.Controls.Add(this.txtStatus);
+            this.panel9.Controls.Add(this.txtPassword);
+            this.panel9.Controls.Add(this.label29);
+            this.panel9.Controls.Add(label30);
+            this.panel9.Controls.Add(this.txtUsername);
+            this.panel9.Controls.Add(label31);
+            this.panel9.Controls.Add(this.dtpRegistrationDateTime);
+            this.panel9.Controls.Add(label32);
+            this.panel9.Controls.Add(label33);
+            this.panel9.Controls.Add(this.txtLoyaltyPointsBalance);
+            this.panel9.Controls.Add(label34);
+            this.panel9.Location = new System.Drawing.Point(582, 289);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(525, 241);
+            this.panel9.TabIndex = 116;
+            // 
+            // pictureBox9
+            // 
+            this.pictureBox9.Image = global::TheByteClubPOS.Properties.Resources.AccountDetailsIcon;
+            this.pictureBox9.Location = new System.Drawing.Point(8, 6);
+            this.pictureBox9.Name = "pictureBox9";
+            this.pictureBox9.Size = new System.Drawing.Size(44, 39);
+            this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox9.TabIndex = 51;
+            this.pictureBox9.TabStop = false;
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label29.ForeColor = System.Drawing.SystemColors.MenuHighlight;
+            this.label29.Location = new System.Drawing.Point(48, 17);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(119, 20);
+            this.label29.TabIndex = 50;
+            this.label29.Text = "Account Details";
+            // 
+            // label30
+            // 
+            label30.AutoSize = true;
+            label30.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label30.Location = new System.Drawing.Point(4, 60);
+            label30.Name = "label30";
+            label30.Size = new System.Drawing.Size(171, 20);
+            label30.TabIndex = 40;
+            label30.Text = "Registration DateTime:";
+            // 
+            // label31
+            // 
+            label31.AutoSize = true;
+            label31.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label31.Location = new System.Drawing.Point(4, 96);
+            label31.Name = "label31";
+            label31.Size = new System.Drawing.Size(170, 20);
+            label31.TabIndex = 42;
+            label31.Text = "Loyalty Points Balance:";
+            // 
+            // label32
+            // 
+            label32.AutoSize = true;
+            label32.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label32.Location = new System.Drawing.Point(4, 129);
+            label32.Name = "label32";
+            label32.Size = new System.Drawing.Size(129, 20);
+            label32.TabIndex = 44;
+            label32.Text = "Customer Status:";
+            // 
+            // label33
+            // 
+            label33.AutoSize = true;
+            label33.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label33.Location = new System.Drawing.Point(4, 163);
+            label33.Name = "label33";
+            label33.Size = new System.Drawing.Size(156, 20);
+            label33.TabIndex = 46;
+            label33.Text = "Customer Username:";
+            // 
+            // label34
+            // 
+            label34.AutoSize = true;
+            label34.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label34.Location = new System.Drawing.Point(4, 190);
+            label34.Name = "label34";
+            label34.Size = new System.Drawing.Size(152, 20);
+            label34.TabIndex = 48;
+            label34.Text = "Customer Password:";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(461, 540);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(224, 83);
+            this.button1.TabIndex = 117;
+            this.button1.Text = "ADD CUSTOMER";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_2);
+            // 
             // ManageCustomerDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1389,13 +1519,6 @@
             this.Load += new System.EventHandler(this.ManageCustomerDetails_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.customerBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsSamsLiqourShop)).EndInit();
             this.tabPage3.ResumeLayout(false);
@@ -1415,6 +1538,18 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            this.panel6.ResumeLayout(false);
+            this.panel6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
+            this.panel7.ResumeLayout(false);
+            this.panel7.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
+            this.panel8.ResumeLayout(false);
+            this.panel8.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
+            this.panel9.ResumeLayout(false);
+            this.panel9.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1426,10 +1561,8 @@
         private System.Windows.Forms.MaskedTextBox maskedTextBox3;
         private System.Windows.Forms.MaskedTextBox maskedTextBox2;
         private System.Windows.Forms.MaskedTextBox maskedTextBox1;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DateTimePicker dtpRegistrationDateTime;
         private System.Windows.Forms.ComboBox cmbProvince;
-        private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.TextBox txtUsername;
         private System.Windows.Forms.TextBox txtLoyaltyPointsBalance;
         private System.Windows.Forms.TextBox txtCountry;
@@ -1465,9 +1598,6 @@
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
@@ -1494,5 +1624,19 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox customer_IDTextBox;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.PictureBox pictureBox6;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.PictureBox pictureBox7;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.PictureBox pictureBox8;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.TextBox txtPassword;
+        private System.Windows.Forms.Panel panel9;
+        private System.Windows.Forms.PictureBox pictureBox9;
+        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.Button button1;
     }
 }
