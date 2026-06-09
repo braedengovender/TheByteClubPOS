@@ -48,10 +48,6 @@
             System.Windows.Forms.Label customer_StatusLabel;
             System.Windows.Forms.Label customer_UsernameLabel;
             System.Windows.Forms.Label customer_PasswordLabel;
-            System.Windows.Forms.Label customer_FirstNameLabel1;
-            System.Windows.Forms.Label customer_LastNameLabel1;
-            System.Windows.Forms.Label customer_IDNumberLabel1;
-            System.Windows.Forms.Label customer_StatusLabel1;
             System.Windows.Forms.Label customer_FirstNameLabel2;
             System.Windows.Forms.Label customer_LastNameLabel2;
             System.Windows.Forms.Label customer_IDNumberLabel2;
@@ -71,8 +67,8 @@
             System.Windows.Forms.Label customer_StatusLabel2;
             System.Windows.Forms.Label customer_UsernameLabel1;
             System.Windows.Forms.Label customer_PasswordLabel1;
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ManageCustomerDetails));
             System.Windows.Forms.Label label11;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ManageCustomerDetails));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.button1 = new System.Windows.Forms.Button();
@@ -98,37 +94,9 @@
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.txtLoyaltyPointsBalance = new System.Windows.Forms.TextBox();
             this.txtUsername = new System.Windows.Forms.TextBox();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.customer_StatusTextBox = new System.Windows.Forms.TextBox();
             this.customerBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dsSamsLiqourShop = new TheByteClubPOS.dsSamsLiqourShop();
-            this.customer_IDNumberTextBox = new System.Windows.Forms.TextBox();
-            this.customer_LastNameTextBox = new System.Windows.Forms.TextBox();
-            this.customer_FirstNameTextBox = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.customerDataGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.button4 = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -155,6 +123,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.customer_PhoneNumberTextBox = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.customer_IDTextBox = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
             this.customer_LastNameTextBox1 = new System.Windows.Forms.TextBox();
@@ -162,17 +131,17 @@
             this.customer_FirstNameTextBox1 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button4 = new System.Windows.Forms.Button();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.button3 = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.tableAdapterManager = new TheByteClubPOS.dsSamsLiqourShopTableAdapters.TableAdapterManager();
             this.customerTableAdapter = new TheByteClubPOS.dsSamsLiqourShopTableAdapters.CustomerTableAdapter();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.customer_IDTextBox = new System.Windows.Forms.TextBox();
             customer_FirstNameLabel = new System.Windows.Forms.Label();
             customer_LastNameLabel = new System.Windows.Forms.Label();
             customer_EmailAddressLabel = new System.Windows.Forms.Label();
@@ -192,10 +161,6 @@
             customer_StatusLabel = new System.Windows.Forms.Label();
             customer_UsernameLabel = new System.Windows.Forms.Label();
             customer_PasswordLabel = new System.Windows.Forms.Label();
-            customer_FirstNameLabel1 = new System.Windows.Forms.Label();
-            customer_LastNameLabel1 = new System.Windows.Forms.Label();
-            customer_IDNumberLabel1 = new System.Windows.Forms.Label();
-            customer_StatusLabel1 = new System.Windows.Forms.Label();
             customer_FirstNameLabel2 = new System.Windows.Forms.Label();
             customer_LastNameLabel2 = new System.Windows.Forms.Label();
             customer_IDNumberLabel2 = new System.Windows.Forms.Label();
@@ -221,10 +186,8 @@
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.customerBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsSamsLiqourShop)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.customerDataGridView)).BeginInit();
             this.tabPage3.SuspendLayout();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -428,241 +391,209 @@
             customer_PasswordLabel.Text = "Password:";
             customer_PasswordLabel.Click += new System.EventHandler(this.customer_PasswordLabel_Click);
             // 
-            // customer_FirstNameLabel1
-            // 
-            customer_FirstNameLabel1.AutoSize = true;
-            customer_FirstNameLabel1.Location = new System.Drawing.Point(371, 356);
-            customer_FirstNameLabel1.Name = "customer_FirstNameLabel1";
-            customer_FirstNameLabel1.Size = new System.Drawing.Size(107, 13);
-            customer_FirstNameLabel1.TabIndex = 110;
-            customer_FirstNameLabel1.Text = "Customer First Name:";
-            customer_FirstNameLabel1.Click += new System.EventHandler(this.customer_FirstNameLabel1_Click);
-            // 
-            // customer_LastNameLabel1
-            // 
-            customer_LastNameLabel1.AutoSize = true;
-            customer_LastNameLabel1.Location = new System.Drawing.Point(370, 384);
-            customer_LastNameLabel1.Name = "customer_LastNameLabel1";
-            customer_LastNameLabel1.Size = new System.Drawing.Size(108, 13);
-            customer_LastNameLabel1.TabIndex = 111;
-            customer_LastNameLabel1.Text = "Customer Last Name:";
-            customer_LastNameLabel1.Click += new System.EventHandler(this.customer_LastNameLabel1_Click);
-            // 
-            // customer_IDNumberLabel1
-            // 
-            customer_IDNumberLabel1.AutoSize = true;
-            customer_IDNumberLabel1.Location = new System.Drawing.Point(373, 410);
-            customer_IDNumberLabel1.Name = "customer_IDNumberLabel1";
-            customer_IDNumberLabel1.Size = new System.Drawing.Size(105, 13);
-            customer_IDNumberLabel1.TabIndex = 112;
-            customer_IDNumberLabel1.Text = "Customer IDNumber:";
-            customer_IDNumberLabel1.Click += new System.EventHandler(this.customer_IDNumberLabel1_Click);
-            // 
-            // customer_StatusLabel1
-            // 
-            customer_StatusLabel1.AutoSize = true;
-            customer_StatusLabel1.Location = new System.Drawing.Point(391, 436);
-            customer_StatusLabel1.Name = "customer_StatusLabel1";
-            customer_StatusLabel1.Size = new System.Drawing.Size(87, 13);
-            customer_StatusLabel1.TabIndex = 113;
-            customer_StatusLabel1.Text = "Customer Status:";
-            customer_StatusLabel1.Click += new System.EventHandler(this.customer_StatusLabel1_Click);
-            // 
             // customer_FirstNameLabel2
             // 
             customer_FirstNameLabel2.AutoSize = true;
-            customer_FirstNameLabel2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            customer_FirstNameLabel2.Location = new System.Drawing.Point(12, 78);
+            customer_FirstNameLabel2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            customer_FirstNameLabel2.Location = new System.Drawing.Point(14, 61);
             customer_FirstNameLabel2.Name = "customer_FirstNameLabel2";
-            customer_FirstNameLabel2.Size = new System.Drawing.Size(79, 17);
+            customer_FirstNameLabel2.Size = new System.Drawing.Size(96, 21);
             customer_FirstNameLabel2.TabIndex = 2;
             customer_FirstNameLabel2.Text = "First Name:";
             // 
             // customer_LastNameLabel2
             // 
             customer_LastNameLabel2.AutoSize = true;
-            customer_LastNameLabel2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            customer_LastNameLabel2.Location = new System.Drawing.Point(12, 111);
+            customer_LastNameLabel2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            customer_LastNameLabel2.Location = new System.Drawing.Point(14, 94);
             customer_LastNameLabel2.Name = "customer_LastNameLabel2";
-            customer_LastNameLabel2.Size = new System.Drawing.Size(77, 17);
+            customer_LastNameLabel2.Size = new System.Drawing.Size(94, 21);
             customer_LastNameLabel2.TabIndex = 4;
             customer_LastNameLabel2.Text = "Last Name:";
             // 
             // customer_IDNumberLabel2
             // 
             customer_IDNumberLabel2.AutoSize = true;
-            customer_IDNumberLabel2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            customer_IDNumberLabel2.Location = new System.Drawing.Point(12, 144);
+            customer_IDNumberLabel2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            customer_IDNumberLabel2.Location = new System.Drawing.Point(14, 127);
             customer_IDNumberLabel2.Name = "customer_IDNumberLabel2";
-            customer_IDNumberLabel2.Size = new System.Drawing.Size(81, 17);
+            customer_IDNumberLabel2.Size = new System.Drawing.Size(99, 21);
             customer_IDNumberLabel2.TabIndex = 8;
             customer_IDNumberLabel2.Text = "ID Number:";
             // 
             // customer_PhoneNumberLabel1
             // 
             customer_PhoneNumberLabel1.AutoSize = true;
-            customer_PhoneNumberLabel1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            customer_PhoneNumberLabel1.Location = new System.Drawing.Point(19, 79);
+            customer_PhoneNumberLabel1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            customer_PhoneNumberLabel1.Location = new System.Drawing.Point(19, 65);
             customer_PhoneNumberLabel1.Name = "customer_PhoneNumberLabel1";
-            customer_PhoneNumberLabel1.Size = new System.Drawing.Size(106, 17);
+            customer_PhoneNumberLabel1.Size = new System.Drawing.Size(131, 21);
             customer_PhoneNumberLabel1.TabIndex = 10;
             customer_PhoneNumberLabel1.Text = "Phone Number:";
             // 
             // customer_UnitNumberLabel1
             // 
             customer_UnitNumberLabel1.AutoSize = true;
-            customer_UnitNumberLabel1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            customer_UnitNumberLabel1.Location = new System.Drawing.Point(12, 55);
+            customer_UnitNumberLabel1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            customer_UnitNumberLabel1.Location = new System.Drawing.Point(16, 61);
             customer_UnitNumberLabel1.Name = "customer_UnitNumberLabel1";
-            customer_UnitNumberLabel1.Size = new System.Drawing.Size(93, 17);
+            customer_UnitNumberLabel1.Size = new System.Drawing.Size(106, 20);
             customer_UnitNumberLabel1.TabIndex = 12;
             customer_UnitNumberLabel1.Text = "Unit Number:";
             // 
             // customer_UnitNameLabel1
             // 
             customer_UnitNameLabel1.AutoSize = true;
-            customer_UnitNameLabel1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            customer_UnitNameLabel1.Location = new System.Drawing.Point(233, 55);
+            customer_UnitNameLabel1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            customer_UnitNameLabel1.Location = new System.Drawing.Point(268, 61);
             customer_UnitNameLabel1.Name = "customer_UnitNameLabel1";
-            customer_UnitNameLabel1.Size = new System.Drawing.Size(78, 17);
+            customer_UnitNameLabel1.Size = new System.Drawing.Size(89, 20);
             customer_UnitNameLabel1.TabIndex = 14;
             customer_UnitNameLabel1.Text = "Unit Name:";
             // 
             // customer_StreetNumberLabel1
             // 
             customer_StreetNumberLabel1.AutoSize = true;
-            customer_StreetNumberLabel1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            customer_StreetNumberLabel1.Location = new System.Drawing.Point(2, 94);
+            customer_StreetNumberLabel1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            customer_StreetNumberLabel1.Location = new System.Drawing.Point(16, 98);
             customer_StreetNumberLabel1.Name = "customer_StreetNumberLabel1";
-            customer_StreetNumberLabel1.Size = new System.Drawing.Size(103, 17);
+            customer_StreetNumberLabel1.Size = new System.Drawing.Size(118, 20);
             customer_StreetNumberLabel1.TabIndex = 16;
             customer_StreetNumberLabel1.Text = "Street Number:";
             // 
             // customer_StreetNameLabel1
             // 
             customer_StreetNameLabel1.AutoSize = true;
-            customer_StreetNameLabel1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            customer_StreetNameLabel1.Location = new System.Drawing.Point(223, 97);
+            customer_StreetNameLabel1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            customer_StreetNameLabel1.Location = new System.Drawing.Point(268, 98);
             customer_StreetNameLabel1.Name = "customer_StreetNameLabel1";
-            customer_StreetNameLabel1.Size = new System.Drawing.Size(88, 17);
+            customer_StreetNameLabel1.Size = new System.Drawing.Size(101, 20);
             customer_StreetNameLabel1.TabIndex = 18;
             customer_StreetNameLabel1.Text = "Street Name:";
             // 
             // customer_SuburbLabel1
             // 
             customer_SuburbLabel1.AutoSize = true;
-            customer_SuburbLabel1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            customer_SuburbLabel1.Location = new System.Drawing.Point(255, 133);
+            customer_SuburbLabel1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            customer_SuburbLabel1.Location = new System.Drawing.Point(268, 136);
             customer_SuburbLabel1.Name = "customer_SuburbLabel1";
-            customer_SuburbLabel1.Size = new System.Drawing.Size(56, 17);
+            customer_SuburbLabel1.Size = new System.Drawing.Size(63, 20);
             customer_SuburbLabel1.TabIndex = 20;
             customer_SuburbLabel1.Text = "Suburb:";
             // 
             // customer_PostalCodeLabel1
             // 
             customer_PostalCodeLabel1.AutoSize = true;
-            customer_PostalCodeLabel1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            customer_PostalCodeLabel1.Location = new System.Drawing.Point(20, 133);
+            customer_PostalCodeLabel1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            customer_PostalCodeLabel1.Location = new System.Drawing.Point(16, 130);
             customer_PostalCodeLabel1.Name = "customer_PostalCodeLabel1";
-            customer_PostalCodeLabel1.Size = new System.Drawing.Size(85, 17);
+            customer_PostalCodeLabel1.Size = new System.Drawing.Size(95, 20);
             customer_PostalCodeLabel1.TabIndex = 22;
             customer_PostalCodeLabel1.Text = "Postal Code:";
             // 
             // customer_CityLabel1
             // 
             customer_CityLabel1.AutoSize = true;
-            customer_CityLabel1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            customer_CityLabel1.Location = new System.Drawing.Point(275, 167);
+            customer_CityLabel1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            customer_CityLabel1.Location = new System.Drawing.Point(268, 167);
             customer_CityLabel1.Name = "customer_CityLabel1";
-            customer_CityLabel1.Size = new System.Drawing.Size(36, 17);
+            customer_CityLabel1.Size = new System.Drawing.Size(40, 20);
             customer_CityLabel1.TabIndex = 24;
             customer_CityLabel1.Text = "City:";
             // 
             // customer_ProvinceLabel1
             // 
             customer_ProvinceLabel1.AutoSize = true;
-            customer_ProvinceLabel1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            customer_ProvinceLabel1.Location = new System.Drawing.Point(40, 167);
+            customer_ProvinceLabel1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            customer_ProvinceLabel1.Location = new System.Drawing.Point(16, 164);
             customer_ProvinceLabel1.Name = "customer_ProvinceLabel1";
-            customer_ProvinceLabel1.Size = new System.Drawing.Size(65, 17);
+            customer_ProvinceLabel1.Size = new System.Drawing.Size(73, 20);
             customer_ProvinceLabel1.TabIndex = 26;
             customer_ProvinceLabel1.Text = "Province:";
             // 
             // customer_CountryLabel1
             // 
             customer_CountryLabel1.AutoSize = true;
-            customer_CountryLabel1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            customer_CountryLabel1.Location = new System.Drawing.Point(42, 200);
+            customer_CountryLabel1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            customer_CountryLabel1.Location = new System.Drawing.Point(16, 197);
             customer_CountryLabel1.Name = "customer_CountryLabel1";
-            customer_CountryLabel1.Size = new System.Drawing.Size(62, 17);
+            customer_CountryLabel1.Size = new System.Drawing.Size(70, 20);
             customer_CountryLabel1.TabIndex = 28;
             customer_CountryLabel1.Text = "Country:";
             // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label6.Location = new System.Drawing.Point(19, 108);
+            label6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label6.Location = new System.Drawing.Point(19, 94);
             label6.Name = "label6";
-            label6.Size = new System.Drawing.Size(99, 17);
+            label6.Size = new System.Drawing.Size(121, 21);
             label6.TabIndex = 6;
             label6.Text = "Email Address:";
             // 
             // customer_RegistrationDateTimeLabel1
             // 
             customer_RegistrationDateTimeLabel1.AutoSize = true;
-            customer_RegistrationDateTimeLabel1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            customer_RegistrationDateTimeLabel1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             customer_RegistrationDateTimeLabel1.Location = new System.Drawing.Point(19, 58);
             customer_RegistrationDateTimeLabel1.Name = "customer_RegistrationDateTimeLabel1";
-            customer_RegistrationDateTimeLabel1.Size = new System.Drawing.Size(151, 17);
+            customer_RegistrationDateTimeLabel1.Size = new System.Drawing.Size(171, 20);
             customer_RegistrationDateTimeLabel1.TabIndex = 40;
             customer_RegistrationDateTimeLabel1.Text = "Registration DateTime:";
             // 
             // customer_LoyaltyPointsBalanceLabel1
             // 
             customer_LoyaltyPointsBalanceLabel1.AutoSize = true;
-            customer_LoyaltyPointsBalanceLabel1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            customer_LoyaltyPointsBalanceLabel1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             customer_LoyaltyPointsBalanceLabel1.Location = new System.Drawing.Point(19, 94);
             customer_LoyaltyPointsBalanceLabel1.Name = "customer_LoyaltyPointsBalanceLabel1";
-            customer_LoyaltyPointsBalanceLabel1.Size = new System.Drawing.Size(151, 17);
+            customer_LoyaltyPointsBalanceLabel1.Size = new System.Drawing.Size(170, 20);
             customer_LoyaltyPointsBalanceLabel1.TabIndex = 42;
             customer_LoyaltyPointsBalanceLabel1.Text = "Loyalty Points Balance:";
-            customer_LoyaltyPointsBalanceLabel1.Click += new System.EventHandler(this.customer_LoyaltyPointsBalanceLabel1_Click_1);
             // 
             // customer_StatusLabel2
             // 
             customer_StatusLabel2.AutoSize = true;
-            customer_StatusLabel2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            customer_StatusLabel2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             customer_StatusLabel2.Location = new System.Drawing.Point(19, 127);
             customer_StatusLabel2.Name = "customer_StatusLabel2";
-            customer_StatusLabel2.Size = new System.Drawing.Size(113, 17);
+            customer_StatusLabel2.Size = new System.Drawing.Size(129, 20);
             customer_StatusLabel2.TabIndex = 44;
             customer_StatusLabel2.Text = "Customer Status:";
             // 
             // customer_UsernameLabel1
             // 
             customer_UsernameLabel1.AutoSize = true;
-            customer_UsernameLabel1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            customer_UsernameLabel1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             customer_UsernameLabel1.Location = new System.Drawing.Point(19, 161);
             customer_UsernameLabel1.Name = "customer_UsernameLabel1";
-            customer_UsernameLabel1.Size = new System.Drawing.Size(136, 17);
+            customer_UsernameLabel1.Size = new System.Drawing.Size(156, 20);
             customer_UsernameLabel1.TabIndex = 46;
             customer_UsernameLabel1.Text = "Customer Username:";
             // 
             // customer_PasswordLabel1
             // 
             customer_PasswordLabel1.AutoSize = true;
-            customer_PasswordLabel1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            customer_PasswordLabel1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             customer_PasswordLabel1.Location = new System.Drawing.Point(19, 188);
             customer_PasswordLabel1.Name = "customer_PasswordLabel1";
-            customer_PasswordLabel1.Size = new System.Drawing.Size(133, 17);
+            customer_PasswordLabel1.Size = new System.Drawing.Size(152, 20);
             customer_PasswordLabel1.TabIndex = 48;
             customer_PasswordLabel1.Text = "Customer Password:";
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label11.Location = new System.Drawing.Point(14, 163);
+            label11.Name = "label11";
+            label11.Size = new System.Drawing.Size(108, 21);
+            label11.TabIndex = 51;
+            label11.Text = "Customer ID:";
             // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
@@ -707,7 +638,6 @@
             this.txtCountry.Name = "txtCountry";
             this.txtCountry.Size = new System.Drawing.Size(200, 20);
             this.txtCountry.TabIndex = 98;
-            this.txtCountry.TextChanged += new System.EventHandler(this.txtCountry_TextChanged);
             // 
             // groupBox1
             // 
@@ -734,7 +664,6 @@
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.Size = new System.Drawing.Size(200, 20);
             this.txtFirstName.TabIndex = 89;
-            this.txtFirstName.TextChanged += new System.EventHandler(this.txtFirstName_TextChanged);
             this.txtFirstName.Leave += new System.EventHandler(this.txtFirstName_Leave);
             // 
             // maskedTextBox3
@@ -753,7 +682,6 @@
             this.txtLastName.Name = "txtLastName";
             this.txtLastName.Size = new System.Drawing.Size(200, 20);
             this.txtLastName.TabIndex = 90;
-            this.txtLastName.TextChanged += new System.EventHandler(this.txtLastName_TextChanged);
             this.txtLastName.Leave += new System.EventHandler(this.txtLastName_Leave);
             // 
             // maskedTextBox1
@@ -773,7 +701,6 @@
             this.txtEmailAddress.Name = "txtEmailAddress";
             this.txtEmailAddress.Size = new System.Drawing.Size(200, 20);
             this.txtEmailAddress.TabIndex = 91;
-            this.txtEmailAddress.TextChanged += new System.EventHandler(this.txtEmailAddress_TextChanged_1);
             this.txtEmailAddress.Leave += new System.EventHandler(this.txtEmailAddress_Leave);
             // 
             // groupBox2
@@ -808,7 +735,6 @@
             this.txtUnitNumber.Name = "txtUnitNumber";
             this.txtUnitNumber.Size = new System.Drawing.Size(200, 20);
             this.txtUnitNumber.TabIndex = 92;
-            this.txtUnitNumber.TextChanged += new System.EventHandler(this.txtUnitNumber_TextChanged);
             // 
             // maskedTextBox2
             // 
@@ -826,7 +752,6 @@
             this.txtUnitName.Name = "txtUnitName";
             this.txtUnitName.Size = new System.Drawing.Size(200, 20);
             this.txtUnitName.TabIndex = 93;
-            this.txtUnitName.TextChanged += new System.EventHandler(this.txtUnitName_TextChanged);
             // 
             // cmbProvince
             // 
@@ -853,7 +778,6 @@
             this.txtStreetName.Name = "txtStreetName";
             this.txtStreetName.Size = new System.Drawing.Size(200, 20);
             this.txtStreetName.TabIndex = 95;
-            this.txtStreetName.TextChanged += new System.EventHandler(this.txtStreetName_TextChanged);
             // 
             // txtStreetNumber
             // 
@@ -861,7 +785,6 @@
             this.txtStreetNumber.Name = "txtStreetNumber";
             this.txtStreetNumber.Size = new System.Drawing.Size(200, 20);
             this.txtStreetNumber.TabIndex = 94;
-            this.txtStreetNumber.TextChanged += new System.EventHandler(this.txtStreetNumber_TextChanged);
             // 
             // txtSuburb
             // 
@@ -869,7 +792,6 @@
             this.txtSuburb.Name = "txtSuburb";
             this.txtSuburb.Size = new System.Drawing.Size(200, 20);
             this.txtSuburb.TabIndex = 96;
-            this.txtSuburb.TextChanged += new System.EventHandler(this.txtSuburb_TextChanged);
             // 
             // txtCity
             // 
@@ -877,7 +799,6 @@
             this.txtCity.Name = "txtCity";
             this.txtCity.Size = new System.Drawing.Size(200, 20);
             this.txtCity.TabIndex = 97;
-            this.txtCity.TextChanged += new System.EventHandler(this.txtCity_TextChanged);
             // 
             // groupBox3
             // 
@@ -907,7 +828,6 @@
             this.txtStatus.Size = new System.Drawing.Size(200, 20);
             this.txtStatus.TabIndex = 109;
             this.txtStatus.Text = "Active";
-            this.txtStatus.TextChanged += new System.EventHandler(this.txtStatus_TextChanged);
             // 
             // dtpRegistrationDateTime
             // 
@@ -924,7 +844,6 @@
             this.txtPassword.Size = new System.Drawing.Size(200, 20);
             this.txtPassword.TabIndex = 101;
             this.txtPassword.Text = "null";
-            this.txtPassword.TextChanged += new System.EventHandler(this.txtPassword_TextChanged);
             // 
             // txtLoyaltyPointsBalance
             // 
@@ -934,7 +853,6 @@
             this.txtLoyaltyPointsBalance.Size = new System.Drawing.Size(200, 20);
             this.txtLoyaltyPointsBalance.TabIndex = 99;
             this.txtLoyaltyPointsBalance.Text = "0";
-            this.txtLoyaltyPointsBalance.TextChanged += new System.EventHandler(this.txtLoyaltyPointsBalance_TextChanged);
             // 
             // txtUsername
             // 
@@ -943,39 +861,6 @@
             this.txtUsername.Size = new System.Drawing.Size(200, 20);
             this.txtUsername.TabIndex = 100;
             this.txtUsername.Text = "null";
-            this.txtUsername.TextChanged += new System.EventHandler(this.txtUsername_TextChanged);
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.BackgroundImage = global::TheByteClubPOS.Properties.Resources.Background;
-            this.tabPage2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.tabPage2.Controls.Add(customer_StatusLabel1);
-            this.tabPage2.Controls.Add(this.customer_StatusTextBox);
-            this.tabPage2.Controls.Add(customer_IDNumberLabel1);
-            this.tabPage2.Controls.Add(this.customer_IDNumberTextBox);
-            this.tabPage2.Controls.Add(customer_LastNameLabel1);
-            this.tabPage2.Controls.Add(this.customer_LastNameTextBox);
-            this.tabPage2.Controls.Add(customer_FirstNameLabel1);
-            this.tabPage2.Controls.Add(this.customer_FirstNameTextBox);
-            this.tabPage2.Controls.Add(this.button2);
-            this.tabPage2.Controls.Add(this.customerDataGridView);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1126, 640);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Deactivate Customer";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            this.tabPage2.Click += new System.EventHandler(this.tabPage2_Click);
-            // 
-            // customer_StatusTextBox
-            // 
-            this.customer_StatusTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customerBindingSource, "Customer_Status", true));
-            this.customer_StatusTextBox.Location = new System.Drawing.Point(484, 433);
-            this.customer_StatusTextBox.Name = "customer_StatusTextBox";
-            this.customer_StatusTextBox.Size = new System.Drawing.Size(100, 20);
-            this.customer_StatusTextBox.TabIndex = 114;
-            this.customer_StatusTextBox.TextChanged += new System.EventHandler(this.customer_StatusTextBox_TextChanged);
             // 
             // customerBindingSource
             // 
@@ -987,197 +872,6 @@
             // 
             this.dsSamsLiqourShop.DataSetName = "dsSamsLiqourShop";
             this.dsSamsLiqourShop.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // customer_IDNumberTextBox
-            // 
-            this.customer_IDNumberTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customerBindingSource, "Customer_IDNumber", true));
-            this.customer_IDNumberTextBox.Location = new System.Drawing.Point(484, 407);
-            this.customer_IDNumberTextBox.Name = "customer_IDNumberTextBox";
-            this.customer_IDNumberTextBox.Size = new System.Drawing.Size(100, 20);
-            this.customer_IDNumberTextBox.TabIndex = 113;
-            this.customer_IDNumberTextBox.TextChanged += new System.EventHandler(this.customer_IDNumberTextBox_TextChanged);
-            // 
-            // customer_LastNameTextBox
-            // 
-            this.customer_LastNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customerBindingSource, "Customer_LastName", true));
-            this.customer_LastNameTextBox.Location = new System.Drawing.Point(484, 381);
-            this.customer_LastNameTextBox.Name = "customer_LastNameTextBox";
-            this.customer_LastNameTextBox.Size = new System.Drawing.Size(100, 20);
-            this.customer_LastNameTextBox.TabIndex = 112;
-            this.customer_LastNameTextBox.TextChanged += new System.EventHandler(this.customer_LastNameTextBox_TextChanged);
-            // 
-            // customer_FirstNameTextBox
-            // 
-            this.customer_FirstNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customerBindingSource, "Customer_FirstName", true));
-            this.customer_FirstNameTextBox.Location = new System.Drawing.Point(484, 353);
-            this.customer_FirstNameTextBox.Name = "customer_FirstNameTextBox";
-            this.customer_FirstNameTextBox.Size = new System.Drawing.Size(100, 20);
-            this.customer_FirstNameTextBox.TabIndex = 111;
-            this.customer_FirstNameTextBox.TextChanged += new System.EventHandler(this.customer_FirstNameTextBox_TextChanged);
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(40, 351);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(142, 65);
-            this.button2.TabIndex = 110;
-            this.button2.Text = "Deactivate Customer";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click_1);
-            // 
-            // customerDataGridView
-            // 
-            this.customerDataGridView.AutoGenerateColumns = false;
-            this.customerDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.customerDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn5,
-            this.dataGridViewTextBoxColumn6,
-            this.dataGridViewTextBoxColumn7,
-            this.dataGridViewTextBoxColumn8,
-            this.dataGridViewTextBoxColumn9,
-            this.dataGridViewTextBoxColumn10,
-            this.dataGridViewTextBoxColumn11,
-            this.dataGridViewTextBoxColumn12,
-            this.dataGridViewTextBoxColumn13,
-            this.dataGridViewTextBoxColumn14,
-            this.dataGridViewTextBoxColumn15,
-            this.dataGridViewTextBoxColumn16,
-            this.dataGridViewTextBoxColumn17,
-            this.dataGridViewTextBoxColumn18,
-            this.dataGridViewTextBoxColumn19,
-            this.dataGridViewTextBoxColumn20});
-            this.customerDataGridView.DataSource = this.customerBindingSource;
-            this.customerDataGridView.Location = new System.Drawing.Point(8, 41);
-            this.customerDataGridView.Name = "customerDataGridView";
-            this.customerDataGridView.Size = new System.Drawing.Size(1097, 279);
-            this.customerDataGridView.TabIndex = 0;
-            this.customerDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.customerDataGridView_CellContentClick);
-            this.customerDataGridView.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.customerDataGridView_CellFormatting);
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "Customer_ID";
-            this.dataGridViewTextBoxColumn1.HeaderText = "Customer_ID";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "Customer_FirstName";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Customer_FirstName";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "Customer_LastName";
-            this.dataGridViewTextBoxColumn3.HeaderText = "Customer_LastName";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "Customer_EmailAddress";
-            this.dataGridViewTextBoxColumn4.HeaderText = "Customer_EmailAddress";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "Customer_IDNumber";
-            this.dataGridViewTextBoxColumn5.HeaderText = "Customer_IDNumber";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "Customer_PhoneNumber";
-            this.dataGridViewTextBoxColumn6.HeaderText = "Customer_PhoneNumber";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            this.dataGridViewTextBoxColumn7.DataPropertyName = "Customer_UnitNumber";
-            this.dataGridViewTextBoxColumn7.HeaderText = "Customer_UnitNumber";
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            // 
-            // dataGridViewTextBoxColumn8
-            // 
-            this.dataGridViewTextBoxColumn8.DataPropertyName = "Customer_UnitName";
-            this.dataGridViewTextBoxColumn8.HeaderText = "Customer_UnitName";
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            // 
-            // dataGridViewTextBoxColumn9
-            // 
-            this.dataGridViewTextBoxColumn9.DataPropertyName = "Customer_StreetNumber";
-            this.dataGridViewTextBoxColumn9.HeaderText = "Customer_StreetNumber";
-            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-            // 
-            // dataGridViewTextBoxColumn10
-            // 
-            this.dataGridViewTextBoxColumn10.DataPropertyName = "Customer_StreetName";
-            this.dataGridViewTextBoxColumn10.HeaderText = "Customer_StreetName";
-            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
-            // 
-            // dataGridViewTextBoxColumn11
-            // 
-            this.dataGridViewTextBoxColumn11.DataPropertyName = "Customer_Suburb";
-            this.dataGridViewTextBoxColumn11.HeaderText = "Customer_Suburb";
-            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
-            // 
-            // dataGridViewTextBoxColumn12
-            // 
-            this.dataGridViewTextBoxColumn12.DataPropertyName = "Customer_PostalCode";
-            this.dataGridViewTextBoxColumn12.HeaderText = "Customer_PostalCode";
-            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
-            // 
-            // dataGridViewTextBoxColumn13
-            // 
-            this.dataGridViewTextBoxColumn13.DataPropertyName = "Customer_City";
-            this.dataGridViewTextBoxColumn13.HeaderText = "Customer_City";
-            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
-            // 
-            // dataGridViewTextBoxColumn14
-            // 
-            this.dataGridViewTextBoxColumn14.DataPropertyName = "Customer_Province";
-            this.dataGridViewTextBoxColumn14.HeaderText = "Customer_Province";
-            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
-            // 
-            // dataGridViewTextBoxColumn15
-            // 
-            this.dataGridViewTextBoxColumn15.DataPropertyName = "Customer_Country";
-            this.dataGridViewTextBoxColumn15.HeaderText = "Customer_Country";
-            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
-            // 
-            // dataGridViewTextBoxColumn16
-            // 
-            this.dataGridViewTextBoxColumn16.DataPropertyName = "Customer_RegistrationDateTime";
-            this.dataGridViewTextBoxColumn16.HeaderText = "Customer_RegistrationDateTime";
-            this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
-            // 
-            // dataGridViewTextBoxColumn17
-            // 
-            this.dataGridViewTextBoxColumn17.DataPropertyName = "Customer_LoyaltyPointsBalance";
-            this.dataGridViewTextBoxColumn17.HeaderText = "Customer_LoyaltyPointsBalance";
-            this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
-            // 
-            // dataGridViewTextBoxColumn18
-            // 
-            this.dataGridViewTextBoxColumn18.DataPropertyName = "Customer_Status";
-            this.dataGridViewTextBoxColumn18.HeaderText = "Customer_Status";
-            this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
-            // 
-            // dataGridViewTextBoxColumn19
-            // 
-            this.dataGridViewTextBoxColumn19.DataPropertyName = "Customer_Username";
-            this.dataGridViewTextBoxColumn19.HeaderText = "Customer_Username";
-            this.dataGridViewTextBoxColumn19.Name = "dataGridViewTextBoxColumn19";
-            // 
-            // dataGridViewTextBoxColumn20
-            // 
-            this.dataGridViewTextBoxColumn20.DataPropertyName = "Customer_Password";
-            this.dataGridViewTextBoxColumn20.HeaderText = "Customer_Password";
-            this.dataGridViewTextBoxColumn20.Name = "dataGridViewTextBoxColumn20";
             // 
             // tabPage3
             // 
@@ -1201,15 +895,6 @@
             this.tabPage3.Text = "Update Customer Details";
             this.tabPage3.Click += new System.EventHandler(this.tabPage3_Click);
             // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(276, 63);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(99, 41);
-            this.button4.TabIndex = 49;
-            this.button4.Text = "Cancel Update";
-            this.button4.UseVisualStyleBackColor = true;
-            // 
             // panel5
             // 
             this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -1225,11 +910,10 @@
             this.panel5.Controls.Add(this.customer_UsernameTextBox);
             this.panel5.Controls.Add(customer_PasswordLabel1);
             this.panel5.Controls.Add(this.customer_PasswordTextBox);
-            this.panel5.Location = new System.Drawing.Point(550, 410);
+            this.panel5.Location = new System.Drawing.Point(583, 390);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(481, 222);
+            this.panel5.Size = new System.Drawing.Size(525, 241);
             this.panel5.TabIndex = 48;
-            this.panel5.Paint += new System.Windows.Forms.PaintEventHandler(this.panel5_Paint);
             // 
             // pictureBox4
             // 
@@ -1255,47 +939,48 @@
             // customer_RegistrationDateTimeDateTimePicker
             // 
             this.customer_RegistrationDateTimeDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.customerBindingSource, "Customer_RegistrationDateTime", true));
+            this.customer_RegistrationDateTimeDateTimePicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.customer_RegistrationDateTimeDateTimePicker.Location = new System.Drawing.Point(190, 55);
             this.customer_RegistrationDateTimeDateTimePicker.Name = "customer_RegistrationDateTimeDateTimePicker";
-            this.customer_RegistrationDateTimeDateTimePicker.Size = new System.Drawing.Size(227, 20);
+            this.customer_RegistrationDateTimeDateTimePicker.Size = new System.Drawing.Size(277, 26);
             this.customer_RegistrationDateTimeDateTimePicker.TabIndex = 41;
             // 
             // customer_LoyaltyPointsBalanceTextBox
             // 
             this.customer_LoyaltyPointsBalanceTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customerBindingSource, "Customer_LoyaltyPointsBalance", true));
+            this.customer_LoyaltyPointsBalanceTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.customer_LoyaltyPointsBalanceTextBox.Location = new System.Drawing.Point(190, 91);
             this.customer_LoyaltyPointsBalanceTextBox.Name = "customer_LoyaltyPointsBalanceTextBox";
             this.customer_LoyaltyPointsBalanceTextBox.ReadOnly = true;
-            this.customer_LoyaltyPointsBalanceTextBox.Size = new System.Drawing.Size(227, 20);
+            this.customer_LoyaltyPointsBalanceTextBox.Size = new System.Drawing.Size(277, 26);
             this.customer_LoyaltyPointsBalanceTextBox.TabIndex = 43;
-            this.customer_LoyaltyPointsBalanceTextBox.TextChanged += new System.EventHandler(this.customer_LoyaltyPointsBalanceTextBox_TextChanged_1);
             // 
             // customer_StatusTextBox1
             // 
             this.customer_StatusTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customerBindingSource, "Customer_Status", true));
+            this.customer_StatusTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.customer_StatusTextBox1.Location = new System.Drawing.Point(190, 127);
             this.customer_StatusTextBox1.Name = "customer_StatusTextBox1";
-            this.customer_StatusTextBox1.Size = new System.Drawing.Size(227, 20);
+            this.customer_StatusTextBox1.Size = new System.Drawing.Size(277, 26);
             this.customer_StatusTextBox1.TabIndex = 45;
-            this.customer_StatusTextBox1.TextChanged += new System.EventHandler(this.customer_StatusTextBox1_TextChanged_1);
             // 
             // customer_UsernameTextBox
             // 
             this.customer_UsernameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customerBindingSource, "Customer_Username", true));
+            this.customer_UsernameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.customer_UsernameTextBox.Location = new System.Drawing.Point(190, 158);
             this.customer_UsernameTextBox.Name = "customer_UsernameTextBox";
-            this.customer_UsernameTextBox.Size = new System.Drawing.Size(227, 20);
+            this.customer_UsernameTextBox.Size = new System.Drawing.Size(277, 26);
             this.customer_UsernameTextBox.TabIndex = 47;
-            this.customer_UsernameTextBox.TextChanged += new System.EventHandler(this.customer_UsernameTextBox_TextChanged_1);
             // 
             // customer_PasswordTextBox
             // 
             this.customer_PasswordTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customerBindingSource, "Customer_Password", true));
+            this.customer_PasswordTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.customer_PasswordTextBox.Location = new System.Drawing.Point(190, 188);
             this.customer_PasswordTextBox.Name = "customer_PasswordTextBox";
-            this.customer_PasswordTextBox.Size = new System.Drawing.Size(227, 20);
+            this.customer_PasswordTextBox.Size = new System.Drawing.Size(277, 26);
             this.customer_PasswordTextBox.TabIndex = 49;
-            this.customer_PasswordTextBox.TextChanged += new System.EventHandler(this.customer_PasswordTextBox_TextChanged_1);
             // 
             // panel4
             // 
@@ -1320,9 +1005,9 @@
             this.panel4.Controls.Add(this.customer_SuburbTextBox);
             this.panel4.Controls.Add(customer_SuburbLabel1);
             this.panel4.Controls.Add(customer_UnitNumberLabel1);
-            this.panel4.Location = new System.Drawing.Point(19, 410);
+            this.panel4.Location = new System.Drawing.Point(19, 391);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(481, 222);
+            this.panel4.Size = new System.Drawing.Size(525, 241);
             this.panel4.TabIndex = 47;
             // 
             // pictureBox3
@@ -1349,83 +1034,83 @@
             // customer_UnitNameTextBox
             // 
             this.customer_UnitNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customerBindingSource, "Customer_UnitName", true));
-            this.customer_UnitNameTextBox.Location = new System.Drawing.Point(317, 55);
+            this.customer_UnitNameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.customer_UnitNameTextBox.Location = new System.Drawing.Point(374, 55);
             this.customer_UnitNameTextBox.Name = "customer_UnitNameTextBox";
-            this.customer_UnitNameTextBox.Size = new System.Drawing.Size(146, 20);
+            this.customer_UnitNameTextBox.Size = new System.Drawing.Size(133, 26);
             this.customer_UnitNameTextBox.TabIndex = 15;
-            this.customer_UnitNameTextBox.TextChanged += new System.EventHandler(this.customer_UnitNameTextBox_TextChanged);
             // 
             // customer_StreetNameTextBox
             // 
             this.customer_StreetNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customerBindingSource, "Customer_StreetName", true));
-            this.customer_StreetNameTextBox.Location = new System.Drawing.Point(317, 94);
+            this.customer_StreetNameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.customer_StreetNameTextBox.Location = new System.Drawing.Point(374, 94);
             this.customer_StreetNameTextBox.Name = "customer_StreetNameTextBox";
-            this.customer_StreetNameTextBox.Size = new System.Drawing.Size(148, 20);
+            this.customer_StreetNameTextBox.Size = new System.Drawing.Size(135, 26);
             this.customer_StreetNameTextBox.TabIndex = 19;
-            this.customer_StreetNameTextBox.TextChanged += new System.EventHandler(this.customer_StreetNameTextBox_TextChanged);
             // 
             // customer_StreetNumberTextBox
             // 
             this.customer_StreetNumberTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customerBindingSource, "Customer_StreetNumber", true));
-            this.customer_StreetNumberTextBox.Location = new System.Drawing.Point(111, 94);
+            this.customer_StreetNumberTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.customer_StreetNumberTextBox.Location = new System.Drawing.Point(131, 95);
             this.customer_StreetNumberTextBox.Name = "customer_StreetNumberTextBox";
-            this.customer_StreetNumberTextBox.Size = new System.Drawing.Size(100, 20);
+            this.customer_StreetNumberTextBox.Size = new System.Drawing.Size(116, 26);
             this.customer_StreetNumberTextBox.TabIndex = 17;
-            this.customer_StreetNumberTextBox.TextChanged += new System.EventHandler(this.customer_StreetNumberTextBox_TextChanged);
             // 
             // customer_UnitNumberTextBox
             // 
             this.customer_UnitNumberTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customerBindingSource, "Customer_UnitNumber", true));
-            this.customer_UnitNumberTextBox.Location = new System.Drawing.Point(111, 55);
+            this.customer_UnitNumberTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.customer_UnitNumberTextBox.Location = new System.Drawing.Point(131, 55);
             this.customer_UnitNumberTextBox.Name = "customer_UnitNumberTextBox";
-            this.customer_UnitNumberTextBox.Size = new System.Drawing.Size(100, 20);
+            this.customer_UnitNumberTextBox.Size = new System.Drawing.Size(116, 26);
             this.customer_UnitNumberTextBox.TabIndex = 13;
-            this.customer_UnitNumberTextBox.TextChanged += new System.EventHandler(this.customer_UnitNumberTextBox_TextChanged);
             // 
             // customer_CountryTextBox
             // 
             this.customer_CountryTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customerBindingSource, "Customer_Country", true));
-            this.customer_CountryTextBox.Location = new System.Drawing.Point(110, 194);
+            this.customer_CountryTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.customer_CountryTextBox.Location = new System.Drawing.Point(130, 196);
             this.customer_CountryTextBox.Name = "customer_CountryTextBox";
-            this.customer_CountryTextBox.Size = new System.Drawing.Size(101, 20);
+            this.customer_CountryTextBox.Size = new System.Drawing.Size(117, 26);
             this.customer_CountryTextBox.TabIndex = 29;
-            this.customer_CountryTextBox.TextChanged += new System.EventHandler(this.customer_CountryTextBox_TextChanged);
             // 
             // customer_ProvinceTextBox
             // 
             this.customer_ProvinceTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customerBindingSource, "Customer_Province", true));
-            this.customer_ProvinceTextBox.Location = new System.Drawing.Point(111, 164);
+            this.customer_ProvinceTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.customer_ProvinceTextBox.Location = new System.Drawing.Point(131, 164);
             this.customer_ProvinceTextBox.Name = "customer_ProvinceTextBox";
-            this.customer_ProvinceTextBox.Size = new System.Drawing.Size(100, 20);
+            this.customer_ProvinceTextBox.Size = new System.Drawing.Size(116, 26);
             this.customer_ProvinceTextBox.TabIndex = 27;
-            this.customer_ProvinceTextBox.TextChanged += new System.EventHandler(this.customer_ProvinceTextBox_TextChanged);
             // 
             // customer_CityTextBox
             // 
             this.customer_CityTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customerBindingSource, "Customer_City", true));
-            this.customer_CityTextBox.Location = new System.Drawing.Point(317, 164);
+            this.customer_CityTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.customer_CityTextBox.Location = new System.Drawing.Point(374, 164);
             this.customer_CityTextBox.Name = "customer_CityTextBox";
-            this.customer_CityTextBox.Size = new System.Drawing.Size(146, 20);
+            this.customer_CityTextBox.Size = new System.Drawing.Size(133, 26);
             this.customer_CityTextBox.TabIndex = 25;
-            this.customer_CityTextBox.TextChanged += new System.EventHandler(this.customer_CityTextBox_TextChanged);
             // 
             // customer_PostalCodeTextBox
             // 
             this.customer_PostalCodeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customerBindingSource, "Customer_PostalCode", true));
-            this.customer_PostalCodeTextBox.Location = new System.Drawing.Point(111, 133);
+            this.customer_PostalCodeTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.customer_PostalCodeTextBox.Location = new System.Drawing.Point(131, 130);
             this.customer_PostalCodeTextBox.Name = "customer_PostalCodeTextBox";
-            this.customer_PostalCodeTextBox.Size = new System.Drawing.Size(100, 20);
+            this.customer_PostalCodeTextBox.Size = new System.Drawing.Size(116, 26);
             this.customer_PostalCodeTextBox.TabIndex = 23;
-            this.customer_PostalCodeTextBox.TextChanged += new System.EventHandler(this.customer_PostalCodeTextBox_TextChanged);
             // 
             // customer_SuburbTextBox
             // 
             this.customer_SuburbTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customerBindingSource, "Customer_Suburb", true));
-            this.customer_SuburbTextBox.Location = new System.Drawing.Point(317, 130);
+            this.customer_SuburbTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.customer_SuburbTextBox.Location = new System.Drawing.Point(374, 130);
             this.customer_SuburbTextBox.Name = "customer_SuburbTextBox";
-            this.customer_SuburbTextBox.Size = new System.Drawing.Size(146, 20);
+            this.customer_SuburbTextBox.Size = new System.Drawing.Size(133, 26);
             this.customer_SuburbTextBox.TabIndex = 21;
-            this.customer_SuburbTextBox.TextChanged += new System.EventHandler(this.customer_SuburbTextBox_TextChanged);
             // 
             // panel3
             // 
@@ -1436,17 +1121,18 @@
             this.panel3.Controls.Add(label6);
             this.panel3.Controls.Add(this.customer_PhoneNumberTextBox);
             this.panel3.Controls.Add(customer_PhoneNumberLabel1);
-            this.panel3.Location = new System.Drawing.Point(550, 163);
+            this.panel3.Location = new System.Drawing.Point(583, 151);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(481, 222);
+            this.panel3.Size = new System.Drawing.Size(525, 241);
             this.panel3.TabIndex = 46;
             // 
             // customer_EmailAddressTextBox
             // 
             this.customer_EmailAddressTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customerBindingSource, "Customer_EmailAddress", true));
-            this.customer_EmailAddressTextBox.Location = new System.Drawing.Point(190, 105);
+            this.customer_EmailAddressTextBox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.customer_EmailAddressTextBox.Location = new System.Drawing.Point(190, 96);
             this.customer_EmailAddressTextBox.Name = "customer_EmailAddressTextBox";
-            this.customer_EmailAddressTextBox.Size = new System.Drawing.Size(227, 20);
+            this.customer_EmailAddressTextBox.Size = new System.Drawing.Size(277, 29);
             this.customer_EmailAddressTextBox.TabIndex = 46;
             // 
             // pictureBox2
@@ -1473,11 +1159,12 @@
             // customer_PhoneNumberTextBox
             // 
             this.customer_PhoneNumberTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customerBindingSource, "Customer_PhoneNumber", true));
-            this.customer_PhoneNumberTextBox.Location = new System.Drawing.Point(190, 75);
+            this.customer_PhoneNumberTextBox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.customer_PhoneNumberTextBox.Location = new System.Drawing.Point(190, 61);
             this.customer_PhoneNumberTextBox.Name = "customer_PhoneNumberTextBox";
-            this.customer_PhoneNumberTextBox.Size = new System.Drawing.Size(227, 20);
+            this.customer_PhoneNumberTextBox.Size = new System.Drawing.Size(277, 29);
             this.customer_PhoneNumberTextBox.TabIndex = 11;
-            this.customer_PhoneNumberTextBox.TextChanged += new System.EventHandler(this.customer_PhoneNumberTextBox_TextChanged);
+            this.customer_PhoneNumberTextBox.Leave += new System.EventHandler(this.customer_PhoneNumberTextBox_Leave);
             // 
             // panel2
             // 
@@ -1492,10 +1179,20 @@
             this.panel2.Controls.Add(customer_LastNameLabel2);
             this.panel2.Controls.Add(this.customer_FirstNameTextBox1);
             this.panel2.Controls.Add(customer_FirstNameLabel2);
-            this.panel2.Location = new System.Drawing.Point(20, 163);
+            this.panel2.Location = new System.Drawing.Point(19, 151);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(481, 222);
+            this.panel2.Size = new System.Drawing.Size(525, 241);
             this.panel2.TabIndex = 45;
+            // 
+            // customer_IDTextBox
+            // 
+            this.customer_IDTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customerBindingSource, "Customer_ID", true));
+            this.customer_IDTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.customer_IDTextBox.Location = new System.Drawing.Point(185, 161);
+            this.customer_IDTextBox.Name = "customer_IDTextBox";
+            this.customer_IDTextBox.ReadOnly = true;
+            this.customer_IDTextBox.Size = new System.Drawing.Size(277, 26);
+            this.customer_IDTextBox.TabIndex = 50;
             // 
             // pictureBox1
             // 
@@ -1521,30 +1218,31 @@
             // customer_LastNameTextBox1
             // 
             this.customer_LastNameTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customerBindingSource, "Customer_LastName", true));
-            this.customer_LastNameTextBox1.Location = new System.Drawing.Point(183, 108);
+            this.customer_LastNameTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.customer_LastNameTextBox1.Location = new System.Drawing.Point(185, 91);
             this.customer_LastNameTextBox1.Name = "customer_LastNameTextBox1";
             this.customer_LastNameTextBox1.ReadOnly = true;
-            this.customer_LastNameTextBox1.Size = new System.Drawing.Size(227, 20);
+            this.customer_LastNameTextBox1.Size = new System.Drawing.Size(277, 26);
             this.customer_LastNameTextBox1.TabIndex = 5;
-            this.customer_LastNameTextBox1.TextChanged += new System.EventHandler(this.customer_LastNameTextBox1_TextChanged);
             // 
             // customer_IDNumberTextBox1
             // 
             this.customer_IDNumberTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customerBindingSource, "Customer_IDNumber", true));
-            this.customer_IDNumberTextBox1.Location = new System.Drawing.Point(183, 141);
+            this.customer_IDNumberTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.customer_IDNumberTextBox1.Location = new System.Drawing.Point(185, 124);
             this.customer_IDNumberTextBox1.Name = "customer_IDNumberTextBox1";
             this.customer_IDNumberTextBox1.ReadOnly = true;
-            this.customer_IDNumberTextBox1.Size = new System.Drawing.Size(227, 20);
+            this.customer_IDNumberTextBox1.Size = new System.Drawing.Size(277, 26);
             this.customer_IDNumberTextBox1.TabIndex = 9;
-            this.customer_IDNumberTextBox1.TextChanged += new System.EventHandler(this.customer_IDNumberTextBox1_TextChanged);
             // 
             // customer_FirstNameTextBox1
             // 
             this.customer_FirstNameTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customerBindingSource, "Customer_FirstName", true));
-            this.customer_FirstNameTextBox1.Location = new System.Drawing.Point(183, 75);
+            this.customer_FirstNameTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.customer_FirstNameTextBox1.Location = new System.Drawing.Point(185, 58);
             this.customer_FirstNameTextBox1.Name = "customer_FirstNameTextBox1";
             this.customer_FirstNameTextBox1.ReadOnly = true;
-            this.customer_FirstNameTextBox1.Size = new System.Drawing.Size(227, 20);
+            this.customer_FirstNameTextBox1.Size = new System.Drawing.Size(277, 26);
             this.customer_FirstNameTextBox1.TabIndex = 3;
             // 
             // label2
@@ -1560,28 +1258,19 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(18, 47);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(131, 17);
+            this.label1.Size = new System.Drawing.Size(191, 25);
             this.label1.TabIndex = 42;
             this.label1.Text = "Search for customer";
             // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(276, 19);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(99, 41);
-            this.button3.TabIndex = 41;
-            this.button3.Text = "Update Customer Details";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(150, 47);
+            this.textBox2.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox2.Location = new System.Drawing.Point(215, 47);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(224, 20);
+            this.textBox2.Size = new System.Drawing.Size(309, 33);
             this.textBox2.TabIndex = 40;
             this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
@@ -1596,8 +1285,48 @@
             this.panel1.Controls.Add(this.button3);
             this.panel1.Location = new System.Drawing.Point(639, 6);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(392, 121);
+            this.panel1.Size = new System.Drawing.Size(469, 121);
             this.panel1.TabIndex = 44;
+            // 
+            // button4
+            // 
+            this.button4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.Location = new System.Drawing.Point(351, 66);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(99, 41);
+            this.button4.TabIndex = 49;
+            this.button4.Text = "Cancel Update";
+            this.button4.UseVisualStyleBackColor = true;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(106, 76);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(42, 15);
+            this.label10.TabIndex = 3;
+            this.label10.Text = "Status";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(105, 50);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(56, 21);
+            this.label9.TabIndex = 2;
+            this.label9.Text = "Name";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(106, 32);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(83, 15);
+            this.label8.TabIndex = 1;
+            this.label8.Text = "CustomerID : ";
             // 
             // pictureBox5
             // 
@@ -1608,6 +1337,17 @@
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox5.TabIndex = 0;
             this.pictureBox5.TabStop = false;
+            // 
+            // button3
+            // 
+            this.button3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.Location = new System.Drawing.Point(351, 19);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(99, 41);
+            this.button3.TabIndex = 41;
+            this.button3.Text = "Update Customer Details";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // toolTip1
             // 
@@ -1635,56 +1375,6 @@
             // 
             this.customerTableAdapter.ClearBeforeFill = true;
             // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(106, 32);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(83, 15);
-            this.label8.TabIndex = 1;
-            this.label8.Text = "CustomerID : ";
-            this.label8.Click += new System.EventHandler(this.label8_Click);
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(105, 50);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(56, 21);
-            this.label9.TabIndex = 2;
-            this.label9.Text = "Name";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(106, 76);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(42, 15);
-            this.label10.TabIndex = 3;
-            this.label10.Text = "Status";
-            // 
-            // customer_IDTextBox
-            // 
-            this.customer_IDTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customerBindingSource, "Customer_ID", true));
-            this.customer_IDTextBox.Location = new System.Drawing.Point(183, 178);
-            this.customer_IDTextBox.Name = "customer_IDTextBox";
-            this.customer_IDTextBox.ReadOnly = true;
-            this.customer_IDTextBox.Size = new System.Drawing.Size(227, 20);
-            this.customer_IDTextBox.TabIndex = 50;
-            // 
-            // label11
-            // 
-            label11.AutoSize = true;
-            label11.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label11.Location = new System.Drawing.Point(12, 180);
-            label11.Name = "label11";
-            label11.Size = new System.Drawing.Size(89, 17);
-            label11.TabIndex = 51;
-            label11.Text = "Customer ID:";
-            // 
             // ManageCustomerDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1706,11 +1396,8 @@
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            this.tabPage2.ResumeLayout(false);
-            this.tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.customerBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsSamsLiqourShop)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.customerDataGridView)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
             this.panel5.ResumeLayout(false);
@@ -1755,38 +1442,11 @@
         private System.Windows.Forms.TextBox txtEmailAddress;
         private System.Windows.Forms.TextBox txtLastName;
         private System.Windows.Forms.TextBox txtFirstName;
-        private System.Windows.Forms.TabPage tabPage2;
         private dsSamsLiqourShopTableAdapters.TableAdapterManager tableAdapterManager;
         private dsSamsLiqourShopTableAdapters.CustomerTableAdapter customerTableAdapter;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.BindingSource customerBindingSource;
         private dsSamsLiqourShop dsSamsLiqourShop;
-        private System.Windows.Forms.DataGridView customerDataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn18;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn19;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn20;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.TextBox customer_IDNumberTextBox;
-        private System.Windows.Forms.TextBox customer_LastNameTextBox;
-        private System.Windows.Forms.TextBox customer_FirstNameTextBox;
-        private System.Windows.Forms.TextBox customer_StatusTextBox;
         private System.Windows.Forms.TextBox txtStatus;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.TextBox customer_FirstNameTextBox1;

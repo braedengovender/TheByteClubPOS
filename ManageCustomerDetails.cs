@@ -36,7 +36,7 @@ namespace TheByteClubPOS
             UpdateCustomerCard(); //call the method to update the customer card display when the form loads
 
 
-           
+
         }
 
         private void UpdateCustomerCard() //method for the updateCustomer tab to display ID , name and loyalty points in panel
@@ -92,41 +92,9 @@ namespace TheByteClubPOS
 
         }
 
-        private void button2_Click_1(object sender, EventArgs e)
-        {
-            if (customerDataGridView.SelectedRows.Count > 0)
-            {
-                int customerID = Convert.ToInt32(customerDataGridView.SelectedRows[0].Cells[0].Value);
 
-                customerTableAdapter.UpdateQueryStatus(customerID, customerID);
-                customerTableAdapter.Fill(this.dsSamsLiqourShop.Customer);
 
-                MessageBox.Show("Customer deactivated successfully.");
-            }
-            else
-            {
-                MessageBox.Show("Please select a customer first.");
-            }
-        }
 
-        private void customerDataGridView_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
-        {
-            if (customerDataGridView.Rows[e.RowIndex].Cells[17].Value != null)
-            {
-                string status = customerDataGridView.Rows[e.RowIndex].Cells[17].Value.ToString();
-
-                if (status == "Inactive")
-                {
-                    customerDataGridView.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.Red;
-                    customerDataGridView.Rows[e.RowIndex].DefaultCellStyle.ForeColor = Color.Black;
-                }
-                else
-                {
-                    customerDataGridView.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.White;
-                    customerDataGridView.Rows[e.RowIndex].DefaultCellStyle.ForeColor = Color.Black;
-                }
-            }
-        }
 
         private void button1_Click_1(object sender, EventArgs e)
         {
@@ -139,8 +107,8 @@ namespace TheByteClubPOS
                 string email = txtEmailAddress.Text.Trim();
 
 
-               
-                
+
+
 
                 // Nullable fields: If text is empty, pass null
                 string unitNumber = string.IsNullOrWhiteSpace(txtUnitNumber.Text) ? null : txtUnitNumber.Text.Trim();
@@ -149,7 +117,7 @@ namespace TheByteClubPOS
                 string streetName = txtStreetName.Text.Trim();
                 string suburb = txtSuburb.Text.Trim();
 
-                
+
 
                 string city = txtCity.Text.Trim();
 
@@ -250,7 +218,7 @@ namespace TheByteClubPOS
                 MessageBox.Show("Customer details updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
-            else   
+            else
             {
                 MessageBox.Show("Customer update cancelled.", "Cancelled", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -486,11 +454,6 @@ namespace TheByteClubPOS
 
         }
 
-        private void txtStatus_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void maskedTextBox3_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
         {
 
@@ -512,71 +475,6 @@ namespace TheByteClubPOS
         }
 
         private void cmbProvince_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtPassword_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtUsername_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtLoyaltyPointsBalance_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtCountry_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtCity_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtSuburb_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtStreetName_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtStreetNumber_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtUnitName_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtUnitNumber_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtEmailAddress_TextChanged_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtLastName_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtFirstName_TextChanged(object sender, EventArgs e)
         {
 
         }
@@ -631,67 +529,7 @@ namespace TheByteClubPOS
 
         }
 
-        private void customer_LastNameTextBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void customer_EmailAddressTextBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void customer_IDNumberTextBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void customer_PhoneNumberTextBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void customer_UnitNumberTextBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void customer_UnitNameTextBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void customer_StreetNumberTextBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void customer_StreetNameTextBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void customer_SuburbTextBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void customer_PostalCodeTextBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void customer_CityTextBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void customer_ProvinceTextBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void customer_CountryTextBox_TextChanged(object sender, EventArgs e)
         {
 
         }
@@ -810,22 +648,7 @@ namespace TheByteClubPOS
             string postalCode = maskedTextBox2.Text;
         }
 
-        private void customer_LoyaltyPointsBalanceLabel1_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void customer_LoyaltyPointsBalanceTextBox_TextChanged_1(object sender, EventArgs e)
-        {
-
-        }
-
         private void customer_StatusLabel2_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void customer_StatusTextBox1_TextChanged_1(object sender, EventArgs e)
         {
 
         }
@@ -835,29 +658,31 @@ namespace TheByteClubPOS
 
         }
 
-        private void customer_UsernameTextBox_TextChanged_1(object sender, EventArgs e)
-        {
-
-        }
-
         private void customer_PasswordLabel1_Click_1(object sender, EventArgs e)
         {
 
         }
 
-        private void customer_PasswordTextBox_TextChanged_1(object sender, EventArgs e)
+        private void customer_PhoneNumberTextBox_Leave(object sender, EventArgs e)
         {
+
+            if (customer_PhoneNumberTextBox.Text.Length != 10 ||
+                !customer_PhoneNumberTextBox.Text.All(char.IsDigit))
+            {
+                MessageBox.Show("Phone number must contain exactly 10 digits.",
+                                "Invalid Phone Number",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Warning);
+
+                customer_PhoneNumberTextBox.Focus();
+            }
 
         }
 
-        private void panel5_Paint(object sender, PaintEventArgs e)
-        {
 
-        }
 
-        private void label8_Click(object sender, EventArgs e)
-        {
-
-        }
+        // Save customer details here
     }
 }
+
+
