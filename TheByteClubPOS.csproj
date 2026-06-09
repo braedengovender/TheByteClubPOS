@@ -84,6 +84,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="ManageInventory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManageInventory.Designer.cs">
+      <DependentUpon>ManageInventory.cs</DependentUpon>
+    </Compile>
     <Compile Include="ManageProductCategories.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -175,6 +181,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManageInventory.resx">
+      <DependentUpon>ManageInventory.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ManageProductCategories.resx">
       <DependentUpon>ManageProductCategories.cs</DependentUpon>

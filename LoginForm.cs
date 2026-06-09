@@ -9,11 +9,13 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolBar;
+using static TheByteClubPOS.dsSamsLiqourShop;
 
 namespace TheByteClubPOS
 {
     public partial class LoginForm : Form
     {
+        public static int LoggedInEmployeeID;
         int btnClearClickCount = 0;
         //int btnClearClickCount2 = 0;
         public static bool IsDarkMode = false;
@@ -178,7 +180,10 @@ namespace TheByteClubPOS
                 if (count > 0)
                 {
                     // Login successful
+                  
                     int employeeID = (int)employeeTableAdapter.GetEmployeeID(username, password);
+                    // Store logged in employee ID for use throughout the system
+                    LoggedInEmployeeID = employeeID;
 
                     MainForm mainForm = new MainForm(employeeID, IsDarkMode);
                     mainForm.Show();
