@@ -244,6 +244,7 @@ namespace TheByteClubPOS
             // Open Edit Form
             UpdateEmployeesForm updateemployees =
                 new UpdateEmployeesForm(employeeID);
+            
 
             updateemployees.ShowDialog();
 
@@ -259,7 +260,8 @@ namespace TheByteClubPOS
 
         private void btnAdd_Click(object sender, EventArgs e)
         { // Open Add Employee Form
-            AddEmployeeForm addemployee = new AddEmployeeForm();
+            UpdateEmployeesForm addemployee = new UpdateEmployeesForm(2);
+            addemployee.tabControl1.SelectedIndex = 1; // Select the Add Employee tab
 
             addemployee.ShowDialog();
 
