@@ -29,8 +29,6 @@ namespace TheByteClubPOS
             this.purchaseOrderTableAdapter.Fill(this.dsSamsLiqourShop.PurchaseOrder);
             // TODO: This line of code loads data into the 'dsSamsLiqourShop.Product' table. You can move, or remove it, as needed.
             this.productTableAdapter.Fill(this.dsSamsLiqourShop.Product);
-            productTableAdapter.FillLowStockProducts(
-            dsSamsLiqourShop.Product);
 
             purchaseOrderTableAdapter.FillPendingOrders(
             dsSamsLiqourShop.PurchaseOrder);
@@ -59,13 +57,13 @@ namespace TheByteClubPOS
             lblItemCount.Text =
                 dgvOrderItems.Rows.Count.ToString();
 
-            lblSubtotalAmount.Text =
+            lblSubtotal.Text =
                 "R" + subtotal.ToString("0.00");
 
-            lblVatAmount.Text =
+            lblVat.Text =
                 "R" + vat.ToString("0.00");
 
-            lblTotalAmount.Text =
+            lblTotal.Text =
                 "R" + total.ToString("0.00");
         }
         private void dgvProducts_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -113,12 +111,8 @@ namespace TheByteClubPOS
                 Convert.ToDecimal(
                     dgvProducts.CurrentRow.Cells[6].Value);
 
-            int supplierID =
-                Convert.ToInt32(
-                    dgvProducts.CurrentRow.Cells[0].Value);
-
             decimal lineTotal =
-                quantity * unitPrice;
+                quantity * unitPrice ;
 
             // Prevent duplicate products
             foreach (DataGridViewRow row in dgvOrderItems.Rows)
@@ -139,8 +133,7 @@ namespace TheByteClubPOS
                 productName,
                 quantity,
                 unitPrice,
-                lineTotal,
-                supplierID);
+                lineTotal);
 
             CalculateTotals();
         }
@@ -198,6 +191,22 @@ namespace TheByteClubPOS
             {
                 return;
             }
+            string supplierInput =
+            Microsoft.VisualBasic.Interaction.InputBox(
+            "Enter Supplier ID:",
+            "Supplier ID");
+
+            int supplierID;
+
+            if (!int.TryParse(
+                supplierInput,
+                out supplierID))
+            {
+                MessageBox.Show(
+                    "Supplier ID must be a number.");
+
+                return;
+            }
 
             try
             {
@@ -212,12 +221,6 @@ namespace TheByteClubPOS
                             row.Cells["colLineTotal"].Value);
                     }
                 }
-
-                int supplierID =
-                    Convert.ToInt32(
-                        dgvOrderItems.Rows[0]
-                        .Cells["colSupplierID"]
-                        .Value);
 
                 int employeeID =
                     LoginForm.LoggedInEmployeeID;
@@ -317,5 +320,12 @@ namespace TheByteClubPOS
         {
             txtSearch.Clear();
         }
+
+        private void btnLow_Click(object sender, EventArgs e)
+        {
+            productTableAdapter.FillLowStockProducts(
+           dsSamsLiqourShop.Product);
+        }
+
     }
 }
