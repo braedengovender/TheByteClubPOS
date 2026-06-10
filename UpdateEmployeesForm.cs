@@ -23,6 +23,13 @@ namespace TheByteClubPOS
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(employee_FirstNameTextBox.Text)) { MessageBox.Show("Enter a Firstname."); }
+            if (string.IsNullOrWhiteSpace(employee_LastNameTextBox.Text)) { MessageBox.Show("Enter a Lastname."); }
+            if (string.IsNullOrWhiteSpace(employee_IDNumberTextBox.Text)) { MessageBox.Show("Enter an ID."); }
+            if (string.IsNullOrWhiteSpace(employee_EmailAddressTextBox.Text)) { MessageBox.Show("Enter an Email."); }
+            if (string.IsNullOrWhiteSpace(employee_PhoneNumberTextBox.Text)) { MessageBox.Show("Enter a Phone Number."); }
+            if (string.IsNullOrWhiteSpace(employee_UsernameTextBox.Text)) { MessageBox.Show("Enter a Username."); }
+            if (string.IsNullOrWhiteSpace(employee_PasswordTextBox.Text)) { MessageBox.Show("Enter a Password."); }
             if (employee_RoleComboBox.SelectedIndex == -1)
             {
                 MessageBox.Show(
@@ -167,83 +174,14 @@ namespace TheByteClubPOS
 
         private void btnInsert_Click(object sender, EventArgs e)
         {
-            // First Name
-            if (!Regex.IsMatch(
-                AddFirstname.Text.Trim(),
-                @"^[A-Za-z ]+$"))
-            {
-                MessageBox.Show(
-                    "First Name can only contain letters.");
 
-                return;
-            }
-
-            // Last Name
-            if (!Regex.IsMatch(
-                AddLastName.Text.Trim(),
-                @"^[A-Za-z ]+$"))
-            {
-                MessageBox.Show(
-                    "Last Name can only contain letters.");
-
-                return;
-            }
-
-            // South African ID Number
-            if (!Regex.IsMatch(
-                AddID.Text.Trim(),
-                @"^\d{13}$"))
-            {
-                MessageBox.Show(
-                    "ID Number must contain exactly 13 digits.");
-
-                return;
-            }
-
-            // Email Validation
-            try
-            {
-                var email =
-                    new System.Net.Mail.MailAddress(
-                        AddEmail.Text.Trim());
-            }
-            catch
-            {
-                MessageBox.Show(
-                    "Please enter a valid Email Address.");
-
-                return;
-            }
-
-            // Phone Number
-            if (!Regex.IsMatch(
-                AddPhoneNumber.Text.Trim(),
-                @"^\d{10,12}$"))
-            {
-                MessageBox.Show(
-                    "Phone Number is invalid.");
-
-                return;
-            }
-
-            // Username
-            if (AddUsername.Text.Trim().Length < 4)
-            {
-                MessageBox.Show(
-                    "Username must be at least 4 characters.");
-
-                return;
-            }
-
-            // Password
-            if (AddPassword.Text.Length < 8)
-            {
-                MessageBox.Show(
-                    "Password must be at least 8 characters.");
-
-                return;
-            }
-
+            if (string.IsNullOrWhiteSpace(AddFirstname.Text)) {MessageBox.Show("Enter a Firstname.");}
+            if (string.IsNullOrWhiteSpace(AddLastName.Text)) { MessageBox.Show("Enter a Lastname."); }
+            if (string.IsNullOrWhiteSpace(AddID.Text)) { MessageBox.Show("Enter an ID."); }
+            if (string.IsNullOrWhiteSpace(AddEmail.Text)) { MessageBox.Show("Enter an Email."); }
+            if (string.IsNullOrWhiteSpace(AddPhoneNumber.Text)) { MessageBox.Show("Enter a Phone Number."); }
+            if (string.IsNullOrWhiteSpace(AddUsername.Text)) { MessageBox.Show("Enter a Username."); }
+            if (string.IsNullOrWhiteSpace(AddPassword.Text)) { MessageBox.Show("Enter a Password."); }
             // Role
             if (cbRole.SelectedIndex == -1)
             {
@@ -338,6 +276,152 @@ namespace TheByteClubPOS
             {
                 employee_PasswordTextBox.PasswordChar = '●';
                 pictureBox1.Image = Properties.Resources.ShowEye;
+            }
+        }
+
+        private void employee_FirstNameTextBox_Leave(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void employee_LastNameTextBox_Leave(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void AddFirstname_Leave(object sender, EventArgs e)
+        {
+            if (!Regex.IsMatch(
+        AddFirstname.Text.Trim(),
+        @"^[A-Za-z ]+$"))
+            {
+                MessageBox.Show(
+                    "First Name can only contain letters.");
+
+                AddFirstname.Focus();
+                return;
+            }
+        }
+
+        private void AddLastName_Leave(object sender, EventArgs e)
+        {
+            if (!Regex.IsMatch(
+               AddLastName.Text.Trim(),
+               @"^[A-Za-z ]+$"))
+            {
+                MessageBox.Show(
+                    "Last Name can only contain letters.");
+                AddLastName.Focus();
+                return;
+            }
+
+        }
+
+        private void AddID_Leave(object sender, EventArgs e)
+        {
+            if (!Regex.IsMatch(
+                AddID.Text.Trim(),
+                @"^\d{13}$"))
+            {
+                MessageBox.Show(
+                    "ID Number must contain exactly 13 digits.");
+
+                return;
+            }
+        }
+
+        private void AddEmail_Leave(object sender, EventArgs e)
+        {
+            try
+            {
+                var email =
+                    new System.Net.Mail.MailAddress(
+                        AddEmail.Text.Trim());
+            }
+            catch
+            {
+                MessageBox.Show(
+                    "Please enter a valid Email Address.");
+
+                return;
+            }
+        }
+
+        private void AddPhoneNumber_Leave(object sender, EventArgs e)
+        {
+            // Phone Number
+            if (!Regex.IsMatch(
+                AddPhoneNumber.Text.Trim(),
+                @"^\d{10,12}$"))
+            {
+                MessageBox.Show(
+                    "Phone Number is invalid.");
+
+                return;
+            }
+        }
+
+        private void AddUsername_Leave(object sender, EventArgs e)
+        {
+            // Username
+            if (AddUsername.Text.Trim().Length < 4)
+            {
+                MessageBox.Show(
+                    "Username must be at least 4 characters.");
+
+                return;
+            }
+        }
+
+        private void pictureBox8_Click(object sender, EventArgs e)
+        {
+            if (AddPassword.PasswordChar == '●')
+            {
+                AddPassword.PasswordChar = '\0';
+                pictureBox1.Image = Properties.Resources.HideEye;
+            }
+            else
+            {
+                AddPassword.PasswordChar = '●';
+                pictureBox1.Image = Properties.Resources.ShowEye;
+            }
+        }
+
+        private void employee_PasswordTextBox_Leave(object sender, EventArgs e)
+        {
+            if (!Regex.IsMatch(
+    employee_PasswordTextBox.Text,
+    @"^(?=.*\d)(?=.*[!@#$%^&*()_+\-=\[\]{};':""\\|,.<>\/?]).{8,}$"))
+            {
+                MessageBox.Show(
+                    "Password must contain:\n" +
+                    "- At least 8 characters\n" +
+                    "- At least 1 digit\n" +
+                    "- At least 1 special character",
+                    "Invalid Password",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
+                return;
+            }
+        }
+
+        private void AddPassword_Leave(object sender, EventArgs e)
+        {
+            if (!Regex.IsMatch(
+    AddPassword.Text,
+    @"^(?=.*\d)(?=.*[!@#$%^&*()_+\-=\[\]{};':""\\|,.<>\/?]).{8,}$"))
+            {
+                MessageBox.Show(
+                    "Password must contain:\n" +
+                    "- At least 8 characters\n" +
+                    "- At least 1 digit\n" +
+                    "- At least 1 special character",
+                    "Invalid Password",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
+                return;
             }
         }
     }

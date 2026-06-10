@@ -103,6 +103,9 @@
             this.AddLastName = new System.Windows.Forms.TextBox();
             this.AddID = new System.Windows.Forms.TextBox();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
+            this.pictureBox8 = new System.Windows.Forms.PictureBox();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
             employee_StatusLabel = new System.Windows.Forms.Label();
             employee_PasswordLabel = new System.Windows.Forms.Label();
             employee_UsernameLabel = new System.Windows.Forms.Label();
@@ -141,13 +144,14 @@
             this.panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             this.SuspendLayout();
             // 
             // employee_StatusLabel
             // 
             employee_StatusLabel.AutoSize = true;
             employee_StatusLabel.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            employee_StatusLabel.Location = new System.Drawing.Point(28, 271);
+            employee_StatusLabel.Location = new System.Drawing.Point(28, 293);
             employee_StatusLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             employee_StatusLabel.Name = "employee_StatusLabel";
             employee_StatusLabel.Size = new System.Drawing.Size(76, 28);
@@ -290,7 +294,7 @@
             // 
             label9.AutoSize = true;
             label9.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label9.Location = new System.Drawing.Point(28, 271);
+            label9.Location = new System.Drawing.Point(28, 297);
             label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label9.Name = "label9";
             label9.Size = new System.Drawing.Size(76, 28);
@@ -471,6 +475,7 @@
             // panel4
             // 
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel4.Controls.Add(this.label22);
             this.panel4.Controls.Add(this.pictureBox7);
             this.panel4.Controls.Add(this.pictureBox6);
             this.panel4.Controls.Add(this.employee_HireDateDateTimePicker);
@@ -529,6 +534,7 @@
             this.employee_PasswordTextBox.Size = new System.Drawing.Size(298, 35);
             this.employee_PasswordTextBox.TabIndex = 20;
             this.employee_PasswordTextBox.UseSystemPasswordChar = true;
+            this.employee_PasswordTextBox.Leave += new System.EventHandler(this.employee_PasswordTextBox_Leave);
             // 
             // employee_StatusComboBox
             // 
@@ -536,7 +542,7 @@
             this.employee_StatusComboBox.Items.AddRange(new object[] {
             "Active",
             "In-Active"});
-            this.employee_StatusComboBox.Location = new System.Drawing.Point(282, 274);
+            this.employee_StatusComboBox.Location = new System.Drawing.Point(282, 296);
             this.employee_StatusComboBox.Name = "employee_StatusComboBox";
             this.employee_StatusComboBox.Size = new System.Drawing.Size(300, 28);
             this.employee_StatusComboBox.TabIndex = 24;
@@ -592,6 +598,7 @@
             this.employee_FirstNameTextBox.Name = "employee_FirstNameTextBox";
             this.employee_FirstNameTextBox.Size = new System.Drawing.Size(298, 35);
             this.employee_FirstNameTextBox.TabIndex = 4;
+            this.employee_FirstNameTextBox.Leave += new System.EventHandler(this.employee_FirstNameTextBox_Leave);
             // 
             // pictureBox1
             // 
@@ -635,6 +642,7 @@
             this.employee_LastNameTextBox.Name = "employee_LastNameTextBox";
             this.employee_LastNameTextBox.Size = new System.Drawing.Size(298, 35);
             this.employee_LastNameTextBox.TabIndex = 6;
+            this.employee_LastNameTextBox.Leave += new System.EventHandler(this.employee_LastNameTextBox_Leave);
             // 
             // employee_IDNumberTextBox
             // 
@@ -819,6 +827,7 @@
             this.AddPhoneNumber.Name = "AddPhoneNumber";
             this.AddPhoneNumber.Size = new System.Drawing.Size(298, 35);
             this.AddPhoneNumber.TabIndex = 14;
+            this.AddPhoneNumber.Leave += new System.EventHandler(this.AddPhoneNumber_Leave);
             // 
             // AddEmail
             // 
@@ -828,10 +837,13 @@
             this.AddEmail.Name = "AddEmail";
             this.AddEmail.Size = new System.Drawing.Size(298, 35);
             this.AddEmail.TabIndex = 12;
+            this.AddEmail.Leave += new System.EventHandler(this.AddEmail_Leave);
             // 
             // panel6
             // 
             this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel6.Controls.Add(this.label21);
+            this.panel6.Controls.Add(this.pictureBox8);
             this.panel6.Controls.Add(this.AddHire);
             this.panel6.Controls.Add(this.AddUsername);
             this.panel6.Controls.Add(this.AddPassword);
@@ -867,6 +879,7 @@
             this.AddUsername.Name = "AddUsername";
             this.AddUsername.Size = new System.Drawing.Size(298, 35);
             this.AddUsername.TabIndex = 18;
+            this.AddUsername.Leave += new System.EventHandler(this.AddUsername_Leave);
             // 
             // AddPassword
             // 
@@ -877,6 +890,7 @@
             this.AddPassword.Size = new System.Drawing.Size(298, 35);
             this.AddPassword.TabIndex = 20;
             this.AddPassword.UseSystemPasswordChar = true;
+            this.AddPassword.Leave += new System.EventHandler(this.AddPassword_Leave);
             // 
             // cbStatus
             // 
@@ -884,7 +898,7 @@
             this.cbStatus.Items.AddRange(new object[] {
             "Active",
             "In-Active"});
-            this.cbStatus.Location = new System.Drawing.Point(282, 274);
+            this.cbStatus.Location = new System.Drawing.Point(282, 300);
             this.cbStatus.Name = "cbStatus";
             this.cbStatus.Size = new System.Drawing.Size(300, 28);
             this.cbStatus.TabIndex = 24;
@@ -938,6 +952,7 @@
             this.AddFirstname.Name = "AddFirstname";
             this.AddFirstname.Size = new System.Drawing.Size(298, 35);
             this.AddFirstname.TabIndex = 4;
+            this.AddFirstname.Leave += new System.EventHandler(this.AddFirstname_Leave);
             // 
             // pictureBox4
             // 
@@ -970,6 +985,7 @@
             this.AddLastName.Name = "AddLastName";
             this.AddLastName.Size = new System.Drawing.Size(298, 35);
             this.AddLastName.TabIndex = 6;
+            this.AddLastName.Leave += new System.EventHandler(this.AddLastName_Leave);
             // 
             // AddID
             // 
@@ -979,6 +995,7 @@
             this.AddID.Name = "AddID";
             this.AddID.Size = new System.Drawing.Size(298, 35);
             this.AddID.TabIndex = 8;
+            this.AddID.Leave += new System.EventHandler(this.AddID_Leave);
             // 
             // pictureBox7
             // 
@@ -991,6 +1008,36 @@
             this.pictureBox7.TabIndex = 47;
             this.pictureBox7.TabStop = false;
             this.pictureBox7.Click += new System.EventHandler(this.pictureBox7_Click);
+            // 
+            // pictureBox8
+            // 
+            this.pictureBox8.Image = global::TheByteClubPOS.Properties.Resources.ShowEye;
+            this.pictureBox8.Location = new System.Drawing.Point(601, 230);
+            this.pictureBox8.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pictureBox8.Name = "pictureBox8";
+            this.pictureBox8.Size = new System.Drawing.Size(42, 34);
+            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox8.TabIndex = 48;
+            this.pictureBox8.TabStop = false;
+            this.pictureBox8.Click += new System.EventHandler(this.pictureBox8_Click);
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(120, 270);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(458, 20);
+            this.label21.TabIndex = 49;
+            this.label21.Text = "Password: Min. 8 characters, 1 number, and 1 special character.";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(25, 270);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(458, 20);
+            this.label22.TabIndex = 50;
+            this.label22.Text = "Password: Min. 8 characters, 1 number, and 1 special character.";
             // 
             // UpdateEmployeesForm
             // 
@@ -1031,6 +1078,7 @@
             this.panel7.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1090,5 +1138,8 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.PictureBox pictureBox7;
+        private System.Windows.Forms.PictureBox pictureBox8;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label21;
     }
 }
