@@ -23,6 +23,10 @@ namespace TheByteClubPOS
             this.employeeTableAdapter.Fill(this.dsSamsLiqourShop.Employee);
 
         }
+
+
+
+
         private void ApplySorting()
         {
             try
@@ -242,8 +246,10 @@ namespace TheByteClubPOS
                     selectedRow["Employee_ID"]);
 
             // Open Edit Form
-            UpdateEmployeesForm updateemployees =
-                new UpdateEmployeesForm(employeeID);
+           UpdateEmployeesForm updateemployees =
+                new UpdateEmployeesForm(employeeID); 
+          
+
 
             updateemployees.ShowDialog();
 
@@ -259,7 +265,8 @@ namespace TheByteClubPOS
 
         private void btnAdd_Click(object sender, EventArgs e)
         { // Open Add Employee Form
-            AddEmployeeForm addemployee = new AddEmployeeForm();
+            UpdateEmployeesForm addemployee = new UpdateEmployeesForm(2);
+            addemployee.tabControl1.SelectedIndex = 1; // Select the Add Employee tab
 
             addemployee.ShowDialog();
 
@@ -267,7 +274,10 @@ namespace TheByteClubPOS
             employeeTableAdapter.Fill(dsSamsLiqourShop.Employee);
         }
 
-     
+        private void rdoAsc_CheckedChanged_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 
