@@ -13,55 +13,33 @@ namespace TheByteClubPOS
     public partial class ManageProducts : Form
     {
         private int currentEditingProductId = -1;
+        // place right after: this.discountTableAdapter.Fill(this.dsSamsLiqourShop.Discount);
+        //comboBox3.SelectedValue = null;
+        // Remove this invalid line from the class-level scope:
+        // comboBox3.SelectedValue = null;
+
+        // The following line is invalid at class scope and causes CS1519 and IDE1007 errors:
+        // comboBox3.SelectedValue = null;
+
+        // Instead, set SelectedValue (or SelectedIndex) in the constructor or Form Load event, after InitializeComponent() and after comboBox3 is initialized.
+        // For example, in the constructor or ManageProducts_Load:
 
         public ManageProducts()
         {
             InitializeComponent();
+            // Set SelectedIndex to -1 after controls are initialized
+            if (comboBox3 != null)
+                comboBox3.SelectedIndex = -1;
         }
 
+        // Or, in ManageProducts_Load (after filling the Discount table):
         private void ManageProducts_Load(object sender, EventArgs e)
         {
-            // Load lookup tables and products
             this.discountTableAdapter.Fill(this.dsSamsLiqourShop.Discount);
-            this.supplierTableAdapter.Fill(this.dsSamsLiqourShop.Supplier);
-            this.categoryTableAdapter.Fill(this.dsSamsLiqourShop.Category);
-            this.productTableAdapter.Fill(this.dsSamsLiqourShop.Product);
-
-            // Wire all radio buttons and search box to the same filter method
-            rbBeer.CheckedChanged += ViewFilter_Changed;
-            rbWines.CheckedChanged += ViewFilter_Changed;
-            rbWhiskies.CheckedChanged += ViewFilter_Changed;
-            rbSpirits.CheckedChanged += ViewFilter_Changed;
-            rbRTD.CheckedChanged += ViewFilter_Changed;
-            rbNonAlcoholic.CheckedChanged += ViewFilter_Changed;
-            rbAccessories.CheckedChanged += ViewFilter_Changed;
-            rbSnacks.CheckedChanged += ViewFilter_Changed;
-            rbTobacco.CheckedChanged += ViewFilter_Changed;
-
-            rbName.CheckedChanged += ViewFilter_Changed;
-            rbPrice.CheckedChanged += ViewFilter_Changed;
-            rbStock.CheckedChanged += ViewFilter_Changed;
-
-            rbAscending.CheckedChanged += ViewFilter_Changed;
-            rbDescending.CheckedChanged += ViewFilter_Changed;
-
-            // Search box
-            this.textBox17.TextChanged += (s, ev) => ApplyViewFilters();
-
-            if (this.dataGridView3 != null)
-            {
-                this.dataGridView3.CellClick -= dataGridView3_CellClick; // avoid duplicate subscription
-                this.dataGridView3.CellClick += dataGridView3_CellClick;
-                this.dataGridView3.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-                this.dataGridView3.MultiSelect = false;
-            }
-
-            if (this.button2 != null)
-            {
-                this.button2.Enabled = false; // disabled until a row is selected and loaded
-            }
-            // Initial population
-            ApplyViewFilters();
+            // ... other initialization ...
+            if (comboBox3 != null)
+                comboBox3.SelectedIndex = -1;
+            // ... rest of method ...
         }
 
         // Shared handler for radio checked changes
@@ -175,77 +153,222 @@ namespace TheByteClubPOS
 
         private void button1_Click(object sender, EventArgs e)
         {
+            /* try
+             {
+                 // Validate required selections
+                 if (comboBox1.SelectedValue == null)
+                 {
+                     MessageBox.Show("Please select a Category.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                     return;
+                 }
+
+                 if (comboBox2.SelectedValue == null)
+                 {
+                     MessageBox.Show("Please select a Supplier.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                     return;
+                 }
+
+                 // Required mapped values
+                 int categoryId = Convert.ToInt32(comboBox1.SelectedValue);
+                 int supplierId = Convert.ToInt32(comboBox2.SelectedValue);
+
+                 // Discount is optional (nullable)
+                 int? discountId = null;
+                 if (comboBox3.SelectedValue != null && int.TryParse(comboBox3.SelectedValue.ToString(), out int dVal))
+                     discountId = dVal;
+
+                 // Text fields
+                 string productName = textBox1.Text.Trim();
+                 if (string.IsNullOrEmpty(productName))
+                 {
+                     MessageBox.Show("Product Name is required.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                     return;
+                 }
+                 string productDescription = textBox2.Text.Trim();
+                 string productBrand = textBox3.Text.Trim();
+                 string productType = textBox4.Text.Trim();
+                 string productFlavour = textBox5.Text.Trim();
+
+                 // Numeric / nullable numeric fields
+                 decimal? alcoholPercentage = null;
+                 if (decimal.TryParse(textBox6.Text.Trim(), out decimal alc))
+                     alcoholPercentage = alc;
+
+                 string productOrigin = textBox7.Text.Trim();
+                 string productIngredients = textBox8.Text.Trim();
+
+                 int sizeML = 0;
+                 int.TryParse(textBox9.Text.Trim(), out sizeML);
+
+                 string barcode = textBox10.Text.Trim();
+
+                 if (!decimal.TryParse(textBox11.Text.Trim(), out decimal sellingPrice))
+                 {
+                     MessageBox.Show("Enter a valid Selling Price.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                     return;
+                 }
+
+                 if (!decimal.TryParse(textBox12.Text.Trim(), out decimal costPrice))
+                 {
+                     MessageBox.Show("Enter a valid Cost Price.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                     return;
+                 }
+
+                 int quantityInStock = 0;
+                 int.TryParse(textBox13.Text.Trim(), out quantityInStock);
+
+                 int reorderQuantity = 0;
+                 int.TryParse(textBox14.Text.Trim(), out reorderQuantity);
+
+                 string status = textBox15.Text.Trim();
+                 string image = textBox16.Text.Trim();
+
+                 // Call the typed TableAdapter Insert (matches dsSamsLiqourShop.ProductTableAdapter.Insert signature)
+                 this.productTableAdapter.Insert(
+                     categoryId,
+                     supplierId,
+                     discountId,
+                     productName,
+                     productDescription,
+                     productBrand,
+                     productType,
+                     productFlavour,
+                     alcoholPercentage,
+                     productOrigin,
+                     productIngredients,
+                     sizeML,
+                     barcode,
+                     sellingPrice,
+                     costPrice,
+                     quantityInStock,
+                     reorderQuantity,
+                     status,
+                     image
+                 );
+
+                 MessageBox.Show("Product added successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                 // Refresh products shown in the grid
+                 this.productTableAdapter.Fill(this.dsSamsLiqourShop.Product);
+             }
+             catch (Exception ex)
+             {
+                 MessageBox.Show("An error occurred while adding the product:\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+             }*/
+
             try
             {
-                // Validate required selections
+                // --- 1) Basic required selections ---
                 if (comboBox1.SelectedValue == null)
                 {
                     MessageBox.Show("Please select a Category.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    comboBox1.Focus();
                     return;
                 }
 
                 if (comboBox2.SelectedValue == null)
                 {
                     MessageBox.Show("Please select a Supplier.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    comboBox2.Focus();
                     return;
                 }
 
-                // Required mapped values
+                // --- 2) Map required IDs ---
                 int categoryId = Convert.ToInt32(comboBox1.SelectedValue);
                 int supplierId = Convert.ToInt32(comboBox2.SelectedValue);
 
-                // Discount is optional (nullable)
+                // --- 3) Optional discount ---
                 int? discountId = null;
                 if (comboBox3.SelectedValue != null && int.TryParse(comboBox3.SelectedValue.ToString(), out int dVal))
                     discountId = dVal;
 
-                // Text fields
+                // --- 4) Text fields validation ---
                 string productName = textBox1.Text.Trim();
                 if (string.IsNullOrEmpty(productName))
                 {
                     MessageBox.Show("Product Name is required.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    textBox1.Focus();
                     return;
                 }
+
                 string productDescription = textBox2.Text.Trim();
                 string productBrand = textBox3.Text.Trim();
                 string productType = textBox4.Text.Trim();
                 string productFlavour = textBox5.Text.Trim();
-
-                // Numeric / nullable numeric fields
-                decimal? alcoholPercentage = null;
-                if (decimal.TryParse(textBox6.Text.Trim(), out decimal alc))
-                    alcoholPercentage = alc;
-
                 string productOrigin = textBox7.Text.Trim();
                 string productIngredients = textBox8.Text.Trim();
-
-                int sizeML = 0;
-                int.TryParse(textBox9.Text.Trim(), out sizeML);
-
                 string barcode = textBox10.Text.Trim();
-
-                if (!decimal.TryParse(textBox11.Text.Trim(), out decimal sellingPrice))
-                {
-                    MessageBox.Show("Enter a valid Selling Price.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-
-                if (!decimal.TryParse(textBox12.Text.Trim(), out decimal costPrice))
-                {
-                    MessageBox.Show("Enter a valid Cost Price.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-
-                int quantityInStock = 0;
-                int.TryParse(textBox13.Text.Trim(), out quantityInStock);
-
-                int reorderQuantity = 0;
-                int.TryParse(textBox14.Text.Trim(), out reorderQuantity);
-
                 string status = textBox15.Text.Trim();
                 string image = textBox16.Text.Trim();
 
-                // Call the typed TableAdapter Insert (matches dsSamsLiqourShop.ProductTableAdapter.Insert signature)
+                // --- 5) Numeric fields validation (safe parsing, non-negative checks) ---
+                decimal? alcoholPercentage = null;
+                if (!string.IsNullOrWhiteSpace(textBox6.Text))
+                {
+                    if (!decimal.TryParse(textBox6.Text.Trim(), out decimal alc) || alc < 0)
+                    {
+                        MessageBox.Show("Enter a valid non-negative Alcohol Percentage.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        textBox6.Focus();
+                        return;
+                    }
+                    alcoholPercentage = alc;
+                }
+
+                int sizeML = 0;
+                if (!string.IsNullOrWhiteSpace(textBox9.Text))
+                {
+                    if (!int.TryParse(textBox9.Text.Trim(), out sizeML) || sizeML < 0)
+                    {
+                        MessageBox.Show("Enter a valid non-negative Size (ml).", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        textBox9.Focus();
+                        return;
+                    }
+                }
+
+                if (!decimal.TryParse(textBox11.Text.Trim(), out decimal sellingPrice) || sellingPrice < 0)
+                {
+                    MessageBox.Show("Enter a valid non-negative Selling Price.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    textBox11.Focus();
+                    return;
+                }
+
+                if (!decimal.TryParse(textBox12.Text.Trim(), out decimal costPrice) || costPrice < 0)
+                {
+                    MessageBox.Show("Enter a valid non-negative Cost Price.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    textBox12.Focus();
+                    return;
+                }
+
+                // optional business check: selling should typically be >= cost (warning only)
+                if (sellingPrice < costPrice)
+                {
+                    var resp = MessageBox.Show("Selling price is lower than cost price. Continue?", "Price warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if (resp != DialogResult.Yes) return;
+                }
+
+                int quantityInStock = 0;
+                if (!string.IsNullOrWhiteSpace(textBox13.Text))
+                {
+                    if (!int.TryParse(textBox13.Text.Trim(), out quantityInStock) || quantityInStock < 0)
+                    {
+                        MessageBox.Show("Enter a valid non-negative Quantity In Stock.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        textBox13.Focus();
+                        return;
+                    }
+                }
+
+                int reorderQuantity = 0;
+                if (!string.IsNullOrWhiteSpace(textBox14.Text))
+                {
+                    if (!int.TryParse(textBox14.Text.Trim(), out reorderQuantity) || reorderQuantity < 0)
+                    {
+                        MessageBox.Show("Enter a valid non-negative Reorder Quantity.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        textBox14.Focus();
+                        return;
+                    }
+                }
+
+                // --- 6) Insert row (typed TableAdapter Insert used) ---
                 this.productTableAdapter.Insert(
                     categoryId,
                     supplierId,
@@ -268,36 +391,141 @@ namespace TheByteClubPOS
                     image
                 );
 
+                // Refresh dataset so we can read database values (including the DB-assigned Product_ID and stored reorder quantity)
+                this.productTableAdapter.Fill(this.dsSamsLiqourShop.Product);
+
                 MessageBox.Show("Product added successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                // Refresh products shown in the grid
+                // --- 7) Locate the inserted product in the refreshed table and use database value Product_ReorderQuantity ---
+                try
+                {
+                    // Attempt to find the newly inserted row.
+                    // Prefer matching barcode when provided (most reliable).
+                    dsSamsLiqourShop.ProductRow added = null;
+
+                    if (!string.IsNullOrWhiteSpace(barcode))
+                    {
+                        added = this.dsSamsLiqourShop.Product
+                            .FirstOrDefault(p => !string.IsNullOrWhiteSpace(p.Product_BarcodeNumber) &&
+                                                 p.Product_BarcodeNumber.Equals(barcode, StringComparison.OrdinalIgnoreCase) &&
+                                                 string.Equals(p.Product_Name, productName, StringComparison.OrdinalIgnoreCase));
+                    }
+
+                    if (added == null)
+                    {
+                        // Fallback: match by name and selling price, pick the most recent Product_ID
+                        added = this.dsSamsLiqourShop.Product
+                            .Where(p => string.Equals(p.Product_Name, productName, StringComparison.OrdinalIgnoreCase) &&
+                                        p.Product_SellingPrice == sellingPrice)
+                            .OrderByDescending(p => p.Product_ID)
+                            .FirstOrDefault();
+                    }
+
+                    if (added != null)
+                    {
+                        int dbQis = added.Product_QuantityInStock;
+                        int dbReorder = added.Product_ReorderQuantity;
+
+                        // Only alert if reorder level is meaningful (> 0) and stock is at/below reorder.
+                        if (dbReorder > 0 && dbQis <= dbReorder)
+                        {
+                            MessageBox.Show(
+                                $"Reorder alert: Product '{added.Product_Name}' (ID {added.Product_ID}) has stock {dbQis} which is at or below its reorder level ({dbReorder}).",
+                                "Reorder Alert",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Warning);
+                        }
+                    }
+                    else
+                    {
+                        // If we couldn't locate the inserted row that's unexpected but harmless.
+                        // Optionally: log or ignore.
+                    }
+                }
+                catch
+                {
+                    // Non-fatal: do not interrupt the user flow if post-insert check fails.
+                }
+
+                // --- 8) Refresh UI binding (already filled above, but ensure any bound controls update) ---
                 this.productTableAdapter.Fill(this.dsSamsLiqourShop.Product);
             }
             catch (Exception ex)
             {
                 MessageBox.Show("An error occurred while adding the product:\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        
-    }
+
+        }
 
         private void btnDeleteP_Click(object sender, EventArgs e)
         {
+            /* try
+             {
+                 // Prompt user for Product ID (allows you to keep the designer unchanged).
+                 string input = txtDel.Text;
+                 if (string.IsNullOrWhiteSpace(input)) return;
+
+                 if (!int.TryParse(input.Trim(), out int productId))
+                 {
+                     MessageBox.Show("Please enter a valid numeric Product ID.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                     return;
+                 }
+
+                 // Ensure the Product table is loaded
+                 this.productTableAdapter.Fill(this.dsSamsLiqourShop.Product);
+
+                 // Find the product row in the strongly-typed DataTable
+                 var productRow = this.dsSamsLiqourShop.Product.FindByProduct_ID(productId);
+                 if (productRow == null)
+                 {
+                     MessageBox.Show($"Product with ID {productId} was not found.", "Not Found", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                     return;
+                 }
+
+                 // Confirm deletion with the user
+                 var confirm = MessageBox.Show($"Are you sure you want to delete product '{productRow.Product_Name}' (ID: {productId})?", "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                 if (confirm != DialogResult.Yes) return;
+
+                 // Mark the row for deletion and push the change to the database via the TableAdapter update
+                 productRow.Delete(); //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                 int rowsAffected = this.productTableAdapter.Update(this.dsSamsLiqourShop.Product);
+
+                 if (rowsAffected > 0)
+                 {
+                     MessageBox.Show("Product deleted successfully.", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                 }
+                 else
+                 {
+                     MessageBox.Show("No rows were deleted. Verify permissions and try again.", "Delete Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                 }
+
+                 // Refresh grid
+                 this.productTableAdapter.Fill(this.dsSamsLiqourShop.Product);
+             }
+             catch (Exception ex)
+             {
+                 MessageBox.Show("An error occurred while deleting the product:\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+             }*/
+
             try
             {
-                // Prompt user for Product ID (allows you to keep the designer unchanged).
-                string input = txtDel.Text;
-                if (string.IsNullOrWhiteSpace(input)) return;
+                // Validate input
+                string input = txtDel?.Text;
+                if (string.IsNullOrWhiteSpace(input))
+                {
+                    MessageBox.Show("Please enter a Product ID to deactivate.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
 
-                if (!int.TryParse(input.Trim(), out int productId))
+                if (!int.TryParse(input.Trim(), out int productId) || productId <= 0)
                 {
                     MessageBox.Show("Please enter a valid numeric Product ID.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
-                // Ensure the Product table is loaded
+                // Ensure the Product table is loaded for lookup
                 this.productTableAdapter.Fill(this.dsSamsLiqourShop.Product);
 
-                // Find the product row in the strongly-typed DataTable
                 var productRow = this.dsSamsLiqourShop.Product.FindByProduct_ID(productId);
                 if (productRow == null)
                 {
@@ -305,30 +533,64 @@ namespace TheByteClubPOS
                     return;
                 }
 
-                // Confirm deletion with the user
-                var confirm = MessageBox.Show($"Are you sure you want to delete product '{productRow.Product_Name}' (ID: {productId})?", "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                // Safe check for current status without relying on generated IsXxxNull
+                string currentStatus = productRow.IsNull("Product_Status") ? "" : Convert.ToString(productRow["Product_Status"]);
+                if (string.Equals(currentStatus, "Inactive", StringComparison.OrdinalIgnoreCase))
+                {
+                    MessageBox.Show($"Product ID {productId} is already inactive.", "No Action", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+
+                var confirm = MessageBox.Show(
+                    $"Set product '{productRow.Product_Name}' (ID: {productId}) status to Inactive?",
+                    "Confirm Deactivate",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question);
+
                 if (confirm != DialogResult.Yes) return;
 
-                // Mark the row for deletion and push the change to the database via the TableAdapter update
-                productRow.Delete(); //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-                int rowsAffected = this.productTableAdapter.Update(this.dsSamsLiqourShop.Product);
-
-                if (rowsAffected > 0)
+                // Update only the status with a direct parameterized SQL command to avoid touching binary/image columns
+                var conn = this.productTableAdapter.Connection;
+                bool openedHere = false;
+                if (conn.State != ConnectionState.Open)
                 {
-                    MessageBox.Show("Product deleted successfully.", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                else
-                {
-                    MessageBox.Show("No rows were deleted. Verify permissions and try again.", "Delete Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    conn.Open();
+                    openedHere = true;
                 }
 
-                // Refresh grid
+                using (var cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = "UPDATE Product SET Product_Status = @status WHERE Product_ID = @id";
+                    var pStatus = cmd.CreateParameter();
+                    pStatus.ParameterName = "@status";
+                    pStatus.Value = "Inactive";
+                    pStatus.DbType = DbType.String;
+                    cmd.Parameters.Add(pStatus);
+
+                    var pId = cmd.CreateParameter();
+                    pId.ParameterName = "@id";
+                    pId.Value = productId;
+                    pId.DbType = DbType.Int32;
+                    cmd.Parameters.Add(pId);
+
+                    int affected = cmd.ExecuteNonQuery();
+                    if (affected > 0)
+                        MessageBox.Show("Product status updated to Inactive.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    else
+                        MessageBox.Show("No rows were updated. Verify the Product ID and try again.", "Update Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+
+                if (openedHere) conn.Close();
+
+                // Refresh local dataset/UI
                 this.productTableAdapter.Fill(this.dsSamsLiqourShop.Product);
             }
             catch (Exception ex)
             {
-                MessageBox.Show("An error occurred while deleting the product:\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("An error occurred while updating product status:\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
+
 
         }
 
@@ -568,108 +830,208 @@ namespace TheByteClubPOS
                      MessageBoxButtons.OK,
                      MessageBoxIcon.Error);
              }*/
-            try
-            {
-                if (currentEditingProductId == -1)
-                {
-                    MessageBox.Show("Please select a product first.",
-                        "No Product Selected",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Warning);
-                    return;
-                }
+             try
+             {
+                 if (currentEditingProductId == -1)
+                 {
+                     MessageBox.Show("Please select a product first.",
+                         "No Product Selected",
+                         MessageBoxButtons.OK,
+                         MessageBoxIcon.Warning);
+                     return;
+                 }
 
-                // Reload products
-                this.productTableAdapter.Fill(this.dsSamsLiqourShop.Product);
+                 // Ensure the lookup selections are present
+                 if (cmbCategory.SelectedValue == null)
+                 {
+                     MessageBox.Show("Please select a Category.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                     cmbCategory.Focus();
+                     return;
+                 }
 
-                var productRow =
-                    this.dsSamsLiqourShop.Product.FindByProduct_ID(currentEditingProductId);
+                 if (cmbSupplier.SelectedValue == null)
+                 {
+                     MessageBox.Show("Please select a Supplier.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                     cmbSupplier.Focus();
+                     return;
+                 }
 
-                if (productRow == null)
-                {
-                    MessageBox.Show("Product not found.",
-                        "Error",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Error);
-                    return;
-                }
+                 // Basic text validation
+                 string name = txtName.Text?.Trim() ?? "";
+                 if (string.IsNullOrEmpty(name))
+                 {
+                     MessageBox.Show("Product Name is required.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                     txtName.Focus();
+                     return;
+                 }
 
-                // ComboBoxes
-                productRow.Category_ID = Convert.ToInt32(cmbCategory.SelectedValue);
-                productRow.Supplier_ID = Convert.ToInt32(cmbSupplier.SelectedValue);
+                 // Validate numeric fields before applying to the DataRow
+                 decimal? alcoholPercentage = null;
+                 if (!string.IsNullOrWhiteSpace(txtPercentage.Text))
+                 {
+                     if (!decimal.TryParse(txtPercentage.Text.Trim(), out decimal alc) || alc < 0)
+                     {
+                         MessageBox.Show("Enter a valid non-negative Alcohol Percentage.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                         txtPercentage.Focus();
+                         return;
+                     }
+                     alcoholPercentage = alc;
+                 }
 
-                if (cmbDiscount.SelectedValue != null)
-                    productRow.Discount_ID = Convert.ToInt32(cmbDiscount.SelectedValue);
-                else
-                    productRow.SetDiscount_IDNull();
+                 int sizeML = 0;
+                 if (!string.IsNullOrWhiteSpace(txtSize.Text))
+                 {
+                     if (!int.TryParse(txtSize.Text.Trim(), out sizeML) || sizeML < 0)
+                     {
+                         MessageBox.Show("Enter a valid non-negative Size (ml).", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                         txtSize.Focus();
+                         return;
+                     }
+                 }
 
-                // Text Fields
-                productRow.Product_Name = txtName.Text.Trim();
-                productRow.Product_Description = txtDescription.Text.Trim();
-                productRow.Product_Brand = txtBrand.Text.Trim();
-                productRow.Product_Type = txtType.Text.Trim();
-                productRow.Product_Flavour = txtFlavour.Text.Trim();
-                productRow.Product_OriginRegion = txtOrigin.Text.Trim();
-                productRow.Product_Ingredients = txtIngredients.Text.Trim();
-                productRow.Product_BarcodeNumber = txtBarcode.Text.Trim();
-                productRow.Product_Status = txtStatus.Text.Trim();
-                // productRow.Product_Image = txtImage.Text.Trim(); image is not a text LOL
+                 int quantityInStock = 0;
+                 if (!string.IsNullOrWhiteSpace(txtQIS.Text))
+                 {
+                     if (!int.TryParse(txtQIS.Text.Trim(), out quantityInStock) || quantityInStock < 0)
+                     {
+                         MessageBox.Show("Enter a valid non-negative Quantity In Stock.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                         txtQIS.Focus();
+                         return;
+                     }
+                 }
 
-                // Decimal
-                if (decimal.TryParse(txtPercentage.Text, out decimal alc))
-                    productRow.Product_AlcoholPercentage = alc;
-                else
-                    productRow.SetProduct_AlcoholPercentageNull();
+                 int reorderQuantity = 0;
+                 if (!string.IsNullOrWhiteSpace(txtROQ.Text))
+                 {
+                     if (!int.TryParse(txtROQ.Text.Trim(), out reorderQuantity) || reorderQuantity < 0)
+                     {
+                         MessageBox.Show("Enter a valid non-negative Reorder Quantity.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                         txtROQ.Focus();
+                         return;
+                     }
+                 }
 
-                // Int
-                if (int.TryParse(txtSize.Text, out int size))
-                    productRow.Product_SizeML = size;
+                 if (!decimal.TryParse(txtSellPrice.Text, out decimal sellPrice) || sellPrice < 0)
+                 {
+                     MessageBox.Show("Enter a valid non-negative Selling Price.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                     txtSellPrice.Focus();
+                     return;
+                 }
 
-                if (int.TryParse(txtQIS.Text, out int stock))
-                    productRow.Product_QuantityInStock = stock;
+                 if (!decimal.TryParse(txtCostPrice.Text, out decimal costPrice) || costPrice < 0)
+                 {
+                     MessageBox.Show("Enter a valid non-negative Cost Price.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                     txtCostPrice.Focus();
+                     return;
+                 }
 
-                if (int.TryParse(txtROQ.Text, out int reorder))
-                    productRow.Product_ReorderQuantity = reorder;
+                 // Optional business check: selling should typically be >= cost (warning only)
+                 if (sellPrice < costPrice)
+                 {
+                     var resp = MessageBox.Show("Selling price is lower than cost price. Continue?", "Price warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                     if (resp != DialogResult.Yes) return;
+                 }
 
-                // Prices
-                if (!decimal.TryParse(txtSellPrice.Text, out decimal sellPrice))
-                {
-                    MessageBox.Show("Invalid Selling Price.");
-                    return;
-                }
+                 // Reload dataset to get the latest state and locate the typed row
+                 this.productTableAdapter.Fill(this.dsSamsLiqourShop.Product);
+                 var productRow = this.dsSamsLiqourShop.Product.FindByProduct_ID(currentEditingProductId);
 
-                if (!decimal.TryParse(txtCostPrice.Text, out decimal costPrice))
-                {
-                    MessageBox.Show("Invalid Cost Price.");
-                    return;
-                }
+                 if (productRow == null)
+                 {
+                     MessageBox.Show("Product not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                     return;
+                 }
 
-                productRow.Product_SellingPrice = sellPrice;
-                productRow.Product_CostPrice = costPrice;
+                 // Keep the id for post-update lookup
+                 int editedProductId = productRow.Product_ID;
 
-                // Save changes
-                this.productTableAdapter.Update(this.dsSamsLiqourShop.Product);
+                 // Apply changes to the typed DataRow
+                 productRow.Category_ID = Convert.ToInt32(cmbCategory.SelectedValue);
+                 productRow.Supplier_ID = Convert.ToInt32(cmbSupplier.SelectedValue);
 
-                MessageBox.Show("Product updated successfully.",
-                    "Success",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Information);
+                 if (cmbDiscount.SelectedValue != null && int.TryParse(cmbDiscount.SelectedValue.ToString(), out int discVal))
+                     productRow.Discount_ID = discVal;
+                 else
+                     productRow.SetDiscount_IDNull();
 
-                // Refresh grid
-                this.productTableAdapter.Fill(this.dsSamsLiqourShop.Product);
+                 productRow.Product_Name = name;
+                 productRow.Product_Description = txtDescription.Text?.Trim() ?? "";
+                 productRow.Product_Brand = txtBrand.Text?.Trim() ?? "";
+                 productRow.Product_Type = txtType.Text?.Trim() ?? "";
+                 productRow.Product_Flavour = txtFlavour.Text?.Trim() ?? "";
+                 productRow.Product_OriginRegion = txtOrigin.Text?.Trim() ?? "";
+                 productRow.Product_Ingredients = txtIngredients.Text?.Trim() ?? "";
+                 productRow.Product_BarcodeNumber = txtBarcode.Text?.Trim() ?? "";
+                 productRow.Product_Status = txtStatus.Text?.Trim() ?? "";
+                 // image ignored as text in UI
 
-                // Reset editing state to require the user to re-select a row for the next update
-                currentEditingProductId = -1;
-                if (this.button2 != null) this.button2.Enabled = false;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(
-                    "Error updating product:\n" + ex.Message,
-                    "Error",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
-            }
+                 if (alcoholPercentage.HasValue)
+                     productRow.Product_AlcoholPercentage = alcoholPercentage.Value;
+                 else
+                     productRow.SetProduct_AlcoholPercentageNull();
+
+                 productRow.Product_SizeML = sizeML;
+                 productRow.Product_QuantityInStock = quantityInStock;
+                 productRow.Product_ReorderQuantity = reorderQuantity;
+
+                 productRow.Product_SellingPrice = sellPrice;
+                 productRow.Product_CostPrice = costPrice;
+
+                 // Persist changes
+                 this.productTableAdapter.Update(this.dsSamsLiqourShop.Product);
+
+                 MessageBox.Show("Product updated successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                 // Refresh dataset so we read database-enforced values
+                 this.productTableAdapter.Fill(this.dsSamsLiqourShop.Product);
+
+                 // Post-update: read database values and show reorder alert when necessary
+                 try
+                 {
+                     var updated = this.dsSamsLiqourShop.Product.FindByProduct_ID(editedProductId);
+                     if (updated != null)
+                     {
+                         // Use DataRow's IsNull / indexer to avoid relying on generated typed IsXxxNull() methods
+                         int dbQis = updated.IsNull("Product_QuantityInStock")
+                             ? 0
+                             : Convert.ToInt32(updated["Product_QuantityInStock"]);
+
+                         int dbReorder = updated.IsNull("Product_ReorderQuantity")
+                             ? 0
+                             : Convert.ToInt32(updated["Product_ReorderQuantity"]);
+
+                         string prodName = updated.IsNull("Product_Name") ? "" : Convert.ToString(updated["Product_Name"]);
+                         int prodId = updated.IsNull("Product_ID") ? editedProductId : Convert.ToInt32(updated["Product_ID"]);
+
+                         if (dbReorder > 0 && dbQis <= dbReorder)
+                         {
+                             MessageBox.Show(
+                                 $"Reorder alert: Product '{prodName}' (ID {prodId}) has stock {dbQis} which is at or below its reorder level ({dbReorder}).",
+                                 "Reorder Alert",
+                                 MessageBoxButtons.OK,
+                                 MessageBoxIcon.Warning);
+                         }
+                     }
+                 }
+                 catch
+                 {
+                     // Non-fatal: ignore any failure in the post-check
+                 }
+
+                 // Reset editing state
+                 currentEditingProductId = -1;
+                 if (this.button2 != null) this.button2.Enabled = false;
+             }
+             catch (Exception ex)
+             {
+                 MessageBox.Show(
+                     "Error updating product:\n" + ex.Message,
+                     "Error",
+                     MessageBoxButtons.OK,
+                     MessageBoxIcon.Error);
+             }
+            
+
         }
         
 

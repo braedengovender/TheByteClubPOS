@@ -200,13 +200,13 @@ namespace TheByteClubPOS
                 // Apply changes to the DataRow
                 categoryRow.Category_Name = newName;
 
-                if (string.IsNullOrWhiteSpace(textBox5.Text))
+                if (string.IsNullOrWhiteSpace(richTextBox1.Text))
                 {
                     categoryRow.SetCategory_DescriptionNull();
                 }
                 else
                 {
-                    categoryRow.Category_Description = textBox5.Text.Trim();
+                    categoryRow.Category_Description = richTextBox1.Text.Trim();
                 }
 
                 // Discount (optional)
@@ -246,6 +246,11 @@ namespace TheByteClubPOS
         private void textBox7_TextChanged(object sender, EventArgs e)
         {
             categoryTableAdapter.FillByName(dsSamsLiqourShop.Category, textBox7.Text.Trim());
+        }
+
+        private void textBox5_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
