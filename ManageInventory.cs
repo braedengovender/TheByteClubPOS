@@ -327,5 +327,21 @@ namespace TheByteClubPOS
            dsSamsLiqourShop.Product);
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                txtSearch.Clear();
+
+                this.productTableAdapter.Fill(
+                    this.dsSamsLiqourShop.Product);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    ex.Message,
+                    "Error");
+            }
+        }
     }
 }
