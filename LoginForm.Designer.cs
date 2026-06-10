@@ -48,11 +48,11 @@
             this.btnLogin = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
             this.btnTheme = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.dsSamsLiqourShop = new TheByteClubPOS.dsSamsLiqourShop();
             this.employeeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.employeeTableAdapter = new TheByteClubPOS.dsSamsLiqourShopTableAdapters.EmployeeTableAdapter();
             this.tableAdapterManager = new TheByteClubPOS.dsSamsLiqourShopTableAdapters.TableAdapterManager();
-            this.button1 = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
@@ -283,7 +283,19 @@
             this.btnTheme.TabIndex = 8;
             this.btnTheme.Text = "Change to Dark Mode";
             this.btnTheme.UseVisualStyleBackColor = true;
+            this.btnTheme.Visible = false;
             this.btnTheme.Click += new System.EventHandler(this.btnTheme_Click);
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(1031, 549);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(188, 40);
+            this.button1.TabIndex = 9;
+            this.button1.Text = "Login as Admin";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // dsSamsLiqourShop
             // 
@@ -316,17 +328,6 @@
             this.tableAdapterManager.SaleTypeTableAdapter = null;
             this.tableAdapterManager.SupplierTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = TheByteClubPOS.dsSamsLiqourShopTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            // 
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(1031, 549);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(188, 40);
-            this.button1.TabIndex = 9;
-            this.button1.Text = "Login as Admin";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // LoginForm
             // 

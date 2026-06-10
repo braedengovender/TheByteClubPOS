@@ -310,7 +310,7 @@ namespace TheByteClubPOS
                 if (confirm != DialogResult.Yes) return;
 
                 // Mark the row for deletion and push the change to the database via the TableAdapter update
-                productRow.Delete();
+                productRow.Delete(); //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                 int rowsAffected = this.productTableAdapter.Update(this.dsSamsLiqourShop.Product);
 
                 if (rowsAffected > 0)

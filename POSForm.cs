@@ -11,17 +11,19 @@ using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using static TheByteClubPOS.dsSamsLiqourShop;
 using Microsoft.VisualBasic; // Required for Interaction.InputBox
+using System.Drawing.Printing;
 
 namespace TheByteClubPOS
 {
     public partial class POSForm : Form
     {
+        private bool isDarkMode = false;
         int clearButtonClickCount = 0;
-
         int currentEmployeeID;
         int? currentCustomerID = null;
         public int selectedPaymentMethodID = 0;
-
+        int saleID;
+        int newCustLoyaltyPointsBalance;
         public System.Windows.Forms.Button btnChangeTheme
         { 
             get {  return btnToggleTheme; }
@@ -65,17 +67,23 @@ namespace TheByteClubPOS
             if (amountTendered < totalPayable)
             {
                 decimal shortAmount = totalPayable - amountTendered;
-                MessageBox.Show($"Insufficient funds! The customer gave R{amountTendered.ToString("F2")}, but the total is R{totalPayable.ToString("F2")}.\nThey still owe: R{shortAmount.ToString("F2")}", "Short Payment", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                //MessageBox.Show("Insufficient funds! \nThe customer gave R{amountTendered.ToString("F2")},\nbut the total is R{totalPayable.ToString("F2")}.\nThey still owe: R{shortAmount.ToString("F2")}", "Short Payment", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 txtAmountTendered.Focus();
                 return false;
             }
 
             return true; // The numbers are good to go!
         }
-        private bool IsCustomerOfAge()
+        private bool IsCustomerOfAge(string preLoadedID = "")
         {
-            // 1. Prompt the cashier to type in the customer's 13-digit SA ID number
-            string idNumber = Interaction.InputBox("Please enter the customer's 13-digit South African ID number for age verification:", "Age Verification", "");
+            string idNumber = preLoadedID;
+
+            // If no ID was passed from the database, prompt the cashier manually
+            if (string.IsNullOrWhiteSpace(idNumber))
+            {
+                // Prompt the cashier to type in the customer's 13-digit SA ID number
+                idNumber = Interaction.InputBox("Please enter the customer's 13-digit South African ID number for age verification:", "Age Verification", "");
+            }
 
             // Clean up any accidental spaces typed by the cashier
             idNumber = idNumber.Trim();
@@ -211,7 +219,9 @@ namespace TheByteClubPOS
 
             // 2. Wipe your global tracking variables back to safe defaults
             currentCustomerID = null;
-            // Keep currentEmployeeID intact since the same staff member is still logged in!
+            clearButtonClickCount = 0; // Fixes search box placeholder toggle behavior
+            saleID = 0;
+            newCustLoyaltyPointsBalance = 0;
 
             // 3. Reset Loyalty UI items back to a Walk-In guest state
             maskedTextBox1.Text = "";
@@ -393,15 +403,15 @@ namespace TheByteClubPOS
             {
                 txtSearch.Text = "";
                 clearButtonClickCount++;
-                txtSearch.ForeColor = Color.Black;
+                txtSearch.ForeColor = isDarkMode ? Color.White : Color.Black;
                 txtSearch.Font = new Font(txtSearch.Font, FontStyle.Regular);
             }
         }
 
-        private bool isDarkMode = false;
-
         public void ApplyDarkMode()
         {
+            isDarkMode = true;
+
             this.BackgroundImage = Properties.Resources.Dark_Background;
             this.BackColor = Color.FromArgb(32, 32, 32); // Dark Charcoal
             this.ForeColor = Color.White;
@@ -411,6 +421,9 @@ namespace TheByteClubPOS
             
             comboBox1.BackColor = Color.FromArgb(40, 40, 40);
             comboBox1.ForeColor = Color.White;
+
+            txtSearch.BackColor = Color.FromArgb(45, 45, 45); // Sleek input dark gray
+            txtSearch.ForeColor = Color.White;                // Force text to White
 
             productDataGridView.BackgroundColor = Color.FromArgb(45, 45, 48);
             productDataGridView.DefaultCellStyle.BackColor = Color.FromArgb(30, 30, 30);
@@ -440,6 +453,7 @@ namespace TheByteClubPOS
 
         public void ApplyLightMode()
         {
+            isDarkMode = false;
             this.BackgroundImage = Properties.Resources.Background;
             this.BackColor = SystemColors.Control;
             this.ForeColor = SystemColors.ControlText;
@@ -449,6 +463,9 @@ namespace TheByteClubPOS
 
             comboBox1.BackColor = Color.White;
             comboBox1.ForeColor = Color.Black;
+
+            txtSearch.BackColor = Color.White;
+            txtSearch.ForeColor = Color.Black; // Reset text to Black
 
             productDataGridView.BackgroundColor = Color.White;
             productDataGridView.DefaultCellStyle.BackColor = Color.White;
@@ -461,7 +478,6 @@ namespace TheByteClubPOS
             cartDataGridView.DefaultCellStyle.ForeColor = Color.Black;
             cartDataGridView.ColumnHeadersDefaultCellStyle.BackColor = Color.LightGray;
             cartDataGridView.ColumnHeadersDefaultCellStyle.ForeColor = Color.Black;
-
 
             productDataGridView.ColumnHeadersDefaultCellStyle.BackColor = Color.LightGray;
             productDataGridView.ColumnHeadersDefaultCellStyle.ForeColor = Color.Black;
@@ -483,8 +499,18 @@ namespace TheByteClubPOS
                 // Leave the main toggle button alone to retain its custom styling
                 if (c == btnToggleTheme) continue;
 
-                c.BackColor = backColor;
                 c.ForeColor = foreColor;
+
+                // Identify controls that should always blend into the background seamlessly
+                if (c is Label || c is CheckBox || c is RadioButton || c is PictureBox || c is Panel || c is TableLayoutPanel || c is FlowLayoutPanel)
+                {
+                    c.BackColor = Color.Transparent;
+                }
+                else
+                {
+                    // Structural layouts, panels, and input boxes keep the actual solid theme background
+                    c.BackColor = backColor;
+                }
 
                 // If the control contains nested elements (like a Panel or GroupBox), loop through them too
                 if (c.HasChildren)
@@ -649,25 +675,62 @@ namespace TheByteClubPOS
                 return; // Stops the sale if cash calculations fail or money is short
             }
 
-            if (IsCustomerOfAge() == false)
+            // Check if the masked textbox actually contains characters (excluding mask prompt/literals)
+            maskedTextBox1.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
+            bool hasInput = !string.IsNullOrWhiteSpace(maskedTextBox1.Text.Replace("-", "").Trim());
+            maskedTextBox1.TextMaskFormat = MaskFormat.IncludePromptAndLiterals;
+
+            if (currentCustomerID == null)
             {
-                return; // Stops the sale immediately if underage or invalid ID
+                if (hasInput)
+                {
+                    // If they typed something but forgot to click lookup, run it automatically
+                    btnLookup_Click(null, null);
+                }
+                else
+                {
+                    // If the box is completely empty, prompt them with your custom confirmation box
+                    DialogResult loyaltyCheck = MessageBox.Show("Are you sure that this customer does not have a loyalty account?", "Loyalty Account Verification", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (loyaltyCheck == DialogResult.No)
+                    {
+                        return; // Stops the sale entirely so they can input the number!
+                    }
+                }
             }
 
-            if (currentCustomerID == null && !string.IsNullOrWhiteSpace(maskedTextBox1.Text.Replace("-", "").Trim()))
+            // Automatic Profile Lookup Guard
+            // If the cashier forgot to hit "Lookup" but typed a number into the masked box anyway, pull it now
+            /*if (currentCustomerID == null && !string.IsNullOrWhiteSpace(maskedTextBox1.Text.Replace("-", "").Trim()))
             {
                 // Programmatically trigger the lookup button click!
                 btnLookup_Click(null, null);
+            }*/
 
-                // Note: If your lookup code clears fields or alerts the cashier on failure, 
-                // you might want to double check if currentCustomerID is STILL null here.
+            string customerIDFromDB = "";
+
+            // If a registered customer profile is successfully active in memory
+            if (currentCustomerID != null && this.dsSamsLiqourShop.Customer.Rows.Count > 0)
+            {
+                DataRow customerRow = this.dsSamsLiqourShop.Customer.Rows[0];
+
+                if (customerRow["Customer_IDNumber"] != DBNull.Value)
+                {
+                    customerIDFromDB = customerRow["Customer_IDNumber"].ToString();
+                }
+            }
+
+            // Run Age Verification
+            // Pass the ID string. If it's empty (walk-in), it opens the input box. If it has the DB ID, it runs silently!
+            if (IsCustomerOfAge(customerIDFromDB) == false)
+            {
+                return; // Stops the sale immediately if underage or invalid ID
             }
 
             int loyaltyPointsEarned = (int)Math.Floor(getTotal() / 10); // Example: 1 point for every R10 spent
 
             try
             {
-                int saleID = (int)saleTableAdapter.InsertQueryNewSale(currentCustomerID, currentEmployeeID, 1, null, DateTime.Now, getSubtotal(), getDiscountAmount(), getTotal(), loyaltyPointsEarned, "Completed");
+                saleID = (int)saleTableAdapter.InsertQueryNewSale(currentCustomerID, currentEmployeeID, 1, null, DateTime.Now, getSubtotal(), getDiscountAmount(), getTotal(), loyaltyPointsEarned, "Completed");
                 
                 
                 saveSaleLines(saleID);
@@ -676,6 +739,7 @@ namespace TheByteClubPOS
                 if (currentCustomerID != null)
                 {
                     customerTableAdapter.UpdateQueryCustLoyaltyPoints(Convert.ToInt32(currentCustomerID), loyaltyPointsEarned);
+                    newCustLoyaltyPointsBalance = (int)customerTableAdapter.getCustomerLoyaltyPointsBalance(Convert.ToInt32(currentCustomerID));
                 }
 
                 // Sale is completely successful, now show change due to customer
@@ -687,7 +751,7 @@ namespace TheByteClubPOS
 
                     if (changeDue > 0m)
                     {
-                        MessageBox.Show($"\n\nTotal: R{totalPayable.ToString("F2")}\nTendered: R{amountTendered.ToString("F2")}\n\nCHANGE DUE: R{changeDue.ToString("F2")}", "Change Dispensation", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show($"Total: R {totalPayable.ToString("F2")}\n" + $"Tendered: R {amountTendered.ToString("F2")}\n\n" + $"Change Due: R {changeDue.ToString("F2")}", "Change Dispensation", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
                     {
@@ -706,10 +770,14 @@ namespace TheByteClubPOS
 
                 if (result == DialogResult.Yes)
                 {
-                    MessageBox.Show("Receipt printed successfully.", "Sale Completion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    GenerateReceipt();
+                    //MessageBox.Show("Receipt printed successfully.", "Sale Completion", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-
-                clearForm();
+                else
+                {
+                    clearForm();
+                }
+    
             }
             catch (Exception ex)
             {
@@ -717,6 +785,207 @@ namespace TheByteClubPOS
             }
             
             
+        }
+
+        private void GenerateReceipt()
+        {
+            PrintDocument printDoc = new PrintDocument();
+
+            // Attach the layout drawing event handler
+            printDoc.PrintPage += new PrintPageEventHandler(PrintReceiptPage);
+
+            ReceiptForm receiptForm = new ReceiptForm(printDoc);
+            receiptForm.MdiParent = this.MdiParent;
+            receiptForm.WindowState = FormWindowState.Maximized;
+
+            receiptForm.FormClosed += (sender, e) =>
+            {
+                // Check if our form is running inside the MDI layout frame
+                if (this.MdiParent != null && this.MdiParent is MainForm mainForm)
+                {
+                    mainForm.btnProcessSale.PerformClick();
+
+                }
+                else
+                {
+                    // Fallback safety rule in case it's run standalone
+                    clearForm();
+                }
+            };
+            receiptForm.Show();
+
+        }
+
+        private void PrintReceiptPage(object sender, PrintPageEventArgs e)
+        {
+            Graphics graphic = e.Graphics;
+
+            // Set up text font stylings
+            Font fontNormal = new Font("Courier New", 10, FontStyle.Regular);
+            Font fontBold = new Font("Courier New", 10, FontStyle.Bold);
+            Font fontHeader = new Font("Courier New", 14, FontStyle.Bold);
+
+            float leading = 16; // Space between rows
+            float startX = 10;  // Left border margin
+            float startY = 10;  // Top border margin
+            float offset = 0;   // Rolling vertical offset marker
+
+            // 1. BUSINESS METADATA HEADER
+            graphic.DrawString("SAM'S LIQUOR SHOP", fontHeader, Brushes.Black, startX, startY + offset);
+            offset += leading + 4;
+            graphic.DrawString("21 Coronation Road, Mithangar, Tongaat, 4399", fontNormal, Brushes.Black, startX, startY + offset);
+            offset += leading;
+            graphic.DrawString("Contact Number: +27 82 405 5932", fontNormal, Brushes.Black, startX, startY + offset);
+            offset += leading * 2;
+
+            // 2. TRANSACTION METADATA
+            string invoiceNum = "INV-" + Convert.ToString(saleID);
+            graphic.DrawString($"INVOICE: {invoiceNum}", fontBold, Brushes.Black, startX, startY + offset);
+            offset += leading;
+            graphic.DrawString($"DATE: {DateTime.Now.ToString("G")}", fontNormal, Brushes.Black, startX, startY + offset);
+            offset += leading * 2;
+
+            // 3. CART COLUMN GRID HEADER
+            graphic.DrawString("--------------------------------------------------", fontNormal, Brushes.Black, startX, startY + offset);
+            offset += leading;
+            // Align columns cleanly within receipt margins
+            graphic.DrawString("Item", fontBold, Brushes.Black, startX, startY + offset);
+            graphic.DrawString("Qty", fontBold, Brushes.Black, startX + 160, startY + offset);
+            graphic.DrawString("Price", fontBold, Brushes.Black, startX + 210, startY + offset);
+            graphic.DrawString("Disc", fontBold, Brushes.Black, startX + 270, startY + offset);
+            graphic.DrawString("Total", fontBold, Brushes.Black, startX + 350, startY + offset);
+            offset += leading;
+            graphic.DrawString("--------------------------------------------------", fontNormal, Brushes.Black, startX, startY + offset);
+            offset += leading;
+
+            // 4. ITERATE ITEMS IN THE CART
+            int totalItemCount = 0;
+            decimal totalDiscountGiven = 0m; // Global tracker for aggregate receipt summary savings
+
+            foreach (DataRow row in this.dsSamsLiqourShop.Cart.Rows)
+            {
+                string name = row["Product_Name"].ToString();
+                int qty = Convert.ToInt32(row["SaleLine_Quantity"]);
+                decimal originalPrice = Convert.ToDecimal(row["SaleLine_OriginalUnitPrice"]);
+                decimal discountPrice = row["SaleLine_UnitPriceAfterDiscount"] == DBNull.Value ? originalPrice : Convert.ToDecimal(row["SaleLine_UnitPriceAfterDiscount"]); // Total discount applied to this item row
+                decimal lineTotal = (qty * discountPrice);
+
+                decimal unitDiscountAmount = originalPrice - discountPrice;
+                decimal totalLineSavings = unitDiscountAmount * qty;
+
+                decimal displayDiscount = (totalLineSavings > 0m) ? discountPrice : 0.00m;
+
+                totalItemCount += qty;
+                totalDiscountGiven += totalLineSavings;
+
+                // Truncate long product names so they don't break columns
+                if (name.Length > 18) name = name.Substring(0, 15) + "...";
+
+                graphic.DrawString(name, fontNormal, Brushes.Black, startX, startY + offset);
+                graphic.DrawString(qty.ToString(), fontNormal, Brushes.Black, startX + 160, startY + offset);
+                graphic.DrawString(originalPrice.ToString("F2"), fontNormal, Brushes.Black, startX + 210, startY + offset);
+                graphic.DrawString(displayDiscount.ToString("F2"), fontNormal, Brushes.Black, startX + 270, startY + offset);
+                graphic.DrawString(lineTotal.ToString("F2"), fontNormal, Brushes.Black, startX + 350, startY + offset);
+                offset += leading;
+
+                if (totalLineSavings > 0m)
+                {
+                    graphic.DrawString($"  * Promo Savings: -R {totalLineSavings.ToString("F2")}", fontNormal, Brushes.Gray, startX, startY + offset);
+                    offset += leading;
+                }
+            }
+
+            graphic.DrawString("--------------------------------------------------", fontNormal, Brushes.Black, startX, startY + offset);
+            offset += leading;
+
+            // ====== SECTION 5: BALANCES (Fixed Double R Symbol Glitch) ======
+            decimal subtotalAmount = getSubtotal();
+            decimal vatAmount = getVat();
+            decimal totalFinalAmount = getTotal();
+
+            string paymentMethod = comboBox1.Text.Trim();
+            string typedInput = txtAmountTendered.Text.Trim();
+
+            // Read values from your payment inputs
+            decimal tendered = string.IsNullOrEmpty(typedInput) ? 0 : Convert.ToDecimal(typedInput);
+            decimal change = tendered - totalFinalAmount;
+            if (change < 0) change = 0; // Guard sanity match check
+
+            // Draw financial aggregations
+            graphic.DrawString($"Total Items Count: {totalItemCount}", fontNormal, Brushes.Black, startX, startY + offset);
+            offset += leading;
+            graphic.DrawString($"Subtotal Amount:   R {subtotalAmount.ToString("F2")}", fontNormal, Brushes.Black, startX, startY + offset);
+            offset += leading;
+
+            // Display total combined savings if applicable
+            if (totalDiscountGiven > 0m)
+            {
+                graphic.DrawString($"Total Discount:   -R {totalDiscountGiven.ToString("F2")}", fontNormal, Brushes.Black, startX, startY + offset);
+                offset += leading;
+            }
+
+            graphic.DrawString($"Includes 15% VAT:  R {vatAmount.ToString("F2")}", fontNormal, Brushes.Black, startX, startY + offset);
+            offset += leading;
+            graphic.DrawString($"Total Final Price: R {totalFinalAmount.ToString("F2")}", fontBold, Brushes.Black, startX, startY + offset);
+            offset += leading;
+            graphic.DrawString($"Payment Method:    {comboBox1.Text.Trim()}", fontNormal, Brushes.Black, startX, startY + offset);
+            offset += leading;
+
+            if (paymentMethod.Equals("Loyalty Points", StringComparison.OrdinalIgnoreCase))
+            {
+                graphic.DrawString($"Points Redeemed:   {typedInput} pts", fontNormal, Brushes.Black, startX, startY + offset);
+                offset += leading;
+            }
+            else if (paymentMethod.Equals("Voucher", StringComparison.OrdinalIgnoreCase))
+            {
+                graphic.DrawString($"Voucher Ref Num:   {typedInput}", fontNormal, Brushes.Black, startX, startY + offset);
+                offset += leading;
+            }
+            else if (paymentMethod.Equals("Cash", StringComparison.OrdinalIgnoreCase))
+            {
+                graphic.DrawString($"Cash Tendered:     R {tendered.ToString("F2")}", fontNormal, Brushes.Black, startX, startY + offset);
+                offset += leading;
+                graphic.DrawString($"Change Amount:     R {change.ToString("F2")}", fontBold, Brushes.Black, startX, startY + offset);
+            }
+            else
+            {
+                
+            }
+   
+            offset += leading * 2;
+
+            // 6. TAILORED DYNAMIC FOOTER
+            // If a loyalty profile is active
+            if (currentCustomerID != null && this.dsSamsLiqourShop.Customer.Rows.Count > 0)
+            {
+                string customerName = lblName.Text; // Grab the preloaded text string
+                string pointsBalance = newCustLoyaltyPointsBalance.ToString();
+
+                graphic.DrawString($"Hi {customerName},", fontBold, Brushes.Black, startX, startY + offset);
+                offset += leading;
+                graphic.DrawString("Thank you for shopping at Sam's Liquor Shop!", fontNormal, Brushes.Black, startX, startY + offset);
+                offset += leading;
+                graphic.DrawString($"Your new loyalty points balance is: {pointsBalance}", fontBold, Brushes.Black, startX, startY + offset);
+                offset += leading * 1.5f;
+            }
+
+            graphic.DrawString("Please keep this receipt as proof of purchase.", fontNormal, Brushes.Black, startX, startY + offset);
+            offset += leading * 1.5f;
+
+            string employeeName = "Cashier";
+
+            // Access parent via MdiParent or Owner property depending on how the form was shown
+            Form parentForm = this.MdiParent ?? this.Owner;
+
+            if (parentForm != null)
+            {
+                // Replace "frmMainMenu" with the exact class name of your parent Form
+                if (parentForm is MainForm mainForm)
+                {
+                    employeeName = mainForm.employeeFullName;
+                }
+            }
+            graphic.DrawString($"You were helped by: {employeeName}", fontNormal, Brushes.Black, startX, startY + offset);
         }
 
         private void cartDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)

@@ -102,6 +102,12 @@
     <Compile Include="ManageProducts.Designer.cs">
       <DependentUpon>ManageProducts.cs</DependentUpon>
     </Compile>
+    <Compile Include="ReceiptForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReceiptForm.Designer.cs">
+      <DependentUpon>ReceiptForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="SalesReport.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -225,6 +231,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="ReceiptForm.resx">
+      <DependentUpon>ReceiptForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SalesReport.resx">
       <DependentUpon>SalesReport.cs</DependentUpon>
     </EmbeddedResource>
@@ -239,8 +248,8 @@
     </None>
     <None Include="dsSamsLiqourShop.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>dsSamsLiqourShop.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>dsSamsLiqourShop.Designer.cs</LastGenOutput>
     </None>
     <None Include="dsSamsLiqourShop.xss">
       <DependentUpon>dsSamsLiqourShop.xsd</DependentUpon>

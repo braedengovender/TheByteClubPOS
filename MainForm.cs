@@ -16,8 +16,8 @@ namespace TheByteClubPOS
         // Create a public property so child forms can look up here to see if dark mode is on
         public bool IsDarkMode { get; private set; }
         public int employeeID { get; set; }
-        string employeeFullName;
-        string employeeRole;
+        public string employeeFullName;
+        public string employeeRole;
 
         private void ApplyRolePermissions()
         {
@@ -315,6 +315,11 @@ namespace TheByteClubPOS
         {
             Form1 form = new Form1() ;
             form.Show();
+        }
+
+        private void changesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

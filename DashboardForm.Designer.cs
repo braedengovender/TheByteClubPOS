@@ -19,20 +19,20 @@ namespace TheByteClubPOS
 
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources =
-                new System.ComponentModel.ComponentResourceManager(typeof(DashboardForm));
-
             this.SuspendLayout();
-
+            // 
+            // DashboardForm
+            // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode       = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor           = System.Drawing.Color.FromArgb(245, 247, 250);
-            this.ClientSize          = new System.Drawing.Size(1280, 780);
-            this.Name                = "DashboardForm";
-            this.Text                = "Dashboard";
-
-
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(247)))), ((int)(((byte)(250)))));
+            this.BackgroundImage = global::TheByteClubPOS.Properties.Resources.Background;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(1134, 666);
+            this.Name = "DashboardForm";
+            this.Text = "ManagerDashboard";
             this.ResumeLayout(false);
+
         }
 
         #endregion

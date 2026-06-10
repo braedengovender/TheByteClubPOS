@@ -213,7 +213,7 @@
             this.txtSearch.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.txtSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSearch.ForeColor = System.Drawing.Color.DimGray;
-            this.txtSearch.Location = new System.Drawing.Point(28, 91);
+            this.txtSearch.Location = new System.Drawing.Point(28, 90);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(332, 26);
             this.txtSearch.TabIndex = 5;
@@ -282,7 +282,7 @@
             this.lblSubtotalAmount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lblSubtotalAmount.AutoSize = true;
             this.lblSubtotalAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSubtotalAmount.Location = new System.Drawing.Point(467, 5);
+            this.lblSubtotalAmount.Location = new System.Drawing.Point(474, 5);
             this.lblSubtotalAmount.Name = "lblSubtotalAmount";
             this.lblSubtotalAmount.Size = new System.Drawing.Size(88, 24);
             this.lblSubtotalAmount.TabIndex = 11;
@@ -293,7 +293,7 @@
             this.lblTotalAmount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lblTotalAmount.AutoSize = true;
             this.lblTotalAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalAmount.Location = new System.Drawing.Point(467, 95);
+            this.lblTotalAmount.Location = new System.Drawing.Point(474, 95);
             this.lblTotalAmount.Name = "lblTotalAmount";
             this.lblTotalAmount.Size = new System.Drawing.Size(88, 24);
             this.lblTotalAmount.TabIndex = 13;
@@ -588,7 +588,7 @@
             this.lblCustomer.AutoSize = true;
             this.lblCustomer.BackColor = System.Drawing.Color.Transparent;
             this.lblCustomer.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCustomer.Location = new System.Drawing.Point(24, 546);
+            this.lblCustomer.Location = new System.Drawing.Point(24, 540);
             this.lblCustomer.Name = "lblCustomer";
             this.lblCustomer.Size = new System.Drawing.Size(218, 24);
             this.lblCustomer.TabIndex = 26;
@@ -600,7 +600,7 @@
             this.lblCustName.AutoSize = true;
             this.lblCustName.BackColor = System.Drawing.Color.Transparent;
             this.lblCustName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCustName.Location = new System.Drawing.Point(24, 583);
+            this.lblCustName.Location = new System.Drawing.Point(24, 577);
             this.lblCustName.Name = "lblCustName";
             this.lblCustName.Size = new System.Drawing.Size(66, 24);
             this.lblCustName.TabIndex = 27;
@@ -612,7 +612,7 @@
             this.lblLoyaltyPoints.AutoSize = true;
             this.lblLoyaltyPoints.BackColor = System.Drawing.Color.Transparent;
             this.lblLoyaltyPoints.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLoyaltyPoints.Location = new System.Drawing.Point(24, 619);
+            this.lblLoyaltyPoints.Location = new System.Drawing.Point(24, 613);
             this.lblLoyaltyPoints.Name = "lblLoyaltyPoints";
             this.lblLoyaltyPoints.Size = new System.Drawing.Size(128, 24);
             this.lblLoyaltyPoints.TabIndex = 28;
@@ -624,7 +624,7 @@
             this.lblPointsAmount.AutoSize = true;
             this.lblPointsAmount.BackColor = System.Drawing.Color.Transparent;
             this.lblPointsAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPointsAmount.Location = new System.Drawing.Point(158, 619);
+            this.lblPointsAmount.Location = new System.Drawing.Point(158, 613);
             this.lblPointsAmount.Name = "lblPointsAmount";
             this.lblPointsAmount.Size = new System.Drawing.Size(20, 24);
             this.lblPointsAmount.TabIndex = 30;
@@ -636,7 +636,7 @@
             this.lblName.AutoSize = true;
             this.lblName.BackColor = System.Drawing.Color.Transparent;
             this.lblName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblName.Location = new System.Drawing.Point(96, 583);
+            this.lblName.Location = new System.Drawing.Point(96, 577);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(158, 24);
             this.lblName.TabIndex = 29;
@@ -679,14 +679,14 @@
             this.tableLayoutPanel2.Controls.Add(this.lblTotalAmount, 1, 3);
             this.tableLayoutPanel2.Controls.Add(this.lblDiscountAmount, 1, 1);
             this.tableLayoutPanel2.Controls.Add(this.lblVat, 0, 2);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(553, 354);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(546, 354);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 4;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 46.875F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 53.125F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 28F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(558, 119);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(565, 119);
             this.tableLayoutPanel2.TabIndex = 32;
             // 
             // lblVatAmount
@@ -694,7 +694,7 @@
             this.lblVatAmount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lblVatAmount.AutoSize = true;
             this.lblVatAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblVatAmount.Location = new System.Drawing.Point(467, 66);
+            this.lblVatAmount.Location = new System.Drawing.Point(474, 66);
             this.lblVatAmount.Name = "lblVatAmount";
             this.lblVatAmount.Size = new System.Drawing.Size(88, 24);
             this.lblVatAmount.TabIndex = 17;
@@ -716,7 +716,7 @@
             this.lblDiscountAmount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lblDiscountAmount.AutoSize = true;
             this.lblDiscountAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDiscountAmount.Location = new System.Drawing.Point(467, 37);
+            this.lblDiscountAmount.Location = new System.Drawing.Point(474, 37);
             this.lblDiscountAmount.Name = "lblDiscountAmount";
             this.lblDiscountAmount.Size = new System.Drawing.Size(88, 24);
             this.lblDiscountAmount.TabIndex = 15;

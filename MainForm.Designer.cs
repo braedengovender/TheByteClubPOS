@@ -50,7 +50,6 @@
             this.manageDiscountsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manageDiscountsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.darkModeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.changesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manageAccountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manageMyProfileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logoutToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -253,19 +252,12 @@
             // 
             // darkModeToolStripMenuItem
             // 
-            this.darkModeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.changesToolStripMenuItem});
             this.darkModeToolStripMenuItem.Image = global::TheByteClubPOS.Properties.Resources.DarkModeIcon;
             this.darkModeToolStripMenuItem.Name = "darkModeToolStripMenuItem";
             this.darkModeToolStripMenuItem.Size = new System.Drawing.Size(101, 28);
             this.darkModeToolStripMenuItem.Text = "Dark Mode";
+            this.darkModeToolStripMenuItem.Visible = false;
             this.darkModeToolStripMenuItem.Click += new System.EventHandler(this.darkModeToolStripMenuItem_Click);
-            // 
-            // changesToolStripMenuItem
-            // 
-            this.changesToolStripMenuItem.Name = "changesToolStripMenuItem";
-            this.changesToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
-            this.changesToolStripMenuItem.Text = "Changes";
             // 
             // manageAccountToolStripMenuItem
             // 
@@ -513,6 +505,7 @@
             this.btnSuppliers.TabIndex = 5;
             this.btnSuppliers.Text = "Suppliers";
             this.btnSuppliers.UseVisualStyleBackColor = true;
+            this.btnSuppliers.Visible = false;
             // 
             // btnLogout
             // 
@@ -660,14 +653,13 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Button btnDashboard;
-        private System.Windows.Forms.Button btnProcessSale;
         private System.Windows.Forms.Button btnManageSales;
         private System.Windows.Forms.Button btnProducts;
         private System.Windows.Forms.Button btnCustomers;
         private System.Windows.Forms.Button btnSuppliers;
         private System.Windows.Forms.Button btnLogout;
         private System.Windows.Forms.ToolStripMenuItem darkModeToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem changesToolStripMenuItem;
         private System.Windows.Forms.Button button1;
+        public System.Windows.Forms.Button btnProcessSale;
     }
 }

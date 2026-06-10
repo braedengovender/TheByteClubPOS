@@ -182,6 +182,7 @@
             this.btnTheme.TabIndex = 9;
             this.btnTheme.Text = "Change to Dark Mode";
             this.btnTheme.UseVisualStyleBackColor = true;
+            this.btnTheme.Visible = false;
             this.btnTheme.Click += new System.EventHandler(this.btnTheme_Click);
             // 
             // dsSamsLiqourShop
