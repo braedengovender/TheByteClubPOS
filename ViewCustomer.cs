@@ -65,7 +65,14 @@ namespace TheByteClubPOS
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
-            dv.Sort = "Customer_FirstName ASC";
+            //  
+            
+            {
+                if (radioButton3.Checked)
+                    dv.Sort = "Customer_FirstName ASC";
+                else if (radioButton4.Checked)
+                    dv.Sort = "Customer_FirstName DESC";
+            }
         }
 
         private void radioButton2_CheckedChanged(object sender, EventArgs e)
@@ -85,6 +92,21 @@ namespace TheByteClubPOS
 
         private void radioButton4_CheckedChanged(object sender, EventArgs e)
         {
+
+            DataView dv = dsSamsLiqourShop.Customer.DefaultView;
+            dv.RowFilter = "customer_City = 'Durban'";
+            customerDataGridView.DataSource = dv;
+        }
+
+        private void radioButton1_CheckedChanged_1(object sender, EventArgs e)
+        {
+            DataView dv = dsSamsLiqourShop.Customer.DefaultView;
+            dv.RowFilter = "customer_City = 'Johannesburg'";
+            customerDataGridView.DataSource = dv;
+        }
+
+        private void radioButton5_CheckedChanged(object sender, EventArgs e)
+        {
             if (rbCity.Checked)
             {
                 // Prompt user for city filter
@@ -97,24 +119,6 @@ namespace TheByteClubPOS
                 if (!string.IsNullOrWhiteSpace(city))
                 {
                     dv.RowFilter = $"Customer_City LIKE '%{city.Replace("'", "''")}%'";
-                }
-            }
-        }
-
-        private void radioButton5_CheckedChanged(object sender, EventArgs e)
-        {
-            if (rbCountry.Checked)
-            {
-                // Prompt user for country filter
-                string country = Microsoft.VisualBasic.Interaction.InputBox(
-                    "Enter country to filter by:",
-                    "Country Filter",
-                    ""
-                );
-
-                if (!string.IsNullOrWhiteSpace(country))
-                {
-                    dv.RowFilter = $"Customer_Country LIKE '%{country.Replace("'", "''")}%'";
                 }
             }
         }
@@ -147,5 +151,7 @@ namespace TheByteClubPOS
 
             customerDataGridView.DataSource = dv; // Refresh DataGridView
         }
+
+        
     }
 }

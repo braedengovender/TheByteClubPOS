@@ -242,6 +242,7 @@
             this.rdoAsc.TabStop = true;
             this.rdoAsc.Text = "Ascending";
             this.rdoAsc.UseVisualStyleBackColor = true;
+            this.rdoAsc.CheckedChanged += new System.EventHandler(this.rdoAsc_CheckedChanged_1);
             this.rdoAsc.Click += new System.EventHandler(this.rdoAsc_CheckedChanged);
             // 
             // grpSort

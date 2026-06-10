@@ -274,7 +274,10 @@ namespace TheByteClubPOS
             employeeTableAdapter.Fill(dsSamsLiqourShop.Employee);
         }
 
-     
+        private void rdoAsc_CheckedChanged_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 

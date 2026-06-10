@@ -35,6 +35,19 @@
             this.customerTableAdapter = new TheByteClubPOS.dsSamsLiqourShopTableAdapters.CustomerTableAdapter();
             this.tableAdapterManager = new TheByteClubPOS.dsSamsLiqourShopTableAdapters.TableAdapterManager();
             this.customerDataGridView = new System.Windows.Forms.DataGridView();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.rbDateCreated = new System.Windows.Forms.RadioButton();
+            this.rbSurname = new System.Windows.Forms.RadioButton();
+            this.rbFirstName = new System.Windows.Forms.RadioButton();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.rbInactive = new System.Windows.Forms.RadioButton();
+            this.rbCountry = new System.Windows.Forms.RadioButton();
+            this.rbCity = new System.Windows.Forms.RadioButton();
+            this.BtnFilter = new System.Windows.Forms.Button();
+            this.BtnSort = new System.Windows.Forms.Button();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -55,24 +68,17 @@
             this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.rbDateCreated = new System.Windows.Forms.RadioButton();
-            this.rbSurname = new System.Windows.Forms.RadioButton();
-            this.rbFirstName = new System.Windows.Forms.RadioButton();
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.rbInactive = new System.Windows.Forms.RadioButton();
-            this.rbCountry = new System.Windows.Forms.RadioButton();
-            this.rbCity = new System.Windows.Forms.RadioButton();
-            this.BtnFilter = new System.Windows.Forms.Button();
-            this.BtnSort = new System.Windows.Forms.Button();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.radioButton3 = new System.Windows.Forms.RadioButton();
+            this.radioButton4 = new System.Windows.Forms.RadioButton();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.dsSamsLiqourShop)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.customerBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.customerDataGridView)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // dsSamsLiqourShop
@@ -139,127 +145,6 @@
             this.customerDataGridView.TabIndex = 1;
             this.customerDataGridView.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.customerDataGridView_CellFormatting);
             // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "Customer_ID";
-            this.dataGridViewTextBoxColumn1.HeaderText = "Customer_ID";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "Customer_FirstName";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Customer_FirstName";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "Customer_LastName";
-            this.dataGridViewTextBoxColumn3.HeaderText = "Customer_LastName";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "Customer_EmailAddress";
-            this.dataGridViewTextBoxColumn4.HeaderText = "Customer_EmailAddress";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "Customer_IDNumber";
-            this.dataGridViewTextBoxColumn5.HeaderText = "Customer_IDNumber";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "Customer_PhoneNumber";
-            this.dataGridViewTextBoxColumn6.HeaderText = "Customer_PhoneNumber";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            this.dataGridViewTextBoxColumn7.DataPropertyName = "Customer_UnitNumber";
-            this.dataGridViewTextBoxColumn7.HeaderText = "Customer_UnitNumber";
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            // 
-            // dataGridViewTextBoxColumn8
-            // 
-            this.dataGridViewTextBoxColumn8.DataPropertyName = "Customer_UnitName";
-            this.dataGridViewTextBoxColumn8.HeaderText = "Customer_UnitName";
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            // 
-            // dataGridViewTextBoxColumn9
-            // 
-            this.dataGridViewTextBoxColumn9.DataPropertyName = "Customer_StreetNumber";
-            this.dataGridViewTextBoxColumn9.HeaderText = "Customer_StreetNumber";
-            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-            // 
-            // dataGridViewTextBoxColumn10
-            // 
-            this.dataGridViewTextBoxColumn10.DataPropertyName = "Customer_StreetName";
-            this.dataGridViewTextBoxColumn10.HeaderText = "Customer_StreetName";
-            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
-            // 
-            // dataGridViewTextBoxColumn11
-            // 
-            this.dataGridViewTextBoxColumn11.DataPropertyName = "Customer_Suburb";
-            this.dataGridViewTextBoxColumn11.HeaderText = "Customer_Suburb";
-            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
-            // 
-            // dataGridViewTextBoxColumn12
-            // 
-            this.dataGridViewTextBoxColumn12.DataPropertyName = "Customer_PostalCode";
-            this.dataGridViewTextBoxColumn12.HeaderText = "Customer_PostalCode";
-            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
-            // 
-            // dataGridViewTextBoxColumn13
-            // 
-            this.dataGridViewTextBoxColumn13.DataPropertyName = "Customer_City";
-            this.dataGridViewTextBoxColumn13.HeaderText = "Customer_City";
-            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
-            // 
-            // dataGridViewTextBoxColumn14
-            // 
-            this.dataGridViewTextBoxColumn14.DataPropertyName = "Customer_Province";
-            this.dataGridViewTextBoxColumn14.HeaderText = "Customer_Province";
-            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
-            // 
-            // dataGridViewTextBoxColumn15
-            // 
-            this.dataGridViewTextBoxColumn15.DataPropertyName = "Customer_Country";
-            this.dataGridViewTextBoxColumn15.HeaderText = "Customer_Country";
-            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
-            // 
-            // dataGridViewTextBoxColumn16
-            // 
-            this.dataGridViewTextBoxColumn16.DataPropertyName = "Customer_RegistrationDateTime";
-            this.dataGridViewTextBoxColumn16.HeaderText = "Customer_RegistrationDateTime";
-            this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
-            // 
-            // dataGridViewTextBoxColumn17
-            // 
-            this.dataGridViewTextBoxColumn17.DataPropertyName = "Customer_LoyaltyPointsBalance";
-            this.dataGridViewTextBoxColumn17.HeaderText = "Customer_LoyaltyPointsBalance";
-            this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
-            // 
-            // dataGridViewTextBoxColumn18
-            // 
-            this.dataGridViewTextBoxColumn18.DataPropertyName = "Customer_Status";
-            this.dataGridViewTextBoxColumn18.HeaderText = "Customer_Status";
-            this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
-            // 
-            // dataGridViewTextBoxColumn19
-            // 
-            this.dataGridViewTextBoxColumn19.DataPropertyName = "Customer_Username";
-            this.dataGridViewTextBoxColumn19.HeaderText = "Customer_Username";
-            this.dataGridViewTextBoxColumn19.Name = "dataGridViewTextBoxColumn19";
-            // 
-            // dataGridViewTextBoxColumn20
-            // 
-            this.dataGridViewTextBoxColumn20.DataPropertyName = "Customer_Password";
-            this.dataGridViewTextBoxColumn20.HeaderText = "Customer_Password";
-            this.dataGridViewTextBoxColumn20.Name = "dataGridViewTextBoxColumn20";
-            // 
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(284, 60);
@@ -282,13 +167,14 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox1.Controls.Add(this.BtnSort);
             this.groupBox1.Controls.Add(this.rbDateCreated);
             this.groupBox1.Controls.Add(this.rbSurname);
             this.groupBox1.Controls.Add(this.rbFirstName);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(293, 118);
+            this.groupBox1.Location = new System.Drawing.Point(474, 118);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(209, 143);
+            this.groupBox1.Size = new System.Drawing.Size(274, 143);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Sort By";
@@ -332,13 +218,16 @@
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox2.Controls.Add(this.radioButton2);
+            this.groupBox2.Controls.Add(this.BtnFilter);
+            this.groupBox2.Controls.Add(this.radioButton1);
             this.groupBox2.Controls.Add(this.rbInactive);
             this.groupBox2.Controls.Add(this.rbCountry);
             this.groupBox2.Controls.Add(this.rbCity);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(35, 118);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(209, 143);
+            this.groupBox2.Size = new System.Drawing.Size(413, 143);
             this.groupBox2.TabIndex = 5;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Filter By";
@@ -347,7 +236,7 @@
             // rbInactive
             // 
             this.rbInactive.AutoSize = true;
-            this.rbInactive.Location = new System.Drawing.Point(6, 98);
+            this.rbInactive.Location = new System.Drawing.Point(155, 68);
             this.rbInactive.Name = "rbInactive";
             this.rbInactive.Size = new System.Drawing.Size(88, 24);
             this.rbInactive.TabIndex = 2;
@@ -359,12 +248,12 @@
             // rbCountry
             // 
             this.rbCountry.AutoSize = true;
-            this.rbCountry.Location = new System.Drawing.Point(6, 68);
+            this.rbCountry.Location = new System.Drawing.Point(155, 38);
             this.rbCountry.Name = "rbCountry";
-            this.rbCountry.Size = new System.Drawing.Size(82, 24);
+            this.rbCountry.Size = new System.Drawing.Size(97, 24);
             this.rbCountry.TabIndex = 1;
             this.rbCountry.TabStop = true;
-            this.rbCountry.Text = "Country";
+            this.rbCountry.Text = "Other City";
             this.rbCountry.UseVisualStyleBackColor = true;
             this.rbCountry.CheckedChanged += new System.EventHandler(this.radioButton5_CheckedChanged);
             // 
@@ -373,19 +262,19 @@
             this.rbCity.AutoSize = true;
             this.rbCity.Location = new System.Drawing.Point(6, 38);
             this.rbCity.Name = "rbCity";
-            this.rbCity.Size = new System.Drawing.Size(53, 24);
+            this.rbCity.Size = new System.Drawing.Size(80, 24);
             this.rbCity.TabIndex = 0;
             this.rbCity.TabStop = true;
-            this.rbCity.Text = "City";
+            this.rbCity.Text = "Durban";
             this.rbCity.UseVisualStyleBackColor = true;
             this.rbCity.CheckedChanged += new System.EventHandler(this.radioButton4_CheckedChanged);
             // 
             // BtnFilter
             // 
             this.BtnFilter.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.BtnFilter.Location = new System.Drawing.Point(573, 144);
+            this.BtnFilter.Location = new System.Drawing.Point(284, 38);
             this.BtnFilter.Name = "BtnFilter";
-            this.BtnFilter.Size = new System.Drawing.Size(106, 36);
+            this.BtnFilter.Size = new System.Drawing.Size(106, 84);
             this.BtnFilter.TabIndex = 6;
             this.BtnFilter.Text = "Clear Filter";
             this.BtnFilter.UseVisualStyleBackColor = false;
@@ -394,13 +283,193 @@
             // BtnSort
             // 
             this.BtnSort.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.BtnSort.Location = new System.Drawing.Point(573, 204);
+            this.BtnSort.Location = new System.Drawing.Point(148, 38);
             this.BtnSort.Name = "BtnSort";
-            this.BtnSort.Size = new System.Drawing.Size(106, 36);
+            this.BtnSort.Size = new System.Drawing.Size(106, 84);
             this.BtnSort.TabIndex = 7;
             this.BtnSort.Text = "Clear Sort";
             this.BtnSort.UseVisualStyleBackColor = false;
             this.BtnSort.Click += new System.EventHandler(this.BtnSort_Click);
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "Customer_ID";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Customer_ID";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "Customer_FirstName";
+            this.dataGridViewTextBoxColumn2.HeaderText = "FirstName";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "Customer_LastName";
+            this.dataGridViewTextBoxColumn3.HeaderText = "LastName";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "Customer_EmailAddress";
+            this.dataGridViewTextBoxColumn4.HeaderText = "EmailAddress";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "Customer_IDNumber";
+            this.dataGridViewTextBoxColumn5.HeaderText = "IDNumber";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "Customer_PhoneNumber";
+            this.dataGridViewTextBoxColumn6.HeaderText = "PhoneNumber";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.DataPropertyName = "Customer_UnitNumber";
+            this.dataGridViewTextBoxColumn7.HeaderText = "UnitNumber";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            this.dataGridViewTextBoxColumn8.DataPropertyName = "Customer_UnitName";
+            this.dataGridViewTextBoxColumn8.HeaderText = "UnitName";
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            this.dataGridViewTextBoxColumn9.DataPropertyName = "Customer_StreetNumber";
+            this.dataGridViewTextBoxColumn9.HeaderText = "StreetNumber";
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            // 
+            // dataGridViewTextBoxColumn10
+            // 
+            this.dataGridViewTextBoxColumn10.DataPropertyName = "Customer_StreetName";
+            this.dataGridViewTextBoxColumn10.HeaderText = "StreetName";
+            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            // 
+            // dataGridViewTextBoxColumn11
+            // 
+            this.dataGridViewTextBoxColumn11.DataPropertyName = "Customer_Suburb";
+            this.dataGridViewTextBoxColumn11.HeaderText = "Suburb";
+            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
+            // 
+            // dataGridViewTextBoxColumn12
+            // 
+            this.dataGridViewTextBoxColumn12.DataPropertyName = "Customer_PostalCode";
+            this.dataGridViewTextBoxColumn12.HeaderText = "PostalCode";
+            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
+            // 
+            // dataGridViewTextBoxColumn13
+            // 
+            this.dataGridViewTextBoxColumn13.DataPropertyName = "Customer_City";
+            this.dataGridViewTextBoxColumn13.HeaderText = "City";
+            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
+            // 
+            // dataGridViewTextBoxColumn14
+            // 
+            this.dataGridViewTextBoxColumn14.DataPropertyName = "Customer_Province";
+            this.dataGridViewTextBoxColumn14.HeaderText = "Province";
+            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
+            // 
+            // dataGridViewTextBoxColumn15
+            // 
+            this.dataGridViewTextBoxColumn15.DataPropertyName = "Customer_Country";
+            this.dataGridViewTextBoxColumn15.HeaderText = "Country";
+            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
+            // 
+            // dataGridViewTextBoxColumn16
+            // 
+            this.dataGridViewTextBoxColumn16.DataPropertyName = "Customer_RegistrationDateTime";
+            this.dataGridViewTextBoxColumn16.HeaderText = "RegistrationDateTime";
+            this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
+            // 
+            // dataGridViewTextBoxColumn17
+            // 
+            this.dataGridViewTextBoxColumn17.DataPropertyName = "Customer_LoyaltyPointsBalance";
+            this.dataGridViewTextBoxColumn17.HeaderText = "LoyaltyPointsBalance";
+            this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
+            // 
+            // dataGridViewTextBoxColumn18
+            // 
+            this.dataGridViewTextBoxColumn18.DataPropertyName = "Customer_Status";
+            this.dataGridViewTextBoxColumn18.HeaderText = "Status";
+            this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
+            // 
+            // dataGridViewTextBoxColumn19
+            // 
+            this.dataGridViewTextBoxColumn19.DataPropertyName = "Customer_Username";
+            this.dataGridViewTextBoxColumn19.HeaderText = "Username";
+            this.dataGridViewTextBoxColumn19.Name = "dataGridViewTextBoxColumn19";
+            // 
+            // dataGridViewTextBoxColumn20
+            // 
+            this.dataGridViewTextBoxColumn20.DataPropertyName = "Customer_Password";
+            this.dataGridViewTextBoxColumn20.HeaderText = "Password";
+            this.dataGridViewTextBoxColumn20.Name = "dataGridViewTextBoxColumn20";
+            // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Location = new System.Drawing.Point(6, 98);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(129, 24);
+            this.radioButton1.TabIndex = 8;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "Johannesburg";
+            this.radioButton1.UseVisualStyleBackColor = true;
+            this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged_1);
+            // 
+            // radioButton2
+            // 
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.Location = new System.Drawing.Point(6, 68);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(107, 24);
+            this.radioButton2.TabIndex = 9;
+            this.radioButton2.TabStop = true;
+            this.radioButton2.Text = "Cape Town";
+            this.radioButton2.UseVisualStyleBackColor = true;
+            // 
+            // radioButton3
+            // 
+            this.radioButton3.AutoSize = true;
+            this.radioButton3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioButton3.Location = new System.Drawing.Point(6, 36);
+            this.radioButton3.Name = "radioButton3";
+            this.radioButton3.Size = new System.Drawing.Size(102, 24);
+            this.radioButton3.TabIndex = 6;
+            this.radioButton3.TabStop = true;
+            this.radioButton3.Text = "Ascending";
+            this.radioButton3.UseVisualStyleBackColor = true;
+            // 
+            // radioButton4
+            // 
+            this.radioButton4.AutoSize = true;
+            this.radioButton4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioButton4.Location = new System.Drawing.Point(6, 59);
+            this.radioButton4.Name = "radioButton4";
+            this.radioButton4.Size = new System.Drawing.Size(112, 24);
+            this.radioButton4.TabIndex = 7;
+            this.radioButton4.TabStop = true;
+            this.radioButton4.Text = "Descending";
+            this.radioButton4.UseVisualStyleBackColor = true;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox3.Controls.Add(this.radioButton3);
+            this.groupBox3.Controls.Add(this.radioButton4);
+            this.groupBox3.Location = new System.Drawing.Point(788, 127);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(200, 100);
+            this.groupBox3.TabIndex = 8;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Order BY";
             // 
             // ViewCustomer
             // 
@@ -409,8 +478,7 @@
             this.BackgroundImage = global::TheByteClubPOS.Properties.Resources.Background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1134, 666);
-            this.Controls.Add(this.BtnSort);
-            this.Controls.Add(this.BtnFilter);
+            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
@@ -427,6 +495,8 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -439,6 +509,19 @@
         private dsSamsLiqourShopTableAdapters.CustomerTableAdapter customerTableAdapter;
         private dsSamsLiqourShopTableAdapters.TableAdapterManager tableAdapterManager;
         private System.Windows.Forms.DataGridView customerDataGridView;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.RadioButton rbDateCreated;
+        private System.Windows.Forms.RadioButton rbSurname;
+        private System.Windows.Forms.RadioButton rbFirstName;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.RadioButton rbCity;
+        private System.Windows.Forms.RadioButton rbCountry;
+        private System.Windows.Forms.RadioButton rbInactive;
+        private System.Windows.Forms.Button BtnFilter;
+        private System.Windows.Forms.Button BtnSort;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
@@ -459,18 +542,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn18;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn19;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn20;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.RadioButton rbDateCreated;
-        private System.Windows.Forms.RadioButton rbSurname;
-        private System.Windows.Forms.RadioButton rbFirstName;
-        private System.ComponentModel.BackgroundWorker backgroundWorker1;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.RadioButton rbCity;
-        private System.Windows.Forms.RadioButton rbCountry;
-        private System.Windows.Forms.RadioButton rbInactive;
-        private System.Windows.Forms.Button BtnFilter;
-        private System.Windows.Forms.Button BtnSort;
+        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.RadioButton radioButton3;
+        private System.Windows.Forms.RadioButton radioButton4;
+        private System.Windows.Forms.GroupBox groupBox3;
     }
 }
