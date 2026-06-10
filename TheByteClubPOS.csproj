@@ -102,6 +102,12 @@
     <Compile Include="ReceiptForm.Designer.cs">
       <DependentUpon>ReceiptForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Resources\Help.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Resources\Help.Designer.cs">
+      <DependentUpon>Help.cs</DependentUpon>
+    </Compile>
     <Compile Include="SalesReport.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -225,6 +231,9 @@
     <EmbeddedResource Include="ReceiptForm.resx">
       <DependentUpon>ReceiptForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Help.resx">
+      <DependentUpon>Help.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SalesReport.resx">
       <DependentUpon>SalesReport.cs</DependentUpon>
     </EmbeddedResource>
@@ -296,6 +305,7 @@
     <None Include="Resources\AccountDetailsIcon.png" />
     <None Include="Resources\CustomerProfile.png" />
     <Content Include="Resources\FormIcon.ico" />
+    <None Include="Resources\HelpFormIcon.png" />
     <Content Include="Resources\Icon2.ico" />
     <None Include="Resources\LightModeIcon.png" />
     <None Include="Resources\LoadingForm_Background.png" />

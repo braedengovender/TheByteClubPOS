@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TheByteClubPOS.Resources;
 using static TheByteClubPOS.dsSamsLiqourShop;
 
 namespace TheByteClubPOS
@@ -326,6 +327,12 @@ namespace TheByteClubPOS
         {
             ManageInventory manageinventory = new ManageInventory();
             OpenChildForm(manageinventory);
+        }
+
+        private void helpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            HelpForm helpForm = new HelpForm();
+            OpenChildForm(helpForm);
         }
     }
 }
