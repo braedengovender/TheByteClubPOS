@@ -33,7 +33,26 @@
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.lblSearch = new System.Windows.Forms.Label();
             this.dgvProducts = new System.Windows.Forms.DataGridView();
+            this.productIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productDescriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productFlavourDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productAlcoholPercentageDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productSizeMLDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productSellingPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productCostPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productQuantityInStockDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productReorderQuantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productStatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dsSamsLiqourShop = new TheByteClubPOS.dsSamsLiqourShop();
             this.dgvOrderItems = new System.Windows.Forms.DataGridView();
+            this.colProductID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colUnitPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colLineTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSupplierID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblCount = new System.Windows.Forms.Label();
             this.btnRemoveItem = new System.Windows.Forms.Button();
             this.btnClearItems = new System.Windows.Forms.Button();
@@ -47,12 +66,6 @@
             this.btnComplete = new System.Windows.Forms.Button();
             this.lblOrders = new System.Windows.Forms.Label();
             this.dgvPurchaseOrder = new System.Windows.Forms.DataGridView();
-            this.colProductID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colUnitPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colLineTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colSupplierID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.purchaseOrderIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.supplierIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.employeeIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -61,28 +74,15 @@
             this.purchaseOrderTotalAmountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.purchaseOrderStatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.purchaseOrderBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dsSamsLiqourShop = new TheByteClubPOS.dsSamsLiqourShop();
-            this.productIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.productNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.productDescriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.productFlavourDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.productAlcoholPercentageDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.productSizeMLDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.productSellingPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.productCostPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.productQuantityInStockDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.productReorderQuantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.productStatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.productBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.productTableAdapter = new TheByteClubPOS.dsSamsLiqourShopTableAdapters.ProductTableAdapter();
             this.purchaseOrderTableAdapter = new TheByteClubPOS.dsSamsLiqourShopTableAdapters.PurchaseOrderTableAdapter();
             this.purchaseOrderLineTableAdapter1 = new TheByteClubPOS.dsSamsLiqourShopTableAdapters.PurchaseOrderLineTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsSamsLiqourShop)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrderItems)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPurchaseOrder)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.purchaseOrderBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsSamsLiqourShop)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // btnClear
@@ -144,9 +144,108 @@
             this.dgvProducts.Name = "dgvProducts";
             this.dgvProducts.RowHeadersWidth = 62;
             this.dgvProducts.RowTemplate.Height = 28;
-            this.dgvProducts.Size = new System.Drawing.Size(753, 688);
+            this.dgvProducts.Size = new System.Drawing.Size(790, 688);
             this.dgvProducts.TabIndex = 11;
             this.dgvProducts.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProducts_CellContentDoubleClick);
+            // 
+            // productIDDataGridViewTextBoxColumn
+            // 
+            this.productIDDataGridViewTextBoxColumn.DataPropertyName = "Product_ID";
+            this.productIDDataGridViewTextBoxColumn.HeaderText = "ID";
+            this.productIDDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.productIDDataGridViewTextBoxColumn.Name = "productIDDataGridViewTextBoxColumn";
+            this.productIDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.productIDDataGridViewTextBoxColumn.Width = 80;
+            // 
+            // productNameDataGridViewTextBoxColumn
+            // 
+            this.productNameDataGridViewTextBoxColumn.DataPropertyName = "Product_Name";
+            this.productNameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.productNameDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.productNameDataGridViewTextBoxColumn.Name = "productNameDataGridViewTextBoxColumn";
+            this.productNameDataGridViewTextBoxColumn.Width = 110;
+            // 
+            // productDescriptionDataGridViewTextBoxColumn
+            // 
+            this.productDescriptionDataGridViewTextBoxColumn.DataPropertyName = "Product_Description";
+            this.productDescriptionDataGridViewTextBoxColumn.HeaderText = "Description";
+            this.productDescriptionDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.productDescriptionDataGridViewTextBoxColumn.Name = "productDescriptionDataGridViewTextBoxColumn";
+            this.productDescriptionDataGridViewTextBoxColumn.Width = 120;
+            // 
+            // productFlavourDataGridViewTextBoxColumn
+            // 
+            this.productFlavourDataGridViewTextBoxColumn.DataPropertyName = "Product_Flavour";
+            this.productFlavourDataGridViewTextBoxColumn.HeaderText = "Flavour";
+            this.productFlavourDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.productFlavourDataGridViewTextBoxColumn.Name = "productFlavourDataGridViewTextBoxColumn";
+            this.productFlavourDataGridViewTextBoxColumn.Width = 110;
+            // 
+            // productAlcoholPercentageDataGridViewTextBoxColumn
+            // 
+            this.productAlcoholPercentageDataGridViewTextBoxColumn.DataPropertyName = "Product_AlcoholPercentage";
+            this.productAlcoholPercentageDataGridViewTextBoxColumn.HeaderText = "AlcoholPercentage";
+            this.productAlcoholPercentageDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.productAlcoholPercentageDataGridViewTextBoxColumn.Name = "productAlcoholPercentageDataGridViewTextBoxColumn";
+            this.productAlcoholPercentageDataGridViewTextBoxColumn.Width = 80;
+            // 
+            // productSizeMLDataGridViewTextBoxColumn
+            // 
+            this.productSizeMLDataGridViewTextBoxColumn.DataPropertyName = "Product_SizeML";
+            this.productSizeMLDataGridViewTextBoxColumn.HeaderText = "SizeML";
+            this.productSizeMLDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.productSizeMLDataGridViewTextBoxColumn.Name = "productSizeMLDataGridViewTextBoxColumn";
+            this.productSizeMLDataGridViewTextBoxColumn.Width = 80;
+            // 
+            // productSellingPriceDataGridViewTextBoxColumn
+            // 
+            this.productSellingPriceDataGridViewTextBoxColumn.DataPropertyName = "Product_SellingPrice";
+            this.productSellingPriceDataGridViewTextBoxColumn.HeaderText = "SellingPrice";
+            this.productSellingPriceDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.productSellingPriceDataGridViewTextBoxColumn.Name = "productSellingPriceDataGridViewTextBoxColumn";
+            this.productSellingPriceDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // productCostPriceDataGridViewTextBoxColumn
+            // 
+            this.productCostPriceDataGridViewTextBoxColumn.DataPropertyName = "Product_CostPrice";
+            this.productCostPriceDataGridViewTextBoxColumn.HeaderText = "CostPrice";
+            this.productCostPriceDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.productCostPriceDataGridViewTextBoxColumn.Name = "productCostPriceDataGridViewTextBoxColumn";
+            this.productCostPriceDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // productQuantityInStockDataGridViewTextBoxColumn
+            // 
+            this.productQuantityInStockDataGridViewTextBoxColumn.DataPropertyName = "Product_QuantityInStock";
+            this.productQuantityInStockDataGridViewTextBoxColumn.HeaderText = "QuantityInStock";
+            this.productQuantityInStockDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.productQuantityInStockDataGridViewTextBoxColumn.Name = "productQuantityInStockDataGridViewTextBoxColumn";
+            this.productQuantityInStockDataGridViewTextBoxColumn.Width = 80;
+            // 
+            // productReorderQuantityDataGridViewTextBoxColumn
+            // 
+            this.productReorderQuantityDataGridViewTextBoxColumn.DataPropertyName = "Product_ReorderQuantity";
+            this.productReorderQuantityDataGridViewTextBoxColumn.HeaderText = "ReorderQuantity";
+            this.productReorderQuantityDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.productReorderQuantityDataGridViewTextBoxColumn.Name = "productReorderQuantityDataGridViewTextBoxColumn";
+            this.productReorderQuantityDataGridViewTextBoxColumn.Width = 110;
+            // 
+            // productStatusDataGridViewTextBoxColumn
+            // 
+            this.productStatusDataGridViewTextBoxColumn.DataPropertyName = "Product_Status";
+            this.productStatusDataGridViewTextBoxColumn.HeaderText = "Status";
+            this.productStatusDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.productStatusDataGridViewTextBoxColumn.Name = "productStatusDataGridViewTextBoxColumn";
+            this.productStatusDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // productBindingSource
+            // 
+            this.productBindingSource.DataMember = "Product";
+            this.productBindingSource.DataSource = this.dsSamsLiqourShop;
+            // 
+            // dsSamsLiqourShop
+            // 
+            this.dsSamsLiqourShop.DataSetName = "dsSamsLiqourShop";
+            this.dsSamsLiqourShop.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // dgvOrderItems
             // 
@@ -165,6 +264,48 @@
             this.dgvOrderItems.RowTemplate.Height = 28;
             this.dgvOrderItems.Size = new System.Drawing.Size(829, 362);
             this.dgvOrderItems.TabIndex = 12;
+            // 
+            // colProductID
+            // 
+            this.colProductID.HeaderText = "ProductID";
+            this.colProductID.MinimumWidth = 8;
+            this.colProductID.Name = "colProductID";
+            this.colProductID.Width = 150;
+            // 
+            // colProductName
+            // 
+            this.colProductName.HeaderText = "Name";
+            this.colProductName.MinimumWidth = 8;
+            this.colProductName.Name = "colProductName";
+            this.colProductName.Width = 150;
+            // 
+            // colQuantity
+            // 
+            this.colQuantity.HeaderText = "Quantity";
+            this.colQuantity.MinimumWidth = 8;
+            this.colQuantity.Name = "colQuantity";
+            this.colQuantity.Width = 150;
+            // 
+            // colUnitPrice
+            // 
+            this.colUnitPrice.HeaderText = "UnitPrice";
+            this.colUnitPrice.MinimumWidth = 8;
+            this.colUnitPrice.Name = "colUnitPrice";
+            this.colUnitPrice.Width = 150;
+            // 
+            // colLineTotal
+            // 
+            this.colLineTotal.HeaderText = "LineTotal";
+            this.colLineTotal.MinimumWidth = 8;
+            this.colLineTotal.Name = "colLineTotal";
+            this.colLineTotal.Width = 150;
+            // 
+            // colSupplierID
+            // 
+            this.colSupplierID.HeaderText = "SupplierID";
+            this.colSupplierID.MinimumWidth = 8;
+            this.colSupplierID.Name = "colSupplierID";
+            this.colSupplierID.Width = 150;
             // 
             // lblCount
             // 
@@ -330,48 +471,6 @@
             this.dgvPurchaseOrder.Size = new System.Drawing.Size(829, 280);
             this.dgvPurchaseOrder.TabIndex = 31;
             // 
-            // colProductID
-            // 
-            this.colProductID.HeaderText = "ProductID";
-            this.colProductID.MinimumWidth = 8;
-            this.colProductID.Name = "colProductID";
-            this.colProductID.Width = 150;
-            // 
-            // colProductName
-            // 
-            this.colProductName.HeaderText = "Name";
-            this.colProductName.MinimumWidth = 8;
-            this.colProductName.Name = "colProductName";
-            this.colProductName.Width = 150;
-            // 
-            // colQuantity
-            // 
-            this.colQuantity.HeaderText = "Quantity";
-            this.colQuantity.MinimumWidth = 8;
-            this.colQuantity.Name = "colQuantity";
-            this.colQuantity.Width = 150;
-            // 
-            // colUnitPrice
-            // 
-            this.colUnitPrice.HeaderText = "UnitPrice";
-            this.colUnitPrice.MinimumWidth = 8;
-            this.colUnitPrice.Name = "colUnitPrice";
-            this.colUnitPrice.Width = 150;
-            // 
-            // colLineTotal
-            // 
-            this.colLineTotal.HeaderText = "LineTotal";
-            this.colLineTotal.MinimumWidth = 8;
-            this.colLineTotal.Name = "colLineTotal";
-            this.colLineTotal.Width = 150;
-            // 
-            // colSupplierID
-            // 
-            this.colSupplierID.HeaderText = "SupplierID";
-            this.colSupplierID.MinimumWidth = 8;
-            this.colSupplierID.Name = "colSupplierID";
-            this.colSupplierID.Width = 150;
-            // 
             // purchaseOrderIDDataGridViewTextBoxColumn
             // 
             this.purchaseOrderIDDataGridViewTextBoxColumn.DataPropertyName = "PurchaseOrder_ID";
@@ -434,105 +533,6 @@
             this.purchaseOrderBindingSource.DataMember = "PurchaseOrder";
             this.purchaseOrderBindingSource.DataSource = this.dsSamsLiqourShop;
             // 
-            // dsSamsLiqourShop
-            // 
-            this.dsSamsLiqourShop.DataSetName = "dsSamsLiqourShop";
-            this.dsSamsLiqourShop.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // productIDDataGridViewTextBoxColumn
-            // 
-            this.productIDDataGridViewTextBoxColumn.DataPropertyName = "Product_ID";
-            this.productIDDataGridViewTextBoxColumn.HeaderText = "ID";
-            this.productIDDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.productIDDataGridViewTextBoxColumn.Name = "productIDDataGridViewTextBoxColumn";
-            this.productIDDataGridViewTextBoxColumn.ReadOnly = true;
-            this.productIDDataGridViewTextBoxColumn.Width = 80;
-            // 
-            // productNameDataGridViewTextBoxColumn
-            // 
-            this.productNameDataGridViewTextBoxColumn.DataPropertyName = "Product_Name";
-            this.productNameDataGridViewTextBoxColumn.HeaderText = "Name";
-            this.productNameDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.productNameDataGridViewTextBoxColumn.Name = "productNameDataGridViewTextBoxColumn";
-            this.productNameDataGridViewTextBoxColumn.Width = 110;
-            // 
-            // productDescriptionDataGridViewTextBoxColumn
-            // 
-            this.productDescriptionDataGridViewTextBoxColumn.DataPropertyName = "Product_Description";
-            this.productDescriptionDataGridViewTextBoxColumn.HeaderText = "Description";
-            this.productDescriptionDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.productDescriptionDataGridViewTextBoxColumn.Name = "productDescriptionDataGridViewTextBoxColumn";
-            this.productDescriptionDataGridViewTextBoxColumn.Width = 120;
-            // 
-            // productFlavourDataGridViewTextBoxColumn
-            // 
-            this.productFlavourDataGridViewTextBoxColumn.DataPropertyName = "Product_Flavour";
-            this.productFlavourDataGridViewTextBoxColumn.HeaderText = "Flavour";
-            this.productFlavourDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.productFlavourDataGridViewTextBoxColumn.Name = "productFlavourDataGridViewTextBoxColumn";
-            this.productFlavourDataGridViewTextBoxColumn.Width = 110;
-            // 
-            // productAlcoholPercentageDataGridViewTextBoxColumn
-            // 
-            this.productAlcoholPercentageDataGridViewTextBoxColumn.DataPropertyName = "Product_AlcoholPercentage";
-            this.productAlcoholPercentageDataGridViewTextBoxColumn.HeaderText = "AlcoholPercentage";
-            this.productAlcoholPercentageDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.productAlcoholPercentageDataGridViewTextBoxColumn.Name = "productAlcoholPercentageDataGridViewTextBoxColumn";
-            this.productAlcoholPercentageDataGridViewTextBoxColumn.Width = 80;
-            // 
-            // productSizeMLDataGridViewTextBoxColumn
-            // 
-            this.productSizeMLDataGridViewTextBoxColumn.DataPropertyName = "Product_SizeML";
-            this.productSizeMLDataGridViewTextBoxColumn.HeaderText = "SizeML";
-            this.productSizeMLDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.productSizeMLDataGridViewTextBoxColumn.Name = "productSizeMLDataGridViewTextBoxColumn";
-            this.productSizeMLDataGridViewTextBoxColumn.Width = 80;
-            // 
-            // productSellingPriceDataGridViewTextBoxColumn
-            // 
-            this.productSellingPriceDataGridViewTextBoxColumn.DataPropertyName = "Product_SellingPrice";
-            this.productSellingPriceDataGridViewTextBoxColumn.HeaderText = "SellingPrice";
-            this.productSellingPriceDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.productSellingPriceDataGridViewTextBoxColumn.Name = "productSellingPriceDataGridViewTextBoxColumn";
-            this.productSellingPriceDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // productCostPriceDataGridViewTextBoxColumn
-            // 
-            this.productCostPriceDataGridViewTextBoxColumn.DataPropertyName = "Product_CostPrice";
-            this.productCostPriceDataGridViewTextBoxColumn.HeaderText = "CostPrice";
-            this.productCostPriceDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.productCostPriceDataGridViewTextBoxColumn.Name = "productCostPriceDataGridViewTextBoxColumn";
-            this.productCostPriceDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // productQuantityInStockDataGridViewTextBoxColumn
-            // 
-            this.productQuantityInStockDataGridViewTextBoxColumn.DataPropertyName = "Product_QuantityInStock";
-            this.productQuantityInStockDataGridViewTextBoxColumn.HeaderText = "QuantityInStock";
-            this.productQuantityInStockDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.productQuantityInStockDataGridViewTextBoxColumn.Name = "productQuantityInStockDataGridViewTextBoxColumn";
-            this.productQuantityInStockDataGridViewTextBoxColumn.Width = 80;
-            // 
-            // productReorderQuantityDataGridViewTextBoxColumn
-            // 
-            this.productReorderQuantityDataGridViewTextBoxColumn.DataPropertyName = "Product_ReorderQuantity";
-            this.productReorderQuantityDataGridViewTextBoxColumn.HeaderText = "ReorderQuantity";
-            this.productReorderQuantityDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.productReorderQuantityDataGridViewTextBoxColumn.Name = "productReorderQuantityDataGridViewTextBoxColumn";
-            this.productReorderQuantityDataGridViewTextBoxColumn.Width = 110;
-            // 
-            // productStatusDataGridViewTextBoxColumn
-            // 
-            this.productStatusDataGridViewTextBoxColumn.DataPropertyName = "Product_Status";
-            this.productStatusDataGridViewTextBoxColumn.HeaderText = "Status";
-            this.productStatusDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.productStatusDataGridViewTextBoxColumn.Name = "productStatusDataGridViewTextBoxColumn";
-            this.productStatusDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // productBindingSource
-            // 
-            this.productBindingSource.DataMember = "Product";
-            this.productBindingSource.DataSource = this.dsSamsLiqourShop;
-            // 
             // productTableAdapter
             // 
             this.productTableAdapter.ClearBeforeFill = true;
@@ -572,11 +572,11 @@
             this.Text = "ManageInventory";
             this.Load += new System.EventHandler(this.ManageInventory_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsSamsLiqourShop)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrderItems)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPurchaseOrder)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.purchaseOrderBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsSamsLiqourShop)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

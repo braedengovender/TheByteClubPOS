@@ -104,21 +104,18 @@ namespace TheByteClubPOS
 
             int productID =
                 Convert.ToInt32(
-                    dgvProducts.CurrentRow.Cells["Product_ID"].Value);
+                    dgvProducts.CurrentRow.Cells[0].Value);
 
             string productName =
-                dgvProducts.CurrentRow.Cells["Product_Name"]
-                .Value.ToString();
+                dgvProducts.CurrentRow.Cells[1].Value.ToString();
 
             decimal unitPrice =
                 Convert.ToDecimal(
-                    dgvProducts.CurrentRow.Cells["Product_CostPrice"]
-                    .Value);
+                    dgvProducts.CurrentRow.Cells[6].Value);
 
             int supplierID =
                 Convert.ToInt32(
-                    dgvProducts.CurrentRow.Cells["Supplier_ID"]
-                    .Value);
+                    dgvProducts.CurrentRow.Cells[0].Value);
 
             decimal lineTotal =
                 quantity * unitPrice;
