@@ -22,6 +22,23 @@ namespace TheByteClubPOS
         {
 
         }
+        private void OpenChildForm(Form childForm)
+        {
+            // Close existing child forms
+            foreach (Form form in this.MdiChildren)
+            {
+                form.Close();
+            }
+
+            // Open new child form
+            childForm.MdiParent = this;
+
+            childForm.ControlBox = false; // Removes the minimize, maximize, and close buttons
+            childForm.WindowState = FormWindowState.Maximized;
+            childForm.FormBorderStyle = FormBorderStyle.None;
+
+            childForm.Show();
+        }
 
         private void ManageInventory_Load(object sender, EventArgs e)
         {

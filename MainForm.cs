@@ -325,7 +325,7 @@ namespace TheByteClubPOS
         private void manageInventoryOrdersToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             ManageInventory manageinventory = new ManageInventory();
-            manageinventory.Show();
+            OpenChildForm(manageinventory);
         }
     }
 }

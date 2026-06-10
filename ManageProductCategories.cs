@@ -135,7 +135,7 @@ namespace TheByteClubPOS
 
                 textBox6.Text = idObj != DBNull.Value ? idObj.ToString() : string.Empty;
                 textBox4.Text = nameObj != DBNull.Value ? nameObj.ToString() : string.Empty;
-                textBox5.Text = descObj != DBNull.Value ? descObj.ToString() : string.Empty;
+                richTextBox1.Text = descObj != DBNull.Value ? descObj.ToString() : string.Empty;
 
                 // Set comboBox2 selected value if it contains discount items
                 if (discountObj != DBNull.Value && discountObj != null)
