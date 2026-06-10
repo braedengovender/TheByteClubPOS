@@ -326,5 +326,19 @@ namespace TheByteClubPOS
             this.Hide();
             manageEmployeeDetailsForm.ShowDialog();
         }
+
+        private void pictureBox7_Click(object sender, EventArgs e)
+        {
+            if (employee_PasswordTextBox.PasswordChar == '●')
+            {
+                employee_PasswordTextBox.PasswordChar = '\0';
+                pictureBox1.Image = Properties.Resources.HideEye;
+            }
+            else
+            {
+                employee_PasswordTextBox.PasswordChar = '●';
+                pictureBox1.Image = Properties.Resources.ShowEye;
+            }
+        }
     }
 }
