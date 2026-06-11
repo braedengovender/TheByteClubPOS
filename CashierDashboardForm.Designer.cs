@@ -1,10 +1,10 @@
-// DashboardForm.Designer.cs
-// Minimal designer stub — all controls are built in DashboardForm.cs.
-// Replace your existing DashboardForm.Designer.cs with this file.
+// CashierDashboardForm.Designer.cs
+// Minimal designer stub — all controls are built programmatically
+// in CashierDashboardForm.cs. Replace or add this file to your project.
 
 namespace TheByteClubPOS
 {
-    partial class DashboardForm
+    partial class CashierDashboardForm
     {
         private System.ComponentModel.IContainer components = null;
 
@@ -16,31 +16,17 @@ namespace TheByteClubPOS
         }
 
         #region Windows Form Designer generated code
-
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources =
-                new System.ComponentModel.ComponentResourceManager(typeof(DashboardForm));
-
             this.SuspendLayout();
-
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode       = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor           = System.Drawing.Color.FromArgb(245, 247, 250);
-            this.ClientSize          = new System.Drawing.Size(1280, 780);
-            this.Name                = "DashboardForm";
+            this.ClientSize          = new System.Drawing.Size(1134, 627);
+            this.Name                = "CashierDashboardForm";
             this.Text                = "Dashboard";
-
-            // Preserve the original form icon stored in the .resx
-            try
-            {
-                this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            }
-            catch { /* no icon resource — harmless */ }
-
             this.ResumeLayout(false);
         }
-
         #endregion
     }
 }

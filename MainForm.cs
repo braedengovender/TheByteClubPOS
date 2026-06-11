@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TheByteClubPOS.Resources;
 using static TheByteClubPOS.dsSamsLiqourShop;
 
 namespace TheByteClubPOS
@@ -203,12 +204,14 @@ namespace TheByteClubPOS
                 OpenChildForm(salesReports);
             }
             */
-            DashboardForm dashboard = new DashboardForm(
-                employeeID,
-                employeeFullName,
-                employeeRole
-            );
-            OpenChildForm(dashboard);
+            if (employeeRole.Equals("Cashier", StringComparison.OrdinalIgnoreCase))
+            {
+                OpenChildForm(new CashierDashboardForm(employeeID, employeeFullName));
+            }
+            else
+            {
+                OpenChildForm(new DashboardForm(employeeID, employeeFullName, employeeRole));
+            }
         }
 
         private void btnProcessSale_Click(object sender, EventArgs e)
@@ -325,7 +328,13 @@ namespace TheByteClubPOS
         private void manageInventoryOrdersToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             ManageInventory manageinventory = new ManageInventory();
-            manageinventory.Show();
+            OpenChildForm(manageinventory);
+        }
+
+        private void helpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            HelpForm helpForm = new HelpForm();
+            OpenChildForm(helpForm);
         }
     }
 }

@@ -135,7 +135,7 @@ namespace TheByteClubPOS
 
                 textBox6.Text = idObj != DBNull.Value ? idObj.ToString() : string.Empty;
                 textBox4.Text = nameObj != DBNull.Value ? nameObj.ToString() : string.Empty;
-                textBox5.Text = descObj != DBNull.Value ? descObj.ToString() : string.Empty;
+                richTextBox1.Text = descObj != DBNull.Value ? descObj.ToString() : string.Empty;
 
                 // Set comboBox2 selected value if it contains discount items
                 if (discountObj != DBNull.Value && discountObj != null)
@@ -200,13 +200,13 @@ namespace TheByteClubPOS
                 // Apply changes to the DataRow
                 categoryRow.Category_Name = newName;
 
-                if (string.IsNullOrWhiteSpace(textBox5.Text))
+                if (string.IsNullOrWhiteSpace(richTextBox1.Text))
                 {
                     categoryRow.SetCategory_DescriptionNull();
                 }
                 else
                 {
-                    categoryRow.Category_Description = textBox5.Text.Trim();
+                    categoryRow.Category_Description = richTextBox1.Text.Trim();
                 }
 
                 // Discount (optional)
@@ -246,6 +246,11 @@ namespace TheByteClubPOS
         private void textBox7_TextChanged(object sender, EventArgs e)
         {
             categoryTableAdapter.FillByName(dsSamsLiqourShop.Category, textBox7.Text.Trim());
+        }
+
+        private void textBox5_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -55,6 +55,9 @@
             this.logoutToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemTime = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemDate = new System.Windows.Forms.ToolStripMenuItem();
+            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabelUser = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
@@ -82,6 +85,8 @@
             this.employeeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.employeeTableAdapter = new TheByteClubPOS.dsSamsLiqourShopTableAdapters.EmployeeTableAdapter();
             this.tableAdapterManager = new TheByteClubPOS.dsSamsLiqourShopTableAdapters.TableAdapterManager();
+            this.userGuideToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.troubleshootingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -104,11 +109,12 @@
             this.darkModeToolStripMenuItem,
             this.manageAccountToolStripMenuItem,
             this.toolStripMenuItemTime,
-            this.toolStripMenuItemDate});
+            this.toolStripMenuItemDate,
+            this.helpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 1, 0, 1);
-            this.menuStrip1.Size = new System.Drawing.Size(1354, 30);
+            this.menuStrip1.Size = new System.Drawing.Size(913, 30);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -300,6 +306,29 @@
             this.toolStripMenuItemDate.Size = new System.Drawing.Size(108, 28);
             this.toolStripMenuItemDate.Text = "31 May 2026";
             // 
+            // helpToolStripMenuItem
+            // 
+            this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripSeparator5,
+            this.aboutToolStripMenuItem,
+            this.userGuideToolStripMenuItem,
+            this.troubleshootingToolStripMenuItem});
+            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 28);
+            this.helpToolStripMenuItem.Text = "&Help";
+            this.helpToolStripMenuItem.Click += new System.EventHandler(this.helpToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator5
+            // 
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            this.toolStripSeparator5.Size = new System.Drawing.Size(177, 6);
+            // 
+            // aboutToolStripMenuItem
+            // 
+            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.aboutToolStripMenuItem.Text = "&About...";
+            // 
             // statusStrip1
             // 
             this.statusStrip1.BackColor = System.Drawing.SystemColors.ActiveCaption;
@@ -315,9 +344,9 @@
             this.toolStripStatusLabelVersion,
             this.toolStripStatusLabel5,
             this.toolStripStatusLabelConnection});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 657);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 458);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1354, 29);
+            this.statusStrip1.Size = new System.Drawing.Size(913, 29);
             this.statusStrip1.TabIndex = 2;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -364,7 +393,7 @@
             // toolStripStatusLabelSpacer
             // 
             this.toolStripStatusLabelSpacer.Name = "toolStripStatusLabelSpacer";
-            this.toolStripStatusLabelSpacer.Size = new System.Drawing.Size(755, 24);
+            this.toolStripStatusLabelSpacer.Size = new System.Drawing.Size(314, 24);
             this.toolStripStatusLabelSpacer.Spring = true;
             // 
             // toolStripStatusLabelVersion
@@ -400,7 +429,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 30);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(220, 627);
+            this.panel1.Size = new System.Drawing.Size(220, 428);
             this.panel1.TabIndex = 4;
             // 
             // flowLayoutPanel1
@@ -419,8 +448,8 @@
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 130);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(10, 10, 10, 10);
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(220, 497);
+            this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(10);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(220, 298);
             this.flowLayoutPanel1.TabIndex = 1;
             this.flowLayoutPanel1.WrapContents = false;
             // 
@@ -525,7 +554,7 @@
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(12, 369);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(201, 45);
             this.button1.TabIndex = 7;
@@ -537,7 +566,7 @@
             // 
             this.pictureBox1.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pictureBox1.Image = global::TheByteClubPOS.Properties.Resources.MainFormImage;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(220, 130);
@@ -577,13 +606,25 @@
             this.tableAdapterManager.SupplierTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = TheByteClubPOS.dsSamsLiqourShopTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
+            // userGuideToolStripMenuItem
+            // 
+            this.userGuideToolStripMenuItem.Name = "userGuideToolStripMenuItem";
+            this.userGuideToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.userGuideToolStripMenuItem.Text = "User Guide";
+            // 
+            // troubleshootingToolStripMenuItem
+            // 
+            this.troubleshootingToolStripMenuItem.Name = "troubleshootingToolStripMenuItem";
+            this.troubleshootingToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.troubleshootingToolStripMenuItem.Text = "Troubleshooting";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::TheByteClubPOS.Properties.Resources.POINT_OF_SALES;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1354, 686);
+            this.ClientSize = new System.Drawing.Size(913, 487);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
@@ -662,5 +703,10 @@
         private System.Windows.Forms.ToolStripMenuItem darkModeToolStripMenuItem;
         private System.Windows.Forms.Button button1;
         public System.Windows.Forms.Button btnProcessSale;
+        private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
+        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem userGuideToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem troubleshootingToolStripMenuItem;
     }
 }

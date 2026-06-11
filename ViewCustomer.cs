@@ -14,11 +14,11 @@ namespace TheByteClubPOS
     public partial class ViewCustomer : Form
     {
         DataView dv;
-      
+
         public ViewCustomer()
         {
             InitializeComponent();
-        
+
         }
 
         private void customerBindingNavigatorSaveItem_Click(object sender, EventArgs e)
@@ -65,14 +65,7 @@ namespace TheByteClubPOS
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
-            //  
-            
-            {
-                if (radioButton3.Checked)
-                    dv.Sort = "Customer_FirstName ASC";
-                else if (radioButton4.Checked)
-                    dv.Sort = "Customer_FirstName DESC";
-            }
+            dv.Sort = "Customer_FirstName ASC";
         }
 
         private void radioButton2_CheckedChanged(object sender, EventArgs e)
@@ -126,7 +119,7 @@ namespace TheByteClubPOS
         private void radioButton6_CheckedChanged(object sender, EventArgs e)
         {
             dv.RowFilter = "Customer_Status = 'Inactive'";
-        
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -152,6 +145,11 @@ namespace TheByteClubPOS
             customerDataGridView.DataSource = dv; // Refresh DataGridView
         }
 
-        
+        private void radioButton2_CheckedChanged_1(object sender, EventArgs e)
+        {
+            DataView dv = dsSamsLiqourShop.Customer.DefaultView;
+            dv.RowFilter = "customer_City = 'Cape Town'";
+            customerDataGridView.DataSource = dv;
+        }
     }
 }

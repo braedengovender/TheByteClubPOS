@@ -95,7 +95,7 @@
             this.tableLayoutPanel1.Controls.Add(this.linkLabel1, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel4, 0, 3);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(387, 250);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(390, 244);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 4;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -277,7 +277,7 @@
             // 
             this.btnTheme.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnTheme.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTheme.Location = new System.Drawing.Point(1031, 375);
+            this.btnTheme.Location = new System.Drawing.Point(1472, 375);
             this.btnTheme.Name = "btnTheme";
             this.btnTheme.Size = new System.Drawing.Size(188, 40);
             this.btnTheme.TabIndex = 8;

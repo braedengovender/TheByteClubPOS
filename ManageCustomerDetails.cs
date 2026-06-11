@@ -31,8 +31,8 @@ namespace TheByteClubPOS
 
         private void ManageCustomerDetails_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'dsSamsLiqourShop.Customer' table. You can move, or remove it, as needed.
-            this.customerTableAdapter.Fill(this.dsSamsLiqourShop.Customer);
+            customerTableAdapter.Fill(this.dsSamsLiqourShop.Customer);
+
             UpdateCustomerCard(); //call the method to update the customer card display when the form loads
 
 
@@ -59,9 +59,6 @@ namespace TheByteClubPOS
                 label10.BackColor = Color.LightCoral;
                 label10.ForeColor = Color.DarkRed;
             }
-        }
-        private void button1_Click(object sender, EventArgs e)
-        {
         }
 
         private void maskedTextBox2_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
@@ -98,76 +95,76 @@ namespace TheByteClubPOS
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-          /*  try
-            {
-                // 1. Extract values from UI controls
-                string firstName = txtFirstName.Text.Trim();
-                string lastName = txtLastName.Text.Trim();
+            /*  try
+              {
+                  // 1. Extract values from UI controls
+                  string firstName = txtFirstName.Text.Trim();
+                  string lastName = txtLastName.Text.Trim();
 
-                string email = txtEmailAddress.Text.Trim();
-
-
+                  string email = txtEmailAddress.Text.Trim();
 
 
 
-                // Nullable fields: If text is empty, pass null
-                string unitNumber = string.IsNullOrWhiteSpace(txtUnitNumber.Text) ? null : txtUnitNumber.Text.Trim();
-                string unitName = string.IsNullOrWhiteSpace(txtUnitName.Text) ? null : txtUnitName.Text.Trim();
-                string streetNumber = txtStreetNumber.Text.Trim();
-                string streetName = txtStreetName.Text.Trim();
-                string suburb = txtSuburb.Text.Trim();
+
+
+                  // Nullable fields: If text is empty, pass null
+                  string unitNumber = string.IsNullOrWhiteSpace(txtUnitNumber.Text) ? null : txtUnitNumber.Text.Trim();
+                  string unitName = string.IsNullOrWhiteSpace(txtUnitName.Text) ? null : txtUnitName.Text.Trim();
+                  string streetNumber = txtStreetNumber.Text.Trim();
+                  string streetName = txtStreetName.Text.Trim();
+                  string suburb = txtSuburb.Text.Trim();
 
 
 
-                string city = txtCity.Text.Trim();
+                  string city = txtCity.Text.Trim();
 
-                // ComboBoxes (Make sure items match database types)
-                string province = cmbProvince.SelectedItem?.ToString();
-                string country = txtCountry.Text.Trim();
+                  // ComboBoxes (Make sure items match database types)
+                  string province = cmbProvince.SelectedItem?.ToString();
+                  string country = txtCountry.Text.Trim();
 
-                // DateTime Picker
-                DateTime registrationDate = dtpRegistrationDateTime.Value;
+                  // DateTime Picker
+                  DateTime registrationDate = dtpRegistrationDateTime.Value;
 
-                // Numeric handling
-                int loyaltyPoints = 0;
-                int.TryParse(txtLoyaltyPointsBalance.Text, out loyaltyPoints);
+                  // Numeric handling
+                  int loyaltyPoints = 0;
+                  int.TryParse(txtLoyaltyPointsBalance.Text, out loyaltyPoints);
 
-                string status = txtStatus.Text.Trim();
+                  string status = txtStatus.Text.Trim();
 
-                // Nullable Account Fields
-                string username = string.IsNullOrWhiteSpace(txtUsername.Text) ? null : txtUsername.Text.Trim();
-                string password = string.IsNullOrWhiteSpace(txtPassword.Text) ? null : txtPassword.Text.Trim();
+                  // Nullable Account Fields
+                  string username = string.IsNullOrWhiteSpace(txtUsername.Text) ? null : txtUsername.Text.Trim();
+                  string password = string.IsNullOrWhiteSpace(txtPassword.Text) ? null : txtPassword.Text.Trim();
 
-                string idNumber = maskedTextBox1.Text;
-                // 2. Basic validation for non-null database fields
-                if (string.IsNullOrEmpty(firstName) || string.IsNullOrEmpty(lastName) || string.IsNullOrEmpty(email) || string.IsNullOrEmpty(idNumber))
-                {
-                    MessageBox.Show("Please fill in all mandatory fields.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
+                  string idNumber = maskedTextBox1.Text;
+                  // 2. Basic validation for non-null database fields
+                  if (string.IsNullOrEmpty(firstName) || string.IsNullOrEmpty(lastName) || string.IsNullOrEmpty(email) || string.IsNullOrEmpty(idNumber))
+                  {
+                      MessageBox.Show("Please fill in all mandatory fields.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                      return;
+                  }
 
-                string phone = maskedTextBox3.Text;
-                string postalCode = maskedTextBox2.Text;
-                // 3. Call the TableAdapter Insert query method
-                this.customerTableAdapter.InsertQueryNewCustomer(firstName, lastName, email, idNumber, phone, unitNumber, unitName, streetNumber, streetName, suburb, postalCode, city, province, country, registrationDate.ToString(), loyaltyPoints, status, username, password);
-                this.customerTableAdapter.Fill(this.dsSamsLiqourShop.Customer);
-                MessageBox.Show("Customer added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            catch (System.Data.SqlClient.SqlException ex)
-            {
-                if (ex.Message.Contains("IX_Customer_2"))
-                {
-                    MessageBox.Show("Error: The Username or checked unique field must be unique. A record with this value already exists (or a second blank entry is being attempted).", "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                else
-                {
-                    MessageBox.Show($"Database error occurred: {ex.Message}", "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"An unexpected error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }*/
+                  string phone = maskedTextBox3.Text;
+                  string postalCode = maskedTextBox2.Text;
+                  // 3. Call the TableAdapter Insert query method
+                  this.customerTableAdapter.InsertQueryNewCustomer(firstName, lastName, email, idNumber, phone, unitNumber, unitName, streetNumber, streetName, suburb, postalCode, city, province, country, registrationDate.ToString(), loyaltyPoints, status, username, password);
+                  this.customerTableAdapter.Fill(this.dsSamsLiqourShop.Customer);
+                  MessageBox.Show("Customer added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+              }
+              catch (System.Data.SqlClient.SqlException ex)
+              {
+                  if (ex.Message.Contains("IX_Customer_2"))
+                  {
+                      MessageBox.Show("Error: The Username or checked unique field must be unique. A record with this value already exists (or a second blank entry is being attempted).", "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                  }
+                  else
+                  {
+                      MessageBox.Show($"Database error occurred: {ex.Message}", "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                  }
+              }
+              catch (Exception ex)
+              {
+                  MessageBox.Show($"An unexpected error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+              }*/
         }
 
         private void tabPage2_Click(object sender, EventArgs e)
@@ -185,7 +182,7 @@ namespace TheByteClubPOS
 
         private void button3_Click(object sender, EventArgs e)
         {
-           DialogResult dialogResult = MessageBox.Show("Are you sure you want to update this customer's details?", "Confirm Update", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult dialogResult = MessageBox.Show("Are you sure you want to update this customer's details?", "Confirm Update", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dialogResult == DialogResult.Yes)
             {
 
@@ -244,10 +241,7 @@ namespace TheByteClubPOS
 
         }
 
-        private void customer_IDNumberLabel_Click(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void customer_PhoneNumberLabel_Click(object sender, EventArgs e)
         {
@@ -475,11 +469,6 @@ namespace TheByteClubPOS
         }
 
         private void cmbProvince_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
         }
@@ -753,10 +742,135 @@ namespace TheByteClubPOS
             }
         }
 
+        private void rbCity_CheckedChanged(object sender, EventArgs e)
+        {
+
+            DataView dv = dsSamsLiqourShop.Customer.DefaultView;
+            dv.RowFilter = "customer_City = 'Durban'";
+            customerDataGridView.DataSource = dv;
+        }
+
+
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+            DataView dv = dsSamsLiqourShop.Customer.DefaultView;
+            dv.RowFilter = "customer_City = 'Johannesburg'";
+            customerDataGridView.DataSource = dv;
+        }
+
+        private void rbCountry_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbCity.Checked)
+            {
+                // Prompt user for city filter
+                string city = Microsoft.VisualBasic.Interaction.InputBox(
+                    "Enter city to filter by:",
+                    "City Filter",
+                    ""
+                );
+
+                if (!string.IsNullOrWhiteSpace(city))
+                {
+                    DataView dv = dsSamsLiqourShop.Customer.DefaultView;
+                    dv.RowFilter = $"Customer_City LIKE '%{city.Replace("'", "''")}%'";
+                }
+            }
+        }
+
+        private void radioButton2_CheckedChanged(object sender, EventArgs e)
+        {
+            DataView dv = dsSamsLiqourShop.Customer.DefaultView;
+            dv.RowFilter = "customer_City = 'Cape Town'";
+            customerDataGridView.DataSource = dv;
+        }
+
+        private void rbInactive_CheckedChanged(object sender, EventArgs e)
+        {
+            DataView dv = dsSamsLiqourShop.Customer.DefaultView;
+            dv.RowFilter = "Customer_Status = 'Inactive'";
+        }
+
+        private void rbFirstName_CheckedChanged(object sender, EventArgs e)
+        {
+            DataView dv = dsSamsLiqourShop.Customer.DefaultView;
+            dv.Sort = "Customer_FirstName ASC";
+        }
+
+
+
+        private void rbSurname_CheckedChanged(object sender, EventArgs e)
+        {
+            DataView dv = dsSamsLiqourShop.Customer.DefaultView;
+            dv.Sort = "Customer_LastName ASC";
+        }
+
+        private void rbDateCreated_CheckedChanged(object sender, EventArgs e)
+        {
+            DataView dv = dsSamsLiqourShop.Customer.DefaultView;
+            dv.Sort = "Customer_RegistrationDateTime DESC";
+        }
+
+        private void customerDataGridView_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            
+        }
+
+        private void customerDataGridView_CellFormatting_1(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (customerDataGridView.Rows[e.RowIndex].Cells[17].Value != null)
+            {
+                string status = customerDataGridView.Rows[e.RowIndex].Cells[17].Value.ToString();
+
+                if (status == "Inactive")
+                {
+                    customerDataGridView.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.Red;
+                    customerDataGridView.Rows[e.RowIndex].DefaultCellStyle.ForeColor = Color.Black;
+                }
+                else
+                {
+                    customerDataGridView.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.White;
+                    customerDataGridView.Rows[e.RowIndex].DefaultCellStyle.ForeColor = Color.Black;
+                }
+            }
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            customerTableAdapter.FillByCustomerFirstName(dsSamsLiqourShop.Customer, textBox1.Text);
+        }
+
+        private void BtnFilter_Click(object sender, EventArgs e)
+        {
+            DataView dv = dsSamsLiqourShop.Customer.DefaultView;
+            dv.RowFilter = ""; // Clear Filter
+
+            rbCity.Checked = false;
+            rbCountry.Checked = false; //Unchecl Radio Buttons
+            rbInactive.Checked = false;
+
+            customerDataGridView.DataSource = dv; // Refresh DataGridView
+
+        }
+
+        private void BtnSort_Click(object sender, EventArgs e)
+        {
+            DataView dv = dsSamsLiqourShop.Customer.DefaultView;
+            dv.Sort = ""; // Clear Sort
+
+            rbFirstName.Checked = false;
+            rbSurname.Checked = false; //Uncheck Radio Buttons
+            rbDateCreated.Checked = false;
+
+            customerDataGridView.DataSource = dv; // Refresh DataGridView
+        }
+    }
+    }
+
+
 
 
         // Save customer details here
-    }
-}
+
 
 
