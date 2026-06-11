@@ -66,10 +66,10 @@
             // 
             this.lblCredentials.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.lblCredentials.AutoSize = true;
-            this.lblCredentials.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCredentials.Location = new System.Drawing.Point(66, 74);
+            this.lblCredentials.Font = new System.Drawing.Font("Segoe UI", 21.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCredentials.Location = new System.Drawing.Point(69, 67);
             this.lblCredentials.Name = "lblCredentials";
-            this.lblCredentials.Size = new System.Drawing.Size(290, 33);
+            this.lblCredentials.Size = new System.Drawing.Size(284, 40);
             this.lblCredentials.TabIndex = 4;
             this.lblCredentials.Text = "Forgot Credentials?";
             // 
@@ -221,7 +221,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::TheByteClubPOS.Properties.Resources.Background;
+            this.BackgroundImage = global::TheByteClubPOS.Properties.Resources.RecoverAccountBackground;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1354, 686);
             this.Controls.Add(this.btnTheme);

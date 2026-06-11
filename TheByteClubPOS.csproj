@@ -326,6 +326,7 @@
     <None Include="Resources\MainFormPanel1.png" />
     <Content Include="Resources\PersonalDetailsIcon.png" />
     <None Include="Resources\RefreshIcon.png" />
+    <None Include="Resources\RecoverAccountBackground.png" />
     <Content Include="Resources\Untitled design %281%29.png" />
     <None Include="Resources\Untitled design %281%291.png" />
   </ItemGroup>

@@ -114,10 +114,10 @@
             // 
             this.lblSystemName.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.lblSystemName.AutoSize = true;
-            this.lblSystemName.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSystemName.Location = new System.Drawing.Point(211, 329);
+            this.lblSystemName.Font = new System.Drawing.Font("Segoe UI", 21.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSystemName.Location = new System.Drawing.Point(211, 322);
             this.lblSystemName.Name = "lblSystemName";
-            this.lblSystemName.Size = new System.Drawing.Size(667, 33);
+            this.lblSystemName.Size = new System.Drawing.Size(668, 40);
             this.lblSystemName.TabIndex = 2;
             this.lblSystemName.Text = "Point Of Sale && Inventory Management System";
             // 
@@ -131,7 +131,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::TheByteClubPOS.Properties.Resources.LoadingForm_Background;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1354, 686);
             this.Controls.Add(this.tableLayoutPanel1);
