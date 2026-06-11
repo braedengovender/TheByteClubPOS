@@ -336,6 +336,7 @@
             // dataGridViewTextBoxColumn3
             // 
             this.dataGridViewTextBoxColumn3.DataPropertyName = "Customer_Details";
+            this.dataGridViewTextBoxColumn3.FillWeight = 120F;
             this.dataGridViewTextBoxColumn3.HeaderText = "Customer Account";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             this.dataGridViewTextBoxColumn3.ReadOnly = true;
@@ -343,6 +344,7 @@
             // dataGridViewTextBoxColumn5
             // 
             this.dataGridViewTextBoxColumn5.DataPropertyName = "Employee_Name";
+            this.dataGridViewTextBoxColumn5.FillWeight = 120F;
             this.dataGridViewTextBoxColumn5.HeaderText = "Served By";
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             this.dataGridViewTextBoxColumn5.ReadOnly = true;
@@ -350,6 +352,7 @@
             // dataGridViewTextBoxColumn7
             // 
             this.dataGridViewTextBoxColumn7.DataPropertyName = "SaleType_Name";
+            this.dataGridViewTextBoxColumn7.FillWeight = 60F;
             this.dataGridViewTextBoxColumn7.HeaderText = "Payment Method";
             this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
             this.dataGridViewTextBoxColumn7.ReadOnly = true;
@@ -357,6 +360,7 @@
             // dataGridViewTextBoxColumn9
             // 
             this.dataGridViewTextBoxColumn9.DataPropertyName = "Sale_Discount_Name";
+            this.dataGridViewTextBoxColumn9.FillWeight = 160F;
             this.dataGridViewTextBoxColumn9.HeaderText = "Applied Promo";
             this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
             this.dataGridViewTextBoxColumn9.ReadOnly = true;
@@ -367,6 +371,7 @@
             dataGridViewCellStyle1.Format = "C2";
             dataGridViewCellStyle1.NullValue = null;
             this.dataGridViewTextBoxColumn11.DefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridViewTextBoxColumn11.FillWeight = 80F;
             this.dataGridViewTextBoxColumn11.HeaderText = "Subtotal";
             this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
             this.dataGridViewTextBoxColumn11.ReadOnly = true;
@@ -377,6 +382,7 @@
             dataGridViewCellStyle2.Format = "C2";
             dataGridViewCellStyle2.NullValue = null;
             this.dataGridViewTextBoxColumn12.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridViewTextBoxColumn12.FillWeight = 80F;
             this.dataGridViewTextBoxColumn12.HeaderText = "Discount";
             this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
             this.dataGridViewTextBoxColumn12.ReadOnly = true;
@@ -387,6 +393,7 @@
             dataGridViewCellStyle3.Format = "C2";
             dataGridViewCellStyle3.NullValue = null;
             this.dataGridViewTextBoxColumn13.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dataGridViewTextBoxColumn13.FillWeight = 80F;
             this.dataGridViewTextBoxColumn13.HeaderText = "Total Paid";
             this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
             this.dataGridViewTextBoxColumn13.ReadOnly = true;

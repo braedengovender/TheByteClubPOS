@@ -311,7 +311,6 @@ namespace TheByteClubPOS
                 ("Reorder",    "ReorderLevel",  70, DataGridViewContentAlignment.MiddleCenter));
             _dgvStock.Location        = new Point(1, 35);
             _dgvStock.Size            = new Size(stW - 2, gridH);
-            _dgvStock.CellFormatting += StockGrid_CellFormatting;
             stCard.Controls.Add(_dgvStock);
             stCard.Controls.Add(MkLbl("Showing latest 5 low stock items", F(7.5f), C_MID,
                 new Rectangle(10, H - 18, stW - 20, 15)));
@@ -695,7 +694,26 @@ namespace TheByteClubPOS
                 TotalAmtStr = string.Format("R{0:N2}", t.TotalAmount)
             }).ToList();
 
-            _dgvStock.DataSource = d.LowStockItems;
+            // Pre-convert stock integers to strings to avoid DataGridView
+            // FormatException when CellFormatting fires on raw int values.
+            _dgvStock.DataSource = d.LowStockItems.Select(s => new
+            {
+                s.ProductName,
+                CurrentStock = s.CurrentStock.ToString(),
+                ReorderLevel = s.ReorderLevel.ToString()
+            }).ToList();
+
+            // Colour low-stock numbers after binding
+            foreach (DataGridViewRow row in _dgvStock.Rows)
+            {
+                if (row.IsNewRow) continue;
+                var cell = row.Cells["col_CurrentStock"];
+                if (cell.Value != null &&
+                    int.TryParse(cell.Value.ToString(), out int qty))
+                {
+                    cell.Style.ForeColor = qty <= 3 ? C_RED : C_ORANGE;
+                }
+            }
 
             if (d.BestCustomer != null)
             {
@@ -731,17 +749,6 @@ namespace TheByteClubPOS
             }
         }
 
-        private void StockGrid_CellFormatting(object sender,
-            DataGridViewCellFormattingEventArgs e)
-        {
-            if (e.ColumnIndex < 0 || e.RowIndex < 0) return;
-            var grid = (DataGridView)sender;
-            if (grid.Columns[e.ColumnIndex].Name == "col_CurrentStock" &&
-                e.Value is int qty)
-            {
-                e.CellStyle.ForeColor = qty <= 3 ? C_RED : C_ORANGE;
-                e.FormattingApplied   = true;
-            }
-        }
+
     }
 }

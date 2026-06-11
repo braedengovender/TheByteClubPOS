@@ -269,7 +269,6 @@ namespace TheByteClubPOS
                 ("Reorder",    "ReorderLevel",  58, DataGridViewContentAlignment.MiddleCenter));
             _dgvLowStock.Location        = new Point(1, 35);
             _dgvLowStock.Size            = new Size(stW - 2, gridH);
-            _dgvLowStock.CellFormatting += StockGrid_CellFormatting;
             stCard.Controls.Add(_dgvLowStock);
             stCard.Controls.Add(MkLbl("Showing latest 5 low stock items", F(7.5f), C_MID,
                 new Rectangle(10, H - 18, stW - 20, 15)));
@@ -536,8 +535,26 @@ namespace TheByteClubPOS
                 TotalAmtStr = string.Format("R{0:N2}", t.TotalAmount)
             }).ToList();
 
-            // Low stock grid
-            _dgvLowStock.DataSource = d.LowStockItems;
+            // Pre-convert stock integers to strings to avoid FormatException
+            _dgvLowStock.DataSource = d.LowStockItems.Select(s => new
+            {
+                s.ProductName,
+                CurrentStock = s.CurrentStock.ToString(),
+                ReorderLevel = s.ReorderLevel.ToString()
+            }).ToList();
+
+            foreach (DataGridViewRow row in _dgvLowStock.Rows)
+            {
+                if (row.IsNewRow) continue;
+                var cell = row.Cells["col_CurrentStock"];
+                if (cell.Value != null &&
+                    int.TryParse(cell.Value.ToString(), out int qty))
+                {
+                    cell.Style.ForeColor = qty <= 3
+                        ? Color.FromArgb(231, 76, 60)
+                        : Color.FromArgb(230, 126, 34);
+                }
+            }
 
             // Best customer
             if (d.BestCustomer != null)
@@ -558,19 +575,6 @@ namespace TheByteClubPOS
                 d.LastUpdated);
         }
 
-        private void StockGrid_CellFormatting(object sender,
-            DataGridViewCellFormattingEventArgs e)
-        {
-            if (e.ColumnIndex < 0 || e.RowIndex < 0) return;
-            var grid = (DataGridView)sender;
-            if (grid.Columns[e.ColumnIndex].Name == "col_CurrentStock" &&
-                e.Value is int qty)
-            {
-                e.CellStyle.ForeColor = qty <= 3
-                    ? Color.FromArgb(231, 76, 60)
-                    : Color.FromArgb(230, 126, 34);
-                e.FormattingApplied = true;
-            }
-        }
+
     }
 }
