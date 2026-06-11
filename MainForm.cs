@@ -193,17 +193,6 @@ namespace TheByteClubPOS
 
         private void btnDashboard_Click(object sender, EventArgs e)
         {
-            /*if (employeeRole.ToLower() == "cashier")
-            {
-                SalesReport salesReports = new SalesReport();
-                OpenChildForm(salesReports);
-            }
-            else
-            {
-                SalesReport salesReports = new SalesReport();
-                OpenChildForm(salesReports);
-            }
-            */
             if (employeeRole.Equals("Cashier", StringComparison.OrdinalIgnoreCase))
             {
                 OpenChildForm(new CashierDashboardForm(employeeID, employeeFullName));
@@ -335,6 +324,11 @@ namespace TheByteClubPOS
         {
             HelpForm helpForm = new HelpForm();
             OpenChildForm(helpForm);
+        }
+
+        private void btnSuppliers_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -149,10 +149,26 @@
   <metadata name="tmrClock.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>930, 17</value>
   </metadata>
+  <data name="btnManageSales.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        DAAACwwBP0AiyAAAAI9JREFUSEvtkEEKgDAMBPdV4hcU/+Rf9egjlICFsm1ptgp66EAOaTJZEeg0ct41
+        ABiF3k0Q1HLDorfcqIK6LwvqfiLwryjN3bDAh0tzN6qg7idC6ct57oaFVwJmAHvlUInYsRsTLxh8vDXA
+        auMFIwwXAEdGqpU55oY+IQ5YxRDbNccd8KT+FcBvtf7bgE6WC/fdthdXnoJ8AAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="btnProducts.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        DAAACwwBP0AiyAAAAI9JREFUSEvtljEKwkAUBd+5RHvF+19AvYeyhbAOia9wbDQD0/3Jg1SbbPwb5yS3
+        JHfZa5ITx2bGASPLC8dmeGy7Cg9tN17g77GsMLCsMLCsMJjd8Xhiv3CvDY+Pr3FYuNeGP7HCwLLCwLLC
+        wLLCwLLCwLLCwLLCwLLCwLLyjefP22fPk/EoM8fH6JEjG7/PA+gSq5Z7l9ZdAAAAAElFTkSuQmCC
+</value>
+  </data>
   <data name="pictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAANoAAABpCAYAAABcQz0AAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wgAADsIBFShKgAAAD1dJREFUeF7tnQl7FUUWhv3//2CcxVFnRmdxZnREREQQcUFABELYl7AkQMKShGxs
+        wAAADsABataJCQAAD1dJREFUeF7tnQl7FUUWhv3//2CcxVFnRmdxZnREREQQcUFABELYl7AkQMKShGxs
         Pc/bcODcc6uXG28qXfqd53mfJN3Vy+1bX52qU6crb/3u01OVEGJneStuEEJMHwlNiAxIaEJkQEITIgMS
         mhAZkNCEyICEJkQGJDQhMiChCZEBCU2IDEhoQmRAQhMiAxKaEBmQ0ITIgIQmRAYkNCEyIKEJkQEJTYgM
         SGhCZEBCEyIDEpoQGZDQhMiAhCZEBiQ0ITIgoQmRAQlNiAxIaEJkYDBC+/2e09XXp25WM9eXGvnmzK2x
@@ -219,22 +235,6 @@
         JkQGJDQhMiChCZEBCU2IDEhoQmRAQhMiAxKaEBmQ0ITIgIQmRAYkNCEyIKEJkQEJTYgMSGhCZEBCEyID
         EpoQGZDQhMiAhCZEBiQ0ITIgoQmRAQlNiAxIaEJkQEITIgMSmhAZ+D+p8CSN4cNYNQAAAABJRU5ErkJg
         gg==
-</value>
-  </data>
-  <data name="btnManageSales.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DAAACwwBP0AiyAAAAI9JREFUSEvtkEEKgDAMBPdV4hcU/+Rf9egjlICFsm1ptgp66EAOaTJZEeg0ct41
-        ABiF3k0Q1HLDorfcqIK6LwvqfiLwryjN3bDAh0tzN6qg7idC6ct57oaFVwJmAHvlUInYsRsTLxh8vDXA
-        auMFIwwXAEdGqpU55oY+IQ5YxRDbNccd8KT+FcBvtf7bgE6WC/fdthdXnoJ8AAAAAElFTkSuQmCC
-</value>
-  </data>
-  <data name="btnProducts.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DAAACwwBP0AiyAAAAI9JREFUSEvtljEKwkAUBd+5RHvF+19AvYeyhbAOia9wbDQD0/3Jg1SbbPwb5yS3
-        JHfZa5ITx2bGASPLC8dmeGy7Cg9tN17g77GsMLCsMLCsMJjd8Xhiv3CvDY+Pr3FYuNeGP7HCwLLCwLLC
-        wLLCwLLCwLLCwLLCwLLCwLLyjefP22fPk/EoM8fH6JEjG7/PA+gSq5Z7l9ZdAAAAAElFTkSuQmCC
 </value>
   </data>
   <metadata name="dsSamsLiqourShop.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">

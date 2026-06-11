@@ -19,13 +19,17 @@ namespace TheByteClubPOS
         private void InitializeComponent()
         {
             this.SuspendLayout();
+            // 
+            // CashierDashboardForm
+            // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode       = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor           = System.Drawing.Color.FromArgb(245, 247, 250);
-            this.ClientSize          = new System.Drawing.Size(1134, 627);
-            this.Name                = "CashierDashboardForm";
-            this.Text                = "Dashboard";
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(247)))), ((int)(((byte)(250)))));
+            this.ClientSize = new System.Drawing.Size(1134, 666);
+            this.Name = "CashierDashboardForm";
+            this.Text = "Dashboard";
             this.ResumeLayout(false);
+
         }
         #endregion
     }

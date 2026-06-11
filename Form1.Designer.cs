@@ -165,6 +165,7 @@
             this.productDataGridView.RowTemplate.Height = 28;
             this.productDataGridView.Size = new System.Drawing.Size(582, 143);
             this.productDataGridView.TabIndex = 3;
+            this.productDataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.productDataGridView_DataError);
             this.productDataGridView.SelectionChanged += new System.EventHandler(this.productDataGridView_SelectionChanged);
             // 
             // productIDDataGridViewTextBoxColumn

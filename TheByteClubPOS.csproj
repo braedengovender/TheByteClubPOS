@@ -186,6 +186,9 @@
     <EmbeddedResource Include="AccountRecoveryForm.resx">
       <DependentUpon>AccountRecoveryForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CashierDashboardForm.resx">
+      <DependentUpon>CashierDashboardForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DashboardForm.resx">
       <DependentUpon>DashboardForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -313,6 +316,7 @@
     <None Include="Resources\CustomerProfile.png" />
     <Content Include="Resources\FormIcon.ico" />
     <None Include="Resources\HelpFormIcon.png" />
+    <None Include="Resources\HelpIcon.png" />
     <Content Include="Resources\Icon2.ico" />
     <None Include="Resources\LightModeIcon.png" />
     <None Include="Resources\LoadingForm_Background.png" />

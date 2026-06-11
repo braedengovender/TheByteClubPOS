@@ -57,7 +57,7 @@ namespace TheByteClubPOS
 
                     using (System.IO.MemoryStream ms = new System.IO.MemoryStream(imageBytes))
                     {
-                        pictureBox1.Image = Image.FromStream(ms);
+                        pictureBox1.Image = new Bitmap(ms);
                     }
                     MessageBox.Show("Success! Image bound to Product ID: " + selectedProductID);
 
@@ -81,7 +81,7 @@ namespace TheByteClubPOS
                     byte[] imageBytes = (byte[])currentRow["Product_Image"];
                     using (System.IO.MemoryStream ms = new System.IO.MemoryStream(imageBytes))
                     {
-                        pictureBox1.Image = Image.FromStream(ms);
+                        pictureBox1.Image = new Bitmap(ms);
                     }
                 }
                 else
@@ -89,6 +89,12 @@ namespace TheByteClubPOS
                     pictureBox1.Image = null;
                 }
             }
+        }
+
+        private void productDataGridView_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            // Silences formatting exceptions (like DBNull to Image parsing errors)
+            e.ThrowException = false;
         }
     }
 }
