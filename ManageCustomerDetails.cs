@@ -176,8 +176,8 @@ namespace TheByteClubPOS
                 selectedDate.ToString(),
                 Convert.ToInt32(customer_LoyaltyPointsBalanceTextBox.Text),
                 customer_StatusTextBox1.Text,
-                customer_UsernameTextBox.Text,
-                customer_PasswordTextBox.Text,
+                null,
+                null,
                 Convert.ToInt32(customer_IDTextBox.Text)
                 );
                 customerTableAdapter.Fill(this.dsSamsLiqourShop.Customer);
@@ -321,7 +321,7 @@ namespace TheByteClubPOS
                 string province = cmbProvince.SelectedItem?.ToString();
 
                 // DateTime Picker
-                DateTime registrationDate = dtpRegistrationDateTime.Value;
+                DateTime registrationDate = DateTime.Now;
 
                 // Numeric handling
                 int loyaltyPoints = 0;

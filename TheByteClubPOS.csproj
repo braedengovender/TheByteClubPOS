@@ -323,6 +323,7 @@
     <None Include="Resources\LoadingForm_Background.png" />
     <None Include="Resources\MainFormPanel.png" />
     <None Include="Resources\MainFormImage.png" />
+    <None Include="Resources\MainFormPanel1.png" />
     <Content Include="Resources\PersonalDetailsIcon.png" />
     <None Include="Resources\RefreshIcon.png" />
     <Content Include="Resources\Untitled design %281%29.png" />

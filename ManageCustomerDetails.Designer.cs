@@ -38,16 +38,12 @@
             System.Windows.Forms.Label customer_StreetNumberLabel1;
             System.Windows.Forms.Label customer_StreetNameLabel1;
             System.Windows.Forms.Label customer_SuburbLabel1;
-            System.Windows.Forms.Label customer_PostalCodeLabel1;
             System.Windows.Forms.Label customer_CityLabel1;
             System.Windows.Forms.Label customer_ProvinceLabel1;
-            System.Windows.Forms.Label customer_CountryLabel1;
             System.Windows.Forms.Label label6;
             System.Windows.Forms.Label customer_RegistrationDateTimeLabel1;
             System.Windows.Forms.Label customer_LoyaltyPointsBalanceLabel1;
             System.Windows.Forms.Label customer_StatusLabel2;
-            System.Windows.Forms.Label customer_UsernameLabel1;
-            System.Windows.Forms.Label customer_PasswordLabel1;
             System.Windows.Forms.Label label11;
             System.Windows.Forms.Label label14;
             System.Windows.Forms.Label label15;
@@ -57,16 +53,18 @@
             System.Windows.Forms.Label label20;
             System.Windows.Forms.Label label21;
             System.Windows.Forms.Label label22;
-            System.Windows.Forms.Label label23;
             System.Windows.Forms.Label label24;
             System.Windows.Forms.Label label25;
             System.Windows.Forms.Label label26;
-            System.Windows.Forms.Label label27;
             System.Windows.Forms.Label label28;
             System.Windows.Forms.Label label30;
             System.Windows.Forms.Label label31;
             System.Windows.Forms.Label label32;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ManageCustomerDetails));
+            System.Windows.Forms.Label label27;
+            System.Windows.Forms.Label label23;
+            System.Windows.Forms.Label customer_PostalCodeLabel1;
+            System.Windows.Forms.Label customer_CountryLabel1;
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.button1 = new System.Windows.Forms.Button();
@@ -80,14 +78,12 @@
             this.maskedTextBox2 = new System.Windows.Forms.MaskedTextBox();
             this.txtUnitNumber = new System.Windows.Forms.TextBox();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
-            this.txtCountry = new System.Windows.Forms.TextBox();
             this.txtStreetNumber = new System.Windows.Forms.TextBox();
             this.txtUnitName = new System.Windows.Forms.TextBox();
             this.cmbProvince = new System.Windows.Forms.ComboBox();
             this.label19 = new System.Windows.Forms.Label();
             this.txtStreetName = new System.Windows.Forms.TextBox();
             this.txtCity = new System.Windows.Forms.TextBox();
-            this.txtSuburb = new System.Windows.Forms.TextBox();
             this.panel7 = new System.Windows.Forms.Panel();
             this.maskedTextBox3 = new System.Windows.Forms.MaskedTextBox();
             this.txtEmailAddress = new System.Windows.Forms.TextBox();
@@ -108,8 +104,6 @@
             this.dsSamsLiqourShop = new TheByteClubPOS.dsSamsLiqourShop();
             this.customer_LoyaltyPointsBalanceTextBox = new System.Windows.Forms.TextBox();
             this.customer_StatusTextBox1 = new System.Windows.Forms.TextBox();
-            this.customer_UsernameTextBox = new System.Windows.Forms.TextBox();
-            this.customer_PasswordTextBox = new System.Windows.Forms.TextBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -117,10 +111,8 @@
             this.customer_StreetNameTextBox = new System.Windows.Forms.TextBox();
             this.customer_StreetNumberTextBox = new System.Windows.Forms.TextBox();
             this.customer_UnitNumberTextBox = new System.Windows.Forms.TextBox();
-            this.customer_CountryTextBox = new System.Windows.Forms.TextBox();
             this.customer_ProvinceTextBox = new System.Windows.Forms.TextBox();
             this.customer_CityTextBox = new System.Windows.Forms.TextBox();
-            this.customer_PostalCodeTextBox = new System.Windows.Forms.TextBox();
             this.customer_SuburbTextBox = new System.Windows.Forms.TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.customer_EmailAddressTextBox = new System.Windows.Forms.TextBox();
@@ -191,6 +183,10 @@
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.customerTableAdapter1 = new TheByteClubPOS.dsSamsLiqourShopTableAdapters.CustomerTableAdapter();
             this.tableAdapterManager1 = new TheByteClubPOS.dsSamsLiqourShopTableAdapters.TableAdapterManager();
+            this.txtSuburb = new System.Windows.Forms.TextBox();
+            this.txtCountry = new System.Windows.Forms.TextBox();
+            this.customer_PostalCodeTextBox = new System.Windows.Forms.TextBox();
+            this.customer_CountryTextBox = new System.Windows.Forms.TextBox();
             customer_FirstNameLabel2 = new System.Windows.Forms.Label();
             customer_LastNameLabel2 = new System.Windows.Forms.Label();
             customer_IDNumberLabel2 = new System.Windows.Forms.Label();
@@ -200,16 +196,12 @@
             customer_StreetNumberLabel1 = new System.Windows.Forms.Label();
             customer_StreetNameLabel1 = new System.Windows.Forms.Label();
             customer_SuburbLabel1 = new System.Windows.Forms.Label();
-            customer_PostalCodeLabel1 = new System.Windows.Forms.Label();
             customer_CityLabel1 = new System.Windows.Forms.Label();
             customer_ProvinceLabel1 = new System.Windows.Forms.Label();
-            customer_CountryLabel1 = new System.Windows.Forms.Label();
             label6 = new System.Windows.Forms.Label();
             customer_RegistrationDateTimeLabel1 = new System.Windows.Forms.Label();
             customer_LoyaltyPointsBalanceLabel1 = new System.Windows.Forms.Label();
             customer_StatusLabel2 = new System.Windows.Forms.Label();
-            customer_UsernameLabel1 = new System.Windows.Forms.Label();
-            customer_PasswordLabel1 = new System.Windows.Forms.Label();
             label11 = new System.Windows.Forms.Label();
             label14 = new System.Windows.Forms.Label();
             label15 = new System.Windows.Forms.Label();
@@ -219,15 +211,17 @@
             label20 = new System.Windows.Forms.Label();
             label21 = new System.Windows.Forms.Label();
             label22 = new System.Windows.Forms.Label();
-            label23 = new System.Windows.Forms.Label();
             label24 = new System.Windows.Forms.Label();
             label25 = new System.Windows.Forms.Label();
             label26 = new System.Windows.Forms.Label();
-            label27 = new System.Windows.Forms.Label();
             label28 = new System.Windows.Forms.Label();
             label30 = new System.Windows.Forms.Label();
             label31 = new System.Windows.Forms.Label();
             label32 = new System.Windows.Forms.Label();
+            label27 = new System.Windows.Forms.Label();
+            label23 = new System.Windows.Forms.Label();
+            customer_PostalCodeLabel1 = new System.Windows.Forms.Label();
+            customer_CountryLabel1 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel9.SuspendLayout();
@@ -344,21 +338,11 @@
             // 
             customer_SuburbLabel1.AutoSize = true;
             customer_SuburbLabel1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            customer_SuburbLabel1.Location = new System.Drawing.Point(268, 136);
+            customer_SuburbLabel1.Location = new System.Drawing.Point(16, 129);
             customer_SuburbLabel1.Name = "customer_SuburbLabel1";
             customer_SuburbLabel1.Size = new System.Drawing.Size(63, 20);
             customer_SuburbLabel1.TabIndex = 20;
             customer_SuburbLabel1.Text = "Suburb:";
-            // 
-            // customer_PostalCodeLabel1
-            // 
-            customer_PostalCodeLabel1.AutoSize = true;
-            customer_PostalCodeLabel1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            customer_PostalCodeLabel1.Location = new System.Drawing.Point(16, 130);
-            customer_PostalCodeLabel1.Name = "customer_PostalCodeLabel1";
-            customer_PostalCodeLabel1.Size = new System.Drawing.Size(95, 20);
-            customer_PostalCodeLabel1.TabIndex = 22;
-            customer_PostalCodeLabel1.Text = "Postal Code:";
             // 
             // customer_CityLabel1
             // 
@@ -374,21 +358,11 @@
             // 
             customer_ProvinceLabel1.AutoSize = true;
             customer_ProvinceLabel1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            customer_ProvinceLabel1.Location = new System.Drawing.Point(16, 164);
+            customer_ProvinceLabel1.Location = new System.Drawing.Point(16, 200);
             customer_ProvinceLabel1.Name = "customer_ProvinceLabel1";
             customer_ProvinceLabel1.Size = new System.Drawing.Size(73, 20);
             customer_ProvinceLabel1.TabIndex = 26;
             customer_ProvinceLabel1.Text = "Province:";
-            // 
-            // customer_CountryLabel1
-            // 
-            customer_CountryLabel1.AutoSize = true;
-            customer_CountryLabel1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            customer_CountryLabel1.Location = new System.Drawing.Point(16, 197);
-            customer_CountryLabel1.Name = "customer_CountryLabel1";
-            customer_CountryLabel1.Size = new System.Drawing.Size(70, 20);
-            customer_CountryLabel1.TabIndex = 28;
-            customer_CountryLabel1.Text = "Country:";
             // 
             // label6
             // 
@@ -429,26 +403,6 @@
             customer_StatusLabel2.Size = new System.Drawing.Size(129, 20);
             customer_StatusLabel2.TabIndex = 44;
             customer_StatusLabel2.Text = "Customer Status:";
-            // 
-            // customer_UsernameLabel1
-            // 
-            customer_UsernameLabel1.AutoSize = true;
-            customer_UsernameLabel1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            customer_UsernameLabel1.Location = new System.Drawing.Point(19, 161);
-            customer_UsernameLabel1.Name = "customer_UsernameLabel1";
-            customer_UsernameLabel1.Size = new System.Drawing.Size(156, 20);
-            customer_UsernameLabel1.TabIndex = 46;
-            customer_UsernameLabel1.Text = "Customer Username:";
-            // 
-            // customer_PasswordLabel1
-            // 
-            customer_PasswordLabel1.AutoSize = true;
-            customer_PasswordLabel1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            customer_PasswordLabel1.Location = new System.Drawing.Point(19, 188);
-            customer_PasswordLabel1.Name = "customer_PasswordLabel1";
-            customer_PasswordLabel1.Size = new System.Drawing.Size(152, 20);
-            customer_PasswordLabel1.TabIndex = 48;
-            customer_PasswordLabel1.Text = "Customer Password:";
             // 
             // label11
             // 
@@ -540,21 +494,11 @@
             label22.TabIndex = 14;
             label22.Text = "Unit Name:";
             // 
-            // label23
-            // 
-            label23.AutoSize = true;
-            label23.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label23.Location = new System.Drawing.Point(16, 197);
-            label23.Name = "label23";
-            label23.Size = new System.Drawing.Size(70, 20);
-            label23.TabIndex = 28;
-            label23.Text = "Country:";
-            // 
             // label24
             // 
             label24.AutoSize = true;
             label24.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label24.Location = new System.Drawing.Point(16, 164);
+            label24.Location = new System.Drawing.Point(15, 204);
             label24.Name = "label24";
             label24.Size = new System.Drawing.Size(73, 20);
             label24.TabIndex = 26;
@@ -574,21 +518,11 @@
             // 
             label26.AutoSize = true;
             label26.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label26.Location = new System.Drawing.Point(16, 130);
+            label26.Location = new System.Drawing.Point(268, 134);
             label26.Name = "label26";
             label26.Size = new System.Drawing.Size(95, 20);
             label26.TabIndex = 22;
             label26.Text = "Postal Code:";
-            // 
-            // label27
-            // 
-            label27.AutoSize = true;
-            label27.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label27.Location = new System.Drawing.Point(268, 136);
-            label27.Name = "label27";
-            label27.Size = new System.Drawing.Size(63, 20);
-            label27.TabIndex = 20;
-            label27.Text = "Suburb:";
             // 
             // label28
             // 
@@ -654,7 +588,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1126, 607);
+            this.tabPage1.Size = new System.Drawing.Size(1114, 607);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Add Customer";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -664,7 +598,7 @@
             this.button1.Location = new System.Drawing.Point(818, 528);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(289, 47);
-            this.button1.TabIndex = 117;
+            this.button1.TabIndex = 17;
             this.button1.Text = "ADD CUSTOMER";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click_2);
@@ -702,7 +636,7 @@
             this.txtStatus.Name = "txtStatus";
             this.txtStatus.ReadOnly = true;
             this.txtStatus.Size = new System.Drawing.Size(277, 26);
-            this.txtStatus.TabIndex = 109;
+            this.txtStatus.TabIndex = 16;
             this.txtStatus.Text = "Active";
             // 
             // label29
@@ -718,11 +652,12 @@
             // 
             // dtpRegistrationDateTime
             // 
+            this.dtpRegistrationDateTime.Enabled = false;
             this.dtpRegistrationDateTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpRegistrationDateTime.Location = new System.Drawing.Point(174, 61);
             this.dtpRegistrationDateTime.Name = "dtpRegistrationDateTime";
             this.dtpRegistrationDateTime.Size = new System.Drawing.Size(277, 26);
-            this.dtpRegistrationDateTime.TabIndex = 104;
+            this.dtpRegistrationDateTime.TabIndex = 14;
             // 
             // txtLoyaltyPointsBalance
             // 
@@ -731,16 +666,19 @@
             this.txtLoyaltyPointsBalance.Name = "txtLoyaltyPointsBalance";
             this.txtLoyaltyPointsBalance.ReadOnly = true;
             this.txtLoyaltyPointsBalance.Size = new System.Drawing.Size(277, 26);
-            this.txtLoyaltyPointsBalance.TabIndex = 99;
+            this.txtLoyaltyPointsBalance.TabIndex = 15;
             this.txtLoyaltyPointsBalance.Text = "0";
             // 
             // panel8
             // 
             this.panel8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel8.Controls.Add(this.txtCountry);
+            this.panel8.Controls.Add(label23);
+            this.panel8.Controls.Add(this.txtSuburb);
+            this.panel8.Controls.Add(label27);
             this.panel8.Controls.Add(this.maskedTextBox2);
             this.panel8.Controls.Add(this.txtUnitNumber);
             this.panel8.Controls.Add(this.pictureBox8);
-            this.panel8.Controls.Add(this.txtCountry);
             this.panel8.Controls.Add(this.txtStreetNumber);
             this.panel8.Controls.Add(this.txtUnitName);
             this.panel8.Controls.Add(this.cmbProvince);
@@ -750,12 +688,9 @@
             this.panel8.Controls.Add(this.txtStreetName);
             this.panel8.Controls.Add(label22);
             this.panel8.Controls.Add(this.txtCity);
-            this.panel8.Controls.Add(this.txtSuburb);
-            this.panel8.Controls.Add(label23);
             this.panel8.Controls.Add(label24);
             this.panel8.Controls.Add(label25);
             this.panel8.Controls.Add(label26);
-            this.panel8.Controls.Add(label27);
             this.panel8.Controls.Add(label28);
             this.panel8.Location = new System.Drawing.Point(19, 253);
             this.panel8.Name = "panel8";
@@ -765,11 +700,11 @@
             // maskedTextBox2
             // 
             this.maskedTextBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.maskedTextBox2.Location = new System.Drawing.Point(137, 127);
+            this.maskedTextBox2.Location = new System.Drawing.Point(372, 131);
             this.maskedTextBox2.Mask = "0000";
             this.maskedTextBox2.Name = "maskedTextBox2";
-            this.maskedTextBox2.Size = new System.Drawing.Size(124, 26);
-            this.maskedTextBox2.TabIndex = 107;
+            this.maskedTextBox2.Size = new System.Drawing.Size(146, 26);
+            this.maskedTextBox2.TabIndex = 10;
             this.maskedTextBox2.Leave += new System.EventHandler(this.maskedTextBox2_Leave);
             // 
             // txtUnitNumber
@@ -778,7 +713,7 @@
             this.txtUnitNumber.Location = new System.Drawing.Point(138, 57);
             this.txtUnitNumber.Name = "txtUnitNumber";
             this.txtUnitNumber.Size = new System.Drawing.Size(124, 26);
-            this.txtUnitNumber.TabIndex = 92;
+            this.txtUnitNumber.TabIndex = 5;
             // 
             // pictureBox8
             // 
@@ -790,21 +725,13 @@
             this.pictureBox8.TabIndex = 45;
             this.pictureBox8.TabStop = false;
             // 
-            // txtCountry
-            // 
-            this.txtCountry.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCountry.Location = new System.Drawing.Point(138, 196);
-            this.txtCountry.Name = "txtCountry";
-            this.txtCountry.Size = new System.Drawing.Size(124, 26);
-            this.txtCountry.TabIndex = 98;
-            // 
             // txtStreetNumber
             // 
             this.txtStreetNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtStreetNumber.Location = new System.Drawing.Point(138, 95);
             this.txtStreetNumber.Name = "txtStreetNumber";
             this.txtStreetNumber.Size = new System.Drawing.Size(124, 26);
-            this.txtStreetNumber.TabIndex = 94;
+            this.txtStreetNumber.TabIndex = 7;
             // 
             // txtUnitName
             // 
@@ -812,7 +739,7 @@
             this.txtUnitName.Location = new System.Drawing.Point(372, 58);
             this.txtUnitName.Name = "txtUnitName";
             this.txtUnitName.Size = new System.Drawing.Size(146, 26);
-            this.txtUnitName.TabIndex = 93;
+            this.txtUnitName.TabIndex = 5;
             // 
             // cmbProvince
             // 
@@ -828,10 +755,10 @@
             "North West",
             "Western Cape",
             "Free State"});
-            this.cmbProvince.Location = new System.Drawing.Point(138, 161);
+            this.cmbProvince.Location = new System.Drawing.Point(137, 201);
             this.cmbProvince.Name = "cmbProvince";
             this.cmbProvince.Size = new System.Drawing.Size(123, 28);
-            this.cmbProvince.TabIndex = 103;
+            this.cmbProvince.TabIndex = 13;
             // 
             // label19
             // 
@@ -850,7 +777,7 @@
             this.txtStreetName.Location = new System.Drawing.Point(372, 97);
             this.txtStreetName.Name = "txtStreetName";
             this.txtStreetName.Size = new System.Drawing.Size(146, 26);
-            this.txtStreetName.TabIndex = 95;
+            this.txtStreetName.TabIndex = 8;
             // 
             // txtCity
             // 
@@ -858,15 +785,7 @@
             this.txtCity.Location = new System.Drawing.Point(372, 166);
             this.txtCity.Name = "txtCity";
             this.txtCity.Size = new System.Drawing.Size(146, 26);
-            this.txtCity.TabIndex = 97;
-            // 
-            // txtSuburb
-            // 
-            this.txtSuburb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSuburb.Location = new System.Drawing.Point(372, 132);
-            this.txtSuburb.Name = "txtSuburb";
-            this.txtSuburb.Size = new System.Drawing.Size(146, 26);
-            this.txtSuburb.TabIndex = 96;
+            this.txtCity.TabIndex = 12;
             // 
             // panel7
             // 
@@ -889,7 +808,7 @@
             this.maskedTextBox3.Mask = "(999) 000-0000";
             this.maskedTextBox3.Name = "maskedTextBox3";
             this.maskedTextBox3.Size = new System.Drawing.Size(277, 26);
-            this.maskedTextBox3.TabIndex = 108;
+            this.maskedTextBox3.TabIndex = 4;
             this.maskedTextBox3.Leave += new System.EventHandler(this.maskedTextBox3_Leave);
             // 
             // txtEmailAddress
@@ -898,7 +817,7 @@
             this.txtEmailAddress.Location = new System.Drawing.Point(174, 102);
             this.txtEmailAddress.Name = "txtEmailAddress";
             this.txtEmailAddress.Size = new System.Drawing.Size(277, 26);
-            this.txtEmailAddress.TabIndex = 91;
+            this.txtEmailAddress.TabIndex = 4;
             this.txtEmailAddress.Leave += new System.EventHandler(this.txtEmailAddress_Leave);
             // 
             // pictureBox7
@@ -944,7 +863,7 @@
             this.txtFirstName.Location = new System.Drawing.Point(177, 73);
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.Size = new System.Drawing.Size(277, 26);
-            this.txtFirstName.TabIndex = 89;
+            this.txtFirstName.TabIndex = 0;
             this.txtFirstName.Leave += new System.EventHandler(this.txtFirstName_Leave);
             // 
             // pictureBox6
@@ -974,7 +893,7 @@
             this.txtLastName.Location = new System.Drawing.Point(177, 106);
             this.txtLastName.Name = "txtLastName";
             this.txtLastName.Size = new System.Drawing.Size(277, 26);
-            this.txtLastName.TabIndex = 90;
+            this.txtLastName.TabIndex = 2;
             this.txtLastName.Leave += new System.EventHandler(this.txtLastName_Leave);
             // 
             // maskedTextBox1
@@ -984,7 +903,7 @@
             this.maskedTextBox1.Mask = "0000000000000";
             this.maskedTextBox1.Name = "maskedTextBox1";
             this.maskedTextBox1.Size = new System.Drawing.Size(277, 26);
-            this.maskedTextBox1.TabIndex = 106;
+            this.maskedTextBox1.TabIndex = 3;
             this.maskedTextBox1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.maskedTextBox1_MouseClick);
             this.maskedTextBox1.Leave += new System.EventHandler(this.maskedTextBox1_Leave);
             // 
@@ -1020,10 +939,6 @@
             this.panel5.Controls.Add(this.customer_LoyaltyPointsBalanceTextBox);
             this.panel5.Controls.Add(customer_StatusLabel2);
             this.panel5.Controls.Add(this.customer_StatusTextBox1);
-            this.panel5.Controls.Add(customer_UsernameLabel1);
-            this.panel5.Controls.Add(this.customer_UsernameTextBox);
-            this.panel5.Controls.Add(customer_PasswordLabel1);
-            this.panel5.Controls.Add(this.customer_PasswordTextBox);
             this.panel5.Location = new System.Drawing.Point(583, 355);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(525, 241);
@@ -1053,11 +968,12 @@
             // customer_RegistrationDateTimeDateTimePicker
             // 
             this.customer_RegistrationDateTimeDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.customerBindingSource, "Customer_RegistrationDateTime", true));
+            this.customer_RegistrationDateTimeDateTimePicker.Enabled = false;
             this.customer_RegistrationDateTimeDateTimePicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.customer_RegistrationDateTimeDateTimePicker.Location = new System.Drawing.Point(190, 55);
             this.customer_RegistrationDateTimeDateTimePicker.Name = "customer_RegistrationDateTimeDateTimePicker";
             this.customer_RegistrationDateTimeDateTimePicker.Size = new System.Drawing.Size(277, 26);
-            this.customer_RegistrationDateTimeDateTimePicker.TabIndex = 41;
+            this.customer_RegistrationDateTimeDateTimePicker.TabIndex = 34;
             // 
             // customerBindingSource
             // 
@@ -1077,7 +993,7 @@
             this.customer_LoyaltyPointsBalanceTextBox.Name = "customer_LoyaltyPointsBalanceTextBox";
             this.customer_LoyaltyPointsBalanceTextBox.ReadOnly = true;
             this.customer_LoyaltyPointsBalanceTextBox.Size = new System.Drawing.Size(277, 26);
-            this.customer_LoyaltyPointsBalanceTextBox.TabIndex = 43;
+            this.customer_LoyaltyPointsBalanceTextBox.TabIndex = 35;
             // 
             // customer_StatusTextBox1
             // 
@@ -1086,29 +1002,15 @@
             this.customer_StatusTextBox1.Location = new System.Drawing.Point(190, 127);
             this.customer_StatusTextBox1.Name = "customer_StatusTextBox1";
             this.customer_StatusTextBox1.Size = new System.Drawing.Size(277, 26);
-            this.customer_StatusTextBox1.TabIndex = 45;
-            // 
-            // customer_UsernameTextBox
-            // 
-            this.customer_UsernameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customerBindingSource, "Customer_Username", true));
-            this.customer_UsernameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.customer_UsernameTextBox.Location = new System.Drawing.Point(190, 158);
-            this.customer_UsernameTextBox.Name = "customer_UsernameTextBox";
-            this.customer_UsernameTextBox.Size = new System.Drawing.Size(277, 26);
-            this.customer_UsernameTextBox.TabIndex = 47;
-            // 
-            // customer_PasswordTextBox
-            // 
-            this.customer_PasswordTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customerBindingSource, "Customer_Password", true));
-            this.customer_PasswordTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.customer_PasswordTextBox.Location = new System.Drawing.Point(190, 188);
-            this.customer_PasswordTextBox.Name = "customer_PasswordTextBox";
-            this.customer_PasswordTextBox.Size = new System.Drawing.Size(277, 26);
-            this.customer_PasswordTextBox.TabIndex = 49;
+            this.customer_StatusTextBox1.TabIndex = 36;
             // 
             // panel4
             // 
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel4.Controls.Add(this.customer_CountryTextBox);
+            this.panel4.Controls.Add(customer_CountryLabel1);
+            this.panel4.Controls.Add(this.customer_PostalCodeTextBox);
+            this.panel4.Controls.Add(customer_PostalCodeLabel1);
             this.panel4.Controls.Add(this.pictureBox3);
             this.panel4.Controls.Add(this.label5);
             this.panel4.Controls.Add(this.customer_UnitNameTextBox);
@@ -1118,14 +1020,10 @@
             this.panel4.Controls.Add(customer_StreetNumberLabel1);
             this.panel4.Controls.Add(customer_UnitNameLabel1);
             this.panel4.Controls.Add(this.customer_UnitNumberTextBox);
-            this.panel4.Controls.Add(this.customer_CountryTextBox);
-            this.panel4.Controls.Add(customer_CountryLabel1);
             this.panel4.Controls.Add(this.customer_ProvinceTextBox);
             this.panel4.Controls.Add(customer_ProvinceLabel1);
             this.panel4.Controls.Add(this.customer_CityTextBox);
             this.panel4.Controls.Add(customer_CityLabel1);
-            this.panel4.Controls.Add(this.customer_PostalCodeTextBox);
-            this.panel4.Controls.Add(customer_PostalCodeLabel1);
             this.panel4.Controls.Add(this.customer_SuburbTextBox);
             this.panel4.Controls.Add(customer_SuburbLabel1);
             this.panel4.Controls.Add(customer_UnitNumberLabel1);
@@ -1162,7 +1060,7 @@
             this.customer_UnitNameTextBox.Location = new System.Drawing.Point(374, 55);
             this.customer_UnitNameTextBox.Name = "customer_UnitNameTextBox";
             this.customer_UnitNameTextBox.Size = new System.Drawing.Size(133, 26);
-            this.customer_UnitNameTextBox.TabIndex = 15;
+            this.customer_UnitNameTextBox.TabIndex = 26;
             // 
             // customer_StreetNameTextBox
             // 
@@ -1171,7 +1069,7 @@
             this.customer_StreetNameTextBox.Location = new System.Drawing.Point(374, 94);
             this.customer_StreetNameTextBox.Name = "customer_StreetNameTextBox";
             this.customer_StreetNameTextBox.Size = new System.Drawing.Size(135, 26);
-            this.customer_StreetNameTextBox.TabIndex = 19;
+            this.customer_StreetNameTextBox.TabIndex = 28;
             // 
             // customer_StreetNumberTextBox
             // 
@@ -1180,7 +1078,7 @@
             this.customer_StreetNumberTextBox.Location = new System.Drawing.Point(131, 95);
             this.customer_StreetNumberTextBox.Name = "customer_StreetNumberTextBox";
             this.customer_StreetNumberTextBox.Size = new System.Drawing.Size(116, 26);
-            this.customer_StreetNumberTextBox.TabIndex = 17;
+            this.customer_StreetNumberTextBox.TabIndex = 27;
             // 
             // customer_UnitNumberTextBox
             // 
@@ -1189,25 +1087,16 @@
             this.customer_UnitNumberTextBox.Location = new System.Drawing.Point(131, 55);
             this.customer_UnitNumberTextBox.Name = "customer_UnitNumberTextBox";
             this.customer_UnitNumberTextBox.Size = new System.Drawing.Size(116, 26);
-            this.customer_UnitNumberTextBox.TabIndex = 13;
-            // 
-            // customer_CountryTextBox
-            // 
-            this.customer_CountryTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customerBindingSource, "Customer_Country", true));
-            this.customer_CountryTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.customer_CountryTextBox.Location = new System.Drawing.Point(130, 196);
-            this.customer_CountryTextBox.Name = "customer_CountryTextBox";
-            this.customer_CountryTextBox.Size = new System.Drawing.Size(117, 26);
-            this.customer_CountryTextBox.TabIndex = 29;
+            this.customer_UnitNumberTextBox.TabIndex = 25;
             // 
             // customer_ProvinceTextBox
             // 
             this.customer_ProvinceTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customerBindingSource, "Customer_Province", true));
             this.customer_ProvinceTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.customer_ProvinceTextBox.Location = new System.Drawing.Point(131, 164);
+            this.customer_ProvinceTextBox.Location = new System.Drawing.Point(130, 200);
             this.customer_ProvinceTextBox.Name = "customer_ProvinceTextBox";
             this.customer_ProvinceTextBox.Size = new System.Drawing.Size(116, 26);
-            this.customer_ProvinceTextBox.TabIndex = 27;
+            this.customer_ProvinceTextBox.TabIndex = 33;
             // 
             // customer_CityTextBox
             // 
@@ -1216,25 +1105,16 @@
             this.customer_CityTextBox.Location = new System.Drawing.Point(374, 164);
             this.customer_CityTextBox.Name = "customer_CityTextBox";
             this.customer_CityTextBox.Size = new System.Drawing.Size(133, 26);
-            this.customer_CityTextBox.TabIndex = 25;
-            // 
-            // customer_PostalCodeTextBox
-            // 
-            this.customer_PostalCodeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customerBindingSource, "Customer_PostalCode", true));
-            this.customer_PostalCodeTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.customer_PostalCodeTextBox.Location = new System.Drawing.Point(131, 130);
-            this.customer_PostalCodeTextBox.Name = "customer_PostalCodeTextBox";
-            this.customer_PostalCodeTextBox.Size = new System.Drawing.Size(116, 26);
-            this.customer_PostalCodeTextBox.TabIndex = 23;
+            this.customer_CityTextBox.TabIndex = 32;
             // 
             // customer_SuburbTextBox
             // 
             this.customer_SuburbTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customerBindingSource, "Customer_Suburb", true));
             this.customer_SuburbTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.customer_SuburbTextBox.Location = new System.Drawing.Point(374, 130);
+            this.customer_SuburbTextBox.Location = new System.Drawing.Point(130, 129);
             this.customer_SuburbTextBox.Name = "customer_SuburbTextBox";
-            this.customer_SuburbTextBox.Size = new System.Drawing.Size(133, 26);
-            this.customer_SuburbTextBox.TabIndex = 21;
+            this.customer_SuburbTextBox.Size = new System.Drawing.Size(117, 26);
+            this.customer_SuburbTextBox.TabIndex = 29;
             // 
             // panel3
             // 
@@ -1257,7 +1137,7 @@
             this.customer_EmailAddressTextBox.Location = new System.Drawing.Point(190, 96);
             this.customer_EmailAddressTextBox.Name = "customer_EmailAddressTextBox";
             this.customer_EmailAddressTextBox.Size = new System.Drawing.Size(277, 29);
-            this.customer_EmailAddressTextBox.TabIndex = 46;
+            this.customer_EmailAddressTextBox.TabIndex = 24;
             // 
             // pictureBox2
             // 
@@ -1287,7 +1167,7 @@
             this.customer_PhoneNumberTextBox.Location = new System.Drawing.Point(190, 61);
             this.customer_PhoneNumberTextBox.Name = "customer_PhoneNumberTextBox";
             this.customer_PhoneNumberTextBox.Size = new System.Drawing.Size(277, 29);
-            this.customer_PhoneNumberTextBox.TabIndex = 11;
+            this.customer_PhoneNumberTextBox.TabIndex = 23;
             this.customer_PhoneNumberTextBox.Leave += new System.EventHandler(this.customer_PhoneNumberTextBox_Leave);
             // 
             // panel2
@@ -1316,7 +1196,7 @@
             this.customer_IDTextBox.Name = "customer_IDTextBox";
             this.customer_IDTextBox.ReadOnly = true;
             this.customer_IDTextBox.Size = new System.Drawing.Size(277, 26);
-            this.customer_IDTextBox.TabIndex = 50;
+            this.customer_IDTextBox.TabIndex = 22;
             // 
             // pictureBox1
             // 
@@ -1347,7 +1227,7 @@
             this.customer_LastNameTextBox1.Name = "customer_LastNameTextBox1";
             this.customer_LastNameTextBox1.ReadOnly = true;
             this.customer_LastNameTextBox1.Size = new System.Drawing.Size(277, 26);
-            this.customer_LastNameTextBox1.TabIndex = 5;
+            this.customer_LastNameTextBox1.TabIndex = 20;
             // 
             // customer_IDNumberTextBox1
             // 
@@ -1357,7 +1237,7 @@
             this.customer_IDNumberTextBox1.Name = "customer_IDNumberTextBox1";
             this.customer_IDNumberTextBox1.ReadOnly = true;
             this.customer_IDNumberTextBox1.Size = new System.Drawing.Size(277, 26);
-            this.customer_IDNumberTextBox1.TabIndex = 9;
+            this.customer_IDNumberTextBox1.TabIndex = 21;
             // 
             // customer_FirstNameTextBox1
             // 
@@ -1367,7 +1247,7 @@
             this.customer_FirstNameTextBox1.Name = "customer_FirstNameTextBox1";
             this.customer_FirstNameTextBox1.ReadOnly = true;
             this.customer_FirstNameTextBox1.Size = new System.Drawing.Size(277, 26);
-            this.customer_FirstNameTextBox1.TabIndex = 3;
+            this.customer_FirstNameTextBox1.TabIndex = 19;
             // 
             // label2
             // 
@@ -1395,7 +1275,7 @@
             this.textBox2.Location = new System.Drawing.Point(235, 62);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(309, 33);
-            this.textBox2.TabIndex = 40;
+            this.textBox2.TabIndex = 18;
             this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // panel1
@@ -1418,7 +1298,7 @@
             this.button4.Location = new System.Drawing.Point(351, 66);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(99, 41);
-            this.button4.TabIndex = 49;
+            this.button4.TabIndex = 38;
             this.button4.Text = "Cancel Update";
             this.button4.UseVisualStyleBackColor = true;
             // 
@@ -1468,7 +1348,7 @@
             this.button3.Location = new System.Drawing.Point(351, 19);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(99, 41);
-            this.button3.TabIndex = 41;
+            this.button3.TabIndex = 37;
             this.button3.Text = "Update Customer Details";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
@@ -1486,7 +1366,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1126, 607);
+            this.tabPage2.Size = new System.Drawing.Size(1114, 607);
             this.tabPage2.TabIndex = 3;
             this.tabPage2.Text = "View Customer";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -1722,7 +1602,7 @@
             this.textBox1.Location = new System.Drawing.Point(279, 53);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(373, 20);
-            this.textBox1.TabIndex = 10;
+            this.textBox1.TabIndex = 39;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // groupBox2
@@ -1907,6 +1787,82 @@
             this.tableAdapterManager1.SupplierTableAdapter = null;
             this.tableAdapterManager1.UpdateOrder = TheByteClubPOS.dsSamsLiqourShopTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
+            // txtSuburb
+            // 
+            this.txtSuburb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSuburb.Location = new System.Drawing.Point(138, 128);
+            this.txtSuburb.Name = "txtSuburb";
+            this.txtSuburb.Size = new System.Drawing.Size(123, 26);
+            this.txtSuburb.TabIndex = 9;
+            // 
+            // label27
+            // 
+            label27.AutoSize = true;
+            label27.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label27.Location = new System.Drawing.Point(16, 132);
+            label27.Name = "label27";
+            label27.Size = new System.Drawing.Size(63, 20);
+            label27.TabIndex = 118;
+            label27.Text = "Suburb:";
+            // 
+            // txtCountry
+            // 
+            this.txtCountry.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCountry.Location = new System.Drawing.Point(138, 167);
+            this.txtCountry.Name = "txtCountry";
+            this.txtCountry.ReadOnly = true;
+            this.txtCountry.Size = new System.Drawing.Size(124, 26);
+            this.txtCountry.TabIndex = 11;
+            this.txtCountry.Text = "South Africa";
+            // 
+            // label23
+            // 
+            label23.AutoSize = true;
+            label23.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label23.Location = new System.Drawing.Point(16, 168);
+            label23.Name = "label23";
+            label23.Size = new System.Drawing.Size(70, 20);
+            label23.TabIndex = 120;
+            label23.Text = "Country:";
+            // 
+            // customer_PostalCodeTextBox
+            // 
+            this.customer_PostalCodeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customerBindingSource, "Customer_PostalCode", true));
+            this.customer_PostalCodeTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.customer_PostalCodeTextBox.Location = new System.Drawing.Point(374, 128);
+            this.customer_PostalCodeTextBox.Name = "customer_PostalCodeTextBox";
+            this.customer_PostalCodeTextBox.Size = new System.Drawing.Size(133, 26);
+            this.customer_PostalCodeTextBox.TabIndex = 30;
+            // 
+            // customer_PostalCodeLabel1
+            // 
+            customer_PostalCodeLabel1.AutoSize = true;
+            customer_PostalCodeLabel1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            customer_PostalCodeLabel1.Location = new System.Drawing.Point(268, 132);
+            customer_PostalCodeLabel1.Name = "customer_PostalCodeLabel1";
+            customer_PostalCodeLabel1.Size = new System.Drawing.Size(95, 20);
+            customer_PostalCodeLabel1.TabIndex = 46;
+            customer_PostalCodeLabel1.Text = "Postal Code:";
+            // 
+            // customer_CountryTextBox
+            // 
+            this.customer_CountryTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customerBindingSource, "Customer_Country", true));
+            this.customer_CountryTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.customer_CountryTextBox.Location = new System.Drawing.Point(130, 164);
+            this.customer_CountryTextBox.Name = "customer_CountryTextBox";
+            this.customer_CountryTextBox.Size = new System.Drawing.Size(117, 26);
+            this.customer_CountryTextBox.TabIndex = 31;
+            // 
+            // customer_CountryLabel1
+            // 
+            customer_CountryLabel1.AutoSize = true;
+            customer_CountryLabel1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            customer_CountryLabel1.Location = new System.Drawing.Point(16, 165);
+            customer_CountryLabel1.Name = "customer_CountryLabel1";
+            customer_CountryLabel1.Size = new System.Drawing.Size(70, 20);
+            customer_CountryLabel1.TabIndex = 48;
+            customer_CountryLabel1.Text = "Country:";
+            // 
             // ManageCustomerDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1977,9 +1933,7 @@
         private System.Windows.Forms.DateTimePicker dtpRegistrationDateTime;
         private System.Windows.Forms.ComboBox cmbProvince;
         private System.Windows.Forms.TextBox txtLoyaltyPointsBalance;
-        private System.Windows.Forms.TextBox txtCountry;
         private System.Windows.Forms.TextBox txtCity;
-        private System.Windows.Forms.TextBox txtSuburb;
         private System.Windows.Forms.TextBox txtStreetName;
         private System.Windows.Forms.TextBox txtStreetNumber;
         private System.Windows.Forms.TextBox txtUnitName;
@@ -2003,10 +1957,8 @@
         private System.Windows.Forms.TextBox customer_StreetNumberTextBox;
         private System.Windows.Forms.TextBox customer_StreetNameTextBox;
         private System.Windows.Forms.TextBox customer_SuburbTextBox;
-        private System.Windows.Forms.TextBox customer_PostalCodeTextBox;
         private System.Windows.Forms.TextBox customer_CityTextBox;
         private System.Windows.Forms.TextBox customer_ProvinceTextBox;
-        private System.Windows.Forms.TextBox customer_CountryTextBox;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label label1;
@@ -2025,8 +1977,6 @@
         private System.Windows.Forms.DateTimePicker customer_RegistrationDateTimeDateTimePicker;
         private System.Windows.Forms.TextBox customer_LoyaltyPointsBalanceTextBox;
         private System.Windows.Forms.TextBox customer_StatusTextBox1;
-        private System.Windows.Forms.TextBox customer_UsernameTextBox;
-        private System.Windows.Forms.TextBox customer_PasswordTextBox;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button button4;
@@ -2093,5 +2043,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn18;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn19;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn20;
+        private System.Windows.Forms.TextBox txtCountry;
+        private System.Windows.Forms.TextBox txtSuburb;
+        private System.Windows.Forms.TextBox customer_CountryTextBox;
+        private System.Windows.Forms.TextBox customer_PostalCodeTextBox;
     }
 }
