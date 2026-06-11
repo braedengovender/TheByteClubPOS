@@ -6381,6 +6381,8 @@ namespace TheByteClubPOS {
             
             private global::System.Data.DataColumn columnSaleLine_Subtotal;
             
+            private global::System.Data.DataColumn columnProduct_AlcoholPercentage;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public CartDataTable() {
@@ -6480,6 +6482,14 @@ namespace TheByteClubPOS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn Product_AlcoholPercentageColumn {
+                get {
+                    return this.columnProduct_AlcoholPercentage;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -6515,7 +6525,7 @@ namespace TheByteClubPOS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public CartRow AddCartRow(int Product_ID, string Product_Name, decimal SaleLine_OriginalUnitPrice, int Discount_ID, string Discount_Name, decimal SaleLine_UnitPriceAfterDiscount, int SaleLine_Quantity, decimal SaleLine_Subtotal) {
+            public CartRow AddCartRow(int Product_ID, string Product_Name, decimal SaleLine_OriginalUnitPrice, int Discount_ID, string Discount_Name, decimal SaleLine_UnitPriceAfterDiscount, int SaleLine_Quantity, decimal SaleLine_Subtotal, decimal Product_AlcoholPercentage) {
                 CartRow rowCartRow = ((CartRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Product_ID,
@@ -6525,7 +6535,8 @@ namespace TheByteClubPOS {
                         Discount_Name,
                         SaleLine_UnitPriceAfterDiscount,
                         SaleLine_Quantity,
-                        SaleLine_Subtotal};
+                        SaleLine_Subtotal,
+                        Product_AlcoholPercentage};
                 rowCartRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowCartRow);
                 return rowCartRow;
@@ -6556,6 +6567,7 @@ namespace TheByteClubPOS {
                 this.columnSaleLine_UnitPriceAfterDiscount = base.Columns["SaleLine_UnitPriceAfterDiscount"];
                 this.columnSaleLine_Quantity = base.Columns["SaleLine_Quantity"];
                 this.columnSaleLine_Subtotal = base.Columns["SaleLine_Subtotal"];
+                this.columnProduct_AlcoholPercentage = base.Columns["Product_AlcoholPercentage"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6577,6 +6589,8 @@ namespace TheByteClubPOS {
                 base.Columns.Add(this.columnSaleLine_Quantity);
                 this.columnSaleLine_Subtotal = new global::System.Data.DataColumn("SaleLine_Subtotal", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnSaleLine_Subtotal);
+                this.columnProduct_AlcoholPercentage = new global::System.Data.DataColumn("Product_AlcoholPercentage", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnProduct_AlcoholPercentage);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnProduct_ID}, false));
                 this.columnProduct_ID.AllowDBNull = false;
@@ -9373,6 +9387,22 @@ namespace TheByteClubPOS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal Product_AlcoholPercentage {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableCart.Product_AlcoholPercentageColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Product_AlcoholPercentage\' in table \'Cart\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableCart.Product_AlcoholPercentageColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsDiscount_IDNull() {
                 return this.IsNull(this.tableCart.Discount_IDColumn);
             }
@@ -9405,6 +9435,18 @@ namespace TheByteClubPOS {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetSaleLine_UnitPriceAfterDiscountNull() {
                 this[this.tableCart.SaleLine_UnitPriceAfterDiscountColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsProduct_AlcoholPercentageNull() {
+                return this.IsNull(this.tableCart.Product_AlcoholPercentageColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetProduct_AlcoholPercentageNull() {
+                this[this.tableCart.Product_AlcoholPercentageColumn] = global::System.Convert.DBNull;
             }
         }
         

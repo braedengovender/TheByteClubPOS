@@ -175,7 +175,10 @@ namespace TheByteClubPOS
 
                     decimal discountedPrice = row["SaleLine_UnitPriceAfterDiscount"] == DBNull.Value ? originalPrice : Convert.ToDecimal(row["SaleLine_UnitPriceAfterDiscount"]);
 
-                    discountAmount += originalPrice - discountedPrice;
+                    // Extract the quantity of items purchased
+                    int quantity = row["SaleLine_Quantity"] == DBNull.Value ? 0 : Convert.ToInt32(row["SaleLine_Quantity"]);
+
+                    discountAmount += (originalPrice - discountedPrice) * quantity; ;
                 }
             }
             return discountAmount;
@@ -255,6 +258,13 @@ namespace TheByteClubPOS
 
         private void POSForm_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'dsSamsLiqourShop.Discount' table. You can move, or remove it, as needed.
+            this.discountTableAdapter.Fill(this.dsSamsLiqourShop.Discount);
+            // Filter out the automatic item-level discount rows so the cashier cannot manually pick them
+            discountBindingSource.Filter = "Discount_Name <> 'Johnnie Walker 20% off' AND Discount_Name <> 'Wine Wednesday 10% off'";
+            // TODO: This line of code loads data into the 'dsSamsLiqourShop.SaleType' table. You can move, or remove it, as needed.
+            this.saleTypeTableAdapter.Fill(this.dsSamsLiqourShop.SaleType);
+            this.saleTypeBindingSource.Filter = "SaleType_ID <> 2";
             // TODO: This line of code loads data into the 'dsSamsLiqourShop.SaleLine' table. You can move, or remove it, as needed.
             this.saleLineTableAdapter.Fill(this.dsSamsLiqourShop.SaleLine);
             // TODO: This line of code loads data into the 'dsSamsLiqourShop.Sale' table. You can move, or remove it, as needed.
@@ -316,6 +326,13 @@ namespace TheByteClubPOS
             int productID = Convert.ToInt32(this.productDataGridView.CurrentRow.Cells[0].Value);
             string productName = this.productDataGridView.CurrentRow.Cells[2].Value.ToString();
             decimal price = Convert.ToDecimal(this.productDataGridView.CurrentRow.Cells[6].Value);
+            decimal productAlcoholPercentage = (this.productDataGridView.CurrentRow.Cells["Product_AlcoholPercentage"].Value == DBNull.Value) ? 0m : Convert.ToDecimal(this.productDataGridView.CurrentRow.Cells["Product_AlcoholPercentage"].Value);
+            
+            // Default our calculation variable to the original price
+            decimal unitPriceAfterDiscount = price;
+            int? appliedDiscountID = null;
+            string foundDiscountName = "";
+            bool isDiscountApplied = false;
 
             // Extract Discount Info using your exact column specifications
             /*int discountID = 0;
@@ -323,6 +340,59 @@ namespace TheByteClubPOS
             {
                 discountID = Convert.ToInt32(this.productDataGridView.CurrentRow.Cells["Discount_ID"].Value);
             }*/
+
+            //string productType = (this.productDataGridView.CurrentRow.Cells["Product_Type"].Value == DBNull.Value) ? "" : this.productDataGridView.CurrentRow.Cells["Product_Type"].Value.ToString();
+
+            // DYNAMIC DATABASE PROMOTION LOOKUP 
+            // Check if this product actually has a Discount_ID assigned to it
+            if (this.productDataGridView.CurrentRow.Cells["Discount_ID"].Value != DBNull.Value)
+            {
+                int productDiscountID = Convert.ToInt32(this.productDataGridView.CurrentRow.Cells["Discount_ID"].Value);
+
+                // Find the matching promotion row inside your local Discount table dataset
+                DataRow[] matchingDiscounts = this.dsSamsLiqourShop.Discount.Select($"Discount_ID = {productDiscountID}");
+
+                if (matchingDiscounts.Length > 0)
+                {
+                    DataRow discountRow = matchingDiscounts[0];
+
+                    // Extract validation properties from the database row
+                    int status = Convert.ToInt32(discountRow["Discount_Status"]);
+                    DateTime startDate = Convert.ToDateTime(discountRow["Discount_StartDate"]);
+                    DateTime endDate = Convert.ToDateTime(discountRow["Discount_EndDate"]);
+                    DateTime today = DateTime.Now;
+                    string promoName = discountRow["Discount_Name"].ToString();
+
+                    // EXPLICIT GUARD: Wine Wednesday promos only run on Wednesdays
+                    bool isWineWednesdayValid = true;
+                    if (promoName.ToLower().Contains("wednesday") && today.DayOfWeek != DayOfWeek.Wednesday)
+                    {
+                        isWineWednesdayValid = false;
+                    }
+
+                    // RULE CHECK: Only calculate if status is active (1) AND today falls between the start and end dates
+                    if (status == 1 && today >= startDate && today <= endDate && isWineWednesdayValid)
+                    {
+                        string discountType = discountRow["Discount_Type"].ToString();
+                        decimal discountValue = Convert.ToDecimal(discountRow["Discount_Value"]);
+
+                        // Evaluate calculation strategy dynamically based on database values
+                        if (discountType.Equals("Percentage", StringComparison.OrdinalIgnoreCase))
+                        {
+                            unitPriceAfterDiscount = price * (1m - (discountValue / 100m));
+                        }
+                        else if (discountType.Equals("Fixed", StringComparison.OrdinalIgnoreCase))
+                        {
+                            // Ensure a fixed discount doesn't accidentally drop the unit price below zero
+                            unitPriceAfterDiscount = Math.Max(0m, price - discountValue);
+                        }
+
+                        appliedDiscountID = productDiscountID;
+                        foundDiscountName = promoName;
+                        isDiscountApplied = true;
+                    }
+                }
+            }
 
             bool itemExistsInCart = false;
 
@@ -339,7 +409,20 @@ namespace TheByteClubPOS
                     int newQty = currentQty + 1;
 
                     row["SaleLine_Quantity"] = newQty;
-                    row["SaleLine_Subtotal"] = newQty * price;
+                    row["SaleLine_UnitPriceAfterDiscount"] = unitPriceAfterDiscount;
+                    row["SaleLine_Subtotal"] = newQty * unitPriceAfterDiscount;
+
+                    // Apply types or handle database NULL explicitly without object variables
+                    if (isDiscountApplied)
+                    {
+                        row["Discount_Name"] = foundDiscountName;
+                        row["Discount_ID"] = (object)appliedDiscountID ?? DBNull.Value;
+                    }
+                    else
+                    {
+                        row["Discount_Name"] = DBNull.Value;
+                        row["Discount_ID"] = DBNull.Value;
+                    }
 
                     itemExistsInCart = true;
                     break; // Stop looking, we found it
@@ -350,8 +433,8 @@ namespace TheByteClubPOS
             if (!itemExistsInCart)
             {
                 int initialQuantity = 1;
-                decimal initialSubtotal = initialQuantity * price;
-                this.dsSamsLiqourShop.Cart.Rows.Add(productID, productName, price, null, null, null, initialQuantity, initialSubtotal);
+                decimal initialSubtotal = initialQuantity * unitPriceAfterDiscount;
+                DataRow newCartRow = this.dsSamsLiqourShop.Cart.Rows.Add(productID, productName, price, isDiscountApplied ? (object)appliedDiscountID : DBNull.Value, isDiscountApplied ? (object)foundDiscountName : DBNull.Value, unitPriceAfterDiscount, initialQuantity, initialSubtotal, productAlcoholPercentage);
             }
 
             lblSubtotalAmount.Text = getSubtotal().ToString("C2");
@@ -645,16 +728,23 @@ namespace TheByteClubPOS
             // Loop through every product row sitting in your temporary memory cart
             foreach (DataRow cartRow in this.dsSamsLiqourShop.Cart.Rows)
             {
+                // Skip rows marked for deletion
+                if (cartRow.RowState == DataRowState.Deleted) continue;
+
                 // 1. Extract the column data from the current cart row
                 // (Make sure these string names match your Cart DataTable columns exactly!)
                 int productID = Convert.ToInt32(cartRow["Product_ID"]);
                 int qty = Convert.ToInt32(cartRow["SaleLine_Quantity"]);
                 decimal originalPrice = Convert.ToDecimal(cartRow["SaleLine_OriginalUnitPrice"]);
+                decimal priceAfterDiscount = Convert.ToDecimal(cartRow["SaleLine_UnitPriceAfterDiscount"]);
+                decimal subtotal = Convert.ToDecimal(cartRow["SaleLine_Subtotal"]);
 
-                // If your cart doesn't calculate discounts yet, we can default them logically:
-                int? discountID = null; // null means no discount applied
-                decimal priceAfterDiscount = originalPrice;
-                decimal subtotal = qty * priceAfterDiscount;
+                int? discountID = null;
+
+                if (cartRow["Discount_ID"] != DBNull.Value)
+                {
+                    discountID = Convert.ToInt32(cartRow["Discount_ID"]);
+                }
 
                 // 2. Fire your newly created wizard query with all 7 required arguments
                 this.saleLineTableAdapter.InsertQuerySaleLine(saleID, productID, discountID, qty, originalPrice, priceAfterDiscount, subtotal);
@@ -719,29 +809,51 @@ namespace TheByteClubPOS
                 }
             }
 
-            // Run Age Verification
-            // Pass the ID string. If it's empty (walk-in), it opens the input box. If it has the DB ID, it runs silently!
-            if (IsCustomerOfAge(customerIDFromDB) == false)
+            // Scan the cart to see if any item contains alcohol
+            bool cartContainsAlcohol = false;
+
+            foreach (DataRow row in this.dsSamsLiqourShop.Cart.Rows)
             {
-                return; // Stops the sale immediately if underage or invalid ID
+                // Safely parse the alcohol percentage field, handling potential nulls
+                decimal alcoholPercent = row["Product_AlcoholPercentage"] == DBNull.Value ? 0m : Convert.ToDecimal(row["Product_AlcoholPercentage"]);
+
+                if (alcoholPercent > 0m)
+                {
+                    cartContainsAlcohol = true;
+                    break; // We found at least one alcoholic item, no need to check the rest!
+                }
             }
 
-            int loyaltyPointsEarned = (int)Math.Floor(getTotal() / 10); // Example: 1 point for every R10 spent
+            // Run Age Verification ONLY if an alcoholic item is present 
+            if (cartContainsAlcohol)
+            {
+                // Run Age Verification
+                // Pass the ID string. If it's empty (walk-in), it opens the input box. If it has the DB ID, it runs silently!
+                if (IsCustomerOfAge(customerIDFromDB) == false)
+                {
+                    return; // Stops the sale immediately if underage or invalid ID
+                }
+            }
 
             try
             {
-                saleID = (int)saleTableAdapter.InsertQueryNewSale(currentCustomerID, currentEmployeeID, 1, null, DateTime.Now, getSubtotal(), getDiscountAmount(), getTotal(), loyaltyPointsEarned, "Completed");
-                
-                
-                saveSaleLines(saleID);
-                updateStockQuantityInDatabase();
+                int loyaltyPointsEarned = 0;
 
                 if (currentCustomerID != null)
                 {
+                    loyaltyPointsEarned = (int)Math.Floor(getTotal() / 10); // Example: 1 point for every R10 spent
+
                     customerTableAdapter.UpdateQueryCustLoyaltyPoints(Convert.ToInt32(currentCustomerID), loyaltyPointsEarned);
                     newCustLoyaltyPointsBalance = (int)customerTableAdapter.getCustomerLoyaltyPointsBalance(Convert.ToInt32(currentCustomerID));
                 }
 
+                int chosenSaleTypeID = Convert.ToInt32(comboBox2.SelectedValue);
+                saleID = (int)saleTableAdapter.InsertQueryNewSale(currentCustomerID, currentEmployeeID, chosenSaleTypeID, null, DateTime.Now, getSubtotal(), getDiscountAmount(), getTotal(), loyaltyPointsEarned, "Completed");
+                
+                saveSaleLines(saleID);
+                updateStockQuantityInDatabase();
+
+                string changeDetails = "";
                 // Sale is completely successful, now show change due to customer
                 if (comboBox1.Text.Trim().Equals("Cash", StringComparison.OrdinalIgnoreCase))
                 {
@@ -751,22 +863,35 @@ namespace TheByteClubPOS
 
                     if (changeDue > 0m)
                     {
-                        MessageBox.Show($"Total: R {totalPayable.ToString("F2")}\n" + $"Tendered: R {amountTendered.ToString("F2")}\n\n" + $"Change Due: R {changeDue.ToString("F2")}", "Change Dispensation", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        changeDetails = $"Total: R {totalPayable.ToString("F2")}\n" + $"Tendered: R {amountTendered.ToString("F2")}\n" + $"Change Due: R {changeDue.ToString("F2")}\n\n";
                     }
                     else
                     {
-                        MessageBox.Show("Exact change provided. No change due.", "Change Dispensation", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        changeDetails = "Exact change provided. No change due.\n\n";
                     }
 
-                    MessageBox.Show("Sale completed successfully! ID: " + saleID + " Loyalty points earned: " + loyaltyPointsEarned, "Transaction Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //MessageBox.Show("Sale completed successfully! ID: " + saleID + " Loyalty points earned: " + loyaltyPointsEarned, "Transaction Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
                     // Fallback success message for Card/Other payment types
-                    MessageBox.Show("Sale completed successfully! ID: " + saleID + " Loyalty points earned: " + loyaltyPointsEarned, "Transaction Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //MessageBox.Show("Sale completed successfully! ID: " + saleID + " Loyalty points earned: " + loyaltyPointsEarned, "Transaction Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
-                DialogResult result = MessageBox.Show("Print receipt...", "Sale Completion", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                string msgPrompt = "";
+
+                if (currentCustomerID != null)
+                {
+                    // Profile Customer: Include Loyalty Points details
+                    msgPrompt = $"{changeDetails}" + $"Sale completed successfully!\n" + $"Invoice ID: {saleID}\n" + $"Loyalty Points Earned: {loyaltyPointsEarned}\n\n" + $"Would you like to print the receipt?";
+                }
+                else
+                {
+                    // Walk-in Customer: Completely remove any mention of loyalty points
+                    msgPrompt = $"{changeDetails}" + $"Sale completed successfully!\n" + $"Invoice ID: {saleID}\n\n" + $"Would you like to print the receipt?";
+                }
+
+                DialogResult result = MessageBox.Show(msgPrompt, "Transaction Complete", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                 if (result == DialogResult.Yes)
                 {

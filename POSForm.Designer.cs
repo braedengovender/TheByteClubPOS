@@ -32,6 +32,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(POSForm));
             this.productDataGridView = new System.Windows.Forms.DataGridView();
             this.productIDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -41,6 +42,8 @@
             this.productTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.productQuantityInStockDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.productSellingPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Product_AlcoholPercentage = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Discount_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.productBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dsSamsLiqourShop = new TheByteClubPOS.dsSamsLiqourShop();
             this.txtSearch = new System.Windows.Forms.TextBox();
@@ -70,6 +73,7 @@
             this.saleLineUnitPriceAfterDiscountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.saleLineQuantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.saleLineSubtotalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cartBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.btnLookup = new System.Windows.Forms.Button();
             this.btnRemoveItem = new System.Windows.Forms.Button();
@@ -87,6 +91,7 @@
             this.saleBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.saleTableAdapter = new TheByteClubPOS.dsSamsLiqourShopTableAdapters.SaleTableAdapter();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.lblSaleType = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.lblVatAmount = new System.Windows.Forms.Label();
             this.lblDiscount = new System.Windows.Forms.Label();
@@ -95,6 +100,12 @@
             this.saleLineBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.saleLineTableAdapter = new TheByteClubPOS.dsSamsLiqourShopTableAdapters.SaleLineTableAdapter();
             this.btnToggleTheme = new System.Windows.Forms.Button();
+            this.saleTypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.saleTypeTableAdapter = new TheByteClubPOS.dsSamsLiqourShopTableAdapters.SaleTypeTableAdapter();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.discountBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.discountTableAdapter = new TheByteClubPOS.dsSamsLiqourShopTableAdapters.DiscountTableAdapter();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.productDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsSamsLiqourShop)).BeginInit();
@@ -106,6 +117,8 @@
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.saleLineBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.saleTypeBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.discountBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // productDataGridView
@@ -123,7 +136,9 @@
             this.productBrandDataGridViewTextBoxColumn,
             this.productTypeDataGridViewTextBoxColumn,
             this.productQuantityInStockDataGridViewTextBoxColumn,
-            this.productSellingPriceDataGridViewTextBoxColumn});
+            this.productSellingPriceDataGridViewTextBoxColumn,
+            this.Product_AlcoholPercentage,
+            this.Discount_ID});
             this.productDataGridView.DataSource = this.productBindingSource;
             this.productDataGridView.EnableHeadersVisualStyles = false;
             this.productDataGridView.Location = new System.Drawing.Point(28, 146);
@@ -198,6 +213,22 @@
             this.productSellingPriceDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.productSellingPriceDataGridViewTextBoxColumn.Width = 120;
             // 
+            // Product_AlcoholPercentage
+            // 
+            this.Product_AlcoholPercentage.DataPropertyName = "Product_AlcoholPercentage";
+            this.Product_AlcoholPercentage.HeaderText = "Product_AlcoholPercentage";
+            this.Product_AlcoholPercentage.Name = "Product_AlcoholPercentage";
+            this.Product_AlcoholPercentage.ReadOnly = true;
+            this.Product_AlcoholPercentage.Visible = false;
+            // 
+            // Discount_ID
+            // 
+            this.Discount_ID.DataPropertyName = "Discount_ID";
+            this.Discount_ID.HeaderText = "Discount_ID";
+            this.Discount_ID.Name = "Discount_ID";
+            this.Discount_ID.ReadOnly = true;
+            this.Discount_ID.Visible = false;
+            // 
             // productBindingSource
             // 
             this.productBindingSource.DataMember = "Product";
@@ -211,11 +242,11 @@
             // txtSearch
             // 
             this.txtSearch.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSearch.ForeColor = System.Drawing.Color.DimGray;
-            this.txtSearch.Location = new System.Drawing.Point(28, 90);
+            this.txtSearch.Location = new System.Drawing.Point(28, 88);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(332, 26);
+            this.txtSearch.Size = new System.Drawing.Size(332, 29);
             this.txtSearch.TabIndex = 5;
             this.txtSearch.Text = "Search";
             this.txtSearch.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtSearch_MouseClick);
@@ -227,7 +258,7 @@
             this.lblSearch.AutoSize = true;
             this.lblSearch.BackColor = System.Drawing.Color.Transparent;
             this.lblSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSearch.Location = new System.Drawing.Point(24, 44);
+            this.lblSearch.Location = new System.Drawing.Point(24, 48);
             this.lblSearch.Name = "lblSearch";
             this.lblSearch.Size = new System.Drawing.Size(518, 24);
             this.lblSearch.TabIndex = 4;
@@ -247,10 +278,11 @@
             // lblCart
             // 
             this.lblCart.AutoSize = true;
+            this.lblCart.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.lblCart.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCart.Location = new System.Drawing.Point(3, 0);
+            this.lblCart.Location = new System.Drawing.Point(3, 12);
             this.lblCart.Name = "lblCart";
-            this.lblCart.Size = new System.Drawing.Size(43, 24);
+            this.lblCart.Size = new System.Drawing.Size(86, 24);
             this.lblCart.TabIndex = 8;
             this.lblCart.Text = "Cart";
             // 
@@ -260,7 +292,7 @@
             this.lblItemCount.AutoSize = true;
             this.lblItemCount.BackColor = System.Drawing.Color.Transparent;
             this.lblItemCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblItemCount.Location = new System.Drawing.Point(554, 91);
+            this.lblItemCount.Location = new System.Drawing.Point(554, 95);
             this.lblItemCount.Name = "lblItemCount";
             this.lblItemCount.Size = new System.Drawing.Size(105, 24);
             this.lblItemCount.TabIndex = 9;
@@ -316,7 +348,7 @@
             this.lblPaymentMethod.AutoSize = true;
             this.lblPaymentMethod.BackColor = System.Drawing.Color.Transparent;
             this.lblPaymentMethod.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPaymentMethod.Location = new System.Drawing.Point(549, 532);
+            this.lblPaymentMethod.Location = new System.Drawing.Point(549, 536);
             this.lblPaymentMethod.Name = "lblPaymentMethod";
             this.lblPaymentMethod.Size = new System.Drawing.Size(157, 24);
             this.lblPaymentMethod.TabIndex = 14;
@@ -348,7 +380,7 @@
             this.lblAmountTendered.AutoSize = true;
             this.lblAmountTendered.BackColor = System.Drawing.Color.Transparent;
             this.lblAmountTendered.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAmountTendered.Location = new System.Drawing.Point(549, 566);
+            this.lblAmountTendered.Location = new System.Drawing.Point(549, 570);
             this.lblAmountTendered.Name = "lblAmountTendered";
             this.lblAmountTendered.Size = new System.Drawing.Size(170, 24);
             this.lblAmountTendered.TabIndex = 16;
@@ -358,7 +390,7 @@
             // 
             this.txtAmountTendered.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.txtAmountTendered.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAmountTendered.Location = new System.Drawing.Point(810, 566);
+            this.txtAmountTendered.Location = new System.Drawing.Point(810, 568);
             this.txtAmountTendered.Name = "txtAmountTendered";
             this.txtAmountTendered.Size = new System.Drawing.Size(301, 26);
             this.txtAmountTendered.TabIndex = 17;
@@ -392,7 +424,7 @@
             this.lblLoyaltyProgram.AutoSize = true;
             this.lblLoyaltyProgram.BackColor = System.Drawing.Color.Transparent;
             this.lblLoyaltyProgram.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLoyaltyProgram.Location = new System.Drawing.Point(549, 497);
+            this.lblLoyaltyProgram.Location = new System.Drawing.Point(549, 501);
             this.lblLoyaltyProgram.Name = "lblLoyaltyProgram";
             this.lblLoyaltyProgram.Size = new System.Drawing.Size(149, 24);
             this.lblLoyaltyProgram.TabIndex = 20;
@@ -423,7 +455,8 @@
             this.discountNameDataGridViewTextBoxColumn,
             this.saleLineUnitPriceAfterDiscountDataGridViewTextBoxColumn,
             this.saleLineQuantityDataGridViewTextBoxColumn,
-            this.saleLineSubtotalDataGridViewTextBoxColumn});
+            this.saleLineSubtotalDataGridViewTextBoxColumn,
+            this.Column1});
             this.cartDataGridView.DataSource = this.cartBindingSource;
             this.cartDataGridView.EnableHeadersVisualStyles = false;
             this.cartDataGridView.Location = new System.Drawing.Point(553, 146);
@@ -461,7 +494,7 @@
             this.saleLineOriginalUnitPriceDataGridViewTextBoxColumn.HeaderText = "Price";
             this.saleLineOriginalUnitPriceDataGridViewTextBoxColumn.Name = "saleLineOriginalUnitPriceDataGridViewTextBoxColumn";
             this.saleLineOriginalUnitPriceDataGridViewTextBoxColumn.ReadOnly = true;
-            this.saleLineOriginalUnitPriceDataGridViewTextBoxColumn.Width = 56;
+            this.saleLineOriginalUnitPriceDataGridViewTextBoxColumn.Width = 61;
             // 
             // discountIDDataGridViewTextBoxColumn
             // 
@@ -475,18 +508,21 @@
             // discountNameDataGridViewTextBoxColumn
             // 
             this.discountNameDataGridViewTextBoxColumn.DataPropertyName = "Discount_Name";
-            this.discountNameDataGridViewTextBoxColumn.HeaderText = "Discount";
+            this.discountNameDataGridViewTextBoxColumn.HeaderText = "Discount Name";
             this.discountNameDataGridViewTextBoxColumn.Name = "discountNameDataGridViewTextBoxColumn";
             this.discountNameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.discountNameDataGridViewTextBoxColumn.Width = 74;
+            this.discountNameDataGridViewTextBoxColumn.Width = 134;
             // 
             // saleLineUnitPriceAfterDiscountDataGridViewTextBoxColumn
             // 
             this.saleLineUnitPriceAfterDiscountDataGridViewTextBoxColumn.DataPropertyName = "SaleLine_UnitPriceAfterDiscount";
+            dataGridViewCellStyle3.Format = "C2";
+            dataGridViewCellStyle3.NullValue = null;
+            this.saleLineUnitPriceAfterDiscountDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
             this.saleLineUnitPriceAfterDiscountDataGridViewTextBoxColumn.HeaderText = "Discount Price";
             this.saleLineUnitPriceAfterDiscountDataGridViewTextBoxColumn.Name = "saleLineUnitPriceAfterDiscountDataGridViewTextBoxColumn";
             this.saleLineUnitPriceAfterDiscountDataGridViewTextBoxColumn.ReadOnly = true;
-            this.saleLineUnitPriceAfterDiscountDataGridViewTextBoxColumn.Width = 101;
+            this.saleLineUnitPriceAfterDiscountDataGridViewTextBoxColumn.Width = 61;
             // 
             // saleLineQuantityDataGridViewTextBoxColumn
             // 
@@ -494,19 +530,27 @@
             this.saleLineQuantityDataGridViewTextBoxColumn.HeaderText = "Quantity";
             this.saleLineQuantityDataGridViewTextBoxColumn.Name = "saleLineQuantityDataGridViewTextBoxColumn";
             this.saleLineQuantityDataGridViewTextBoxColumn.ReadOnly = true;
-            this.saleLineQuantityDataGridViewTextBoxColumn.Width = 71;
+            this.saleLineQuantityDataGridViewTextBoxColumn.Width = 56;
             // 
             // saleLineSubtotalDataGridViewTextBoxColumn
             // 
             this.saleLineSubtotalDataGridViewTextBoxColumn.DataPropertyName = "SaleLine_Subtotal";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle3.Format = "C2";
-            dataGridViewCellStyle3.NullValue = null;
-            this.saleLineSubtotalDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle4.Format = "C2";
+            dataGridViewCellStyle4.NullValue = null;
+            this.saleLineSubtotalDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle4;
             this.saleLineSubtotalDataGridViewTextBoxColumn.HeaderText = "Subtotal";
             this.saleLineSubtotalDataGridViewTextBoxColumn.Name = "saleLineSubtotalDataGridViewTextBoxColumn";
             this.saleLineSubtotalDataGridViewTextBoxColumn.ReadOnly = true;
-            this.saleLineSubtotalDataGridViewTextBoxColumn.Width = 71;
+            this.saleLineSubtotalDataGridViewTextBoxColumn.Width = 61;
+            // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "Product_AlcoholPercentage";
+            this.Column1.HeaderText = "Product_AlcoholPercentage";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Visible = false;
             // 
             // cartBindingSource
             // 
@@ -563,7 +607,7 @@
             this.lblCount.AutoSize = true;
             this.lblCount.BackColor = System.Drawing.Color.Transparent;
             this.lblCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCount.Location = new System.Drawing.Point(665, 91);
+            this.lblCount.Location = new System.Drawing.Point(665, 95);
             this.lblCount.Name = "lblCount";
             this.lblCount.Size = new System.Drawing.Size(20, 24);
             this.lblCount.TabIndex = 24;
@@ -588,7 +632,7 @@
             this.lblCustomer.AutoSize = true;
             this.lblCustomer.BackColor = System.Drawing.Color.Transparent;
             this.lblCustomer.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCustomer.Location = new System.Drawing.Point(24, 540);
+            this.lblCustomer.Location = new System.Drawing.Point(24, 544);
             this.lblCustomer.Name = "lblCustomer";
             this.lblCustomer.Size = new System.Drawing.Size(218, 24);
             this.lblCustomer.TabIndex = 26;
@@ -600,7 +644,7 @@
             this.lblCustName.AutoSize = true;
             this.lblCustName.BackColor = System.Drawing.Color.Transparent;
             this.lblCustName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCustName.Location = new System.Drawing.Point(24, 577);
+            this.lblCustName.Location = new System.Drawing.Point(24, 581);
             this.lblCustName.Name = "lblCustName";
             this.lblCustName.Size = new System.Drawing.Size(66, 24);
             this.lblCustName.TabIndex = 27;
@@ -612,7 +656,7 @@
             this.lblLoyaltyPoints.AutoSize = true;
             this.lblLoyaltyPoints.BackColor = System.Drawing.Color.Transparent;
             this.lblLoyaltyPoints.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLoyaltyPoints.Location = new System.Drawing.Point(24, 613);
+            this.lblLoyaltyPoints.Location = new System.Drawing.Point(24, 617);
             this.lblLoyaltyPoints.Name = "lblLoyaltyPoints";
             this.lblLoyaltyPoints.Size = new System.Drawing.Size(128, 24);
             this.lblLoyaltyPoints.TabIndex = 28;
@@ -624,7 +668,7 @@
             this.lblPointsAmount.AutoSize = true;
             this.lblPointsAmount.BackColor = System.Drawing.Color.Transparent;
             this.lblPointsAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPointsAmount.Location = new System.Drawing.Point(158, 613);
+            this.lblPointsAmount.Location = new System.Drawing.Point(158, 617);
             this.lblPointsAmount.Name = "lblPointsAmount";
             this.lblPointsAmount.Size = new System.Drawing.Size(20, 24);
             this.lblPointsAmount.TabIndex = 30;
@@ -636,7 +680,7 @@
             this.lblName.AutoSize = true;
             this.lblName.BackColor = System.Drawing.Color.Transparent;
             this.lblName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblName.Location = new System.Drawing.Point(96, 577);
+            this.lblName.Location = new System.Drawing.Point(96, 581);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(158, 24);
             this.lblName.TabIndex = 29;
@@ -655,15 +699,28 @@
             // 
             this.tableLayoutPanel1.BackColor = System.Drawing.Color.Transparent;
             this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.88454F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 74.11546F));
+            this.tableLayoutPanel1.Controls.Add(this.lblSaleType, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.lblCart, 0, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(553, 44);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(553, 38);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(558, 32);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(357, 36);
             this.tableLayoutPanel1.TabIndex = 31;
+            // 
+            // lblSaleType
+            // 
+            this.lblSaleType.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblSaleType.AutoSize = true;
+            this.lblSaleType.BackColor = System.Drawing.Color.Transparent;
+            this.lblSaleType.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSaleType.Location = new System.Drawing.Point(254, 12);
+            this.lblSaleType.Name = "lblSaleType";
+            this.lblSaleType.Size = new System.Drawing.Size(100, 24);
+            this.lblSaleType.TabIndex = 33;
+            this.lblSaleType.Text = "Sale Type:";
             // 
             // tableLayoutPanel2
             // 
@@ -686,6 +743,7 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 53.125F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 28F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(565, 119);
             this.tableLayoutPanel2.TabIndex = 32;
             // 
@@ -754,15 +812,64 @@
             this.btnToggleTheme.Visible = false;
             this.btnToggleTheme.Click += new System.EventHandler(this.btnToggleTheme_Click);
             // 
+            // saleTypeBindingSource
+            // 
+            this.saleTypeBindingSource.DataMember = "SaleType";
+            this.saleTypeBindingSource.DataSource = this.dsSamsLiqourShop;
+            // 
+            // saleTypeTableAdapter
+            // 
+            this.saleTypeTableAdapter.ClearBeforeFill = true;
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboBox2.DataSource = this.saleTypeBindingSource;
+            this.comboBox2.DisplayMember = "SaleType_Name";
+            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(910, 48);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(198, 28);
+            this.comboBox2.TabIndex = 9;
+            this.comboBox2.ValueMember = "SaleType_ID";
+            // 
+            // discountBindingSource
+            // 
+            this.discountBindingSource.DataMember = "Discount";
+            this.discountBindingSource.DataSource = this.dsSamsLiqourShop;
+            // 
+            // discountTableAdapter
+            // 
+            this.discountTableAdapter.ClearBeforeFill = true;
+            // 
+            // comboBox3
+            // 
+            this.comboBox3.DataSource = this.discountBindingSource;
+            this.comboBox3.DisplayMember = "Discount_Name";
+            this.comboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Location = new System.Drawing.Point(305, 546);
+            this.comboBox3.Name = "comboBox3";
+            this.comboBox3.Size = new System.Drawing.Size(225, 28);
+            this.comboBox3.TabIndex = 33;
+            this.comboBox3.ValueMember = "Discount_ID";
+            this.comboBox3.Visible = false;
+            // 
             // POSForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::TheByteClubPOS.Properties.Resources.Background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1134, 666);
+            this.ClientSize = new System.Drawing.Size(1134, 670);
+            this.Controls.Add(this.comboBox3);
             this.Controls.Add(this.tableLayoutPanel2);
             this.Controls.Add(this.tableLayoutPanel1);
+            this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.lblPointsAmount);
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.lblLoyaltyPoints);
@@ -803,6 +910,8 @@
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.saleLineBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.saleTypeBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.discountBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -850,6 +959,29 @@
         private dsSamsLiqourShopTableAdapters.SaleTableAdapter saleTableAdapter;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.BindingSource saleLineBindingSource;
+        private dsSamsLiqourShopTableAdapters.SaleLineTableAdapter saleLineTableAdapter;
+        private System.Windows.Forms.Button btnToggleTheme;
+        private System.Windows.Forms.Label lblVatAmount;
+        private System.Windows.Forms.Label lblDiscount;
+        private System.Windows.Forms.Label lblDiscountAmount;
+        private System.Windows.Forms.Label lblVat;
+        private System.Windows.Forms.BindingSource saleTypeBindingSource;
+        private dsSamsLiqourShopTableAdapters.SaleTypeTableAdapter saleTypeTableAdapter;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.Label lblSaleType;
+        private System.Windows.Forms.BindingSource discountBindingSource;
+        private dsSamsLiqourShopTableAdapters.DiscountTableAdapter discountTableAdapter;
+        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn productIDDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn productImageDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn productNameDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn productBrandDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn productTypeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn productQuantityInStockDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn productSellingPriceDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Product_AlcoholPercentage;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Discount_ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn productIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn productNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn saleLineOriginalUnitPriceDataGridViewTextBoxColumn;
@@ -858,19 +990,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn saleLineUnitPriceAfterDiscountDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn saleLineQuantityDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn saleLineSubtotalDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource saleLineBindingSource;
-        private dsSamsLiqourShopTableAdapters.SaleLineTableAdapter saleLineTableAdapter;
-        private System.Windows.Forms.Button btnToggleTheme;
-        private System.Windows.Forms.Label lblVatAmount;
-        private System.Windows.Forms.Label lblDiscount;
-        private System.Windows.Forms.Label lblDiscountAmount;
-        private System.Windows.Forms.Label lblVat;
-        private System.Windows.Forms.DataGridViewTextBoxColumn productIDDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn productImageDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn productNameDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn productBrandDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn productTypeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn productQuantityInStockDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn productSellingPriceDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
     }
 }
