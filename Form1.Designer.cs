@@ -163,7 +163,7 @@
             this.productDataGridView.Name = "productDataGridView";
             this.productDataGridView.RowHeadersWidth = 62;
             this.productDataGridView.RowTemplate.Height = 28;
-            this.productDataGridView.Size = new System.Drawing.Size(582, 143);
+            this.productDataGridView.Size = new System.Drawing.Size(884, 143);
             this.productDataGridView.TabIndex = 3;
             this.productDataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.productDataGridView_DataError);
             this.productDataGridView.SelectionChanged += new System.EventHandler(this.productDataGridView_SelectionChanged);
@@ -187,102 +187,119 @@
             this.productNameDataGridViewTextBoxColumn.DataPropertyName = "Product_Name";
             this.productNameDataGridViewTextBoxColumn.HeaderText = "Product_Name";
             this.productNameDataGridViewTextBoxColumn.Name = "productNameDataGridViewTextBoxColumn";
+            this.productNameDataGridViewTextBoxColumn.Width = 500;
             // 
             // categoryIDDataGridViewTextBoxColumn
             // 
             this.categoryIDDataGridViewTextBoxColumn.DataPropertyName = "Category_ID";
             this.categoryIDDataGridViewTextBoxColumn.HeaderText = "Category_ID";
             this.categoryIDDataGridViewTextBoxColumn.Name = "categoryIDDataGridViewTextBoxColumn";
+            this.categoryIDDataGridViewTextBoxColumn.Visible = false;
             // 
             // supplierIDDataGridViewTextBoxColumn
             // 
             this.supplierIDDataGridViewTextBoxColumn.DataPropertyName = "Supplier_ID";
             this.supplierIDDataGridViewTextBoxColumn.HeaderText = "Supplier_ID";
             this.supplierIDDataGridViewTextBoxColumn.Name = "supplierIDDataGridViewTextBoxColumn";
+            this.supplierIDDataGridViewTextBoxColumn.Visible = false;
             // 
             // discountIDDataGridViewTextBoxColumn
             // 
             this.discountIDDataGridViewTextBoxColumn.DataPropertyName = "Discount_ID";
             this.discountIDDataGridViewTextBoxColumn.HeaderText = "Discount_ID";
             this.discountIDDataGridViewTextBoxColumn.Name = "discountIDDataGridViewTextBoxColumn";
+            this.discountIDDataGridViewTextBoxColumn.Visible = false;
             // 
             // productDescriptionDataGridViewTextBoxColumn
             // 
             this.productDescriptionDataGridViewTextBoxColumn.DataPropertyName = "Product_Description";
             this.productDescriptionDataGridViewTextBoxColumn.HeaderText = "Product_Description";
             this.productDescriptionDataGridViewTextBoxColumn.Name = "productDescriptionDataGridViewTextBoxColumn";
+            this.productDescriptionDataGridViewTextBoxColumn.Visible = false;
             // 
             // productBrandDataGridViewTextBoxColumn
             // 
             this.productBrandDataGridViewTextBoxColumn.DataPropertyName = "Product_Brand";
             this.productBrandDataGridViewTextBoxColumn.HeaderText = "Product_Brand";
             this.productBrandDataGridViewTextBoxColumn.Name = "productBrandDataGridViewTextBoxColumn";
+            this.productBrandDataGridViewTextBoxColumn.Visible = false;
             // 
             // productTypeDataGridViewTextBoxColumn
             // 
             this.productTypeDataGridViewTextBoxColumn.DataPropertyName = "Product_Type";
             this.productTypeDataGridViewTextBoxColumn.HeaderText = "Product_Type";
             this.productTypeDataGridViewTextBoxColumn.Name = "productTypeDataGridViewTextBoxColumn";
+            this.productTypeDataGridViewTextBoxColumn.Visible = false;
             // 
             // productFlavourDataGridViewTextBoxColumn
             // 
             this.productFlavourDataGridViewTextBoxColumn.DataPropertyName = "Product_Flavour";
             this.productFlavourDataGridViewTextBoxColumn.HeaderText = "Product_Flavour";
             this.productFlavourDataGridViewTextBoxColumn.Name = "productFlavourDataGridViewTextBoxColumn";
+            this.productFlavourDataGridViewTextBoxColumn.Visible = false;
             // 
             // productAlcoholPercentageDataGridViewTextBoxColumn
             // 
             this.productAlcoholPercentageDataGridViewTextBoxColumn.DataPropertyName = "Product_AlcoholPercentage";
             this.productAlcoholPercentageDataGridViewTextBoxColumn.HeaderText = "Product_AlcoholPercentage";
             this.productAlcoholPercentageDataGridViewTextBoxColumn.Name = "productAlcoholPercentageDataGridViewTextBoxColumn";
+            this.productAlcoholPercentageDataGridViewTextBoxColumn.Visible = false;
             // 
             // productOriginRegionDataGridViewTextBoxColumn
             // 
             this.productOriginRegionDataGridViewTextBoxColumn.DataPropertyName = "Product_OriginRegion";
             this.productOriginRegionDataGridViewTextBoxColumn.HeaderText = "Product_OriginRegion";
             this.productOriginRegionDataGridViewTextBoxColumn.Name = "productOriginRegionDataGridViewTextBoxColumn";
+            this.productOriginRegionDataGridViewTextBoxColumn.Visible = false;
             // 
             // productIngredientsDataGridViewTextBoxColumn
             // 
             this.productIngredientsDataGridViewTextBoxColumn.DataPropertyName = "Product_Ingredients";
             this.productIngredientsDataGridViewTextBoxColumn.HeaderText = "Product_Ingredients";
             this.productIngredientsDataGridViewTextBoxColumn.Name = "productIngredientsDataGridViewTextBoxColumn";
+            this.productIngredientsDataGridViewTextBoxColumn.Visible = false;
             // 
             // productSizeMLDataGridViewTextBoxColumn
             // 
             this.productSizeMLDataGridViewTextBoxColumn.DataPropertyName = "Product_SizeML";
             this.productSizeMLDataGridViewTextBoxColumn.HeaderText = "Product_SizeML";
             this.productSizeMLDataGridViewTextBoxColumn.Name = "productSizeMLDataGridViewTextBoxColumn";
+            this.productSizeMLDataGridViewTextBoxColumn.Visible = false;
             // 
             // productBarcodeNumberDataGridViewTextBoxColumn
             // 
             this.productBarcodeNumberDataGridViewTextBoxColumn.DataPropertyName = "Product_BarcodeNumber";
             this.productBarcodeNumberDataGridViewTextBoxColumn.HeaderText = "Product_BarcodeNumber";
             this.productBarcodeNumberDataGridViewTextBoxColumn.Name = "productBarcodeNumberDataGridViewTextBoxColumn";
+            this.productBarcodeNumberDataGridViewTextBoxColumn.Visible = false;
             // 
             // productSellingPriceDataGridViewTextBoxColumn
             // 
             this.productSellingPriceDataGridViewTextBoxColumn.DataPropertyName = "Product_SellingPrice";
             this.productSellingPriceDataGridViewTextBoxColumn.HeaderText = "Product_SellingPrice";
             this.productSellingPriceDataGridViewTextBoxColumn.Name = "productSellingPriceDataGridViewTextBoxColumn";
+            this.productSellingPriceDataGridViewTextBoxColumn.Visible = false;
             // 
             // productCostPriceDataGridViewTextBoxColumn
             // 
             this.productCostPriceDataGridViewTextBoxColumn.DataPropertyName = "Product_CostPrice";
             this.productCostPriceDataGridViewTextBoxColumn.HeaderText = "Product_CostPrice";
             this.productCostPriceDataGridViewTextBoxColumn.Name = "productCostPriceDataGridViewTextBoxColumn";
+            this.productCostPriceDataGridViewTextBoxColumn.Visible = false;
             // 
             // productQuantityInStockDataGridViewTextBoxColumn
             // 
             this.productQuantityInStockDataGridViewTextBoxColumn.DataPropertyName = "Product_QuantityInStock";
             this.productQuantityInStockDataGridViewTextBoxColumn.HeaderText = "Product_QuantityInStock";
             this.productQuantityInStockDataGridViewTextBoxColumn.Name = "productQuantityInStockDataGridViewTextBoxColumn";
+            this.productQuantityInStockDataGridViewTextBoxColumn.Visible = false;
             // 
             // productReorderQuantityDataGridViewTextBoxColumn
             // 
             this.productReorderQuantityDataGridViewTextBoxColumn.DataPropertyName = "Product_ReorderQuantity";
             this.productReorderQuantityDataGridViewTextBoxColumn.HeaderText = "Product_ReorderQuantity";
             this.productReorderQuantityDataGridViewTextBoxColumn.Name = "productReorderQuantityDataGridViewTextBoxColumn";
+            this.productReorderQuantityDataGridViewTextBoxColumn.Visible = false;
             // 
             // productStatusDataGridViewTextBoxColumn
             // 
@@ -294,7 +311,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(604, 366);
+            this.ClientSize = new System.Drawing.Size(932, 366);
             this.Controls.Add(this.productDataGridView);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.pictureBox1);
