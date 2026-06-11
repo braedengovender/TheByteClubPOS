@@ -74,7 +74,7 @@ namespace TheByteClubPOS
             if (amountTendered < totalPayable)
             {
                 decimal shortAmount = totalPayable - amountTendered;
-                //MessageBox.Show("Insufficient funds! \nThe customer gave R{amountTendered.ToString("F2")},\nbut the total is R{totalPayable.ToString("F2")}.\nThey still owe: R{shortAmount.ToString("F2")}", "Short Payment", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                MessageBox.Show($"Insufficient funds! \nThe customer gave R{amountTendered.ToString("F2")},\nbut the total is R{totalPayable.ToString("F2")}.\nThey still owe: R{shortAmount.ToString("F2")}", "Short Payment", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 txtAmountTendered.Focus();
                 return false;
             }
@@ -762,7 +762,7 @@ namespace TheByteClubPOS
             }
         }
 
-        private async Task<bool> SendReceiptEmailAsync(string customerEmail, string customerName, string invoiceId, decimal totalAmount, decimal cashTendered, decimal changeDue, string loyaltyInfo)
+        private async Task<bool> SendReceiptEmailAsync(string customerEmail, string customerName, string invoiceId, decimal subtotal, decimal discount, decimal vatAmount, decimal totalAmount, decimal amountTendered, decimal changeDue, string loyaltyInfo, string paymentMethod, int totalItemsCount, string employeeName, string saleType)
         {
             string resendApiKey = "re_f847CzLx_EWHwBfQgKrR22NXkpKjbHTzb";
 
@@ -770,23 +770,33 @@ namespace TheByteClubPOS
             {
                 // 1. ---- PROFESSIONAL HTML ENTERPRISE RECEIPT DESIGN ----
                 StringBuilder htmlBuilder = new StringBuilder();
-                htmlBuilder.Append("<div style='font-family: Arial, sans-serif; max-width: 500px; border: 1px solid #dcdde1; padding: 25px; border-radius: 8px; background-color: #ffffff; color: #2f3640;'>");
-                htmlBuilder.Append("<h3 style='color: #2f3640; border-bottom: 2px solid #718093; padding-bottom: 12px; margin-top: 0;'>🧾 The Byte Club POS - Sales Receipt</h3>");
+                htmlBuilder.Append("<div style='font-family: Arial, sans-serif; max-width: 500px; margin: 0 auto; border: 1px solid #dcdde1; padding: 30px; border-radius: 8px; background-color: #ffffff; color: #2f3640;'>");
 
-                htmlBuilder.Append("<div style='margin-bottom: 20px; font-size: 14px; background-color: #f8f9fa; padding: 12px; border-radius: 6px;'>");
-                htmlBuilder.Append($"<p style='margin: 4px 0;'><strong>Customer Name:</strong> {customerName}</p>");
-                htmlBuilder.Append($"<p style='margin: 4px 0;'><strong>Testing Route Destination:</strong> theofficialbyteclub@gmail.com</p>");
-                htmlBuilder.Append($"<p style='margin: 4px 0;'><strong>Loyalty Balance:</strong> {loyaltyInfo}</p>");
-                htmlBuilder.Append($"<p style='margin: 4px 0;'><strong>Invoice Number:</strong> #{invoiceId}</p>");
-                htmlBuilder.Append($"<p style='margin: 4px 0;'><strong>Timestamp Logged:</strong> {DateTime.Now:dd MMM yyyy HH:mm:ss}</p>");
+                // --- STORE HEADER ---
+                htmlBuilder.Append("<div style='text-align: center; margin-bottom: 25px; border-bottom: 2px dashed #dcdde1; padding-bottom: 15px;'>");
+                htmlBuilder.Append("<h2 style='margin: 0; color: #2f3640; font-size: 24px;'>Sam's Liquor Shop</h2>");
+                htmlBuilder.Append("<p style='margin: 4px 0; font-size: 13px; color: #718093;'>21 Coronation Road, Mithangar</p>");
+                htmlBuilder.Append("<p style='margin: 4px 0; font-size: 13px; color: #718093;'>Tongaat, 4399</p>");
+                htmlBuilder.Append("<p style='margin: 4px 0; font-size: 13px; color: #718093;'>Contact: +27 82 405 5932</p>");
                 htmlBuilder.Append("</div>");
 
-                htmlBuilder.Append("<table style='width: 100%; border-collapse: collapse; font-size: 13px; margin-bottom: 20px;'>");
-                htmlBuilder.Append("<tr style='background-color: #f5f6fa;'><th style='text-align: left; padding: 8px;'>Product Description</th><th style='text-align: center; padding: 8px;'>Qty</th><th style='text-align: right; padding: 8px;'>Line Total</th></tr>");
+                // --- INVOICE & CUSTOMER INFO ---
+                htmlBuilder.Append("<div style='margin-bottom: 20px; font-size: 13px;'>");
+                htmlBuilder.Append($"<p style='margin: 4px 0;'><strong>Invoice:</strong> INV-{invoiceId}</p>");
+                htmlBuilder.Append($"<p style='margin: 4px 0;'><strong>Date:</strong> {DateTime.Now:dd MMM yyyy HH:mm}</p>");
+                htmlBuilder.Append($"<p style='margin: 4px 0;'><strong>Customer:</strong> {customerName}</p>");
+                htmlBuilder.Append($"<p style='margin: 4px 0;'><strong>Sale Type:</strong> {saleType}</p>");
+                htmlBuilder.Append($"<p style='margin: 4px 0;'><strong>You were helped by:</strong> {employeeName}</p>");
+                htmlBuilder.Append($"<p style='margin: 4px 0;'><strong>Loyalty Balance:</strong> {loyaltyInfo}</p>");
+                htmlBuilder.Append("</div>");
+
+                // --- LINE ITEMS ---
+                htmlBuilder.Append("<table style='width: 100%; border-collapse: collapse; font-size: 13px; margin-bottom: 15px;'>");
+                htmlBuilder.Append("<tr style='background-color: #f5f6fa; border-bottom: 2px solid #718093;'><th style='text-align: left; padding: 8px;'>Description</th><th style='text-align: center; padding: 8px;'>Qty</th><th style='text-align: right; padding: 8px;'>Total</th></tr>");
 
                 foreach (System.Data.DataRow row in this.dsSamsLiqourShop.Cart.Rows)
                 {
-                    string productName = row["Product_Name"] != DBNull.Value ? row["Product_Name"].ToString() : "Product Item";
+                    string productName = row["Product_Name"] != DBNull.Value ? row["Product_Name"].ToString() : "Item";
                     string quantity = row["SaleLine_Quantity"] != DBNull.Value ? row["SaleLine_Quantity"].ToString() : "1";
                     decimal priceValue = row["SaleLine_UnitPriceAfterDiscount"] != DBNull.Value ? Convert.ToDecimal(row["SaleLine_UnitPriceAfterDiscount"]) : 0.00m;
 
@@ -794,21 +804,42 @@ namespace TheByteClubPOS
                 }
                 htmlBuilder.Append("</table>");
 
-                htmlBuilder.Append("<div style='background-color: #f5f6fa; border-left: 4px solid #00a8ff; padding: 15px; border-radius: 4px; font-size: 14px;'>");
-                htmlBuilder.Append($"<div style='margin: 4px 0; display: flex; justify-content: space-between;'><strong>TOTAL AMOUNT PAYABLE:</strong> <strong style='color:#00a8ff;'>R {totalAmount:F2}</strong></div>");
-                htmlBuilder.Append($"<div style='margin: 4px 0; display: flex; justify-content: space-between;'>Amount Tendered Cash: <span>R {cashTendered:F2}</span></div>");
-                htmlBuilder.Append($"<div style='margin: 4px 0; display: flex; justify-content: space-between; color: #c23616;'><strong>CHANGE RETURNED DUE:</strong> <strong>R {changeDue:F2}</strong></div>");
+                // --- FINANCIAL TOTALS ---
+                htmlBuilder.Append("<div style='font-size: 13px; padding-top: 10px;'>");
+                htmlBuilder.Append($"<div style='display: flex; justify-content: space-between; margin: 4px 0;'><span>Total Items:</span> <span>{totalItemsCount}</span></div>");
+                htmlBuilder.Append($"<div style='display: flex; justify-content: space-between; margin: 4px 0;'><span>Subtotal:</span> <span>R {subtotal:F2}</span></div>");
+
+                if (discount > 0)
+                {
+                    htmlBuilder.Append($"<div style='display: flex; justify-content: space-between; margin: 4px 0; color: #44bd32;'><span>Discount Applied:</span> <span>- R {discount:F2}</span></div>");
+                }
+
+                htmlBuilder.Append($"<div style='display: flex; justify-content: space-between; margin: 4px 0; color: #7f8c8d; font-size: 11px;'><span>Includes 15% VAT:</span> <span>R {vatAmount:F2}</span></div>");
                 htmlBuilder.Append("</div>");
 
-                htmlBuilder.Append("<p style='color: #7f8c8d; font-size: 11px; margin-top: 25px; font-style: italic; text-align: center;'>Thank you for shopping at Sam's Liquor Shop via The Byte Club POS.</p>");
+                // --- PAYMENT BLOCK ---
+                htmlBuilder.Append("<div style='background-color: #f8f9fa; border: 1px solid #dcdde1; padding: 15px; border-radius: 4px; font-size: 14px; margin-top: 15px;'>");
+                htmlBuilder.Append($"<div style='margin: 4px 0; display: flex; justify-content: space-between;'><strong>TOTAL AMOUNT PAID:</strong> <strong style='font-size: 16px;'>R {totalAmount:F2}</strong></div>");
+                htmlBuilder.Append($"<div style='margin: 8px 0 4px 0; display: flex; justify-content: space-between; font-size: 13px;'><span>Payment Method:</span> <strong>{paymentMethod}</strong></div>");
+
+                // Only show tendered/change details if they paid with actual cash
+                if (paymentMethod.Equals("Cash", StringComparison.OrdinalIgnoreCase))
+                {
+                    htmlBuilder.Append($"<div style='margin: 4px 0; display: flex; justify-content: space-between; font-size: 13px;'><span>Amount Tendered:</span> <span>R {amountTendered:F2}</span></div>");
+                    htmlBuilder.Append($"<div style='margin: 4px 0; display: flex; justify-content: space-between; font-size: 13px;'><span>Change Returned:</span> <span>R {changeDue:F2}</span></div>");
+                }
+
+                htmlBuilder.Append("</div>");
+
+                htmlBuilder.Append("<p style='color: #7f8c8d; font-size: 11px; margin-top: 25px; font-style: italic; text-align: center;'>Thank you for shopping at Sam's Liquor Shop.<br/>Powered by The Byte Club POS.</p>");
                 htmlBuilder.Append("</div>");
 
                 // 4. ---- CONSTRUCT BULLETPROOF RESEND JSON TARGET OBJECT PACKET ----
                 var emailPayload = new
                 {
-                    from = "onboarding@resend.dev",
-                    to = "theofficialbyteclub@gmail.com", // Plain flat string to comply with security filters
-                    subject = $"🧾 Digital Sales Invoice #{invoiceId} for {customerName}",
+                    from = "The Byte Club Helpdesk <onboarding@resend.dev>", // CHANGED: Sets display name!
+                    to = "theofficialbyteclub@gmail.com",
+                    subject = $"🧾 E-Receipt: INV-{invoiceId} from Sam's Liquor Shop",
                     html = htmlBuilder.ToString()
                 };
 
@@ -829,20 +860,15 @@ namespace TheByteClubPOS
                     }
                     else
                     {
-                        // EXTRACT API REJECTION TEXT DIRECTLY FROM SERVER RESPONSES
                         string errorServerDetails = await response.Content.ReadAsStringAsync();
-
-                        // UNMUTED: This popup displays any validation errors from Resend on your screen
                         MessageBox.Show($"Resend Server Rejected Email Payload!\n\nStatus Code: {response.StatusCode}\nReason: {errorServerDetails}",
                                         "API Verification Failure", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
                         return false;
                     }
                 }
             }
             catch (Exception ex)
             {
-                // UNMUTED: Catches physical system/network drops (e.g., no internet connection)
                 MessageBox.Show($"Network or Configuration Crash encountered: {ex.Message}", "Email Engine Failure", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
@@ -953,6 +979,8 @@ namespace TheByteClubPOS
                 }
 
                 int chosenSaleTypeID = Convert.ToInt32(comboBox2.SelectedValue);
+                string saleTypeText = comboBox2.Text.Trim();
+                string paymentMethodUsed = comboBox1.Text.Trim();
                 saleID = (int)saleTableAdapter.InsertQueryNewSale(currentCustomerID, currentEmployeeID, chosenSaleTypeID, null, DateTime.Now, getSubtotal(), getDiscountAmount(), getTotal(), loyaltyPointsEarned, "Completed");
                 
                 saveSaleLines(saleID);
@@ -963,7 +991,7 @@ namespace TheByteClubPOS
 
                 string changeDetails = "";
                 // Sale is completely successful, now show change due to customer
-                if (comboBox1.Text.Trim().Equals("Cash", StringComparison.OrdinalIgnoreCase))
+                if (paymentMethodUsed.Equals("Cash", StringComparison.OrdinalIgnoreCase))
                 {
                     amountTendered = Convert.ToDecimal(txtAmountTendered.Text.Trim());
                     decimal totalPayable = getTotal();
@@ -982,6 +1010,7 @@ namespace TheByteClubPOS
                 }
                 else
                 {
+                    amountTendered = getTotal();
                     // Fallback success message for Card/Other payment types
                     //MessageBox.Show("Sale completed successfully! ID: " + saleID + " Loyalty points earned: " + loyaltyPointsEarned, "Transaction Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
@@ -996,32 +1025,60 @@ namespace TheByteClubPOS
                 else
                 {
                     // Walk-in Customer: Completely remove any mention of loyalty points
-                    msgPrompt = $"{changeDetails}" + $"Sale completed successfully!\n" + $"Invoice ID: {saleID}\n\n" + $"Would you like to print the receipt?";
+                    msgPrompt = $"{changeDetails}" + $"Sale completed successfully!\n" + $"Invoice ID: {saleID}\n\n";
                 }
 
+                // Append the new explicit choices
+                msgPrompt += "\nHow would you like your receipt?\n" +
+                             "👉 Click YES to Print a Physical Receipt (and send Email)\n" +
+                             "👉 Click NO for an E-Receipt (Email Only)";
                 DialogResult result = MessageBox.Show(msgPrompt, "Transaction Complete", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                string custName = "Walk-in Customer";
+                string loyaltyDisplay = "N/A";
+
+                decimal vatAmount = Math.Round(getTotal() * 15m / 115m, 2); // 15% VAT calc
+
+                int totalItemsCount = 0;
+                foreach (DataRow row in this.dsSamsLiqourShop.Cart.Rows)
+                {
+                    totalItemsCount += row["SaleLine_Quantity"] != DBNull.Value ? Convert.ToInt32(row["SaleLine_Quantity"]) : 1;
+                }
+
+                if (currentCustomerID != null && this.dsSamsLiqourShop.Customer.Rows.Count > 0)
+                {
+                    DataRow custRow = this.dsSamsLiqourShop.Customer.Rows[0];
+                    string firstName = custRow["Customer_FirstName"]?.ToString() ?? "";
+                    string lastName = custRow["Customer_LastName"]?.ToString() ?? "";
+                    custName = string.IsNullOrWhiteSpace(firstName + lastName) ? "Valued Customer" : $"{firstName} {lastName}".Trim();
+                    loyaltyDisplay = $"{newCustLoyaltyPointsBalance} pts (Earned +{loyaltyPointsEarned} today)";
+                }
+
+                string employeeDisplayName = $"Cashier {currentEmployeeID}";
+
+                bool emailSent = await SendReceiptEmailAsync(
+                    "theofficialbyteclub@gmail.com",
+                    custName,
+                    saleID.ToString(),
+                    getSubtotal(),
+                    getDiscountAmount(),
+                    vatAmount,
+                    getTotal(),
+                    amountTendered,
+                    changeDue,
+                    loyaltyDisplay,
+                    paymentMethodUsed,
+                    totalItemsCount,
+                    employeeDisplayName,
+                    saleTypeText
+                );
+                if (emailSent)
+                {
+                    MessageBox.Show("E-Receipt dispatched directly to the Customers Email!", "Email Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
 
                 if (result == DialogResult.Yes)
                 {
-                    string custName = "Walk-in Customer";
-                    string loyaltyDisplay = "N/A";
-
-                    if (currentCustomerID != null && this.dsSamsLiqourShop.Customer.Rows.Count > 0)
-                    {
-                        DataRow custRow = this.dsSamsLiqourShop.Customer.Rows[0];
-                        string firstName = custRow["Customer_FirstName"]?.ToString() ?? "";
-                        string lastName = custRow["Customer_LastName"]?.ToString() ?? "";
-                        custName = string.IsNullOrWhiteSpace(firstName + lastName) ? "Valued Customer" : $"{firstName} {lastName}".Trim();
-                        loyaltyDisplay = $"{newCustLoyaltyPointsBalance} pts (Earned +{loyaltyPointsEarned} today)";
-                    }
-
-                    bool emailSent = await SendReceiptEmailAsync("theofficialbyteclub@gmail.com", custName, saleID.ToString(), getTotal(), amountTendered, changeDue, loyaltyDisplay);
-
-                    if (emailSent)
-                    {
-                        MessageBox.Show("E-Receipt dispatched directly to your group testing inbox!", "Email Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-
                     GenerateReceipt();
                     //MessageBox.Show("Receipt printed successfully.", "Sale Completion", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -1030,8 +1087,6 @@ namespace TheByteClubPOS
                 {
                     clearForm();
                 }
-
-                
             }
             catch (Exception ex)
             {
@@ -1042,7 +1097,6 @@ namespace TheByteClubPOS
                 // Regardless of success or failure, reset the form for the next customer
                 btnCompleteSale.Enabled = true;
             }
-
         }
 
         private void GenerateReceipt()
