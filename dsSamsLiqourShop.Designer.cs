@@ -52,6 +52,10 @@ namespace TheByteClubPOS {
         
         private SaleDTDataTable tableSaleDT;
         
+        private SalesSummaryInnerJoinDTDataTable tableSalesSummaryInnerJoinDT;
+        
+        private SaleLinesSummaryInnerJoinDTDataTable tableSaleLinesSummaryInnerJoinDT;
+        
         private CartDataTable tableCart;
         
         private global::System.Data.DataRelation relationFK_Category_Discount;
@@ -87,6 +91,24 @@ namespace TheByteClubPOS {
         private global::System.Data.DataRelation relationFK_SaleLine_Product;
         
         private global::System.Data.DataRelation relationFK_SaleLine_Sale;
+        
+        private global::System.Data.DataRelation relationFK_Payment_Sale1;
+        
+        private global::System.Data.DataRelation relationFK_SaleLine_Sale1;
+        
+        private global::System.Data.DataRelation relationFK_Sale_Customer1;
+        
+        private global::System.Data.DataRelation relationFK_Sale_Discount1;
+        
+        private global::System.Data.DataRelation relationFK_Sale_Employee1;
+        
+        private global::System.Data.DataRelation relationFK_Sale_SaleType1;
+        
+        private global::System.Data.DataRelation relationFK_PurchaseOrderLine_Product1;
+        
+        private global::System.Data.DataRelation relationFK_SaleLine_Product1;
+        
+        private global::System.Data.DataRelation relationFK_Product_Discount1;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -157,6 +179,12 @@ namespace TheByteClubPOS {
                 }
                 if ((ds.Tables["SaleDT"] != null)) {
                     base.Tables.Add(new SaleDTDataTable(ds.Tables["SaleDT"]));
+                }
+                if ((ds.Tables["SalesSummaryInnerJoinDT"] != null)) {
+                    base.Tables.Add(new SalesSummaryInnerJoinDTDataTable(ds.Tables["SalesSummaryInnerJoinDT"]));
+                }
+                if ((ds.Tables["SaleLinesSummaryInnerJoinDT"] != null)) {
+                    base.Tables.Add(new SaleLinesSummaryInnerJoinDTDataTable(ds.Tables["SaleLinesSummaryInnerJoinDT"]));
                 }
                 if ((ds.Tables["Cart"] != null)) {
                     base.Tables.Add(new CartDataTable(ds.Tables["Cart"]));
@@ -323,6 +351,26 @@ namespace TheByteClubPOS {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public SalesSummaryInnerJoinDTDataTable SalesSummaryInnerJoinDT {
+            get {
+                return this.tableSalesSummaryInnerJoinDT;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public SaleLinesSummaryInnerJoinDTDataTable SaleLinesSummaryInnerJoinDT {
+            get {
+                return this.tableSaleLinesSummaryInnerJoinDT;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
         public CartDataTable Cart {
             get {
                 return this.tableCart;
@@ -437,6 +485,12 @@ namespace TheByteClubPOS {
                 }
                 if ((ds.Tables["SaleDT"] != null)) {
                     base.Tables.Add(new SaleDTDataTable(ds.Tables["SaleDT"]));
+                }
+                if ((ds.Tables["SalesSummaryInnerJoinDT"] != null)) {
+                    base.Tables.Add(new SalesSummaryInnerJoinDTDataTable(ds.Tables["SalesSummaryInnerJoinDT"]));
+                }
+                if ((ds.Tables["SaleLinesSummaryInnerJoinDT"] != null)) {
+                    base.Tables.Add(new SaleLinesSummaryInnerJoinDTDataTable(ds.Tables["SaleLinesSummaryInnerJoinDT"]));
                 }
                 if ((ds.Tables["Cart"] != null)) {
                     base.Tables.Add(new CartDataTable(ds.Tables["Cart"]));
@@ -558,6 +612,18 @@ namespace TheByteClubPOS {
                     this.tableSaleDT.InitVars();
                 }
             }
+            this.tableSalesSummaryInnerJoinDT = ((SalesSummaryInnerJoinDTDataTable)(base.Tables["SalesSummaryInnerJoinDT"]));
+            if ((initTable == true)) {
+                if ((this.tableSalesSummaryInnerJoinDT != null)) {
+                    this.tableSalesSummaryInnerJoinDT.InitVars();
+                }
+            }
+            this.tableSaleLinesSummaryInnerJoinDT = ((SaleLinesSummaryInnerJoinDTDataTable)(base.Tables["SaleLinesSummaryInnerJoinDT"]));
+            if ((initTable == true)) {
+                if ((this.tableSaleLinesSummaryInnerJoinDT != null)) {
+                    this.tableSaleLinesSummaryInnerJoinDT.InitVars();
+                }
+            }
             this.tableCart = ((CartDataTable)(base.Tables["Cart"]));
             if ((initTable == true)) {
                 if ((this.tableCart != null)) {
@@ -581,6 +647,15 @@ namespace TheByteClubPOS {
             this.relationFK_SaleLine_Discount = this.Relations["FK_SaleLine_Discount"];
             this.relationFK_SaleLine_Product = this.Relations["FK_SaleLine_Product"];
             this.relationFK_SaleLine_Sale = this.Relations["FK_SaleLine_Sale"];
+            this.relationFK_Payment_Sale1 = this.Relations["FK_Payment_Sale1"];
+            this.relationFK_SaleLine_Sale1 = this.Relations["FK_SaleLine_Sale1"];
+            this.relationFK_Sale_Customer1 = this.Relations["FK_Sale_Customer1"];
+            this.relationFK_Sale_Discount1 = this.Relations["FK_Sale_Discount1"];
+            this.relationFK_Sale_Employee1 = this.Relations["FK_Sale_Employee1"];
+            this.relationFK_Sale_SaleType1 = this.Relations["FK_Sale_SaleType1"];
+            this.relationFK_PurchaseOrderLine_Product1 = this.Relations["FK_PurchaseOrderLine_Product1"];
+            this.relationFK_SaleLine_Product1 = this.Relations["FK_SaleLine_Product1"];
+            this.relationFK_Product_Discount1 = this.Relations["FK_Product_Discount1"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -619,6 +694,10 @@ namespace TheByteClubPOS {
             base.Tables.Add(this.tableSupplier);
             this.tableSaleDT = new SaleDTDataTable();
             base.Tables.Add(this.tableSaleDT);
+            this.tableSalesSummaryInnerJoinDT = new SalesSummaryInnerJoinDTDataTable();
+            base.Tables.Add(this.tableSalesSummaryInnerJoinDT);
+            this.tableSaleLinesSummaryInnerJoinDT = new SaleLinesSummaryInnerJoinDTDataTable();
+            base.Tables.Add(this.tableSaleLinesSummaryInnerJoinDT);
             this.tableCart = new CartDataTable();
             base.Tables.Add(this.tableCart);
             this.relationFK_Category_Discount = new global::System.Data.DataRelation("FK_Category_Discount", new global::System.Data.DataColumn[] {
@@ -689,6 +768,42 @@ namespace TheByteClubPOS {
                         this.tableSale.Sale_IDColumn}, new global::System.Data.DataColumn[] {
                         this.tableSaleLine.Sale_IDColumn}, false);
             this.Relations.Add(this.relationFK_SaleLine_Sale);
+            this.relationFK_Payment_Sale1 = new global::System.Data.DataRelation("FK_Payment_Sale1", new global::System.Data.DataColumn[] {
+                        this.tableSalesSummaryInnerJoinDT.Sale_IDColumn}, new global::System.Data.DataColumn[] {
+                        this.tablePayment.Sale_IDColumn}, false);
+            this.Relations.Add(this.relationFK_Payment_Sale1);
+            this.relationFK_SaleLine_Sale1 = new global::System.Data.DataRelation("FK_SaleLine_Sale1", new global::System.Data.DataColumn[] {
+                        this.tableSalesSummaryInnerJoinDT.Sale_IDColumn}, new global::System.Data.DataColumn[] {
+                        this.tableSaleLine.Sale_IDColumn}, false);
+            this.Relations.Add(this.relationFK_SaleLine_Sale1);
+            this.relationFK_Sale_Customer1 = new global::System.Data.DataRelation("FK_Sale_Customer1", new global::System.Data.DataColumn[] {
+                        this.tableCustomer.Customer_IDColumn}, new global::System.Data.DataColumn[] {
+                        this.tableSalesSummaryInnerJoinDT.Customer_IDColumn}, false);
+            this.Relations.Add(this.relationFK_Sale_Customer1);
+            this.relationFK_Sale_Discount1 = new global::System.Data.DataRelation("FK_Sale_Discount1", new global::System.Data.DataColumn[] {
+                        this.tableDiscount.Discount_IDColumn}, new global::System.Data.DataColumn[] {
+                        this.tableSalesSummaryInnerJoinDT.Discount_IDColumn}, false);
+            this.Relations.Add(this.relationFK_Sale_Discount1);
+            this.relationFK_Sale_Employee1 = new global::System.Data.DataRelation("FK_Sale_Employee1", new global::System.Data.DataColumn[] {
+                        this.tableEmployee.Employee_IDColumn}, new global::System.Data.DataColumn[] {
+                        this.tableSalesSummaryInnerJoinDT.Employee_IDColumn}, false);
+            this.Relations.Add(this.relationFK_Sale_Employee1);
+            this.relationFK_Sale_SaleType1 = new global::System.Data.DataRelation("FK_Sale_SaleType1", new global::System.Data.DataColumn[] {
+                        this.tableSaleType.SaleType_IDColumn}, new global::System.Data.DataColumn[] {
+                        this.tableSalesSummaryInnerJoinDT.SaleType_IDColumn}, false);
+            this.Relations.Add(this.relationFK_Sale_SaleType1);
+            this.relationFK_PurchaseOrderLine_Product1 = new global::System.Data.DataRelation("FK_PurchaseOrderLine_Product1", new global::System.Data.DataColumn[] {
+                        this.tableSaleLinesSummaryInnerJoinDT.Product_IDColumn}, new global::System.Data.DataColumn[] {
+                        this.tablePurchaseOrderLine.Product_IDColumn}, false);
+            this.Relations.Add(this.relationFK_PurchaseOrderLine_Product1);
+            this.relationFK_SaleLine_Product1 = new global::System.Data.DataRelation("FK_SaleLine_Product1", new global::System.Data.DataColumn[] {
+                        this.tableSaleLinesSummaryInnerJoinDT.Product_IDColumn}, new global::System.Data.DataColumn[] {
+                        this.tableSaleLine.Product_IDColumn}, false);
+            this.Relations.Add(this.relationFK_SaleLine_Product1);
+            this.relationFK_Product_Discount1 = new global::System.Data.DataRelation("FK_Product_Discount1", new global::System.Data.DataColumn[] {
+                        this.tableDiscount.Discount_IDColumn}, new global::System.Data.DataColumn[] {
+                        this.tableSaleLinesSummaryInnerJoinDT.Discount_IDColumn}, false);
+            this.Relations.Add(this.relationFK_Product_Discount1);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -772,6 +887,18 @@ namespace TheByteClubPOS {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private bool ShouldSerializeSaleDT() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private bool ShouldSerializeSalesSummaryInnerJoinDT() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private bool ShouldSerializeSaleLinesSummaryInnerJoinDT() {
             return false;
         }
         
@@ -877,6 +1004,12 @@ namespace TheByteClubPOS {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public delegate void SaleDTRowChangeEventHandler(object sender, SaleDTRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public delegate void SalesSummaryInnerJoinDTRowChangeEventHandler(object sender, SalesSummaryInnerJoinDTRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public delegate void SaleLinesSummaryInnerJoinDTRowChangeEventHandler(object sender, SaleLinesSummaryInnerJoinDTRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public delegate void CartRowChangeEventHandler(object sender, CartRowChangeEvent e);
@@ -6363,6 +6496,875 @@ namespace TheByteClubPOS {
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class SalesSummaryInnerJoinDTDataTable : global::System.Data.TypedTableBase<SalesSummaryInnerJoinDTRow> {
+            
+            private global::System.Data.DataColumn columnSale_ID;
+            
+            private global::System.Data.DataColumn columnCustomer_ID;
+            
+            private global::System.Data.DataColumn columnCustomer_Details;
+            
+            private global::System.Data.DataColumn columnEmployee_ID;
+            
+            private global::System.Data.DataColumn columnEmployee_Name;
+            
+            private global::System.Data.DataColumn columnSaleType_ID;
+            
+            private global::System.Data.DataColumn columnSaleType_Name;
+            
+            private global::System.Data.DataColumn columnDiscount_ID;
+            
+            private global::System.Data.DataColumn columnSale_Discount_Name;
+            
+            private global::System.Data.DataColumn columnSale_DateTime;
+            
+            private global::System.Data.DataColumn columnSale_Subtotal;
+            
+            private global::System.Data.DataColumn columnSale_DiscountAmount;
+            
+            private global::System.Data.DataColumn columnSale_TotalAmount;
+            
+            private global::System.Data.DataColumn columnSale_LoyaltyPointsEarned;
+            
+            private global::System.Data.DataColumn columnSale_Status;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public SalesSummaryInnerJoinDTDataTable() {
+                this.TableName = "SalesSummaryInnerJoinDT";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal SalesSummaryInnerJoinDTDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected SalesSummaryInnerJoinDTDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn Sale_IDColumn {
+                get {
+                    return this.columnSale_ID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn Customer_IDColumn {
+                get {
+                    return this.columnCustomer_ID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn Customer_DetailsColumn {
+                get {
+                    return this.columnCustomer_Details;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn Employee_IDColumn {
+                get {
+                    return this.columnEmployee_ID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn Employee_NameColumn {
+                get {
+                    return this.columnEmployee_Name;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn SaleType_IDColumn {
+                get {
+                    return this.columnSaleType_ID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn SaleType_NameColumn {
+                get {
+                    return this.columnSaleType_Name;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn Discount_IDColumn {
+                get {
+                    return this.columnDiscount_ID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn Sale_Discount_NameColumn {
+                get {
+                    return this.columnSale_Discount_Name;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn Sale_DateTimeColumn {
+                get {
+                    return this.columnSale_DateTime;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn Sale_SubtotalColumn {
+                get {
+                    return this.columnSale_Subtotal;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn Sale_DiscountAmountColumn {
+                get {
+                    return this.columnSale_DiscountAmount;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn Sale_TotalAmountColumn {
+                get {
+                    return this.columnSale_TotalAmount;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn Sale_LoyaltyPointsEarnedColumn {
+                get {
+                    return this.columnSale_LoyaltyPointsEarned;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn Sale_StatusColumn {
+                get {
+                    return this.columnSale_Status;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public SalesSummaryInnerJoinDTRow this[int index] {
+                get {
+                    return ((SalesSummaryInnerJoinDTRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event SalesSummaryInnerJoinDTRowChangeEventHandler SalesSummaryInnerJoinDTRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event SalesSummaryInnerJoinDTRowChangeEventHandler SalesSummaryInnerJoinDTRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event SalesSummaryInnerJoinDTRowChangeEventHandler SalesSummaryInnerJoinDTRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event SalesSummaryInnerJoinDTRowChangeEventHandler SalesSummaryInnerJoinDTRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void AddSalesSummaryInnerJoinDTRow(SalesSummaryInnerJoinDTRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public SalesSummaryInnerJoinDTRow AddSalesSummaryInnerJoinDTRow(CustomerRow parentCustomerRowByFK_Sale_Customer1, string Customer_Details, EmployeeRow parentEmployeeRowByFK_Sale_Employee1, string Employee_Name, SaleTypeRow parentSaleTypeRowByFK_Sale_SaleType1, string SaleType_Name, DiscountRow parentDiscountRowByFK_Sale_Discount1, string Sale_Discount_Name, System.DateTime Sale_DateTime, decimal Sale_Subtotal, decimal Sale_DiscountAmount, decimal Sale_TotalAmount, int Sale_LoyaltyPointsEarned, string Sale_Status) {
+                SalesSummaryInnerJoinDTRow rowSalesSummaryInnerJoinDTRow = ((SalesSummaryInnerJoinDTRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        null,
+                        null,
+                        Customer_Details,
+                        null,
+                        Employee_Name,
+                        null,
+                        SaleType_Name,
+                        null,
+                        Sale_Discount_Name,
+                        Sale_DateTime,
+                        Sale_Subtotal,
+                        Sale_DiscountAmount,
+                        Sale_TotalAmount,
+                        Sale_LoyaltyPointsEarned,
+                        Sale_Status};
+                if ((parentCustomerRowByFK_Sale_Customer1 != null)) {
+                    columnValuesArray[1] = parentCustomerRowByFK_Sale_Customer1[0];
+                }
+                if ((parentEmployeeRowByFK_Sale_Employee1 != null)) {
+                    columnValuesArray[3] = parentEmployeeRowByFK_Sale_Employee1[0];
+                }
+                if ((parentSaleTypeRowByFK_Sale_SaleType1 != null)) {
+                    columnValuesArray[5] = parentSaleTypeRowByFK_Sale_SaleType1[0];
+                }
+                if ((parentDiscountRowByFK_Sale_Discount1 != null)) {
+                    columnValuesArray[7] = parentDiscountRowByFK_Sale_Discount1[0];
+                }
+                rowSalesSummaryInnerJoinDTRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowSalesSummaryInnerJoinDTRow);
+                return rowSalesSummaryInnerJoinDTRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public SalesSummaryInnerJoinDTRow FindBySale_ID(int Sale_ID) {
+                return ((SalesSummaryInnerJoinDTRow)(this.Rows.Find(new object[] {
+                            Sale_ID})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                SalesSummaryInnerJoinDTDataTable cln = ((SalesSummaryInnerJoinDTDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new SalesSummaryInnerJoinDTDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal void InitVars() {
+                this.columnSale_ID = base.Columns["Sale_ID"];
+                this.columnCustomer_ID = base.Columns["Customer_ID"];
+                this.columnCustomer_Details = base.Columns["Customer_Details"];
+                this.columnEmployee_ID = base.Columns["Employee_ID"];
+                this.columnEmployee_Name = base.Columns["Employee_Name"];
+                this.columnSaleType_ID = base.Columns["SaleType_ID"];
+                this.columnSaleType_Name = base.Columns["SaleType_Name"];
+                this.columnDiscount_ID = base.Columns["Discount_ID"];
+                this.columnSale_Discount_Name = base.Columns["Sale_Discount_Name"];
+                this.columnSale_DateTime = base.Columns["Sale_DateTime"];
+                this.columnSale_Subtotal = base.Columns["Sale_Subtotal"];
+                this.columnSale_DiscountAmount = base.Columns["Sale_DiscountAmount"];
+                this.columnSale_TotalAmount = base.Columns["Sale_TotalAmount"];
+                this.columnSale_LoyaltyPointsEarned = base.Columns["Sale_LoyaltyPointsEarned"];
+                this.columnSale_Status = base.Columns["Sale_Status"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            private void InitClass() {
+                this.columnSale_ID = new global::System.Data.DataColumn("Sale_ID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSale_ID);
+                this.columnCustomer_ID = new global::System.Data.DataColumn("Customer_ID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCustomer_ID);
+                this.columnCustomer_Details = new global::System.Data.DataColumn("Customer_Details", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCustomer_Details);
+                this.columnEmployee_ID = new global::System.Data.DataColumn("Employee_ID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnEmployee_ID);
+                this.columnEmployee_Name = new global::System.Data.DataColumn("Employee_Name", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnEmployee_Name);
+                this.columnSaleType_ID = new global::System.Data.DataColumn("SaleType_ID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSaleType_ID);
+                this.columnSaleType_Name = new global::System.Data.DataColumn("SaleType_Name", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSaleType_Name);
+                this.columnDiscount_ID = new global::System.Data.DataColumn("Discount_ID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDiscount_ID);
+                this.columnSale_Discount_Name = new global::System.Data.DataColumn("Sale_Discount_Name", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSale_Discount_Name);
+                this.columnSale_DateTime = new global::System.Data.DataColumn("Sale_DateTime", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSale_DateTime);
+                this.columnSale_Subtotal = new global::System.Data.DataColumn("Sale_Subtotal", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSale_Subtotal);
+                this.columnSale_DiscountAmount = new global::System.Data.DataColumn("Sale_DiscountAmount", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSale_DiscountAmount);
+                this.columnSale_TotalAmount = new global::System.Data.DataColumn("Sale_TotalAmount", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSale_TotalAmount);
+                this.columnSale_LoyaltyPointsEarned = new global::System.Data.DataColumn("Sale_LoyaltyPointsEarned", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSale_LoyaltyPointsEarned);
+                this.columnSale_Status = new global::System.Data.DataColumn("Sale_Status", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSale_Status);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnSale_ID}, true));
+                this.columnSale_ID.AutoIncrement = true;
+                this.columnSale_ID.AutoIncrementSeed = -1;
+                this.columnSale_ID.AutoIncrementStep = -1;
+                this.columnSale_ID.AllowDBNull = false;
+                this.columnSale_ID.ReadOnly = true;
+                this.columnSale_ID.Unique = true;
+                this.columnCustomer_Details.ReadOnly = true;
+                this.columnCustomer_Details.MaxLength = 101;
+                this.columnEmployee_ID.AllowDBNull = false;
+                this.columnEmployee_Name.ReadOnly = true;
+                this.columnEmployee_Name.MaxLength = 101;
+                this.columnSaleType_ID.AllowDBNull = false;
+                this.columnSaleType_Name.AllowDBNull = false;
+                this.columnSaleType_Name.MaxLength = 30;
+                this.columnSale_Discount_Name.ReadOnly = true;
+                this.columnSale_Discount_Name.MaxLength = 50;
+                this.columnSale_DateTime.AllowDBNull = false;
+                this.columnSale_Subtotal.AllowDBNull = false;
+                this.columnSale_TotalAmount.AllowDBNull = false;
+                this.columnSale_LoyaltyPointsEarned.AllowDBNull = false;
+                this.columnSale_Status.AllowDBNull = false;
+                this.columnSale_Status.MaxLength = 20;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public SalesSummaryInnerJoinDTRow NewSalesSummaryInnerJoinDTRow() {
+                return ((SalesSummaryInnerJoinDTRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new SalesSummaryInnerJoinDTRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(SalesSummaryInnerJoinDTRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.SalesSummaryInnerJoinDTRowChanged != null)) {
+                    this.SalesSummaryInnerJoinDTRowChanged(this, new SalesSummaryInnerJoinDTRowChangeEvent(((SalesSummaryInnerJoinDTRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.SalesSummaryInnerJoinDTRowChanging != null)) {
+                    this.SalesSummaryInnerJoinDTRowChanging(this, new SalesSummaryInnerJoinDTRowChangeEvent(((SalesSummaryInnerJoinDTRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.SalesSummaryInnerJoinDTRowDeleted != null)) {
+                    this.SalesSummaryInnerJoinDTRowDeleted(this, new SalesSummaryInnerJoinDTRowChangeEvent(((SalesSummaryInnerJoinDTRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.SalesSummaryInnerJoinDTRowDeleting != null)) {
+                    this.SalesSummaryInnerJoinDTRowDeleting(this, new SalesSummaryInnerJoinDTRowChangeEvent(((SalesSummaryInnerJoinDTRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void RemoveSalesSummaryInnerJoinDTRow(SalesSummaryInnerJoinDTRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                dsSamsLiqourShop ds = new dsSamsLiqourShop();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "SalesSummaryInnerJoinDTDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class SaleLinesSummaryInnerJoinDTDataTable : global::System.Data.TypedTableBase<SaleLinesSummaryInnerJoinDTRow> {
+            
+            private global::System.Data.DataColumn columnSale_ID;
+            
+            private global::System.Data.DataColumn columnProduct_ID;
+            
+            private global::System.Data.DataColumn columnProduct_Name;
+            
+            private global::System.Data.DataColumn columnDiscount_ID;
+            
+            private global::System.Data.DataColumn columnProduct_Discount_Name;
+            
+            private global::System.Data.DataColumn columnSaleLine_Quantity;
+            
+            private global::System.Data.DataColumn columnSaleLine_OriginalUnitPrice;
+            
+            private global::System.Data.DataColumn columnSaleLine_UnitPriceAfterDiscount;
+            
+            private global::System.Data.DataColumn columnSaleLine_Subtotal;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public SaleLinesSummaryInnerJoinDTDataTable() {
+                this.TableName = "SaleLinesSummaryInnerJoinDT";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal SaleLinesSummaryInnerJoinDTDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected SaleLinesSummaryInnerJoinDTDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn Sale_IDColumn {
+                get {
+                    return this.columnSale_ID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn Product_IDColumn {
+                get {
+                    return this.columnProduct_ID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn Product_NameColumn {
+                get {
+                    return this.columnProduct_Name;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn Discount_IDColumn {
+                get {
+                    return this.columnDiscount_ID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn Product_Discount_NameColumn {
+                get {
+                    return this.columnProduct_Discount_Name;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn SaleLine_QuantityColumn {
+                get {
+                    return this.columnSaleLine_Quantity;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn SaleLine_OriginalUnitPriceColumn {
+                get {
+                    return this.columnSaleLine_OriginalUnitPrice;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn SaleLine_UnitPriceAfterDiscountColumn {
+                get {
+                    return this.columnSaleLine_UnitPriceAfterDiscount;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn SaleLine_SubtotalColumn {
+                get {
+                    return this.columnSaleLine_Subtotal;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public SaleLinesSummaryInnerJoinDTRow this[int index] {
+                get {
+                    return ((SaleLinesSummaryInnerJoinDTRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event SaleLinesSummaryInnerJoinDTRowChangeEventHandler SaleLinesSummaryInnerJoinDTRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event SaleLinesSummaryInnerJoinDTRowChangeEventHandler SaleLinesSummaryInnerJoinDTRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event SaleLinesSummaryInnerJoinDTRowChangeEventHandler SaleLinesSummaryInnerJoinDTRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event SaleLinesSummaryInnerJoinDTRowChangeEventHandler SaleLinesSummaryInnerJoinDTRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void AddSaleLinesSummaryInnerJoinDTRow(SaleLinesSummaryInnerJoinDTRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public SaleLinesSummaryInnerJoinDTRow AddSaleLinesSummaryInnerJoinDTRow(int Sale_ID, int Product_ID, string Product_Name, DiscountRow parentDiscountRowByFK_Product_Discount1, string Product_Discount_Name, int SaleLine_Quantity, decimal SaleLine_OriginalUnitPrice, decimal SaleLine_UnitPriceAfterDiscount, decimal SaleLine_Subtotal) {
+                SaleLinesSummaryInnerJoinDTRow rowSaleLinesSummaryInnerJoinDTRow = ((SaleLinesSummaryInnerJoinDTRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        Sale_ID,
+                        Product_ID,
+                        Product_Name,
+                        null,
+                        Product_Discount_Name,
+                        SaleLine_Quantity,
+                        SaleLine_OriginalUnitPrice,
+                        SaleLine_UnitPriceAfterDiscount,
+                        SaleLine_Subtotal};
+                if ((parentDiscountRowByFK_Product_Discount1 != null)) {
+                    columnValuesArray[3] = parentDiscountRowByFK_Product_Discount1[0];
+                }
+                rowSaleLinesSummaryInnerJoinDTRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowSaleLinesSummaryInnerJoinDTRow);
+                return rowSaleLinesSummaryInnerJoinDTRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public SaleLinesSummaryInnerJoinDTRow FindBySale_IDProduct_ID(int Sale_ID, int Product_ID) {
+                return ((SaleLinesSummaryInnerJoinDTRow)(this.Rows.Find(new object[] {
+                            Sale_ID,
+                            Product_ID})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                SaleLinesSummaryInnerJoinDTDataTable cln = ((SaleLinesSummaryInnerJoinDTDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new SaleLinesSummaryInnerJoinDTDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal void InitVars() {
+                this.columnSale_ID = base.Columns["Sale_ID"];
+                this.columnProduct_ID = base.Columns["Product_ID"];
+                this.columnProduct_Name = base.Columns["Product_Name"];
+                this.columnDiscount_ID = base.Columns["Discount_ID"];
+                this.columnProduct_Discount_Name = base.Columns["Product_Discount_Name"];
+                this.columnSaleLine_Quantity = base.Columns["SaleLine_Quantity"];
+                this.columnSaleLine_OriginalUnitPrice = base.Columns["SaleLine_OriginalUnitPrice"];
+                this.columnSaleLine_UnitPriceAfterDiscount = base.Columns["SaleLine_UnitPriceAfterDiscount"];
+                this.columnSaleLine_Subtotal = base.Columns["SaleLine_Subtotal"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            private void InitClass() {
+                this.columnSale_ID = new global::System.Data.DataColumn("Sale_ID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSale_ID);
+                this.columnProduct_ID = new global::System.Data.DataColumn("Product_ID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnProduct_ID);
+                this.columnProduct_Name = new global::System.Data.DataColumn("Product_Name", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnProduct_Name);
+                this.columnDiscount_ID = new global::System.Data.DataColumn("Discount_ID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDiscount_ID);
+                this.columnProduct_Discount_Name = new global::System.Data.DataColumn("Product_Discount_Name", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnProduct_Discount_Name);
+                this.columnSaleLine_Quantity = new global::System.Data.DataColumn("SaleLine_Quantity", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSaleLine_Quantity);
+                this.columnSaleLine_OriginalUnitPrice = new global::System.Data.DataColumn("SaleLine_OriginalUnitPrice", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSaleLine_OriginalUnitPrice);
+                this.columnSaleLine_UnitPriceAfterDiscount = new global::System.Data.DataColumn("SaleLine_UnitPriceAfterDiscount", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSaleLine_UnitPriceAfterDiscount);
+                this.columnSaleLine_Subtotal = new global::System.Data.DataColumn("SaleLine_Subtotal", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSaleLine_Subtotal);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnSale_ID,
+                                this.columnProduct_ID}, true));
+                this.columnSale_ID.AllowDBNull = false;
+                this.columnProduct_ID.AllowDBNull = false;
+                this.columnProduct_Name.AllowDBNull = false;
+                this.columnProduct_Name.MaxLength = 100;
+                this.columnProduct_Discount_Name.ReadOnly = true;
+                this.columnProduct_Discount_Name.MaxLength = 50;
+                this.columnSaleLine_Quantity.AllowDBNull = false;
+                this.columnSaleLine_OriginalUnitPrice.AllowDBNull = false;
+                this.columnSaleLine_UnitPriceAfterDiscount.AllowDBNull = false;
+                this.columnSaleLine_Subtotal.AllowDBNull = false;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public SaleLinesSummaryInnerJoinDTRow NewSaleLinesSummaryInnerJoinDTRow() {
+                return ((SaleLinesSummaryInnerJoinDTRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new SaleLinesSummaryInnerJoinDTRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(SaleLinesSummaryInnerJoinDTRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.SaleLinesSummaryInnerJoinDTRowChanged != null)) {
+                    this.SaleLinesSummaryInnerJoinDTRowChanged(this, new SaleLinesSummaryInnerJoinDTRowChangeEvent(((SaleLinesSummaryInnerJoinDTRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.SaleLinesSummaryInnerJoinDTRowChanging != null)) {
+                    this.SaleLinesSummaryInnerJoinDTRowChanging(this, new SaleLinesSummaryInnerJoinDTRowChangeEvent(((SaleLinesSummaryInnerJoinDTRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.SaleLinesSummaryInnerJoinDTRowDeleted != null)) {
+                    this.SaleLinesSummaryInnerJoinDTRowDeleted(this, new SaleLinesSummaryInnerJoinDTRowChangeEvent(((SaleLinesSummaryInnerJoinDTRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.SaleLinesSummaryInnerJoinDTRowDeleting != null)) {
+                    this.SaleLinesSummaryInnerJoinDTRowDeleting(this, new SaleLinesSummaryInnerJoinDTRowChangeEvent(((SaleLinesSummaryInnerJoinDTRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void RemoveSaleLinesSummaryInnerJoinDTRow(SaleLinesSummaryInnerJoinDTRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                dsSamsLiqourShop ds = new dsSamsLiqourShop();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "SaleLinesSummaryInnerJoinDTDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class CartDataTable : global::System.Data.TypedTableBase<CartRow> {
             
             private global::System.Data.DataColumn columnProduct_ID;
@@ -7152,6 +8154,17 @@ namespace TheByteClubPOS {
                     return ((SaleRow[])(base.GetChildRows(this.Table.ChildRelations["FK_Sale_Customer"])));
                 }
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public SalesSummaryInnerJoinDTRow[] GetSalesSummaryInnerJoinDTRows() {
+                if ((this.Table.ChildRelations["FK_Sale_Customer1"] == null)) {
+                    return new SalesSummaryInnerJoinDTRow[0];
+                }
+                else {
+                    return ((SalesSummaryInnerJoinDTRow[])(base.GetChildRows(this.Table.ChildRelations["FK_Sale_Customer1"])));
+                }
+            }
         }
         
         /// <summary>
@@ -7286,6 +8299,28 @@ namespace TheByteClubPOS {
                 }
                 else {
                     return ((SaleLineRow[])(base.GetChildRows(this.Table.ChildRelations["FK_SaleLine_Discount"])));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public SalesSummaryInnerJoinDTRow[] GetSalesSummaryInnerJoinDTRows() {
+                if ((this.Table.ChildRelations["FK_Sale_Discount1"] == null)) {
+                    return new SalesSummaryInnerJoinDTRow[0];
+                }
+                else {
+                    return ((SalesSummaryInnerJoinDTRow[])(base.GetChildRows(this.Table.ChildRelations["FK_Sale_Discount1"])));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public SaleLinesSummaryInnerJoinDTRow[] GetSaleLinesSummaryInnerJoinDTRows() {
+                if ((this.Table.ChildRelations["FK_Product_Discount1"] == null)) {
+                    return new SaleLinesSummaryInnerJoinDTRow[0];
+                }
+                else {
+                    return ((SaleLinesSummaryInnerJoinDTRow[])(base.GetChildRows(this.Table.ChildRelations["FK_Product_Discount1"])));
                 }
             }
         }
@@ -7446,6 +8481,17 @@ namespace TheByteClubPOS {
                     return ((SaleRow[])(base.GetChildRows(this.Table.ChildRelations["FK_Sale_Employee"])));
                 }
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public SalesSummaryInnerJoinDTRow[] GetSalesSummaryInnerJoinDTRows() {
+                if ((this.Table.ChildRelations["FK_Sale_Employee1"] == null)) {
+                    return new SalesSummaryInnerJoinDTRow[0];
+                }
+                else {
+                    return ((SalesSummaryInnerJoinDTRow[])(base.GetChildRows(this.Table.ChildRelations["FK_Sale_Employee1"])));
+                }
+            }
         }
         
         /// <summary>
@@ -7595,6 +8641,17 @@ namespace TheByteClubPOS {
                 }
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["FK_Payment_Sale"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public SalesSummaryInnerJoinDTRow SalesSummaryInnerJoinDTRow {
+                get {
+                    return ((SalesSummaryInnerJoinDTRow)(this.GetParentRow(this.Table.ParentRelations["FK_Payment_Sale1"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_Payment_Sale1"]);
                 }
             }
             
@@ -8470,6 +9527,17 @@ namespace TheByteClubPOS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public SaleLinesSummaryInnerJoinDTRow SaleLinesSummaryInnerJoinDTRow {
+                get {
+                    return ((SaleLinesSummaryInnerJoinDTRow)(this.GetParentRow(this.Table.ParentRelations["FK_PurchaseOrderLine_Product1"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_PurchaseOrderLine_Product1"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsPurchaseOrderLine_QuantityReceivedNull() {
                 return this.IsNull(this.tablePurchaseOrderLine.PurchaseOrderLine_QuantityReceivedColumn);
             }
@@ -8901,6 +9969,28 @@ namespace TheByteClubPOS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public SalesSummaryInnerJoinDTRow SalesSummaryInnerJoinDTRow {
+                get {
+                    return ((SalesSummaryInnerJoinDTRow)(this.GetParentRow(this.Table.ParentRelations["FK_SaleLine_Sale1"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_SaleLine_Sale1"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public SaleLinesSummaryInnerJoinDTRow SaleLinesSummaryInnerJoinDTRow {
+                get {
+                    return ((SaleLinesSummaryInnerJoinDTRow)(this.GetParentRow(this.Table.ParentRelations["FK_SaleLine_Product1"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_SaleLine_Product1"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsDiscount_IDNull() {
                 return this.IsNull(this.tableSaleLine.Discount_IDColumn);
             }
@@ -8995,6 +10085,17 @@ namespace TheByteClubPOS {
                 }
                 else {
                     return ((SaleRow[])(base.GetChildRows(this.Table.ChildRelations["FK_Sale_SaleType"])));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public SalesSummaryInnerJoinDTRow[] GetSalesSummaryInnerJoinDTRows() {
+                if ((this.Table.ChildRelations["FK_Sale_SaleType1"] == null)) {
+                    return new SalesSummaryInnerJoinDTRow[0];
+                }
+                else {
+                    return ((SalesSummaryInnerJoinDTRow[])(base.GetChildRows(this.Table.ChildRelations["FK_Sale_SaleType1"])));
                 }
             }
         }
@@ -9263,6 +10364,541 @@ namespace TheByteClubPOS {
                 }
                 set {
                     this[this.tableSaleDT.Sale_StatusColumn] = value;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class SalesSummaryInnerJoinDTRow : global::System.Data.DataRow {
+            
+            private SalesSummaryInnerJoinDTDataTable tableSalesSummaryInnerJoinDT;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal SalesSummaryInnerJoinDTRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableSalesSummaryInnerJoinDT = ((SalesSummaryInnerJoinDTDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int Sale_ID {
+                get {
+                    return ((int)(this[this.tableSalesSummaryInnerJoinDT.Sale_IDColumn]));
+                }
+                set {
+                    this[this.tableSalesSummaryInnerJoinDT.Sale_IDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int Customer_ID {
+                get {
+                    try {
+                        return ((int)(this[this.tableSalesSummaryInnerJoinDT.Customer_IDColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Customer_ID\' in table \'SalesSummaryInnerJoinDT\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSalesSummaryInnerJoinDT.Customer_IDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string Customer_Details {
+                get {
+                    try {
+                        return ((string)(this[this.tableSalesSummaryInnerJoinDT.Customer_DetailsColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Customer_Details\' in table \'SalesSummaryInnerJoinDT\' is DBN" +
+                                "ull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSalesSummaryInnerJoinDT.Customer_DetailsColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int Employee_ID {
+                get {
+                    return ((int)(this[this.tableSalesSummaryInnerJoinDT.Employee_IDColumn]));
+                }
+                set {
+                    this[this.tableSalesSummaryInnerJoinDT.Employee_IDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string Employee_Name {
+                get {
+                    try {
+                        return ((string)(this[this.tableSalesSummaryInnerJoinDT.Employee_NameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Employee_Name\' in table \'SalesSummaryInnerJoinDT\' is DBNull" +
+                                ".", e);
+                    }
+                }
+                set {
+                    this[this.tableSalesSummaryInnerJoinDT.Employee_NameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int SaleType_ID {
+                get {
+                    return ((int)(this[this.tableSalesSummaryInnerJoinDT.SaleType_IDColumn]));
+                }
+                set {
+                    this[this.tableSalesSummaryInnerJoinDT.SaleType_IDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string SaleType_Name {
+                get {
+                    return ((string)(this[this.tableSalesSummaryInnerJoinDT.SaleType_NameColumn]));
+                }
+                set {
+                    this[this.tableSalesSummaryInnerJoinDT.SaleType_NameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int Discount_ID {
+                get {
+                    try {
+                        return ((int)(this[this.tableSalesSummaryInnerJoinDT.Discount_IDColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Discount_ID\' in table \'SalesSummaryInnerJoinDT\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSalesSummaryInnerJoinDT.Discount_IDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string Sale_Discount_Name {
+                get {
+                    try {
+                        return ((string)(this[this.tableSalesSummaryInnerJoinDT.Sale_Discount_NameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Sale_Discount_Name\' in table \'SalesSummaryInnerJoinDT\' is D" +
+                                "BNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSalesSummaryInnerJoinDT.Sale_Discount_NameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public System.DateTime Sale_DateTime {
+                get {
+                    return ((global::System.DateTime)(this[this.tableSalesSummaryInnerJoinDT.Sale_DateTimeColumn]));
+                }
+                set {
+                    this[this.tableSalesSummaryInnerJoinDT.Sale_DateTimeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal Sale_Subtotal {
+                get {
+                    return ((decimal)(this[this.tableSalesSummaryInnerJoinDT.Sale_SubtotalColumn]));
+                }
+                set {
+                    this[this.tableSalesSummaryInnerJoinDT.Sale_SubtotalColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal Sale_DiscountAmount {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableSalesSummaryInnerJoinDT.Sale_DiscountAmountColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Sale_DiscountAmount\' in table \'SalesSummaryInnerJoinDT\' is " +
+                                "DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSalesSummaryInnerJoinDT.Sale_DiscountAmountColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal Sale_TotalAmount {
+                get {
+                    return ((decimal)(this[this.tableSalesSummaryInnerJoinDT.Sale_TotalAmountColumn]));
+                }
+                set {
+                    this[this.tableSalesSummaryInnerJoinDT.Sale_TotalAmountColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int Sale_LoyaltyPointsEarned {
+                get {
+                    return ((int)(this[this.tableSalesSummaryInnerJoinDT.Sale_LoyaltyPointsEarnedColumn]));
+                }
+                set {
+                    this[this.tableSalesSummaryInnerJoinDT.Sale_LoyaltyPointsEarnedColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string Sale_Status {
+                get {
+                    return ((string)(this[this.tableSalesSummaryInnerJoinDT.Sale_StatusColumn]));
+                }
+                set {
+                    this[this.tableSalesSummaryInnerJoinDT.Sale_StatusColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public CustomerRow CustomerRow {
+                get {
+                    return ((CustomerRow)(this.GetParentRow(this.Table.ParentRelations["FK_Sale_Customer1"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_Sale_Customer1"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public DiscountRow DiscountRow {
+                get {
+                    return ((DiscountRow)(this.GetParentRow(this.Table.ParentRelations["FK_Sale_Discount1"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_Sale_Discount1"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public EmployeeRow EmployeeRow {
+                get {
+                    return ((EmployeeRow)(this.GetParentRow(this.Table.ParentRelations["FK_Sale_Employee1"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_Sale_Employee1"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public SaleTypeRow SaleTypeRow {
+                get {
+                    return ((SaleTypeRow)(this.GetParentRow(this.Table.ParentRelations["FK_Sale_SaleType1"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_Sale_SaleType1"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsCustomer_IDNull() {
+                return this.IsNull(this.tableSalesSummaryInnerJoinDT.Customer_IDColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetCustomer_IDNull() {
+                this[this.tableSalesSummaryInnerJoinDT.Customer_IDColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsCustomer_DetailsNull() {
+                return this.IsNull(this.tableSalesSummaryInnerJoinDT.Customer_DetailsColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetCustomer_DetailsNull() {
+                this[this.tableSalesSummaryInnerJoinDT.Customer_DetailsColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsEmployee_NameNull() {
+                return this.IsNull(this.tableSalesSummaryInnerJoinDT.Employee_NameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetEmployee_NameNull() {
+                this[this.tableSalesSummaryInnerJoinDT.Employee_NameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsDiscount_IDNull() {
+                return this.IsNull(this.tableSalesSummaryInnerJoinDT.Discount_IDColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetDiscount_IDNull() {
+                this[this.tableSalesSummaryInnerJoinDT.Discount_IDColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsSale_Discount_NameNull() {
+                return this.IsNull(this.tableSalesSummaryInnerJoinDT.Sale_Discount_NameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetSale_Discount_NameNull() {
+                this[this.tableSalesSummaryInnerJoinDT.Sale_Discount_NameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsSale_DiscountAmountNull() {
+                return this.IsNull(this.tableSalesSummaryInnerJoinDT.Sale_DiscountAmountColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetSale_DiscountAmountNull() {
+                this[this.tableSalesSummaryInnerJoinDT.Sale_DiscountAmountColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public PaymentRow[] GetPaymentRows() {
+                if ((this.Table.ChildRelations["FK_Payment_Sale1"] == null)) {
+                    return new PaymentRow[0];
+                }
+                else {
+                    return ((PaymentRow[])(base.GetChildRows(this.Table.ChildRelations["FK_Payment_Sale1"])));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public SaleLineRow[] GetSaleLineRows() {
+                if ((this.Table.ChildRelations["FK_SaleLine_Sale1"] == null)) {
+                    return new SaleLineRow[0];
+                }
+                else {
+                    return ((SaleLineRow[])(base.GetChildRows(this.Table.ChildRelations["FK_SaleLine_Sale1"])));
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class SaleLinesSummaryInnerJoinDTRow : global::System.Data.DataRow {
+            
+            private SaleLinesSummaryInnerJoinDTDataTable tableSaleLinesSummaryInnerJoinDT;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal SaleLinesSummaryInnerJoinDTRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableSaleLinesSummaryInnerJoinDT = ((SaleLinesSummaryInnerJoinDTDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int Sale_ID {
+                get {
+                    return ((int)(this[this.tableSaleLinesSummaryInnerJoinDT.Sale_IDColumn]));
+                }
+                set {
+                    this[this.tableSaleLinesSummaryInnerJoinDT.Sale_IDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int Product_ID {
+                get {
+                    return ((int)(this[this.tableSaleLinesSummaryInnerJoinDT.Product_IDColumn]));
+                }
+                set {
+                    this[this.tableSaleLinesSummaryInnerJoinDT.Product_IDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string Product_Name {
+                get {
+                    return ((string)(this[this.tableSaleLinesSummaryInnerJoinDT.Product_NameColumn]));
+                }
+                set {
+                    this[this.tableSaleLinesSummaryInnerJoinDT.Product_NameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int Discount_ID {
+                get {
+                    try {
+                        return ((int)(this[this.tableSaleLinesSummaryInnerJoinDT.Discount_IDColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Discount_ID\' in table \'SaleLinesSummaryInnerJoinDT\' is DBNu" +
+                                "ll.", e);
+                    }
+                }
+                set {
+                    this[this.tableSaleLinesSummaryInnerJoinDT.Discount_IDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string Product_Discount_Name {
+                get {
+                    try {
+                        return ((string)(this[this.tableSaleLinesSummaryInnerJoinDT.Product_Discount_NameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Product_Discount_Name\' in table \'SaleLinesSummaryInnerJoinD" +
+                                "T\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSaleLinesSummaryInnerJoinDT.Product_Discount_NameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int SaleLine_Quantity {
+                get {
+                    return ((int)(this[this.tableSaleLinesSummaryInnerJoinDT.SaleLine_QuantityColumn]));
+                }
+                set {
+                    this[this.tableSaleLinesSummaryInnerJoinDT.SaleLine_QuantityColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal SaleLine_OriginalUnitPrice {
+                get {
+                    return ((decimal)(this[this.tableSaleLinesSummaryInnerJoinDT.SaleLine_OriginalUnitPriceColumn]));
+                }
+                set {
+                    this[this.tableSaleLinesSummaryInnerJoinDT.SaleLine_OriginalUnitPriceColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal SaleLine_UnitPriceAfterDiscount {
+                get {
+                    return ((decimal)(this[this.tableSaleLinesSummaryInnerJoinDT.SaleLine_UnitPriceAfterDiscountColumn]));
+                }
+                set {
+                    this[this.tableSaleLinesSummaryInnerJoinDT.SaleLine_UnitPriceAfterDiscountColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal SaleLine_Subtotal {
+                get {
+                    return ((decimal)(this[this.tableSaleLinesSummaryInnerJoinDT.SaleLine_SubtotalColumn]));
+                }
+                set {
+                    this[this.tableSaleLinesSummaryInnerJoinDT.SaleLine_SubtotalColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public DiscountRow DiscountRow {
+                get {
+                    return ((DiscountRow)(this.GetParentRow(this.Table.ParentRelations["FK_Product_Discount1"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_Product_Discount1"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsDiscount_IDNull() {
+                return this.IsNull(this.tableSaleLinesSummaryInnerJoinDT.Discount_IDColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetDiscount_IDNull() {
+                this[this.tableSaleLinesSummaryInnerJoinDT.Discount_IDColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsProduct_Discount_NameNull() {
+                return this.IsNull(this.tableSaleLinesSummaryInnerJoinDT.Product_Discount_NameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetProduct_Discount_NameNull() {
+                this[this.tableSaleLinesSummaryInnerJoinDT.Product_Discount_NameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public PurchaseOrderLineRow[] GetPurchaseOrderLineRows() {
+                if ((this.Table.ChildRelations["FK_PurchaseOrderLine_Product1"] == null)) {
+                    return new PurchaseOrderLineRow[0];
+                }
+                else {
+                    return ((PurchaseOrderLineRow[])(base.GetChildRows(this.Table.ChildRelations["FK_PurchaseOrderLine_Product1"])));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public SaleLineRow[] GetSaleLineRows() {
+                if ((this.Table.ChildRelations["FK_SaleLine_Product1"] == null)) {
+                    return new SaleLineRow[0];
+                }
+                else {
+                    return ((SaleLineRow[])(base.GetChildRows(this.Table.ChildRelations["FK_SaleLine_Product1"])));
                 }
             }
         }
@@ -9912,6 +11548,74 @@ namespace TheByteClubPOS {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public SaleDTRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public class SalesSummaryInnerJoinDTRowChangeEvent : global::System.EventArgs {
+            
+            private SalesSummaryInnerJoinDTRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public SalesSummaryInnerJoinDTRowChangeEvent(SalesSummaryInnerJoinDTRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public SalesSummaryInnerJoinDTRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public class SaleLinesSummaryInnerJoinDTRowChangeEvent : global::System.EventArgs {
+            
+            private SaleLinesSummaryInnerJoinDTRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public SaleLinesSummaryInnerJoinDTRowChangeEvent(SaleLinesSummaryInnerJoinDTRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public SaleLinesSummaryInnerJoinDTRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -18588,6 +20292,398 @@ FROM            Sale INNER JOIN
     }
     
     /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class SalesSummaryInnerJoinDTTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
+        
+        private global::System.Data.SqlClient.SqlConnection _connection;
+        
+        private global::System.Data.SqlClient.SqlTransaction _transaction;
+        
+        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public SalesSummaryInnerJoinDTTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        internal global::System.Data.SqlClient.SqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        internal global::System.Data.SqlClient.SqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "SalesSummaryInnerJoinDT";
+            tableMapping.ColumnMappings.Add("Sale_ID", "Sale_ID");
+            tableMapping.ColumnMappings.Add("Customer_ID", "Customer_ID");
+            tableMapping.ColumnMappings.Add("Customer_Details", "Customer_Details");
+            tableMapping.ColumnMappings.Add("Employee_ID", "Employee_ID");
+            tableMapping.ColumnMappings.Add("Employee_Name", "Employee_Name");
+            tableMapping.ColumnMappings.Add("SaleType_ID", "SaleType_ID");
+            tableMapping.ColumnMappings.Add("SaleType_Name", "SaleType_Name");
+            tableMapping.ColumnMappings.Add("Discount_ID", "Discount_ID");
+            tableMapping.ColumnMappings.Add("Sale_Discount_Name", "Sale_Discount_Name");
+            tableMapping.ColumnMappings.Add("Sale_DateTime", "Sale_DateTime");
+            tableMapping.ColumnMappings.Add("Sale_Subtotal", "Sale_Subtotal");
+            tableMapping.ColumnMappings.Add("Sale_DiscountAmount", "Sale_DiscountAmount");
+            tableMapping.ColumnMappings.Add("Sale_TotalAmount", "Sale_TotalAmount");
+            tableMapping.ColumnMappings.Add("Sale_LoyaltyPointsEarned", "Sale_LoyaltyPointsEarned");
+            tableMapping.ColumnMappings.Add("Sale_Status", "Sale_Status");
+            this._adapter.TableMappings.Add(tableMapping);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = global::TheByteClubPOS.Properties.Settings.Default.GroupWst15ConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = @"SELECT 
+    s.Sale_ID,
+    s.Customer_ID,
+    COALESCE(c.Customer_FirstName + ' ' + c.Customer_LastName, 'Anonymous') AS Customer_Details,
+    s.Employee_ID,
+    e.Employee_FirstName + ' ' + e.Employee_LastName AS Employee_Name,
+    s.SaleType_ID,
+    st.SaleType_Name,
+    s.Discount_ID,
+    COALESCE(d.Discount_Name, 'No Overall Sale Discount') AS Sale_Discount_Name,
+    s.Sale_DateTime,
+    s.Sale_Subtotal,
+    s.Sale_DiscountAmount,
+    s.Sale_TotalAmount,
+    s.Sale_LoyaltyPointsEarned,
+    s.Sale_Status
+FROM Sale s
+INNER JOIN Employee e ON s.Employee_ID = e.Employee_ID
+INNER JOIN SaleType st ON s.SaleType_ID = st.SaleType_ID
+LEFT JOIN Customer c ON s.Customer_ID = c.Customer_ID
+LEFT JOIN Discount d ON s.Discount_ID = d.Discount_ID;";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int FillWithDetails(dsSamsLiqourShop.SalesSummaryInnerJoinDTDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual dsSamsLiqourShop.SalesSummaryInnerJoinDTDataTable GetDataWithDetails() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            dsSamsLiqourShop.SalesSummaryInnerJoinDTDataTable dataTable = new dsSamsLiqourShop.SalesSummaryInnerJoinDTDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+    }
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class SaleLinesSummaryInnerJoinDTTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
+        
+        private global::System.Data.SqlClient.SqlConnection _connection;
+        
+        private global::System.Data.SqlClient.SqlTransaction _transaction;
+        
+        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public SaleLinesSummaryInnerJoinDTTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        internal global::System.Data.SqlClient.SqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        internal global::System.Data.SqlClient.SqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "SaleLinesSummaryInnerJoinDT";
+            tableMapping.ColumnMappings.Add("Sale_ID", "Sale_ID");
+            tableMapping.ColumnMappings.Add("Product_ID", "Product_ID");
+            tableMapping.ColumnMappings.Add("Product_Name", "Product_Name");
+            tableMapping.ColumnMappings.Add("Discount_ID", "Discount_ID");
+            tableMapping.ColumnMappings.Add("Product_Discount_Name", "Product_Discount_Name");
+            tableMapping.ColumnMappings.Add("SaleLine_Quantity", "SaleLine_Quantity");
+            tableMapping.ColumnMappings.Add("SaleLine_OriginalUnitPrice", "SaleLine_OriginalUnitPrice");
+            tableMapping.ColumnMappings.Add("SaleLine_UnitPriceAfterDiscount", "SaleLine_UnitPriceAfterDiscount");
+            tableMapping.ColumnMappings.Add("SaleLine_Subtotal", "SaleLine_Subtotal");
+            this._adapter.TableMappings.Add(tableMapping);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = global::TheByteClubPOS.Properties.Settings.Default.GroupWst15ConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = @"SELECT 
+    sl.Sale_ID,
+    sl.Product_ID,
+    p.Product_Name,
+    sl.Discount_ID,
+    COALESCE(d.Discount_Name, 'No Product Discount') AS Product_Discount_Name,
+    sl.SaleLine_Quantity,
+    sl.SaleLine_OriginalUnitPrice,
+    sl.SaleLine_UnitPriceAfterDiscount,
+    sl.SaleLine_Subtotal
+FROM SaleLine sl
+INNER JOIN Product p ON sl.Product_ID = p.Product_ID
+LEFT JOIN Discount d ON sl.Discount_ID = d.Discount_ID
+WHERE sl.Sale_ID = @Sale_ID;";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Sale_ID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Sale_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int FillBySaleID(dsSamsLiqourShop.SaleLinesSummaryInnerJoinDTDataTable dataTable, int Sale_ID) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(Sale_ID));
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual dsSamsLiqourShop.SaleLinesSummaryInnerJoinDTDataTable GetDataBySaleID(int Sale_ID) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(Sale_ID));
+            dsSamsLiqourShop.SaleLinesSummaryInnerJoinDTDataTable dataTable = new dsSamsLiqourShop.SaleLinesSummaryInnerJoinDTDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+    }
+    
+    /// <summary>
     ///TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
     ///</summary>
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -18992,15 +21088,6 @@ FROM            Sale INNER JOIN
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._saleTypeTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.SaleType.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._saleTypeTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
             if ((this._supplierTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.Supplier.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
@@ -19010,12 +21097,21 @@ FROM            Sale INNER JOIN
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._paymentMethodTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.PaymentMethod.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._saleTypeTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.SaleType.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._paymentMethodTableAdapter.Update(updatedRows));
+                    result = (result + this._saleTypeTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._saleTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Sale.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._saleTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -19028,6 +21124,15 @@ FROM            Sale INNER JOIN
                     allChangedRows.AddRange(updatedRows);
                 }
             }
+            if ((this._paymentMethodTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.PaymentMethod.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._paymentMethodTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
             if ((this._purchaseOrderTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.PurchaseOrder.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
@@ -19037,12 +21142,12 @@ FROM            Sale INNER JOIN
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._saleTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Sale.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._saleLineTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.SaleLine.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._saleTableAdapter.Update(updatedRows));
+                    result = (result + this._saleLineTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -19061,15 +21166,6 @@ FROM            Sale INNER JOIN
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._purchaseOrderLineTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._saleLineTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.SaleLine.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._saleLineTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -19115,14 +21211,6 @@ FROM            Sale INNER JOIN
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._saleTypeTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.SaleType.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._saleTypeTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             if ((this._supplierTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.Supplier.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
@@ -19131,11 +21219,19 @@ FROM            Sale INNER JOIN
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._paymentMethodTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.PaymentMethod.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._saleTypeTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.SaleType.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._paymentMethodTableAdapter.Update(addedRows));
+                    result = (result + this._saleTypeTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._saleTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Sale.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._saleTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -19147,6 +21243,14 @@ FROM            Sale INNER JOIN
                     allAddedRows.AddRange(addedRows);
                 }
             }
+            if ((this._paymentMethodTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.PaymentMethod.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._paymentMethodTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
             if ((this._purchaseOrderTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.PurchaseOrder.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
@@ -19155,11 +21259,11 @@ FROM            Sale INNER JOIN
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._saleTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Sale.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._saleLineTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.SaleLine.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._saleTableAdapter.Update(addedRows));
+                    result = (result + this._saleLineTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -19179,14 +21283,6 @@ FROM            Sale INNER JOIN
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._saleLineTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.SaleLine.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._saleLineTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             return result;
         }
         
@@ -19197,14 +21293,6 @@ FROM            Sale INNER JOIN
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private int UpdateDeletedRows(dsSamsLiqourShop dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
-            if ((this._saleLineTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.SaleLine.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._saleLineTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
             if ((this._purchaseOrderLineTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.PurchaseOrderLine.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
@@ -19221,11 +21309,11 @@ FROM            Sale INNER JOIN
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._saleTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Sale.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._saleLineTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.SaleLine.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._saleTableAdapter.Update(deletedRows));
+                    result = (result + this._saleLineTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -19237,14 +21325,6 @@ FROM            Sale INNER JOIN
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._productTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Product.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._productTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
             if ((this._paymentMethodTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.PaymentMethod.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
@@ -19253,11 +21333,19 @@ FROM            Sale INNER JOIN
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._supplierTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Supplier.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._productTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Product.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._supplierTableAdapter.Update(deletedRows));
+                    result = (result + this._productTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._saleTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Sale.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._saleTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -19266,6 +21354,14 @@ FROM            Sale INNER JOIN
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._saleTypeTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._supplierTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Supplier.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._supplierTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }

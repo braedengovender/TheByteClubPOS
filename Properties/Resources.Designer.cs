@@ -123,6 +123,16 @@ namespace TheByteClubPOS.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ClearIcon {
+            get {
+                object obj = ResourceManager.GetObject("ClearIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ClockIcon {
             get {
                 object obj = ResourceManager.GetObject("ClockIcon", resourceCulture);
@@ -396,6 +406,16 @@ namespace TheByteClubPOS.Properties {
         internal static System.Drawing.Bitmap ReceiptIcon {
             get {
                 object obj = ResourceManager.GetObject("ReceiptIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap RefreshIcon {
+            get {
+                object obj = ResourceManager.GetObject("RefreshIcon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
