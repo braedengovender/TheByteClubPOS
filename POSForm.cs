@@ -773,34 +773,53 @@ namespace TheByteClubPOS
                 htmlBuilder.Append("<div style='font-family: Arial, sans-serif; max-width: 500px; margin: 0 auto; border: 1px solid #dcdde1; padding: 30px; border-radius: 8px; background-color: #ffffff; color: #2f3640;'>");
 
                 // --- STORE HEADER ---
-                htmlBuilder.Append("<div style='text-align: center; margin-bottom: 25px; border-bottom: 2px dashed #dcdde1; padding-bottom: 15px;'>");
-                htmlBuilder.Append("<h2 style='margin: 0; color: #2f3640; font-size: 24px;'>Sam's Liquor Shop</h2>");
+                htmlBuilder.Append("<div style='text-align: center; margin-bottom: 25px; border-bottom: 2px solid #00a8ff; padding-bottom: 15px;'>");
+                htmlBuilder.Append("<h2 style='margin: 0; color: #0097e6; font-size: 24px;'>Sam's Liquor Shop</h2>");
                 htmlBuilder.Append("<p style='margin: 4px 0; font-size: 13px; color: #718093;'>21 Coronation Road, Mithangar</p>");
                 htmlBuilder.Append("<p style='margin: 4px 0; font-size: 13px; color: #718093;'>Tongaat, 4399</p>");
-                htmlBuilder.Append("<p style='margin: 4px 0; font-size: 13px; color: #718093;'>Contact: +27 82 405 5932</p>");
                 htmlBuilder.Append("</div>");
 
                 // --- INVOICE & CUSTOMER INFO ---
                 htmlBuilder.Append("<div style='margin-bottom: 20px; font-size: 13px;'>");
-                htmlBuilder.Append($"<p style='margin: 4px 0;'><strong>Invoice:</strong> INV-{invoiceId}</p>");
+                htmlBuilder.Append($"<p style='margin: 4px 0;'><strong>Invoice:</strong> <span style='color: #0097e6;'>INV-{invoiceId}</span></p>");
                 htmlBuilder.Append($"<p style='margin: 4px 0;'><strong>Date:</strong> {DateTime.Now:dd MMM yyyy HH:mm}</p>");
                 htmlBuilder.Append($"<p style='margin: 4px 0;'><strong>Customer:</strong> {customerName}</p>");
                 htmlBuilder.Append($"<p style='margin: 4px 0;'><strong>Sale Type:</strong> {saleType}</p>");
-                htmlBuilder.Append($"<p style='margin: 4px 0;'><strong>You were helped by:</strong> {employeeName}</p>");
+                htmlBuilder.Append($"<p style='margin: 4px 0;'><strong>Served by:</strong> {employeeName}</p>");
                 htmlBuilder.Append($"<p style='margin: 4px 0;'><strong>Loyalty Balance:</strong> {loyaltyInfo}</p>");
                 htmlBuilder.Append("</div>");
 
                 // --- LINE ITEMS ---
                 htmlBuilder.Append("<table style='width: 100%; border-collapse: collapse; font-size: 13px; margin-bottom: 15px;'>");
-                htmlBuilder.Append("<tr style='background-color: #f5f6fa; border-bottom: 2px solid #718093;'><th style='text-align: left; padding: 8px;'>Description</th><th style='text-align: center; padding: 8px;'>Qty</th><th style='text-align: right; padding: 8px;'>Total</th></tr>");
+                htmlBuilder.Append("<tr style='background-color: #0097e6; color: #ffffff; border-radius: 4px;'><th style='text-align: left; padding: 8px;'>Description</th><th style='text-align: center; padding: 8px;'>Qty</th><th style='text-align: right; padding: 8px;'>Total</th></tr>");
 
                 foreach (System.Data.DataRow row in this.dsSamsLiqourShop.Cart.Rows)
                 {
                     string productName = row["Product_Name"] != DBNull.Value ? row["Product_Name"].ToString() : "Item";
-                    string quantity = row["SaleLine_Quantity"] != DBNull.Value ? row["SaleLine_Quantity"].ToString() : "1";
-                    decimal priceValue = row["SaleLine_UnitPriceAfterDiscount"] != DBNull.Value ? Convert.ToDecimal(row["SaleLine_UnitPriceAfterDiscount"]) : 0.00m;
+                    int qty = row["SaleLine_Quantity"] != DBNull.Value ? Convert.ToInt32(row["SaleLine_Quantity"]) : 1;
 
-                    htmlBuilder.Append($"<tr style='border-bottom: 1px solid #f5f6fa;'><td style='padding: 8px;'>{productName}</td><td style='text-align: center; padding: 8px;'>{quantity}</td><td style='text-align: right; padding: 8px;'>R {priceValue:F2}</td></tr>");
+                    // Prices
+                    decimal totalPaidForLine = row["SaleLine_UnitPriceAfterDiscount"] != DBNull.Value ? Convert.ToDecimal(row["SaleLine_UnitPriceAfterDiscount"]) : 0.00m;
+                    decimal originalUnitPrice = row["SaleLine_OriginalUnitPrice"] != DBNull.Value ? Convert.ToDecimal(row["SaleLine_OriginalUnitPrice"]) : 0.00m;
+
+                    // Calc unit price and discount
+                    decimal unitPriceAfter = qty > 0 ? (totalPaidForLine / qty) : totalPaidForLine;
+                    decimal discountPerUnit = originalUnitPrice - unitPriceAfter;
+
+                    htmlBuilder.Append($"<tr style='border-bottom: 1px solid #f5f6fa;'>");
+                    htmlBuilder.Append($"<td style='padding: 8px;'>{productName}<br/>");
+                    htmlBuilder.Append($"<span style='font-size: 11px; color: #7f8c8d;'>@ R {unitPriceAfter:F2} each</span>");
+
+                    // Only show discount if there is a saving
+                    if (discountPerUnit > 0.01m)
+                    {
+                        htmlBuilder.Append($" <span style='font-size: 11px; color: #44bd32;'>(-R {discountPerUnit:F2} off)</span>");
+                    }
+                    htmlBuilder.Append($"</td>");
+
+                    htmlBuilder.Append($"<td style='text-align: center; padding: 8px;'>{qty}</td>");
+                    htmlBuilder.Append($"<td style='text-align: right; padding: 8px;'>R {totalPaidForLine:F2}</td>");
+                    htmlBuilder.Append($"</tr>");
                 }
                 htmlBuilder.Append("</table>");
 
@@ -818,35 +837,33 @@ namespace TheByteClubPOS
                 htmlBuilder.Append("</div>");
 
                 // --- PAYMENT BLOCK ---
-                htmlBuilder.Append("<div style='background-color: #f8f9fa; border: 1px solid #dcdde1; padding: 15px; border-radius: 4px; font-size: 14px; margin-top: 15px;'>");
-                htmlBuilder.Append($"<div style='margin: 4px 0; display: flex; justify-content: space-between;'><strong>TOTAL AMOUNT PAID:</strong> <strong style='font-size: 16px;'>R {totalAmount:F2}</strong></div>");
+                htmlBuilder.Append("<div style='background-color: #f5f6fa; border-left: 4px solid #00a8ff; padding: 15px; border-radius: 4px; font-size: 14px; margin-top: 15px;'>");
+                htmlBuilder.Append($"<div style='margin: 4px 0; display: flex; justify-content: space-between;'><strong>TOTAL PAID:</strong> <strong style='font-size: 16px; color: #0097e6;'>R {totalAmount:F2}</strong></div>");
                 htmlBuilder.Append($"<div style='margin: 8px 0 4px 0; display: flex; justify-content: space-between; font-size: 13px;'><span>Payment Method:</span> <strong>{paymentMethod}</strong></div>");
 
-                // Only show tendered/change details if they paid with actual cash
                 if (paymentMethod.Equals("Cash", StringComparison.OrdinalIgnoreCase))
                 {
-                    htmlBuilder.Append($"<div style='margin: 4px 0; display: flex; justify-content: space-between; font-size: 13px;'><span>Amount Tendered:</span> <span>R {amountTendered:F2}</span></div>");
-                    htmlBuilder.Append($"<div style='margin: 4px 0; display: flex; justify-content: space-between; font-size: 13px;'><span>Change Returned:</span> <span>R {changeDue:F2}</span></div>");
+                    htmlBuilder.Append($"<div style='margin: 4px 0; display: flex; justify-content: space-between; font-size: 13px;'><span>Tendered:</span> <span>R {amountTendered:F2}</span></div>");
+                    htmlBuilder.Append($"<div style='margin: 4px 0; display: flex; justify-content: space-between; font-size: 13px;'><span>Change:</span> <span>R {changeDue:F2}</span></div>");
                 }
-
                 htmlBuilder.Append("</div>");
 
                 htmlBuilder.Append("<p style='color: #7f8c8d; font-size: 11px; margin-top: 25px; font-style: italic; text-align: center;'>Thank you for shopping at Sam's Liquor Shop.<br/>Powered by The Byte Club POS.</p>");
                 htmlBuilder.Append("</div>");
 
-                // 4. ---- CONSTRUCT BULLETPROOF RESEND JSON TARGET OBJECT PACKET ----
+                // 2. ---- CONSTRUCT RESEND JSON PAYLOAD ----
                 var emailPayload = new
                 {
-                    from = "The Byte Club Helpdesk <onboarding@resend.dev>", // CHANGED: Sets display name!
+                    from = "The Byte Club Helpdesk <onboarding@resend.dev>",
                     to = "theofficialbyteclub@gmail.com",
                     subject = $"🧾 E-Receipt: INV-{invoiceId} from Sam's Liquor Shop",
                     html = htmlBuilder.ToString()
                 };
 
-                string jsonString = JsonConvert.SerializeObject(emailPayload);
-                var httpContent = new StringContent(jsonString, Encoding.UTF8, "application/json");
+                string jsonString = Newtonsoft.Json.JsonConvert.SerializeObject(emailPayload);
+                var httpContent = new StringContent(jsonString, System.Text.Encoding.UTF8, "application/json");
 
-                // 5. ---- POST ROUTE VIA HTTP CLIENT ENGAGEMENT ----
+                // 3. ---- POST ROUTE ----
                 using (HttpClient client = new HttpClient())
                 {
                     client.DefaultRequestHeaders.Clear();
@@ -854,22 +871,12 @@ namespace TheByteClubPOS
 
                     HttpResponseMessage response = await client.PostAsync("https://api.resend.com/emails", httpContent);
 
-                    if (response.IsSuccessStatusCode)
-                    {
-                        return true;
-                    }
-                    else
-                    {
-                        string errorServerDetails = await response.Content.ReadAsStringAsync();
-                        MessageBox.Show($"Resend Server Rejected Email Payload!\n\nStatus Code: {response.StatusCode}\nReason: {errorServerDetails}",
-                                        "API Verification Failure", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return false;
-                    }
+                    return response.IsSuccessStatusCode;
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Network or Configuration Crash encountered: {ex.Message}", "Email Engine Failure", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Email System Error: {ex.Message}", "Email Engine Failure", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
         }
@@ -969,7 +976,7 @@ namespace TheByteClubPOS
                 {
                     loyaltyPointsEarned = (int)Math.Floor(getTotal() / 10); // Example: 1 point for every R10 spent
 
-                    customerTableAdapter.UpdateQueryCustLoyaltyPoints(Convert.ToInt32(currentCustomerID), loyaltyPointsEarned);
+                    customerTableAdapter.UpdateQueryCustLoyaltyPoints(loyaltyPointsEarned, Convert.ToInt32(currentCustomerID));
                     newCustLoyaltyPointsBalance = (int)customerTableAdapter.getCustomerLoyaltyPointsBalance(Convert.ToInt32(currentCustomerID));
                 }
                 else
@@ -1054,7 +1061,13 @@ namespace TheByteClubPOS
                     loyaltyDisplay = $"{newCustLoyaltyPointsBalance} pts (Earned +{loyaltyPointsEarned} today)";
                 }
 
-                string employeeDisplayName = $"Cashier {currentEmployeeID}";
+                string employeeDisplayName = "Unknown Cashier"; // Default fallback
+
+                // Access the parent form and grab the existing public variable
+                if (this.MdiParent is MainForm mainForm)
+                {
+                    employeeDisplayName = mainForm.employeeFullName;
+                }
 
                 bool emailSent = await SendReceiptEmailAsync(
                     "theofficialbyteclub@gmail.com",
@@ -1155,49 +1168,50 @@ namespace TheByteClubPOS
             graphic.DrawString($"INVOICE: {invoiceNum}", fontBold, Brushes.Black, startX, startY + offset);
             offset += leading;
             graphic.DrawString($"DATE: {DateTime.Now.ToString("G")}", fontNormal, Brushes.Black, startX, startY + offset);
+            offset += leading;
+            graphic.DrawString($"SALE TYPE: {comboBox2.Text.Trim()}", fontNormal, Brushes.Black, startX, startY + offset);
             offset += leading * 2;
 
             // 3. CART COLUMN GRID HEADER
-            graphic.DrawString("--------------------------------------------------", fontNormal, Brushes.Black, startX, startY + offset);
+            graphic.DrawString("----------------------------------------------------------------------", fontNormal, Brushes.Black, startX, startY + offset);
             offset += leading;
-            // Align columns cleanly within receipt margins
+
+            // WIDER COLUMNS: Item column extended to 280px to prevent wrapping
             graphic.DrawString("Item", fontBold, Brushes.Black, startX, startY + offset);
-            graphic.DrawString("Qty", fontBold, Brushes.Black, startX + 160, startY + offset);
-            graphic.DrawString("Price", fontBold, Brushes.Black, startX + 210, startY + offset);
-            graphic.DrawString("Disc", fontBold, Brushes.Black, startX + 270, startY + offset);
-            graphic.DrawString("Total", fontBold, Brushes.Black, startX + 350, startY + offset);
+            graphic.DrawString("Qty", fontBold, Brushes.Black, startX + 280, startY + offset);
+            graphic.DrawString("Price", fontBold, Brushes.Black, startX + 330, startY + offset);
+            graphic.DrawString("Disc", fontBold, Brushes.Black, startX + 390, startY + offset);
+            graphic.DrawString("Total", fontBold, Brushes.Black, startX + 460, startY + offset);
             offset += leading;
-            graphic.DrawString("--------------------------------------------------", fontNormal, Brushes.Black, startX, startY + offset);
+            graphic.DrawString("----------------------------------------------------------------------", fontNormal, Brushes.Black, startX, startY + offset);
             offset += leading;
 
             // 4. ITERATE ITEMS IN THE CART
             int totalItemCount = 0;
-            decimal totalDiscountGiven = 0m; // Global tracker for aggregate receipt summary savings
+            decimal totalDiscountGiven = 0m;
 
             foreach (DataRow row in this.dsSamsLiqourShop.Cart.Rows)
             {
                 string name = row["Product_Name"].ToString();
                 int qty = Convert.ToInt32(row["SaleLine_Quantity"]);
                 decimal originalPrice = Convert.ToDecimal(row["SaleLine_OriginalUnitPrice"]);
-                decimal discountPrice = row["SaleLine_UnitPriceAfterDiscount"] == DBNull.Value ? originalPrice : Convert.ToDecimal(row["SaleLine_UnitPriceAfterDiscount"]); // Total discount applied to this item row
+                decimal discountPrice = row["SaleLine_UnitPriceAfterDiscount"] == DBNull.Value ? originalPrice : Convert.ToDecimal(row["SaleLine_UnitPriceAfterDiscount"]);
                 decimal lineTotal = (qty * discountPrice);
 
                 decimal unitDiscountAmount = originalPrice - discountPrice;
                 decimal totalLineSavings = unitDiscountAmount * qty;
 
-                decimal displayDiscount = (totalLineSavings > 0m) ? discountPrice : 0.00m;
-
                 totalItemCount += qty;
                 totalDiscountGiven += totalLineSavings;
 
-                // Truncate long product names so they don't break columns
-                if (name.Length > 18) name = name.Substring(0, 15) + "...";
+                // Truncate long product names (increased to 35 chars for wider column)
+                if (name.Length > 35) name = name.Substring(0, 32) + "...";
 
                 graphic.DrawString(name, fontNormal, Brushes.Black, startX, startY + offset);
-                graphic.DrawString(qty.ToString(), fontNormal, Brushes.Black, startX + 160, startY + offset);
-                graphic.DrawString(originalPrice.ToString("F2"), fontNormal, Brushes.Black, startX + 210, startY + offset);
-                graphic.DrawString(displayDiscount.ToString("F2"), fontNormal, Brushes.Black, startX + 270, startY + offset);
-                graphic.DrawString(lineTotal.ToString("F2"), fontNormal, Brushes.Black, startX + 350, startY + offset);
+                graphic.DrawString(qty.ToString(), fontNormal, Brushes.Black, startX + 280, startY + offset);
+                graphic.DrawString(originalPrice.ToString("F2"), fontNormal, Brushes.Black, startX + 330, startY + offset);
+                graphic.DrawString(unitDiscountAmount.ToString("F2"), fontNormal, Brushes.Black, startX + 390, startY + offset);
+                graphic.DrawString(lineTotal.ToString("F2"), fontNormal, Brushes.Black, startX + 460, startY + offset);
                 offset += leading;
 
                 if (totalLineSavings > 0m)
@@ -1207,77 +1221,70 @@ namespace TheByteClubPOS
                 }
             }
 
-            graphic.DrawString("--------------------------------------------------", fontNormal, Brushes.Black, startX, startY + offset);
+            graphic.DrawString("----------------------------------------------------------------------", fontNormal, Brushes.Black, startX, startY + offset);
             offset += leading;
 
-            // ====== SECTION 5: BALANCES (Fixed Double R Symbol Glitch) ======
+            // ====== SECTION 5: BALANCES ======
             decimal subtotalAmount = getSubtotal();
             decimal vatAmount = getVat();
             decimal totalFinalAmount = getTotal();
 
             string paymentMethod = comboBox1.Text.Trim();
-            string typedInput = txtAmountTendered.Text.Trim();
+            string rawInput = txtAmountTendered.Text.Trim();
 
-            // Read values from your payment inputs
-            decimal tendered = string.IsNullOrEmpty(typedInput) ? 0 : Convert.ToDecimal(typedInput);
-            decimal change = tendered - totalFinalAmount;
-            if (change < 0) change = 0; // Guard sanity match check
+            // Safe numeric parsing for payment
+            decimal.TryParse(rawInput, out decimal numericTendered);
+            decimal changeDue = (paymentMethod.Equals("Cash", StringComparison.OrdinalIgnoreCase)) ? (numericTendered - totalFinalAmount) : 0;
+            if (changeDue < 0) changeDue = 0;
 
-            // Draw financial aggregations
+            // Draw financial aggregations with indentations
             graphic.DrawString($"Total Items Count: {totalItemCount}", fontNormal, Brushes.Black, startX, startY + offset);
             offset += leading;
-            graphic.DrawString($"Subtotal Amount:   R {subtotalAmount.ToString("F2")}", fontNormal, Brushes.Black, startX, startY + offset);
+            graphic.DrawString($"Subtotal Amount:    R {subtotalAmount.ToString("F2")}", fontNormal, Brushes.Black, startX, startY + offset);
             offset += leading;
 
-            // Display total combined savings if applicable
             if (totalDiscountGiven > 0m)
             {
-                graphic.DrawString($"Total Discount:   -R {totalDiscountGiven.ToString("F2")}", fontNormal, Brushes.Black, startX, startY + offset);
+                graphic.DrawString($"Total Discount:    -R {totalDiscountGiven.ToString("F2")}", fontNormal, Brushes.Black, startX, startY + offset);
                 offset += leading;
             }
 
-            graphic.DrawString($"Includes 15% VAT:  R {vatAmount.ToString("F2")}", fontNormal, Brushes.Black, startX, startY + offset);
+            // Indented VAT
+            graphic.DrawString($"  VAT (15%):        R {vatAmount.ToString("F2")}", fontNormal, Brushes.Black, startX, startY + offset);
             offset += leading;
-            graphic.DrawString($"Total Final Price: R {totalFinalAmount.ToString("F2")}", fontBold, Brushes.Black, startX, startY + offset);
+            graphic.DrawString($"Total Final Price:  R {totalFinalAmount.ToString("F2")}", fontBold, Brushes.Black, startX, startY + offset);
             offset += leading;
-            graphic.DrawString($"Payment Method:    {comboBox1.Text.Trim()}", fontNormal, Brushes.Black, startX, startY + offset);
+            graphic.DrawString($"Payment Method:     {paymentMethod}", fontNormal, Brushes.Black, startX, startY + offset);
             offset += leading;
 
             if (paymentMethod.Equals("Loyalty Points", StringComparison.OrdinalIgnoreCase))
             {
-                graphic.DrawString($"Points Redeemed:   {typedInput} pts", fontNormal, Brushes.Black, startX, startY + offset);
+                graphic.DrawString($"Points Redeemed:    {rawInput} pts", fontNormal, Brushes.Black, startX, startY + offset);
                 offset += leading;
             }
             else if (paymentMethod.Equals("Voucher", StringComparison.OrdinalIgnoreCase))
             {
-                graphic.DrawString($"Voucher Ref Num:   {typedInput}", fontNormal, Brushes.Black, startX, startY + offset);
+                graphic.DrawString($"Voucher Ref Num:    {rawInput}", fontNormal, Brushes.Black, startX, startY + offset);
                 offset += leading;
             }
             else if (paymentMethod.Equals("Cash", StringComparison.OrdinalIgnoreCase))
             {
-                graphic.DrawString($"Cash Tendered:     R {tendered.ToString("F2")}", fontNormal, Brushes.Black, startX, startY + offset);
+                graphic.DrawString($"Cash Tendered:      R {numericTendered.ToString("F2")}", fontNormal, Brushes.Black, startX, startY + offset);
                 offset += leading;
-                graphic.DrawString($"Change Amount:     R {change.ToString("F2")}", fontBold, Brushes.Black, startX, startY + offset);
+                graphic.DrawString($"Change Amount:      R {changeDue.ToString("F2")}", fontBold, Brushes.Black, startX, startY + offset);
+                offset += leading;
             }
-            else
-            {
-                
-            }
-   
+
             offset += leading * 2;
 
             // 6. TAILORED DYNAMIC FOOTER
-            // If a loyalty profile is active
             if (currentCustomerID != null && this.dsSamsLiqourShop.Customer.Rows.Count > 0)
             {
-                string customerName = lblName.Text; // Grab the preloaded text string
-                string pointsBalance = newCustLoyaltyPointsBalance.ToString();
-
-                graphic.DrawString($"Hi {customerName},", fontBold, Brushes.Black, startX, startY + offset);
+                graphic.DrawString($"Hi {lblName.Text},", fontBold, Brushes.Black, startX, startY + offset);
                 offset += leading;
                 graphic.DrawString("Thank you for shopping at Sam's Liquor Shop!", fontNormal, Brushes.Black, startX, startY + offset);
                 offset += leading;
-                graphic.DrawString($"Your new loyalty points balance is: {pointsBalance}", fontBold, Brushes.Black, startX, startY + offset);
+                graphic.DrawString($"Your new loyalty points balance is: {newCustLoyaltyPointsBalance}", fontBold, Brushes.Black, startX, startY + offset);
                 offset += leading * 1.5f;
             }
 
@@ -1285,17 +1292,10 @@ namespace TheByteClubPOS
             offset += leading * 1.5f;
 
             string employeeName = "Cashier";
-
-            // Access parent via MdiParent or Owner property depending on how the form was shown
             Form parentForm = this.MdiParent ?? this.Owner;
-
-            if (parentForm != null)
+            if (parentForm is MainForm mainForm)
             {
-                // Replace "frmMainMenu" with the exact class name of your parent Form
-                if (parentForm is MainForm mainForm)
-                {
-                    employeeName = mainForm.employeeFullName;
-                }
+                employeeName = mainForm.employeeFullName;
             }
             graphic.DrawString($"You were helped by: {employeeName}", fontNormal, Brushes.Black, startX, startY + offset);
         }
