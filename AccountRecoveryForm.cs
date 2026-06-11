@@ -183,7 +183,7 @@ namespace TheByteClubPOS
             else
             {
                 // 2. Light Mode Rules (Resets completely back to standard Windows defaults)
-                this.BackgroundImage = Properties.Resources.Background;
+                this.BackgroundImage = Properties.Resources.RecoverAccountBackground;
 
                 // Labels reset back to system default text color
                 lblCredentials.ForeColor = SystemColors.ControlText;
