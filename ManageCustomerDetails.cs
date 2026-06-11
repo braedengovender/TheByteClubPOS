@@ -678,18 +678,12 @@ namespace TheByteClubPOS
 
                 string email = txtEmailAddress.Text.Trim();
 
-
-
-
-
                 // Nullable fields: If text is empty, pass null
                 string unitNumber = string.IsNullOrWhiteSpace(txtUnitNumber.Text) ? null : txtUnitNumber.Text.Trim();
                 string unitName = string.IsNullOrWhiteSpace(txtUnitName.Text) ? null : txtUnitName.Text.Trim();
                 string streetNumber = txtStreetNumber.Text.Trim();
                 string streetName = txtStreetName.Text.Trim();
                 string suburb = txtSuburb.Text.Trim();
-
-
 
                 string city = txtCity.Text.Trim();
 

@@ -21,6 +21,7 @@ namespace TheByteClubPOS
         int clearButtonClickCount = 0;
         int currentEmployeeID;
         int? currentCustomerID = null;
+        private bool allowLoyaltyPoints = true; // Global toggle logic for points system
         public int selectedPaymentMethodID = 0;
         int saleID;
         int newCustLoyaltyPointsBalance;
@@ -225,6 +226,8 @@ namespace TheByteClubPOS
             clearButtonClickCount = 0; // Fixes search box placeholder toggle behavior
             saleID = 0;
             newCustLoyaltyPointsBalance = 0;
+
+            allowLoyaltyPoints = true;
 
             // 3. Reset Loyalty UI items back to a Walk-In guest state
             maskedTextBox1.Text = "";
@@ -640,6 +643,7 @@ namespace TheByteClubPOS
 
                     if (customerStatus == "Inactive")
                     {
+                        allowLoyaltyPoints = false; // LOCK OUT point accumulation
                         MessageBox.Show(
                             "This customer account is inactive. Loyalty points will not be added to purchases.",
                             "Inactive Customer",
@@ -648,6 +652,7 @@ namespace TheByteClubPOS
                     }
                     else
                     {
+                        allowLoyaltyPoints = true; // UNLOCK point accumulation safely
                         // SUCCESS POPUP: Gives clear confirmation to the cashier
                         MessageBox.Show($"Customer profile found successfully!\n\nName: {lblName.Text}", "Profile Loaded", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
@@ -839,12 +844,17 @@ namespace TheByteClubPOS
             {
                 int loyaltyPointsEarned = 0;
 
-                if (currentCustomerID != null)
+                if (currentCustomerID != null && allowLoyaltyPoints)
                 {
                     loyaltyPointsEarned = (int)Math.Floor(getTotal() / 10); // Example: 1 point for every R10 spent
 
                     customerTableAdapter.UpdateQueryCustLoyaltyPoints(Convert.ToInt32(currentCustomerID), loyaltyPointsEarned);
                     newCustLoyaltyPointsBalance = (int)customerTableAdapter.getCustomerLoyaltyPointsBalance(Convert.ToInt32(currentCustomerID));
+                }
+                else
+                {
+                    // If the customer is a Walk-in OR their account is Inactive, they explicitly get 0 points
+                    loyaltyPointsEarned = 0;
                 }
 
                 int chosenSaleTypeID = Convert.ToInt32(comboBox2.SelectedValue);
@@ -880,7 +890,7 @@ namespace TheByteClubPOS
 
                 string msgPrompt = "";
 
-                if (currentCustomerID != null)
+                if (currentCustomerID != null && allowLoyaltyPoints)
                 {
                     // Profile Customer: Include Loyalty Points details
                     msgPrompt = $"{changeDetails}" + $"Sale completed successfully!\n" + $"Invoice ID: {saleID}\n" + $"Loyalty Points Earned: {loyaltyPointsEarned}\n\n" + $"Would you like to print the receipt?";

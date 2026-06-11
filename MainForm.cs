@@ -29,24 +29,20 @@ namespace TheByteClubPOS
                     // Hide management/admin buttons
                     btnManageSales.Visible = false;
                     btnSuppliers.Visible = false;
-                    btnCustomers.Visible = false;
 
                     // Hide main menu items (Strip Menu components)
                     manageSalesToolStripMenuItem.Visible = false;
-                    manageCustomerToolStripMenuItem.Visible = false;
                     inventoryToolStripMenuItem.Visible = false;
                     manageEmployeesToolStripMenuItem.Visible = false;
                     manageDiscountsToolStripMenuItem.Visible = false;
 
                     break;
-
                 case "manager":
                     btnProcessSale.Visible = false; // Managers don't process sales, so hide the button
                     processSaleToolStripMenuItem1.Visible = false; // Hide the menu item for processing sales
                     break;
                 case "admin":
                     break;
-
                 default:
                     MessageBox.Show("Unknown role detected.", "Security Warning");
                     break;

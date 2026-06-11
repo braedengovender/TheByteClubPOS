@@ -23,6 +23,10 @@ namespace TheByteClubPOS
             {
                 // TODO: This line of code loads data into the 'dsSamsLiqourShop.SalesSummaryInnerJoinDT' table. You can move, or remove it, as needed.
                 this.salesSummaryInnerJoinDTTableAdapter.FillWithDetails(this.dsSamsLiqourShop.SalesSummaryInnerJoinDT);
+
+                // Sorts the grid directly using the UI column and the system sort direction enum
+                salesSummaryInnerJoinDTDataGridView.Sort(salesSummaryInnerJoinDTDataGridView.Columns["dataGridViewTextBoxColumn10"], ListSortDirection.Descending);
+
                 salesSummaryInnerJoinDTDataGridView.ClearSelection();
 
                 // Clear out label text if no record is active on initial load
