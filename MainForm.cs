@@ -204,12 +204,14 @@ namespace TheByteClubPOS
                 OpenChildForm(salesReports);
             }
             */
-            DashboardForm dashboard = new DashboardForm(
-                employeeID,
-                employeeFullName,
-                employeeRole
-            );
-            OpenChildForm(dashboard);
+            if (employeeRole.Equals("Cashier", StringComparison.OrdinalIgnoreCase))
+            {
+                OpenChildForm(new CashierDashboardForm(employeeID, employeeFullName));
+            }
+            else
+            {
+                OpenChildForm(new DashboardForm(employeeID, employeeFullName, employeeRole));
+            }
         }
 
         private void btnProcessSale_Click(object sender, EventArgs e)

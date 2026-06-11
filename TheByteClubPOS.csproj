@@ -57,6 +57,13 @@
     <Compile Include="AccountRecoveryForm.Designer.cs">
       <DependentUpon>AccountRecoveryForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="CashierDashboardForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CashierDashboardForm.Designer.cs">
+      <DependentUpon>CashierDashboardForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CashierDashboardService.cs" />
     <Compile Include="DashboardForm.cs">
       <SubType>Form</SubType>
     </Compile>

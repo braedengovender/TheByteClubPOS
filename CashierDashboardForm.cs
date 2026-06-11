@@ -8,14 +8,21 @@ using System.Windows.Forms.DataVisualization.Charting;
 
 namespace TheByteClubPOS
 {
-    public partial class DashboardForm : Form
+    /// <summary>
+    /// Cashier Dashboard — shown when a Cashier role logs in.
+    /// Displays: Low Stock count, Total Customers, Best Customer this month,
+    ///           and the cashier's own transaction history.
+    ///
+    /// Call from MainForm.btnDashboard_Click when employeeRole == "cashier":
+    ///   OpenChildForm(new CashierDashboardForm(employeeID, employeeFullName));
+    /// </summary>
+    public partial class CashierDashboardForm : Form
     {
         // ── Constructor params ────────────────────────────────────────
         private readonly int    _employeeID;
         private readonly string _employeeName;
-        private readonly string _employeeRole;
 
-        // ── Colours ───────────────────────────────────────────────────
+        // ── Colours (matches manager dashboard palette) ───────────────
         private static readonly Color C_BG     = Color.FromArgb(245, 247, 250);
         private static readonly Color C_CARD   = Color.White;
         private static readonly Color C_BORDER = Color.FromArgb(220, 225, 230);
@@ -34,48 +41,43 @@ namespace TheByteClubPOS
             new Font("Segoe UI", sz, s, GraphicsUnit.Point);
 
         // ── Render dimensions ─────────────────────────────────────────
-        // The canvas is ALWAYS drawn at these fixed pixel dimensions.
-        // The scroll wrapper shows whatever the MDI window can fit and
-        // provides scrollbars for the rest.
+        // Fixed canvas size — scroll panel handles smaller windows.
         private const int RENDER_W = 1134;
-        private const int RENDER_H = 720;
+        private const int RENDER_H = 700;
         private const int PAD      = 14;
         private const int VPAD     = 10;
         private const int GAP      =  8;
 
         // ── Named control refs ────────────────────────────────────────
-        private Label        _lblName, _lblRole;
-        private Label        _lblMonthSales, _lblTxCount, _lblLowCount;
-        private Label        _lblCustCount,  _lblEmpCount;
-        private Chart        _chart;
-        private Panel        _pnlTop, _pnlLeast;
-        private DataGridView _dgvTx,  _dgvStock;
+        private Label        _lblName;
+        private Label        _lblLowCount, _lblCustCount;
+        private Label        _lblMyTxCount, _lblMyTxTotal;
+        private DataGridView _dgvMyTx;
+        private DataGridView _dgvLowStock;
         private Label        _lblBestName, _lblBestSpent, _lblBestTx;
         private Label        _lblFooter;
 
         // ── Data ──────────────────────────────────────────────────────
-        private readonly DashboardService _svc   = new DashboardService();
-        private readonly Timer            _timer = new Timer();
-        private DashboardData             _cache;
-        private bool                      _layoutReady;
+        private readonly CashierDashboardService _svc   = new CashierDashboardService();
+        private readonly Timer                   _timer = new Timer();
+        private CashierDashboardData             _cache;
+        private bool                             _layoutReady;
 
         // =============================================================
         // CONSTRUCTORS
         // =============================================================
 
-        public DashboardForm()
+        public CashierDashboardForm()
         {
-            _employeeName = "Manager";
-            _employeeRole = "Manager";
+            _employeeName = "Cashier";
             InitializeComponent();
             SetupForm();
         }
 
-        public DashboardForm(int id, string name, string role)
+        public CashierDashboardForm(int id, string name)
         {
             _employeeID   = id;
             _employeeName = name;
-            _employeeRole = role;
             InitializeComponent();
             SetupForm();
         }
@@ -91,20 +93,16 @@ namespace TheByteClubPOS
             this.DoubleBuffered = true;
             this.AutoScroll     = false;
 
-            // ── Fixed-size canvas that always renders at RENDER_W x RENDER_H ──
+            // Fixed-size canvas
             var canvas = new Panel
             {
                 Location  = new Point(0, 0),
                 Size      = new Size(RENDER_W, RENDER_H),
                 BackColor = C_BG
             };
-            PlaceAll(canvas, RENDER_W, RENDER_H);
+            PlaceAll(canvas);
 
-            // ── Scroll wrapper ────────────────────────────────────────
-            // We do NOT use Dock=Fill here. Instead we size it explicitly
-            // in Shown/Resize so it always matches the MDI client area.
-            // AutoScroll=true on a Panel works correctly inside MDI children
-            // (unlike the Form's own scrollbars which the MDI suppresses).
+            // Scroll wrapper — sized explicitly to MDI client area
             var scroll = new Panel
             {
                 Location   = new Point(0, 0),
@@ -114,7 +112,6 @@ namespace TheByteClubPOS
             scroll.Controls.Add(canvas);
             this.Controls.Add(scroll);
 
-            // Resize the scroll wrapper whenever the form size changes
             Action sizeScroll = () =>
             {
                 scroll.Size = new Size(
@@ -126,12 +123,11 @@ namespace TheByteClubPOS
 
             this.Shown += (s, e) =>
             {
-                sizeScroll();        // set correct size after MDI layout
+                sizeScroll();
                 _layoutReady = true;
                 LoadData();
             };
 
-            // Auto-refresh every 60 s
             _timer.Interval = 60_000;
             _timer.Tick    += (s, e) => LoadData();
             _timer.Start();
@@ -147,26 +143,29 @@ namespace TheByteClubPOS
         }
 
         // =============================================================
-        // LAYOUT  (called once at setup — static, no resize needed)
+        // LAYOUT
         // =============================================================
 
-        private void PlaceAll(Panel c, int W, int H)
+        private void PlaceAll(Panel c)
         {
-            int totalGaps = VPAD * 2 + GAP * 4;
+            int W = RENDER_W;
+            int H = RENDER_H;
+
+            int totalGaps = VPAD * 2 + GAP * 3;
             int available = H - totalGaps;
 
-            int hHdr   = (int)(available * 0.10);
-            int hCards = (int)(available * 0.13);
-            int hMid   = (int)(available * 0.34);
-            int hBot   = (int)(available * 0.34);
-            int hFtr   = available - hHdr - hCards - hMid - hBot;
+            // Sections: header 9%, cards 11%, main 55%, footer 7%
+            // "main" row splits into transactions (left 60%) | stock+best (right 40%)
+            int hHdr   = (int)(available * 0.09);
+            int hCards = (int)(available * 0.11);
+            int hMain  = (int)(available * 0.73);
+            int hFtr   = available - hHdr - hCards - hMain;
 
             int y = VPAD;
-            PlaceHeader   (c, ref y, W, hHdr);
+            PlaceHeader  (c, ref y, W, hHdr);
             PlaceStatCards(c, ref y, W, hCards);
-            PlaceMiddleRow(c, ref y, W, hMid);
-            PlaceBottomRow(c, ref y, W, hBot);
-            PlaceFooter   (c, ref y, W, hFtr);
+            PlaceMainRow (c, ref y, W, hMain);
+            PlaceFooter  (c, ref y, W, hFtr);
         }
 
         // ── HEADER ────────────────────────────────────────────────────
@@ -180,37 +179,35 @@ namespace TheByteClubPOS
                 new Rectangle(PAD, y + 20, W - PAD * 2, 34));
             c.Controls.Add(_lblName);
 
-            _lblRole = MkLbl(_employeeRole, F(9.5f), C_LINK,
-                new Rectangle(PAD, y + 56, 200, 20));
-            c.Controls.Add(_lblRole);
+            c.Controls.Add(MkLbl("Cashier", F(9.5f), C_LINK,
+                new Rectangle(PAD, y + 56, 200, 20)));
 
             y += H + GAP;
         }
 
         // ── STAT CARDS ────────────────────────────────────────────────
+        // Four cards: Low Stock | Total Customers | My Transactions | My Revenue
 
         private void PlaceStatCards(Panel c, ref int y, int W, int H)
         {
             int usable = W - PAD * 2;
-            int cardW  = (usable - GAP * 4) / 5;
+            int cardW  = (usable - GAP * 3) / 4;
 
             var defs = new (string title, string def, Color accent)[]
             {
-                ("This Month Sales",    "R\u2013", C_GREEN),
-                ("No. of Transactions", "\u2013",  C_ORANGE),
-                ("Low Stock Items",     "\u2013",  C_PURPLE),
-                ("Total Customers",     "\u2013",  C_TEAL),
-                ("Total Employees",     "\u2013",  C_TEAL),
+                ("Low Stock Items",           "\u2013", C_PURPLE),
+                ("Total Customers",           "\u2013", C_TEAL),
+                ("My Transactions (Month)",   "\u2013", C_ORANGE),
+                ("My Revenue (Month)",        "R\u2013",C_GREEN),
             };
 
-            var refs = new Label[5];
+            var refs = new Label[4];
 
             for (int i = 0; i < defs.Length; i++)
             {
                 int x    = PAD + i * (cardW + GAP);
                 var card = MkCard(new Rectangle(x, y, cardW, H));
 
-                // Fixed pixel positions — title at top, value fills remaining
                 card.Controls.Add(MkLbl(defs[i].title, F(8.5f), C_MID,
                     new Rectangle(12, 10, cardW - 24, 20)));
 
@@ -222,64 +219,23 @@ namespace TheByteClubPOS
                 c.Controls.Add(card);
             }
 
-            _lblMonthSales = refs[0];
-            _lblTxCount    = refs[1];
-            _lblLowCount   = refs[2];
-            _lblCustCount  = refs[3];
-            _lblEmpCount   = refs[4];
+            _lblLowCount  = refs[0];
+            _lblCustCount = refs[1];
+            _lblMyTxCount = refs[2];
+            _lblMyTxTotal = refs[3];
 
             y += H + GAP;
         }
 
-        // ── MIDDLE ROW ────────────────────────────────────────────────
+        // ── MAIN ROW: Transactions | Low Stock | Best Customer ────────
 
-        private void PlaceMiddleRow(Panel c, ref int y, int W, int H)
+        private void PlaceMainRow(Panel c, ref int y, int W, int H)
         {
             int usable = W - PAD * 2;
-            int pieW   = (int)(usable * 0.37) - GAP / 2;
-            int rankW  = (usable - pieW - GAP * 2) / 2;
 
-            int xPie   = PAD;
-            int xTop   = xPie + pieW + GAP;
-            int xLeast = xTop + rankW + GAP;
-
-            var pieCard = MkCard(new Rectangle(xPie, y, pieW, H));
-            AddTitle(pieCard, "Sales by Category (This Month)", pieW);
-            _chart = MkPieChart(pieCard, pieW, H);
-            c.Controls.Add(pieCard);
-
-            var topCard = MkCard(new Rectangle(xTop, y, rankW, H));
-            AddTitle(topCard, "Top Selling Products (This Month)", rankW);
-            _pnlTop = new Panel
-            {
-                Location  = new Point(1, 35),
-                Size      = new Size(rankW - 2, H - 36),
-                BackColor = C_CARD
-            };
-            topCard.Controls.Add(_pnlTop);
-            c.Controls.Add(topCard);
-
-            var leastCard = MkCard(new Rectangle(xLeast, y, rankW, H));
-            AddTitle(leastCard, "Least Selling Products (This Month)", rankW);
-            _pnlLeast = new Panel
-            {
-                Location  = new Point(1, 35),
-                Size      = new Size(rankW - 2, H - 36),
-                BackColor = C_CARD
-            };
-            leastCard.Controls.Add(_pnlLeast);
-            c.Controls.Add(leastCard);
-
-            y += H + GAP;
-        }
-
-        // ── BOTTOM ROW ────────────────────────────────────────────────
-
-        private void PlaceBottomRow(Panel c, ref int y, int W, int H)
-        {
-            int usable = W - PAD * 2;
-            int txW    = (int)(usable * 0.48) - GAP / 2;
-            int stW    = (int)(usable * 0.30) - GAP / 2;
+            // Tx = 50%, Low Stock = 27%, Best Customer = 23%
+            int txW    = (int)(usable * 0.50) - GAP / 2;
+            int stW    = (int)(usable * 0.27) - GAP / 2;
             int bestW  = usable - txW - stW - GAP * 2;
 
             int xTx   = PAD;
@@ -287,37 +243,39 @@ namespace TheByteClubPOS
             int xBest = xSt + stW  + GAP;
             int gridH = H - 52;
 
-            // Recent Transactions
+            // ── My Transactions ───────────────────────────────────────
             var txCard = MkCard(new Rectangle(xTx, y, txW, H));
-            AddTitle(txCard, "Recent Transactions", txW);
-            _dgvTx = MkGrid(
+            AddTitle(txCard, "My Transactions (This Month)", txW);
+
+            _dgvMyTx = MkGrid(
                 ("Invoice",      "InvoiceNumber",  90, DataGridViewContentAlignment.MiddleLeft),
-                ("Date",         "SaleDateStr",   140, DataGridViewContentAlignment.MiddleLeft),
-                ("Customer",     "CustomerName",  120, DataGridViewContentAlignment.MiddleLeft),
+                ("Date",         "SaleDateStr",   145, DataGridViewContentAlignment.MiddleLeft),
+                ("Customer",     "CustomerName",  130, DataGridViewContentAlignment.MiddleLeft),
                 ("Total Amount", "TotalAmtStr",    90, DataGridViewContentAlignment.MiddleRight));
-            _dgvTx.Location = new Point(1, 35);
-            _dgvTx.Size     = new Size(txW - 2, gridH);
-            txCard.Controls.Add(_dgvTx);
-            txCard.Controls.Add(MkLbl("Showing latest 5 transactions", F(7.5f), C_MID,
+            _dgvMyTx.Location = new Point(1, 35);
+            _dgvMyTx.Size     = new Size(txW - 2, gridH);
+            txCard.Controls.Add(_dgvMyTx);
+            txCard.Controls.Add(MkLbl("Showing latest 10 transactions", F(7.5f), C_MID,
                 new Rectangle(10, H - 18, txW - 20, 15)));
             c.Controls.Add(txCard);
 
-            // Low Stock
+            // ── Low Stock Items ───────────────────────────────────────
             var stCard = MkCard(new Rectangle(xSt, y, stW, H));
             AddTitle(stCard, "Low Stock Items", stW);
-            _dgvStock = MkGrid(
-                ("Product",    "ProductName",  110, DataGridViewContentAlignment.MiddleLeft),
-                ("Cur. Stock", "CurrentStock",  70, DataGridViewContentAlignment.MiddleCenter),
-                ("Reorder",    "ReorderLevel",  70, DataGridViewContentAlignment.MiddleCenter));
-            _dgvStock.Location        = new Point(1, 35);
-            _dgvStock.Size            = new Size(stW - 2, gridH);
-            _dgvStock.CellFormatting += StockGrid_CellFormatting;
-            stCard.Controls.Add(_dgvStock);
+
+            _dgvLowStock = MkGrid(
+                ("Product",    "ProductName",  100, DataGridViewContentAlignment.MiddleLeft),
+                ("Stock",      "CurrentStock",  58, DataGridViewContentAlignment.MiddleCenter),
+                ("Reorder",    "ReorderLevel",  58, DataGridViewContentAlignment.MiddleCenter));
+            _dgvLowStock.Location        = new Point(1, 35);
+            _dgvLowStock.Size            = new Size(stW - 2, gridH);
+            _dgvLowStock.CellFormatting += StockGrid_CellFormatting;
+            stCard.Controls.Add(_dgvLowStock);
             stCard.Controls.Add(MkLbl("Showing latest 5 low stock items", F(7.5f), C_MID,
                 new Rectangle(10, H - 18, stW - 20, 15)));
             c.Controls.Add(stCard);
 
-            // Best Customer
+            // ── Best Customer ─────────────────────────────────────────
             var bestCard = MkCard(new Rectangle(xBest, y, bestW, H));
             BuildBestCustomerCard(bestCard, bestW, H);
             c.Controls.Add(bestCard);
@@ -347,8 +305,7 @@ namespace TheByteClubPOS
             };
             card.Controls.Add(av);
 
-            // Distribute remaining card height into 5 equal slots
-            int contentTop = 44 + avSize + 4;   // 104
+            int contentTop = 44 + avSize + 4;
             int remaining  = H - contentTop - 4;
             int slot       = Math.Max(remaining / 5, 18);
 
@@ -411,12 +368,11 @@ namespace TheByteClubPOS
             btn.Click += (s, e) => LoadData();
             foot.Controls.Add(btn);
             c.Controls.Add(foot);
-
             y += fH + VPAD;
         }
 
         // =============================================================
-        // CONTROL FACTORIES
+        // CONTROL FACTORIES  (identical helpers to DashboardForm)
         // =============================================================
 
         private static Panel MkCard(Rectangle bounds)
@@ -474,50 +430,6 @@ namespace TheByteClubPOS
                 TextAlign = align,
                 BackColor = Color.Transparent
             };
-        }
-
-        private Chart MkPieChart(Panel card, int cardW, int cardH)
-        {
-            var ch = new Chart
-            {
-                Location  = new Point(1, 35),
-                Size      = new Size(cardW - 2, cardH - 36),
-                BackColor = C_CARD
-            };
-            var area = new ChartArea("main") { BackColor = C_CARD };
-            area.Position          = new ElementPosition(2, 2, 56, 96);
-            area.InnerPlotPosition = new ElementPosition(5, 5, 90, 90);
-            ch.ChartAreas.Add(area);
-            var ser = new Series("cat")
-            {
-                ChartType           = SeriesChartType.Pie,
-                IsValueShownAsLabel = false,
-                Label               = ""
-            };
-            ser["PieLabelStyle"] = "Disabled";
-            ch.Series.Add(ser);
-            ch.Legends.Add(new Legend("main")
-            {
-                DockedToChartArea       = "main",
-                IsDockedInsideChartArea = false,
-                Docking                 = Docking.Right,
-                Alignment               = StringAlignment.Center,
-                BackColor               = C_CARD,
-                Font                    = F(7.5f),
-                IsTextAutoFit           = false,
-                LegendStyle             = LegendStyle.Column
-            });
-            ch.PaletteCustomColors = new[]
-            {
-                Color.FromArgb(52,  152, 219),
-                Color.FromArgb(46,  204, 113),
-                Color.FromArgb(155,  89, 182),
-                Color.FromArgb(230, 126,  34),
-                Color.FromArgb(26,  188, 156)
-            };
-            ch.Palette = ChartColorPalette.None;
-            card.Controls.Add(ch);
-            return ch;
         }
 
         private static DataGridView MkGrid(
@@ -587,74 +499,6 @@ namespace TheByteClubPOS
         }
 
         // =============================================================
-        // RANK PANEL
-        // =============================================================
-
-        private void PopulateRankPanel(Panel pnl, List<ProductSalesRankDto> items)
-        {
-            pnl.Controls.Clear();
-            if (items == null || items.Count == 0) return;
-
-            int rowH = Math.Max((pnl.Height - 4) / Math.Max(items.Count, 1), 34);
-            int y    = 2;
-
-            Color[] badges =
-            {
-                C_BLUE, C_GREEN, C_ORANGE,
-                Color.FromArgb(127,140,141),
-                Color.FromArgb(127,140,141)
-            };
-
-            foreach (var item in items)
-            {
-                Color bc = (item.Rank - 1 < badges.Length)
-                           ? badges[item.Rank - 1] : badges[badges.Length - 1];
-
-                var badge = new Panel
-                {
-                    Size      = new Size(22, 22),
-                    Location  = new Point(8, y + (rowH - 22) / 2),
-                    BackColor = Color.Transparent,
-                    Tag       = new object[] { bc, item.Rank.ToString() }
-                };
-                badge.Paint += (s, pe) =>
-                {
-                    var obj = (object[])((Panel)s).Tag;
-                    var col = (Color)obj[0];
-                    var num = (string)obj[1];
-                    pe.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
-                    using (var br = new SolidBrush(col))
-                        pe.Graphics.FillEllipse(br, 0, 0, 21, 21);
-                    using (var sf = new StringFormat
-                    {
-                        Alignment     = StringAlignment.Center,
-                        LineAlignment = StringAlignment.Center
-                    })
-                        pe.Graphics.DrawString(num, F(8, FontStyle.Bold), Brushes.White,
-                            new RectangleF(0, 0, 22, 22), sf);
-                };
-
-                var icon  = MkLbl("🍾", F(12f), C_DARK,
-                    new Rectangle(36, y + (rowH - 22) / 2, 26, 22));
-                var name  = MkLbl(item.ProductName, F(9f), C_DARK,
-                    new Rectangle(66, y, pnl.Width - 110, rowH),
-                    ContentAlignment.MiddleLeft);
-                var units = MkLbl(item.UnitsSold.ToString(), F(9f, FontStyle.Bold), C_DARK,
-                    new Rectangle(pnl.Width - 40, y, 36, rowH),
-                    ContentAlignment.MiddleRight);
-                var sep = new Panel
-                {
-                    BackColor = C_BORDER,
-                    Location  = new Point(6, y + rowH - 1),
-                    Size      = new Size(pnl.Width - 12, 1)
-                };
-
-                pnl.Controls.AddRange(new Control[] { badge, icon, name, units, sep });
-                y += rowH;
-            }
-        }
-
-        // =============================================================
         // DATA LOADING & BINDING
         // =============================================================
 
@@ -663,7 +507,7 @@ namespace TheByteClubPOS
             if (!_layoutReady) return;
             try
             {
-                _cache = _svc.LoadAll();
+                _cache = _svc.LoadAll(_employeeID);
                 BindAll(_cache);
             }
             catch (Exception ex)
@@ -673,21 +517,18 @@ namespace TheByteClubPOS
             }
         }
 
-        private void BindAll(DashboardData d)
+        private void BindAll(CashierDashboardData d)
         {
             if (d == null) return;
 
-            _lblMonthSales.Text = string.Format("R{0:N2}", d.Summary.MonthSalesTotal);
-            _lblTxCount.Text    = d.Summary.MonthTransactionCount.ToString("N0");
-            _lblLowCount.Text   = d.Summary.LowStockCount.ToString();
-            _lblCustCount.Text  = d.Summary.TotalCustomers.ToString("N0");
-            _lblEmpCount.Text   = d.Summary.TotalEmployees.ToString();
+            // Stat cards
+            _lblLowCount.Text  = d.Summary.LowStockCount.ToString();
+            _lblCustCount.Text = d.Summary.TotalCustomers.ToString("N0");
+            _lblMyTxCount.Text = d.Summary.MyTxCount.ToString("N0");
+            _lblMyTxTotal.Text = string.Format("R{0:N2}", d.Summary.MyTxTotal);
 
-            BindPie(d.CategorySales);
-            PopulateRankPanel(_pnlTop,   d.TopSelling);
-            PopulateRankPanel(_pnlLeast, d.LeastSelling);
-
-            _dgvTx.DataSource = d.RecentTransactions.Select(t => new
+            // My transactions grid
+            _dgvMyTx.DataSource = d.MyTransactions.Select(t => new
             {
                 t.InvoiceNumber,
                 SaleDateStr = t.SaleDateTime.ToString("dd MMM yyyy HH:mm"),
@@ -695,8 +536,10 @@ namespace TheByteClubPOS
                 TotalAmtStr = string.Format("R{0:N2}", t.TotalAmount)
             }).ToList();
 
-            _dgvStock.DataSource = d.LowStockItems;
+            // Low stock grid
+            _dgvLowStock.DataSource = d.LowStockItems;
 
+            // Best customer
             if (d.BestCustomer != null)
             {
                 _lblBestName.Text  = d.BestCustomer.CustomerName;
@@ -715,22 +558,6 @@ namespace TheByteClubPOS
                 d.LastUpdated);
         }
 
-        private void BindPie(List<CategorySalesDto> items)
-        {
-            var ser = _chart.Series["cat"];
-            ser.Points.Clear();
-            if (items == null || items.Count == 0) return;
-            decimal total = items.Sum(x => x.TotalSales);
-            foreach (var item in items)
-            {
-                double pct = total > 0
-                    ? (double)(item.TotalSales / total * 100m) : 0;
-                int idx = ser.Points.AddXY(item.CategoryName, pct);
-                ser.Points[idx].LegendText =
-                    string.Format("{0}   {1:F0}%", item.CategoryName, pct);
-            }
-        }
-
         private void StockGrid_CellFormatting(object sender,
             DataGridViewCellFormattingEventArgs e)
         {
@@ -739,8 +566,10 @@ namespace TheByteClubPOS
             if (grid.Columns[e.ColumnIndex].Name == "col_CurrentStock" &&
                 e.Value is int qty)
             {
-                e.CellStyle.ForeColor = qty <= 3 ? C_RED : C_ORANGE;
-                e.FormattingApplied   = true;
+                e.CellStyle.ForeColor = qty <= 3
+                    ? Color.FromArgb(231, 76, 60)
+                    : Color.FromArgb(230, 126, 34);
+                e.FormattingApplied = true;
             }
         }
     }
