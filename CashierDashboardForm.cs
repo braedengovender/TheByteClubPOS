@@ -263,7 +263,7 @@ namespace TheByteClubPOS
             var stCard = MkCard(new Rectangle(xSt, y, stW, H));
             AddTitle(stCard, "Low Stock Items", stW);
 
-            _dgvLowStock = MkGrid(
+            _dgvLowStock = MkGridWithImage(
                 ("Product",    "ProductName",  100, DataGridViewContentAlignment.MiddleLeft),
                 ("Stock",      "CurrentStock",  58, DataGridViewContentAlignment.MiddleCenter),
                 ("Reorder",    "ReorderLevel",  58, DataGridViewContentAlignment.MiddleCenter));
@@ -431,6 +431,33 @@ namespace TheByteClubPOS
             };
         }
 
+        private static Image BytesToImage(byte[] bytes)
+        {
+            if (bytes == null || bytes.Length == 0) return null;
+            try { return Image.FromStream(new System.IO.MemoryStream(bytes)); }
+            catch { return null; }
+        }
+
+        private static DataGridView MkGridWithImage(
+            params (string hdr, string field, int minW,
+                    DataGridViewContentAlignment align)[] cols)
+        {
+            var g = MkGrid(cols);
+            var imgCol = new DataGridViewImageColumn
+            {
+                Name             = "col_ProductImage",
+                HeaderText       = "",
+                DataPropertyName = "ProductImage",
+                Width            = 32,
+                ImageLayout      = DataGridViewImageCellLayout.Zoom,
+                DefaultCellStyle = { NullValue = null, Alignment = DataGridViewContentAlignment.MiddleCenter }
+            };
+            g.Columns.Insert(0, imgCol);
+            g.RowTemplate.Height = 32;
+            g.DataError += (s, e) => e.ThrowException = false;
+            return g;
+        }
+
         private static DataGridView MkGrid(
             params (string hdr, string field, int minW,
                     DataGridViewContentAlignment align)[] cols)
@@ -535,9 +562,10 @@ namespace TheByteClubPOS
                 TotalAmtStr = string.Format("R{0:N2}", t.TotalAmount)
             }).ToList();
 
-            // Pre-convert stock integers to strings to avoid FormatException
+            // Bind low stock with product images
             _dgvLowStock.DataSource = d.LowStockItems.Select(s => new
             {
+                ProductImage = BytesToImage(s.ProductImageBytes),
                 s.ProductName,
                 CurrentStock = s.CurrentStock.ToString(),
                 ReorderLevel = s.ReorderLevel.ToString()

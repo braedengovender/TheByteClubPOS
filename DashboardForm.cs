@@ -305,7 +305,7 @@ namespace TheByteClubPOS
             // Low Stock
             var stCard = MkCard(new Rectangle(xSt, y, stW, H));
             AddTitle(stCard, "Low Stock Items", stW);
-            _dgvStock = MkGrid(
+            _dgvStock = MkGridWithImage(
                 ("Product",    "ProductName",  110, DataGridViewContentAlignment.MiddleLeft),
                 ("Cur. Stock", "CurrentStock",  70, DataGridViewContentAlignment.MiddleCenter),
                 ("Reorder",    "ReorderLevel",  70, DataGridViewContentAlignment.MiddleCenter));
@@ -573,6 +573,34 @@ namespace TheByteClubPOS
             return g;
         }
 
+        /// <summary>
+        /// Same as MkGrid but prepends a 32px image column (DataPropertyName = "ProductImage")
+        /// used by the Low Stock Items table to show product photos.
+        /// </summary>
+        private static DataGridView MkGridWithImage(
+            params (string hdr, string field, int minW,
+                    DataGridViewContentAlignment align)[] cols)
+        {
+            var g = MkGrid(cols);
+
+            var imgCol = new DataGridViewImageColumn
+            {
+                Name             = "col_ProductImage",
+                HeaderText       = "",
+                DataPropertyName = "ProductImage",
+                Width            = 32,
+                ImageLayout      = DataGridViewImageCellLayout.Zoom,
+                DefaultCellStyle = { NullValue = null, Alignment = DataGridViewContentAlignment.MiddleCenter }
+            };
+            g.Columns.Insert(0, imgCol);
+            g.RowTemplate.Height = 32;
+
+            // Suppress DataError for null images (products without photos)
+            g.DataError += (s, e) => e.ThrowException = false;
+
+            return g;
+        }
+
         private static GraphicsPath RoundRect(Rectangle r, int rad)
         {
             var path = new GraphicsPath();
@@ -589,6 +617,20 @@ namespace TheByteClubPOS
         // RANK PANEL
         // =============================================================
 
+        // Helper: convert byte[] to Image safely (returns null on failure)
+        private static Image BytesToImage(byte[] bytes)
+        {
+            if (bytes == null || bytes.Length == 0) return null;
+            try
+            {
+                return Image.FromStream(new System.IO.MemoryStream(bytes));
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
         private void PopulateRankPanel(Panel pnl, List<ProductSalesRankDto> items)
         {
             pnl.Controls.Clear();
@@ -596,6 +638,7 @@ namespace TheByteClubPOS
 
             int rowH = Math.Max((pnl.Height - 4) / Math.Max(items.Count, 1), 34);
             int y    = 2;
+            int imgSize = Math.Min(rowH - 6, 28);  // product image size
 
             Color[] badges =
             {
@@ -609,10 +652,11 @@ namespace TheByteClubPOS
                 Color bc = (item.Rank - 1 < badges.Length)
                            ? badges[item.Rank - 1] : badges[badges.Length - 1];
 
+                // Rank badge
                 var badge = new Panel
                 {
                     Size      = new Size(22, 22),
-                    Location  = new Point(8, y + (rowH - 22) / 2),
+                    Location  = new Point(6, y + (rowH - 22) / 2),
                     BackColor = Color.Transparent,
                     Tag       = new object[] { bc, item.Rank.ToString() }
                 };
@@ -633,14 +677,43 @@ namespace TheByteClubPOS
                             new RectangleF(0, 0, 22, 22), sf);
                 };
 
-                var icon  = MkLbl("🍾", F(12f), C_DARK,
-                    new Rectangle(36, y + (rowH - 22) / 2, 26, 22));
+                // Product image (real photo or bottle icon fallback)
+                Image productImg = BytesToImage(item.ProductImageBytes);
+                var imgBox = new PictureBox
+                {
+                    Size     = new Size(imgSize, imgSize),
+                    Location = new Point(32, y + (rowH - imgSize) / 2),
+                    SizeMode = PictureBoxSizeMode.Zoom,
+                    Image    = productImg,
+                    BackColor = Color.Transparent
+                };
+                if (productImg == null)
+                {
+                    // Fallback: draw a simple bottle silhouette
+                    imgBox.Paint += (s, pe) =>
+                    {
+                        pe.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
+                        pe.Graphics.FillRectangle(
+                            new SolidBrush(Color.FromArgb(180, 180, 200)),
+                            new Rectangle(8, 2, 12, 24));
+                        pe.Graphics.FillRectangle(
+                            new SolidBrush(Color.FromArgb(180, 180, 200)),
+                            new Rectangle(10, 0, 8, 4));
+                    };
+                }
+
+                // Product name
+                int nameX = 32 + imgSize + 4;
                 var name  = MkLbl(item.ProductName, F(9f), C_DARK,
-                    new Rectangle(66, y, pnl.Width - 110, rowH),
+                    new Rectangle(nameX, y, pnl.Width - nameX - 42, rowH),
                     ContentAlignment.MiddleLeft);
+
+                // Units sold
                 var units = MkLbl(item.UnitsSold.ToString(), F(9f, FontStyle.Bold), C_DARK,
                     new Rectangle(pnl.Width - 40, y, 36, rowH),
                     ContentAlignment.MiddleRight);
+
+                // Separator
                 var sep = new Panel
                 {
                     BackColor = C_BORDER,
@@ -648,7 +721,7 @@ namespace TheByteClubPOS
                     Size      = new Size(pnl.Width - 12, 1)
                 };
 
-                pnl.Controls.AddRange(new Control[] { badge, icon, name, units, sep });
+                pnl.Controls.AddRange(new Control[] { badge, imgBox, name, units, sep });
                 y += rowH;
             }
         }
@@ -694,10 +767,10 @@ namespace TheByteClubPOS
                 TotalAmtStr = string.Format("R{0:N2}", t.TotalAmount)
             }).ToList();
 
-            // Pre-convert stock integers to strings to avoid DataGridView
-            // FormatException when CellFormatting fires on raw int values.
+            // Bind low stock grid with product images
             _dgvStock.DataSource = d.LowStockItems.Select(s => new
             {
+                ProductImage = BytesToImage(s.ProductImageBytes),
                 s.ProductName,
                 CurrentStock = s.CurrentStock.ToString(),
                 ReorderLevel = s.ReorderLevel.ToString()

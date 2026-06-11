@@ -31,9 +31,10 @@ namespace TheByteClubPOS
 
     public class ProductSalesRankDto
     {
-        public int    Rank        { get; set; }
-        public string ProductName { get; set; }
-        public int    UnitsSold   { get; set; }
+        public int    Rank             { get; set; }
+        public string ProductName      { get; set; }
+        public int    UnitsSold        { get; set; }
+        public byte[] ProductImageBytes { get; set; }  // nullable — not all products have images
     }
 
     public class RecentTransactionDto
@@ -46,9 +47,10 @@ namespace TheByteClubPOS
 
     public class LowStockItemDto
     {
-        public string ProductName  { get; set; }
-        public int    CurrentStock { get; set; }
-        public int    ReorderLevel { get; set; }
+        public string ProductName       { get; set; }
+        public int    CurrentStock      { get; set; }
+        public int    ReorderLevel      { get; set; }
+        public byte[] ProductImageBytes { get; set; }  // nullable
     }
 
     public class BestCustomerDto
@@ -178,6 +180,18 @@ namespace TheByteClubPOS
                 .Select((x, i) => { x.Rank = i + 1; return x; })
                 .ToList();
 
+            // Attach product images to rank lists
+            var productByName = products.Cast<ProductRow>()
+                .GroupBy(p => p.Product_Name)
+                .ToDictionary(g => g.Key, g => g.First());
+
+            foreach (var r in top5.Concat(least5))
+            {
+                if (productByName.TryGetValue(r.ProductName, out var pr) &&
+                    !pr.IsProduct_ImageNull())
+                    r.ProductImageBytes = pr.Product_Image;
+            }
+
             // ── Recent Transactions (LEFT JOIN so walk-ins are included) ──
             var recentTx = GetRecentTransactions(5);
 
@@ -189,9 +203,10 @@ namespace TheByteClubPOS
                 .Take(5)
                 .Select(p => new LowStockItemDto
                 {
-                    ProductName  = p.Product_Name,
-                    CurrentStock = p.Product_QuantityInStock,
-                    ReorderLevel = p.Product_ReorderQuantity
+                    ProductName       = p.Product_Name,
+                    CurrentStock      = p.Product_QuantityInStock,
+                    ReorderLevel      = p.Product_ReorderQuantity,
+                    ProductImageBytes = p.IsProduct_ImageNull() ? null : p.Product_Image
                 })
                 .ToList();
 
