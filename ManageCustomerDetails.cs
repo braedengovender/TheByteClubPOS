@@ -19,24 +19,10 @@ namespace TheByteClubPOS
 
         }
 
-
-
-        private void customerBindingNavigatorSaveItem_Click(object sender, EventArgs e)
-        {
-            this.Validate();
-            this.customerBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.dsSamsLiqourShop);
-
-        }
-
         private void ManageCustomerDetails_Load(object sender, EventArgs e)
         {
             customerTableAdapter.Fill(this.dsSamsLiqourShop.Customer);
-
             UpdateCustomerCard(); //call the method to update the customer card display when the form loads
-
-
-
         }
 
         private void UpdateCustomerCard() //method for the updateCustomer tab to display ID , name and loyalty points in panel
@@ -61,11 +47,6 @@ namespace TheByteClubPOS
             }
         }
 
-        private void maskedTextBox2_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
-        {
-
-        }
-
         private void txtEmailAddress_TextChanged(object sender, EventArgs e)
         {
             string email = txtEmailAddress.Text.Trim();
@@ -83,15 +64,6 @@ namespace TheByteClubPOS
                 toolTip1.SetToolTip(txtEmailAddress, "Invalid email (needs @, ., and no spaces)");
             }
         }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-
-
-
 
         private void button1_Click_1(object sender, EventArgs e)
         {
@@ -172,7 +144,6 @@ namespace TheByteClubPOS
             customerTableAdapter.Fill(this.dsSamsLiqourShop.Customer);
         }
 
-
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
             customerTableAdapter.FillByCustomerName(dsSamsLiqourShop.Customer, textBox2.Text);
@@ -185,32 +156,30 @@ namespace TheByteClubPOS
             DialogResult dialogResult = MessageBox.Show("Are you sure you want to update this customer's details?", "Confirm Update", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dialogResult == DialogResult.Yes)
             {
-
-
                 DateTime selectedDate = customer_RegistrationDateTimeDateTimePicker.Value;
 
                 customerTableAdapter.UpdateQueryCustomerDetails(
-           customer_FirstNameTextBox1.Text,
-           customer_LastNameTextBox1.Text,
-           customer_EmailAddressTextBox.Text,
-           customer_IDNumberTextBox1.Text,
-           customer_PhoneNumberTextBox.Text,
-           customer_UnitNumberTextBox.Text,
-           customer_UnitNameTextBox.Text,
-           customer_StreetNumberTextBox.Text,
-           customer_StreetNameTextBox.Text,
-           customer_SuburbTextBox.Text,
-           customer_PostalCodeTextBox.Text,
-           customer_CityTextBox.Text,
-           customer_ProvinceTextBox.Text,
-           customer_CountryTextBox.Text,
-           selectedDate.ToString(),
-           Convert.ToInt32(customer_LoyaltyPointsBalanceTextBox.Text),
-           customer_StatusTextBox1.Text,
-           customer_UsernameTextBox.Text,
-           customer_PasswordTextBox.Text,
-           Convert.ToInt32(customer_IDTextBox.Text)
-       );
+                customer_FirstNameTextBox1.Text,
+                customer_LastNameTextBox1.Text,
+                customer_EmailAddressTextBox.Text,
+                customer_IDNumberTextBox1.Text,
+                customer_PhoneNumberTextBox.Text,
+                customer_UnitNumberTextBox.Text,
+                customer_UnitNameTextBox.Text,
+                customer_StreetNumberTextBox.Text,
+                customer_StreetNameTextBox.Text,
+                customer_SuburbTextBox.Text,
+                customer_PostalCodeTextBox.Text,
+                customer_CityTextBox.Text,
+                customer_ProvinceTextBox.Text,
+                customer_CountryTextBox.Text,
+                selectedDate.ToString(),
+                Convert.ToInt32(customer_LoyaltyPointsBalanceTextBox.Text),
+                customer_StatusTextBox1.Text,
+                customer_UsernameTextBox.Text,
+                customer_PasswordTextBox.Text,
+                Convert.ToInt32(customer_IDTextBox.Text)
+                );
                 customerTableAdapter.Fill(this.dsSamsLiqourShop.Customer);
                 MessageBox.Show("Customer details updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -221,339 +190,10 @@ namespace TheByteClubPOS
             }
         }
 
-        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void customer_FirstNameLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void customer_LastNameLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void customer_EmailAddressLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        
-
-        private void customer_PhoneNumberLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void customer_UnitNumberLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void customer_UnitNameLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void customer_StreetNumberLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void customer_StreetNameLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void customer_SuburbLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void customer_PostalCodeLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void customer_CityLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void customer_ProvinceLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void customer_CountryLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void customer_RegistrationDateTimeLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void customer_LoyaltyPointsBalanceLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void customer_StatusLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void customer_UsernameLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void customer_PasswordLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void customer_FirstNameLabel1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void customer_LastNameLabel1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void customer_IDNumberLabel1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void customer_StatusLabel1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void customer_IDLabel1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void customer_FirstNameLabel2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void customer_LastNameLabel2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void customer_EmailAddressLabel1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void customer_IDNumberLabel2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void customer_PhoneNumberLabel1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void customer_UnitNumberLabel1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void customer_UnitNameLabel1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void customer_StreetNumberLabel1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void customer_StreetNameLabel1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void customer_SuburbLabel1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void customer_PostalCodeLabel1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void customer_CityLabel1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void customer_ProvinceLabel1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void customer_CountryLabel1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void customer_RegistrationDateTimeLabel1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void customer_LoyaltyPointsBalanceLabel1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void customer_StatusLabel2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void customer_UsernameLabel1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void customer_PasswordLabel1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tabPage1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void customer_IDLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void maskedTextBox3_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
-        {
-
-        }
-
-        private void maskedTextBox2_MaskInputRejected_1(object sender, MaskInputRejectedEventArgs e)
-        {
-
-        }
-
-        private void maskedTextBox1_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
-        {
-
-        }
-
-        private void dtpRegistrationDateTime_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cmbProvince_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void customer_StatusTextBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void customerBindingSource_CurrentChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void customer_IDNumberTextBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void customer_LastNameTextBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void customer_FirstNameTextBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void customerDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void tabPage3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void customer_IDTextBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void customer_FirstNameTextBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void customer_EmailAddressTextBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void customer_RegistrationDateTimeDateTimePicker_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void customer_LoyaltyPointsBalanceTextBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void customer_StatusTextBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void customer_UsernameTextBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void customer_PasswordTextBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void toolTip1_Popup(object sender, PopupEventArgs e)
         {
 
         }
-
-
 
         private bool IsValidEmail(string email)
         {
@@ -612,7 +252,6 @@ namespace TheByteClubPOS
                 return;
             }
             string idNumber = maskedTextBox1.Text; //using a masked textbox for the ID number allows us to enforce a specific format (e.g., 13 digits for a South African ID) and ensures that only numbers are used.
-
         }
 
         private void maskedTextBox3_Leave(object sender, EventArgs e)
@@ -637,26 +276,9 @@ namespace TheByteClubPOS
             string postalCode = maskedTextBox2.Text;
         }
 
-        private void customer_StatusLabel2_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void customer_UsernameLabel1_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void customer_PasswordLabel1_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
         private void customer_PhoneNumberTextBox_Leave(object sender, EventArgs e)
         {
-
-            if (customer_PhoneNumberTextBox.Text.Length != 10 ||
-                !customer_PhoneNumberTextBox.Text.All(char.IsDigit))
+            if (customer_PhoneNumberTextBox.Text.Length != 10 || !customer_PhoneNumberTextBox.Text.All(char.IsDigit))
             {
                 MessageBox.Show("Phone number must contain exactly 10 digits.",
                                 "Invalid Phone Number",
@@ -672,24 +294,31 @@ namespace TheByteClubPOS
         {
             try
             {
-                // 1. Extract values from UI controls
+                // Configure MaskedTextBox settings to exclude format characters when fetching data
+                maskedTextBox1.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
+                maskedTextBox2.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
+                maskedTextBox3.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
+
+                // 1. Extract values from UI controls (Trim trailing white spaces)
                 string firstName = txtFirstName.Text.Trim();
                 string lastName = txtLastName.Text.Trim();
-
                 string email = txtEmailAddress.Text.Trim();
+                string idNumber = maskedTextBox1.Text.Trim();
+                string postalCode = maskedTextBox2.Text.Trim();
+                string phone = maskedTextBox3.Text.Trim();
 
                 // Nullable fields: If text is empty, pass null
                 string unitNumber = string.IsNullOrWhiteSpace(txtUnitNumber.Text) ? null : txtUnitNumber.Text.Trim();
                 string unitName = string.IsNullOrWhiteSpace(txtUnitName.Text) ? null : txtUnitName.Text.Trim();
+
                 string streetNumber = txtStreetNumber.Text.Trim();
                 string streetName = txtStreetName.Text.Trim();
                 string suburb = txtSuburb.Text.Trim();
-
                 string city = txtCity.Text.Trim();
+                string country = txtCountry.Text.Trim();
 
                 // ComboBoxes (Make sure items match database types)
                 string province = cmbProvince.SelectedItem?.ToString();
-                string country = txtCountry.Text.Trim();
 
                 // DateTime Picker
                 DateTime registrationDate = dtpRegistrationDateTime.Value;
@@ -700,39 +329,103 @@ namespace TheByteClubPOS
 
                 string status = txtStatus.Text.Trim();
 
-                // Nullable Account Fields
-                string username = string.IsNullOrWhiteSpace(txtUsername.Text) ? null : txtUsername.Text.Trim();
-                string password = string.IsNullOrWhiteSpace(txtPassword.Text) ? null : txtPassword.Text.Trim();
-
-                string idNumber = maskedTextBox1.Text;
-                // 2. Basic validation for non-null database fields
-                if (string.IsNullOrEmpty(firstName) || string.IsNullOrEmpty(lastName) || string.IsNullOrEmpty(email) || string.IsNullOrEmpty(idNumber))
+                // Basic validation for non-null database fields
+                if (string.IsNullOrEmpty(firstName) ||
+                    string.IsNullOrEmpty(lastName) ||
+                    string.IsNullOrEmpty(email) ||
+                    string.IsNullOrEmpty(idNumber) ||
+                    string.IsNullOrEmpty(phone) ||
+                    string.IsNullOrEmpty(postalCode) ||
+                    string.IsNullOrEmpty(streetNumber) ||
+                    string.IsNullOrEmpty(streetName) ||
+                    string.IsNullOrEmpty(suburb) ||
+                    string.IsNullOrEmpty(city) ||
+                    string.IsNullOrEmpty(province) ||
+                    string.IsNullOrEmpty(country) ||
+                    string.IsNullOrEmpty(status))
                 {
-                    MessageBox.Show("Please fill in all mandatory fields.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Please fill in all mandatory fields.\n\nOnly Unit Number, Unit Name, Username, and Password can be left blank.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
-                string phone = maskedTextBox3.Text;
-                string postalCode = maskedTextBox2.Text;
+                string formattedRegDate = registrationDate.ToString("yyyy-MM-dd HH:mm:ss");
+
                 // 3. Call the TableAdapter Insert query method
-                this.customerTableAdapter.InsertQueryNewCustomer(firstName, lastName, email, idNumber, phone, unitNumber, unitName, streetNumber, streetName, suburb, postalCode, city, province, country, registrationDate.ToString(), loyaltyPoints, status, username, password);
+                this.customerTableAdapter.InsertQueryNewCustomer(firstName, lastName, email, idNumber, phone, unitNumber, unitName, streetNumber, streetName, suburb, postalCode, city, province, country, formattedRegDate, loyaltyPoints, status, null, null);
                 this.customerTableAdapter.Fill(this.dsSamsLiqourShop.Customer);
                 MessageBox.Show("Customer added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (System.Data.SqlClient.SqlException ex)
             {
-                if (ex.Message.Contains("IX_Customer_2"))
+                // Error numbers 2627 and 2601 are SQL Server's universal codes for Unique Constraint / Duplicate Key violations
+                if (ex.Number == 2627 || ex.Number == 2601)
                 {
-                    MessageBox.Show("Error: The Username or checked unique field must be unique. A record with this value already exists (or a second blank entry is being attempted).", "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    // Default message if we can't narrow it down completely
+                    string specificField = "field (ID Number, Phone, Email, or Username)";
+                    string errorMessage = ex.Message; // Keep original casing since SQL constraint names are often capitalized
+
+                    // Better pattern matching that looks for your database column names or parts of them
+                    if (errorMessage.IndexOf("idnumber", StringComparison.OrdinalIgnoreCase) >= 0 ||
+                        errorMessage.IndexOf("id_number", StringComparison.OrdinalIgnoreCase) >= 0 ||
+                        errorMessage.IndexOf("id", StringComparison.OrdinalIgnoreCase) >= 0)
+                    {
+                        specificField = "ID Number";
+                    }
+                    else if (errorMessage.IndexOf("phone", StringComparison.OrdinalIgnoreCase) >= 0 ||
+                             errorMessage.IndexOf("mobile", StringComparison.OrdinalIgnoreCase) >= 0)
+                    {
+                        specificField = "Phone Number";
+                    }
+                    else if (errorMessage.IndexOf("email", StringComparison.OrdinalIgnoreCase) >= 0)
+                    {
+                        specificField = "Email Address";
+                    }
+                    else if (errorMessage.IndexOf("username", StringComparison.OrdinalIgnoreCase) >= 0)
+                    {
+                        specificField = "Username";
+                    }
+
+                    MessageBox.Show(
+                        $"Database Error: Duplicate Entry Detected!\n\n" +
+                        $"The {specificField} you entered is already registered to an existing customer.\n\n" +
+                        $"Please verify the input details or check if this customer has already been captured.",
+                        "Duplicate Record Blocked",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning);
+                }
+                // Handle String Truncation (Entering data longer than the database column capacity)
+                else if (ex.Number == 8152 || ex.Message.Contains("truncated"))
+                {
+                    MessageBox.Show(
+                        "Database Error: Data Too Long!\n\n" +
+                        "One of the fields you filled out contains too many characters for the database schema layout.\n\n" +
+                        "Please make sure fields like Postal Code, Street Number, or Status are brief and match database size limits.",
+                        "Data Length Errorx",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
                 }
                 else
                 {
-                    MessageBox.Show($"Database error occurred: {ex.Message}", "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(
+                        $"A database driver error occurred:\n\n" +
+                        $"Message: {ex.Message}\n" +
+                        $"Error Code: {ex.Number}\n" +
+                        $"Procedure: {ex.Procedure}",
+                        "SQL Server Engine Error",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"An unexpected error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                // Handle unexpected application flaws (e.g., UI cast or object mapping failure)
+                MessageBox.Show(
+                    $"An unexpected application tier error occurred:\n\n" +
+                    $"Type: {ex.GetType().Name}\n" +
+                    $"Message: {ex.Message}",
+                    "Application Framework Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
             }
         }
 
@@ -743,8 +436,6 @@ namespace TheByteClubPOS
             dv.RowFilter = "customer_City = 'Durban'";
             customerDataGridView.DataSource = dv;
         }
-
-
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
@@ -791,8 +482,6 @@ namespace TheByteClubPOS
             dv.Sort = "Customer_FirstName ASC";
         }
 
-
-
         private void rbSurname_CheckedChanged(object sender, EventArgs e)
         {
             DataView dv = dsSamsLiqourShop.Customer.DefaultView;
@@ -803,11 +492,6 @@ namespace TheByteClubPOS
         {
             DataView dv = dsSamsLiqourShop.Customer.DefaultView;
             dv.Sort = "Customer_RegistrationDateTime DESC";
-        }
-
-        private void customerDataGridView_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
-        {
-            
         }
 
         private void customerDataGridView_CellFormatting_1(object sender, DataGridViewCellFormattingEventArgs e)
@@ -859,12 +543,4 @@ namespace TheByteClubPOS
             customerDataGridView.DataSource = dv; // Refresh DataGridView
         }
     }
-    }
-
-
-
-
-        // Save customer details here
-
-
-
+}

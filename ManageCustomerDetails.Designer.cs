@@ -66,8 +66,6 @@
             System.Windows.Forms.Label label30;
             System.Windows.Forms.Label label31;
             System.Windows.Forms.Label label32;
-            System.Windows.Forms.Label label33;
-            System.Windows.Forms.Label label34;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ManageCustomerDetails));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -75,9 +73,7 @@
             this.panel9 = new System.Windows.Forms.Panel();
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.txtStatus = new System.Windows.Forms.TextBox();
-            this.txtPassword = new System.Windows.Forms.TextBox();
             this.label29 = new System.Windows.Forms.Label();
-            this.txtUsername = new System.Windows.Forms.TextBox();
             this.dtpRegistrationDateTime = new System.Windows.Forms.DateTimePicker();
             this.txtLoyaltyPointsBalance = new System.Windows.Forms.TextBox();
             this.panel8 = new System.Windows.Forms.Panel();
@@ -148,32 +144,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.button3 = new System.Windows.Forms.Button();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.tableAdapterManager = new TheByteClubPOS.dsSamsLiqourShopTableAdapters.TableAdapterManager();
-            this.customerTableAdapter = new TheByteClubPOS.dsSamsLiqourShopTableAdapters.CustomerTableAdapter();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.radioButton4 = new System.Windows.Forms.RadioButton();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.BtnSort = new System.Windows.Forms.Button();
-            this.rbDateCreated = new System.Windows.Forms.RadioButton();
-            this.rbSurname = new System.Windows.Forms.RadioButton();
-            this.rbFirstName = new System.Windows.Forms.RadioButton();
-            this.label35 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.BtnFilter = new System.Windows.Forms.Button();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.rbInactive = new System.Windows.Forms.RadioButton();
-            this.rbCountry = new System.Windows.Forms.RadioButton();
-            this.rbCity = new System.Windows.Forms.RadioButton();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.dsSamsLiqourShop1 = new TheByteClubPOS.dsSamsLiqourShop();
-            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.customerTableAdapter1 = new TheByteClubPOS.dsSamsLiqourShopTableAdapters.CustomerTableAdapter();
-            this.tableAdapterManager1 = new TheByteClubPOS.dsSamsLiqourShopTableAdapters.TableAdapterManager();
             this.customerDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -195,6 +166,31 @@
             this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.BtnSort = new System.Windows.Forms.Button();
+            this.rbDateCreated = new System.Windows.Forms.RadioButton();
+            this.rbSurname = new System.Windows.Forms.RadioButton();
+            this.rbFirstName = new System.Windows.Forms.RadioButton();
+            this.label35 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.BtnFilter = new System.Windows.Forms.Button();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.rbInactive = new System.Windows.Forms.RadioButton();
+            this.rbCountry = new System.Windows.Forms.RadioButton();
+            this.rbCity = new System.Windows.Forms.RadioButton();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.radioButton3 = new System.Windows.Forms.RadioButton();
+            this.radioButton4 = new System.Windows.Forms.RadioButton();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.tableAdapterManager = new TheByteClubPOS.dsSamsLiqourShopTableAdapters.TableAdapterManager();
+            this.customerTableAdapter = new TheByteClubPOS.dsSamsLiqourShopTableAdapters.CustomerTableAdapter();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.dsSamsLiqourShop1 = new TheByteClubPOS.dsSamsLiqourShop();
+            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.customerTableAdapter1 = new TheByteClubPOS.dsSamsLiqourShopTableAdapters.CustomerTableAdapter();
+            this.tableAdapterManager1 = new TheByteClubPOS.dsSamsLiqourShopTableAdapters.TableAdapterManager();
             customer_FirstNameLabel2 = new System.Windows.Forms.Label();
             customer_LastNameLabel2 = new System.Windows.Forms.Label();
             customer_IDNumberLabel2 = new System.Windows.Forms.Label();
@@ -232,8 +228,6 @@
             label30 = new System.Windows.Forms.Label();
             label31 = new System.Windows.Forms.Label();
             label32 = new System.Windows.Forms.Label();
-            label33 = new System.Windows.Forms.Label();
-            label34 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel9.SuspendLayout();
@@ -258,12 +252,12 @@
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.customerDataGridView)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dsSamsLiqourShop1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.customerDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // customer_FirstNameLabel2
@@ -636,38 +630,16 @@
             label32.TabIndex = 44;
             label32.Text = "Customer Status:";
             // 
-            // label33
-            // 
-            label33.AutoSize = true;
-            label33.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label33.Location = new System.Drawing.Point(4, 163);
-            label33.Name = "label33";
-            label33.Size = new System.Drawing.Size(156, 20);
-            label33.TabIndex = 46;
-            label33.Text = "Customer Username:";
-            // 
-            // label34
-            // 
-            label34.AutoSize = true;
-            label34.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label34.Location = new System.Drawing.Point(4, 190);
-            label34.Name = "label34";
-            label34.Size = new System.Drawing.Size(152, 20);
-            label34.TabIndex = 48;
-            label34.Text = "Customer Password:";
-            // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Location = new System.Drawing.Point(0, 0);
+            this.tabControl1.Location = new System.Drawing.Point(12, 33);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1134, 666);
+            this.tabControl1.Size = new System.Drawing.Size(1122, 633);
             this.tabControl1.TabIndex = 0;
-            this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
             // tabPage1
             // 
@@ -682,17 +654,16 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1126, 640);
+            this.tabPage1.Size = new System.Drawing.Size(1126, 607);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Add Customer";
             this.tabPage1.UseVisualStyleBackColor = true;
-            this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(461, 540);
+            this.button1.Location = new System.Drawing.Point(818, 528);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(224, 83);
+            this.button1.Size = new System.Drawing.Size(289, 47);
             this.button1.TabIndex = 117;
             this.button1.Text = "ADD CUSTOMER";
             this.button1.UseVisualStyleBackColor = true;
@@ -703,17 +674,13 @@
             this.panel9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel9.Controls.Add(this.pictureBox9);
             this.panel9.Controls.Add(this.txtStatus);
-            this.panel9.Controls.Add(this.txtPassword);
             this.panel9.Controls.Add(this.label29);
             this.panel9.Controls.Add(label30);
-            this.panel9.Controls.Add(this.txtUsername);
             this.panel9.Controls.Add(label31);
             this.panel9.Controls.Add(this.dtpRegistrationDateTime);
             this.panel9.Controls.Add(label32);
-            this.panel9.Controls.Add(label33);
             this.panel9.Controls.Add(this.txtLoyaltyPointsBalance);
-            this.panel9.Controls.Add(label34);
-            this.panel9.Location = new System.Drawing.Point(582, 289);
+            this.panel9.Location = new System.Drawing.Point(582, 253);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(525, 241);
             this.panel9.TabIndex = 116;
@@ -738,15 +705,6 @@
             this.txtStatus.TabIndex = 109;
             this.txtStatus.Text = "Active";
             // 
-            // txtPassword
-            // 
-            this.txtPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPassword.Location = new System.Drawing.Point(174, 190);
-            this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(277, 26);
-            this.txtPassword.TabIndex = 101;
-            this.txtPassword.Text = "null";
-            // 
             // label29
             // 
             this.label29.AutoSize = true;
@@ -758,15 +716,6 @@
             this.label29.TabIndex = 50;
             this.label29.Text = "Account Details";
             // 
-            // txtUsername
-            // 
-            this.txtUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUsername.Location = new System.Drawing.Point(174, 165);
-            this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(277, 26);
-            this.txtUsername.TabIndex = 100;
-            this.txtUsername.Text = "null";
-            // 
             // dtpRegistrationDateTime
             // 
             this.dtpRegistrationDateTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -774,7 +723,6 @@
             this.dtpRegistrationDateTime.Name = "dtpRegistrationDateTime";
             this.dtpRegistrationDateTime.Size = new System.Drawing.Size(277, 26);
             this.dtpRegistrationDateTime.TabIndex = 104;
-            this.dtpRegistrationDateTime.ValueChanged += new System.EventHandler(this.dtpRegistrationDateTime_ValueChanged);
             // 
             // txtLoyaltyPointsBalance
             // 
@@ -809,7 +757,7 @@
             this.panel8.Controls.Add(label26);
             this.panel8.Controls.Add(label27);
             this.panel8.Controls.Add(label28);
-            this.panel8.Location = new System.Drawing.Point(19, 289);
+            this.panel8.Location = new System.Drawing.Point(19, 253);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(525, 241);
             this.panel8.TabIndex = 115;
@@ -822,7 +770,6 @@
             this.maskedTextBox2.Name = "maskedTextBox2";
             this.maskedTextBox2.Size = new System.Drawing.Size(124, 26);
             this.maskedTextBox2.TabIndex = 107;
-            this.maskedTextBox2.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.maskedTextBox2_MaskInputRejected_1);
             this.maskedTextBox2.Leave += new System.EventHandler(this.maskedTextBox2_Leave);
             // 
             // txtUnitNumber
@@ -885,7 +832,6 @@
             this.cmbProvince.Name = "cmbProvince";
             this.cmbProvince.Size = new System.Drawing.Size(123, 28);
             this.cmbProvince.TabIndex = 103;
-            this.cmbProvince.SelectedIndexChanged += new System.EventHandler(this.cmbProvince_SelectedIndexChanged);
             // 
             // label19
             // 
@@ -933,7 +879,7 @@
             this.panel7.Controls.Add(label18);
             this.panel7.Location = new System.Drawing.Point(582, 24);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(525, 241);
+            this.panel7.Size = new System.Drawing.Size(525, 208);
             this.panel7.TabIndex = 114;
             // 
             // maskedTextBox3
@@ -944,7 +890,6 @@
             this.maskedTextBox3.Name = "maskedTextBox3";
             this.maskedTextBox3.Size = new System.Drawing.Size(277, 26);
             this.maskedTextBox3.TabIndex = 108;
-            this.maskedTextBox3.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.maskedTextBox3_MaskInputRejected);
             this.maskedTextBox3.Leave += new System.EventHandler(this.maskedTextBox3_Leave);
             // 
             // txtEmailAddress
@@ -990,7 +935,7 @@
             this.panel6.Controls.Add(label16);
             this.panel6.Location = new System.Drawing.Point(19, 24);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(525, 241);
+            this.panel6.Size = new System.Drawing.Size(525, 208);
             this.panel6.TabIndex = 113;
             // 
             // txtFirstName
@@ -1040,7 +985,6 @@
             this.maskedTextBox1.Name = "maskedTextBox1";
             this.maskedTextBox1.Size = new System.Drawing.Size(277, 26);
             this.maskedTextBox1.TabIndex = 106;
-            this.maskedTextBox1.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.maskedTextBox1_MaskInputRejected);
             this.maskedTextBox1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.maskedTextBox1_MouseClick);
             this.maskedTextBox1.Leave += new System.EventHandler(this.maskedTextBox1_Leave);
             // 
@@ -1061,7 +1005,7 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(1126, 640);
+            this.tabPage3.Size = new System.Drawing.Size(1114, 607);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Update Customer Details";
             // 
@@ -1080,7 +1024,7 @@
             this.panel5.Controls.Add(this.customer_UsernameTextBox);
             this.panel5.Controls.Add(customer_PasswordLabel1);
             this.panel5.Controls.Add(this.customer_PasswordTextBox);
-            this.panel5.Location = new System.Drawing.Point(583, 390);
+            this.panel5.Location = new System.Drawing.Point(583, 355);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(525, 241);
             this.panel5.TabIndex = 48;
@@ -1119,7 +1063,6 @@
             // 
             this.customerBindingSource.DataMember = "Customer";
             this.customerBindingSource.DataSource = this.dsSamsLiqourShop;
-            this.customerBindingSource.CurrentChanged += new System.EventHandler(this.customerBindingSource_CurrentChanged);
             // 
             // dsSamsLiqourShop
             // 
@@ -1186,7 +1129,7 @@
             this.panel4.Controls.Add(this.customer_SuburbTextBox);
             this.panel4.Controls.Add(customer_SuburbLabel1);
             this.panel4.Controls.Add(customer_UnitNumberLabel1);
-            this.panel4.Location = new System.Drawing.Point(19, 391);
+            this.panel4.Location = new System.Drawing.Point(19, 356);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(525, 241);
             this.panel4.TabIndex = 47;
@@ -1302,9 +1245,9 @@
             this.panel3.Controls.Add(label6);
             this.panel3.Controls.Add(this.customer_PhoneNumberTextBox);
             this.panel3.Controls.Add(customer_PhoneNumberLabel1);
-            this.panel3.Location = new System.Drawing.Point(583, 151);
+            this.panel3.Location = new System.Drawing.Point(583, 135);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(525, 241);
+            this.panel3.Size = new System.Drawing.Size(525, 205);
             this.panel3.TabIndex = 46;
             // 
             // customer_EmailAddressTextBox
@@ -1360,9 +1303,9 @@
             this.panel2.Controls.Add(customer_LastNameLabel2);
             this.panel2.Controls.Add(this.customer_FirstNameTextBox1);
             this.panel2.Controls.Add(customer_FirstNameLabel2);
-            this.panel2.Location = new System.Drawing.Point(19, 151);
+            this.panel2.Location = new System.Drawing.Point(19, 135);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(525, 241);
+            this.panel2.Size = new System.Drawing.Size(525, 205);
             this.panel2.TabIndex = 45;
             // 
             // customer_IDTextBox
@@ -1430,7 +1373,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(15, 6);
+            this.label2.Location = new System.Drawing.Point(14, 24);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(256, 30);
             this.label2.TabIndex = 43;
@@ -1440,7 +1383,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(18, 47);
+            this.label1.Location = new System.Drawing.Point(14, 65);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(191, 25);
             this.label1.TabIndex = 42;
@@ -1449,7 +1392,7 @@
             // textBox2
             // 
             this.textBox2.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(215, 47);
+            this.textBox2.Location = new System.Drawing.Point(235, 62);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(309, 33);
             this.textBox2.TabIndex = 40;
@@ -1466,7 +1409,7 @@
             this.panel1.Controls.Add(this.button3);
             this.panel1.Location = new System.Drawing.Point(639, 6);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(469, 121);
+            this.panel1.Size = new System.Drawing.Size(469, 123);
             this.panel1.TabIndex = 44;
             // 
             // button4
@@ -1530,32 +1473,6 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
-            // toolTip1
-            // 
-            this.toolTip1.Popup += new System.Windows.Forms.PopupEventHandler(this.toolTip1_Popup);
-            // 
-            // tableAdapterManager
-            // 
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.CategoryTableAdapter = null;
-            this.tableAdapterManager.CustomerTableAdapter = this.customerTableAdapter;
-            this.tableAdapterManager.DiscountTableAdapter = null;
-            this.tableAdapterManager.EmployeeTableAdapter = null;
-            this.tableAdapterManager.PaymentMethodTableAdapter = null;
-            this.tableAdapterManager.PaymentTableAdapter = null;
-            this.tableAdapterManager.ProductTableAdapter = null;
-            this.tableAdapterManager.PurchaseOrderLineTableAdapter = null;
-            this.tableAdapterManager.PurchaseOrderTableAdapter = null;
-            this.tableAdapterManager.SaleLineTableAdapter = null;
-            this.tableAdapterManager.SaleTableAdapter = null;
-            this.tableAdapterManager.SaleTypeTableAdapter = null;
-            this.tableAdapterManager.SupplierTableAdapter = null;
-            this.tableAdapterManager.UpdateOrder = TheByteClubPOS.dsSamsLiqourShopTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            // 
-            // customerTableAdapter
-            // 
-            this.customerTableAdapter.ClearBeforeFill = true;
-            // 
             // tabPage2
             // 
             this.tabPage2.BackgroundImage = global::TheByteClubPOS.Properties.Resources.Background;
@@ -1569,22 +1486,163 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1126, 640);
+            this.tabPage2.Size = new System.Drawing.Size(1126, 607);
             this.tabPage2.TabIndex = 3;
             this.tabPage2.Text = "View Customer";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // radioButton4
+            // customerDataGridView
             // 
-            this.radioButton4.AutoSize = true;
-            this.radioButton4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton4.Location = new System.Drawing.Point(6, 59);
-            this.radioButton4.Name = "radioButton4";
-            this.radioButton4.Size = new System.Drawing.Size(112, 24);
-            this.radioButton4.TabIndex = 7;
-            this.radioButton4.TabStop = true;
-            this.radioButton4.Text = "Descending";
-            this.radioButton4.UseVisualStyleBackColor = true;
+            this.customerDataGridView.AutoGenerateColumns = false;
+            this.customerDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.customerDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4,
+            this.dataGridViewTextBoxColumn5,
+            this.dataGridViewTextBoxColumn6,
+            this.dataGridViewTextBoxColumn7,
+            this.dataGridViewTextBoxColumn8,
+            this.dataGridViewTextBoxColumn9,
+            this.dataGridViewTextBoxColumn10,
+            this.dataGridViewTextBoxColumn11,
+            this.dataGridViewTextBoxColumn12,
+            this.dataGridViewTextBoxColumn13,
+            this.dataGridViewTextBoxColumn14,
+            this.dataGridViewTextBoxColumn15,
+            this.dataGridViewTextBoxColumn16,
+            this.dataGridViewTextBoxColumn17,
+            this.dataGridViewTextBoxColumn18,
+            this.dataGridViewTextBoxColumn19,
+            this.dataGridViewTextBoxColumn20});
+            this.customerDataGridView.DataSource = this.customerBindingSource;
+            this.customerDataGridView.Location = new System.Drawing.Point(30, 291);
+            this.customerDataGridView.Name = "customerDataGridView";
+            this.customerDataGridView.Size = new System.Drawing.Size(1071, 289);
+            this.customerDataGridView.TabIndex = 14;
+            this.customerDataGridView.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.customerDataGridView_CellFormatting_1);
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "Customer_ID";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Customer_ID";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "Customer_FirstName";
+            this.dataGridViewTextBoxColumn2.HeaderText = "FirstName";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "Customer_LastName";
+            this.dataGridViewTextBoxColumn3.HeaderText = "LastName";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "Customer_EmailAddress";
+            this.dataGridViewTextBoxColumn4.HeaderText = "EmailAddress";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "Customer_IDNumber";
+            this.dataGridViewTextBoxColumn5.HeaderText = "IDNumber";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "Customer_PhoneNumber";
+            this.dataGridViewTextBoxColumn6.HeaderText = "PhoneNumber";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.DataPropertyName = "Customer_UnitNumber";
+            this.dataGridViewTextBoxColumn7.HeaderText = "UnitNumber";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            this.dataGridViewTextBoxColumn8.DataPropertyName = "Customer_UnitName";
+            this.dataGridViewTextBoxColumn8.HeaderText = "UnitName";
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            this.dataGridViewTextBoxColumn9.DataPropertyName = "Customer_StreetNumber";
+            this.dataGridViewTextBoxColumn9.HeaderText = "StreetNumber";
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            // 
+            // dataGridViewTextBoxColumn10
+            // 
+            this.dataGridViewTextBoxColumn10.DataPropertyName = "Customer_StreetName";
+            this.dataGridViewTextBoxColumn10.HeaderText = "StreetName";
+            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            // 
+            // dataGridViewTextBoxColumn11
+            // 
+            this.dataGridViewTextBoxColumn11.DataPropertyName = "Customer_Suburb";
+            this.dataGridViewTextBoxColumn11.HeaderText = "Suburb";
+            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
+            // 
+            // dataGridViewTextBoxColumn12
+            // 
+            this.dataGridViewTextBoxColumn12.DataPropertyName = "Customer_PostalCode";
+            this.dataGridViewTextBoxColumn12.HeaderText = "PostalCode";
+            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
+            // 
+            // dataGridViewTextBoxColumn13
+            // 
+            this.dataGridViewTextBoxColumn13.DataPropertyName = "Customer_City";
+            this.dataGridViewTextBoxColumn13.HeaderText = "City";
+            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
+            // 
+            // dataGridViewTextBoxColumn14
+            // 
+            this.dataGridViewTextBoxColumn14.DataPropertyName = "Customer_Province";
+            this.dataGridViewTextBoxColumn14.HeaderText = "Province";
+            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
+            // 
+            // dataGridViewTextBoxColumn15
+            // 
+            this.dataGridViewTextBoxColumn15.DataPropertyName = "Customer_Country";
+            this.dataGridViewTextBoxColumn15.HeaderText = "Country";
+            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
+            // 
+            // dataGridViewTextBoxColumn16
+            // 
+            this.dataGridViewTextBoxColumn16.DataPropertyName = "Customer_RegistrationDateTime";
+            this.dataGridViewTextBoxColumn16.HeaderText = "RegistrationDateTime";
+            this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
+            // 
+            // dataGridViewTextBoxColumn17
+            // 
+            this.dataGridViewTextBoxColumn17.DataPropertyName = "Customer_LoyaltyPointsBalance";
+            this.dataGridViewTextBoxColumn17.HeaderText = "LoyaltyPointsBalance";
+            this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
+            // 
+            // dataGridViewTextBoxColumn18
+            // 
+            this.dataGridViewTextBoxColumn18.DataPropertyName = "Customer_Status";
+            this.dataGridViewTextBoxColumn18.HeaderText = "Status";
+            this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
+            // 
+            // dataGridViewTextBoxColumn19
+            // 
+            this.dataGridViewTextBoxColumn19.DataPropertyName = "Customer_Username";
+            this.dataGridViewTextBoxColumn19.HeaderText = "Username";
+            this.dataGridViewTextBoxColumn19.Name = "dataGridViewTextBoxColumn19";
+            // 
+            // dataGridViewTextBoxColumn20
+            // 
+            this.dataGridViewTextBoxColumn20.DataPropertyName = "Customer_Password";
+            this.dataGridViewTextBoxColumn20.HeaderText = "Password";
+            this.dataGridViewTextBoxColumn20.Name = "dataGridViewTextBoxColumn20";
             // 
             // groupBox1
             // 
@@ -1755,6 +1813,18 @@
             this.rbCity.UseVisualStyleBackColor = true;
             this.rbCity.CheckedChanged += new System.EventHandler(this.rbCity_CheckedChanged);
             // 
+            // groupBox3
+            // 
+            this.groupBox3.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox3.Controls.Add(this.radioButton3);
+            this.groupBox3.Controls.Add(this.radioButton4);
+            this.groupBox3.Location = new System.Drawing.Point(783, 120);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(200, 100);
+            this.groupBox3.TabIndex = 14;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Order BY";
+            // 
             // radioButton3
             // 
             this.radioButton3.AutoSize = true;
@@ -1767,17 +1837,43 @@
             this.radioButton3.Text = "Ascending";
             this.radioButton3.UseVisualStyleBackColor = true;
             // 
-            // groupBox3
+            // radioButton4
             // 
-            this.groupBox3.BackColor = System.Drawing.Color.Transparent;
-            this.groupBox3.Controls.Add(this.radioButton3);
-            this.groupBox3.Controls.Add(this.radioButton4);
-            this.groupBox3.Location = new System.Drawing.Point(783, 120);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(200, 100);
-            this.groupBox3.TabIndex = 14;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Order BY";
+            this.radioButton4.AutoSize = true;
+            this.radioButton4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioButton4.Location = new System.Drawing.Point(6, 59);
+            this.radioButton4.Name = "radioButton4";
+            this.radioButton4.Size = new System.Drawing.Size(112, 24);
+            this.radioButton4.TabIndex = 7;
+            this.radioButton4.TabStop = true;
+            this.radioButton4.Text = "Descending";
+            this.radioButton4.UseVisualStyleBackColor = true;
+            // 
+            // toolTip1
+            // 
+            this.toolTip1.Popup += new System.Windows.Forms.PopupEventHandler(this.toolTip1_Popup);
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.CategoryTableAdapter = null;
+            this.tableAdapterManager.CustomerTableAdapter = this.customerTableAdapter;
+            this.tableAdapterManager.DiscountTableAdapter = null;
+            this.tableAdapterManager.EmployeeTableAdapter = null;
+            this.tableAdapterManager.PaymentMethodTableAdapter = null;
+            this.tableAdapterManager.PaymentTableAdapter = null;
+            this.tableAdapterManager.ProductTableAdapter = null;
+            this.tableAdapterManager.PurchaseOrderLineTableAdapter = null;
+            this.tableAdapterManager.PurchaseOrderTableAdapter = null;
+            this.tableAdapterManager.SaleLineTableAdapter = null;
+            this.tableAdapterManager.SaleTableAdapter = null;
+            this.tableAdapterManager.SaleTypeTableAdapter = null;
+            this.tableAdapterManager.SupplierTableAdapter = null;
+            this.tableAdapterManager.UpdateOrder = TheByteClubPOS.dsSamsLiqourShopTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            // 
+            // customerTableAdapter
+            // 
+            this.customerTableAdapter.ClearBeforeFill = true;
             // 
             // dsSamsLiqourShop1
             // 
@@ -1810,159 +1906,6 @@
             this.tableAdapterManager1.SaleTypeTableAdapter = null;
             this.tableAdapterManager1.SupplierTableAdapter = null;
             this.tableAdapterManager1.UpdateOrder = TheByteClubPOS.dsSamsLiqourShopTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            // 
-            // customerDataGridView
-            // 
-            this.customerDataGridView.AutoGenerateColumns = false;
-            this.customerDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.customerDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn5,
-            this.dataGridViewTextBoxColumn6,
-            this.dataGridViewTextBoxColumn7,
-            this.dataGridViewTextBoxColumn8,
-            this.dataGridViewTextBoxColumn9,
-            this.dataGridViewTextBoxColumn10,
-            this.dataGridViewTextBoxColumn11,
-            this.dataGridViewTextBoxColumn12,
-            this.dataGridViewTextBoxColumn13,
-            this.dataGridViewTextBoxColumn14,
-            this.dataGridViewTextBoxColumn15,
-            this.dataGridViewTextBoxColumn16,
-            this.dataGridViewTextBoxColumn17,
-            this.dataGridViewTextBoxColumn18,
-            this.dataGridViewTextBoxColumn19,
-            this.dataGridViewTextBoxColumn20});
-            this.customerDataGridView.DataSource = this.customerBindingSource;
-            this.customerDataGridView.Location = new System.Drawing.Point(30, 291);
-            this.customerDataGridView.Name = "customerDataGridView";
-            this.customerDataGridView.Size = new System.Drawing.Size(1071, 326);
-            this.customerDataGridView.TabIndex = 14;
-            this.customerDataGridView.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.customerDataGridView_CellFormatting_1);
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "Customer_ID";
-            this.dataGridViewTextBoxColumn1.HeaderText = "Customer_ID";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "Customer_FirstName";
-            this.dataGridViewTextBoxColumn2.HeaderText = "FirstName";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "Customer_LastName";
-            this.dataGridViewTextBoxColumn3.HeaderText = "LastName";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "Customer_EmailAddress";
-            this.dataGridViewTextBoxColumn4.HeaderText = "EmailAddress";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "Customer_IDNumber";
-            this.dataGridViewTextBoxColumn5.HeaderText = "IDNumber";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "Customer_PhoneNumber";
-            this.dataGridViewTextBoxColumn6.HeaderText = "PhoneNumber";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            this.dataGridViewTextBoxColumn7.DataPropertyName = "Customer_UnitNumber";
-            this.dataGridViewTextBoxColumn7.HeaderText = "UnitNumber";
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            // 
-            // dataGridViewTextBoxColumn8
-            // 
-            this.dataGridViewTextBoxColumn8.DataPropertyName = "Customer_UnitName";
-            this.dataGridViewTextBoxColumn8.HeaderText = "UnitName";
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            // 
-            // dataGridViewTextBoxColumn9
-            // 
-            this.dataGridViewTextBoxColumn9.DataPropertyName = "Customer_StreetNumber";
-            this.dataGridViewTextBoxColumn9.HeaderText = "StreetNumber";
-            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-            // 
-            // dataGridViewTextBoxColumn10
-            // 
-            this.dataGridViewTextBoxColumn10.DataPropertyName = "Customer_StreetName";
-            this.dataGridViewTextBoxColumn10.HeaderText = "StreetName";
-            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
-            // 
-            // dataGridViewTextBoxColumn11
-            // 
-            this.dataGridViewTextBoxColumn11.DataPropertyName = "Customer_Suburb";
-            this.dataGridViewTextBoxColumn11.HeaderText = "Suburb";
-            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
-            // 
-            // dataGridViewTextBoxColumn12
-            // 
-            this.dataGridViewTextBoxColumn12.DataPropertyName = "Customer_PostalCode";
-            this.dataGridViewTextBoxColumn12.HeaderText = "PostalCode";
-            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
-            // 
-            // dataGridViewTextBoxColumn13
-            // 
-            this.dataGridViewTextBoxColumn13.DataPropertyName = "Customer_City";
-            this.dataGridViewTextBoxColumn13.HeaderText = "City";
-            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
-            // 
-            // dataGridViewTextBoxColumn14
-            // 
-            this.dataGridViewTextBoxColumn14.DataPropertyName = "Customer_Province";
-            this.dataGridViewTextBoxColumn14.HeaderText = "Province";
-            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
-            // 
-            // dataGridViewTextBoxColumn15
-            // 
-            this.dataGridViewTextBoxColumn15.DataPropertyName = "Customer_Country";
-            this.dataGridViewTextBoxColumn15.HeaderText = "Country";
-            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
-            // 
-            // dataGridViewTextBoxColumn16
-            // 
-            this.dataGridViewTextBoxColumn16.DataPropertyName = "Customer_RegistrationDateTime";
-            this.dataGridViewTextBoxColumn16.HeaderText = "RegistrationDateTime";
-            this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
-            // 
-            // dataGridViewTextBoxColumn17
-            // 
-            this.dataGridViewTextBoxColumn17.DataPropertyName = "Customer_LoyaltyPointsBalance";
-            this.dataGridViewTextBoxColumn17.HeaderText = "LoyaltyPointsBalance";
-            this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
-            // 
-            // dataGridViewTextBoxColumn18
-            // 
-            this.dataGridViewTextBoxColumn18.DataPropertyName = "Customer_Status";
-            this.dataGridViewTextBoxColumn18.HeaderText = "Status";
-            this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
-            // 
-            // dataGridViewTextBoxColumn19
-            // 
-            this.dataGridViewTextBoxColumn19.DataPropertyName = "Customer_Username";
-            this.dataGridViewTextBoxColumn19.HeaderText = "Username";
-            this.dataGridViewTextBoxColumn19.Name = "dataGridViewTextBoxColumn19";
-            // 
-            // dataGridViewTextBoxColumn20
-            // 
-            this.dataGridViewTextBoxColumn20.DataPropertyName = "Customer_Password";
-            this.dataGridViewTextBoxColumn20.HeaderText = "Password";
-            this.dataGridViewTextBoxColumn20.Name = "dataGridViewTextBoxColumn20";
             // 
             // ManageCustomerDetails
             // 
@@ -2011,6 +1954,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.customerDataGridView)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -2019,7 +1963,6 @@
             this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dsSamsLiqourShop1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.customerDataGridView)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2033,7 +1976,6 @@
         private System.Windows.Forms.MaskedTextBox maskedTextBox1;
         private System.Windows.Forms.DateTimePicker dtpRegistrationDateTime;
         private System.Windows.Forms.ComboBox cmbProvince;
-        private System.Windows.Forms.TextBox txtUsername;
         private System.Windows.Forms.TextBox txtLoyaltyPointsBalance;
         private System.Windows.Forms.TextBox txtCountry;
         private System.Windows.Forms.TextBox txtCity;
@@ -2103,7 +2045,6 @@
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.PictureBox pictureBox8;
         private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.PictureBox pictureBox9;
         private System.Windows.Forms.Label label29;
