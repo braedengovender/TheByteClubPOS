@@ -322,24 +322,24 @@
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator5.Size = new System.Drawing.Size(158, 6);
             // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
             this.aboutToolStripMenuItem.Text = "&About...";
             // 
             // userGuideToolStripMenuItem
             // 
             this.userGuideToolStripMenuItem.Name = "userGuideToolStripMenuItem";
-            this.userGuideToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.userGuideToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
             this.userGuideToolStripMenuItem.Text = "User Guide";
             // 
             // troubleshootingToolStripMenuItem
             // 
             this.troubleshootingToolStripMenuItem.Name = "troubleshootingToolStripMenuItem";
-            this.troubleshootingToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.troubleshootingToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
             this.troubleshootingToolStripMenuItem.Text = "Troubleshooting";
             // 
             // statusStrip1
@@ -580,7 +580,7 @@
             // 
             this.pictureBox1.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Image = global::TheByteClubPOS.Properties.Resources.MainFormPanel1;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(220, 130);

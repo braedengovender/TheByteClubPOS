@@ -126,9 +126,10 @@ namespace TheByteClubPOS
                 .Take(5)
                 .Select(p => new LowStockItemDto
                 {
-                    ProductName  = p.Product_Name,
-                    CurrentStock = p.Product_QuantityInStock,
-                    ReorderLevel = p.Product_ReorderQuantity
+                    ProductName       = p.Product_Name,
+                    CurrentStock      = p.Product_QuantityInStock,
+                    ReorderLevel      = p.Product_ReorderQuantity,
+                    ProductImageBytes = p.IsProduct_ImageNull() ? null : p.Product_Image
                 })
                 .ToList();
 

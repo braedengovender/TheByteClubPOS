@@ -263,13 +263,12 @@ namespace TheByteClubPOS
             var stCard = MkCard(new Rectangle(xSt, y, stW, H));
             AddTitle(stCard, "Low Stock Items", stW);
 
-            _dgvLowStock = MkGrid(
+            _dgvLowStock = MkGridWithImage(
                 ("Product",    "ProductName",  100, DataGridViewContentAlignment.MiddleLeft),
                 ("Stock",      "CurrentStock",  58, DataGridViewContentAlignment.MiddleCenter),
                 ("Reorder",    "ReorderLevel",  58, DataGridViewContentAlignment.MiddleCenter));
             _dgvLowStock.Location        = new Point(1, 35);
             _dgvLowStock.Size            = new Size(stW - 2, gridH);
-            _dgvLowStock.CellFormatting += StockGrid_CellFormatting;
             stCard.Controls.Add(_dgvLowStock);
             stCard.Controls.Add(MkLbl("Showing latest 5 low stock items", F(7.5f), C_MID,
                 new Rectangle(10, H - 18, stW - 20, 15)));
@@ -432,6 +431,33 @@ namespace TheByteClubPOS
             };
         }
 
+        private static Image BytesToImage(byte[] bytes)
+        {
+            if (bytes == null || bytes.Length == 0) return null;
+            try { return Image.FromStream(new System.IO.MemoryStream(bytes)); }
+            catch { return null; }
+        }
+
+        private static DataGridView MkGridWithImage(
+            params (string hdr, string field, int minW,
+                    DataGridViewContentAlignment align)[] cols)
+        {
+            var g = MkGrid(cols);
+            var imgCol = new DataGridViewImageColumn
+            {
+                Name             = "col_ProductImage",
+                HeaderText       = "",
+                DataPropertyName = "ProductImage",
+                Width            = 32,
+                ImageLayout      = DataGridViewImageCellLayout.Zoom,
+                DefaultCellStyle = { NullValue = null, Alignment = DataGridViewContentAlignment.MiddleCenter }
+            };
+            g.Columns.Insert(0, imgCol);
+            g.RowTemplate.Height = 32;
+            g.DataError += (s, e) => e.ThrowException = false;
+            return g;
+        }
+
         private static DataGridView MkGrid(
             params (string hdr, string field, int minW,
                     DataGridViewContentAlignment align)[] cols)
@@ -536,8 +562,27 @@ namespace TheByteClubPOS
                 TotalAmtStr = string.Format("R{0:N2}", t.TotalAmount)
             }).ToList();
 
-            // Low stock grid
-            _dgvLowStock.DataSource = d.LowStockItems;
+            // Bind low stock with product images
+            _dgvLowStock.DataSource = d.LowStockItems.Select(s => new
+            {
+                ProductImage = BytesToImage(s.ProductImageBytes),
+                s.ProductName,
+                CurrentStock = s.CurrentStock.ToString(),
+                ReorderLevel = s.ReorderLevel.ToString()
+            }).ToList();
+
+            foreach (DataGridViewRow row in _dgvLowStock.Rows)
+            {
+                if (row.IsNewRow) continue;
+                var cell = row.Cells["col_CurrentStock"];
+                if (cell.Value != null &&
+                    int.TryParse(cell.Value.ToString(), out int qty))
+                {
+                    cell.Style.ForeColor = qty <= 3
+                        ? Color.FromArgb(231, 76, 60)
+                        : Color.FromArgb(230, 126, 34);
+                }
+            }
 
             // Best customer
             if (d.BestCustomer != null)
@@ -558,19 +603,6 @@ namespace TheByteClubPOS
                 d.LastUpdated);
         }
 
-        private void StockGrid_CellFormatting(object sender,
-            DataGridViewCellFormattingEventArgs e)
-        {
-            if (e.ColumnIndex < 0 || e.RowIndex < 0) return;
-            var grid = (DataGridView)sender;
-            if (grid.Columns[e.ColumnIndex].Name == "col_CurrentStock" &&
-                e.Value is int qty)
-            {
-                e.CellStyle.ForeColor = qty <= 3
-                    ? Color.FromArgb(231, 76, 60)
-                    : Color.FromArgb(230, 126, 34);
-                e.FormattingApplied = true;
-            }
-        }
+
     }
 }
