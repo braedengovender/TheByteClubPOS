@@ -248,6 +248,8 @@ namespace TheByteClubPOS
         private void manageEmployeesToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             ManageEmployeeDetailsForm employeeDetailsForm = new ManageEmployeeDetailsForm();
+
+
             OpenChildForm(employeeDetailsForm);
         }
 

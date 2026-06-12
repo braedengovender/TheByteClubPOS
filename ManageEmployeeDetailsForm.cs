@@ -230,31 +230,31 @@ namespace TheByteClubPOS
             // Make sure an employee is selected
             if (employeeBindingSource.Current == null)
             {
-                MessageBox.Show(
-                    "Please select an employee first.");
-
+                MessageBox.Show("Please select an employee first.");
                 return;
             }
 
             // Get selected row
-            DataRowView selectedRow =
-                (DataRowView)employeeBindingSource.Current;
+            DataRowView selectedRow = (DataRowView)employeeBindingSource.Current;
 
-            int employeeID =
-                Convert.ToInt32(
-                    selectedRow["Employee_ID"]);
+            int employeeID = Convert.ToInt32( selectedRow["Employee_ID"]);
 
             // Open Edit Form
-           UpdateEmployeesForm updateemployees =
-                new UpdateEmployeesForm(employeeID); 
-          
+            UpdateEmployeesForm updateemployees = new UpdateEmployeesForm(employeeID);
+            updateemployees.SetTabVisibility(false);
+            updateemployees.MdiParent = this.ParentForm;
 
+            updateemployees.FormClosed += (senderForm, eventArgs) =>
+            {
+                // This code runs only when the window closes
+                this.employeeTableAdapter.Fill(this.dsSamsLiqourShop.Employee);
+            };
 
-            updateemployees.ShowDialog();
+            updateemployees.Show();
+            //updateemployees.ShowDialog();
 
             // Refresh grid after editing
-            employeeTableAdapter.Fill(
-                dsSamsLiqourShop.Employee);
+            // employeeTableAdapter.Fill(dsSamsLiqourShop.Employee); - moved to UpdateEmployeesForm's FormClosed event to ensure it refreshes after the form is closed
         }
 
         private void rdoAll_CheckedChanged(object sender, EventArgs e)
@@ -263,14 +263,25 @@ namespace TheByteClubPOS
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
-        { // Open Add Employee Form
+        { 
+            // Open Add Employee Form
             UpdateEmployeesForm addemployee = new UpdateEmployeesForm(2);
-            addemployee.tabControl1.SelectedIndex = 1; // Select the Add Employee tab
+            addemployee.SetTabVisibility(true); // Select the Add Employee tab
 
-            addemployee.ShowDialog();
+            // addemployee.ShowDialog();
+
+            addemployee.MdiParent = this.ParentForm;
+
+            addemployee.FormClosed += (senderForm, eventArgs) =>
+            {
+                // This code runs only when the window closes
+                this.employeeTableAdapter.Fill(this.dsSamsLiqourShop.Employee);
+            };
+
+            addemployee.Show();
 
             // Refresh employee list when form closes
-            employeeTableAdapter.Fill(dsSamsLiqourShop.Employee);
+            // employeeTableAdapter.Fill(dsSamsLiqourShop.Employee); - moved to UpdateEmployeesForm's FormClosed event to ensure it refreshes after the form is closed
         }
 
         private void rdoAsc_CheckedChanged_1(object sender, EventArgs e)

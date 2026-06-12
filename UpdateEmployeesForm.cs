@@ -15,6 +15,24 @@ namespace TheByteClubPOS
     public partial class UpdateEmployeesForm : Form
     {
         private int employeeID;
+
+        public void SetTabVisibility(bool isAddMode)
+        {
+            // First, clear everything so we don't end up with duplicate tabs
+            tabControl1.TabPages.Clear();
+
+            if (isAddMode)
+            {
+                // Add only the tab we want
+                tabControl1.TabPages.Add(tabPage2);
+            }
+            else
+            {
+                // Add only the tab we want
+                tabControl1.TabPages.Add(tabPage1);
+            }
+        }
+
         public UpdateEmployeesForm(int selectedEmployeeID)
         {
             InitializeComponent();
@@ -166,10 +184,10 @@ namespace TheByteClubPOS
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            ManageEmployeeDetailsForm manageEmployeeDetailsForm =
-               new ManageEmployeeDetailsForm();
+            /*ManageEmployeeDetailsForm manageEmployeeDetailsForm = new ManageEmployeeDetailsForm();
             this.Hide();
-            manageEmployeeDetailsForm.ShowDialog();
+            manageEmployeeDetailsForm.ShowDialog();*/
+            this.Close();
         }
 
         private void btnInsert_Click(object sender, EventArgs e)
@@ -259,10 +277,10 @@ namespace TheByteClubPOS
 
         private void button1_Click(object sender, EventArgs e)
         {
-            ManageEmployeeDetailsForm manageEmployeeDetailsForm =
-                new ManageEmployeeDetailsForm();
+            /*ManageEmployeeDetailsForm manageEmployeeDetailsForm = new ManageEmployeeDetailsForm();
             this.Hide();
-            manageEmployeeDetailsForm.ShowDialog();
+            manageEmployeeDetailsForm.ShowDialog();*/
+            this.Close();
         }
 
         private void pictureBox7_Click(object sender, EventArgs e)
@@ -423,6 +441,11 @@ namespace TheByteClubPOS
 
                 return;
             }
+        }
+
+        private void customer_FirstNameLabel2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
