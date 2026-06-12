@@ -31,17 +31,44 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ManageProductCategories));
             this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.dataGridView4 = new System.Windows.Forms.DataGridView();
+            this.categoryIDDataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.categoryNameDataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.categoryDescriptionDataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.discountIDDataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.categoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dsSamsLiqourShop = new TheByteClubPOS.dsSamsLiqourShop();
+            this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.label8 = new System.Windows.Forms.Label();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.button3 = new System.Windows.Forms.Button();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.categoryIDDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.categoryNameDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.categoryDescriptionDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.discountIDDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.btnCategory = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.cmbDiscount = new System.Windows.Forms.ComboBox();
-            this.categoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dsSamsLiqourShop = new TheByteClubPOS.dsSamsLiqourShop();
             this.txtCatDescription = new System.Windows.Forms.TextBox();
             this.txtCategoryName = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.categoryIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.categoryNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.categoryDescriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.discountIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
@@ -50,50 +77,23 @@
             this.txtDel = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.tabPage5 = new System.Windows.Forms.TabPage();
-            this.button3 = new System.Windows.Forms.Button();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.dataGridView3 = new System.Windows.Forms.DataGridView();
-            this.tabPage6 = new System.Windows.Forms.TabPage();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.dataGridView4 = new System.Windows.Forms.DataGridView();
-            this.categoryTableAdapter = new TheByteClubPOS.dsSamsLiqourShopTableAdapters.CategoryTableAdapter();
-            this.categoryIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.categoryNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.categoryDescriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.discountIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.categoryIDDataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.categoryNameDataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.categoryDescriptionDataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.discountIDDataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.categoryIDDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.categoryNameDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.categoryDescriptionDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.discountIDDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.categoryIDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.categoryNameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.categoryDescriptionDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.discountIDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.categoryTableAdapter = new TheByteClubPOS.dsSamsLiqourShopTableAdapters.CategoryTableAdapter();
             this.tabControl1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
+            this.tabPage6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoryBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsSamsLiqourShop)).BeginInit();
+            this.tabPage5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
+            this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabControl2.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            this.tabPage5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
-            this.tabPage6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -109,75 +109,87 @@
             this.tabControl1.Size = new System.Drawing.Size(1701, 962);
             this.tabControl1.TabIndex = 0;
             // 
-            // tabPage1
+            // tabPage6
             // 
-            this.tabPage1.BackgroundImage = global::TheByteClubPOS.Properties.Resources.Background;
-            this.tabPage1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.tabPage1.Controls.Add(this.btnCategory);
-            this.tabPage1.Controls.Add(this.label3);
-            this.tabPage1.Controls.Add(this.label2);
-            this.tabPage1.Controls.Add(this.label1);
-            this.tabPage1.Controls.Add(this.cmbDiscount);
-            this.tabPage1.Controls.Add(this.txtCatDescription);
-            this.tabPage1.Controls.Add(this.txtCategoryName);
-            this.tabPage1.Controls.Add(this.dataGridView1);
-            this.tabPage1.Controls.Add(this.tabControl2);
-            this.tabPage1.Location = new System.Drawing.Point(4, 38);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.tabPage1.Size = new System.Drawing.Size(1693, 920);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Add Category";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.tabPage6.BackgroundImage = global::TheByteClubPOS.Properties.Resources.Background;
+            this.tabPage6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.tabPage6.Controls.Add(this.textBox7);
+            this.tabPage6.Controls.Add(this.label9);
+            this.tabPage6.Controls.Add(this.dataGridView4);
+            this.tabPage6.Location = new System.Drawing.Point(4, 38);
+            this.tabPage6.Name = "tabPage6";
+            this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage6.Size = new System.Drawing.Size(1693, 920);
+            this.tabPage6.TabIndex = 3;
+            this.tabPage6.Text = "View Category";
+            this.tabPage6.UseVisualStyleBackColor = true;
             // 
-            // btnCategory
+            // textBox7
             // 
-            this.btnCategory.Location = new System.Drawing.Point(542, 755);
-            this.btnCategory.Name = "btnCategory";
-            this.btnCategory.Size = new System.Drawing.Size(308, 89);
-            this.btnCategory.TabIndex = 8;
-            this.btnCategory.Text = "Add Category";
-            this.btnCategory.UseVisualStyleBackColor = true;
-            this.btnCategory.Click += new System.EventHandler(this.button4_Click);
+            this.textBox7.Location = new System.Drawing.Point(471, 26);
+            this.textBox7.Name = "textBox7";
+            this.textBox7.Size = new System.Drawing.Size(320, 35);
+            this.textBox7.TabIndex = 2;
+            this.textBox7.TextChanged += new System.EventHandler(this.textBox7_TextChanged);
             // 
-            // label3
+            // label9
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(296, 680);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(153, 29);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "DiscountID :";
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(184, 28);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(214, 29);
+            this.label9.TabIndex = 1;
+            this.label9.Text = "Search Category:";
             // 
-            // label2
+            // dataGridView4
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(255, 588);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(153, 29);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "Description:";
+            this.dataGridView4.AutoGenerateColumns = false;
+            this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView4.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.categoryIDDataGridViewTextBoxColumn3,
+            this.categoryNameDataGridViewTextBoxColumn3,
+            this.categoryDescriptionDataGridViewTextBoxColumn3,
+            this.discountIDDataGridViewTextBoxColumn3});
+            this.dataGridView4.DataSource = this.categoryBindingSource;
+            this.dataGridView4.Location = new System.Drawing.Point(96, 83);
+            this.dataGridView4.Name = "dataGridView4";
+            this.dataGridView4.RowHeadersWidth = 62;
+            this.dataGridView4.RowTemplate.Height = 28;
+            this.dataGridView4.Size = new System.Drawing.Size(1564, 385);
+            this.dataGridView4.TabIndex = 0;
             // 
-            // label1
+            // categoryIDDataGridViewTextBoxColumn3
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(194, 483);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(201, 29);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "Category Name:";
+            this.categoryIDDataGridViewTextBoxColumn3.DataPropertyName = "Category_ID";
+            this.categoryIDDataGridViewTextBoxColumn3.HeaderText = "ID";
+            this.categoryIDDataGridViewTextBoxColumn3.MinimumWidth = 8;
+            this.categoryIDDataGridViewTextBoxColumn3.Name = "categoryIDDataGridViewTextBoxColumn3";
+            this.categoryIDDataGridViewTextBoxColumn3.ReadOnly = true;
+            this.categoryIDDataGridViewTextBoxColumn3.Width = 150;
             // 
-            // cmbDiscount
+            // categoryNameDataGridViewTextBoxColumn3
             // 
-            this.cmbDiscount.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.categoryBindingSource, "Category_ID", true));
-            this.cmbDiscount.DataSource = this.categoryBindingSource;
-            this.cmbDiscount.DisplayMember = "Discount_ID";
-            this.cmbDiscount.FormattingEnabled = true;
-            this.cmbDiscount.Location = new System.Drawing.Point(542, 677);
-            this.cmbDiscount.Name = "cmbDiscount";
-            this.cmbDiscount.Size = new System.Drawing.Size(318, 37);
-            this.cmbDiscount.TabIndex = 4;
-            this.cmbDiscount.ValueMember = "Discount_ID";
+            this.categoryNameDataGridViewTextBoxColumn3.DataPropertyName = "Category_Name";
+            this.categoryNameDataGridViewTextBoxColumn3.HeaderText = "Name";
+            this.categoryNameDataGridViewTextBoxColumn3.MinimumWidth = 8;
+            this.categoryNameDataGridViewTextBoxColumn3.Name = "categoryNameDataGridViewTextBoxColumn3";
+            this.categoryNameDataGridViewTextBoxColumn3.Width = 250;
+            // 
+            // categoryDescriptionDataGridViewTextBoxColumn3
+            // 
+            this.categoryDescriptionDataGridViewTextBoxColumn3.DataPropertyName = "Category_Description";
+            this.categoryDescriptionDataGridViewTextBoxColumn3.HeaderText = "Description";
+            this.categoryDescriptionDataGridViewTextBoxColumn3.MinimumWidth = 8;
+            this.categoryDescriptionDataGridViewTextBoxColumn3.Name = "categoryDescriptionDataGridViewTextBoxColumn3";
+            this.categoryDescriptionDataGridViewTextBoxColumn3.Width = 350;
+            // 
+            // discountIDDataGridViewTextBoxColumn3
+            // 
+            this.discountIDDataGridViewTextBoxColumn3.DataPropertyName = "Discount_ID";
+            this.discountIDDataGridViewTextBoxColumn3.HeaderText = "DiscountID";
+            this.discountIDDataGridViewTextBoxColumn3.MinimumWidth = 8;
+            this.discountIDDataGridViewTextBoxColumn3.Name = "discountIDDataGridViewTextBoxColumn3";
+            this.discountIDDataGridViewTextBoxColumn3.Width = 150;
             // 
             // categoryBindingSource
             // 
@@ -188,127 +200,6 @@
             // 
             this.dsSamsLiqourShop.DataSetName = "dsSamsLiqourShop";
             this.dsSamsLiqourShop.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // txtCatDescription
-            // 
-            this.txtCatDescription.Location = new System.Drawing.Point(534, 577);
-            this.txtCatDescription.Name = "txtCatDescription";
-            this.txtCatDescription.Size = new System.Drawing.Size(324, 35);
-            this.txtCatDescription.TabIndex = 3;
-            // 
-            // txtCategoryName
-            // 
-            this.txtCategoryName.Location = new System.Drawing.Point(530, 483);
-            this.txtCategoryName.Name = "txtCategoryName";
-            this.txtCategoryName.Size = new System.Drawing.Size(330, 35);
-            this.txtCategoryName.TabIndex = 2;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AllowUserToOrderColumns = true;
-            this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.categoryIDDataGridViewTextBoxColumn,
-            this.categoryNameDataGridViewTextBoxColumn,
-            this.categoryDescriptionDataGridViewTextBoxColumn,
-            this.discountIDDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.categoryBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(38, 35);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 62;
-            this.dataGridView1.RowTemplate.Height = 28;
-            this.dataGridView1.Size = new System.Drawing.Size(1470, 408);
-            this.dataGridView1.TabIndex = 1;
-            // 
-            // tabControl2
-            // 
-            this.tabControl2.Controls.Add(this.tabPage3);
-            this.tabControl2.Controls.Add(this.tabPage4);
-            this.tabControl2.Location = new System.Drawing.Point(1628, 955);
-            this.tabControl2.Name = "tabControl2";
-            this.tabControl2.SelectedIndex = 0;
-            this.tabControl2.Size = new System.Drawing.Size(12, 12);
-            this.tabControl2.TabIndex = 0;
-            // 
-            // tabPage3
-            // 
-            this.tabPage3.Location = new System.Drawing.Point(4, 38);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.tabPage3.Size = new System.Drawing.Size(4, 0);
-            this.tabPage3.TabIndex = 0;
-            this.tabPage3.Text = "tabPage3";
-            this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // tabPage4
-            // 
-            this.tabPage4.Location = new System.Drawing.Point(4, 38);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.tabPage4.Size = new System.Drawing.Size(4, 0);
-            this.tabPage4.TabIndex = 1;
-            this.tabPage4.Text = "tabPage4";
-            this.tabPage4.UseVisualStyleBackColor = true;
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.BackgroundImage = global::TheByteClubPOS.Properties.Resources.Background;
-            this.tabPage2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.tabPage2.Controls.Add(this.btnCDel);
-            this.tabPage2.Controls.Add(this.txtDel);
-            this.tabPage2.Controls.Add(this.label4);
-            this.tabPage2.Controls.Add(this.dataGridView2);
-            this.tabPage2.Location = new System.Drawing.Point(4, 38);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.tabPage2.Size = new System.Drawing.Size(1693, 920);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "DeActivate Category";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // btnCDel
-            // 
-            this.btnCDel.Location = new System.Drawing.Point(610, 754);
-            this.btnCDel.Name = "btnCDel";
-            this.btnCDel.Size = new System.Drawing.Size(268, 108);
-            this.btnCDel.TabIndex = 3;
-            this.btnCDel.Text = "Delete Category";
-            this.btnCDel.UseVisualStyleBackColor = true;
-            this.btnCDel.Click += new System.EventHandler(this.btnCDel_Click);
-            // 
-            // txtDel
-            // 
-            this.txtDel.Location = new System.Drawing.Point(585, 597);
-            this.txtDel.Name = "txtDel";
-            this.txtDel.Size = new System.Drawing.Size(322, 35);
-            this.txtDel.TabIndex = 2;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(274, 598);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(219, 29);
-            this.label4.TabIndex = 1;
-            this.label4.Text = "Enter CategoryID:";
-            // 
-            // dataGridView2
-            // 
-            this.dataGridView2.AutoGenerateColumns = false;
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.categoryIDDataGridViewTextBoxColumn1,
-            this.categoryNameDataGridViewTextBoxColumn1,
-            this.categoryDescriptionDataGridViewTextBoxColumn1,
-            this.discountIDDataGridViewTextBoxColumn1});
-            this.dataGridView2.DataSource = this.categoryBindingSource;
-            this.dataGridView2.Location = new System.Drawing.Point(122, 57);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.RowHeadersWidth = 62;
-            this.dataGridView2.RowTemplate.Height = 28;
-            this.dataGridView2.Size = new System.Drawing.Size(1250, 403);
-            this.dataGridView2.TabIndex = 0;
             // 
             // tabPage5
             // 
@@ -326,11 +217,35 @@
             this.tabPage5.Controls.Add(this.dataGridView3);
             this.tabPage5.Location = new System.Drawing.Point(4, 38);
             this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage5.Size = new System.Drawing.Size(1693, 920);
             this.tabPage5.TabIndex = 2;
             this.tabPage5.Text = "Update Category";
             this.tabPage5.UseVisualStyleBackColor = true;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(310, 441);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(45, 29);
+            this.label8.TabIndex = 18;
+            this.label8.Text = "ID:";
+            // 
+            // textBox6
+            // 
+            this.textBox6.Location = new System.Drawing.Point(440, 441);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(429, 35);
+            this.textBox6.TabIndex = 17;
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Location = new System.Drawing.Point(511, 640);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(469, 96);
+            this.richTextBox1.TabIndex = 16;
+            this.richTextBox1.Text = "";
             // 
             // button3
             // 
@@ -401,58 +316,140 @@
             this.dataGridView3.Size = new System.Drawing.Size(1550, 366);
             this.dataGridView3.TabIndex = 0;
             // 
-            // tabPage6
+            // categoryIDDataGridViewTextBoxColumn2
             // 
-            this.tabPage6.BackgroundImage = global::TheByteClubPOS.Properties.Resources.Background;
-            this.tabPage6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.tabPage6.Controls.Add(this.textBox7);
-            this.tabPage6.Controls.Add(this.label9);
-            this.tabPage6.Controls.Add(this.dataGridView4);
-            this.tabPage6.Location = new System.Drawing.Point(4, 38);
-            this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.tabPage6.Size = new System.Drawing.Size(1693, 920);
-            this.tabPage6.TabIndex = 3;
-            this.tabPage6.Text = "View Category";
-            this.tabPage6.UseVisualStyleBackColor = true;
+            this.categoryIDDataGridViewTextBoxColumn2.DataPropertyName = "Category_ID";
+            this.categoryIDDataGridViewTextBoxColumn2.HeaderText = "ID";
+            this.categoryIDDataGridViewTextBoxColumn2.MinimumWidth = 8;
+            this.categoryIDDataGridViewTextBoxColumn2.Name = "categoryIDDataGridViewTextBoxColumn2";
+            this.categoryIDDataGridViewTextBoxColumn2.ReadOnly = true;
+            this.categoryIDDataGridViewTextBoxColumn2.Width = 150;
             // 
-            // textBox7
+            // categoryNameDataGridViewTextBoxColumn2
             // 
-            this.textBox7.Location = new System.Drawing.Point(471, 26);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(320, 35);
-            this.textBox7.TabIndex = 2;
-            this.textBox7.TextChanged += new System.EventHandler(this.textBox7_TextChanged);
+            this.categoryNameDataGridViewTextBoxColumn2.DataPropertyName = "Category_Name";
+            this.categoryNameDataGridViewTextBoxColumn2.HeaderText = "Name";
+            this.categoryNameDataGridViewTextBoxColumn2.MinimumWidth = 8;
+            this.categoryNameDataGridViewTextBoxColumn2.Name = "categoryNameDataGridViewTextBoxColumn2";
+            this.categoryNameDataGridViewTextBoxColumn2.Width = 250;
             // 
-            // label9
+            // categoryDescriptionDataGridViewTextBoxColumn2
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(184, 28);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(214, 29);
-            this.label9.TabIndex = 1;
-            this.label9.Text = "Search Category:";
+            this.categoryDescriptionDataGridViewTextBoxColumn2.DataPropertyName = "Category_Description";
+            this.categoryDescriptionDataGridViewTextBoxColumn2.HeaderText = "Description";
+            this.categoryDescriptionDataGridViewTextBoxColumn2.MinimumWidth = 8;
+            this.categoryDescriptionDataGridViewTextBoxColumn2.Name = "categoryDescriptionDataGridViewTextBoxColumn2";
+            this.categoryDescriptionDataGridViewTextBoxColumn2.Width = 350;
             // 
-            // dataGridView4
+            // discountIDDataGridViewTextBoxColumn2
             // 
-            this.dataGridView4.AutoGenerateColumns = false;
-            this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView4.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.categoryIDDataGridViewTextBoxColumn3,
-            this.categoryNameDataGridViewTextBoxColumn3,
-            this.categoryDescriptionDataGridViewTextBoxColumn3,
-            this.discountIDDataGridViewTextBoxColumn3});
-            this.dataGridView4.DataSource = this.categoryBindingSource;
-            this.dataGridView4.Location = new System.Drawing.Point(96, 83);
-            this.dataGridView4.Name = "dataGridView4";
-            this.dataGridView4.RowHeadersWidth = 62;
-            this.dataGridView4.RowTemplate.Height = 28;
-            this.dataGridView4.Size = new System.Drawing.Size(1564, 385);
-            this.dataGridView4.TabIndex = 0;
+            this.discountIDDataGridViewTextBoxColumn2.DataPropertyName = "Discount_ID";
+            this.discountIDDataGridViewTextBoxColumn2.HeaderText = "DiscountID";
+            this.discountIDDataGridViewTextBoxColumn2.MinimumWidth = 8;
+            this.discountIDDataGridViewTextBoxColumn2.Name = "discountIDDataGridViewTextBoxColumn2";
+            this.discountIDDataGridViewTextBoxColumn2.Width = 250;
             // 
-            // categoryTableAdapter
+            // tabPage1
             // 
-            this.categoryTableAdapter.ClearBeforeFill = true;
+            this.tabPage1.BackgroundImage = global::TheByteClubPOS.Properties.Resources.Background;
+            this.tabPage1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.tabPage1.Controls.Add(this.btnCategory);
+            this.tabPage1.Controls.Add(this.label3);
+            this.tabPage1.Controls.Add(this.label2);
+            this.tabPage1.Controls.Add(this.label1);
+            this.tabPage1.Controls.Add(this.cmbDiscount);
+            this.tabPage1.Controls.Add(this.txtCatDescription);
+            this.tabPage1.Controls.Add(this.txtCategoryName);
+            this.tabPage1.Controls.Add(this.dataGridView1);
+            this.tabPage1.Controls.Add(this.tabControl2);
+            this.tabPage1.Location = new System.Drawing.Point(4, 38);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(1693, 920);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "Add Category";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // btnCategory
+            // 
+            this.btnCategory.Location = new System.Drawing.Point(542, 755);
+            this.btnCategory.Name = "btnCategory";
+            this.btnCategory.Size = new System.Drawing.Size(308, 89);
+            this.btnCategory.TabIndex = 8;
+            this.btnCategory.Text = "Add Category";
+            this.btnCategory.UseVisualStyleBackColor = true;
+            this.btnCategory.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(296, 680);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(153, 29);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "DiscountID :";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(255, 588);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(153, 29);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "Description:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(194, 483);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(201, 29);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Category Name:";
+            // 
+            // cmbDiscount
+            // 
+            this.cmbDiscount.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.categoryBindingSource, "Category_ID", true));
+            this.cmbDiscount.DataSource = this.categoryBindingSource;
+            this.cmbDiscount.DisplayMember = "Discount_ID";
+            this.cmbDiscount.FormattingEnabled = true;
+            this.cmbDiscount.Location = new System.Drawing.Point(542, 677);
+            this.cmbDiscount.Name = "cmbDiscount";
+            this.cmbDiscount.Size = new System.Drawing.Size(318, 37);
+            this.cmbDiscount.TabIndex = 4;
+            this.cmbDiscount.ValueMember = "Discount_ID";
+            // 
+            // txtCatDescription
+            // 
+            this.txtCatDescription.Location = new System.Drawing.Point(534, 577);
+            this.txtCatDescription.Name = "txtCatDescription";
+            this.txtCatDescription.Size = new System.Drawing.Size(324, 35);
+            this.txtCatDescription.TabIndex = 3;
+            // 
+            // txtCategoryName
+            // 
+            this.txtCategoryName.Location = new System.Drawing.Point(530, 483);
+            this.txtCategoryName.Name = "txtCategoryName";
+            this.txtCategoryName.Size = new System.Drawing.Size(330, 35);
+            this.txtCategoryName.TabIndex = 2;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToOrderColumns = true;
+            this.dataGridView1.AutoGenerateColumns = false;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.categoryIDDataGridViewTextBoxColumn,
+            this.categoryNameDataGridViewTextBoxColumn,
+            this.categoryDescriptionDataGridViewTextBoxColumn,
+            this.discountIDDataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.categoryBindingSource;
+            this.dataGridView1.Location = new System.Drawing.Point(38, 35);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 62;
+            this.dataGridView1.RowTemplate.Height = 28;
+            this.dataGridView1.Size = new System.Drawing.Size(1470, 408);
+            this.dataGridView1.TabIndex = 1;
             // 
             // categoryIDDataGridViewTextBoxColumn
             // 
@@ -487,95 +484,94 @@
             this.discountIDDataGridViewTextBoxColumn.Name = "discountIDDataGridViewTextBoxColumn";
             this.discountIDDataGridViewTextBoxColumn.Width = 250;
             // 
-            // richTextBox1
+            // tabControl2
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(511, 640);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(469, 96);
-            this.richTextBox1.TabIndex = 16;
-            this.richTextBox1.Text = "";
+            this.tabControl2.Controls.Add(this.tabPage3);
+            this.tabControl2.Controls.Add(this.tabPage4);
+            this.tabControl2.Location = new System.Drawing.Point(1628, 955);
+            this.tabControl2.Name = "tabControl2";
+            this.tabControl2.SelectedIndex = 0;
+            this.tabControl2.Size = new System.Drawing.Size(12, 12);
+            this.tabControl2.TabIndex = 0;
             // 
-            // textBox6
+            // tabPage3
             // 
-            this.textBox6.Location = new System.Drawing.Point(549, 463);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(429, 35);
-            this.textBox6.TabIndex = 17;
+            this.tabPage3.Location = new System.Drawing.Point(4, 38);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(4, 0);
+            this.tabPage3.TabIndex = 0;
+            this.tabPage3.Text = "tabPage3";
+            this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // label8
+            // tabPage4
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(309, 470);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(68, 44);
-            this.label8.TabIndex = 18;
-            this.label8.Text = "ID:";
+            this.tabPage4.Location = new System.Drawing.Point(4, 38);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(4, 0);
+            this.tabPage4.TabIndex = 1;
+            this.tabPage4.Text = "tabPage4";
+            this.tabPage4.UseVisualStyleBackColor = true;
             // 
-            // categoryIDDataGridViewTextBoxColumn3
+            // tabPage2
             // 
-            this.categoryIDDataGridViewTextBoxColumn3.DataPropertyName = "Category_ID";
-            this.categoryIDDataGridViewTextBoxColumn3.HeaderText = "ID";
-            this.categoryIDDataGridViewTextBoxColumn3.MinimumWidth = 8;
-            this.categoryIDDataGridViewTextBoxColumn3.Name = "categoryIDDataGridViewTextBoxColumn3";
-            this.categoryIDDataGridViewTextBoxColumn3.ReadOnly = true;
-            this.categoryIDDataGridViewTextBoxColumn3.Width = 150;
+            this.tabPage2.BackgroundImage = global::TheByteClubPOS.Properties.Resources.Background;
+            this.tabPage2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.tabPage2.Controls.Add(this.btnCDel);
+            this.tabPage2.Controls.Add(this.txtDel);
+            this.tabPage2.Controls.Add(this.label4);
+            this.tabPage2.Controls.Add(this.dataGridView2);
+            this.tabPage2.Location = new System.Drawing.Point(4, 38);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(1693, 920);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "DeActivate Category";
+            this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // categoryNameDataGridViewTextBoxColumn3
+            // btnCDel
             // 
-            this.categoryNameDataGridViewTextBoxColumn3.DataPropertyName = "Category_Name";
-            this.categoryNameDataGridViewTextBoxColumn3.HeaderText = "Name";
-            this.categoryNameDataGridViewTextBoxColumn3.MinimumWidth = 8;
-            this.categoryNameDataGridViewTextBoxColumn3.Name = "categoryNameDataGridViewTextBoxColumn3";
-            this.categoryNameDataGridViewTextBoxColumn3.Width = 250;
+            this.btnCDel.Location = new System.Drawing.Point(610, 754);
+            this.btnCDel.Name = "btnCDel";
+            this.btnCDel.Size = new System.Drawing.Size(268, 108);
+            this.btnCDel.TabIndex = 3;
+            this.btnCDel.Text = "Delete Category";
+            this.btnCDel.UseVisualStyleBackColor = true;
+            this.btnCDel.Click += new System.EventHandler(this.btnCDel_Click);
             // 
-            // categoryDescriptionDataGridViewTextBoxColumn3
+            // txtDel
             // 
-            this.categoryDescriptionDataGridViewTextBoxColumn3.DataPropertyName = "Category_Description";
-            this.categoryDescriptionDataGridViewTextBoxColumn3.HeaderText = "Description";
-            this.categoryDescriptionDataGridViewTextBoxColumn3.MinimumWidth = 8;
-            this.categoryDescriptionDataGridViewTextBoxColumn3.Name = "categoryDescriptionDataGridViewTextBoxColumn3";
-            this.categoryDescriptionDataGridViewTextBoxColumn3.Width = 350;
+            this.txtDel.Location = new System.Drawing.Point(585, 597);
+            this.txtDel.Name = "txtDel";
+            this.txtDel.Size = new System.Drawing.Size(322, 35);
+            this.txtDel.TabIndex = 2;
             // 
-            // discountIDDataGridViewTextBoxColumn3
+            // label4
             // 
-            this.discountIDDataGridViewTextBoxColumn3.DataPropertyName = "Discount_ID";
-            this.discountIDDataGridViewTextBoxColumn3.HeaderText = "DiscountID";
-            this.discountIDDataGridViewTextBoxColumn3.MinimumWidth = 8;
-            this.discountIDDataGridViewTextBoxColumn3.Name = "discountIDDataGridViewTextBoxColumn3";
-            this.discountIDDataGridViewTextBoxColumn3.Width = 150;
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(274, 598);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(219, 29);
+            this.label4.TabIndex = 1;
+            this.label4.Text = "Enter CategoryID:";
             // 
-            // categoryIDDataGridViewTextBoxColumn2
+            // dataGridView2
             // 
-            this.categoryIDDataGridViewTextBoxColumn2.DataPropertyName = "Category_ID";
-            this.categoryIDDataGridViewTextBoxColumn2.HeaderText = "ID";
-            this.categoryIDDataGridViewTextBoxColumn2.MinimumWidth = 8;
-            this.categoryIDDataGridViewTextBoxColumn2.Name = "categoryIDDataGridViewTextBoxColumn2";
-            this.categoryIDDataGridViewTextBoxColumn2.ReadOnly = true;
-            this.categoryIDDataGridViewTextBoxColumn2.Width = 150;
-            // 
-            // categoryNameDataGridViewTextBoxColumn2
-            // 
-            this.categoryNameDataGridViewTextBoxColumn2.DataPropertyName = "Category_Name";
-            this.categoryNameDataGridViewTextBoxColumn2.HeaderText = "Name";
-            this.categoryNameDataGridViewTextBoxColumn2.MinimumWidth = 8;
-            this.categoryNameDataGridViewTextBoxColumn2.Name = "categoryNameDataGridViewTextBoxColumn2";
-            this.categoryNameDataGridViewTextBoxColumn2.Width = 250;
-            // 
-            // categoryDescriptionDataGridViewTextBoxColumn2
-            // 
-            this.categoryDescriptionDataGridViewTextBoxColumn2.DataPropertyName = "Category_Description";
-            this.categoryDescriptionDataGridViewTextBoxColumn2.HeaderText = "Description";
-            this.categoryDescriptionDataGridViewTextBoxColumn2.MinimumWidth = 8;
-            this.categoryDescriptionDataGridViewTextBoxColumn2.Name = "categoryDescriptionDataGridViewTextBoxColumn2";
-            this.categoryDescriptionDataGridViewTextBoxColumn2.Width = 350;
-            // 
-            // discountIDDataGridViewTextBoxColumn2
-            // 
-            this.discountIDDataGridViewTextBoxColumn2.DataPropertyName = "Discount_ID";
-            this.discountIDDataGridViewTextBoxColumn2.HeaderText = "DiscountID";
-            this.discountIDDataGridViewTextBoxColumn2.MinimumWidth = 8;
-            this.discountIDDataGridViewTextBoxColumn2.Name = "discountIDDataGridViewTextBoxColumn2";
-            this.discountIDDataGridViewTextBoxColumn2.Width = 250;
+            this.dataGridView2.AutoGenerateColumns = false;
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.categoryIDDataGridViewTextBoxColumn1,
+            this.categoryNameDataGridViewTextBoxColumn1,
+            this.categoryDescriptionDataGridViewTextBoxColumn1,
+            this.discountIDDataGridViewTextBoxColumn1});
+            this.dataGridView2.DataSource = this.categoryBindingSource;
+            this.dataGridView2.Location = new System.Drawing.Point(122, 57);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.RowHeadersWidth = 62;
+            this.dataGridView2.RowTemplate.Height = 28;
+            this.dataGridView2.Size = new System.Drawing.Size(1250, 403);
+            this.dataGridView2.TabIndex = 0;
             // 
             // categoryIDDataGridViewTextBoxColumn1
             // 
@@ -610,6 +606,10 @@
             this.discountIDDataGridViewTextBoxColumn1.Name = "discountIDDataGridViewTextBoxColumn1";
             this.discountIDDataGridViewTextBoxColumn1.Width = 150;
             // 
+            // categoryTableAdapter
+            // 
+            this.categoryTableAdapter.ClearBeforeFill = true;
+            // 
             // ManageProductCategories
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -622,21 +622,21 @@
             this.Text = "Manage Product Categories";
             this.Load += new System.EventHandler(this.ManageProductCategories_Load);
             this.tabControl1.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
+            this.tabPage6.ResumeLayout(false);
+            this.tabPage6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoryBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsSamsLiqourShop)).EndInit();
+            this.tabPage5.ResumeLayout(false);
+            this.tabPage5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.tabControl2.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            this.tabPage5.ResumeLayout(false);
-            this.tabPage5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
-            this.tabPage6.ResumeLayout(false);
-            this.tabPage6.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
             this.ResumeLayout(false);
 
         }

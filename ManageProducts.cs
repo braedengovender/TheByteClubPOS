@@ -27,19 +27,56 @@ namespace TheByteClubPOS
         public ManageProducts()
         {
             InitializeComponent();
-            // Set SelectedIndex to -1 after controls are initialized
+
+            // Ensure discount combo is empty until data is loaded
             if (comboBox3 != null)
                 comboBox3.SelectedIndex = -1;
+
+            // (Optional) disable Update button until a product is selected for edit
+            if (this.button2 != null)
+                this.button2.Enabled = false;
         }
 
         // Or, in ManageProducts_Load (after filling the Discount table):
         private void ManageProducts_Load(object sender, EventArgs e)
         {
-            this.discountTableAdapter.Fill(this.dsSamsLiqourShop.Discount);
-            // ... other initialization ...
-            if (comboBox3 != null)
-                comboBox3.SelectedIndex = -1;
-            // ... rest of method ...
+            try
+            {
+                // Load lookup tables first so combo boxes have values
+                if (this.categoryTableAdapter != null)
+                    this.categoryTableAdapter.Fill(this.dsSamsLiqourShop.Category);
+
+                if (this.supplierTableAdapter != null)
+                    this.supplierTableAdapter.Fill(this.dsSamsLiqourShop.Supplier);
+
+                if (this.discountTableAdapter != null)
+                    this.discountTableAdapter.Fill(this.dsSamsLiqourShop.Discount);
+
+                // Ensure discount combobox has no selection initially
+                if (comboBox3 != null)
+                    comboBox3.SelectedIndex = -1;
+
+                // Load products last (so lookups exist for relationships)
+                if (this.productTableAdapter != null)
+                    this.productTableAdapter.Fill(this.dsSamsLiqourShop.Product);
+
+                // Wire shared handlers (safe to do even if designer already wired)
+                Action<RadioButton> wire = rb => { if (rb != null) rb.CheckedChanged += ViewFilter_Changed; };
+
+                wire(rbBeer); wire(rbWines); wire(rbWhiskies); wire(rbSpirits);
+                wire(rbRTD); wire(rbNonAlcoholic); wire(rbAccessories); wire(rbSnacks); wire(rbTobacco);
+
+                // Sorting/order radios also affect the view
+                wire(rbPrice); wire(rbStock); wire(rbName);
+                wire(rbAscending); wire(rbDescending);
+
+                // Apply initial filter/sort so the grid shows data immediately
+                ApplyViewFilters();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Failed to initialize ManageProducts:\n" + ex.Message, "Initialization error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         // Shared handler for radio checked changes
