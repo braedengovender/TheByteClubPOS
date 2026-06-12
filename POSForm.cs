@@ -14,8 +14,7 @@ using Microsoft.VisualBasic; // Required for Interaction.InputBox
 using System.Drawing.Printing;
 using Newtonsoft.Json;
 using System.Net.Http;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace TheByteClubPOS
 {
