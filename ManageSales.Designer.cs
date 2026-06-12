@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ManageSales));
             this.lblManageSales = new System.Windows.Forms.Label();
             this.lblTransactionDetails = new System.Windows.Forms.Label();
@@ -43,22 +43,6 @@
             this.salesSummaryInnerJoinDTTableAdapter = new TheByteClubPOS.dsSamsLiqourShopTableAdapters.SalesSummaryInnerJoinDTTableAdapter();
             this.tableAdapterManager = new TheByteClubPOS.dsSamsLiqourShopTableAdapters.TableAdapterManager();
             this.salesSummaryInnerJoinDTDataGridView = new System.Windows.Forms.DataGridView();
-            this.saleLinesSummaryInnerJoinDTBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.saleLinesSummaryInnerJoinDTTableAdapter = new TheByteClubPOS.dsSamsLiqourShopTableAdapters.SaleLinesSummaryInnerJoinDTTableAdapter();
-            this.saleLinesSummaryInnerJoinDTDataGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn22 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn23 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn24 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtSearch = new System.Windows.Forms.TextBox();
-            this.btnClear = new System.Windows.Forms.Button();
-            this.btnRefresh = new System.Windows.Forms.Button();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -74,6 +58,23 @@
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.saleLinesSummaryInnerJoinDTBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.saleLinesSummaryInnerJoinDTTableAdapter = new TheByteClubPOS.dsSamsLiqourShopTableAdapters.SaleLinesSummaryInnerJoinDTTableAdapter();
+            this.saleLinesSummaryInnerJoinDTDataGridView = new System.Windows.Forms.DataGridView();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtSearch = new System.Windows.Forms.TextBox();
+            this.btnClear = new System.Windows.Forms.Button();
+            this.btnRefresh = new System.Windows.Forms.Button();
+            this.Product_Image = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn22 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn23 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn24 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dsSamsLiqourShop)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.salesSummaryInnerJoinDTBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.salesSummaryInnerJoinDTDataGridView)).BeginInit();
@@ -168,163 +169,6 @@
             this.salesSummaryInnerJoinDTDataGridView.Size = new System.Drawing.Size(1077, 300);
             this.salesSummaryInnerJoinDTDataGridView.TabIndex = 7;
             this.salesSummaryInnerJoinDTDataGridView.SelectionChanged += new System.EventHandler(this.salesSummaryInnerJoinDTDataGridView_SelectionChanged);
-            // 
-            // saleLinesSummaryInnerJoinDTBindingSource
-            // 
-            this.saleLinesSummaryInnerJoinDTBindingSource.DataMember = "SaleLinesSummaryInnerJoinDT";
-            this.saleLinesSummaryInnerJoinDTBindingSource.DataSource = this.dsSamsLiqourShop;
-            // 
-            // saleLinesSummaryInnerJoinDTTableAdapter
-            // 
-            this.saleLinesSummaryInnerJoinDTTableAdapter.ClearBeforeFill = true;
-            // 
-            // saleLinesSummaryInnerJoinDTDataGridView
-            // 
-            this.saleLinesSummaryInnerJoinDTDataGridView.AllowUserToAddRows = false;
-            this.saleLinesSummaryInnerJoinDTDataGridView.AllowUserToDeleteRows = false;
-            this.saleLinesSummaryInnerJoinDTDataGridView.AutoGenerateColumns = false;
-            this.saleLinesSummaryInnerJoinDTDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.saleLinesSummaryInnerJoinDTDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.saleLinesSummaryInnerJoinDTDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn18,
-            this.dataGridViewTextBoxColumn20,
-            this.dataGridViewTextBoxColumn21,
-            this.dataGridViewTextBoxColumn22,
-            this.dataGridViewTextBoxColumn23,
-            this.dataGridViewTextBoxColumn24,
-            this.dataGridViewTextBoxColumn16,
-            this.dataGridViewTextBoxColumn17,
-            this.dataGridViewTextBoxColumn19});
-            this.saleLinesSummaryInnerJoinDTDataGridView.DataSource = this.saleLinesSummaryInnerJoinDTBindingSource;
-            this.saleLinesSummaryInnerJoinDTDataGridView.Location = new System.Drawing.Point(33, 491);
-            this.saleLinesSummaryInnerJoinDTDataGridView.Name = "saleLinesSummaryInnerJoinDTDataGridView";
-            this.saleLinesSummaryInnerJoinDTDataGridView.ReadOnly = true;
-            this.saleLinesSummaryInnerJoinDTDataGridView.Size = new System.Drawing.Size(1077, 154);
-            this.saleLinesSummaryInnerJoinDTDataGridView.TabIndex = 8;
-            // 
-            // dataGridViewTextBoxColumn18
-            // 
-            this.dataGridViewTextBoxColumn18.DataPropertyName = "Product_Name";
-            this.dataGridViewTextBoxColumn18.FillWeight = 200F;
-            this.dataGridViewTextBoxColumn18.HeaderText = "Item Description";
-            this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
-            this.dataGridViewTextBoxColumn18.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn20
-            // 
-            this.dataGridViewTextBoxColumn20.DataPropertyName = "Product_Discount_Name";
-            this.dataGridViewTextBoxColumn20.HeaderText = "Item Deal";
-            this.dataGridViewTextBoxColumn20.Name = "dataGridViewTextBoxColumn20";
-            this.dataGridViewTextBoxColumn20.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn21
-            // 
-            this.dataGridViewTextBoxColumn21.DataPropertyName = "SaleLine_Quantity";
-            this.dataGridViewTextBoxColumn21.FillWeight = 50F;
-            this.dataGridViewTextBoxColumn21.HeaderText = "Quantity";
-            this.dataGridViewTextBoxColumn21.Name = "dataGridViewTextBoxColumn21";
-            this.dataGridViewTextBoxColumn21.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn22
-            // 
-            this.dataGridViewTextBoxColumn22.DataPropertyName = "SaleLine_OriginalUnitPrice";
-            dataGridViewCellStyle4.Format = "C2";
-            dataGridViewCellStyle4.NullValue = null;
-            this.dataGridViewTextBoxColumn22.DefaultCellStyle = dataGridViewCellStyle4;
-            this.dataGridViewTextBoxColumn22.HeaderText = "Base Price";
-            this.dataGridViewTextBoxColumn22.Name = "dataGridViewTextBoxColumn22";
-            this.dataGridViewTextBoxColumn22.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn23
-            // 
-            this.dataGridViewTextBoxColumn23.DataPropertyName = "SaleLine_UnitPriceAfterDiscount";
-            dataGridViewCellStyle5.Format = "C2";
-            dataGridViewCellStyle5.NullValue = null;
-            this.dataGridViewTextBoxColumn23.DefaultCellStyle = dataGridViewCellStyle5;
-            this.dataGridViewTextBoxColumn23.HeaderText = "Final Unit Price";
-            this.dataGridViewTextBoxColumn23.Name = "dataGridViewTextBoxColumn23";
-            this.dataGridViewTextBoxColumn23.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn24
-            // 
-            this.dataGridViewTextBoxColumn24.DataPropertyName = "SaleLine_Subtotal";
-            dataGridViewCellStyle6.Format = "C2";
-            dataGridViewCellStyle6.NullValue = null;
-            this.dataGridViewTextBoxColumn24.DefaultCellStyle = dataGridViewCellStyle6;
-            this.dataGridViewTextBoxColumn24.HeaderText = "Line Total";
-            this.dataGridViewTextBoxColumn24.Name = "dataGridViewTextBoxColumn24";
-            this.dataGridViewTextBoxColumn24.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn16
-            // 
-            this.dataGridViewTextBoxColumn16.DataPropertyName = "Sale_ID";
-            this.dataGridViewTextBoxColumn16.HeaderText = "Sale_ID";
-            this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
-            this.dataGridViewTextBoxColumn16.ReadOnly = true;
-            this.dataGridViewTextBoxColumn16.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn17
-            // 
-            this.dataGridViewTextBoxColumn17.DataPropertyName = "Product_ID";
-            this.dataGridViewTextBoxColumn17.HeaderText = "Product_ID";
-            this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
-            this.dataGridViewTextBoxColumn17.ReadOnly = true;
-            this.dataGridViewTextBoxColumn17.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn19
-            // 
-            this.dataGridViewTextBoxColumn19.DataPropertyName = "Discount_ID";
-            this.dataGridViewTextBoxColumn19.HeaderText = "Discount_ID";
-            this.dataGridViewTextBoxColumn19.Name = "dataGridViewTextBoxColumn19";
-            this.dataGridViewTextBoxColumn19.ReadOnly = true;
-            this.dataGridViewTextBoxColumn19.Visible = false;
-            // 
-            // label1
-            // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(29, 92);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(335, 20);
-            this.label1.TabIndex = 9;
-            this.label1.Text = "View Sales History && Transaction Details";
-            // 
-            // txtSearch
-            // 
-            this.txtSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSearch.ForeColor = System.Drawing.Color.Gray;
-            this.txtSearch.Location = new System.Drawing.Point(506, 69);
-            this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(470, 35);
-            this.txtSearch.TabIndex = 10;
-            this.txtSearch.Text = "Search by Customer, Employee or Promo...";
-            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
-            this.txtSearch.Enter += new System.EventHandler(this.txtSearch_Enter);
-            this.txtSearch.Leave += new System.EventHandler(this.txtSearch_Leave);
-            // 
-            // btnClear
-            // 
-            this.btnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClear.Image = global::TheByteClubPOS.Properties.Resources.ClearIcon;
-            this.btnClear.Location = new System.Drawing.Point(985, 67);
-            this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(79, 38);
-            this.btnClear.TabIndex = 11;
-            this.btnClear.UseVisualStyleBackColor = true;
-            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
-            // 
-            // btnRefresh
-            // 
-            this.btnRefresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRefresh.Image = global::TheByteClubPOS.Properties.Resources.RefreshIcon;
-            this.btnRefresh.Location = new System.Drawing.Point(1071, 67);
-            this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(39, 38);
-            this.btnRefresh.TabIndex = 12;
-            this.btnRefresh.UseVisualStyleBackColor = true;
-            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -454,6 +298,173 @@
             this.dataGridViewTextBoxColumn8.ReadOnly = true;
             this.dataGridViewTextBoxColumn8.Visible = false;
             // 
+            // saleLinesSummaryInnerJoinDTBindingSource
+            // 
+            this.saleLinesSummaryInnerJoinDTBindingSource.DataMember = "SaleLinesSummaryInnerJoinDT";
+            this.saleLinesSummaryInnerJoinDTBindingSource.DataSource = this.dsSamsLiqourShop;
+            // 
+            // saleLinesSummaryInnerJoinDTTableAdapter
+            // 
+            this.saleLinesSummaryInnerJoinDTTableAdapter.ClearBeforeFill = true;
+            // 
+            // saleLinesSummaryInnerJoinDTDataGridView
+            // 
+            this.saleLinesSummaryInnerJoinDTDataGridView.AllowUserToAddRows = false;
+            this.saleLinesSummaryInnerJoinDTDataGridView.AllowUserToDeleteRows = false;
+            this.saleLinesSummaryInnerJoinDTDataGridView.AutoGenerateColumns = false;
+            this.saleLinesSummaryInnerJoinDTDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.saleLinesSummaryInnerJoinDTDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.saleLinesSummaryInnerJoinDTDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Product_Image,
+            this.dataGridViewTextBoxColumn18,
+            this.dataGridViewTextBoxColumn20,
+            this.dataGridViewTextBoxColumn21,
+            this.dataGridViewTextBoxColumn22,
+            this.dataGridViewTextBoxColumn23,
+            this.dataGridViewTextBoxColumn24,
+            this.dataGridViewTextBoxColumn16,
+            this.dataGridViewTextBoxColumn17,
+            this.dataGridViewTextBoxColumn19});
+            this.saleLinesSummaryInnerJoinDTDataGridView.DataSource = this.saleLinesSummaryInnerJoinDTBindingSource;
+            this.saleLinesSummaryInnerJoinDTDataGridView.Location = new System.Drawing.Point(33, 491);
+            this.saleLinesSummaryInnerJoinDTDataGridView.Name = "saleLinesSummaryInnerJoinDTDataGridView";
+            this.saleLinesSummaryInnerJoinDTDataGridView.ReadOnly = true;
+            this.saleLinesSummaryInnerJoinDTDataGridView.Size = new System.Drawing.Size(1077, 154);
+            this.saleLinesSummaryInnerJoinDTDataGridView.TabIndex = 8;
+            // 
+            // label1
+            // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(29, 92);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(335, 20);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "View Sales History && Transaction Details";
+            // 
+            // txtSearch
+            // 
+            this.txtSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSearch.ForeColor = System.Drawing.Color.Gray;
+            this.txtSearch.Location = new System.Drawing.Point(506, 69);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(470, 35);
+            this.txtSearch.TabIndex = 10;
+            this.txtSearch.Text = "Search by Customer, Employee or Promo...";
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
+            this.txtSearch.Enter += new System.EventHandler(this.txtSearch_Enter);
+            this.txtSearch.Leave += new System.EventHandler(this.txtSearch_Leave);
+            // 
+            // btnClear
+            // 
+            this.btnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClear.Image = global::TheByteClubPOS.Properties.Resources.ClearIcon;
+            this.btnClear.Location = new System.Drawing.Point(985, 67);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(79, 38);
+            this.btnClear.TabIndex = 11;
+            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            // 
+            // btnRefresh
+            // 
+            this.btnRefresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRefresh.Image = global::TheByteClubPOS.Properties.Resources.RefreshIcon;
+            this.btnRefresh.Location = new System.Drawing.Point(1071, 67);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(39, 38);
+            this.btnRefresh.TabIndex = 12;
+            this.btnRefresh.UseVisualStyleBackColor = true;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
+            // 
+            // Product_Image
+            // 
+            this.Product_Image.DataPropertyName = "Product_Image";
+            this.Product_Image.FillWeight = 40F;
+            this.Product_Image.HeaderText = "Product";
+            this.Product_Image.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.Product_Image.Name = "Product_Image";
+            this.Product_Image.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn18
+            // 
+            this.dataGridViewTextBoxColumn18.DataPropertyName = "Product_Name";
+            this.dataGridViewTextBoxColumn18.FillWeight = 200F;
+            this.dataGridViewTextBoxColumn18.HeaderText = "Item Description";
+            this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
+            this.dataGridViewTextBoxColumn18.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn20
+            // 
+            this.dataGridViewTextBoxColumn20.DataPropertyName = "Product_Discount_Name";
+            this.dataGridViewTextBoxColumn20.HeaderText = "Item Deal";
+            this.dataGridViewTextBoxColumn20.Name = "dataGridViewTextBoxColumn20";
+            this.dataGridViewTextBoxColumn20.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn21
+            // 
+            this.dataGridViewTextBoxColumn21.DataPropertyName = "SaleLine_Quantity";
+            this.dataGridViewTextBoxColumn21.FillWeight = 50F;
+            this.dataGridViewTextBoxColumn21.HeaderText = "Quantity";
+            this.dataGridViewTextBoxColumn21.Name = "dataGridViewTextBoxColumn21";
+            this.dataGridViewTextBoxColumn21.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn22
+            // 
+            this.dataGridViewTextBoxColumn22.DataPropertyName = "SaleLine_OriginalUnitPrice";
+            dataGridViewCellStyle4.Format = "C2";
+            dataGridViewCellStyle4.NullValue = null;
+            this.dataGridViewTextBoxColumn22.DefaultCellStyle = dataGridViewCellStyle4;
+            this.dataGridViewTextBoxColumn22.HeaderText = "Base Price";
+            this.dataGridViewTextBoxColumn22.Name = "dataGridViewTextBoxColumn22";
+            this.dataGridViewTextBoxColumn22.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn23
+            // 
+            this.dataGridViewTextBoxColumn23.DataPropertyName = "SaleLine_UnitPriceAfterDiscount";
+            dataGridViewCellStyle5.Format = "C2";
+            dataGridViewCellStyle5.NullValue = null;
+            this.dataGridViewTextBoxColumn23.DefaultCellStyle = dataGridViewCellStyle5;
+            this.dataGridViewTextBoxColumn23.HeaderText = "Final Unit Price";
+            this.dataGridViewTextBoxColumn23.Name = "dataGridViewTextBoxColumn23";
+            this.dataGridViewTextBoxColumn23.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn24
+            // 
+            this.dataGridViewTextBoxColumn24.DataPropertyName = "SaleLine_Subtotal";
+            dataGridViewCellStyle6.Format = "C2";
+            dataGridViewCellStyle6.NullValue = null;
+            this.dataGridViewTextBoxColumn24.DefaultCellStyle = dataGridViewCellStyle6;
+            this.dataGridViewTextBoxColumn24.HeaderText = "Line Total";
+            this.dataGridViewTextBoxColumn24.Name = "dataGridViewTextBoxColumn24";
+            this.dataGridViewTextBoxColumn24.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn16
+            // 
+            this.dataGridViewTextBoxColumn16.DataPropertyName = "Sale_ID";
+            this.dataGridViewTextBoxColumn16.HeaderText = "Sale_ID";
+            this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
+            this.dataGridViewTextBoxColumn16.ReadOnly = true;
+            this.dataGridViewTextBoxColumn16.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn17
+            // 
+            this.dataGridViewTextBoxColumn17.DataPropertyName = "Product_ID";
+            this.dataGridViewTextBoxColumn17.HeaderText = "Product_ID";
+            this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
+            this.dataGridViewTextBoxColumn17.ReadOnly = true;
+            this.dataGridViewTextBoxColumn17.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn19
+            // 
+            this.dataGridViewTextBoxColumn19.DataPropertyName = "Discount_ID";
+            this.dataGridViewTextBoxColumn19.HeaderText = "Discount_ID";
+            this.dataGridViewTextBoxColumn19.Name = "dataGridViewTextBoxColumn19";
+            this.dataGridViewTextBoxColumn19.ReadOnly = true;
+            this.dataGridViewTextBoxColumn19.Visible = false;
+            // 
             // ManageSales
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -494,15 +505,6 @@
         private System.Windows.Forms.BindingSource saleLinesSummaryInnerJoinDTBindingSource;
         private dsSamsLiqourShopTableAdapters.SaleLinesSummaryInnerJoinDTTableAdapter saleLinesSummaryInnerJoinDTTableAdapter;
         private System.Windows.Forms.DataGridView saleLinesSummaryInnerJoinDTDataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn18;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn20;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn21;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn22;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn23;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn24;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn19;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Button btnClear;
@@ -522,5 +524,15 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private System.Windows.Forms.DataGridViewImageColumn Product_Image;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn18;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn20;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn21;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn22;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn23;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn24;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn19;
     }
 }

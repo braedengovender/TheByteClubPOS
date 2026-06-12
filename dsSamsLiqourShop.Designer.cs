@@ -7002,6 +7002,8 @@ namespace TheByteClubPOS {
             
             private global::System.Data.DataColumn columnSaleLine_Subtotal;
             
+            private global::System.Data.DataColumn columnProduct_Image;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public SaleLinesSummaryInnerJoinDTDataTable() {
@@ -7109,6 +7111,14 @@ namespace TheByteClubPOS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn Product_ImageColumn {
+                get {
+                    return this.columnProduct_Image;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -7144,7 +7154,7 @@ namespace TheByteClubPOS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public SaleLinesSummaryInnerJoinDTRow AddSaleLinesSummaryInnerJoinDTRow(int Sale_ID, int Product_ID, string Product_Name, DiscountRow parentDiscountRowByFK_Product_Discount1, string Product_Discount_Name, int SaleLine_Quantity, decimal SaleLine_OriginalUnitPrice, decimal SaleLine_UnitPriceAfterDiscount, decimal SaleLine_Subtotal) {
+            public SaleLinesSummaryInnerJoinDTRow AddSaleLinesSummaryInnerJoinDTRow(int Sale_ID, int Product_ID, string Product_Name, DiscountRow parentDiscountRowByFK_Product_Discount1, string Product_Discount_Name, int SaleLine_Quantity, decimal SaleLine_OriginalUnitPrice, decimal SaleLine_UnitPriceAfterDiscount, decimal SaleLine_Subtotal, byte[] Product_Image) {
                 SaleLinesSummaryInnerJoinDTRow rowSaleLinesSummaryInnerJoinDTRow = ((SaleLinesSummaryInnerJoinDTRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Sale_ID,
@@ -7155,7 +7165,8 @@ namespace TheByteClubPOS {
                         SaleLine_Quantity,
                         SaleLine_OriginalUnitPrice,
                         SaleLine_UnitPriceAfterDiscount,
-                        SaleLine_Subtotal};
+                        SaleLine_Subtotal,
+                        Product_Image};
                 if ((parentDiscountRowByFK_Product_Discount1 != null)) {
                     columnValuesArray[3] = parentDiscountRowByFK_Product_Discount1[0];
                 }
@@ -7198,6 +7209,7 @@ namespace TheByteClubPOS {
                 this.columnSaleLine_OriginalUnitPrice = base.Columns["SaleLine_OriginalUnitPrice"];
                 this.columnSaleLine_UnitPriceAfterDiscount = base.Columns["SaleLine_UnitPriceAfterDiscount"];
                 this.columnSaleLine_Subtotal = base.Columns["SaleLine_Subtotal"];
+                this.columnProduct_Image = base.Columns["Product_Image"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7221,6 +7233,8 @@ namespace TheByteClubPOS {
                 base.Columns.Add(this.columnSaleLine_UnitPriceAfterDiscount);
                 this.columnSaleLine_Subtotal = new global::System.Data.DataColumn("SaleLine_Subtotal", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnSaleLine_Subtotal);
+                this.columnProduct_Image = new global::System.Data.DataColumn("Product_Image", typeof(byte[]), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnProduct_Image);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnSale_ID,
                                 this.columnProduct_ID}, true));
@@ -10847,6 +10861,23 @@ namespace TheByteClubPOS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public byte[] Product_Image {
+                get {
+                    try {
+                        return ((byte[])(this[this.tableSaleLinesSummaryInnerJoinDT.Product_ImageColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Product_Image\' in table \'SaleLinesSummaryInnerJoinDT\' is DB" +
+                                "Null.", e);
+                    }
+                }
+                set {
+                    this[this.tableSaleLinesSummaryInnerJoinDT.Product_ImageColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public DiscountRow DiscountRow {
                 get {
                     return ((DiscountRow)(this.GetParentRow(this.Table.ParentRelations["FK_Product_Discount1"])));
@@ -10878,6 +10909,18 @@ namespace TheByteClubPOS {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetProduct_Discount_NameNull() {
                 this[this.tableSaleLinesSummaryInnerJoinDT.Product_Discount_NameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsProduct_ImageNull() {
+                return this.IsNull(this.tableSaleLinesSummaryInnerJoinDT.Product_ImageColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetProduct_ImageNull() {
+                this[this.tableSaleLinesSummaryInnerJoinDT.Product_ImageColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -20622,6 +20665,7 @@ LEFT JOIN Discount d ON s.Discount_ID = d.Discount_ID;";
             tableMapping.ColumnMappings.Add("SaleLine_OriginalUnitPrice", "SaleLine_OriginalUnitPrice");
             tableMapping.ColumnMappings.Add("SaleLine_UnitPriceAfterDiscount", "SaleLine_UnitPriceAfterDiscount");
             tableMapping.ColumnMappings.Add("SaleLine_Subtotal", "SaleLine_Subtotal");
+            tableMapping.ColumnMappings.Add("Product_Image", "Product_Image");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -20638,20 +20682,12 @@ LEFT JOIN Discount d ON s.Discount_ID = d.Discount_ID;";
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT 
-    sl.Sale_ID,
-    sl.Product_ID,
-    p.Product_Name,
-    sl.Discount_ID,
-    COALESCE(d.Discount_Name, 'No Product Discount') AS Product_Discount_Name,
-    sl.SaleLine_Quantity,
-    sl.SaleLine_OriginalUnitPrice,
-    sl.SaleLine_UnitPriceAfterDiscount,
-    sl.SaleLine_Subtotal
-FROM SaleLine sl
-INNER JOIN Product p ON sl.Product_ID = p.Product_ID
-LEFT JOIN Discount d ON sl.Discount_ID = d.Discount_ID
-WHERE sl.Sale_ID = @Sale_ID;";
+            this._commandCollection[0].CommandText = @"SELECT        sl.Sale_ID, sl.Product_ID, p.Product_Name, sl.Discount_ID, COALESCE (d.Discount_Name, 'No Product Discount') AS Product_Discount_Name, sl.SaleLine_Quantity, sl.SaleLine_OriginalUnitPrice, 
+                         sl.SaleLine_UnitPriceAfterDiscount, sl.SaleLine_Subtotal, p.Product_Image
+FROM            SaleLine AS sl INNER JOIN
+                         Product AS p ON sl.Product_ID = p.Product_ID LEFT OUTER JOIN
+                         Discount AS d ON sl.Discount_ID = d.Discount_ID
+WHERE        (sl.Sale_ID = @Sale_ID)";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Sale_ID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Sale_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
