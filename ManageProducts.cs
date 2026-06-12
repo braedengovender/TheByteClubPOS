@@ -12,6 +12,7 @@ namespace TheByteClubPOS
 {
     public partial class ManageProducts : Form
     {
+
         private int currentEditingProductId = -1;
         // place right after: this.discountTableAdapter.Fill(this.dsSamsLiqourShop.Discount);
         //comboBox3.SelectedValue = null;
@@ -77,6 +78,15 @@ namespace TheByteClubPOS
             {
                 MessageBox.Show("Failed to initialize ManageProducts:\n" + ex.Message, "Initialization error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        public void showOnlyViewProducts()
+        {
+            // Clear all existing tabs from the view
+            tabControl1.TabPages.Clear();
+
+            // Add only the specific tab for viewing products
+            tabControl1.TabPages.Add(tabPage4);
         }
 
         // Shared handler for radio checked changes

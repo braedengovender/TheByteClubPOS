@@ -196,12 +196,14 @@
             this.processInventoryOrderToolStripMenuItem1.Name = "processInventoryOrderToolStripMenuItem1";
             this.processInventoryOrderToolStripMenuItem1.Size = new System.Drawing.Size(221, 22);
             this.processInventoryOrderToolStripMenuItem1.Text = "Process Inventory Order";
+            this.processInventoryOrderToolStripMenuItem1.Click += new System.EventHandler(this.processInventoryOrderToolStripMenuItem1_Click);
             // 
             // manageInventoryOrdersToolStripMenuItem1
             // 
             this.manageInventoryOrdersToolStripMenuItem1.Name = "manageInventoryOrdersToolStripMenuItem1";
             this.manageInventoryOrdersToolStripMenuItem1.Size = new System.Drawing.Size(221, 22);
             this.manageInventoryOrdersToolStripMenuItem1.Text = "Manage Inventory Orders";
+            this.manageInventoryOrdersToolStripMenuItem1.Visible = false;
             this.manageInventoryOrdersToolStripMenuItem1.Click += new System.EventHandler(this.manageInventoryOrdersToolStripMenuItem1_Click);
             // 
             // manageSuppliersToolStripMenuItem
@@ -209,6 +211,8 @@
             this.manageSuppliersToolStripMenuItem.Name = "manageSuppliersToolStripMenuItem";
             this.manageSuppliersToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
             this.manageSuppliersToolStripMenuItem.Text = "Manage Suppliers";
+            this.manageSuppliersToolStripMenuItem.Visible = false;
+            this.manageSuppliersToolStripMenuItem.Click += new System.EventHandler(this.manageSuppliersToolStripMenuItem_Click);
             // 
             // manageCustomerToolStripMenuItem
             // 
@@ -250,6 +254,7 @@
             this.manageDiscountsToolStripMenuItem.Name = "manageDiscountsToolStripMenuItem";
             this.manageDiscountsToolStripMenuItem.Size = new System.Drawing.Size(95, 28);
             this.manageDiscountsToolStripMenuItem.Text = "Discounts";
+            this.manageDiscountsToolStripMenuItem.Visible = false;
             // 
             // manageDiscountsToolStripMenuItem1
             // 
@@ -317,7 +322,7 @@
             this.helpToolStripMenuItem.Image = global::TheByteClubPOS.Properties.Resources.HelpIcon;
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(68, 28);
-            this.helpToolStripMenuItem.Text = "&Help";
+            this.helpToolStripMenuItem.Text = "Help";
             this.helpToolStripMenuItem.Click += new System.EventHandler(this.helpToolStripMenuItem_Click);
             // 
             // toolStripSeparator5
@@ -328,20 +333,23 @@
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
-            this.aboutToolStripMenuItem.Text = "&About...";
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.aboutToolStripMenuItem.Text = "About...";
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
             // userGuideToolStripMenuItem
             // 
             this.userGuideToolStripMenuItem.Name = "userGuideToolStripMenuItem";
-            this.userGuideToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.userGuideToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.userGuideToolStripMenuItem.Text = "User Guide";
+            this.userGuideToolStripMenuItem.Click += new System.EventHandler(this.userGuideToolStripMenuItem_Click);
             // 
             // troubleshootingToolStripMenuItem
             // 
             this.troubleshootingToolStripMenuItem.Name = "troubleshootingToolStripMenuItem";
-            this.troubleshootingToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.troubleshootingToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.troubleshootingToolStripMenuItem.Text = "Troubleshooting";
+            this.troubleshootingToolStripMenuItem.Click += new System.EventHandler(this.troubleshootingToolStripMenuItem_Click);
             // 
             // statusStrip1
             // 

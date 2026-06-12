@@ -12,9 +12,35 @@ namespace TheByteClubPOS.Resources
 {
     public partial class HelpForm : Form
     {
+        public enum HelpMode { UserGuide, Troubleshooting, About }
         public HelpForm()
         {
             InitializeComponent();
+        }
+
+        public void SetTabVisibility(HelpMode mode)
+        {
+            // Clear the current view
+            tabControl1.TabPages.Clear();
+
+            switch (mode)
+            {
+                case HelpMode.UserGuide:
+                    tabControl1.TabPages.Add(tabPage1);
+                    break;
+
+                case HelpMode.Troubleshooting:
+                    tabControl1.TabPages.Add(tabPage2);
+                    break;
+
+                case HelpMode.About:
+                    tabControl1.TabPages.Add(tabPage3);
+                    break;
+            }
+
+            // Ensure the first available tab is selected
+            if (tabControl1.TabCount > 0)
+                tabControl1.SelectedIndex = 0;
         }
 
         private void Help_Load(object sender, EventArgs e)
@@ -335,7 +361,7 @@ namespace TheByteClubPOS.Resources
 
             rtbAbout.AppendText("SAMS LIQUOR STORE POS SYSTEM\n\n");
 
-            rtbAbout.AppendText("Institution\n\n");
+            rtbAbout.AppendText("Institution:\n\n");
 
             // Section Content
             rtbAbout.SelectionColor = Color.DarkGreen;
@@ -351,7 +377,7 @@ namespace TheByteClubPOS.Resources
                 new Font("Segoe UI", 10, FontStyle.Regular);
 
             rtbAbout.AppendText(
-                "Version: 1.0\n\n" +
+                "Version: 1.2\n\n" +
                 "Developed By The Byte Club:\n" +
                 "• Divani Pillay\n" +
                 "• Braeden Govender\n" +
@@ -410,7 +436,7 @@ namespace TheByteClubPOS.Resources
             rtbAbout.SelectionColor = Color.Gray;
 
             rtbAbout.AppendText(
-                "© 2026 SAMS Liquor Store.");
+                "© 2026 Sam's Liquor Store.");
         }
     }
 }

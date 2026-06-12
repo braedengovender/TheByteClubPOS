@@ -216,6 +216,7 @@ namespace TheByteClubPOS
         private void btnProducts_Click(object sender, EventArgs e)
         {
             ManageProducts manageProducts = new ManageProducts();
+            manageProducts.showOnlyViewProducts();
             OpenChildForm(manageProducts);
         }
 
@@ -312,14 +313,13 @@ namespace TheByteClubPOS
 
         private void manageInventoryOrdersToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            ManageInventory manageinventory = new ManageInventory();
-            OpenChildForm(manageinventory);
+            
         }
 
         private void helpToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            HelpForm helpForm = new HelpForm();
-            OpenChildForm(helpForm);
+            //HelpForm helpForm = new HelpForm();
+            //OpenChildForm(helpForm);
         }
 
         private void btnSuppliers_Click(object sender, EventArgs e)
@@ -332,6 +332,38 @@ namespace TheByteClubPOS
             UpdateEmployeesForm update = new UpdateEmployeesForm(employeeID);
             update.IsManageProfile = true;
             OpenChildForm(update);
+        }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            HelpForm helpForm = new HelpForm();
+            helpForm.SetTabVisibility(HelpForm.HelpMode.About);
+            OpenChildForm(helpForm);
+        }
+
+        private void userGuideToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            HelpForm helpForm = new HelpForm();
+            helpForm.SetTabVisibility(HelpForm.HelpMode.UserGuide);
+            OpenChildForm(helpForm);
+        }
+
+        private void troubleshootingToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            HelpForm helpForm = new HelpForm();
+            helpForm.SetTabVisibility(HelpForm.HelpMode.Troubleshooting);
+            OpenChildForm(helpForm);
+        }
+
+        private void manageSuppliersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void processInventoryOrderToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            ManageInventory manageinventory = new ManageInventory();
+            OpenChildForm(manageinventory);
         }
     }
 }

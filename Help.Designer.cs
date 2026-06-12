@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HelpForm));
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.dsSamsLiqourShop1 = new TheByteClubPOS.dsSamsLiqourShop();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -45,31 +44,27 @@
             this.lstTroubleshooting = new System.Windows.Forms.ListBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.rtbAbout = new System.Windows.Forms.RichTextBox();
+            this.dsSamsLiqourShop1 = new TheByteClubPOS.dsSamsLiqourShop();
             this.tabControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dsSamsLiqourShop1)).BeginInit();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.tabPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dsSamsLiqourShop1)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
             // 
+            this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(1134, 666);
             this.tabControl1.TabIndex = 0;
-            // 
-            // dsSamsLiqourShop1
-            // 
-            this.dsSamsLiqourShop1.DataSetName = "dsSamsLiqourShop";
-            this.dsSamsLiqourShop1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // tabPage1
             // 
@@ -93,7 +88,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(97, 20);
+            this.label2.Location = new System.Drawing.Point(98, 27);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(365, 30);
             this.label2.TabIndex = 4;
@@ -104,7 +99,7 @@
             this.pictureBox1.Image = global::TheByteClubPOS.Properties.Resources.HelpFormIcon;
             this.pictureBox1.Location = new System.Drawing.Point(25, 27);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(66, 50);
+            this.pictureBox1.Size = new System.Drawing.Size(66, 62);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
@@ -113,7 +108,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(97, 50);
+            this.label1.Location = new System.Drawing.Point(98, 57);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(280, 30);
             this.label1.TabIndex = 2;
@@ -165,7 +160,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(100, 18);
+            this.label3.Location = new System.Drawing.Point(100, 28);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(179, 30);
             this.label3.TabIndex = 7;
@@ -174,9 +169,9 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = global::TheByteClubPOS.Properties.Resources.HelpFormIcon;
-            this.pictureBox2.Location = new System.Drawing.Point(28, 25);
+            this.pictureBox2.Location = new System.Drawing.Point(25, 28);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(66, 50);
+            this.pictureBox2.Size = new System.Drawing.Size(66, 61);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 6;
             this.pictureBox2.TabStop = false;
@@ -185,7 +180,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(100, 48);
+            this.label4.Location = new System.Drawing.Point(100, 58);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(354, 30);
             this.label4.TabIndex = 5;
@@ -231,9 +226,14 @@
             // 
             this.rtbAbout.Location = new System.Drawing.Point(8, 6);
             this.rtbAbout.Name = "rtbAbout";
-            this.rtbAbout.Size = new System.Drawing.Size(1035, 628);
+            this.rtbAbout.Size = new System.Drawing.Size(1110, 628);
             this.rtbAbout.TabIndex = 0;
             this.rtbAbout.Text = "";
+            // 
+            // dsSamsLiqourShop1
+            // 
+            this.dsSamsLiqourShop1.DataSetName = "dsSamsLiqourShop";
+            this.dsSamsLiqourShop1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // HelpForm
             // 
@@ -246,7 +246,6 @@
             this.Text = "Help";
             this.Load += new System.EventHandler(this.Help_Load);
             this.tabControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dsSamsLiqourShop1)).EndInit();
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -254,6 +253,7 @@
             this.tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.tabPage3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dsSamsLiqourShop1)).EndInit();
             this.ResumeLayout(false);
 
         }
