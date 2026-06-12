@@ -72,6 +72,7 @@
             this.btnTestLoginCashier.TabIndex = 5;
             this.btnTestLoginCashier.Text = "Login as Cashier";
             this.btnTestLoginCashier.UseVisualStyleBackColor = true;
+            this.btnTestLoginCashier.Visible = false;
             this.btnTestLoginCashier.Click += new System.EventHandler(this.btnTestLogin_Click);
             // 
             // btnTestLoginManager
@@ -83,6 +84,7 @@
             this.btnTestLoginManager.TabIndex = 6;
             this.btnTestLoginManager.Text = "Login as Manager";
             this.btnTestLoginManager.UseVisualStyleBackColor = true;
+            this.btnTestLoginManager.Visible = false;
             this.btnTestLoginManager.Click += new System.EventHandler(this.button3_Click);
             // 
             // tableLayoutPanel1
@@ -159,7 +161,7 @@
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 1;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(400, 34);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(400, 33);
             this.tableLayoutPanel5.TabIndex = 8;
             // 
             // txtUsername
@@ -181,11 +183,11 @@
             this.tableLayoutPanel3.Controls.Add(this.txtPassword, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.pictureBox1, 1, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(171, 43);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(171, 42);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(400, 42);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(400, 43);
             this.tableLayoutPanel3.TabIndex = 8;
             // 
             // txtPassword
@@ -227,7 +229,7 @@
             this.lblPassword.AutoSize = true;
             this.lblPassword.BackColor = System.Drawing.Color.Transparent;
             this.lblPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPassword.Location = new System.Drawing.Point(3, 40);
+            this.lblPassword.Location = new System.Drawing.Point(3, 39);
             this.lblPassword.Name = "lblPassword";
             this.lblPassword.Size = new System.Drawing.Size(97, 24);
             this.lblPassword.TabIndex = 3;
@@ -295,6 +297,7 @@
             this.button1.TabIndex = 9;
             this.button1.Text = "Login as Admin";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Visible = false;
             this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // dsSamsLiqourShop
