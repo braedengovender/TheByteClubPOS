@@ -191,8 +191,17 @@ namespace TheByteClubPOS
                 }
                 else
                 {
-                    // Login failed
-                    MessageBox.Show("Access Denied. Invalid username or password.", "Login Status", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    string statusCheck = employeeTableAdapter.GetStatusByUsername(username);
+                    if (statusCheck == "Inactive")
+                    {
+                        MessageBox.Show("Access Denied. Your account is currently inactive. Please contact a manager.",
+                                        "Account Inactive", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                    else
+                    {
+                        // Login failed
+                        MessageBox.Show("Access Denied. Invalid username or password.", "Login Status", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
             catch (Exception ex)

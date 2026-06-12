@@ -315,6 +315,9 @@
     <None Include="Resources\AccountDetailsIcon.png" />
     <None Include="Resources\CustomerProfile.png" />
     <None Include="Resources\ClearIcon.png" />
+    <None Include="Resources\EditIcon.png" />
+    <None Include="Resources\AddEmployeeIcon.png" />
+    <None Include="Resources\DeactivateButton.png" />
     <Content Include="Resources\FormIcon.ico" />
     <None Include="Resources\HelpFormIcon.png" />
     <None Include="Resources\HelpIcon.png" />
@@ -328,6 +331,7 @@
     <Content Include="Resources\PersonalDetailsIcon.png" />
     <None Include="Resources\RefreshIcon.png" />
     <None Include="Resources\RecoverAccountBackground.png" />
+    <None Include="Resources\Reseticon.png" />
     <Content Include="Resources\Untitled design %281%29.png" />
     <None Include="Resources\Untitled design %281%291.png" />
   </ItemGroup>

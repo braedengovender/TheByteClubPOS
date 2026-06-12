@@ -50,10 +50,11 @@
             this.rdoSurname = new System.Windows.Forms.RadioButton();
             this.rdoName = new System.Windows.Forms.RadioButton();
             this.btnReset = new System.Windows.Forms.Button();
-            this.btnRemove = new System.Windows.Forms.Button();
+            this.btnDeactivate = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
             this.dgvEmployees = new System.Windows.Forms.DataGridView();
+            this.employeeTableAdapter = new TheByteClubPOS.dsSamsLiqourShopTableAdapters.EmployeeTableAdapter();
             this.Employee_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Employee_FirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Employee_LastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -76,7 +77,6 @@
             this.employeeUsernameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.employeePasswordDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.employeeStatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.employeeTableAdapter = new TheByteClubPOS.dsSamsLiqourShopTableAdapters.EmployeeTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.employeeBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsSamsLiqourShopBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsSamsLiqourShop)).BeginInit();
@@ -90,6 +90,7 @@
             // 
             this.employeeBindingSource.DataMember = "Employee";
             this.employeeBindingSource.DataSource = this.dsSamsLiqourShopBindingSource;
+            this.employeeBindingSource.CurrentChanged += new System.EventHandler(this.employeeBindingSource_CurrentChanged);
             // 
             // dsSamsLiqourShopBindingSource
             // 
@@ -105,11 +106,11 @@
             // 
             this.lblTitle.AutoSize = true;
             this.lblTitle.BackColor = System.Drawing.Color.Transparent;
-            this.lblTitle.Font = new System.Drawing.Font("Modern No. 20", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.Location = new System.Drawing.Point(21, 45);
+            this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 21.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.Location = new System.Drawing.Point(20, 50);
             this.lblTitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(168, 21);
+            this.lblTitle.Size = new System.Drawing.Size(260, 40);
             this.lblTitle.TabIndex = 24;
             this.lblTitle.Text = "Employee Details:";
             // 
@@ -120,7 +121,7 @@
             this.grpFilter.Controls.Add(this.rdoAdmin);
             this.grpFilter.Controls.Add(this.rdoCashier);
             this.grpFilter.Controls.Add(this.rdoManager);
-            this.grpFilter.Location = new System.Drawing.Point(363, 482);
+            this.grpFilter.Location = new System.Drawing.Point(167, 481);
             this.grpFilter.Margin = new System.Windows.Forms.Padding(2);
             this.grpFilter.Name = "grpFilter";
             this.grpFilter.Padding = new System.Windows.Forms.Padding(2);
@@ -185,7 +186,7 @@
             // 
             // txtSearch
             // 
-            this.txtSearch.Location = new System.Drawing.Point(407, 445);
+            this.txtSearch.Location = new System.Drawing.Point(211, 444);
             this.txtSearch.Margin = new System.Windows.Forms.Padding(2);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(154, 20);
@@ -197,7 +198,7 @@
             // 
             this.lblSearch.AutoSize = true;
             this.lblSearch.BackColor = System.Drawing.Color.Transparent;
-            this.lblSearch.Location = new System.Drawing.Point(360, 447);
+            this.lblSearch.Location = new System.Drawing.Point(164, 446);
             this.lblSearch.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblSearch.Name = "lblSearch";
             this.lblSearch.Size = new System.Drawing.Size(44, 13);
@@ -209,11 +210,11 @@
             this.grpOrderby.BackColor = System.Drawing.Color.Transparent;
             this.grpOrderby.Controls.Add(this.rdoDesc);
             this.grpOrderby.Controls.Add(this.rdoAsc);
-            this.grpOrderby.Location = new System.Drawing.Point(786, 437);
+            this.grpOrderby.Location = new System.Drawing.Point(590, 436);
             this.grpOrderby.Margin = new System.Windows.Forms.Padding(2);
             this.grpOrderby.Name = "grpOrderby";
             this.grpOrderby.Padding = new System.Windows.Forms.Padding(2);
-            this.grpOrderby.Size = new System.Drawing.Size(171, 119);
+            this.grpOrderby.Size = new System.Drawing.Size(179, 119);
             this.grpOrderby.TabIndex = 20;
             this.grpOrderby.TabStop = false;
             this.grpOrderby.Text = "Order by:";
@@ -221,7 +222,7 @@
             // rdoDesc
             // 
             this.rdoDesc.AutoSize = true;
-            this.rdoDesc.Location = new System.Drawing.Point(25, 75);
+            this.rdoDesc.Location = new System.Drawing.Point(25, 62);
             this.rdoDesc.Margin = new System.Windows.Forms.Padding(2);
             this.rdoDesc.Name = "rdoDesc";
             this.rdoDesc.Size = new System.Drawing.Size(82, 17);
@@ -229,6 +230,7 @@
             this.rdoDesc.TabStop = true;
             this.rdoDesc.Text = "Descending";
             this.rdoDesc.UseVisualStyleBackColor = true;
+            this.rdoDesc.CheckedChanged += new System.EventHandler(this.rdoDesc_CheckedChanged_1);
             this.rdoDesc.Click += new System.EventHandler(this.rdoDesc_CheckedChanged);
             // 
             // rdoAsc
@@ -252,7 +254,7 @@
             this.grpSort.Controls.Add(this.rdoUsername);
             this.grpSort.Controls.Add(this.rdoSurname);
             this.grpSort.Controls.Add(this.rdoName);
-            this.grpSort.Location = new System.Drawing.Point(583, 437);
+            this.grpSort.Location = new System.Drawing.Point(387, 436);
             this.grpSort.Margin = new System.Windows.Forms.Padding(2);
             this.grpSort.Name = "grpSort";
             this.grpSort.Padding = new System.Windows.Forms.Padding(2);
@@ -315,50 +317,65 @@
             // 
             // btnReset
             // 
-            this.btnReset.Location = new System.Drawing.Point(818, 566);
+            this.btnReset.Image = global::TheByteClubPOS.Properties.Resources.Reseticon;
+            this.btnReset.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnReset.Location = new System.Drawing.Point(590, 566);
             this.btnReset.Margin = new System.Windows.Forms.Padding(2);
             this.btnReset.Name = "btnReset";
-            this.btnReset.Size = new System.Drawing.Size(107, 44);
+            this.btnReset.Size = new System.Drawing.Size(179, 44);
             this.btnReset.TabIndex = 18;
-            this.btnReset.Text = "Reset Filter";
+            this.btnReset.Text = " Reset Filter";
+            this.btnReset.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnReset.UseVisualStyleBackColor = true;
             this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
-            // btnRemove
+            // btnDeactivate
             // 
-            this.btnRemove.Location = new System.Drawing.Point(194, 566);
-            this.btnRemove.Margin = new System.Windows.Forms.Padding(2);
-            this.btnRemove.Name = "btnRemove";
-            this.btnRemove.Size = new System.Drawing.Size(107, 44);
-            this.btnRemove.TabIndex = 17;
-            this.btnRemove.Text = "Remove Employee";
-            this.btnRemove.UseVisualStyleBackColor = true;
-            this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
+            this.btnDeactivate.Image = global::TheByteClubPOS.Properties.Resources.DeactivateButton;
+            this.btnDeactivate.Location = new System.Drawing.Point(806, 566);
+            this.btnDeactivate.Margin = new System.Windows.Forms.Padding(2);
+            this.btnDeactivate.Name = "btnDeactivate";
+            this.btnDeactivate.Size = new System.Drawing.Size(179, 44);
+            this.btnDeactivate.TabIndex = 17;
+            this.btnDeactivate.Text = " Deactivate Employee";
+            this.btnDeactivate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnDeactivate.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnDeactivate.UseVisualStyleBackColor = true;
+            this.btnDeactivate.Click += new System.EventHandler(this.btnRemove_Click);
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(194, 498);
+            this.btnAdd.Image = global::TheByteClubPOS.Properties.Resources.AddEmployeeIcon;
+            this.btnAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAdd.Location = new System.Drawing.Point(806, 502);
             this.btnAdd.Margin = new System.Windows.Forms.Padding(2);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(107, 44);
+            this.btnAdd.Size = new System.Drawing.Size(179, 44);
             this.btnAdd.TabIndex = 16;
-            this.btnAdd.Text = "Add Employee";
+            this.btnAdd.Text = " Add Employee";
+            this.btnAdd.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAdd.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnEdit
             // 
-            this.btnEdit.Location = new System.Drawing.Point(194, 437);
+            this.btnEdit.Image = global::TheByteClubPOS.Properties.Resources.EditIcon;
+            this.btnEdit.Location = new System.Drawing.Point(806, 438);
             this.btnEdit.Margin = new System.Windows.Forms.Padding(2);
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(107, 44);
+            this.btnEdit.Size = new System.Drawing.Size(179, 44);
             this.btnEdit.TabIndex = 15;
-            this.btnEdit.Text = "Edit Details";
+            this.btnEdit.Text = " Edit Details";
+            this.btnEdit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnEdit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnEdit.UseVisualStyleBackColor = true;
             this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // dgvEmployees
             // 
+            this.dgvEmployees.AllowUserToAddRows = false;
+            this.dgvEmployees.AllowUserToDeleteRows = false;
             this.dgvEmployees.AutoGenerateColumns = false;
             this.dgvEmployees.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvEmployees.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -385,13 +402,20 @@
             this.employeePasswordDataGridViewTextBoxColumn,
             this.employeeStatusDataGridViewTextBoxColumn});
             this.dgvEmployees.DataSource = this.employeeBindingSource;
-            this.dgvEmployees.Location = new System.Drawing.Point(8, 77);
+            this.dgvEmployees.Location = new System.Drawing.Point(26, 128);
             this.dgvEmployees.Margin = new System.Windows.Forms.Padding(2);
             this.dgvEmployees.Name = "dgvEmployees";
+            this.dgvEmployees.ReadOnly = true;
+            this.dgvEmployees.RowHeadersVisible = false;
             this.dgvEmployees.RowHeadersWidth = 62;
             this.dgvEmployees.RowTemplate.Height = 28;
-            this.dgvEmployees.Size = new System.Drawing.Size(1114, 319);
+            this.dgvEmployees.Size = new System.Drawing.Size(1097, 247);
             this.dgvEmployees.TabIndex = 14;
+            this.dgvEmployees.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvEmployees_CellFormatting);
+            // 
+            // employeeTableAdapter
+            // 
+            this.employeeTableAdapter.ClearBeforeFill = true;
             // 
             // Employee_ID
             // 
@@ -400,30 +424,33 @@
             this.Employee_ID.MinimumWidth = 8;
             this.Employee_ID.Name = "Employee_ID";
             this.Employee_ID.ReadOnly = true;
-            this.Employee_ID.Width = 80;
+            this.Employee_ID.Width = 50;
             // 
             // Employee_FirstName
             // 
             this.Employee_FirstName.DataPropertyName = "Employee_FirstName";
-            this.Employee_FirstName.HeaderText = "FirstName";
+            this.Employee_FirstName.HeaderText = "First Name";
             this.Employee_FirstName.MinimumWidth = 8;
             this.Employee_FirstName.Name = "Employee_FirstName";
+            this.Employee_FirstName.ReadOnly = true;
             this.Employee_FirstName.Width = 110;
             // 
             // Employee_LastName
             // 
             this.Employee_LastName.DataPropertyName = "Employee_LastName";
-            this.Employee_LastName.HeaderText = "LastName";
+            this.Employee_LastName.HeaderText = "Last Name";
             this.Employee_LastName.MinimumWidth = 8;
             this.Employee_LastName.Name = "Employee_LastName";
+            this.Employee_LastName.ReadOnly = true;
             this.Employee_LastName.Width = 110;
             // 
             // Employee_IDNumber
             // 
             this.Employee_IDNumber.DataPropertyName = "Employee_IDNumber";
-            this.Employee_IDNumber.HeaderText = "IDNumber";
+            this.Employee_IDNumber.HeaderText = "ID Number";
             this.Employee_IDNumber.MinimumWidth = 8;
             this.Employee_IDNumber.Name = "Employee_IDNumber";
+            this.Employee_IDNumber.ReadOnly = true;
             this.Employee_IDNumber.Width = 110;
             // 
             // Employee_Role
@@ -432,31 +459,35 @@
             this.Employee_Role.HeaderText = "Role";
             this.Employee_Role.MinimumWidth = 8;
             this.Employee_Role.Name = "Employee_Role";
-            this.Employee_Role.Width = 90;
+            this.Employee_Role.ReadOnly = true;
+            this.Employee_Role.Width = 61;
             // 
             // Employee_EmailAddress
             // 
             this.Employee_EmailAddress.DataPropertyName = "Employee_EmailAddress";
-            this.Employee_EmailAddress.HeaderText = "EmailAddress";
+            this.Employee_EmailAddress.HeaderText = "Email Address";
             this.Employee_EmailAddress.MinimumWidth = 8;
             this.Employee_EmailAddress.Name = "Employee_EmailAddress";
-            this.Employee_EmailAddress.Width = 120;
+            this.Employee_EmailAddress.ReadOnly = true;
+            this.Employee_EmailAddress.Width = 186;
             // 
             // Employee_PhoneNumber
             // 
             this.Employee_PhoneNumber.DataPropertyName = "Employee_PhoneNumber";
-            this.Employee_PhoneNumber.HeaderText = "PhoneNumber";
+            this.Employee_PhoneNumber.HeaderText = "Phone Number";
             this.Employee_PhoneNumber.MinimumWidth = 8;
             this.Employee_PhoneNumber.Name = "Employee_PhoneNumber";
-            this.Employee_PhoneNumber.Width = 120;
+            this.Employee_PhoneNumber.ReadOnly = true;
+            this.Employee_PhoneNumber.Width = 90;
             // 
             // Employee_HireDate
             // 
             this.Employee_HireDate.DataPropertyName = "Employee_HireDate";
-            this.Employee_HireDate.HeaderText = "HireDate";
+            this.Employee_HireDate.HeaderText = "Hire Date";
             this.Employee_HireDate.MinimumWidth = 8;
             this.Employee_HireDate.Name = "Employee_HireDate";
-            this.Employee_HireDate.Width = 110;
+            this.Employee_HireDate.ReadOnly = true;
+            this.Employee_HireDate.Width = 90;
             // 
             // Employee_Username
             // 
@@ -464,6 +495,7 @@
             this.Employee_Username.HeaderText = "Username";
             this.Employee_Username.MinimumWidth = 8;
             this.Employee_Username.Name = "Employee_Username";
+            this.Employee_Username.ReadOnly = true;
             this.Employee_Username.Width = 110;
             // 
             // Employee_Password
@@ -472,6 +504,7 @@
             this.Employee_Password.HeaderText = "Password";
             this.Employee_Password.MinimumWidth = 8;
             this.Employee_Password.Name = "Employee_Password";
+            this.Employee_Password.ReadOnly = true;
             this.Employee_Password.Width = 110;
             // 
             // Employee_Status
@@ -480,7 +513,8 @@
             this.Employee_Status.HeaderText = "Status";
             this.Employee_Status.MinimumWidth = 8;
             this.Employee_Status.Name = "Employee_Status";
-            this.Employee_Status.Width = 80;
+            this.Employee_Status.ReadOnly = true;
+            this.Employee_Status.Width = 65;
             // 
             // employeeIDDataGridViewTextBoxColumn
             // 
@@ -488,70 +522,87 @@
             this.employeeIDDataGridViewTextBoxColumn.HeaderText = "Employee_ID";
             this.employeeIDDataGridViewTextBoxColumn.Name = "employeeIDDataGridViewTextBoxColumn";
             this.employeeIDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.employeeIDDataGridViewTextBoxColumn.Visible = false;
             // 
             // employeeFirstNameDataGridViewTextBoxColumn
             // 
             this.employeeFirstNameDataGridViewTextBoxColumn.DataPropertyName = "Employee_FirstName";
             this.employeeFirstNameDataGridViewTextBoxColumn.HeaderText = "Employee_FirstName";
             this.employeeFirstNameDataGridViewTextBoxColumn.Name = "employeeFirstNameDataGridViewTextBoxColumn";
+            this.employeeFirstNameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.employeeFirstNameDataGridViewTextBoxColumn.Visible = false;
             // 
             // employeeLastNameDataGridViewTextBoxColumn
             // 
             this.employeeLastNameDataGridViewTextBoxColumn.DataPropertyName = "Employee_LastName";
             this.employeeLastNameDataGridViewTextBoxColumn.HeaderText = "Employee_LastName";
             this.employeeLastNameDataGridViewTextBoxColumn.Name = "employeeLastNameDataGridViewTextBoxColumn";
+            this.employeeLastNameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.employeeLastNameDataGridViewTextBoxColumn.Visible = false;
             // 
             // employeeIDNumberDataGridViewTextBoxColumn
             // 
             this.employeeIDNumberDataGridViewTextBoxColumn.DataPropertyName = "Employee_IDNumber";
             this.employeeIDNumberDataGridViewTextBoxColumn.HeaderText = "Employee_IDNumber";
             this.employeeIDNumberDataGridViewTextBoxColumn.Name = "employeeIDNumberDataGridViewTextBoxColumn";
+            this.employeeIDNumberDataGridViewTextBoxColumn.ReadOnly = true;
+            this.employeeIDNumberDataGridViewTextBoxColumn.Visible = false;
             // 
             // employeeRoleDataGridViewTextBoxColumn
             // 
             this.employeeRoleDataGridViewTextBoxColumn.DataPropertyName = "Employee_Role";
             this.employeeRoleDataGridViewTextBoxColumn.HeaderText = "Employee_Role";
             this.employeeRoleDataGridViewTextBoxColumn.Name = "employeeRoleDataGridViewTextBoxColumn";
+            this.employeeRoleDataGridViewTextBoxColumn.ReadOnly = true;
+            this.employeeRoleDataGridViewTextBoxColumn.Visible = false;
             // 
             // employeeEmailAddressDataGridViewTextBoxColumn
             // 
             this.employeeEmailAddressDataGridViewTextBoxColumn.DataPropertyName = "Employee_EmailAddress";
             this.employeeEmailAddressDataGridViewTextBoxColumn.HeaderText = "Employee_EmailAddress";
             this.employeeEmailAddressDataGridViewTextBoxColumn.Name = "employeeEmailAddressDataGridViewTextBoxColumn";
+            this.employeeEmailAddressDataGridViewTextBoxColumn.ReadOnly = true;
+            this.employeeEmailAddressDataGridViewTextBoxColumn.Visible = false;
             // 
             // employeePhoneNumberDataGridViewTextBoxColumn
             // 
             this.employeePhoneNumberDataGridViewTextBoxColumn.DataPropertyName = "Employee_PhoneNumber";
             this.employeePhoneNumberDataGridViewTextBoxColumn.HeaderText = "Employee_PhoneNumber";
             this.employeePhoneNumberDataGridViewTextBoxColumn.Name = "employeePhoneNumberDataGridViewTextBoxColumn";
+            this.employeePhoneNumberDataGridViewTextBoxColumn.ReadOnly = true;
+            this.employeePhoneNumberDataGridViewTextBoxColumn.Visible = false;
             // 
             // employeeHireDateDataGridViewTextBoxColumn
             // 
             this.employeeHireDateDataGridViewTextBoxColumn.DataPropertyName = "Employee_HireDate";
             this.employeeHireDateDataGridViewTextBoxColumn.HeaderText = "Employee_HireDate";
             this.employeeHireDateDataGridViewTextBoxColumn.Name = "employeeHireDateDataGridViewTextBoxColumn";
+            this.employeeHireDateDataGridViewTextBoxColumn.ReadOnly = true;
+            this.employeeHireDateDataGridViewTextBoxColumn.Visible = false;
             // 
             // employeeUsernameDataGridViewTextBoxColumn
             // 
             this.employeeUsernameDataGridViewTextBoxColumn.DataPropertyName = "Employee_Username";
             this.employeeUsernameDataGridViewTextBoxColumn.HeaderText = "Employee_Username";
             this.employeeUsernameDataGridViewTextBoxColumn.Name = "employeeUsernameDataGridViewTextBoxColumn";
+            this.employeeUsernameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.employeeUsernameDataGridViewTextBoxColumn.Visible = false;
             // 
             // employeePasswordDataGridViewTextBoxColumn
             // 
             this.employeePasswordDataGridViewTextBoxColumn.DataPropertyName = "Employee_Password";
             this.employeePasswordDataGridViewTextBoxColumn.HeaderText = "Employee_Password";
             this.employeePasswordDataGridViewTextBoxColumn.Name = "employeePasswordDataGridViewTextBoxColumn";
+            this.employeePasswordDataGridViewTextBoxColumn.ReadOnly = true;
+            this.employeePasswordDataGridViewTextBoxColumn.Visible = false;
             // 
             // employeeStatusDataGridViewTextBoxColumn
             // 
             this.employeeStatusDataGridViewTextBoxColumn.DataPropertyName = "Employee_Status";
             this.employeeStatusDataGridViewTextBoxColumn.HeaderText = "Employee_Status";
             this.employeeStatusDataGridViewTextBoxColumn.Name = "employeeStatusDataGridViewTextBoxColumn";
-            // 
-            // employeeTableAdapter
-            // 
-            this.employeeTableAdapter.ClearBeforeFill = true;
+            this.employeeStatusDataGridViewTextBoxColumn.ReadOnly = true;
+            this.employeeStatusDataGridViewTextBoxColumn.Visible = false;
             // 
             // ManageEmployeeDetailsForm
             // 
@@ -567,14 +618,14 @@
             this.Controls.Add(this.grpOrderby);
             this.Controls.Add(this.grpSort);
             this.Controls.Add(this.btnReset);
-            this.Controls.Add(this.btnRemove);
+            this.Controls.Add(this.btnDeactivate);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.dgvEmployees);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ManageEmployeeDetailsForm";
-            this.Text = "ManageEmployeeDetailsForm";
+            this.Text = "Manage Employees";
             this.Load += new System.EventHandler(this.ManageEmployeeDetailsForm_Load);
             this.Click += new System.EventHandler(this.ManageEmployeeDetailsForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.employeeBindingSource)).EndInit();
@@ -597,13 +648,6 @@
         private dsSamsLiqourShop dsSamsLiqourShop;
         private System.Windows.Forms.BindingSource employeeBindingSource;
         private dsSamsLiqourShopTableAdapters.EmployeeTableAdapter employeeTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn employeeIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn employeeFirstNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn employeeLastNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn employeeIDNumberDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn employeeRoleDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn employeeEmailAddressDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn employeePhoneNumberDataGridViewTextBoxColumn;
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.GroupBox grpFilter;
         private System.Windows.Forms.RadioButton rdoAll;
@@ -621,7 +665,7 @@
         private System.Windows.Forms.RadioButton rdoSurname;
         private System.Windows.Forms.RadioButton rdoName;
         private System.Windows.Forms.Button btnReset;
-        private System.Windows.Forms.Button btnRemove;
+        private System.Windows.Forms.Button btnDeactivate;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.DataGridView dgvEmployees;
@@ -636,6 +680,13 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Employee_Username;
         private System.Windows.Forms.DataGridViewTextBoxColumn Employee_Password;
         private System.Windows.Forms.DataGridViewTextBoxColumn Employee_Status;
+        private System.Windows.Forms.DataGridViewTextBoxColumn employeeIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn employeeFirstNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn employeeLastNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn employeeIDNumberDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn employeeRoleDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn employeeEmailAddressDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn employeePhoneNumberDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn employeeHireDateDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn employeeUsernameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn employeePasswordDataGridViewTextBoxColumn;

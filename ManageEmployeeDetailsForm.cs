@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace TheByteClubPOS
 {
@@ -22,10 +23,8 @@ namespace TheByteClubPOS
             // TODO: This line of code loads data into the 'dsSamsLiqourShop.Employee' table. You can move, or remove it, as needed.
             this.employeeTableAdapter.Fill(this.dsSamsLiqourShop.Employee);
 
+            UpdateRemoveButtonText();
         }
-
-
-
 
         private void ApplySorting()
         {
@@ -96,46 +95,49 @@ namespace TheByteClubPOS
         }
         private void btnRemove_Click(object sender, EventArgs e)
         {
+            // Safety check: Ensure an employee is selected
             if (employeeBindingSource.Current == null)
             {
-                MessageBox.Show(
-                    "Please select an employee first.");
-
+                MessageBox.Show("Please select an employee first.");
                 return;
             }
 
-            DialogResult result =
-                MessageBox.Show(
-                    "Are you sure you want to remove this employee?",
-                    "Confirm Delete",
-                    MessageBoxButtons.YesNo,
-                    MessageBoxIcon.Question);
+            // Identify the current status
+            DataRowView row = (DataRowView)employeeBindingSource.Current;
+            string currentStatus = row["Employee_Status"].ToString();
+
+            // Determine the toggled status and action name
+            string newStatus = (currentStatus == "Inactive") ? "Active" : "Inactive";
+            string actionName = (newStatus == "Inactive") ? "deactivate" : "reactivate";
+
+            // Confirm the action with the user
+            DialogResult result = MessageBox.Show($"Are you sure you want to {actionName} this employee?", $"Confirm {actionName}", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (result == DialogResult.No)
             {
-                MessageBox.Show(
-                    "Delete cancelled.");
-
+                MessageBox.Show($"{actionName} cancelled.");
                 return;
             }
 
             try
             {
-                employeeBindingSource.RemoveCurrent();
+                // employeeBindingSource.RemoveCurrent();
 
+                // Change the status instead of removing the row
+                row["Employee_Status"] = newStatus;
+
+                // Save the change to the database
                 employeeBindingSource.EndEdit();
+                employeeTableAdapter.Update(dsSamsLiqourShop.Employee);
 
-                employeeTableAdapter.Update(
-                    dsSamsLiqourShop.Employee);
+                // Refresh the button text immediately after the save
+                UpdateRemoveButtonText();
 
-                MessageBox.Show(
-                    "Employee removed successfully.");
+                MessageBox.Show($"Employee {actionName}d successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
-                MessageBox.Show(
-                    "Error removing employee.\n\n" +
-                    ex.Message);
+                MessageBox.Show($"Error during {actionName} operation.\n\n" + ex.Message);
             }
         }
 
@@ -161,8 +163,7 @@ namespace TheByteClubPOS
 
             employeeBindingSource.ResetBindings(false);
 
-            MessageBox.Show(
-                "Filters reset.");
+            MessageBox.Show("Filters reset.", "Reset", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void rdoManager_CheckedChanged(object sender, EventArgs e)
@@ -182,11 +183,9 @@ namespace TheByteClubPOS
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
-            if (String.IsNullOrWhiteSpace(
-           txtSearch.Text))
+            if (String.IsNullOrWhiteSpace(txtSearch.Text))
             {
                 employeeBindingSource.RemoveFilter();
-
                 return;
             }
 
@@ -277,6 +276,51 @@ namespace TheByteClubPOS
         private void rdoAsc_CheckedChanged_1(object sender, EventArgs e)
         {
 
+        }
+        private void UpdateRemoveButtonText()
+        {
+            if (employeeBindingSource.Current is DataRowView row)
+            {
+                // Assuming your column is "Employee_Status"
+                string status = row["Employee_Status"].ToString();
+
+                if (status == "Inactive")
+                {
+                    btnDeactivate.Text = " Reactivate Employee";
+                }
+                else
+                {
+                    btnDeactivate.Text = " Deactivate Employee";
+                }
+            }
+        }
+        private void employeeBindingSource_CurrentChanged(object sender, EventArgs e)
+        {
+            UpdateRemoveButtonText();
+        }
+
+        private void rdoDesc_CheckedChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgvEmployees_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            // Ensure we are working with a valid row and the correct column
+            if (dgvEmployees.Rows[e.RowIndex].DataBoundItem is DataRowView row)
+            {
+                // Check if the status column is "Inactive"
+                if (row["Employee_Status"].ToString() == "Inactive")
+                {
+                    // Set the row's background color to light red
+                    dgvEmployees.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.LightCoral;
+                }
+                else
+                {
+                    // Reset to default white (or your grid's default color) if they are active
+                    dgvEmployees.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.White;
+                }
+            }
         }
     }
 }
