@@ -28,27 +28,28 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HelpForm));
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.lstUserGuide = new System.Windows.Forms.ListBox();
-            this.rtbUserGuide = new System.Windows.Forms.RichTextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.dsSamsLiqourShop1 = new TheByteClubPOS.dsSamsLiqourShop();
-            this.rtbTroubleshooting = new System.Windows.Forms.RichTextBox();
-            this.lstTroubleshooting = new System.Windows.Forms.ListBox();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.rtbUserGuide = new System.Windows.Forms.RichTextBox();
+            this.lstUserGuide = new System.Windows.Forms.ListBox();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.label3 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.rtbTroubleshooting = new System.Windows.Forms.RichTextBox();
+            this.lstTroubleshooting = new System.Windows.Forms.ListBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.rtbAbout = new System.Windows.Forms.RichTextBox();
             this.tabControl1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dsSamsLiqourShop1)).BeginInit();
+            this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.tabPage3.SuspendLayout();
             this.SuspendLayout();
@@ -65,9 +66,15 @@
             this.tabControl1.Size = new System.Drawing.Size(1134, 666);
             this.tabControl1.TabIndex = 0;
             // 
+            // dsSamsLiqourShop1
+            // 
+            this.dsSamsLiqourShop1.DataSetName = "dsSamsLiqourShop";
+            this.dsSamsLiqourShop1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // tabPage1
             // 
-            this.tabPage1.BackgroundImage = global::TheByteClubPOS.Properties.Resources.Background;
+            this.tabPage1.BackgroundImage = global::TheByteClubPOS.Properties.Resources.HelpBackground;
+            this.tabPage1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.tabPage1.Controls.Add(this.label2);
             this.tabPage1.Controls.Add(this.pictureBox1);
             this.tabPage1.Controls.Add(this.label1);
@@ -81,82 +88,6 @@
             this.tabPage1.Text = "User Guide";
             this.tabPage1.UseVisualStyleBackColor = true;
             this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.BackgroundImage = global::TheByteClubPOS.Properties.Resources.Background;
-            this.tabPage2.Controls.Add(this.label3);
-            this.tabPage2.Controls.Add(this.pictureBox2);
-            this.tabPage2.Controls.Add(this.label4);
-            this.tabPage2.Controls.Add(this.rtbTroubleshooting);
-            this.tabPage2.Controls.Add(this.lstTroubleshooting);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1126, 640);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Troubleshooting";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            this.tabPage2.Click += new System.EventHandler(this.tabPage2_Click);
-            // 
-            // lstUserGuide
-            // 
-            this.lstUserGuide.BackColor = System.Drawing.Color.White;
-            this.lstUserGuide.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lstUserGuide.FormattingEnabled = true;
-            this.lstUserGuide.ItemHeight = 25;
-            this.lstUserGuide.Location = new System.Drawing.Point(25, 143);
-            this.lstUserGuide.Name = "lstUserGuide";
-            this.lstUserGuide.Size = new System.Drawing.Size(323, 379);
-            this.lstUserGuide.TabIndex = 0;
-            this.lstUserGuide.SelectedIndexChanged += new System.EventHandler(this.lstUserGuide_SelectedIndexChanged);
-            // 
-            // rtbUserGuide
-            // 
-            this.rtbUserGuide.BackColor = System.Drawing.Color.White;
-            this.rtbUserGuide.Location = new System.Drawing.Point(569, 85);
-            this.rtbUserGuide.Name = "rtbUserGuide";
-            this.rtbUserGuide.ReadOnly = true;
-            this.rtbUserGuide.Size = new System.Drawing.Size(436, 437);
-            this.rtbUserGuide.TabIndex = 1;
-            this.rtbUserGuide.Text = "";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(97, 50);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(280, 30);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Please select a guide below";
-            // 
-            // dsSamsLiqourShop1
-            // 
-            this.dsSamsLiqourShop1.DataSetName = "dsSamsLiqourShop";
-            this.dsSamsLiqourShop1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // rtbTroubleshooting
-            // 
-            this.rtbTroubleshooting.BackColor = System.Drawing.Color.White;
-            this.rtbTroubleshooting.Location = new System.Drawing.Point(571, 65);
-            this.rtbTroubleshooting.Name = "rtbTroubleshooting";
-            this.rtbTroubleshooting.ReadOnly = true;
-            this.rtbTroubleshooting.Size = new System.Drawing.Size(436, 437);
-            this.rtbTroubleshooting.TabIndex = 3;
-            this.rtbTroubleshooting.Text = "";
-            // 
-            // lstTroubleshooting
-            // 
-            this.lstTroubleshooting.BackColor = System.Drawing.Color.White;
-            this.lstTroubleshooting.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lstTroubleshooting.FormattingEnabled = true;
-            this.lstTroubleshooting.ItemHeight = 25;
-            this.lstTroubleshooting.Location = new System.Drawing.Point(27, 123);
-            this.lstTroubleshooting.Name = "lstTroubleshooting";
-            this.lstTroubleshooting.Size = new System.Drawing.Size(323, 379);
-            this.lstTroubleshooting.TabIndex = 2;
-            this.lstTroubleshooting.SelectedIndexChanged += new System.EventHandler(this.lstTroubleshooting_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -177,6 +108,58 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(97, 50);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(280, 30);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Please select a guide below";
+            // 
+            // rtbUserGuide
+            // 
+            this.rtbUserGuide.BackColor = System.Drawing.Color.White;
+            this.rtbUserGuide.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.rtbUserGuide.Location = new System.Drawing.Point(569, 93);
+            this.rtbUserGuide.Name = "rtbUserGuide";
+            this.rtbUserGuide.ReadOnly = true;
+            this.rtbUserGuide.Size = new System.Drawing.Size(464, 437);
+            this.rtbUserGuide.TabIndex = 1;
+            this.rtbUserGuide.Text = "";
+            // 
+            // lstUserGuide
+            // 
+            this.lstUserGuide.BackColor = System.Drawing.Color.White;
+            this.lstUserGuide.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.lstUserGuide.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lstUserGuide.FormattingEnabled = true;
+            this.lstUserGuide.ItemHeight = 30;
+            this.lstUserGuide.Location = new System.Drawing.Point(52, 183);
+            this.lstUserGuide.Name = "lstUserGuide";
+            this.lstUserGuide.Size = new System.Drawing.Size(335, 300);
+            this.lstUserGuide.TabIndex = 0;
+            this.lstUserGuide.SelectedIndexChanged += new System.EventHandler(this.lstUserGuide_SelectedIndexChanged);
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.BackgroundImage = global::TheByteClubPOS.Properties.Resources.HelpBackground;
+            this.tabPage2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.tabPage2.Controls.Add(this.label3);
+            this.tabPage2.Controls.Add(this.pictureBox2);
+            this.tabPage2.Controls.Add(this.label4);
+            this.tabPage2.Controls.Add(this.rtbTroubleshooting);
+            this.tabPage2.Controls.Add(this.lstTroubleshooting);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(1126, 640);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Troubleshooting";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            this.tabPage2.Click += new System.EventHandler(this.tabPage2_Click);
             // 
             // label3
             // 
@@ -208,6 +191,30 @@
             this.label4.TabIndex = 5;
             this.label4.Text = "Please select a problem area below";
             // 
+            // rtbTroubleshooting
+            // 
+            this.rtbTroubleshooting.BackColor = System.Drawing.Color.White;
+            this.rtbTroubleshooting.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.rtbTroubleshooting.Location = new System.Drawing.Point(576, 88);
+            this.rtbTroubleshooting.Name = "rtbTroubleshooting";
+            this.rtbTroubleshooting.ReadOnly = true;
+            this.rtbTroubleshooting.Size = new System.Drawing.Size(436, 437);
+            this.rtbTroubleshooting.TabIndex = 3;
+            this.rtbTroubleshooting.Text = "";
+            // 
+            // lstTroubleshooting
+            // 
+            this.lstTroubleshooting.BackColor = System.Drawing.Color.White;
+            this.lstTroubleshooting.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.lstTroubleshooting.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lstTroubleshooting.FormattingEnabled = true;
+            this.lstTroubleshooting.ItemHeight = 30;
+            this.lstTroubleshooting.Location = new System.Drawing.Point(55, 182);
+            this.lstTroubleshooting.Name = "lstTroubleshooting";
+            this.lstTroubleshooting.Size = new System.Drawing.Size(323, 330);
+            this.lstTroubleshooting.TabIndex = 2;
+            this.lstTroubleshooting.SelectedIndexChanged += new System.EventHandler(this.lstTroubleshooting_SelectedIndexChanged);
+            // 
             // tabPage3
             // 
             this.tabPage3.BackgroundImage = global::TheByteClubPOS.Properties.Resources.Background;
@@ -234,16 +241,17 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1134, 666);
             this.Controls.Add(this.tabControl1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "HelpForm";
             this.Text = "Help";
             this.Load += new System.EventHandler(this.Help_Load);
             this.tabControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dsSamsLiqourShop1)).EndInit();
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dsSamsLiqourShop1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.ResumeLayout(false);

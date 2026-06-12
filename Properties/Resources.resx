@@ -118,14 +118,14 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="ClockIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ClockIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="EmployeesIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\EmployeesIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="AccountDetailsIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\AccountDetailsIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="LogoutIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\LogoutIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="RecoverAccountBackground" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\RecoverAccountBackground.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ContactDetailsIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ContactDetailsIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -138,6 +138,9 @@
   </data>
   <data name="HomeIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\HomeIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="InventoryIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\InventoryIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Sam's Liqour Store" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Sam's Liqour Store.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -156,9 +159,6 @@
   </data>
   <data name="MainFormPanel1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MainFormPanel1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="RefreshIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\RefreshIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Untitled design (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Untitled design (1)1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -184,11 +184,11 @@
   <data name="DiscountIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\DiscountIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="CustomerProfile" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CustomerProfile.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="DarkMode_Background" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\DarkMode_Background.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="CalendarIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\CalendarIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="CustomerIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\CustomerIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -196,8 +196,8 @@
   <data name="BadgeIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\BadgeIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="CustomerProfile" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\CustomerProfile.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="CalendarIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CalendarIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ProductIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ProductIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -223,8 +223,11 @@
   <data name="HideEye" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\HideEye.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="LogoutIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\LogoutIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="MainFormImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MainFormImage.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AccountDetailsIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AccountDetailsIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="HelpFormIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\HelpFormIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -238,16 +241,16 @@
   <data name="InfoIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\InfoIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="InventoryIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\InventoryIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="RefreshIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\RefreshIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Dark_Background" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Dark_Background.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="MainFormImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\MainFormImage.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="ClockIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ClockIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="RecoverAccountBackground" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\RecoverAccountBackground.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="HelpBackground" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\HelpBackground.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
