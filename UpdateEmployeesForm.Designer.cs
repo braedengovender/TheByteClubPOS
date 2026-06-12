@@ -53,7 +53,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UpdateEmployeesForm));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblHeading = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -395,29 +395,29 @@
             // tabPage1
             // 
             this.tabPage1.BackgroundImage = global::TheByteClubPOS.Properties.Resources.Background;
-            this.tabPage1.Controls.Add(this.label2);
+            this.tabPage1.Controls.Add(this.lblHeading);
             this.tabPage1.Controls.Add(this.panel3);
             this.tabPage1.Controls.Add(this.panel4);
             this.tabPage1.Controls.Add(this.panel2);
             this.tabPage1.Controls.Add(this.panel1);
             this.tabPage1.Location = new System.Drawing.Point(4, 29);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(1693, 992);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Edit Details";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // label2
+            // lblHeading
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 21.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(18, 34);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(473, 60);
-            this.label2.TabIndex = 46;
-            this.label2.Text = "Edit Employee Details";
+            this.lblHeading.AutoSize = true;
+            this.lblHeading.Font = new System.Drawing.Font("Segoe UI", 21.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHeading.Location = new System.Drawing.Point(18, 34);
+            this.lblHeading.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblHeading.Name = "lblHeading";
+            this.lblHeading.Size = new System.Drawing.Size(473, 60);
+            this.lblHeading.TabIndex = 46;
+            this.lblHeading.Text = "Edit Employee Details";
             // 
             // panel3
             // 
@@ -771,7 +771,7 @@
             this.tabPage2.Controls.Add(this.panel7);
             this.tabPage2.Location = new System.Drawing.Point(4, 29);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(1693, 992);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Add Employee";
@@ -1121,7 +1121,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblHeading;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Label label5;

@@ -17,6 +17,7 @@ namespace TheByteClubPOS
     {
         private int employeeID;
         public static bool IsDarkMode = false;
+        public bool IsManageProfile = false;
         private string ValidatePasswordDetailed(string password)
         {
             bool hasUpper = false, hasLower = false, hasDigit = false, hasPunctuation = false;
@@ -201,6 +202,16 @@ namespace TheByteClubPOS
             {
                 lblStatus.BackColor = Color.LightCoral;
                 lblStatus.ForeColor = Color.DarkRed;
+            }
+            if (IsManageProfile)
+            {
+                lblHeading.Text = "Edit My Details";
+
+                employee_IDTextBox.ReadOnly = true;
+
+                employee_IDTextBox.Text =
+                    LoginForm.LoggedInEmployeeID.ToString();
+
             }
         }
 

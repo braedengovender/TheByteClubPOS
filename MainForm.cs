@@ -136,8 +136,6 @@ namespace TheByteClubPOS
 
         private void manageAccountToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ManageCashierDetailsForm manageCashierDetailsForm = new ManageCashierDetailsForm();
-            OpenChildForm(manageCashierDetailsForm);
         }
 
 
@@ -327,6 +325,13 @@ namespace TheByteClubPOS
         private void btnSuppliers_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void manageMyProfileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UpdateEmployeesForm update = new UpdateEmployeesForm(employeeID);
+            update.IsManageProfile = true;
+            OpenChildForm(update);
         }
     }
 }
