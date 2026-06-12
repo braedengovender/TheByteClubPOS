@@ -205,22 +205,43 @@ namespace TheByteClubPOS
             }
             if (IsManageProfile)
             {
+                tabControl1.TabPages.Remove(tabPage2);
                 lblHeading.Text = "Edit My Details";
 
                 employee_IDTextBox.ReadOnly = true;
+                employee_RoleComboBox.Enabled = false;
 
                 employee_IDTextBox.Text =
                     LoginForm.LoggedInEmployeeID.ToString();
+
 
             }
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            /*ManageEmployeeDetailsForm manageEmployeeDetailsForm = new ManageEmployeeDetailsForm();
-            this.Hide();
-            manageEmployeeDetailsForm.ShowDialog();*/
-            this.Close();
+
+            if (IsManageProfile)
+            {
+                MainForm main = (MainForm)this.MdiParent;
+
+                DashboardForm dashboard =
+                    new DashboardForm(
+                        main.employeeID,
+                        main.employeeFullName,
+                        main.employeeRole);
+
+                dashboard.MdiParent = main;
+                dashboard.WindowState = FormWindowState.Maximized;
+                dashboard.FormBorderStyle = FormBorderStyle.None;
+
+                this.Close();
+                dashboard.Show();
+            }
+            else
+            {
+                this.Close();
+            }
         }
 
         private void btnInsert_Click(object sender, EventArgs e)
