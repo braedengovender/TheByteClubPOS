@@ -1,569 +1,532 @@
+// CashierDashboardForm.cs
+// Author: [Your Name] - [Student Number]
+// Date: June 2026
+// Description: Cashier dashboard for Sam's Liquor Shop POS.
+//              Shows the cashier's own transactions, low stock items and best customer.
+
 using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Windows.Forms;
-using System.Windows.Forms.DataVisualization.Charting;
 
 namespace TheByteClubPOS
 {
-    /// <summary>
-    /// Cashier Dashboard — shown when a Cashier role logs in.
-    /// Displays: Low Stock count, Total Customers, Best Customer this month,
-    ///           and the cashier's own transaction history.
-    ///
-    /// Call from MainForm.btnDashboard_Click when employeeRole == "cashier":
-    ///   OpenChildForm(new CashierDashboardForm(employeeID, employeeFullName));
-    /// </summary>
     public partial class CashierDashboardForm : Form
     {
-        // ── Constructor params ────────────────────────────────────────
-        private readonly int    _employeeID;
-        private readonly string _employeeName;
+        private int    cashierID;
+        private string cashierName;
 
-        // ── Colours (matches manager dashboard palette) ───────────────
-        private static readonly Color C_BG     = Color.FromArgb(245, 247, 250);
-        private static readonly Color C_CARD   = Color.White;
-        private static readonly Color C_BORDER = Color.FromArgb(220, 225, 230);
-        private static readonly Color C_DARK   = Color.FromArgb(30,  39,  46);
-        private static readonly Color C_MID    = Color.FromArgb(100, 110, 120);
-        private static readonly Color C_LINK   = Color.FromArgb(41,  128, 185);
-        private static readonly Color C_GREEN  = Color.FromArgb(39,  174,  96);
-        private static readonly Color C_ORANGE = Color.FromArgb(230, 126,  34);
-        private static readonly Color C_PURPLE = Color.FromArgb(142,  68, 173);
-        private static readonly Color C_TEAL   = Color.FromArgb(26,  188, 156);
-        private static readonly Color C_BLUE   = Color.FromArgb(41,  128, 185);
-        private static readonly Color C_RED    = Color.FromArgb(231,  76,  60);
-        private static readonly Color C_INFO   = Color.FromArgb(232, 244, 253);
+        // Colours
+        private Color navyBlue = Color.FromArgb(31,  73, 125);
+        private Color green    = Color.FromArgb(0,  153,  76);
+        private Color orange   = Color.FromArgb(204,  85,   0);
+        private Color purple   = Color.FromArgb(102,   0, 153);
+        private Color teal     = Color.FromArgb(0,  128, 128);
+        private Color red      = Color.FromArgb(192,   0,   0);
 
-        private static Font F(float sz, FontStyle s = FontStyle.Regular) =>
-            new Font("Segoe UI", sz, s, GraphicsUnit.Point);
+        private const int CANVAS_W = 1134;
+        private const int CANVAS_H = 740;
+        private const int PAD  = 20;
+        private const int GAP  = 10;
+        private const int VPAD = 12;
 
-        // ── Render dimensions ─────────────────────────────────────────
-        // Fixed canvas size — scroll panel handles smaller windows.
-        private const int RENDER_W = 1134;
-        private const int RENDER_H = 700;
-        private const int PAD      = 14;
-        private const int VPAD     = 10;
-        private const int GAP      =  8;
+        // Data-bound controls
+        private Label lblLowStock;
+        private Label lblCustomers;
+        private Label lblMyTxCount;
+        private Label lblMyRevenue;
+        private DataGridView dgvMyTransactions;
+        private DataGridView dgvLowStock;
+        private Label lblBestName;
+        private Label lblBestSpent;
+        private Label lblBestTx;
+        private Label lblLastUpdated;
 
-        // ── Named control refs ────────────────────────────────────────
-        private Label        _lblName;
-        private Label        _lblLowCount, _lblCustCount;
-        private Label        _lblMyTxCount, _lblMyTxTotal;
-        private DataGridView _dgvMyTx;
-        private DataGridView _dgvLowStock;
-        private Label        _lblBestName, _lblBestSpent, _lblBestTx;
-        private Label        _lblFooter;
-
-        // ── Data ──────────────────────────────────────────────────────
-        private readonly CashierDashboardService _svc   = new CashierDashboardService();
-        private readonly Timer                   _timer = new Timer();
-        private CashierDashboardData             _cache;
-        private bool                             _layoutReady;
-
-        // =============================================================
-        // CONSTRUCTORS
-        // =============================================================
+        // Service and timer
+        private CashierDashboardService dashboardService = new CashierDashboardService();
+        private Timer refreshTimer = new Timer();
+        private CashierDashboardData currentData;
+        private bool isLoaded = false;
 
         public CashierDashboardForm()
         {
-            _employeeName = "Cashier";
+            cashierName = "Cashier";
             InitializeComponent();
-            SetupForm();
+            SetupDashboard();
         }
 
         public CashierDashboardForm(int id, string name)
         {
-            _employeeID   = id;
-            _employeeName = name;
+            cashierID   = id;
+            cashierName = name;
             InitializeComponent();
-            SetupForm();
+            SetupDashboard();
         }
 
-        // =============================================================
-        // FORM SETUP
-        // =============================================================
-
-        private void SetupForm()
+        private void SetupDashboard()
         {
-            this.Text           = "Dashboard \u2013 Sam's Liquor Shop";
-            this.BackColor      = C_BG;
-            this.DoubleBuffered = true;
-            this.AutoScroll     = false;
+            this.Text                  = "Dashboard - Sam's Liquor Shop";
+            this.DoubleBuffered        = true;
+            this.AutoScroll            = false;
+            this.BackgroundImage       = Properties.Resources.Background;
+            this.BackgroundImageLayout = ImageLayout.Stretch;
 
-            // Fixed-size canvas
-            var canvas = new Panel
-            {
-                Location  = new Point(0, 0),
-                Size      = new Size(RENDER_W, RENDER_H),
-                BackColor = C_BG
-            };
-            PlaceAll(canvas);
 
-            // Scroll wrapper — sized explicitly to MDI client area
-            var scroll = new Panel
-            {
-                Location   = new Point(0, 0),
-                BackColor  = C_BG,
-                AutoScroll = true
-            };
-            scroll.Controls.Add(canvas);
-            this.Controls.Add(scroll);
+            Panel canvas = new Panel();
+            canvas.BackColor = Color.Transparent;
+            canvas.Location  = new Point(0, 0);
+            canvas.Size      = new Size(10, 10);
 
-            Action sizeScroll = () =>
+            this.Controls.Add(canvas);
+
+            Action rebuildLayout = () =>
             {
-                scroll.Size = new Size(
-                    Math.Max(this.ClientSize.Width,  1),
-                    Math.Max(this.ClientSize.Height, 1));
+                int w = Math.Max(this.ClientSize.Width,  CANVAS_W);
+                int h = Math.Max(this.ClientSize.Height, 400);
+                if (w < 50 || h < 50) return;
+                canvas.Size      = new Size(w, h);
+                canvas.BackColor = Color.Transparent;
+                canvas.Location  = new Point(0, 0);
+                canvas.Controls.Clear();
+                BuildDashboard(canvas);
             };
 
-            this.Resize += (s, e) => sizeScroll();
-
-            this.Shown += (s, e) =>
+            // Use a one-shot timer so the MDI framework finishes its layout
+            // before we build the dashboard. Shown fires too early — ClientSize
+            // is stale. 150ms gives the MDI host time to settle.
+            Timer initTimer = new Timer();
+            initTimer.Interval = 150;
+            initTimer.Tick    += (s, e) =>
             {
-                sizeScroll();
-                _layoutReady = true;
-                LoadData();
+                initTimer.Stop();
+                initTimer.Dispose();
+                rebuildLayout();
+                isLoaded = true;
+                LoadDashboardData();
             };
 
-            _timer.Interval = 60_000;
-            _timer.Tick    += (s, e) => LoadData();
-            _timer.Start();
+            this.Shown += (s, e) => initTimer.Start();
+
+            this.Resize += (s, e) =>
+            {
+                if (!isLoaded) return;
+                rebuildLayout();
+                if (currentData != null) BindDataToControls(currentData);
+            };
+
+            refreshTimer.Interval = 60000;
+            refreshTimer.Tick    += (s, e) => LoadDashboardData();
+            refreshTimer.Start();
         }
 
         protected override void OnLoad(EventArgs e) { base.OnLoad(e); }
 
         protected override void OnFormClosed(FormClosedEventArgs e)
         {
-            _timer.Stop();
-            _timer.Dispose();
+            refreshTimer.Stop();
+            refreshTimer.Dispose();
             base.OnFormClosed(e);
         }
 
-        // =============================================================
-        // LAYOUT
-        // =============================================================
-
-        private void PlaceAll(Panel c)
+        private void BuildDashboard(Panel canvas)
         {
-            int W = RENDER_W;
-            int H = RENDER_H;
+            int totalGaps  = VPAD * 2 + GAP * 3;
+            int footHeight = 40;
+            int available  = canvas.Height - totalGaps - footHeight;
 
-            int totalGaps = VPAD * 2 + GAP * 3;
-            int available = H - totalGaps;
-
-            // Sections: header 9%, cards 11%, main 55%, footer 7%
-            // "main" row splits into transactions (left 60%) | stock+best (right 40%)
-            int hHdr   = (int)(available * 0.09);
-            int hCards = (int)(available * 0.11);
-            int hMain  = (int)(available * 0.73);
-            int hFtr   = available - hHdr - hCards - hMain;
+            int headerHeight = Math.Max((int)(available * 0.09), 38);
+            int cardHeight   = Math.Max((int)(available * 0.11), 58);
+            int mainHeight   = available - headerHeight - cardHeight;
 
             int y = VPAD;
-            PlaceHeader  (c, ref y, W, hHdr);
-            PlaceStatCards(c, ref y, W, hCards);
-            PlaceMainRow (c, ref y, W, hMain);
-            PlaceFooter  (c, ref y, W, hFtr);
+            BuildHeader(canvas, ref y, headerHeight);
+            BuildStatCards(canvas, ref y, cardHeight);
+            BuildMainRow(canvas, ref y, mainHeight);
+            BuildFooter(canvas, ref y, footHeight);
         }
 
-        // ── HEADER ────────────────────────────────────────────────────
-
-        private void PlaceHeader(Panel c, ref int y, int W, int H)
+        private void BuildHeader(Panel canvas, ref int y, int h)
         {
-            c.Controls.Add(MkLbl("Welcome back,", F(9.5f), C_MID,
-                new Rectangle(PAD, y, 300, 20)));
+            Label lblWelcome = new Label();
+            lblWelcome.Text      = "Welcome back,";
+            lblWelcome.Font      = new Font("Microsoft Sans Serif", 10f, FontStyle.Regular);
+            lblWelcome.ForeColor = Color.FromArgb(20, 20, 40);
+            lblWelcome.BackColor = Color.Transparent;
+            lblWelcome.Bounds    = new Rectangle(PAD, y, 300, 20);
+            canvas.Controls.Add(lblWelcome);
 
-            _lblName = MkLbl(_employeeName, F(17, FontStyle.Bold), C_DARK,
-                new Rectangle(PAD, y + 20, W - PAD * 2, 34));
-            c.Controls.Add(_lblName);
+            Label lblName = new Label();
+            lblName.Text      = cashierName;
+            lblName.Font      = new Font("Microsoft Sans Serif", 18f, FontStyle.Bold | FontStyle.Underline);
+            lblName.ForeColor = Color.FromArgb(20, 20, 60);
+            lblName.BackColor = Color.Transparent;
+            lblName.AutoSize  = true;
+            lblName.Location  = new Point(PAD, y + 20);
+            canvas.Controls.Add(lblName);
 
-            c.Controls.Add(MkLbl("Cashier", F(9.5f), C_LINK,
-                new Rectangle(PAD, y + 56, 200, 20)));
+            SizeF nameSize = canvas.CreateGraphics().MeasureString(
+                cashierName,
+                new Font("Microsoft Sans Serif", 18f, FontStyle.Bold | FontStyle.Underline));
+            int roleX = PAD + (int)nameSize.Width + 12;
 
-            y += H + GAP;
+            Label lblRole = new Label();
+            lblRole.Text      = "Cashier - Dashboard";
+            lblRole.Font      = new Font("Microsoft Sans Serif", 12f, FontStyle.Bold);
+            lblRole.ForeColor = navyBlue;
+            lblRole.BackColor = Color.Transparent;
+            lblRole.AutoSize  = true;
+            // Vertically align baseline with the 18pt name label:
+            // name is at y+20, height ~36. 12pt label height ~20.
+            // Centre it: y + 20 + (36-20)/2 = y + 28
+            lblRole.Location  = new Point(roleX, y + 28);
+            canvas.Controls.Add(lblRole);
+
+            y += h + GAP;
         }
 
-        // ── STAT CARDS ────────────────────────────────────────────────
-        // Four cards: Low Stock | Total Customers | My Transactions | My Revenue
-
-        private void PlaceStatCards(Panel c, ref int y, int W, int H)
+        private void BuildStatCards(Panel canvas, ref int y, int h)
         {
-            int usable = W - PAD * 2;
+            int usable = CANVAS_W - PAD * 2;
             int cardW  = (usable - GAP * 3) / 4;
 
-            var defs = new (string title, string def, Color accent)[]
+            string[] titles  = { "Low Stock Items", "Total Customers", "My Transactions (Month)", "My Revenue (Month)" };
+            string[] defaults = { "-", "-", "-", "R-" };
+            Color[]  accents = { purple, teal, orange, green };
+
+            Label[] valueLabels = new Label[4];
+
+            for (int i = 0; i < 4; i++)
             {
-                ("Low Stock Items",           "\u2013", C_PURPLE),
-                ("Total Customers",           "\u2013", C_TEAL),
-                ("My Transactions (Month)",   "\u2013", C_ORANGE),
-                ("My Revenue (Month)",        "R\u2013",C_GREEN),
-            };
+                int x = PAD + i * (cardW + GAP);
 
-            var refs = new Label[4];
+                Panel card = new Panel();
+                card.Bounds    = new Rectangle(x, y, cardW, h);
+                card.BackColor = Color.White;
 
-            for (int i = 0; i < defs.Length; i++)
-            {
-                int x    = PAD + i * (cardW + GAP);
-                var card = MkCard(new Rectangle(x, y, cardW, H));
+                Panel topBar = new Panel();
+                topBar.Bounds    = new Rectangle(0, 0, cardW, 4);
+                topBar.BackColor = accents[i];
+                card.Controls.Add(topBar);
 
-                card.Controls.Add(MkLbl(defs[i].title, F(8.5f), C_MID,
-                    new Rectangle(12, 10, cardW - 24, 20)));
+                Label lblTitle = new Label();
+                lblTitle.Text      = titles[i];
+                lblTitle.Font      = new Font("Microsoft Sans Serif", 8.5f, FontStyle.Regular);
+                lblTitle.ForeColor = Color.FromArgb(80, 80, 80);
+                lblTitle.BackColor = Color.Transparent;
+                lblTitle.Bounds    = new Rectangle(10, 8, cardW - 20, 18);
+                card.Controls.Add(lblTitle);
 
-                var val = MkLbl(defs[i].def, F(20, FontStyle.Bold), defs[i].accent,
-                    new Rectangle(12, 32, cardW - 24, H - 40));
-                card.Controls.Add(val);
-                refs[i] = val;
+                Label lblVal = new Label();
+                lblVal.Text      = defaults[i];
+                lblVal.Font      = new Font("Microsoft Sans Serif", 20f, FontStyle.Bold);
+                lblVal.ForeColor = accents[i];
+                lblVal.BackColor = Color.Transparent;
+                lblVal.Bounds    = new Rectangle(10, 28, cardW - 20, h - 36);
+                card.Controls.Add(lblVal);
 
-                c.Controls.Add(card);
+                valueLabels[i] = lblVal;
+                canvas.Controls.Add(card);
             }
 
-            _lblLowCount  = refs[0];
-            _lblCustCount = refs[1];
-            _lblMyTxCount = refs[2];
-            _lblMyTxTotal = refs[3];
+            lblLowStock  = valueLabels[0];
+            lblCustomers = valueLabels[1];
+            lblMyTxCount = valueLabels[2];
+            lblMyRevenue = valueLabels[3];
 
-            y += H + GAP;
+            y += h + GAP;
         }
 
-        // ── MAIN ROW: Transactions | Low Stock | Best Customer ────────
-
-        private void PlaceMainRow(Panel c, ref int y, int W, int H)
+        private void BuildMainRow(Panel canvas, ref int y, int h)
         {
-            int usable = W - PAD * 2;
-
-            // Tx = 50%, Low Stock = 27%, Best Customer = 23%
+            int usable = CANVAS_W - PAD * 2;
             int txW    = (int)(usable * 0.50) - GAP / 2;
             int stW    = (int)(usable * 0.27) - GAP / 2;
             int bestW  = usable - txW - stW - GAP * 2;
+            int gridH  = h - 34;
 
             int xTx   = PAD;
             int xSt   = xTx + txW  + GAP;
             int xBest = xSt + stW  + GAP;
-            int gridH = H - 52;
 
-            // ── My Transactions ───────────────────────────────────────
-            var txCard = MkCard(new Rectangle(xTx, y, txW, H));
-            AddTitle(txCard, "My Transactions (This Month)", txW);
+            // My Transactions
+            Panel txCard = MakeSectionPanel(new Rectangle(xTx, y, txW, h), "My Transactions (This Month)");
 
-            _dgvMyTx = MkGrid(
-                ("Invoice",      "InvoiceNumber",  90, DataGridViewContentAlignment.MiddleLeft),
-                ("Date",         "SaleDateStr",   145, DataGridViewContentAlignment.MiddleLeft),
-                ("Customer",     "CustomerName",  130, DataGridViewContentAlignment.MiddleLeft),
-                ("Total Amount", "TotalAmtStr",    90, DataGridViewContentAlignment.MiddleRight));
-            _dgvMyTx.Location = new Point(1, 35);
-            _dgvMyTx.Size     = new Size(txW - 2, gridH);
-            txCard.Controls.Add(_dgvMyTx);
-            txCard.Controls.Add(MkLbl("Showing latest 10 transactions", F(7.5f), C_MID,
-                new Rectangle(10, H - 18, txW - 20, 15)));
-            c.Controls.Add(txCard);
+            dgvMyTransactions = MakeGrid(txW, gridH);
+            dgvMyTransactions.Columns.Add(new DataGridViewTextBoxColumn { Name = "col_InvoiceNumber", HeaderText = "Invoice",      DataPropertyName = "InvoiceNumber", FillWeight = 90  });
+            dgvMyTransactions.Columns.Add(new DataGridViewTextBoxColumn { Name = "col_SaleDateStr",   HeaderText = "Date",         DataPropertyName = "SaleDateStr",   FillWeight = 140 });
+            dgvMyTransactions.Columns.Add(new DataGridViewTextBoxColumn { Name = "col_CustomerName",  HeaderText = "Customer",     DataPropertyName = "CustomerName",  FillWeight = 130 });
+            dgvMyTransactions.Columns.Add(new DataGridViewTextBoxColumn { Name = "col_TotalAmtStr",   HeaderText = "Total Amount", DataPropertyName = "TotalAmtStr",   FillWeight = 90,
+                DefaultCellStyle = new DataGridViewCellStyle { Alignment = DataGridViewContentAlignment.MiddleRight } });
+            dgvMyTransactions.Size     = new Size(txW, gridH);
+            dgvMyTransactions.Location = new Point(0, 32);
+            txCard.Controls.Add(dgvMyTransactions);
+            canvas.Controls.Add(txCard);
 
-            // ── Low Stock Items ───────────────────────────────────────
-            var stCard = MkCard(new Rectangle(xSt, y, stW, H));
-            AddTitle(stCard, "Low Stock Items", stW);
+            // Low Stock
+            Panel stCard = MakeSectionPanel(new Rectangle(xSt, y, stW, h), "Low Stock Items");
 
-            _dgvLowStock = MkGridWithImage(
-                ("Product",    "ProductName",  100, DataGridViewContentAlignment.MiddleLeft),
-                ("Stock",      "CurrentStock",  58, DataGridViewContentAlignment.MiddleCenter),
-                ("Reorder",    "ReorderLevel",  58, DataGridViewContentAlignment.MiddleCenter));
-            _dgvLowStock.Location        = new Point(1, 35);
-            _dgvLowStock.Size            = new Size(stW - 2, gridH);
-            stCard.Controls.Add(_dgvLowStock);
-            stCard.Controls.Add(MkLbl("Showing latest 5 low stock items", F(7.5f), C_MID,
-                new Rectangle(10, H - 18, stW - 20, 15)));
-            c.Controls.Add(stCard);
+            dgvLowStock = MakeGrid(stW, gridH);
+            dgvLowStock.Columns.Add(new DataGridViewImageColumn
+            {
+                Name = "col_ProductImage", HeaderText = "", DataPropertyName = "ProductImage",
+                Width = 32, ImageLayout = DataGridViewImageCellLayout.Zoom,
+                DefaultCellStyle = new DataGridViewCellStyle { NullValue = null }
+            });
+            dgvLowStock.Columns.Add(new DataGridViewTextBoxColumn { Name = "col_ProductName",  HeaderText = "Product",    DataPropertyName = "ProductName",  FillWeight = 100 });
+            dgvLowStock.Columns.Add(new DataGridViewTextBoxColumn { Name = "col_CurrentStock", HeaderText = "Stock",      DataPropertyName = "CurrentStock", FillWeight = 58,
+                DefaultCellStyle = new DataGridViewCellStyle { Alignment = DataGridViewContentAlignment.MiddleCenter } });
+            dgvLowStock.Columns.Add(new DataGridViewTextBoxColumn { Name = "col_ReorderLevel", HeaderText = "Reorder",    DataPropertyName = "ReorderLevel", FillWeight = 58,
+                DefaultCellStyle = new DataGridViewCellStyle { Alignment = DataGridViewContentAlignment.MiddleCenter } });
+            dgvLowStock.RowTemplate.Height = 32;
+            dgvLowStock.DataError         += (s, e) => e.ThrowException = false;
+            dgvLowStock.Size               = new Size(stW, gridH);
+            dgvLowStock.Location           = new Point(0, 32);
+            stCard.Controls.Add(dgvLowStock);
+            canvas.Controls.Add(stCard);
 
-            // ── Best Customer ─────────────────────────────────────────
-            var bestCard = MkCard(new Rectangle(xBest, y, bestW, H));
-            BuildBestCustomerCard(bestCard, bestW, H);
-            c.Controls.Add(bestCard);
+            // Best Customer
+            Panel bestCard = MakeSectionPanel(new Rectangle(xBest, y, bestW, h), "Best Customer (This Month)");
+            BuildBestCustomerSection(bestCard, bestW, h);
+            canvas.Controls.Add(bestCard);
 
-            y += H + GAP;
+            y += h + GAP;
         }
 
-        private void BuildBestCustomerCard(Panel card, int W, int H)
+        private void BuildBestCustomerSection(Panel card, int w, int h)
         {
-            AddTitle(card, "Best Customer (This Month)", W);
+            Panel body = new Panel();
+            body.Location  = new Point(0, 30);
+            body.Size      = new Size(w, h - 30);
+            body.BackColor = Color.White;
+            body.Tag       = new string[] { "No data", "R0.00", "0" };
+            body.Paint    += BestCustomerBodyPaint;
+            card.Controls.Add(body);
 
-            int avSize = 56;
-            var av = new Panel
-            {
-                Size      = new Size(avSize, avSize),
-                Location  = new Point((W - avSize) / 2, 44),
-                BackColor = Color.Transparent
-            };
-            av.Paint += (s, e) =>
-            {
-                var g = e.Graphics;
-                g.SmoothingMode = SmoothingMode.AntiAlias;
-                using (var br = new SolidBrush(Color.FromArgb(189, 195, 199)))
-                    g.FillEllipse(br, 0, 0, avSize - 1, avSize - 1);
-                g.FillEllipse(Brushes.White, 17, 7, 22, 22);
-                g.FillEllipse(Brushes.White, 8, 32, 40, 26);
-            };
-            card.Controls.Add(av);
+            lblBestName  = new Label { Visible = false, Text = "No data" };
+            lblBestSpent = new Label { Visible = false, Text = "R0.00"   };
+            lblBestTx    = new Label { Visible = false, Text = "0"       };
 
-            int contentTop = 44 + avSize + 4;
-            int remaining  = H - contentTop - 4;
-            int slot       = Math.Max(remaining / 5, 18);
+            lblBestName.TextChanged  += (s, e) => RefreshBestBody(body);
+            lblBestSpent.TextChanged += (s, e) => RefreshBestBody(body);
+            lblBestTx.TextChanged    += (s, e) => RefreshBestBody(body);
 
-            _lblBestName = MkLbl("No data", F(10, FontStyle.Bold), C_DARK,
-                new Rectangle(4, contentTop, W - 8, slot),
-                ContentAlignment.MiddleCenter);
-            card.Controls.Add(_lblBestName);
-
-            card.Controls.Add(MkLbl("Total Spent", F(7.5f), C_MID,
-                new Rectangle(4, contentTop + slot, W - 8, slot),
-                ContentAlignment.MiddleCenter));
-
-            _lblBestSpent = MkLbl("R0.00", F(13, FontStyle.Bold), C_BLUE,
-                new Rectangle(4, contentTop + slot * 2, W - 8, slot),
-                ContentAlignment.MiddleCenter);
-            card.Controls.Add(_lblBestSpent);
-
-            card.Controls.Add(MkLbl("No. of Transactions", F(7.5f), C_MID,
-                new Rectangle(4, contentTop + slot * 3, W - 8, slot),
-                ContentAlignment.MiddleCenter));
-
-            _lblBestTx = MkLbl("0", F(11, FontStyle.Bold), C_DARK,
-                new Rectangle(4, contentTop + slot * 4, W - 8, slot),
-                ContentAlignment.MiddleCenter);
-            card.Controls.Add(_lblBestTx);
+            card.Controls.Add(lblBestName);
+            card.Controls.Add(lblBestSpent);
+            card.Controls.Add(lblBestTx);
         }
 
-        // ── FOOTER ────────────────────────────────────────────────────
-
-        private void PlaceFooter(Panel c, ref int y, int W, int H)
+        private void RefreshBestBody(Panel body)
         {
-            int fH    = Math.Max(H, 30);
-            int footW = W - PAD * 2;
-            var foot  = new Panel
-            {
-                Bounds    = new Rectangle(PAD, y, footW, fH),
-                BackColor = C_INFO
-            };
-            foot.Paint += CardPaint;
+            body.Tag = new string[] { lblBestName.Text, lblBestSpent.Text, lblBestTx.Text };
+            body.Invalidate();
+        }
 
-            _lblFooter = MkLbl(
-                "Dashboard data is updated daily.  Last updated: \u2013",
-                F(8.5f), C_BLUE,
-                new Rectangle(10, 0, footW - 110, fH),
-                ContentAlignment.MiddleLeft);
-            foot.Controls.Add(_lblFooter);
+        private void BestCustomerBodyPaint(object sender, PaintEventArgs e)
+        {
+            Panel p       = (Panel)sender;
+            string[] vals = p.Tag as string[];
+            if (vals == null) return;
 
-            var btn = new Button
+            Graphics g = e.Graphics;
+            g.SmoothingMode = SmoothingMode.AntiAlias;
+            g.Clear(Color.White);
+
+            int pw = p.Width;
+            int ph = p.Height;
+
+            int top  = 6;
+            int slot = Math.Max((ph - top - 4) / 5, 16);
+
+            StringFormat sfC = new StringFormat
             {
-                Text      = "\u27f3  Refresh",
-                Font      = F(9f),
-                ForeColor = C_BLUE,
-                BackColor = Color.Transparent,
-                FlatStyle = FlatStyle.Flat,
-                Size      = new Size(90, fH),
-                Location  = new Point(footW - 92, 0),
-                Cursor    = Cursors.Hand
+                Alignment     = StringAlignment.Center,
+                LineAlignment = StringAlignment.Center
             };
-            btn.FlatAppearance.BorderSize = 0;
-            btn.Click += (s, e) => LoadData();
-            foot.Controls.Add(btn);
-            c.Controls.Add(foot);
+
+            g.DrawString(vals[0],
+                new Font("Microsoft Sans Serif", 10f, FontStyle.Bold),
+                new SolidBrush(navyBlue),
+                new RectangleF(4, top, pw - 8, slot), sfC);
+
+            g.DrawString("Total Spent",
+                new Font("Microsoft Sans Serif", 8f, FontStyle.Regular),
+                new SolidBrush(Color.FromArgb(100, 100, 100)),
+                new RectangleF(4, top + slot, pw - 8, slot), sfC);
+
+            g.DrawString(vals[1],
+                new Font("Microsoft Sans Serif", 13f, FontStyle.Bold),
+                new SolidBrush(green),
+                new RectangleF(4, top + slot * 2, pw - 8, slot), sfC);
+
+            g.DrawString("No. of Transactions",
+                new Font("Microsoft Sans Serif", 8f, FontStyle.Regular),
+                new SolidBrush(Color.FromArgb(100, 100, 100)),
+                new RectangleF(4, top + slot * 3, pw - 8, slot), sfC);
+
+            g.DrawString(vals[2],
+                new Font("Microsoft Sans Serif", 11f, FontStyle.Bold),
+                new SolidBrush(navyBlue),
+                new RectangleF(4, top + slot * 4, pw - 8, slot), sfC);
+        }
+
+        private void BuildFooter(Panel canvas, ref int y, int h)
+        {
+            int fH    = Math.Max(h, 36);
+            int footW = CANVAS_W - PAD * 2;
+
+            Panel footer = new Panel();
+            footer.Bounds    = new Rectangle(PAD, y, footW, fH);
+            footer.BackColor = Color.FromArgb(220, 230, 242);
+
+            lblLastUpdated = new Label();
+            lblLastUpdated.Text      = "Dashboard data is updated daily.  Last updated: -";
+            lblLastUpdated.Font      = new Font("Microsoft Sans Serif", 8.5f, FontStyle.Regular);
+            lblLastUpdated.ForeColor = navyBlue;
+            lblLastUpdated.BackColor = Color.Transparent;
+            lblLastUpdated.Bounds    = new Rectangle(8, 0, footW - 110, fH);
+            lblLastUpdated.TextAlign = ContentAlignment.MiddleLeft;
+            footer.Controls.Add(lblLastUpdated);
+
+            Button btnRefresh = new Button();
+            btnRefresh.Text       = "Refresh";
+            btnRefresh.Font       = new Font("Microsoft Sans Serif", 9f, FontStyle.Bold);
+            btnRefresh.TextAlign  = ContentAlignment.MiddleCenter;
+            btnRefresh.ForeColor  = navyBlue;
+            btnRefresh.BackColor  = Color.FromArgb(220, 230, 242);
+            btnRefresh.FlatStyle  = FlatStyle.Flat;
+            btnRefresh.Size       = new Size(100, fH);
+            btnRefresh.Location   = new Point(footW - 102, 0);
+            btnRefresh.Cursor     = Cursors.Hand;
+            btnRefresh.FlatAppearance.BorderColor = navyBlue;
+            btnRefresh.FlatAppearance.BorderSize  = 1;
+            btnRefresh.Click += (s, e) => LoadDashboardData();
+            footer.Controls.Add(btnRefresh);
+
+            canvas.Controls.Add(footer);
             y += fH + VPAD;
         }
 
-        // =============================================================
-        // CONTROL FACTORIES  (identical helpers to DashboardForm)
-        // =============================================================
-
-        private static Panel MkCard(Rectangle bounds)
+        private Panel MakeSectionPanel(Rectangle bounds, string title)
         {
-            var p = new Panel { Bounds = bounds, BackColor = C_CARD };
-            p.Paint += CardPaint;
-            return p;
+            Panel card = new Panel();
+            card.Bounds    = bounds;
+            card.BackColor = Color.White;
+
+            Panel header = new Panel();
+            header.Bounds    = new Rectangle(0, 0, bounds.Width, 30);
+            header.BackColor = navyBlue;
+
+            Label lblTitle = new Label();
+            lblTitle.Text      = title;
+            lblTitle.Font      = new Font("Segoe UI", 9f, FontStyle.Bold);
+            lblTitle.ForeColor = Color.White;
+            lblTitle.BackColor = Color.Transparent;
+            lblTitle.Bounds    = new Rectangle(8, 0, bounds.Width - 16, 30);
+            lblTitle.TextAlign = ContentAlignment.MiddleLeft;
+            header.Controls.Add(lblTitle);
+
+            card.Controls.Add(header);
+            return card;
         }
 
-        private static void CardPaint(object sender, PaintEventArgs e)
+        private DataGridView MakeGrid(int w, int h)
         {
-            var p = (Panel)sender;
-            var g = e.Graphics;
-            g.SmoothingMode = SmoothingMode.AntiAlias;
-            using (var sh = new SolidBrush(Color.FromArgb(18, 0, 0, 0)))
-                g.FillRectangle(sh, new Rectangle(3, 3, p.Width - 2, p.Height - 2));
-            var r = new Rectangle(0, 0, p.Width - 3, p.Height - 3);
-            using (var path = RoundRect(r, 8))
-            using (var br   = new SolidBrush(p.BackColor))
-                g.FillPath(br, path);
-            using (var path = RoundRect(r, 8))
-            using (var pen  = new Pen(C_BORDER, 1f))
-                g.DrawPath(pen, path);
-        }
+            DataGridView g = new DataGridView();
+            g.BackgroundColor         = Color.White;
+            g.BorderStyle             = BorderStyle.FixedSingle;
+            g.CellBorderStyle         = DataGridViewCellBorderStyle.SingleHorizontal;
+            g.GridColor               = Color.FromArgb(200, 200, 210);
+            g.ColumnHeadersHeight     = 28;
+            g.RowTemplate.Height      = 28;
+            g.AllowUserToAddRows      = false;
+            g.AllowUserToDeleteRows   = false;
+            g.ReadOnly                = true;
+            g.SelectionMode           = DataGridViewSelectionMode.FullRowSelect;
+            g.MultiSelect             = false;
+            g.AutoSizeColumnsMode     = DataGridViewAutoSizeColumnsMode.Fill;
+            g.ScrollBars              = ScrollBars.Vertical;
+            g.RowHeadersVisible       = false;
+            g.AutoGenerateColumns     = false;
+            g.EnableHeadersVisualStyles = false;
+            g.Size                    = new Size(w, h);
 
-        private static void AddTitle(Panel card, string text, int cardW)
-        {
-            card.Controls.Add(new Label
-            {
-                Text      = text,
-                Font      = F(9.5f, FontStyle.Bold),
-                ForeColor = C_DARK,
-                Location  = new Point(12, 8),
-                Size      = new Size(cardW - 26, 22),
-                BackColor = Color.Transparent
-            });
-            card.Controls.Add(new Panel
-            {
-                BackColor = C_BORDER,
-                Location  = new Point(0, 33),
-                Size      = new Size(cardW, 1)
-            });
-        }
-
-        private static Label MkLbl(string text, Font font, Color fore,
-                                    Rectangle bounds,
-                                    ContentAlignment align = ContentAlignment.TopLeft)
-        {
-            return new Label
-            {
-                Text      = text,
-                Font      = font,
-                ForeColor = fore,
-                Bounds    = bounds,
-                TextAlign = align,
-                BackColor = Color.Transparent
-            };
-        }
-
-        private static Image BytesToImage(byte[] bytes)
-        {
-            if (bytes == null || bytes.Length == 0) return null;
-            try { return Image.FromStream(new System.IO.MemoryStream(bytes)); }
-            catch { return null; }
-        }
-
-        private static DataGridView MkGridWithImage(
-            params (string hdr, string field, int minW,
-                    DataGridViewContentAlignment align)[] cols)
-        {
-            var g = MkGrid(cols);
-            var imgCol = new DataGridViewImageColumn
-            {
-                Name             = "col_ProductImage",
-                HeaderText       = "",
-                DataPropertyName = "ProductImage",
-                Width            = 32,
-                ImageLayout      = DataGridViewImageCellLayout.Zoom,
-                DefaultCellStyle = { NullValue = null, Alignment = DataGridViewContentAlignment.MiddleCenter }
-            };
-            g.Columns.Insert(0, imgCol);
-            g.RowTemplate.Height = 32;
-            g.DataError += (s, e) => e.ThrowException = false;
-            return g;
-        }
-
-        private static DataGridView MkGrid(
-            params (string hdr, string field, int minW,
-                    DataGridViewContentAlignment align)[] cols)
-        {
-            var g = new DataGridView
-            {
-                BackgroundColor       = C_CARD,
-                BorderStyle           = BorderStyle.None,
-                CellBorderStyle       = DataGridViewCellBorderStyle.SingleHorizontal,
-                GridColor             = C_BORDER,
-                ColumnHeadersHeight   = 28,
-                RowTemplate           = { Height = 28 },
-                AllowUserToAddRows    = false,
-                AllowUserToDeleteRows = false,
-                ReadOnly              = true,
-                SelectionMode         = DataGridViewSelectionMode.FullRowSelect,
-                MultiSelect           = false,
-                AutoSizeColumnsMode   = DataGridViewAutoSizeColumnsMode.Fill,
-                ScrollBars            = ScrollBars.Vertical,
-                RowHeadersVisible     = false,
-                AutoGenerateColumns   = false,
-                EnableHeadersVisualStyles = false
-            };
             typeof(DataGridView)
                 .GetProperty("DoubleBuffered",
                     System.Reflection.BindingFlags.NonPublic |
                     System.Reflection.BindingFlags.Instance)
                 ?.SetValue(g, true, null);
 
-            g.ColumnHeadersDefaultCellStyle.BackColor          = C_BG;
-            g.ColumnHeadersDefaultCellStyle.ForeColor          = C_MID;
-            g.ColumnHeadersDefaultCellStyle.Font               = F(8.5f, FontStyle.Bold);
-            g.ColumnHeadersDefaultCellStyle.SelectionBackColor = C_BG;
-            g.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            g.DefaultCellStyle.BackColor          = C_CARD;
-            g.DefaultCellStyle.ForeColor          = C_DARK;
-            g.DefaultCellStyle.Font               = F(8.5f);
-            g.DefaultCellStyle.SelectionBackColor = Color.FromArgb(219, 234, 254);
-            g.DefaultCellStyle.SelectionForeColor = C_DARK;
-            g.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(248, 250, 252);
+            g.ColumnHeadersDefaultCellStyle.BackColor          = navyBlue;
+            g.ColumnHeadersDefaultCellStyle.ForeColor          = Color.White;
+            g.ColumnHeadersDefaultCellStyle.Font               = new Font("Microsoft Sans Serif", 8.5f, FontStyle.Bold);
+            g.ColumnHeadersDefaultCellStyle.SelectionBackColor = navyBlue;
+            g.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
 
-            foreach (var (hdr, field, minW, align) in cols)
-                g.Columns.Add(new DataGridViewTextBoxColumn
-                {
-                    Name             = "col_" + field,
-                    HeaderText       = hdr,
-                    DataPropertyName = field,
-                    MinimumWidth     = minW,
-                    FillWeight       = minW,
-                    DefaultCellStyle = { Alignment = align }
-                });
+            g.DefaultCellStyle.BackColor          = Color.White;
+            g.DefaultCellStyle.ForeColor          = Color.FromArgb(30, 30, 30);
+            g.DefaultCellStyle.Font               = new Font("Microsoft Sans Serif", 8.5f, FontStyle.Regular);
+            g.DefaultCellStyle.SelectionBackColor = Color.FromArgb(190, 210, 235);
+            g.DefaultCellStyle.SelectionForeColor = Color.Black;
+            g.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(235, 242, 250);
+
             return g;
         }
 
-        private static GraphicsPath RoundRect(Rectangle r, int rad)
+        private Image BytesToImage(byte[] bytes)
         {
-            var path = new GraphicsPath();
-            int d = rad * 2;
-            path.AddArc(r.X,         r.Y,          d, d, 180, 90);
-            path.AddArc(r.Right - d, r.Y,          d, d, 270, 90);
-            path.AddArc(r.Right - d, r.Bottom - d, d, d,   0, 90);
-            path.AddArc(r.X,         r.Bottom - d, d, d,  90, 90);
-            path.CloseFigure();
-            return path;
-        }
+            if (bytes == null || bytes.Length == 0)
+                return null;
 
-        // =============================================================
-        // DATA LOADING & BINDING
-        // =============================================================
-
-        public void LoadData()
-        {
-            if (!_layoutReady) return;
             try
             {
-                _cache = _svc.LoadAll(_employeeID);
-                BindAll(_cache);
+                return Image.FromStream(new System.IO.MemoryStream(bytes));
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        public void LoadDashboardData()
+        {
+            if (!isLoaded)
+                return;
+
+            try
+            {
+                currentData = dashboardService.LoadAll(cashierID);
+                BindDataToControls(currentData);
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Dashboard failed to load:\n" + ex.Message,
+                MessageBox.Show("Dashboard failed to load data:\n" + ex.Message,
                     "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
-        private void BindAll(CashierDashboardData d)
+        private void BindDataToControls(CashierDashboardData data)
         {
-            if (d == null) return;
+            if (data == null)
+                return;
 
-            // Stat cards
-            _lblLowCount.Text  = d.Summary.LowStockCount.ToString();
-            _lblCustCount.Text = d.Summary.TotalCustomers.ToString("N0");
-            _lblMyTxCount.Text = d.Summary.MyTxCount.ToString("N0");
-            _lblMyTxTotal.Text = string.Format("R{0:N2}", d.Summary.MyTxTotal);
+            lblLowStock.Text  = data.Summary.LowStockCount.ToString();
+            lblCustomers.Text = data.Summary.TotalCustomers.ToString("N0");
+            lblMyTxCount.Text = data.Summary.MyTxCount.ToString("N0");
+            lblMyRevenue.Text = "R" + data.Summary.MyTxTotal.ToString("N2");
 
             // My transactions grid
-            _dgvMyTx.DataSource = d.MyTransactions.Select(t => new
+            dgvMyTransactions.DataSource = data.MyTransactions.Select(t => new
             {
                 t.InvoiceNumber,
                 SaleDateStr = t.SaleDateTime.ToString("dd MMM yyyy HH:mm"),
                 t.CustomerName,
-                TotalAmtStr = string.Format("R{0:N2}", t.TotalAmount)
+                TotalAmtStr = "R" + t.TotalAmount.ToString("N2")
             }).ToList();
 
-            // Bind low stock with product images
-            _dgvLowStock.DataSource = d.LowStockItems.Select(s => new
+            // Low stock grid
+            dgvLowStock.DataSource = data.LowStockItems.Select(s => new
             {
                 ProductImage = BytesToImage(s.ProductImageBytes),
                 s.ProductName,
@@ -571,38 +534,33 @@ namespace TheByteClubPOS
                 ReorderLevel = s.ReorderLevel.ToString()
             }).ToList();
 
-            foreach (DataGridViewRow row in _dgvLowStock.Rows)
+            foreach (DataGridViewRow row in dgvLowStock.Rows)
             {
                 if (row.IsNewRow) continue;
-                var cell = row.Cells["col_CurrentStock"];
-                if (cell.Value != null &&
-                    int.TryParse(cell.Value.ToString(), out int qty))
+                DataGridViewCell cell = row.Cells["col_CurrentStock"];
+                int qty;
+                if (cell.Value != null && int.TryParse(cell.Value.ToString(), out qty))
                 {
-                    cell.Style.ForeColor = qty <= 3
-                        ? Color.FromArgb(231, 76, 60)
-                        : Color.FromArgb(230, 126, 34);
+                    cell.Style.ForeColor = qty <= 3 ? red : orange;
                 }
             }
 
             // Best customer
-            if (d.BestCustomer != null)
+            if (data.BestCustomer != null)
             {
-                _lblBestName.Text  = d.BestCustomer.CustomerName;
-                _lblBestSpent.Text = string.Format("R{0:N2}", d.BestCustomer.TotalSpent);
-                _lblBestTx.Text    = d.BestCustomer.TransactionCount.ToString();
+                lblBestName.Text  = data.BestCustomer.CustomerName;
+                lblBestSpent.Text = "R" + data.BestCustomer.TotalSpent.ToString("N2");
+                lblBestTx.Text    = data.BestCustomer.TransactionCount.ToString();
             }
             else
             {
-                _lblBestName.Text  = "No data this month";
-                _lblBestSpent.Text = "R0.00";
-                _lblBestTx.Text    = "0";
+                lblBestName.Text  = "No data this month";
+                lblBestSpent.Text = "R0.00";
+                lblBestTx.Text    = "0";
             }
 
-            _lblFooter.Text = string.Format(
-                "Dashboard data is updated daily.  Last updated: {0:dd MMM yyyy HH:mm}",
-                d.LastUpdated);
+            lblLastUpdated.Text = "Dashboard data is updated daily.  Last updated: "
+                + data.LastUpdated.ToString("dd MMM yyyy HH:mm");
         }
-
-
     }
 }

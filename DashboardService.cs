@@ -200,7 +200,6 @@ namespace TheByteClubPOS
                 .Cast<ProductRow>()
                 .Where(p => p.Product_QuantityInStock <= p.Product_ReorderQuantity)
                 .OrderBy(p => p.Product_QuantityInStock)
-                .Take(5)
                 .Select(p => new LowStockItemDto
                 {
                     ProductName       = p.Product_Name,

@@ -1,3 +1,9 @@
+// DashboardForm.cs
+// Author: [Your Name] - [Student Number]
+// Date: June 2026
+// Description: Manager dashboard form for Sam's Liquor Shop POS system.
+//              Shows monthly sales summary, stock levels, top products and recent transactions.
+
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -10,232 +16,275 @@ namespace TheByteClubPOS
 {
     public partial class DashboardForm : Form
     {
-        // ── Constructor params ────────────────────────────────────────
-        private readonly int    _employeeID;
-        private readonly string _employeeName;
-        private readonly string _employeeRole;
+        // Employee info passed in from MainForm
+        private int employeeID;
+        private string employeeName;
+        private string employeeRole;
 
-        // ── Colours ───────────────────────────────────────────────────
-        private static readonly Color C_BG     = Color.FromArgb(245, 247, 250);
-        private static readonly Color C_CARD   = Color.White;
-        private static readonly Color C_BORDER = Color.FromArgb(220, 225, 230);
-        private static readonly Color C_DARK   = Color.FromArgb(30,  39,  46);
-        private static readonly Color C_MID    = Color.FromArgb(100, 110, 120);
-        private static readonly Color C_LINK   = Color.FromArgb(41,  128, 185);
-        private static readonly Color C_GREEN  = Color.FromArgb(39,  174,  96);
-        private static readonly Color C_ORANGE = Color.FromArgb(230, 126,  34);
-        private static readonly Color C_PURPLE = Color.FromArgb(142,  68, 173);
-        private static readonly Color C_TEAL   = Color.FromArgb(26,  188, 156);
-        private static readonly Color C_BLUE   = Color.FromArgb(41,  128, 185);
-        private static readonly Color C_RED    = Color.FromArgb(231,  76,  60);
-        private static readonly Color C_INFO   = Color.FromArgb(232, 244, 253);
+        // Colours used throughout the dashboard
+        private Color navyBlue  = Color.FromArgb(31, 73, 125);
+        private Color lightBlue = Color.FromArgb(220, 230, 242);
+        private Color green     = Color.FromArgb(0, 153, 76);
+        private Color orange    = Color.FromArgb(204, 85, 0);
+        private Color purple    = Color.FromArgb(102, 0, 153);
+        private Color teal      = Color.FromArgb(0, 128, 128);
+        private Color red       = Color.FromArgb(192, 0, 0);
 
-        private static Font F(float sz, FontStyle s = FontStyle.Regular) =>
-            new Font("Segoe UI", sz, s, GraphicsUnit.Point);
+        // Fixed canvas size - matches the MDI client area at design time
+        private const int CANVAS_W = 1134;
+        private const int CANVAS_H = 740;
 
-        // ── Render dimensions ─────────────────────────────────────────
-        // The canvas is ALWAYS drawn at these fixed pixel dimensions.
-        // The scroll wrapper shows whatever the MDI window can fit and
-        // provides scrollbars for the rest.
-        private const int RENDER_W = 1134;
-        private const int RENDER_H = 720;
-        private const int PAD      = 14;
-        private const int VPAD     = 10;
-        private const int GAP      =  8;
+        // Spacing constants
+        private const int PAD  = 20;
+        private const int GAP  = 10;
+        private const int VPAD = 12;
 
-        // ── Named control refs ────────────────────────────────────────
-        private Label        _lblName, _lblRole;
-        private Label        _lblMonthSales, _lblTxCount, _lblLowCount;
-        private Label        _lblCustCount,  _lblEmpCount;
-        private Chart        _chart;
-        private Panel        _pnlTop, _pnlLeast;
-        private DataGridView _dgvTx,  _dgvStock;
-        private Label        _lblBestName, _lblBestSpent, _lblBestTx;
-        private Label        _lblFooter;
+        // Controls that need to be updated when data loads
+        private Label lblMonthSales;
+        private Label lblTxCount;
+        private Label lblLowStock;
+        private Label lblCustomers;
+        private Label lblEmployees;
+        private Chart pieChart;
+        private Panel pnlTopSelling;
+        private Panel pnlLeastSelling;
+        private DataGridView dgvTransactions;
+        private DataGridView dgvLowStock;
+        private Label lblBestCustomerName;
+        private Label lblBestCustomerSpent;
+        private Label lblBestCustomerTx;
+        private Label lblLastUpdated;
 
-        // ── Data ──────────────────────────────────────────────────────
-        private readonly DashboardService _svc   = new DashboardService();
-        private readonly Timer            _timer = new Timer();
-        private DashboardData             _cache;
-        private bool                      _layoutReady;
-
-        // =============================================================
-        // CONSTRUCTORS
-        // =============================================================
+        // Data service and auto-refresh timer
+        private DashboardService dashboardService = new DashboardService();
+        private Timer refreshTimer = new Timer();
+        private DashboardData currentData;
+        private bool isLoaded = false;
 
         public DashboardForm()
         {
-            _employeeName = "Manager";
-            _employeeRole = "Manager";
+            employeeName = "Manager";
+            employeeRole = "Manager";
             InitializeComponent();
-            SetupForm();
+            SetupDashboard();
         }
 
         public DashboardForm(int id, string name, string role)
         {
-            _employeeID   = id;
-            _employeeName = name;
-            _employeeRole = role;
+            employeeID   = id;
+            employeeName = name;
+            employeeRole = role;
             InitializeComponent();
-            SetupForm();
+            SetupDashboard();
         }
 
-        // =============================================================
-        // FORM SETUP
-        // =============================================================
-
-        private void SetupForm()
+        private void SetupDashboard()
         {
-            this.Text           = "Dashboard \u2013 Sam's Liquor Shop";
-            this.BackColor      = C_BG;
-            this.DoubleBuffered = true;
-            this.AutoScroll     = false;
+            this.Text                  = "Dashboard - Sam's Liquor Shop";
+            this.DoubleBuffered        = true;
+            this.AutoScroll            = false;
+            this.BackgroundImage       = Properties.Resources.Background;
+            this.BackgroundImageLayout = ImageLayout.Stretch;
 
-            // ── Fixed-size canvas that always renders at RENDER_W x RENDER_H ──
-            var canvas = new Panel
-            {
-                Location  = new Point(0, 0),
-                Size      = new Size(RENDER_W, RENDER_H),
-                BackColor = C_BG
-            };
-            PlaceAll(canvas, RENDER_W, RENDER_H);
+            Panel canvas = new Panel();
+            canvas.BackColor = Color.Transparent;
+            canvas.Location  = new Point(0, 0);
+            canvas.Size      = new Size(10, 10);
+            this.Controls.Add(canvas);
 
-            // ── Scroll wrapper ────────────────────────────────────────
-            // We do NOT use Dock=Fill here. Instead we size it explicitly
-            // in Shown/Resize so it always matches the MDI client area.
-            // AutoScroll=true on a Panel works correctly inside MDI children
-            // (unlike the Form's own scrollbars which the MDI suppresses).
-            var scroll = new Panel
+            // Returns the true MDI client area size by reading it directly
+            // from the MdiClient control on the parent form. This is reliable
+            // even before the child has been fully sized by the MDI framework.
+            Action rebuildLayout = () =>
             {
-                Location   = new Point(0, 0),
-                BackColor  = C_BG,
-                AutoScroll = true
-            };
-            scroll.Controls.Add(canvas);
-            this.Controls.Add(scroll);
-
-            // Resize the scroll wrapper whenever the form size changes
-            Action sizeScroll = () =>
-            {
-                scroll.Size = new Size(
-                    Math.Max(this.ClientSize.Width,  1),
-                    Math.Max(this.ClientSize.Height, 1));
+                // this.ClientSize returns the SCREEN size because the MDI child
+                // has FormBorderStyle.None + WindowState.Maximized (maximises to screen).
+                // Use MdiParent.ClientSize and subtract the known chrome instead.
+                int parentW = this.MdiParent != null
+                    ? this.MdiParent.ClientSize.Width  : this.ClientSize.Width;
+                int parentH = this.MdiParent != null
+                    ? this.MdiParent.ClientSize.Height : this.ClientSize.Height;
+                int w = Math.Max(parentW - 220, CANVAS_W);  // subtract sidebar (220px)
+                int h = Math.Max(parentH - 59,  380);       // subtract menu(30)+status(29)
+                if (w < 50 || h < 50) return;
+                canvas.Size      = new Size(w, h);
+                canvas.BackColor = Color.Transparent;
+                canvas.Location  = new Point(0, 0);
+                canvas.Controls.Clear();
+                BuildDashboard(canvas);
             };
 
-            this.Resize += (s, e) => sizeScroll();
 
-            this.Shown += (s, e) =>
+            // Use a one-shot timer so the MDI framework finishes its layout
+            // before we build. Shown fires too early and ClientSize is stale.
+            Timer initTimer = new Timer();
+            initTimer.Interval = 150;
+            initTimer.Tick    += (s, e) =>
             {
-                sizeScroll();        // set correct size after MDI layout
-                _layoutReady = true;
-                LoadData();
+                initTimer.Stop();
+                initTimer.Dispose();
+                rebuildLayout();
+                isLoaded = true;
+                LoadDashboardData();
+            };
+            this.Shown += (s, e) => initTimer.Start();
+
+            this.Resize += (s, e) =>
+            {
+                if (!isLoaded) return;
+                rebuildLayout();
+                if (currentData != null) BindDataToControls(currentData);
             };
 
-            // Auto-refresh every 60 s
-            _timer.Interval = 60_000;
-            _timer.Tick    += (s, e) => LoadData();
-            _timer.Start();
+            // Auto-refresh every 60 seconds
+            refreshTimer.Interval = 60000;
+            refreshTimer.Tick    += (s, e) => LoadDashboardData();
+            refreshTimer.Start();
         }
 
-        protected override void OnLoad(EventArgs e) { base.OnLoad(e); }
+        protected override void OnLoad(EventArgs e)
+        {
+            base.OnLoad(e);
+        }
 
         protected override void OnFormClosed(FormClosedEventArgs e)
         {
-            _timer.Stop();
-            _timer.Dispose();
+            refreshTimer.Stop();
+            refreshTimer.Dispose();
             base.OnFormClosed(e);
         }
 
-        // =============================================================
-        // LAYOUT  (called once at setup — static, no resize needed)
-        // =============================================================
-
-        private void PlaceAll(Panel c, int W, int H)
+        // Builds all the controls and places them on the canvas
+        private void BuildDashboard(Panel canvas)
         {
-            int totalGaps = VPAD * 2 + GAP * 4;
-            int available = H - totalGaps;
+            int H          = canvas.Height;
+            int totalGaps  = VPAD * 2 + GAP * 4;
+            int footHeight = 36;
 
-            int hHdr   = (int)(available * 0.10);
-            int hCards = (int)(available * 0.13);
-            int hMid   = (int)(available * 0.34);
-            int hBot   = (int)(available * 0.34);
-            int hFtr   = available - hHdr - hCards - hMid - hBot;
+            // Distribute height into fixed header+cards and proportional mid+bot.
+            // At small windows the header shrinks first, then cards,
+            // and mid+bot share everything that is left.
+            int headerHeight = Math.Min(76, Math.Max(52, (int)(H * 0.12)));
+            int cardHeight   = Math.Min(72, Math.Max(60, (int)(H * 0.13)));
+            int midAndBot    = H - totalGaps - footHeight - headerHeight - cardHeight;
+            int midHeight    = Math.Max((int)(midAndBot * 0.52), 147);
+            int botHeight    = midAndBot - midHeight;
 
             int y = VPAD;
-            PlaceHeader   (c, ref y, W, hHdr);
-            PlaceStatCards(c, ref y, W, hCards);
-            PlaceMiddleRow(c, ref y, W, hMid);
-            PlaceBottomRow(c, ref y, W, hBot);
-            PlaceFooter   (c, ref y, W, hFtr);
+            BuildHeader(canvas, ref y, headerHeight);
+            BuildStatCards(canvas, ref y, cardHeight);
+            BuildMiddleRow(canvas, ref y, midHeight);
+            BuildBottomRow(canvas, ref y, botHeight);
+            BuildFooter(canvas, ref y, footHeight);
         }
 
-        // ── HEADER ────────────────────────────────────────────────────
-
-        private void PlaceHeader(Panel c, ref int y, int W, int H)
+        private void BuildHeader(Panel canvas, ref int y, int h)
         {
-            c.Controls.Add(MkLbl("Welcome back,", F(9.5f), C_MID,
-                new Rectangle(PAD, y, 300, 20)));
+            // Labels placed directly on canvas — dark navy text that reads
+            // clearly over the background image without any overlay panel.
+            Label lblWelcome = new Label();
+            lblWelcome.Text      = "Welcome back,";
+            lblWelcome.Font      = new Font("Microsoft Sans Serif", 10f, FontStyle.Regular);
+            lblWelcome.ForeColor = Color.FromArgb(20, 20, 40);
+            lblWelcome.BackColor = Color.Transparent;
+            lblWelcome.Bounds    = new Rectangle(PAD, y, 300, 20);
+            canvas.Controls.Add(lblWelcome);
 
-            _lblName = MkLbl(_employeeName, F(17, FontStyle.Bold), C_DARK,
-                new Rectangle(PAD, y + 20, W - PAD * 2, 34));
-            c.Controls.Add(_lblName);
+            Label lblName = new Label();
+            lblName.Text      = employeeName;
+            lblName.Font      = new Font("Microsoft Sans Serif", 18f, FontStyle.Bold | FontStyle.Underline);
+            lblName.ForeColor = Color.FromArgb(20, 20, 60);
+            lblName.BackColor = Color.Transparent;
+            lblName.AutoSize  = true;
+            lblName.Location  = new Point(PAD, y + 20);
+            canvas.Controls.Add(lblName);
 
-            _lblRole = MkLbl(_employeeRole, F(9.5f), C_LINK,
-                new Rectangle(PAD, y + 56, 200, 20));
-            c.Controls.Add(_lblRole);
+            // Role badge sits on the same line as the name, just to the right
+            // We use AutoSize on lblName so we can position lblRole after it.
+            // Since AutoSize doesn't work before the control is shown, we
+            // estimate the name width using MeasureString.
+            SizeF nameSize = canvas.CreateGraphics().MeasureString(
+                employeeName,
+                new Font("Microsoft Sans Serif", 18f, FontStyle.Bold | FontStyle.Underline));
+            int roleX = PAD + (int)nameSize.Width + 12;
 
-            y += H + GAP;
+            Label lblRole = new Label();
+            lblRole.Text      = employeeRole + " - Dashboard";
+            lblRole.Font      = new Font("Microsoft Sans Serif", 12f, FontStyle.Bold);
+            lblRole.ForeColor = navyBlue;
+            lblRole.BackColor = Color.Transparent;
+            lblRole.AutoSize  = true;
+            // Vertically align baseline with the 18pt name label:
+            // name is at y+20, height ~36. 12pt label height ~20.
+            // Centre it: y + 20 + (36-20)/2 = y + 28
+            lblRole.Location  = new Point(roleX, y + 28);
+            canvas.Controls.Add(lblRole);
+
+            y += h + GAP;
         }
 
-        // ── STAT CARDS ────────────────────────────────────────────────
-
-        private void PlaceStatCards(Panel c, ref int y, int W, int H)
+        private void BuildStatCards(Panel canvas, ref int y, int h)
         {
-            int usable = W - PAD * 2;
+            int usable = CANVAS_W - PAD * 2;
             int cardW  = (usable - GAP * 4) / 5;
 
-            var defs = new (string title, string def, Color accent)[]
+            // Card definitions: title, default value, accent colour
+            string[] titles  = { "This Month Sales", "No. of Transactions", "Low Stock Items", "Total Customers", "Total Employees" };
+            string[] defaults = { "R-", "-", "-", "-", "-" };
+            Color[]  accents = { green, orange, purple, teal, navyBlue };
+
+            Label[] valueLabels = new Label[5];
+
+            for (int i = 0; i < 5; i++)
             {
-                ("This Month Sales",    "R\u2013", C_GREEN),
-                ("No. of Transactions", "\u2013",  C_ORANGE),
-                ("Low Stock Items",     "\u2013",  C_PURPLE),
-                ("Total Customers",     "\u2013",  C_TEAL),
-                ("Total Employees",     "\u2013",  C_TEAL),
-            };
+                int x = PAD + i * (cardW + GAP);
 
-            var refs = new Label[5];
+                // White semi-transparent card
+                Panel card = new Panel();
+                card.Bounds    = new Rectangle(x, y, cardW, h);
+                card.BackColor = Color.White;
 
-            for (int i = 0; i < defs.Length; i++)
-            {
-                int x    = PAD + i * (cardW + GAP);
-                var card = MkCard(new Rectangle(x, y, cardW, H));
+                // Coloured accent bar at top
+                Panel topBar = new Panel();
+                topBar.Bounds    = new Rectangle(0, 0, cardW, 4);
+                topBar.BackColor = accents[i];
+                card.Controls.Add(topBar);
 
-                // Fixed pixel positions — title at top, value fills remaining
-                card.Controls.Add(MkLbl(defs[i].title, F(8.5f), C_MID,
-                    new Rectangle(12, 10, cardW - 24, 20)));
+                // Title label
+                Label lblTitle = new Label();
+                lblTitle.Text      = titles[i];
+                lblTitle.Font      = new Font("Microsoft Sans Serif", 8.5f, FontStyle.Regular);
+                lblTitle.ForeColor = Color.FromArgb(80, 80, 80);
+                lblTitle.BackColor = Color.Transparent;
+                lblTitle.Bounds    = new Rectangle(10, 8, cardW - 20, 18);
+                card.Controls.Add(lblTitle);
 
-                var val = MkLbl(defs[i].def, F(20, FontStyle.Bold), defs[i].accent,
-                    new Rectangle(12, 32, cardW - 24, H - 40));
-                card.Controls.Add(val);
-                refs[i] = val;
+                // Value label (large, coloured)
+                Label lblVal = new Label();
+                lblVal.Text      = defaults[i];
+                lblVal.Font      = new Font("Microsoft Sans Serif", 20f, FontStyle.Bold);
+                lblVal.ForeColor = accents[i];
+                lblVal.BackColor = Color.Transparent;
+                lblVal.Bounds    = new Rectangle(10, 28, cardW - 20, h - 36);
+                card.Controls.Add(lblVal);
 
-                c.Controls.Add(card);
+                valueLabels[i] = lblVal;
+                canvas.Controls.Add(card);
             }
 
-            _lblMonthSales = refs[0];
-            _lblTxCount    = refs[1];
-            _lblLowCount   = refs[2];
-            _lblCustCount  = refs[3];
-            _lblEmpCount   = refs[4];
+            // Assign to named fields for data binding later
+            lblMonthSales = valueLabels[0];
+            lblTxCount    = valueLabels[1];
+            lblLowStock   = valueLabels[2];
+            lblCustomers  = valueLabels[3];
+            lblEmployees  = valueLabels[4];
 
-            y += H + GAP;
+            y += h + GAP;
         }
 
-        // ── MIDDLE ROW ────────────────────────────────────────────────
-
-        private void PlaceMiddleRow(Panel c, ref int y, int W, int H)
+        private void BuildMiddleRow(Panel canvas, ref int y, int h)
         {
-            int usable = W - PAD * 2;
+            int usable = CANVAS_W - PAD * 2;
             int pieW   = (int)(usable * 0.37) - GAP / 2;
             int rankW  = (usable - pieW - GAP * 2) / 2;
 
@@ -243,384 +292,341 @@ namespace TheByteClubPOS
             int xTop   = xPie + pieW + GAP;
             int xLeast = xTop + rankW + GAP;
 
-            var pieCard = MkCard(new Rectangle(xPie, y, pieW, H));
-            AddTitle(pieCard, "Sales by Category (This Month)", pieW);
-            _chart = MkPieChart(pieCard, pieW, H);
-            c.Controls.Add(pieCard);
+            // Pie chart card
+            Panel pieCard = MakeSectionPanel(new Rectangle(xPie, y, pieW, h), "Sales by Category (This Month)");
+            pieChart = BuildPieChart(pieCard, pieW, h);
+            canvas.Controls.Add(pieCard);
 
-            var topCard = MkCard(new Rectangle(xTop, y, rankW, H));
-            AddTitle(topCard, "Top Selling Products (This Month)", rankW);
-            _pnlTop = new Panel
-            {
-                Location  = new Point(1, 35),
-                Size      = new Size(rankW - 2, H - 36),
-                BackColor = C_CARD
-            };
-            topCard.Controls.Add(_pnlTop);
-            c.Controls.Add(topCard);
+            // Top selling card
+            Panel topCard = MakeSectionPanel(new Rectangle(xTop, y, rankW, h), "Top Selling Products (This Month)");
+            pnlTopSelling = new Panel();
+            pnlTopSelling.Location    = new Point(0, 32);
+            pnlTopSelling.Size        = new Size(rankW, h - 33);
+            pnlTopSelling.BackColor   = Color.White;
+            pnlTopSelling.AutoScroll  = false;
+            topCard.Controls.Add(pnlTopSelling);
+            canvas.Controls.Add(topCard);
 
-            var leastCard = MkCard(new Rectangle(xLeast, y, rankW, H));
-            AddTitle(leastCard, "Least Selling Products (This Month)", rankW);
-            _pnlLeast = new Panel
-            {
-                Location  = new Point(1, 35),
-                Size      = new Size(rankW - 2, H - 36),
-                BackColor = C_CARD
-            };
-            leastCard.Controls.Add(_pnlLeast);
-            c.Controls.Add(leastCard);
+            // Least selling card
+            Panel leastCard = MakeSectionPanel(new Rectangle(xLeast, y, rankW, h), "Least Selling Products (This Month)");
+            pnlLeastSelling = new Panel();
+            pnlLeastSelling.Location    = new Point(0, 32);
+            pnlLeastSelling.Size        = new Size(rankW, h - 33);
+            pnlLeastSelling.BackColor   = Color.White;
+            pnlLeastSelling.AutoScroll  = false;
+            leastCard.Controls.Add(pnlLeastSelling);
+            canvas.Controls.Add(leastCard);
 
-            y += H + GAP;
+            y += h + GAP;
         }
 
-        // ── BOTTOM ROW ────────────────────────────────────────────────
-
-        private void PlaceBottomRow(Panel c, ref int y, int W, int H)
+        private void BuildBottomRow(Panel canvas, ref int y, int h)
         {
-            int usable = W - PAD * 2;
+            int usable = CANVAS_W - PAD * 2;
             int txW    = (int)(usable * 0.48) - GAP / 2;
             int stW    = (int)(usable * 0.30) - GAP / 2;
             int bestW  = usable - txW - stW - GAP * 2;
+            int gridH  = h - 34;   // card height minus 32px header + 2px border
 
             int xTx   = PAD;
             int xSt   = xTx + txW  + GAP;
             int xBest = xSt + stW  + GAP;
-            int gridH = H - 52;
 
             // Recent Transactions
-            var txCard = MkCard(new Rectangle(xTx, y, txW, H));
-            AddTitle(txCard, "Recent Transactions", txW);
-            _dgvTx = MkGrid(
-                ("Invoice",      "InvoiceNumber",  90, DataGridViewContentAlignment.MiddleLeft),
-                ("Date",         "SaleDateStr",   140, DataGridViewContentAlignment.MiddleLeft),
-                ("Customer",     "CustomerName",  120, DataGridViewContentAlignment.MiddleLeft),
-                ("Total Amount", "TotalAmtStr",    90, DataGridViewContentAlignment.MiddleRight));
-            _dgvTx.Location = new Point(1, 35);
-            _dgvTx.Size     = new Size(txW - 2, gridH);
-            txCard.Controls.Add(_dgvTx);
-            txCard.Controls.Add(MkLbl("Showing latest 5 transactions", F(7.5f), C_MID,
-                new Rectangle(10, H - 18, txW - 20, 15)));
-            c.Controls.Add(txCard);
+            Panel txCard = MakeSectionPanel(new Rectangle(xTx, y, txW, h), "Recent Transactions");
 
-            // Low Stock
-            var stCard = MkCard(new Rectangle(xSt, y, stW, H));
-            AddTitle(stCard, "Low Stock Items", stW);
-            _dgvStock = MkGridWithImage(
-                ("Product",    "ProductName",  110, DataGridViewContentAlignment.MiddleLeft),
-                ("Cur. Stock", "CurrentStock",  70, DataGridViewContentAlignment.MiddleCenter),
-                ("Reorder",    "ReorderLevel",  70, DataGridViewContentAlignment.MiddleCenter));
-            _dgvStock.Location        = new Point(1, 35);
-            _dgvStock.Size            = new Size(stW - 2, gridH);
-            stCard.Controls.Add(_dgvStock);
-            stCard.Controls.Add(MkLbl("Showing latest 5 low stock items", F(7.5f), C_MID,
-                new Rectangle(10, H - 18, stW - 20, 15)));
-            c.Controls.Add(stCard);
+            dgvTransactions = MakeGrid(txW, gridH);
+            dgvTransactions.Columns.Add(new DataGridViewTextBoxColumn { Name = "col_InvoiceNumber", HeaderText = "Invoice",      DataPropertyName = "InvoiceNumber",  FillWeight = 90  });
+            dgvTransactions.Columns.Add(new DataGridViewTextBoxColumn { Name = "col_SaleDateStr",   HeaderText = "Date",         DataPropertyName = "SaleDateStr",    FillWeight = 140 });
+            dgvTransactions.Columns.Add(new DataGridViewTextBoxColumn { Name = "col_CustomerName",  HeaderText = "Customer",     DataPropertyName = "CustomerName",   FillWeight = 120 });
+            dgvTransactions.Columns.Add(new DataGridViewTextBoxColumn { Name = "col_TotalAmtStr",   HeaderText = "Total Amount", DataPropertyName = "TotalAmtStr",    FillWeight = 90,
+                DefaultCellStyle = new DataGridViewCellStyle { Alignment = DataGridViewContentAlignment.MiddleRight } });
+            dgvTransactions.Size     = new Size(txW, gridH);
+            dgvTransactions.Location = new Point(0, 32);
+            txCard.Controls.Add(dgvTransactions);
+            canvas.Controls.Add(txCard);
+
+            // Low Stock Items
+            Panel stCard = MakeSectionPanel(new Rectangle(xSt, y, stW, h), "Low Stock Items");
+
+            dgvLowStock = MakeGrid(stW, gridH);
+            dgvLowStock.Columns.Add(new DataGridViewImageColumn
+            {
+                Name = "col_ProductImage", HeaderText = "", DataPropertyName = "ProductImage",
+                Width = 32, ImageLayout = DataGridViewImageCellLayout.Zoom,
+                DefaultCellStyle = new DataGridViewCellStyle { NullValue = null }
+            });
+            dgvLowStock.Columns.Add(new DataGridViewTextBoxColumn { Name = "col_ProductName",  HeaderText = "Product",     DataPropertyName = "ProductName",  FillWeight = 110 });
+            dgvLowStock.Columns.Add(new DataGridViewTextBoxColumn { Name = "col_CurrentStock", HeaderText = "Stock",  DataPropertyName = "CurrentStock", FillWeight = 60,
+                DefaultCellStyle = new DataGridViewCellStyle { Alignment = DataGridViewContentAlignment.MiddleCenter } });
+            dgvLowStock.Columns.Add(new DataGridViewTextBoxColumn { Name = "col_ReorderLevel", HeaderText = "Reorder",     DataPropertyName = "ReorderLevel", FillWeight = 65,
+                DefaultCellStyle = new DataGridViewCellStyle { Alignment = DataGridViewContentAlignment.MiddleCenter } });
+            dgvLowStock.RowTemplate.Height = 32;
+            dgvLowStock.DataError         += (s, e) => e.ThrowException = false;
+            dgvLowStock.Size               = new Size(stW, gridH);
+            dgvLowStock.Location           = new Point(0, 32);
+            stCard.Controls.Add(dgvLowStock);
+            canvas.Controls.Add(stCard);
 
             // Best Customer
-            var bestCard = MkCard(new Rectangle(xBest, y, bestW, H));
-            BuildBestCustomerCard(bestCard, bestW, H);
-            c.Controls.Add(bestCard);
+            Panel bestCard = MakeSectionPanel(new Rectangle(xBest, y, bestW, h), "Best Customer (This Month)");
+            BuildBestCustomerSection(bestCard, bestW, h);
+            canvas.Controls.Add(bestCard);
 
-            y += H + GAP;
+            y += h + GAP;
         }
 
-        private void BuildBestCustomerCard(Panel card, int W, int H)
+        private void BuildBestCustomerSection(Panel card, int w, int h)
         {
-            AddTitle(card, "Best Customer (This Month)", W);
+            Panel body = new Panel();
+            body.Location  = new Point(0, 30);
+            body.Size      = new Size(w, h - 30);
+            body.BackColor = Color.White;
+            body.Tag       = new string[] { "No data", "R0.00", "0" };
+            body.Paint    += BestCustomerBodyPaint;
+            card.Controls.Add(body);
 
-            int avSize = 56;
-            var av = new Panel
-            {
-                Size      = new Size(avSize, avSize),
-                Location  = new Point((W - avSize) / 2, 44),
-                BackColor = Color.Transparent
-            };
-            av.Paint += (s, e) =>
-            {
-                var g = e.Graphics;
-                g.SmoothingMode = SmoothingMode.AntiAlias;
-                using (var br = new SolidBrush(Color.FromArgb(189, 195, 199)))
-                    g.FillEllipse(br, 0, 0, avSize - 1, avSize - 1);
-                g.FillEllipse(Brushes.White, 17, 7, 22, 22);
-                g.FillEllipse(Brushes.White, 8, 32, 40, 26);
-            };
-            card.Controls.Add(av);
+            // Hidden labels used only as data holders — BindDataToControls
+            // writes to their Text and the TextChanged event repaints the body.
+            lblBestCustomerName  = new Label { Visible = false, Text = "No data" };
+            lblBestCustomerSpent = new Label { Visible = false, Text = "R0.00"   };
+            lblBestCustomerTx    = new Label { Visible = false, Text = "0"       };
 
-            // Distribute remaining card height into 5 equal slots
-            int contentTop = 44 + avSize + 4;   // 104
-            int remaining  = H - contentTop - 4;
-            int slot       = Math.Max(remaining / 5, 18);
+            lblBestCustomerName.TextChanged  += (s, e) => RefreshBestBody(body);
+            lblBestCustomerSpent.TextChanged += (s, e) => RefreshBestBody(body);
+            lblBestCustomerTx.TextChanged    += (s, e) => RefreshBestBody(body);
 
-            _lblBestName = MkLbl("No data", F(10, FontStyle.Bold), C_DARK,
-                new Rectangle(4, contentTop, W - 8, slot),
-                ContentAlignment.MiddleCenter);
-            card.Controls.Add(_lblBestName);
-
-            card.Controls.Add(MkLbl("Total Spent", F(7.5f), C_MID,
-                new Rectangle(4, contentTop + slot, W - 8, slot),
-                ContentAlignment.MiddleCenter));
-
-            _lblBestSpent = MkLbl("R0.00", F(13, FontStyle.Bold), C_BLUE,
-                new Rectangle(4, contentTop + slot * 2, W - 8, slot),
-                ContentAlignment.MiddleCenter);
-            card.Controls.Add(_lblBestSpent);
-
-            card.Controls.Add(MkLbl("No. of Transactions", F(7.5f), C_MID,
-                new Rectangle(4, contentTop + slot * 3, W - 8, slot),
-                ContentAlignment.MiddleCenter));
-
-            _lblBestTx = MkLbl("0", F(11, FontStyle.Bold), C_DARK,
-                new Rectangle(4, contentTop + slot * 4, W - 8, slot),
-                ContentAlignment.MiddleCenter);
-            card.Controls.Add(_lblBestTx);
+            card.Controls.Add(lblBestCustomerName);
+            card.Controls.Add(lblBestCustomerSpent);
+            card.Controls.Add(lblBestCustomerTx);
         }
 
-        // ── FOOTER ────────────────────────────────────────────────────
-
-        private void PlaceFooter(Panel c, ref int y, int W, int H)
+        private void RefreshBestBody(Panel body)
         {
-            int fH    = Math.Max(H, 30);
-            int footW = W - PAD * 2;
-            var foot  = new Panel
+            body.Tag = new string[]
             {
-                Bounds    = new Rectangle(PAD, y, footW, fH),
-                BackColor = C_INFO
+                lblBestCustomerName.Text,
+                lblBestCustomerSpent.Text,
+                lblBestCustomerTx.Text
             };
-            foot.Paint += CardPaint;
+            body.Invalidate();
+        }
 
-            _lblFooter = MkLbl(
-                "Dashboard data is updated daily.  Last updated: \u2013",
-                F(8.5f), C_BLUE,
-                new Rectangle(10, 0, footW - 110, fH),
-                ContentAlignment.MiddleLeft);
-            foot.Controls.Add(_lblFooter);
+        private void BestCustomerBodyPaint(object sender, PaintEventArgs e)
+        {
+            Panel p       = (Panel)sender;
+            string[] vals = p.Tag as string[];
+            if (vals == null) return;
 
-            var btn = new Button
+            Graphics g = e.Graphics;
+            g.SmoothingMode = SmoothingMode.AntiAlias;
+            g.Clear(Color.White);
+
+            int pw = p.Width;
+            int ph = p.Height;
+
+            // Divide available height into 5 slots — no minimum floor so
+            // content never overflows the card at any window size.
+            int top  = 4;
+            int slot = Math.Max((ph - top) / 5, 1);
+
+            // Scale font sizes down gracefully when slots are small
+            float nameFnt = slot >= 20 ? 10f : slot >= 14 ? 8.5f : 7f;
+            float valFnt  = slot >= 20 ? 13f : slot >= 14 ? 10f  : 8f;
+            float lblFnt  = slot >= 16 ?  8f : 7f;
+            float txFnt   = slot >= 20 ? 11f : slot >= 14 ?  9f  : 7.5f;
+
+            StringFormat sfC = new StringFormat
             {
-                Text      = "\u27f3  Refresh",
-                Font      = F(9f),
-                ForeColor = C_BLUE,
-                BackColor = Color.Transparent,
-                FlatStyle = FlatStyle.Flat,
-                Size      = new Size(90, fH),
-                Location  = new Point(footW - 92, 0),
-                Cursor    = Cursors.Hand
+                Alignment     = StringAlignment.Center,
+                LineAlignment = StringAlignment.Center
             };
-            btn.FlatAppearance.BorderSize = 0;
-            btn.Click += (s, e) => LoadData();
-            foot.Controls.Add(btn);
-            c.Controls.Add(foot);
 
+            g.DrawString(vals[0],
+                new Font("Microsoft Sans Serif", nameFnt, FontStyle.Bold),
+                new SolidBrush(navyBlue),
+                new RectangleF(4, top,            pw - 8, slot), sfC);
+
+            g.DrawString("Total Spent",
+                new Font("Microsoft Sans Serif", lblFnt, FontStyle.Regular),
+                new SolidBrush(Color.FromArgb(100, 100, 100)),
+                new RectangleF(4, top + slot,     pw - 8, slot), sfC);
+
+            g.DrawString(vals[1],
+                new Font("Microsoft Sans Serif", valFnt, FontStyle.Bold),
+                new SolidBrush(green),
+                new RectangleF(4, top + slot * 2, pw - 8, slot), sfC);
+
+            g.DrawString("No. of Transactions",
+                new Font("Microsoft Sans Serif", lblFnt, FontStyle.Regular),
+                new SolidBrush(Color.FromArgb(100, 100, 100)),
+                new RectangleF(4, top + slot * 3, pw - 8, slot), sfC);
+
+            g.DrawString(vals[2],
+                new Font("Microsoft Sans Serif", txFnt, FontStyle.Bold),
+                new SolidBrush(navyBlue),
+                new RectangleF(4, top + slot * 4, pw - 8, slot), sfC);
+        }
+
+        private void BuildFooter(Panel canvas, ref int y, int h)
+        {
+            int fH    = Math.Max(h, 36);
+            int footW = CANVAS_W - PAD * 2;
+
+            Panel footer = new Panel();
+            footer.Bounds    = new Rectangle(PAD, y, footW, fH);
+            footer.BackColor = Color.FromArgb(220, 230, 242);
+
+            lblLastUpdated = new Label();
+            lblLastUpdated.Text      = "Dashboard data is updated daily.  Last updated: -";
+            lblLastUpdated.Font      = new Font("Microsoft Sans Serif", 8.5f, FontStyle.Regular);
+            lblLastUpdated.ForeColor = navyBlue;
+            lblLastUpdated.BackColor = Color.Transparent;
+            lblLastUpdated.Bounds    = new Rectangle(8, 0, footW - 110, fH);
+            lblLastUpdated.TextAlign = ContentAlignment.MiddleLeft;
+            footer.Controls.Add(lblLastUpdated);
+
+            Button btnRefresh = new Button();
+            btnRefresh.Text      = "Refresh";
+            btnRefresh.Font      = new Font("Microsoft Sans Serif", 9f, FontStyle.Bold);
+            btnRefresh.TextAlign  = ContentAlignment.MiddleCenter;
+            btnRefresh.ForeColor = navyBlue;
+            btnRefresh.BackColor = Color.FromArgb(220, 230, 242);
+            btnRefresh.FlatStyle = FlatStyle.Flat;
+            btnRefresh.Size      = new Size(100, fH);
+            btnRefresh.Location  = new Point(footW - 102, 0);
+            btnRefresh.Cursor    = Cursors.Hand;
+            btnRefresh.FlatAppearance.BorderColor = navyBlue;
+            btnRefresh.FlatAppearance.BorderSize  = 1;
+            btnRefresh.Click += (s, e) => LoadDashboardData();
+            footer.Controls.Add(btnRefresh);
+
+            canvas.Controls.Add(footer);
             y += fH + VPAD;
         }
 
-        // =============================================================
-        // CONTROL FACTORIES
-        // =============================================================
-
-        private static Panel MkCard(Rectangle bounds)
+        // Creates a section panel with a navy header bar
+        private Panel MakeSectionPanel(Rectangle bounds, string title)
         {
-            var p = new Panel { Bounds = bounds, BackColor = C_CARD };
-            p.Paint += CardPaint;
-            return p;
+            Panel card = new Panel();
+            card.Bounds    = bounds;
+            card.BackColor = Color.White;
+
+            Panel header = new Panel();
+            header.Bounds    = new Rectangle(0, 0, bounds.Width, 30);
+            header.BackColor = navyBlue;
+
+            Label lblTitle = new Label();
+            lblTitle.Text      = title;
+            lblTitle.Font      = new Font("Segoe UI", 9f, FontStyle.Bold);
+            lblTitle.ForeColor = Color.White;
+            lblTitle.BackColor = Color.Transparent;
+            lblTitle.Bounds    = new Rectangle(8, 0, bounds.Width - 16, 30);
+            lblTitle.TextAlign = ContentAlignment.MiddleLeft;
+            header.Controls.Add(lblTitle);
+
+            card.Controls.Add(header);
+            return card;
         }
 
-        private static void CardPaint(object sender, PaintEventArgs e)
+        // Creates a styled DataGridView
+        private DataGridView MakeGrid(int w, int h)
         {
-            var p = (Panel)sender;
-            var g = e.Graphics;
-            g.SmoothingMode = SmoothingMode.AntiAlias;
-            using (var sh = new SolidBrush(Color.FromArgb(18, 0, 0, 0)))
-                g.FillRectangle(sh, new Rectangle(3, 3, p.Width - 2, p.Height - 2));
-            var r = new Rectangle(0, 0, p.Width - 3, p.Height - 3);
-            using (var path = RoundRect(r, 8))
-            using (var br   = new SolidBrush(p.BackColor))
-                g.FillPath(br, path);
-            using (var path = RoundRect(r, 8))
-            using (var pen  = new Pen(C_BORDER, 1f))
-                g.DrawPath(pen, path);
-        }
+            DataGridView g = new DataGridView();
+            g.BackgroundColor         = Color.White;
+            g.BorderStyle             = BorderStyle.FixedSingle;
+            g.CellBorderStyle         = DataGridViewCellBorderStyle.SingleHorizontal;
+            g.GridColor               = Color.FromArgb(200, 200, 210);
+            g.ColumnHeadersHeight     = 28;
+            g.RowTemplate.Height      = 28;
+            g.AllowUserToAddRows      = false;
+            g.AllowUserToDeleteRows   = false;
+            g.ReadOnly                = true;
+            g.SelectionMode           = DataGridViewSelectionMode.FullRowSelect;
+            g.MultiSelect             = false;
+            g.AutoSizeColumnsMode     = DataGridViewAutoSizeColumnsMode.Fill;
+            g.ScrollBars              = ScrollBars.Vertical;
+            g.RowHeadersVisible       = false;
+            g.AutoGenerateColumns     = false;
+            g.EnableHeadersVisualStyles = false;
+            g.Size                    = new Size(w, h);
 
-        private static void AddTitle(Panel card, string text, int cardW)
-        {
-            card.Controls.Add(new Label
-            {
-                Text      = text,
-                Font      = F(9.5f, FontStyle.Bold),
-                ForeColor = C_DARK,
-                Location  = new Point(12, 8),
-                Size      = new Size(cardW - 26, 22),
-                BackColor = Color.Transparent
-            });
-            card.Controls.Add(new Panel
-            {
-                BackColor = C_BORDER,
-                Location  = new Point(0, 33),
-                Size      = new Size(cardW, 1)
-            });
-        }
-
-        private static Label MkLbl(string text, Font font, Color fore,
-                                    Rectangle bounds,
-                                    ContentAlignment align = ContentAlignment.TopLeft)
-        {
-            return new Label
-            {
-                Text      = text,
-                Font      = font,
-                ForeColor = fore,
-                Bounds    = bounds,
-                TextAlign = align,
-                BackColor = Color.Transparent
-            };
-        }
-
-        private Chart MkPieChart(Panel card, int cardW, int cardH)
-        {
-            var ch = new Chart
-            {
-                Location  = new Point(1, 35),
-                Size      = new Size(cardW - 2, cardH - 36),
-                BackColor = C_CARD
-            };
-            var area = new ChartArea("main") { BackColor = C_CARD };
-            area.Position          = new ElementPosition(2, 2, 56, 96);
-            area.InnerPlotPosition = new ElementPosition(5, 5, 90, 90);
-            ch.ChartAreas.Add(area);
-            var ser = new Series("cat")
-            {
-                ChartType           = SeriesChartType.Pie,
-                IsValueShownAsLabel = false,
-                Label               = ""
-            };
-            ser["PieLabelStyle"] = "Disabled";
-            ch.Series.Add(ser);
-            ch.Legends.Add(new Legend("main")
-            {
-                DockedToChartArea       = "main",
-                IsDockedInsideChartArea = false,
-                Docking                 = Docking.Right,
-                Alignment               = StringAlignment.Center,
-                BackColor               = C_CARD,
-                Font                    = F(7.5f),
-                IsTextAutoFit           = false,
-                LegendStyle             = LegendStyle.Column
-            });
-            ch.PaletteCustomColors = new[]
-            {
-                Color.FromArgb(52,  152, 219),
-                Color.FromArgb(46,  204, 113),
-                Color.FromArgb(155,  89, 182),
-                Color.FromArgb(230, 126,  34),
-                Color.FromArgb(26,  188, 156)
-            };
-            ch.Palette = ChartColorPalette.None;
-            card.Controls.Add(ch);
-            return ch;
-        }
-
-        private static DataGridView MkGrid(
-            params (string hdr, string field, int minW,
-                    DataGridViewContentAlignment align)[] cols)
-        {
-            var g = new DataGridView
-            {
-                BackgroundColor       = C_CARD,
-                BorderStyle           = BorderStyle.None,
-                CellBorderStyle       = DataGridViewCellBorderStyle.SingleHorizontal,
-                GridColor             = C_BORDER,
-                ColumnHeadersHeight   = 28,
-                RowTemplate           = { Height = 28 },
-                AllowUserToAddRows    = false,
-                AllowUserToDeleteRows = false,
-                ReadOnly              = true,
-                SelectionMode         = DataGridViewSelectionMode.FullRowSelect,
-                MultiSelect           = false,
-                AutoSizeColumnsMode   = DataGridViewAutoSizeColumnsMode.Fill,
-                ScrollBars            = ScrollBars.Vertical,
-                RowHeadersVisible     = false,
-                AutoGenerateColumns   = false,
-                EnableHeadersVisualStyles = false
-            };
+            // Enable double buffering to reduce flicker
             typeof(DataGridView)
                 .GetProperty("DoubleBuffered",
                     System.Reflection.BindingFlags.NonPublic |
                     System.Reflection.BindingFlags.Instance)
                 ?.SetValue(g, true, null);
 
-            g.ColumnHeadersDefaultCellStyle.BackColor          = C_BG;
-            g.ColumnHeadersDefaultCellStyle.ForeColor          = C_MID;
-            g.ColumnHeadersDefaultCellStyle.Font               = F(8.5f, FontStyle.Bold);
-            g.ColumnHeadersDefaultCellStyle.SelectionBackColor = C_BG;
-            g.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            g.DefaultCellStyle.BackColor          = C_CARD;
-            g.DefaultCellStyle.ForeColor          = C_DARK;
-            g.DefaultCellStyle.Font               = F(8.5f);
-            g.DefaultCellStyle.SelectionBackColor = Color.FromArgb(219, 234, 254);
-            g.DefaultCellStyle.SelectionForeColor = C_DARK;
-            g.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(248, 250, 252);
+            g.ColumnHeadersDefaultCellStyle.BackColor          = navyBlue;
+            g.ColumnHeadersDefaultCellStyle.ForeColor          = Color.White;
+            g.ColumnHeadersDefaultCellStyle.Font               = new Font("Microsoft Sans Serif", 8.5f, FontStyle.Bold);
+            g.ColumnHeadersDefaultCellStyle.SelectionBackColor = navyBlue;
+            g.ColumnHeadersBorderStyle                         = DataGridViewHeaderBorderStyle.Single;
 
-            foreach (var (hdr, field, minW, align) in cols)
-                g.Columns.Add(new DataGridViewTextBoxColumn
-                {
-                    Name             = "col_" + field,
-                    HeaderText       = hdr,
-                    DataPropertyName = field,
-                    MinimumWidth     = minW,
-                    FillWeight       = minW,
-                    DefaultCellStyle = { Alignment = align }
-                });
+            g.DefaultCellStyle.BackColor          = Color.White;
+            g.DefaultCellStyle.ForeColor          = Color.FromArgb(30, 30, 30);
+            g.DefaultCellStyle.Font               = new Font("Microsoft Sans Serif", 8.5f, FontStyle.Regular);
+            g.DefaultCellStyle.SelectionBackColor = Color.FromArgb(190, 210, 235);
+            g.DefaultCellStyle.SelectionForeColor = Color.Black;
+
+            g.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(235, 242, 250);
+
             return g;
         }
 
-        /// <summary>
-        /// Same as MkGrid but prepends a 32px image column (DataPropertyName = "ProductImage")
-        /// used by the Low Stock Items table to show product photos.
-        /// </summary>
-        private static DataGridView MkGridWithImage(
-            params (string hdr, string field, int minW,
-                    DataGridViewContentAlignment align)[] cols)
+        private Chart BuildPieChart(Panel card, int cardW, int cardH)
         {
-            var g = MkGrid(cols);
+            Chart ch = new Chart();
+            ch.Location  = new Point(0, 32);
+            ch.Size      = new Size(cardW, cardH - 32);
+            ch.BackColor = Color.Transparent;
 
-            var imgCol = new DataGridViewImageColumn
+            ChartArea area = new ChartArea("main");
+            area.BackColor          = Color.Transparent;
+            area.Position           = new ElementPosition(0, 2, 50, 96);
+            area.InnerPlotPosition  = new ElementPosition(2, 2, 96, 96);
+            ch.ChartAreas.Add(area);
+
+            Series ser = new Series("cat");
+            ser.ChartType           = SeriesChartType.Pie;
+            ser.IsValueShownAsLabel = false;
+            ser.Label               = "";
+            ser["PieLabelStyle"]    = "Disabled";
+            ch.Series.Add(ser);
+
+            Legend leg = new Legend("main");
+            leg.DockedToChartArea       = "main";
+            leg.IsDockedInsideChartArea = false;
+            leg.Docking                 = Docking.Right;
+            leg.Alignment               = StringAlignment.Center;
+            leg.BackColor               = Color.Transparent;
+            leg.Font                    = new Font("Microsoft Sans Serif", 7f);
+            leg.IsTextAutoFit           = true;
+            leg.LegendStyle             = LegendStyle.Column;
+            leg.ItemColumnSpacing       = 0;
+            ch.Legends.Add(leg);
+
+            ch.PaletteCustomColors = new Color[]
             {
-                Name             = "col_ProductImage",
-                HeaderText       = "",
-                DataPropertyName = "ProductImage",
-                Width            = 32,
-                ImageLayout      = DataGridViewImageCellLayout.Zoom,
-                DefaultCellStyle = { NullValue = null, Alignment = DataGridViewContentAlignment.MiddleCenter }
+                Color.FromArgb(31,  73, 125),
+                Color.FromArgb(0,  153,  76),
+                Color.FromArgb(102,  0, 153),
+                Color.FromArgb(204, 85,   0),
+                Color.FromArgb(0,  128, 128)
             };
-            g.Columns.Insert(0, imgCol);
-            g.RowTemplate.Height = 32;
+            ch.Palette = ChartColorPalette.None;
 
-            // Suppress DataError for null images (products without photos)
-            g.DataError += (s, e) => e.ThrowException = false;
-
-            return g;
+            card.Controls.Add(ch);
+            return ch;
         }
 
-        private static GraphicsPath RoundRect(Rectangle r, int rad)
+        // Converts a byte array to an Image (for product photos)
+        private Image BytesToImage(byte[] bytes)
         {
-            var path = new GraphicsPath();
-            int d = rad * 2;
-            path.AddArc(r.X,         r.Y,          d, d, 180, 90);
-            path.AddArc(r.Right - d, r.Y,          d, d, 270, 90);
-            path.AddArc(r.Right - d, r.Bottom - d, d, d,   0, 90);
-            path.AddArc(r.X,         r.Bottom - d, d, d,  90, 90);
-            path.CloseFigure();
-            return path;
-        }
+            if (bytes == null || bytes.Length == 0)
+                return null;
 
-        // =============================================================
-        // RANK PANEL
-        // =============================================================
-
-        // Helper: convert byte[] to Image safely (returns null on failure)
-        private static Image BytesToImage(byte[] bytes)
-        {
-            if (bytes == null || bytes.Length == 0) return null;
             try
             {
                 return Image.FromStream(new System.IO.MemoryStream(bytes));
@@ -631,144 +637,155 @@ namespace TheByteClubPOS
             }
         }
 
-        private void PopulateRankPanel(Panel pnl, List<ProductSalesRankDto> items)
+        // Fills the rank panel entirely via Paint — avoids all WinForms
+        // child-control transparency bugs that caused even rows to vanish.
+        private void FillRankPanel(Panel panel, List<ProductSalesRankDto> items)
         {
-            pnl.Controls.Clear();
+            // Store items on the panel so the Paint event can use them
+            panel.Tag = items;
+            panel.BackColor = Color.White;
+
+            // Remove old Paint handlers by recreating a fresh reference.
+            // We store the handler so it can be removed if called again.
+            panel.Controls.Clear();
+            panel.Paint -= RankPanelPaint;
+            panel.Paint += RankPanelPaint;
+            panel.Invalidate();
+        }
+
+        private void RankPanelPaint(object sender, PaintEventArgs e)
+        {
+            Panel panel = (Panel)sender;
+            List<ProductSalesRankDto> items = panel.Tag as List<ProductSalesRankDto>;
             if (items == null || items.Count == 0) return;
 
-            int rowH = Math.Max((pnl.Height - 4) / Math.Max(items.Count, 1), 34);
-            int y    = 2;
-            int imgSize = Math.Min(rowH - 6, 28);  // product image size
+            Graphics g   = e.Graphics;
+            g.SmoothingMode = SmoothingMode.AntiAlias;
 
-            Color[] badges =
+            int rowH    = Math.Max((panel.Height - 2) / Math.Max(items.Count, 1), 22);
+            int imgSize = Math.Min(rowH - 8, 28);
+            int y       = 1;
+
+            Color[] badgeColors = new Color[]
             {
-                C_BLUE, C_GREEN, C_ORANGE,
-                Color.FromArgb(127,140,141),
-                Color.FromArgb(127,140,141)
+                Color.FromArgb(31,  73, 125),
+                Color.FromArgb(0,  153,  76),
+                Color.FromArgb(204,  85,   0),
+                Color.FromArgb(100, 100, 120),
+                Color.FromArgb(100, 100, 120)
             };
 
-            foreach (var item in items)
+            Font fontName  = new Font("Microsoft Sans Serif", 9f, FontStyle.Regular);
+            Font fontUnits = new Font("Microsoft Sans Serif", 9f, FontStyle.Bold);
+            Font fontBadge = new Font("Microsoft Sans Serif", 8f, FontStyle.Bold);
+
+            StringFormat sfLeft  = new StringFormat { LineAlignment = StringAlignment.Center };
+            StringFormat sfRight = new StringFormat { Alignment = StringAlignment.Far, LineAlignment = StringAlignment.Center };
+            StringFormat sfCtr   = new StringFormat { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center };
+
+            foreach (ProductSalesRankDto item in items)
             {
-                Color bc = (item.Rank - 1 < badges.Length)
-                           ? badges[item.Rank - 1] : badges[badges.Length - 1];
+                Color rowBg = (item.Rank % 2 == 0)
+                    ? Color.FromArgb(235, 242, 250)
+                    : Color.White;
+                g.FillRectangle(new SolidBrush(rowBg),
+                    new Rectangle(0, y, panel.Width, rowH));
 
-                // Rank badge
-                var badge = new Panel
-                {
-                    Size      = new Size(22, 22),
-                    Location  = new Point(6, y + (rowH - 22) / 2),
-                    BackColor = Color.Transparent,
-                    Tag       = new object[] { bc, item.Rank.ToString() }
-                };
-                badge.Paint += (s, pe) =>
-                {
-                    var obj = (object[])((Panel)s).Tag;
-                    var col = (Color)obj[0];
-                    var num = (string)obj[1];
-                    pe.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
-                    using (var br = new SolidBrush(col))
-                        pe.Graphics.FillEllipse(br, 0, 0, 21, 21);
-                    using (var sf = new StringFormat
-                    {
-                        Alignment     = StringAlignment.Center,
-                        LineAlignment = StringAlignment.Center
-                    })
-                        pe.Graphics.DrawString(num, F(8, FontStyle.Bold), Brushes.White,
-                            new RectangleF(0, 0, 22, 22), sf);
-                };
+                // Badge circle
+                Color bc = (item.Rank - 1 < badgeColors.Length)
+                    ? badgeColors[item.Rank - 1]
+                    : badgeColors[badgeColors.Length - 1];
+                int bY = y + (rowH - 22) / 2;
+                g.FillEllipse(new SolidBrush(bc), 6, bY, 22, 22);
+                g.DrawString(item.Rank.ToString(), fontBadge, Brushes.White,
+                    new RectangleF(6, bY, 22, 22), sfCtr);
 
-                // Product image (real photo or bottle icon fallback)
+                // Product image
+                int imgX = 34;
+                int imgY = y + (rowH - imgSize) / 2;
                 Image productImg = BytesToImage(item.ProductImageBytes);
-                var imgBox = new PictureBox
+                if (productImg != null)
                 {
-                    Size     = new Size(imgSize, imgSize),
-                    Location = new Point(32, y + (rowH - imgSize) / 2),
-                    SizeMode = PictureBoxSizeMode.Zoom,
-                    Image    = productImg,
-                    BackColor = Color.Transparent
-                };
-                if (productImg == null)
+                    g.DrawImage(productImg,
+                        new Rectangle(imgX, imgY, imgSize, imgSize));
+                }
+                else
                 {
-                    // Fallback: draw a simple bottle silhouette
-                    imgBox.Paint += (s, pe) =>
-                    {
-                        pe.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
-                        pe.Graphics.FillRectangle(
-                            new SolidBrush(Color.FromArgb(180, 180, 200)),
-                            new Rectangle(8, 2, 12, 24));
-                        pe.Graphics.FillRectangle(
-                            new SolidBrush(Color.FromArgb(180, 180, 200)),
-                            new Rectangle(10, 0, 8, 4));
-                    };
+                    // Simple bottle placeholder
+                    g.FillRectangle(new SolidBrush(Color.FromArgb(180, 180, 200)),
+                        new Rectangle(imgX + 6, imgY + 2, 10, imgSize - 4));
+                    g.FillRectangle(new SolidBrush(Color.FromArgb(180, 180, 200)),
+                        new Rectangle(imgX + 8, imgY, 6, 4));
                 }
 
                 // Product name
-                int nameX = 32 + imgSize + 4;
-                var name  = MkLbl(item.ProductName, F(9f), C_DARK,
-                    new Rectangle(nameX, y, pnl.Width - nameX - 42, rowH),
-                    ContentAlignment.MiddleLeft);
+                int nameX = imgX + imgSize + 4;
+                g.DrawString(item.ProductName, fontName,
+                    new SolidBrush(Color.FromArgb(20, 20, 20)),
+                    new RectangleF(nameX, y, panel.Width - nameX - 44, rowH),
+                    sfLeft);
 
                 // Units sold
-                var units = MkLbl(item.UnitsSold.ToString(), F(9f, FontStyle.Bold), C_DARK,
-                    new Rectangle(pnl.Width - 40, y, 36, rowH),
-                    ContentAlignment.MiddleRight);
+                g.DrawString(item.UnitsSold.ToString(), fontUnits,
+                    new SolidBrush(navyBlue),
+                    new RectangleF(panel.Width - 42, y, 40, rowH),
+                    sfRight);
 
-                // Separator
-                var sep = new Panel
-                {
-                    BackColor = C_BORDER,
-                    Location  = new Point(6, y + rowH - 1),
-                    Size      = new Size(pnl.Width - 12, 1)
-                };
+                // Row separator
+                g.DrawLine(new Pen(Color.FromArgb(200, 200, 215)),
+                    0, y + rowH - 1, panel.Width, y + rowH - 1);
 
-                pnl.Controls.AddRange(new Control[] { badge, imgBox, name, units, sep });
                 y += rowH;
             }
         }
 
-        // =============================================================
-        // DATA LOADING & BINDING
-        // =============================================================
-
-        public void LoadData()
+        public void LoadDashboardData()
         {
-            if (!_layoutReady) return;
+            if (!isLoaded)
+                return;
+
             try
             {
-                _cache = _svc.LoadAll();
-                BindAll(_cache);
+                currentData = dashboardService.LoadAll();
+                BindDataToControls(currentData);
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Dashboard failed to load:\n" + ex.Message,
+                MessageBox.Show("Dashboard failed to load data:\n" + ex.Message,
                     "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
-        private void BindAll(DashboardData d)
+        private void BindDataToControls(DashboardData data)
         {
-            if (d == null) return;
+            if (data == null)
+                return;
 
-            _lblMonthSales.Text = string.Format("R{0:N2}", d.Summary.MonthSalesTotal);
-            _lblTxCount.Text    = d.Summary.MonthTransactionCount.ToString("N0");
-            _lblLowCount.Text   = d.Summary.LowStockCount.ToString();
-            _lblCustCount.Text  = d.Summary.TotalCustomers.ToString("N0");
-            _lblEmpCount.Text   = d.Summary.TotalEmployees.ToString();
+            // Stat cards
+            lblMonthSales.Text = "R" + data.Summary.MonthSalesTotal.ToString("N2");
+            lblTxCount.Text    = data.Summary.MonthTransactionCount.ToString("N0");
+            lblLowStock.Text   = data.Summary.LowStockCount.ToString();
+            lblCustomers.Text  = data.Summary.TotalCustomers.ToString("N0");
+            lblEmployees.Text  = data.Summary.TotalEmployees.ToString();
 
-            BindPie(d.CategorySales);
-            PopulateRankPanel(_pnlTop,   d.TopSelling);
-            PopulateRankPanel(_pnlLeast, d.LeastSelling);
+            // Pie chart
+            BindPieChart(data.CategorySales);
 
-            _dgvTx.DataSource = d.RecentTransactions.Select(t => new
+            // Top and least selling
+            FillRankPanel(pnlTopSelling,    data.TopSelling);
+            FillRankPanel(pnlLeastSelling, data.LeastSelling);
+
+            // Recent transactions
+            dgvTransactions.DataSource = data.RecentTransactions.Select(t => new
             {
                 t.InvoiceNumber,
                 SaleDateStr = t.SaleDateTime.ToString("dd MMM yyyy HH:mm"),
                 t.CustomerName,
-                TotalAmtStr = string.Format("R{0:N2}", t.TotalAmount)
+                TotalAmtStr = "R" + t.TotalAmount.ToString("N2")
             }).ToList();
 
-            // Bind low stock grid with product images
-            _dgvStock.DataSource = d.LowStockItems.Select(s => new
+            // Low stock items
+            dgvLowStock.DataSource = data.LowStockItems.Select(s => new
             {
                 ProductImage = BytesToImage(s.ProductImageBytes),
                 s.ProductName,
@@ -776,52 +793,53 @@ namespace TheByteClubPOS
                 ReorderLevel = s.ReorderLevel.ToString()
             }).ToList();
 
-            // Colour low-stock numbers after binding
-            foreach (DataGridViewRow row in _dgvStock.Rows)
+            // Colour the stock numbers
+            foreach (DataGridViewRow row in dgvLowStock.Rows)
             {
                 if (row.IsNewRow) continue;
-                var cell = row.Cells["col_CurrentStock"];
-                if (cell.Value != null &&
-                    int.TryParse(cell.Value.ToString(), out int qty))
+                DataGridViewCell cell = row.Cells["col_CurrentStock"];
+                int qty;
+                if (cell.Value != null && int.TryParse(cell.Value.ToString(), out qty))
                 {
-                    cell.Style.ForeColor = qty <= 3 ? C_RED : C_ORANGE;
+                    cell.Style.ForeColor = qty <= 3 ? red : orange;
                 }
             }
 
-            if (d.BestCustomer != null)
+            // Best customer
+            if (data.BestCustomer != null)
             {
-                _lblBestName.Text  = d.BestCustomer.CustomerName;
-                _lblBestSpent.Text = string.Format("R{0:N2}", d.BestCustomer.TotalSpent);
-                _lblBestTx.Text    = d.BestCustomer.TransactionCount.ToString();
+                lblBestCustomerName.Text  = data.BestCustomer.CustomerName;
+                lblBestCustomerSpent.Text = "R" + data.BestCustomer.TotalSpent.ToString("N2");
+                lblBestCustomerTx.Text    = data.BestCustomer.TransactionCount.ToString();
             }
             else
             {
-                _lblBestName.Text  = "No data this month";
-                _lblBestSpent.Text = "R0.00";
-                _lblBestTx.Text    = "0";
+                lblBestCustomerName.Text  = "No data this month";
+                lblBestCustomerSpent.Text = "R0.00";
+                lblBestCustomerTx.Text    = "0";
             }
 
-            _lblFooter.Text = string.Format(
-                "Dashboard data is updated daily.  Last updated: {0:dd MMM yyyy HH:mm}",
-                d.LastUpdated);
+            // Footer
+            lblLastUpdated.Text = "Dashboard data is updated daily.  Last updated: "
+                + data.LastUpdated.ToString("dd MMM yyyy HH:mm");
         }
 
-        private void BindPie(List<CategorySalesDto> items)
+        private void BindPieChart(List<CategorySalesDto> items)
         {
-            var ser = _chart.Series["cat"];
+            Series ser = pieChart.Series["cat"];
             ser.Points.Clear();
-            if (items == null || items.Count == 0) return;
+
+            if (items == null || items.Count == 0)
+                return;
+
             decimal total = items.Sum(x => x.TotalSales);
-            foreach (var item in items)
+
+            foreach (CategorySalesDto item in items)
             {
-                double pct = total > 0
-                    ? (double)(item.TotalSales / total * 100m) : 0;
+                double pct = total > 0 ? (double)(item.TotalSales / total * 100m) : 0;
                 int idx = ser.Points.AddXY(item.CategoryName, pct);
-                ser.Points[idx].LegendText =
-                    string.Format("{0}   {1:F0}%", item.CategoryName, pct);
+                ser.Points[idx].LegendText = item.CategoryName + "   " + pct.ToString("F0") + "%";
             }
         }
-
-
     }
 }
