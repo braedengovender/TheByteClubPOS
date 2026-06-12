@@ -19,12 +19,16 @@ namespace TheByteClubPOS.Resources
 
         private void Help_Load(object sender, EventArgs e)
         {
+
             lstUserGuide.Items.Add("Logging In");
             lstUserGuide.Items.Add("Registering a New Customer");
             lstUserGuide.Items.Add("Updating Customer Details");
             lstUserGuide.Items.Add("Processing a Sale");
             lstUserGuide.Items.Add("Redeeming Loyalty Points");
-            lstUserGuide.Items.Add("Viewing Reports");
+            lstUserGuide.Items.Add("Adding a New Employee");        
+            lstUserGuide.Items.Add("Updating Employee Details");    
+            lstUserGuide.Items.Add("Adding a New Product");         
+            lstUserGuide.Items.Add("Updating Product Details");
 
             lstUserGuide.SelectedIndex = 0;
 
@@ -159,12 +163,52 @@ namespace TheByteClubPOS.Resources
 
                 case 5:
                     DisplayGuide(
-                        "VIEWING REPORTS",
-                        "1. Open the Reports section.\n\n" +
-                        "2. Select the desired report type.\n\n" +
-                        "3. Apply the required filters.\n\n" +
-                        "4. Click Generate Report.\n\n" +
-                        "5. Review the displayed report."
+                        "ADDING A NEW EMPLOYEE",
+                        "1. Open Manage Staff.\n\n" +
+                        "2. Enter the employee's details.\n\n" +
+                        "3. Assign the employee's role.\n\n" +
+                        "4. Enter a username and password.\n\n" +
+                        "5. Click Add Employee.\n\n" +
+                        "6. Click Save.\n\n" +
+                        "7. The employee record will be stored successfully.\n\n" +
+                        "NOTE:\nAll required fields must be completed."
+                    );
+                    break;
+
+                case 6:
+                    DisplayGuide(
+                        "UPDATING EMPLOYEE DETAILS",
+                        "1. Open Manage Staff.\n\n" +
+                        "2. Select the employee record.\n\n" +
+                        "3. Edit the required information.\n\n" +
+                        "4. Click Update.\n\n" +
+                        "5. Changes will be saved to the database."
+                    );
+                    break;
+
+                case 7:
+                    DisplayGuide(
+                        "ADDING A NEW PRODUCT",
+                        "1. Open Manage Products.\n\n" +
+                        "2. Slect Add Product tab.\n\n" +
+                        "3. Enter the product information.\n\n" +
+                        "4. Click Add Product.\n\n" +
+                        "5. Click Save.\n\n" +
+                        "6. The product will be added successfully.\n\n" +
+                        "NOTE:\nEnsure all required product information is entered correctly."
+                    );
+                    break;
+
+                case 8:
+                    DisplayGuide(
+                        "UPDATING PRODUCT DETAILS",
+                        "1. Open Manage Products.\n\n" +
+                        "2. Select update product tab.\n\n" +
+                        "3. Select the product record.\n\n" +
+                        "4. Modify the required information.\n\n" +
+                        "5. Click Update.\n\n" +
+                        "6. Changes will be saved successfully.\n\n" +
+                        "NOTE:\nChanges to pricing and product information take effect immediately."
                     );
                     break;
             }

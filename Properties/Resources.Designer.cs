@@ -263,6 +263,16 @@ namespace TheByteClubPOS.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap HelpBackground {
+            get {
+                object obj = ResourceManager.GetObject("HelpBackground", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap HelpFormIcon {
             get {
                 object obj = ResourceManager.GetObject("HelpFormIcon", resourceCulture);

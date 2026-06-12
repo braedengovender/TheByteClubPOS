@@ -318,6 +318,7 @@
     <Content Include="Resources\FormIcon.ico" />
     <None Include="Resources\HelpFormIcon.png" />
     <None Include="Resources\HelpIcon.png" />
+    <None Include="Resources\HelpBackground.png" />
     <Content Include="Resources\Icon2.ico" />
     <None Include="Resources\LightModeIcon.png" />
     <None Include="Resources\LoadingForm_Background.png" />
