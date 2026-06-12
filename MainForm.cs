@@ -32,10 +32,12 @@ namespace TheByteClubPOS
 
                     // Hide main menu items (Strip Menu components)
                     manageSalesToolStripMenuItem.Visible = false;
-                    inventoryToolStripMenuItem.Visible = false;
+                    // inventoryToolStripMenuItem.Visible = false;
                     manageEmployeesToolStripMenuItem.Visible = false;
                     manageDiscountsToolStripMenuItem.Visible = false;
 
+                    manageProducToolStripMenuItem.Visible = false;
+                    processInventoryOrderToolStripMenuItem1.Visible = false;
                     break;
                 case "manager":
                     btnProcessSale.Visible = false; // Managers don't process sales, so hide the button

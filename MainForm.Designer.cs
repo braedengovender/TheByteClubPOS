@@ -151,18 +151,21 @@
             this.managePaymentsToolStripMenuItem.Name = "managePaymentsToolStripMenuItem";
             this.managePaymentsToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
             this.managePaymentsToolStripMenuItem.Text = "View Payments";
+            this.managePaymentsToolStripMenuItem.Visible = false;
             // 
             // managePaymentMethodsToolStripMenuItem
             // 
             this.managePaymentMethodsToolStripMenuItem.Name = "managePaymentMethodsToolStripMenuItem";
             this.managePaymentMethodsToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
             this.managePaymentMethodsToolStripMenuItem.Text = "Manage Payment Methods";
+            this.managePaymentMethodsToolStripMenuItem.Visible = false;
             // 
             // manageSaleTypesToolStripMenuItem
             // 
             this.manageSaleTypesToolStripMenuItem.Name = "manageSaleTypesToolStripMenuItem";
             this.manageSaleTypesToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
             this.manageSaleTypesToolStripMenuItem.Text = "Manage Sale Types";
+            this.manageSaleTypesToolStripMenuItem.Visible = false;
             // 
             // inventoryToolStripMenuItem
             // 
@@ -333,21 +336,21 @@
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
             this.aboutToolStripMenuItem.Text = "About...";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
             // userGuideToolStripMenuItem
             // 
             this.userGuideToolStripMenuItem.Name = "userGuideToolStripMenuItem";
-            this.userGuideToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.userGuideToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
             this.userGuideToolStripMenuItem.Text = "User Guide";
             this.userGuideToolStripMenuItem.Click += new System.EventHandler(this.userGuideToolStripMenuItem_Click);
             // 
             // troubleshootingToolStripMenuItem
             // 
             this.troubleshootingToolStripMenuItem.Name = "troubleshootingToolStripMenuItem";
-            this.troubleshootingToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.troubleshootingToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
             this.troubleshootingToolStripMenuItem.Text = "Troubleshooting";
             this.troubleshootingToolStripMenuItem.Click += new System.EventHandler(this.troubleshootingToolStripMenuItem_Click);
             // 
@@ -470,7 +473,7 @@
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 130);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(10, 10, 10, 10);
+            this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(10);
             this.flowLayoutPanel1.Size = new System.Drawing.Size(220, 497);
             this.flowLayoutPanel1.TabIndex = 1;
             this.flowLayoutPanel1.WrapContents = false;
@@ -577,7 +580,7 @@
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(12, 369);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(201, 45);
             this.button1.TabIndex = 7;

@@ -132,6 +132,16 @@ namespace TheByteClubPOS
 
         private void LoginForm_Load(object sender, EventArgs e)
         {
+            // 1. Set the initial placeholder text for Username
+            txtUsername.Text = "Enter Username";
+            txtUsername.ForeColor = Color.Gray;
+
+            // 2. Set the initial placeholder text for Password
+            // We set PasswordChar to '\0' so the placeholder text "Enter Password" is readable
+            txtPassword.PasswordChar = '\0';
+            txtPassword.Text = "Enter Password";
+            txtPassword.ForeColor = Color.Gray;
+
             bool loaded = false;
             while(!loaded)
             {
@@ -311,35 +321,75 @@ namespace TheByteClubPOS
 
         private void txtUsername_MouseClick(object sender, MouseEventArgs e)
         {
-            if (btnClearClickCount == 0)
+            /*if (btnClearClickCount == 0)
             {
                 txtUsername.Text = "";
                 btnClearClickCount++;
                 txtUsername.ForeColor = Color.Black;
                 txtUsername.Font = new Font(txtUsername.Font, FontStyle.Regular);
-            }
+            }*/
         }
 
         private void txtPassword_MouseClick(object sender, MouseEventArgs e)
         {
-            if (btnClearClickCount == 0)
+            /*if (btnClearClickCount == 0)
             {
                 txtUsername.Text = "";
                 btnClearClickCount++;
                 txtUsername.ForeColor = Color.Black;
                 txtUsername.Font = new Font(txtUsername.Font, FontStyle.Regular);
-            }
+            }*/
         }
 
         private void txtUsername_TextChanged(object sender, EventArgs e)
         {
-
+            
         }
 
         private void button1_Click_1(object sender, EventArgs e)
         {
             txtUsername.Text = "naledi.khumalo@liquorstore.co.za";
             txtPassword.Text = "NalediAdmin2023#";
+        }
+
+        private void txtUsername_Enter(object sender, EventArgs e)
+        {
+            // If the text is your placeholder, clear it when they click in
+            if (txtUsername.Text == "Enter Username")
+            {
+                txtUsername.Text = "";
+                txtUsername.ForeColor = Color.Black;
+            }
+        }
+
+        private void txtUsername_Leave(object sender, EventArgs e)
+        {
+            // If they clicked away and left it empty, put the placeholder back
+            if (string.IsNullOrWhiteSpace(txtUsername.Text))
+            {
+                txtUsername.Text = "Enter Username";
+                txtUsername.ForeColor = Color.Gray;
+            }
+        }
+
+        private void txtPassword_Enter(object sender, EventArgs e)
+        {
+            if (txtPassword.Text == "Enter Password")
+            {
+                txtPassword.Text = "";
+                txtPassword.ForeColor = IsDarkMode ? Color.White : Color.Black;
+                txtPassword.PasswordChar = '●'; // Re-enable masking for the real password
+            }
+        }
+
+        private void txtPassword_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtPassword.Text))
+            {
+                txtPassword.PasswordChar = '\0'; // Disable masking so the placeholder "Enter Password" is visible
+                txtPassword.Text = "Enter Password";
+                txtPassword.ForeColor = Color.Gray;
+            }
         }
     }
 }
