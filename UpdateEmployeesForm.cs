@@ -220,14 +220,23 @@ namespace TheByteClubPOS
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            
+
             if (IsManageProfile)
             {
-                DashboardForm dashboard = new DashboardForm();
+                MainForm main = (MainForm)this.MdiParent;
 
-                dashboard.Show();
+                DashboardForm dashboard =
+                    new DashboardForm(
+                        main.employeeID,
+                        main.employeeFullName,
+                        main.employeeRole);
+
+                dashboard.MdiParent = main;
+                dashboard.WindowState = FormWindowState.Maximized;
+                dashboard.FormBorderStyle = FormBorderStyle.None;
 
                 this.Close();
+                dashboard.Show();
             }
             else
             {
