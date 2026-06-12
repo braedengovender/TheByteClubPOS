@@ -474,7 +474,27 @@ namespace TheByteClubPOS
             // Check if there is actually a row selected in the grid
             if (cartDataGridView.CurrentRow != null)
             {
-                this.dsSamsLiqourShop.Cart.Rows[cartDataGridView.CurrentRow.Index].Delete();
+                int rowIndex = cartDataGridView.CurrentRow.Index;
+                // Access the specific cell value directly
+                int currentQty = Convert.ToInt32(this.dsSamsLiqourShop.Cart.Rows[rowIndex]["SaleLine_Quantity"]);
+
+                if (currentQty > 1)
+                {
+                    // Just decrease the quantity directly in the table
+                    int newQty = currentQty - 1;
+                    this.dsSamsLiqourShop.Cart.Rows[rowIndex]["SaleLine_Quantity"] = newQty;
+
+                    decimal unitPriceAfterDiscount = Convert.ToDecimal(this.dsSamsLiqourShop.Cart.Rows[rowIndex]["SaleLine_UnitPriceAfterDiscount"]);
+                    this.dsSamsLiqourShop.Cart.Rows[rowIndex]["SaleLine_Subtotal"] = unitPriceAfterDiscount * newQty;
+                }
+                else
+                {
+                    // Quantity is 1, so remove the row
+                    this.dsSamsLiqourShop.Cart.Rows[rowIndex].Delete();
+                }
+
+                cartDataGridView.Refresh();
+                cartBindingSource.ResetBindings(false);
 
                 lblSubtotalAmount.Text = getSubtotal().ToString("C2");
                 lblDiscountAmount.Text = getDiscountAmount().ToString("C2");
