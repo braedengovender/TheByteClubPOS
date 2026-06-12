@@ -9,12 +9,34 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TheByteClubPOS.dsSamsLiqourShopTableAdapters;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace TheByteClubPOS
 {
     public partial class UpdateEmployeesForm : Form
     {
         private int employeeID;
+        public static bool IsDarkMode = false;
+        private string ValidatePasswordDetailed(string password)
+        {
+            bool hasUpper = false, hasLower = false, hasDigit = false, hasPunctuation = false;
+
+            foreach (char c in password)
+            {
+                if (char.IsUpper(c)) hasUpper = true;
+                else if (char.IsLower(c)) hasLower = true;
+                else if (char.IsDigit(c)) hasDigit = true;
+                else if (char.IsPunctuation(c) || char.IsSymbol(c)) hasPunctuation = true;
+            }
+
+            string errors = "";
+            if (!hasUpper) errors += "Missing uppercase letter\n";
+            if (!hasLower) errors += "Missing lowercase letter\n";
+            if (!hasDigit) errors += "Missing digit\n";
+            if (!hasPunctuation) errors += "Missing special character\n";
+
+            return errors;
+        }
 
         public void SetTabVisibility(bool isAddMode)
         {
@@ -285,15 +307,15 @@ namespace TheByteClubPOS
 
         private void pictureBox7_Click(object sender, EventArgs e)
         {
-            if (employee_PasswordTextBox.PasswordChar == '●')
+            if (employee_PasswordTextBox.UseSystemPasswordChar)
             {
-                employee_PasswordTextBox.PasswordChar = '\0';
-                pictureBox1.Image = Properties.Resources.HideEye;
+                employee_PasswordTextBox.UseSystemPasswordChar = false;
+                pictureBox7.Image = Properties.Resources.HideEye;
             }
             else
             {
-                employee_PasswordTextBox.PasswordChar = '●';
-                pictureBox1.Image = Properties.Resources.ShowEye;
+                employee_PasswordTextBox.UseSystemPasswordChar = true;
+                pictureBox7.Image = Properties.Resources.ShowEye;
             }
         }
 
@@ -393,15 +415,15 @@ namespace TheByteClubPOS
 
         private void pictureBox8_Click(object sender, EventArgs e)
         {
-            if (AddPassword.PasswordChar == '●')
+            if (AddPassword.UseSystemPasswordChar)
             {
-                AddPassword.PasswordChar = '\0';
-                pictureBox1.Image = Properties.Resources.HideEye;
+                AddPassword.UseSystemPasswordChar = false;
+                pictureBox8.Image = Properties.Resources.HideEye;
             }
             else
             {
-                AddPassword.PasswordChar = '●';
-                pictureBox1.Image = Properties.Resources.ShowEye;
+                AddPassword.UseSystemPasswordChar = true;
+                pictureBox8.Image = Properties.Resources.ShowEye;
             }
         }
 
@@ -446,6 +468,40 @@ namespace TheByteClubPOS
         private void customer_FirstNameLabel2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void AddPassword_TextChanged(object sender, EventArgs e)
+        {
+            string employeePassword = AddPassword.Text;
+            string errors = ValidatePasswordDetailed(employeePassword);
+            if (string.IsNullOrEmpty(errors))
+            {
+                // If the password is valid, change it to White in Dark Mode, or system default in Light Mode
+                AddPassword.ForeColor = IsDarkMode ? Color.White : SystemColors.ControlText;
+                toolTip1.SetToolTip(AddPassword, string.Empty);
+            }
+            else
+            {
+                AddPassword.ForeColor = Color.Red;
+                toolTip1.SetToolTip(AddPassword, errors);
+            }
+        }
+
+        private void employee_PasswordTextBox_TextChanged(object sender, EventArgs e)
+        {
+            string employeePassword = employee_PasswordTextBox.Text;
+            string errors = ValidatePasswordDetailed(employeePassword);
+            if (string.IsNullOrEmpty(errors))
+            {
+                // If the password is valid, change it to White in Dark Mode, or system default in Light Mode
+                employee_PasswordTextBox.ForeColor = IsDarkMode ? Color.White : SystemColors.ControlText;
+                toolTip1.SetToolTip(employee_PasswordTextBox, string.Empty);
+            }
+            else
+            {
+                employee_PasswordTextBox.ForeColor = Color.Red;
+                toolTip1.SetToolTip(employee_PasswordTextBox, errors);
+            }
         }
     }
 }
