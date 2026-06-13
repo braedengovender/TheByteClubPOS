@@ -183,6 +183,12 @@
     <Compile Include="ViewCustomer.Designer.cs">
       <DependentUpon>ViewCustomer.cs</DependentUpon>
     </Compile>
+    <Compile Include="ViewProducts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewProducts.Designer.cs">
+      <DependentUpon>ViewProducts.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AccountRecoveryForm.resx">
       <DependentUpon>AccountRecoveryForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -253,6 +259,9 @@
     <EmbeddedResource Include="ViewCustomer.resx">
       <DependentUpon>ViewCustomer.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ViewProducts.resx">
+      <DependentUpon>ViewProducts.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="dsSamsLiqourShop.xsc">
       <DependentUpon>dsSamsLiqourShop.xsd</DependentUpon>
     </None>
@@ -318,6 +327,10 @@
     <None Include="Resources\EditIcon.png" />
     <None Include="Resources\AddEmployeeIcon.png" />
     <None Include="Resources\DeactivateButton.png" />
+    <None Include="Resources\AddIcon.png" />
+    <None Include="Resources\DeactivateIcon.png" />
+    <None Include="Resources\CloseIcon.png" />
+    <None Include="Resources\ExcelIcon.png" />
     <Content Include="Resources\FormIcon.ico" />
     <None Include="Resources\HelpFormIcon.png" />
     <None Include="Resources\HelpIcon.png" />
@@ -332,6 +345,8 @@
     <None Include="Resources\RefreshIcon.png" />
     <None Include="Resources\RecoverAccountBackground.png" />
     <None Include="Resources\Reseticon.png" />
+    <None Include="Resources\SmallDeactivateIcon.png" />
+    <None Include="Resources\SearchIcon.png" />
     <Content Include="Resources\Untitled design %281%29.png" />
     <None Include="Resources\Untitled design %281%291.png" />
   </ItemGroup>

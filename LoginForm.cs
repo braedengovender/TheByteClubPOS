@@ -16,7 +16,7 @@ namespace TheByteClubPOS
     public partial class LoginForm : Form
     {
         public static int LoggedInEmployeeID;
-        int btnClearClickCount = 0;
+        //int btnClearClickCount = 0;
         //int btnClearClickCount2 = 0;
         public static bool IsDarkMode = false;
         public LoginForm()
@@ -222,7 +222,7 @@ namespace TheByteClubPOS
 
         private void btnTestLogin_Click(object sender, EventArgs e)
         {
-            txtUsername.Text = "zinhle.d";
+            txtUsername.Text = "dlamini@liquorstore.co.za";
             txtPassword.Text = "Zinhle!Cash22";
         }
 

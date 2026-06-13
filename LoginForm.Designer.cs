@@ -72,7 +72,6 @@
             this.btnTestLoginCashier.TabIndex = 5;
             this.btnTestLoginCashier.Text = "Login as Cashier";
             this.btnTestLoginCashier.UseVisualStyleBackColor = true;
-            this.btnTestLoginCashier.Visible = false;
             this.btnTestLoginCashier.Click += new System.EventHandler(this.btnTestLogin_Click);
             // 
             // btnTestLoginManager
@@ -84,7 +83,6 @@
             this.btnTestLoginManager.TabIndex = 6;
             this.btnTestLoginManager.Text = "Login as Manager";
             this.btnTestLoginManager.UseVisualStyleBackColor = true;
-            this.btnTestLoginManager.Visible = false;
             this.btnTestLoginManager.Click += new System.EventHandler(this.button3_Click);
             // 
             // tableLayoutPanel1
@@ -301,7 +299,6 @@
             this.button1.TabIndex = 9;
             this.button1.Text = "Login as Admin";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Visible = false;
             this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // dsSamsLiqourShop
