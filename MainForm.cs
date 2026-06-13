@@ -367,5 +367,11 @@ namespace TheByteClubPOS
             ManageInventory manageinventory = new ManageInventory();
             OpenChildForm(manageinventory);
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            ViewProducts viewProductsForm = new ViewProducts();
+            OpenChildForm(viewProductsForm);
+        }
     }
 }

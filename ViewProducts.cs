@@ -4,46 +4,392 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
+using System.Runtime.InteropServices; // Required for releasing COM objects
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Excel = Microsoft.Office.Interop.Excel; // Alias to make things easier
 
 namespace TheByteClubPOS
 {
     public partial class ViewProducts : Form
     {
+        // Class-level flag to prevent the dropdowns from fighting each other
+        bool isResetting = false;
+
         public ViewProducts()
         {
             InitializeComponent();
         }
 
-        private void productBindingNavigatorSaveItem_Click(object sender, EventArgs e)
-        {
-            this.Validate();
-
-        }
-
         private void ViewProducts_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'dsSamsLiqourShop.Product' table. You can move, or remove it, as needed.
+            this.productTableAdapter.Fill(this.dsSamsLiqourShop.Product);
+            // TODO: This line of code loads data into the 'dsSamsLiqourShop.Product' table. You can move, or remove it, as needed.
+            this.productTableAdapter.Fill(this.dsSamsLiqourShop.Product);
+            // TODO: This line of code loads data into the 'dsSamsLiqourShop.Supplier' table. You can move, or remove it, as needed.
+            this.supplierTableAdapter.Fill(this.dsSamsLiqourShop.Supplier);
+            // TODO: This line of code loads data into the 'dsSamsLiqourShop.Category' table. You can move, or remove it, as needed.
+            this.categoryTableAdapter.Fill(this.dsSamsLiqourShop.Category);
             // TODO: This line of code loads data into the 'dsSamsLiqourShop.ProductInnerJoinDT' table. You can move, or remove it, as needed.
             this.productInnerJoinDTTableAdapter.FillWithDetails(this.dsSamsLiqourShop.ProductInnerJoinDT);
+
+            // Tell the system we are performing an initial setup reset
+            isResetting = true;
+            // Force both dropdowns to display absolutely nothing on startup
+            cmbCategoryFilter.SelectedIndex = -1;
+            cmbSupplierFilter.SelectedIndex = -1;
+            // Reset the flag so user clicks can now be processed normally
+            isResetting = false;
 
         }
 
         private void productInnerJoinDTDataGridView_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
-            // Safety check: Only apply formatting if columns have actually loaded
-            if (productInnerJoinDTDataGridView.Columns.Count > 0)
-            {
+            // Initialize counter variables explicitly
+            int totalProducts = 0;
+            decimal totalValue = 0;
 
-                productInnerJoinDTDataGridView.Columns["Discount_Name"].DefaultCellStyle.NullValue = "None";
-                productInnerJoinDTDataGridView.Columns["Product_Description"].DefaultCellStyle.NullValue = "";
-                productInnerJoinDTDataGridView.Columns["Product_Brand"].DefaultCellStyle.NullValue = "Generic";
-                productInnerJoinDTDataGridView.Columns["Product_Type"].DefaultCellStyle.NullValue = "Unspecified";
-                productInnerJoinDTDataGridView.Columns["Product_Flavour"].DefaultCellStyle.NullValue = "-";
-                productInnerJoinDTDataGridView.Columns["Product_AlcoholPercentage"].DefaultCellStyle.NullValue = "0.0%";
-                productInnerJoinDTDataGridView.Columns["Product_OriginRegion"].DefaultCellStyle.NullValue = "-";
-                productInnerJoinDTDataGridView.Columns["Product_Ingredients"].DefaultCellStyle.NullValue = "";
+            // Loop through every row currently visible in the grid
+            for (int i = 0; i < productInnerJoinDTDataGridView.Rows.Count; i++)
+            {
+                DataGridViewRow row = productInnerJoinDTDataGridView.Rows[i];
+
+                // Skip the blank template row at the very bottom of the grid if it exists
+                if (row.IsNewRow)
+                {
+                    continue;
+                }
+
+                // 1. Calculate Total Products
+                totalProducts++;
+
+                // 2. Calculate Total Value (Stock Quantity * Cost Price)
+                // (Verify that 'Stock Quantity' and 'Cost Price' match your database column names)
+                if (row.Cells["dataGridViewTextBoxColumn17"].Value != null && row.Cells["dataGridViewTextBoxColumn16"].Value != null)
+                {
+                    int stockQty = Convert.ToInt32(row.Cells["dataGridViewTextBoxColumn17"].Value);
+                    decimal costPrice = Convert.ToDecimal(row.Cells["dataGridViewTextBoxColumn16"].Value);
+
+                    totalValue += (stockQty * costPrice);
+                }
+
+                // 3. Highlight Low Stock Rows (Stock Quantity <= Reorder Quantity)
+                // (Verify that 'Stock Quantity' and 'Reorder Quantity' match your database column names)
+                if (row.Cells["dataGridViewTextBoxColumn17"].Value != null && row.Cells["dataGridViewTextBoxColumn18"].Value != null)
+                {
+                    int stockQty = Convert.ToInt32(row.Cells["dataGridViewTextBoxColumn17"].Value);
+                    int reorderQty = Convert.ToInt32(row.Cells["dataGridViewTextBoxColumn18"].Value);
+
+                    if (stockQty <= reorderQty)
+                    {
+                        row.DefaultCellStyle.BackColor = Color.MistyRose; // Soft warning red/pink color
+                    }
+                    else
+                    {
+                        row.DefaultCellStyle.BackColor = Color.White; // Reset back to white if stock is safe
+                    }
+                }
+            }
+
+            // 4. Assign the final calculations directly to your UI Labels
+            lblTotalProducts.Text = "Total Products: " + totalProducts.ToString();
+            lblTotalValue.Text = "Total Value: R " + totalValue.ToString("N2"); // Formats as currency (e.g., R 1,250.00)
+        }
+
+        private void btnExcelExport_Click(object sender, EventArgs e)
+        {
+            // 1. Validation Check: Ensure there is data to actually export
+            if (productInnerJoinDTDataGridView.Rows.Count == 0)
+            {
+                MessageBox.Show("There are no product records available to export.",
+                                "Export Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // 2. Configure Save File Dialog
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "Excel Workbook (*.xlsx)|*.xlsx";
+            saveFileDialog.Title = "Save Full Product Inventory Export";
+            saveFileDialog.FileName = "SamsLiquorShop_Product_Report_" + DateTime.Now.ToString("yyyy-MM-dd");
+
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                // Change cursor to wait indicator while compiling spreadsheet
+                Cursor.Current = Cursors.WaitCursor;
+
+                // Initialize strongly-typed Excel COM Objects
+                Excel.Application excelApp = new Excel.Application();
+                Excel.Workbooks workbooks = excelApp.Workbooks;
+                Excel.Workbook workbook = workbooks.Add(Type.Missing);
+                Excel._Worksheet worksheet = (Excel._Worksheet)workbook.ActiveSheet;
+
+                try
+                {
+                    // 3. Export Column Headers (Export ALL except Product_Image)
+                    int excelColIndex = 1;
+                    for (int i = 0; i < productInnerJoinDTDataGridView.Columns.Count; i++)
+                    {
+                        DataGridViewColumn column = productInnerJoinDTDataGridView.Columns[i];
+
+                        // Check by exact backend name to filter out binary/image data
+                        if (column.Name != "Product_Image")
+                        {
+                            worksheet.Cells[1, excelColIndex] = column.HeaderText;
+                            excelColIndex++;
+                        }
+                    }
+
+                    // 4. Export Rows and Cells (Pulls values from hidden and visible cells alike)
+                    for (int i = 0; i < productInnerJoinDTDataGridView.Rows.Count; i++)
+                    {
+                        excelColIndex = 1; // Reset target Excel column for each new row record
+
+                        for (int j = 0; j < productInnerJoinDTDataGridView.Columns.Count; j++)
+                        {
+                            DataGridViewColumn column = productInnerJoinDTDataGridView.Columns[j];
+
+                            if (column.Name != "Product_Image")
+                            {
+                                DataGridViewCell cell = productInnerJoinDTDataGridView.Rows[i].Cells[j];
+
+                                // Check for DBNull or C# null to prevent runtime formatting crashes
+                                if (cell.Value != null && cell.Value != DBNull.Value)
+                                {
+                                    worksheet.Cells[i + 2, excelColIndex] = cell.Value.ToString();
+                                }
+                                else
+                                {
+                                    worksheet.Cells[i + 2, excelColIndex] = ""; // Clean fallback for null values
+                                }
+
+                                excelColIndex++;
+                            }
+                        }
+                    }
+
+                    // 5. Layout Polish: Adjust column widths dynamically to prevent layout clipping
+                    worksheet.Columns.AutoFit();
+
+                    // 6. Save Workbook
+                    workbook.SaveAs(saveFileDialog.FileName);
+
+                    MessageBox.Show("Complete product inventory successfully exported to Excel!",
+                                    "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("An error occurred during the Excel compilation:\n" + ex.Message,
+                                    "Export Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    // 7. Resource Cleanup: Clean memory references out of OS background processes
+                    workbook.Close(false);
+                    excelApp.Quit();
+
+                    Marshal.ReleaseComObject(worksheet);
+                    Marshal.ReleaseComObject(workbook);
+                    Marshal.ReleaseComObject(workbooks);
+                    Marshal.ReleaseComObject(excelApp);
+
+                    // Reset cursor indicator
+                    Cursor.Current = Cursors.Default;
+                }
+            }
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                txtProductSearch.Clear();
+
+                // 2. Re-execute the Fill method to pull live records from the database
+                // (Verify that 'productInnerJoinDTTableAdapter' matches your exact backend utility name)
+                this.productInnerJoinDTTableAdapter.FillWithDetails(this.dsSamsLiqourShop.ProductInnerJoinDT);
+
+                // 3. User feedback confirmation
+                MessageBox.Show("Product database successfully refreshed.",
+                                "Refresh Complete", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                // Safety wrap: Catches database connection drops or timeouts smoothly
+                MessageBox.Show("An error occurred while synchronizing with SQL Server:\n" + ex.Message,
+                                "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void cmbCategoryFilter_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // If the system is currently wiping the other dropdown, ignore this event pass
+            if (isResetting) return;
+
+            // If the user manually cleared the choice or it's blank, clear the grid filter
+            if (cmbCategoryFilter.SelectedIndex == -1 || cmbCategoryFilter.SelectedValue == null)
+            {
+                this.productInnerJoinDTBindingSource.Filter = "";
+                return;
+            }
+
+            string selectedCategory = cmbCategoryFilter.SelectedValue.ToString();
+
+            if (!selectedCategory.Contains("System.Data.DataRowView"))
+            {
+                // 1. Raise the flag to tell the Supplier dropdown to stand down
+                isResetting = true;
+                cmbSupplierFilter.SelectedIndex = -1;
+                isResetting = false; // Lower the flag
+
+                // 2. Apply the fresh category filter
+                this.productInnerJoinDTBindingSource.Filter = "Category_Name = '" + selectedCategory.Replace("'", "''") + "'";
+            }
+        }
+
+        private void cmbSupplierFilter_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // If the system is currently wiping the other dropdown, ignore this event pass
+            if (isResetting) return;
+
+            // If the user manually cleared the choice or it's blank, clear the grid filter
+            if (cmbSupplierFilter.SelectedIndex == -1 || cmbSupplierFilter.SelectedValue == null)
+            {
+                this.productInnerJoinDTBindingSource.Filter = "";
+                return;
+            }
+
+            string selectedSupplier = cmbSupplierFilter.SelectedValue.ToString();
+
+            if (!selectedSupplier.Contains("System.Data.DataRowView"))
+            {
+                // 1. Raise the flag to tell the Category dropdown to stand down
+                isResetting = true;
+                cmbCategoryFilter.SelectedIndex = -1;
+                isResetting = false; // Lower the flag
+
+                // 2. Apply the fresh supplier filter
+                this.productInnerJoinDTBindingSource.Filter = "Supplier_Name = '" + selectedSupplier.Replace("'", "''") + "'";
+            }
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            txtProductSearch.Text = "Search by name, brand or barcode...";
+            txtProductSearch.ForeColor = Color.DarkGray; // Fade it out to look like a placeholder again
+
+            // Remove the filter string from the binding source completely
+            this.productInnerJoinDTBindingSource.Filter = "";
+
+            // Reset the ComboBox visual state so no specific category is highlighted
+            cmbCategoryFilter.SelectedIndex = -1;
+            cmbSupplierFilter.SelectedIndex = -1;
+        }
+
+        private void txtProductSearch_Enter(object sender, EventArgs e)
+        {
+            // If the box currently contains the placeholder, wipe it clean for user typing
+            if (txtProductSearch.Text == "Search by name, brand or barcode...")
+            {
+                txtProductSearch.Text = "";
+                txtProductSearch.ForeColor = Color.Black; // Change text color back to normal typing color
+            }
+        }
+
+        private void txtProductSearch_Leave(object sender, EventArgs e)
+        {
+            // If the user didn't type anything or just typed spaces, restore the placeholder
+            if (string.IsNullOrWhiteSpace(txtProductSearch.Text))
+            {
+                txtProductSearch.Text = "Search by name, brand or barcode...";
+                txtProductSearch.ForeColor = Color.DarkGray; // Fade it out to look like a placeholder again
+            }
+        }
+
+        private void txtProductSearch_TextChanged(object sender, EventArgs e)
+        {
+            // Only filter the database if the user is actually typing a real search query
+            if (txtProductSearch.Text != "Search by name, brand or barcode..." && !string.IsNullOrWhiteSpace(txtProductSearch.Text))
+            {
+                this.productInnerJoinDTBindingSource.Filter = "Product_Name LIKE '%" + txtProductSearch.Text.Replace("'", "''") + "%'";
+            }
+            else if (txtProductSearch.Text == "Search by name, brand or barcode..." || string.IsNullOrWhiteSpace(txtProductSearch.Text))
+            {
+                // If the placeholder is showing or it's completely empty, show all items
+                this.productInnerJoinDTBindingSource.Filter = "";
+            }
+        }
+
+        private void btnDeactivateProduct_Click(object sender, EventArgs e)
+        {
+            // 1. Guard Clause: Ensure a record is selected
+            if (productInnerJoinDTDataGridView.CurrentRow == null)
+            {
+                MessageBox.Show("Please select a product from the list to update.",
+                                "No Selection", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Determine target action based on current button UI state
+            string actionType = btnDeactivateProduct.Text == "Reactivate Product" ? "activate" : "deactivate";
+
+            // 2. Security Confirmation Check
+            DialogResult confirmation = MessageBox.Show("Are you sure you want to " + actionType + " this product?",
+                                                        "Confirm Status Change", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (confirmation == DialogResult.Yes)
+            {
+                try
+                {
+                    // 3. Extract the Primary Key (Double-check that 'dataGridViewTextBoxColumn1' is indeed your ID column!)
+                    int selectedProductID = Convert.ToInt32(productInnerJoinDTDataGridView.CurrentRow.Cells["dataGridViewTextBoxColumn1"].Value);
+
+                    // 4. Branch logic execution based on current button mode
+                    if (btnDeactivateProduct.Text == "Reactivate Product")
+                    {
+                        this.productTableAdapter.UpdateQueryReactivateProduct(selectedProductID);
+                    }
+                    else
+                    {
+                        this.productTableAdapter.UpdateQueryDeactivateProduct(selectedProductID);
+                    }
+
+                    // 5. Re-fill the layout grid to show live visual adjustments instantly
+                    this.productInnerJoinDTTableAdapter.FillWithDetails(this.dsSamsLiqourShop.ProductInnerJoinDT);
+
+                    MessageBox.Show("Product status successfully updated.",
+                                    "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("An error occurred while updating the product record:\n" + ex.Message,
+                                    "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void productInnerJoinDTDataGridView_SelectionChanged(object sender, EventArgs e)
+        {
+            // Ensure a valid row is highlighted and it's not the empty new row template
+            if (productInnerJoinDTDataGridView.CurrentRow != null && !productInnerJoinDTDataGridView.CurrentRow.IsNewRow)
+            {
+                // Target your grid's Status column design name (Verify if it is named 'dataGridViewTextBoxColumnStatus' or similar)
+                if (productInnerJoinDTDataGridView.CurrentRow.Cells["dataGridViewTextBoxColumn19"].Value != null)
+                {
+                    string currentStatus = productInnerJoinDTDataGridView.CurrentRow.Cells["dataGridViewTextBoxColumn19"].Value.ToString();
+
+                    // Dynamic text switching based on row selection status
+                    if (currentStatus == "Inactive")
+                    {
+                        btnDeactivateProduct.Text = "Reactivate Product";
+                    }
+                    else
+                    {
+                        btnDeactivateProduct.Text = "Deactivate Product";
+                    }
+                }
             }
         }
     }
