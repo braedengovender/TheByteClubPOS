@@ -392,5 +392,11 @@ namespace TheByteClubPOS
                 }
             }
         }
+
+        private void btnAddNewProduct_Click(object sender, EventArgs e)
+        {
+            AddNewProductForm addNewProductForm = new AddNewProductForm();
+            addNewProductForm.ShowDialog();
+        }
     }
 }
