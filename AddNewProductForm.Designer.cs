@@ -283,9 +283,9 @@
             product_CostPriceLabel.BackColor = System.Drawing.Color.Transparent;
             product_CostPriceLabel.Location = new System.Drawing.Point(608, 516);
             product_CostPriceLabel.Name = "product_CostPriceLabel";
-            product_CostPriceLabel.Size = new System.Drawing.Size(75, 13);
+            product_CostPriceLabel.Size = new System.Drawing.Size(82, 13);
             product_CostPriceLabel.TabIndex = 31;
-            product_CostPriceLabel.Text = "Cost Price (R):";
+            product_CostPriceLabel.Text = "Cost Price (R): *";
             // 
             // product_QuantityInStockLabel
             // 
@@ -313,9 +313,9 @@
             product_StatusLabel.BackColor = System.Drawing.Color.Transparent;
             product_StatusLabel.Location = new System.Drawing.Point(308, 515);
             product_StatusLabel.Name = "product_StatusLabel";
-            product_StatusLabel.Size = new System.Drawing.Size(40, 13);
+            product_StatusLabel.Size = new System.Drawing.Size(47, 13);
             product_StatusLabel.TabIndex = 37;
-            product_StatusLabel.Text = "Status:";
+            product_StatusLabel.Text = "Status: *";
             // 
             // dsSamsLiqourShop
             // 
@@ -567,6 +567,7 @@
             this.btnClearImage.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnClearImage.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnClearImage.UseVisualStyleBackColor = true;
+            this.btnClearImage.Click += new System.EventHandler(this.btnClearImage_Click);
             // 
             // pbImage
             // 
@@ -577,6 +578,7 @@
             this.pbImage.Size = new System.Drawing.Size(239, 185);
             this.pbImage.TabIndex = 50;
             this.pbImage.TabStop = false;
+            this.pbImage.Click += new System.EventHandler(this.pbImage_Click);
             // 
             // btnSaveImage
             // 
@@ -590,6 +592,7 @@
             this.btnSaveImage.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSaveImage.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSaveImage.UseVisualStyleBackColor = true;
+            this.btnSaveImage.Click += new System.EventHandler(this.btnSaveImage_Click);
             // 
             // lblTips
             // 
@@ -803,7 +806,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::TheByteClubPOS.Properties.Resources.AddNewProductFormBackground;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1130, 662);
+            this.ClientSize = new System.Drawing.Size(1126, 658);
             this.ControlBox = false;
             this.Controls.Add(this.cmbOrigin);
             this.Controls.Add(this.lblProductHelp);

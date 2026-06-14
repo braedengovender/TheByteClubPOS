@@ -19,6 +19,32 @@ namespace TheByteClubPOS
         //int btnClearClickCount = 0;
         //int btnClearClickCount2 = 0;
         public static bool IsDarkMode = false;
+
+        private string[] quotes =
+{
+            "\"Customer loyalty is earned, not bought.\"",
+
+            "\"Inventory is money sitting on shelves.\"",
+
+            "\"Profit is made when buying, not selling.\"",
+
+            "\"A satisfied customer is the best business strategy.\"",
+
+            "\"Great businesses are built on great service.\"",
+
+            "\"Every sale begins with trust.\"",
+
+            "\"Success is the sum of small efforts repeated daily.\"",
+
+            "\"Quality means doing it right when no one is looking.\"",
+
+            "\"The goal is not to sell once, but to create a customer for life.\"",
+
+            "\"Small improvements every day lead to remarkable results.\""
+        };
+        private int currentQuoteIndex = 0;
+        private Random random = new Random();
+
         public LoginForm()
         {
             InitializeComponent();
@@ -132,6 +158,8 @@ namespace TheByteClubPOS
 
         private void LoginForm_Load(object sender, EventArgs e)
         {
+            lblQuote.Text = quotes[0];
+            tmrQuote.Start();
             // 1. Set the initial placeholder text for Username
             txtUsername.Text = "Enter Username";
             txtUsername.ForeColor = Color.Gray;
@@ -390,6 +418,17 @@ namespace TheByteClubPOS
                 txtPassword.Text = "Enter Password";
                 txtPassword.ForeColor = Color.Gray;
             }
+        }
+
+        private void tmrQuote_Tick(object sender, EventArgs e)
+        {
+            currentQuoteIndex =
+            random.Next(quotes.Length);
+
+            lblQuote.Text =
+                quotes[currentQuoteIndex];
+
+            tmrQuote.Start();
         }
     }
 }

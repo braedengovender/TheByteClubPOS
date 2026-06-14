@@ -267,11 +267,201 @@ namespace TheByteClubPOS
             return box.Text;
         }
 
+        private bool ValidateProductData()
+        {
+            // --- 1) Basic required UI selections ---
+            if (cmbCategory.SelectedValue == null)
+            {
+                MessageBox.Show("Please select a Category.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                cmbCategory.Focus();
+                return false;
+            }
+
+            if (cmbSupplier.SelectedValue == null)
+            {
+                MessageBox.Show("Please select a Supplier.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                cmbSupplier.Focus();
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(cmbStatus.Text) || cmbStatus.SelectedIndex == -1)
+            {
+                MessageBox.Show("Please select a valid Status.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                cmbStatus.Focus();
+                return false;
+            }
+
+            // --- 2) Text fields validation (using helper to clean placeholders) ---
+            if (string.IsNullOrWhiteSpace(GetCleanText(product_NameTextBox)))
+            {
+                MessageBox.Show("Product Name is required.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                product_NameTextBox.Focus();
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(GetCleanText(product_BarcodeNumberTextBox)))
+            {
+                MessageBox.Show("Barcode is required.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                product_BarcodeNumberTextBox.Focus();
+                return false;
+            }
+
+            // --- 3) Numeric fields & Business Logic ---
+            // Size (ML) - Using TryParse as a fallback
+            string sizeText = GetCleanText(product_SizeMLTextBox);
+            if (!string.IsNullOrWhiteSpace(sizeText))
+            {
+                if (!int.TryParse(sizeText, out int sizeVal) || sizeVal <= 0)
+                {
+                    MessageBox.Show("Size (ML) must be a positive whole number greater than 0.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    product_SizeMLTextBox.Focus();
+                    return false;
+                }
+            }
+
+            // Selling Price
+            if (numericUpDownSellingPrice.Value < 0)
+            {
+                MessageBox.Show("Enter a valid non-negative Selling Price.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                numericUpDownSellingPrice.Focus();
+                return false;
+            }
+
+            // Cost Price
+            if (numericUpDownCostPrice.Value < 0)
+            {
+                MessageBox.Show("Enter a valid non-negative Cost Price.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                numericUpDownCostPrice.Focus();
+                return false;
+            }
+
+            // Business Logic: Selling vs Cost
+            if (numericUpDownSellingPrice.Value < numericUpDownCostPrice.Value)
+            {
+                DialogResult resp = MessageBox.Show("Selling price is lower than cost price. Continue?", "Price Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (resp != DialogResult.Yes) return false;
+            }
+
+            // --- 4) Final Placeholder Cleanup ---
+            // If the user left any optional field as its placeholder, clear it for the DB
+            foreach (var entry in _placeholders)
+            {
+                if (entry.Key.Text == entry.Value)
+                {
+                    entry.Key.Text = string.Empty;
+                }
+            }
+
+            return true;
+        }
+
         private void btnSaveProduct_Click(object sender, EventArgs e)
         {
             // In your Save button:
             string nameToSave = GetCleanText(product_NameTextBox);
             // Use 'nameToSave' when assigning to your BindingSource or SQL command
+
+            // Run validation first
+            if (!ValidateProductData()) return;
+
+            try
+            {
+
+                // 2. Perform Save based on mode
+                if (currentMode == FormMode.Add)
+                {
+                    // End the edit to commit UI values to the BindingSource
+                    this.productBindingSource.EndEdit();
+
+                    // Save the new row
+                    this.productTableAdapter.Update(this.dsSamsLiqourShop.Product);
+                    MessageBox.Show("New product added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else if (currentMode == FormMode.Edit)
+                {
+                    // Commit UI changes to the BindingSource
+                    this.productBindingSource.EndEdit();
+
+                    // Update the specific row in the database
+                    this.productTableAdapter.Update(this.dsSamsLiqourShop.Product);
+                    MessageBox.Show("Product updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
+                // 3. Close the form and return to the main dashboard
+                this.Close();
+            }
+            catch (System.Exception ex)
+            {
+                MessageBox.Show("An error occurred while saving: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void UploadProductImage()
+        {
+            using (System.Windows.Forms.OpenFileDialog openFileDialog = new System.Windows.Forms.OpenFileDialog())
+            {
+                openFileDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp";
+
+                if (openFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                {
+                    try
+                    {
+                        // 1. Convert file to byte array
+                        byte[] rawBytes = System.IO.File.ReadAllBytes(openFileDialog.FileName);
+                        if (rawBytes.Length == 0) throw new System.Exception("The selected file is empty.");
+
+                        // 2. Perform direct DB Update using the PK
+                        // This assumes your TableAdapter has an UpdateQuery(byte[] image, int id)
+                        this.productTableAdapter.UpdateQuery(rawBytes, this.currentProductID);
+
+                        // 3. Refresh the local data to reflect the change
+                        this.productTableAdapter.Fill(this.dsSamsLiqourShop.Product);
+
+                        // 4. Refresh the PictureBox UI
+                        DisplayProductImage(this.currentProductID);
+
+                        MessageBox.Show("Success! Image updated.", "System Update", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Upload Failed: " + ex.Message, "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+        }
+
+        private void pbImage_Click(object sender, EventArgs e)
+        {
+            UploadProductImage();
+        }
+
+        private void btnSaveImage_Click(object sender, EventArgs e)
+        {
+            UploadProductImage();
+        }
+
+        private void btnClearImage_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // 1. Confirm with user to avoid accidental deletions
+                DialogResult result = MessageBox.Show("Are you sure you want to remove the product image?", "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                if (result == DialogResult.Yes)
+                {
+                    this.productTableAdapter.UpdateQueryClearProductImage(this.currentProductID);
+
+                    // 3. Refresh the UI
+                    this.productTableAdapter.Fill(this.dsSamsLiqourShop.Product);
+                    pbImage.Image = Properties.Resources.NoImageAvailable;
+
+                    MessageBox.Show("Image removed successfully.");
+                }
+            }
+            catch (System.Exception ex)
+            {
+                MessageBox.Show("Could not remove image: " + ex.Message);
+            }
         }
     }
 }
