@@ -114,17 +114,17 @@
             // 
             product_IDLabel.AutoSize = true;
             product_IDLabel.BackColor = System.Drawing.Color.Transparent;
-            product_IDLabel.Location = new System.Drawing.Point(326, 142);
+            product_IDLabel.Location = new System.Drawing.Point(532, 158);
             product_IDLabel.Name = "product_IDLabel";
-            product_IDLabel.Size = new System.Drawing.Size(61, 13);
+            product_IDLabel.Size = new System.Drawing.Size(21, 13);
             product_IDLabel.TabIndex = 1;
-            product_IDLabel.Text = "Product ID:";
+            product_IDLabel.Text = "ID:";
             // 
             // category_IDLabel
             // 
             category_IDLabel.AutoSize = true;
             category_IDLabel.BackColor = System.Drawing.Color.Transparent;
-            category_IDLabel.Location = new System.Drawing.Point(25, 452);
+            category_IDLabel.Location = new System.Drawing.Point(53, 440);
             category_IDLabel.Name = "category_IDLabel";
             category_IDLabel.Size = new System.Drawing.Size(59, 13);
             category_IDLabel.TabIndex = 3;
@@ -134,7 +134,7 @@
             // 
             supplier_IDLabel.AutoSize = true;
             supplier_IDLabel.BackColor = System.Drawing.Color.Transparent;
-            supplier_IDLabel.Location = new System.Drawing.Point(25, 513);
+            supplier_IDLabel.Location = new System.Drawing.Point(53, 501);
             supplier_IDLabel.Name = "supplier_IDLabel";
             supplier_IDLabel.Size = new System.Drawing.Size(55, 13);
             supplier_IDLabel.TabIndex = 5;
@@ -144,7 +144,7 @@
             // 
             discount_IDLabel.AutoSize = true;
             discount_IDLabel.BackColor = System.Drawing.Color.Transparent;
-            discount_IDLabel.Location = new System.Drawing.Point(25, 575);
+            discount_IDLabel.Location = new System.Drawing.Point(53, 563);
             discount_IDLabel.Name = "discount_IDLabel";
             discount_IDLabel.Size = new System.Drawing.Size(59, 13);
             discount_IDLabel.TabIndex = 7;
@@ -154,7 +154,7 @@
             // 
             product_NameLabel.AutoSize = true;
             product_NameLabel.BackColor = System.Drawing.Color.Transparent;
-            product_NameLabel.Location = new System.Drawing.Point(25, 177);
+            product_NameLabel.Location = new System.Drawing.Point(55, 181);
             product_NameLabel.Name = "product_NameLabel";
             product_NameLabel.Size = new System.Drawing.Size(45, 13);
             product_NameLabel.TabIndex = 9;
@@ -164,7 +164,7 @@
             // 
             product_DescriptionLabel.AutoSize = true;
             product_DescriptionLabel.BackColor = System.Drawing.Color.Transparent;
-            product_DescriptionLabel.Location = new System.Drawing.Point(326, 177);
+            product_DescriptionLabel.Location = new System.Drawing.Point(356, 181);
             product_DescriptionLabel.Name = "product_DescriptionLabel";
             product_DescriptionLabel.Size = new System.Drawing.Size(63, 13);
             product_DescriptionLabel.TabIndex = 11;
@@ -174,7 +174,7 @@
             // 
             product_BrandLabel.AutoSize = true;
             product_BrandLabel.BackColor = System.Drawing.Color.Transparent;
-            product_BrandLabel.Location = new System.Drawing.Point(25, 246);
+            product_BrandLabel.Location = new System.Drawing.Point(55, 245);
             product_BrandLabel.Name = "product_BrandLabel";
             product_BrandLabel.Size = new System.Drawing.Size(38, 13);
             product_BrandLabel.TabIndex = 13;
@@ -184,7 +184,7 @@
             // 
             product_TypeLabel.AutoSize = true;
             product_TypeLabel.BackColor = System.Drawing.Color.Transparent;
-            product_TypeLabel.Location = new System.Drawing.Point(240, 246);
+            product_TypeLabel.Location = new System.Drawing.Point(255, 245);
             product_TypeLabel.Name = "product_TypeLabel";
             product_TypeLabel.Size = new System.Drawing.Size(34, 13);
             product_TypeLabel.TabIndex = 15;
@@ -194,7 +194,7 @@
             // 
             product_FlavourLabel.AutoSize = true;
             product_FlavourLabel.BackColor = System.Drawing.Color.Transparent;
-            product_FlavourLabel.Location = new System.Drawing.Point(457, 246);
+            product_FlavourLabel.Location = new System.Drawing.Point(461, 245);
             product_FlavourLabel.Name = "product_FlavourLabel";
             product_FlavourLabel.Size = new System.Drawing.Size(45, 13);
             product_FlavourLabel.TabIndex = 17;
@@ -204,7 +204,7 @@
             // 
             product_AlcoholPercentageLabel.AutoSize = true;
             product_AlcoholPercentageLabel.BackColor = System.Drawing.Color.Transparent;
-            product_AlcoholPercentageLabel.Location = new System.Drawing.Point(25, 314);
+            product_AlcoholPercentageLabel.Location = new System.Drawing.Point(55, 313);
             product_AlcoholPercentageLabel.Name = "product_AlcoholPercentageLabel";
             product_AlcoholPercentageLabel.Size = new System.Drawing.Size(120, 13);
             product_AlcoholPercentageLabel.TabIndex = 19;
@@ -214,7 +214,7 @@
             // 
             product_OriginRegionLabel.AutoSize = true;
             product_OriginRegionLabel.BackColor = System.Drawing.Color.Transparent;
-            product_OriginRegionLabel.Location = new System.Drawing.Point(241, 314);
+            product_OriginRegionLabel.Location = new System.Drawing.Point(256, 313);
             product_OriginRegionLabel.Name = "product_OriginRegionLabel";
             product_OriginRegionLabel.Size = new System.Drawing.Size(79, 13);
             product_OriginRegionLabel.TabIndex = 21;
@@ -224,7 +224,7 @@
             // 
             product_IngredientsLabel.AutoSize = true;
             product_IngredientsLabel.BackColor = System.Drawing.Color.Transparent;
-            product_IngredientsLabel.Location = new System.Drawing.Point(457, 314);
+            product_IngredientsLabel.Location = new System.Drawing.Point(461, 313);
             product_IngredientsLabel.Name = "product_IngredientsLabel";
             product_IngredientsLabel.Size = new System.Drawing.Size(62, 13);
             product_IngredientsLabel.TabIndex = 23;
@@ -234,7 +234,7 @@
             // 
             product_SizeMLLabel.AutoSize = true;
             product_SizeMLLabel.BackColor = System.Drawing.Color.Transparent;
-            product_SizeMLLabel.Location = new System.Drawing.Point(288, 452);
+            product_SizeMLLabel.Location = new System.Drawing.Point(308, 440);
             product_SizeMLLabel.Name = "product_SizeMLLabel";
             product_SizeMLLabel.Size = new System.Drawing.Size(56, 13);
             product_SizeMLLabel.TabIndex = 25;
@@ -244,7 +244,7 @@
             // 
             product_BarcodeNumberLabel.AutoSize = true;
             product_BarcodeNumberLabel.BackColor = System.Drawing.Color.Transparent;
-            product_BarcodeNumberLabel.Location = new System.Drawing.Point(412, 452);
+            product_BarcodeNumberLabel.Location = new System.Drawing.Point(432, 440);
             product_BarcodeNumberLabel.Name = "product_BarcodeNumberLabel";
             product_BarcodeNumberLabel.Size = new System.Drawing.Size(97, 13);
             product_BarcodeNumberLabel.TabIndex = 27;
@@ -254,7 +254,7 @@
             // 
             product_SellingPriceLabel.AutoSize = true;
             product_SellingPriceLabel.BackColor = System.Drawing.Color.Transparent;
-            product_SellingPriceLabel.Location = new System.Drawing.Point(595, 452);
+            product_SellingPriceLabel.Location = new System.Drawing.Point(608, 440);
             product_SellingPriceLabel.Name = "product_SellingPriceLabel";
             product_SellingPriceLabel.Size = new System.Drawing.Size(92, 13);
             product_SellingPriceLabel.TabIndex = 29;
@@ -264,7 +264,7 @@
             // 
             product_CostPriceLabel.AutoSize = true;
             product_CostPriceLabel.BackColor = System.Drawing.Color.Transparent;
-            product_CostPriceLabel.Location = new System.Drawing.Point(758, 452);
+            product_CostPriceLabel.Location = new System.Drawing.Point(608, 516);
             product_CostPriceLabel.Name = "product_CostPriceLabel";
             product_CostPriceLabel.Size = new System.Drawing.Size(75, 13);
             product_CostPriceLabel.TabIndex = 31;
@@ -274,7 +274,7 @@
             // 
             product_QuantityInStockLabel.AutoSize = true;
             product_QuantityInStockLabel.BackColor = System.Drawing.Color.Transparent;
-            product_QuantityInStockLabel.Location = new System.Drawing.Point(946, 450);
+            product_QuantityInStockLabel.Location = new System.Drawing.Point(947, 438);
             product_QuantityInStockLabel.Name = "product_QuantityInStockLabel";
             product_QuantityInStockLabel.Size = new System.Drawing.Size(99, 13);
             product_QuantityInStockLabel.TabIndex = 33;
@@ -284,7 +284,7 @@
             // 
             product_ReorderQuantityLabel.AutoSize = true;
             product_ReorderQuantityLabel.BackColor = System.Drawing.Color.Transparent;
-            product_ReorderQuantityLabel.Location = new System.Drawing.Point(946, 528);
+            product_ReorderQuantityLabel.Location = new System.Drawing.Point(947, 516);
             product_ReorderQuantityLabel.Name = "product_ReorderQuantityLabel";
             product_ReorderQuantityLabel.Size = new System.Drawing.Size(97, 13);
             product_ReorderQuantityLabel.TabIndex = 35;
@@ -294,7 +294,7 @@
             // 
             product_StatusLabel.AutoSize = true;
             product_StatusLabel.BackColor = System.Drawing.Color.Transparent;
-            product_StatusLabel.Location = new System.Drawing.Point(288, 527);
+            product_StatusLabel.Location = new System.Drawing.Point(308, 515);
             product_StatusLabel.Name = "product_StatusLabel";
             product_StatusLabel.Size = new System.Drawing.Size(40, 13);
             product_StatusLabel.TabIndex = 37;
@@ -336,7 +336,7 @@
             // 
             this.product_IDTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productBindingSource, "Product_ID", true));
             this.product_IDTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.product_IDTextBox.Location = new System.Drawing.Point(393, 134);
+            this.product_IDTextBox.Location = new System.Drawing.Point(599, 150);
             this.product_IDTextBox.Name = "product_IDTextBox";
             this.product_IDTextBox.Size = new System.Drawing.Size(52, 27);
             this.product_IDTextBox.TabIndex = 2;
@@ -345,7 +345,7 @@
             // 
             this.category_IDTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productBindingSource, "Category_ID", true));
             this.category_IDTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.category_IDTextBox.Location = new System.Drawing.Point(97, 440);
+            this.category_IDTextBox.Location = new System.Drawing.Point(125, 428);
             this.category_IDTextBox.Name = "category_IDTextBox";
             this.category_IDTextBox.Size = new System.Drawing.Size(48, 27);
             this.category_IDTextBox.TabIndex = 4;
@@ -354,7 +354,7 @@
             // 
             this.supplier_IDTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productBindingSource, "Supplier_ID", true));
             this.supplier_IDTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.supplier_IDTextBox.Location = new System.Drawing.Point(97, 501);
+            this.supplier_IDTextBox.Location = new System.Drawing.Point(125, 489);
             this.supplier_IDTextBox.Name = "supplier_IDTextBox";
             this.supplier_IDTextBox.Size = new System.Drawing.Size(48, 27);
             this.supplier_IDTextBox.TabIndex = 6;
@@ -363,7 +363,7 @@
             // 
             this.discount_IDTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productBindingSource, "Discount_ID", true));
             this.discount_IDTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.discount_IDTextBox.Location = new System.Drawing.Point(97, 563);
+            this.discount_IDTextBox.Location = new System.Drawing.Point(125, 551);
             this.discount_IDTextBox.Name = "discount_IDTextBox";
             this.discount_IDTextBox.Size = new System.Drawing.Size(48, 27);
             this.discount_IDTextBox.TabIndex = 8;
@@ -372,7 +372,7 @@
             // 
             this.product_NameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productBindingSource, "Product_Name", true));
             this.product_NameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.product_NameTextBox.Location = new System.Drawing.Point(28, 196);
+            this.product_NameTextBox.Location = new System.Drawing.Point(58, 200);
             this.product_NameTextBox.Name = "product_NameTextBox";
             this.product_NameTextBox.Size = new System.Drawing.Size(282, 27);
             this.product_NameTextBox.TabIndex = 10;
@@ -381,70 +381,70 @@
             // 
             this.product_DescriptionTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productBindingSource, "Product_Description", true));
             this.product_DescriptionTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.product_DescriptionTextBox.Location = new System.Drawing.Point(329, 196);
+            this.product_DescriptionTextBox.Location = new System.Drawing.Point(359, 200);
             this.product_DescriptionTextBox.Name = "product_DescriptionTextBox";
-            this.product_DescriptionTextBox.Size = new System.Drawing.Size(331, 27);
+            this.product_DescriptionTextBox.Size = new System.Drawing.Size(292, 27);
             this.product_DescriptionTextBox.TabIndex = 12;
             // 
             // product_BrandTextBox
             // 
             this.product_BrandTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productBindingSource, "Product_Brand", true));
             this.product_BrandTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.product_BrandTextBox.Location = new System.Drawing.Point(28, 266);
+            this.product_BrandTextBox.Location = new System.Drawing.Point(58, 265);
             this.product_BrandTextBox.Name = "product_BrandTextBox";
-            this.product_BrandTextBox.Size = new System.Drawing.Size(198, 27);
+            this.product_BrandTextBox.Size = new System.Drawing.Size(185, 27);
             this.product_BrandTextBox.TabIndex = 14;
             // 
             // product_TypeTextBox
             // 
             this.product_TypeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productBindingSource, "Product_Type", true));
             this.product_TypeTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.product_TypeTextBox.Location = new System.Drawing.Point(244, 266);
+            this.product_TypeTextBox.Location = new System.Drawing.Point(259, 265);
             this.product_TypeTextBox.Name = "product_TypeTextBox";
-            this.product_TypeTextBox.Size = new System.Drawing.Size(198, 27);
+            this.product_TypeTextBox.Size = new System.Drawing.Size(185, 27);
             this.product_TypeTextBox.TabIndex = 16;
             // 
             // product_FlavourTextBox
             // 
             this.product_FlavourTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productBindingSource, "Product_Flavour", true));
             this.product_FlavourTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.product_FlavourTextBox.Location = new System.Drawing.Point(460, 266);
+            this.product_FlavourTextBox.Location = new System.Drawing.Point(464, 265);
             this.product_FlavourTextBox.Name = "product_FlavourTextBox";
-            this.product_FlavourTextBox.Size = new System.Drawing.Size(198, 27);
+            this.product_FlavourTextBox.Size = new System.Drawing.Size(185, 27);
             this.product_FlavourTextBox.TabIndex = 18;
             // 
             // product_AlcoholPercentageTextBox
             // 
             this.product_AlcoholPercentageTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productBindingSource, "Product_AlcoholPercentage", true));
             this.product_AlcoholPercentageTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.product_AlcoholPercentageTextBox.Location = new System.Drawing.Point(28, 335);
+            this.product_AlcoholPercentageTextBox.Location = new System.Drawing.Point(58, 334);
             this.product_AlcoholPercentageTextBox.Name = "product_AlcoholPercentageTextBox";
-            this.product_AlcoholPercentageTextBox.Size = new System.Drawing.Size(198, 27);
+            this.product_AlcoholPercentageTextBox.Size = new System.Drawing.Size(185, 27);
             this.product_AlcoholPercentageTextBox.TabIndex = 20;
             // 
             // product_OriginRegionTextBox
             // 
             this.product_OriginRegionTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productBindingSource, "Product_OriginRegion", true));
             this.product_OriginRegionTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.product_OriginRegionTextBox.Location = new System.Drawing.Point(243, 335);
+            this.product_OriginRegionTextBox.Location = new System.Drawing.Point(258, 334);
             this.product_OriginRegionTextBox.Name = "product_OriginRegionTextBox";
-            this.product_OriginRegionTextBox.Size = new System.Drawing.Size(198, 27);
+            this.product_OriginRegionTextBox.Size = new System.Drawing.Size(185, 27);
             this.product_OriginRegionTextBox.TabIndex = 22;
             // 
             // product_IngredientsTextBox
             // 
             this.product_IngredientsTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productBindingSource, "Product_Ingredients", true));
             this.product_IngredientsTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.product_IngredientsTextBox.Location = new System.Drawing.Point(460, 335);
+            this.product_IngredientsTextBox.Location = new System.Drawing.Point(464, 334);
             this.product_IngredientsTextBox.Name = "product_IngredientsTextBox";
-            this.product_IngredientsTextBox.Size = new System.Drawing.Size(198, 27);
+            this.product_IngredientsTextBox.Size = new System.Drawing.Size(185, 27);
             this.product_IngredientsTextBox.TabIndex = 24;
             // 
             // product_SizeMLTextBox
             // 
             this.product_SizeMLTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productBindingSource, "Product_SizeML", true));
             this.product_SizeMLTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.product_SizeMLTextBox.Location = new System.Drawing.Point(291, 471);
+            this.product_SizeMLTextBox.Location = new System.Drawing.Point(311, 459);
             this.product_SizeMLTextBox.Name = "product_SizeMLTextBox";
             this.product_SizeMLTextBox.Size = new System.Drawing.Size(108, 27);
             this.product_SizeMLTextBox.TabIndex = 26;
@@ -453,7 +453,7 @@
             // 
             this.product_BarcodeNumberTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productBindingSource, "Product_BarcodeNumber", true));
             this.product_BarcodeNumberTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.product_BarcodeNumberTextBox.Location = new System.Drawing.Point(415, 471);
+            this.product_BarcodeNumberTextBox.Location = new System.Drawing.Point(435, 459);
             this.product_BarcodeNumberTextBox.Name = "product_BarcodeNumberTextBox";
             this.product_BarcodeNumberTextBox.Size = new System.Drawing.Size(141, 27);
             this.product_BarcodeNumberTextBox.TabIndex = 28;
@@ -462,7 +462,7 @@
             // 
             this.product_SellingPriceTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productBindingSource, "Product_SellingPrice", true));
             this.product_SellingPriceTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.product_SellingPriceTextBox.Location = new System.Drawing.Point(291, 547);
+            this.product_SellingPriceTextBox.Location = new System.Drawing.Point(311, 535);
             this.product_SellingPriceTextBox.Name = "product_SellingPriceTextBox";
             this.product_SellingPriceTextBox.Size = new System.Drawing.Size(198, 27);
             this.product_SellingPriceTextBox.TabIndex = 30;
@@ -471,25 +471,25 @@
             // 
             this.product_CostPriceTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productBindingSource, "Product_CostPrice", true));
             this.product_CostPriceTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.product_CostPriceTextBox.Location = new System.Drawing.Point(598, 471);
+            this.product_CostPriceTextBox.Location = new System.Drawing.Point(611, 459);
             this.product_CostPriceTextBox.Name = "product_CostPriceTextBox";
-            this.product_CostPriceTextBox.Size = new System.Drawing.Size(142, 27);
+            this.product_CostPriceTextBox.Size = new System.Drawing.Size(212, 27);
             this.product_CostPriceTextBox.TabIndex = 32;
             // 
             // product_QuantityInStockTextBox
             // 
             this.product_QuantityInStockTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productBindingSource, "Product_QuantityInStock", true));
             this.product_QuantityInStockTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.product_QuantityInStockTextBox.Location = new System.Drawing.Point(761, 471);
+            this.product_QuantityInStockTextBox.Location = new System.Drawing.Point(611, 535);
             this.product_QuantityInStockTextBox.Name = "product_QuantityInStockTextBox";
-            this.product_QuantityInStockTextBox.Size = new System.Drawing.Size(152, 27);
+            this.product_QuantityInStockTextBox.Size = new System.Drawing.Size(212, 27);
             this.product_QuantityInStockTextBox.TabIndex = 34;
             // 
             // product_ReorderQuantityTextBox
             // 
             this.product_ReorderQuantityTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productBindingSource, "Product_ReorderQuantity", true));
             this.product_ReorderQuantityTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.product_ReorderQuantityTextBox.Location = new System.Drawing.Point(949, 471);
+            this.product_ReorderQuantityTextBox.Location = new System.Drawing.Point(950, 459);
             this.product_ReorderQuantityTextBox.Name = "product_ReorderQuantityTextBox";
             this.product_ReorderQuantityTextBox.Size = new System.Drawing.Size(142, 27);
             this.product_ReorderQuantityTextBox.TabIndex = 36;
@@ -498,7 +498,7 @@
             // 
             this.product_StatusTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productBindingSource, "Product_Status", true));
             this.product_StatusTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.product_StatusTextBox.Location = new System.Drawing.Point(949, 547);
+            this.product_StatusTextBox.Location = new System.Drawing.Point(950, 535);
             this.product_StatusTextBox.Name = "product_StatusTextBox";
             this.product_StatusTextBox.Size = new System.Drawing.Size(142, 27);
             this.product_StatusTextBox.TabIndex = 38;
@@ -507,10 +507,11 @@
             // 
             this.lblInventory.AutoSize = true;
             this.lblInventory.BackColor = System.Drawing.Color.Transparent;
-            this.lblInventory.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblInventory.Location = new System.Drawing.Point(946, 419);
+            this.lblInventory.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInventory.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.lblInventory.Location = new System.Drawing.Point(947, 407);
             this.lblInventory.Name = "lblInventory";
-            this.lblInventory.Size = new System.Drawing.Size(61, 16);
+            this.lblInventory.Size = new System.Drawing.Size(70, 16);
             this.lblInventory.TabIndex = 39;
             this.lblInventory.Text = "Inventory";
             // 
@@ -518,10 +519,11 @@
             // 
             this.lblDetails.AutoSize = true;
             this.lblDetails.BackColor = System.Drawing.Color.Transparent;
-            this.lblDetails.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDetails.Location = new System.Drawing.Point(288, 419);
+            this.lblDetails.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDetails.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.lblDetails.Location = new System.Drawing.Point(308, 407);
             this.lblDetails.Name = "lblDetails";
-            this.lblDetails.Size = new System.Drawing.Size(49, 16);
+            this.lblDetails.Size = new System.Drawing.Size(56, 16);
             this.lblDetails.TabIndex = 40;
             this.lblDetails.Text = "Details";
             // 
@@ -529,10 +531,11 @@
             // 
             this.lblClassificaction.AutoSize = true;
             this.lblClassificaction.BackColor = System.Drawing.Color.Transparent;
-            this.lblClassificaction.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblClassificaction.Location = new System.Drawing.Point(25, 419);
+            this.lblClassificaction.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblClassificaction.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.lblClassificaction.Location = new System.Drawing.Point(53, 407);
             this.lblClassificaction.Name = "lblClassificaction";
-            this.lblClassificaction.Size = new System.Drawing.Size(86, 16);
+            this.lblClassificaction.Size = new System.Drawing.Size(100, 16);
             this.lblClassificaction.TabIndex = 41;
             this.lblClassificaction.Text = "Classification";
             // 
@@ -540,10 +543,11 @@
             // 
             this.lblPricing.AutoSize = true;
             this.lblPricing.BackColor = System.Drawing.Color.Transparent;
-            this.lblPricing.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPricing.Location = new System.Drawing.Point(595, 419);
+            this.lblPricing.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPricing.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.lblPricing.Location = new System.Drawing.Point(608, 407);
             this.lblPricing.Name = "lblPricing";
-            this.lblPricing.Size = new System.Drawing.Size(48, 16);
+            this.lblPricing.Size = new System.Drawing.Size(55, 16);
             this.lblPricing.TabIndex = 42;
             this.lblPricing.Text = "Pricing";
             // 
@@ -551,10 +555,11 @@
             // 
             this.lblBasicInformation.AutoSize = true;
             this.lblBasicInformation.BackColor = System.Drawing.Color.Transparent;
-            this.lblBasicInformation.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBasicInformation.Location = new System.Drawing.Point(25, 147);
+            this.lblBasicInformation.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBasicInformation.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.lblBasicInformation.Location = new System.Drawing.Point(53, 151);
             this.lblBasicInformation.Name = "lblBasicInformation";
-            this.lblBasicInformation.Size = new System.Drawing.Size(109, 16);
+            this.lblBasicInformation.Size = new System.Drawing.Size(126, 16);
             this.lblBasicInformation.TabIndex = 43;
             this.lblBasicInformation.Text = "Basic Information";
             // 
@@ -562,10 +567,11 @@
             // 
             this.lblImage.AutoSize = true;
             this.lblImage.BackColor = System.Drawing.Color.Transparent;
-            this.lblImage.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblImage.Location = new System.Drawing.Point(687, 147);
+            this.lblImage.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblImage.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.lblImage.Location = new System.Drawing.Point(691, 151);
             this.lblImage.Name = "lblImage";
-            this.lblImage.Size = new System.Drawing.Size(45, 16);
+            this.lblImage.Size = new System.Drawing.Size(50, 16);
             this.lblImage.TabIndex = 44;
             this.lblImage.Text = "Image";
             // 
@@ -573,7 +579,7 @@
             // 
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.Image = global::TheByteClubPOS.Properties.Resources.CloseIcon;
-            this.btnCancel.Location = new System.Drawing.Point(843, 37);
+            this.btnCancel.Location = new System.Drawing.Point(847, 83);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(98, 38);
             this.btnCancel.TabIndex = 45;
@@ -586,7 +592,7 @@
             // 
             this.btnSaveProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSaveProduct.Image = global::TheByteClubPOS.Properties.Resources.SaveIcon;
-            this.btnSaveProduct.Location = new System.Drawing.Point(952, 37);
+            this.btnSaveProduct.Location = new System.Drawing.Point(956, 83);
             this.btnSaveProduct.Name = "btnSaveProduct";
             this.btnSaveProduct.Size = new System.Drawing.Size(139, 38);
             this.btnSaveProduct.TabIndex = 46;
@@ -601,7 +607,7 @@
             this.lblProductDescription.AutoSize = true;
             this.lblProductDescription.BackColor = System.Drawing.Color.Transparent;
             this.lblProductDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblProductDescription.Location = new System.Drawing.Point(15, 81);
+            this.lblProductDescription.Location = new System.Drawing.Point(37, 144);
             this.lblProductDescription.Name = "lblProductDescription";
             this.lblProductDescription.Size = new System.Drawing.Size(305, 24);
             this.lblProductDescription.TabIndex = 47;
@@ -613,7 +619,7 @@
             this.lblAddNewProducts.AutoSize = true;
             this.lblAddNewProducts.BackColor = System.Drawing.Color.Transparent;
             this.lblAddNewProducts.Font = new System.Drawing.Font("Segoe UI", 21.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAddNewProducts.Location = new System.Drawing.Point(12, 37);
+            this.lblAddNewProducts.Location = new System.Drawing.Point(34, 100);
             this.lblAddNewProducts.Name = "lblAddNewProducts";
             this.lblAddNewProducts.Size = new System.Drawing.Size(273, 40);
             this.lblAddNewProducts.TabIndex = 48;
@@ -623,7 +629,7 @@
             // 
             this.btnClearImage.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClearImage.Image = global::TheByteClubPOS.Properties.Resources.TrashIcon;
-            this.btnClearImage.Location = new System.Drawing.Point(949, 324);
+            this.btnClearImage.Location = new System.Drawing.Point(953, 321);
             this.btnClearImage.Name = "btnClearImage";
             this.btnClearImage.Size = new System.Drawing.Size(139, 38);
             this.btnClearImage.TabIndex = 49;
@@ -636,7 +642,7 @@
             // 
             this.pbImage.BackgroundImage = global::TheByteClubPOS.Properties.Resources.SaveImage;
             this.pbImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pbImage.Location = new System.Drawing.Point(690, 177);
+            this.pbImage.Location = new System.Drawing.Point(694, 174);
             this.pbImage.Name = "pbImage";
             this.pbImage.Size = new System.Drawing.Size(239, 185);
             this.pbImage.TabIndex = 50;
@@ -646,7 +652,7 @@
             // 
             this.btnSaveImage.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSaveImage.Image = global::TheByteClubPOS.Properties.Resources.SaveIcon;
-            this.btnSaveImage.Location = new System.Drawing.Point(949, 177);
+            this.btnSaveImage.Location = new System.Drawing.Point(953, 174);
             this.btnSaveImage.Name = "btnSaveImage";
             this.btnSaveImage.Size = new System.Drawing.Size(139, 141);
             this.btnSaveImage.TabIndex = 51;
@@ -660,10 +666,10 @@
             this.lblTips.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.lblTips.AutoSize = true;
             this.lblTips.BackColor = System.Drawing.Color.Transparent;
-            this.lblTips.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTips.Location = new System.Drawing.Point(372, 50);
+            this.lblTips.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTips.Location = new System.Drawing.Point(366, 93);
             this.lblTips.Name = "lblTips";
-            this.lblTips.Size = new System.Drawing.Size(46, 24);
+            this.lblTips.Size = new System.Drawing.Size(38, 20);
             this.lblTips.TabIndex = 52;
             this.lblTips.Text = "Tips";
             // 
@@ -677,7 +683,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::TheByteClubPOS.Properties.Resources.Background;
+            this.BackgroundImage = global::TheByteClubPOS.Properties.Resources.AddNewProductFormBackground;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1134, 666);
             this.Controls.Add(this.lblTips);

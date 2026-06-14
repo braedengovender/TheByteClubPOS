@@ -340,6 +340,7 @@
     <None Include="Resources\DeactivateIcon.png" />
     <None Include="Resources\CloseIcon.png" />
     <None Include="Resources\ExcelIcon.png" />
+    <None Include="Resources\AddNewProductFormBackground.png" />
     <Content Include="Resources\FormIcon.ico" />
     <None Include="Resources\HelpFormIcon.png" />
     <None Include="Resources\HelpIcon.png" />
