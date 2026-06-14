@@ -19,6 +19,8 @@ namespace TheByteClubPOS
             Edit
         }
 
+        private readonly System.Collections.Generic.Dictionary<System.Windows.Forms.TextBox, string> _placeholders = new System.Collections.Generic.Dictionary<System.Windows.Forms.TextBox, string>();
+
         // 2. Class-level variables to store the passed-in data
         private FormMode currentMode;
         private int currentProductID;
@@ -38,6 +40,100 @@ namespace TheByteClubPOS
             InitializeComponent();
             this.currentMode = mode;
             this.currentProductID = productID;
+        }
+
+        private void DisplayProductImage(int productID)
+        {
+            try
+            {
+                // 1. Explicitly type the result as a nullable byte array
+                byte[] imageBytes = (byte[])this.productTableAdapter.GetImageByID(productID);
+
+                // 2. Validation: Check if the returned byte array is null or has no data
+                if (imageBytes == null || imageBytes.Length == 0)
+                {
+                    pbImage.Image = Properties.Resources.NoImageAvailable;
+                    return;
+                }
+
+                // 3. Convert byte array to Image using a MemoryStream
+                using (System.IO.MemoryStream ms = new System.IO.MemoryStream(imageBytes))
+                {
+                    pbImage.Image = System.Drawing.Image.FromStream(ms);
+                    pbImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+                }
+            }
+            catch (System.Exception ex)
+            {
+                // 4. Validation: Log/Report errors explicitly
+                MessageBox.Show("Could not load product image. The data might be corrupted.\n\nDetails: " + ex.Message,
+                                "Image Load Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                pbImage.Image = Properties.Resources.NoImageAvailable;
+            }
+        }
+
+        private void LoadCountries()
+        {
+            cmbOrigin.Items.Clear();
+
+            // Get all cultures from Windows
+            foreach (System.Globalization.CultureInfo culture in System.Globalization.CultureInfo.GetCultures(System.Globalization.CultureTypes.SpecificCultures))
+            {
+                System.Globalization.RegionInfo region = new System.Globalization.RegionInfo(culture.Name);
+                if (!cmbOrigin.Items.Contains(region.EnglishName))
+                {
+                    cmbOrigin.Items.Add(region.EnglishName);
+                }
+            }
+
+            // Sort alphabetically
+            cmbOrigin.Sorted = true;
+            // Set the default to South Africa
+            cmbOrigin.SelectedItem = "South Africa";
+        }
+
+        private void SetupPlaceholders()
+        {
+            // Define the boxes and their specific messages
+            _placeholders.Add(product_NameTextBox, "Enter product name");
+            _placeholders.Add(product_DescriptionTextBox, "Enter description (optional)");
+            _placeholders.Add(product_BrandTextBox, "Enter brand (optional)");
+            _placeholders.Add(product_TypeTextBox, "Enter type (optional)");
+            _placeholders.Add(product_FlavourTextBox, "Enter flavour (optional)");
+            _placeholders.Add(product_IngredientsTextBox, "Enter ingredients (optional)");
+            _placeholders.Add(product_SizeMLTextBox, "e.g. 750");
+            _placeholders.Add(product_BarcodeNumberTextBox, "Enter barcode");
+
+            foreach (var entry in _placeholders)
+            {
+                entry.Key.ForeColor = System.Drawing.Color.Gray;
+                entry.Key.Text = entry.Value;
+
+                // Subscribe to events
+                entry.Key.Enter += InputBox_Enter;
+                entry.Key.Leave += InputBox_Leave;
+            }
+        }
+
+        private void InputBox_Enter(object sender, EventArgs e)
+        {
+            System.Windows.Forms.TextBox box = (System.Windows.Forms.TextBox)sender;
+            if (box.Text == _placeholders[box])
+            {
+                box.Text = "";
+                box.ForeColor = System.Drawing.Color.Black;
+            }
+        }
+
+        private void InputBox_Leave(object sender, EventArgs e)
+        {
+            System.Windows.Forms.TextBox box = (System.Windows.Forms.TextBox)sender;
+            if (string.IsNullOrWhiteSpace(box.Text))
+            {
+                box.Text = _placeholders[box];
+                box.ForeColor = System.Drawing.Color.Gray;
+            }
         }
 
         private void SetupUI()
@@ -67,10 +163,21 @@ namespace TheByteClubPOS
             // First, load the data into memory
             this.productTableAdapter.Fill(this.dsSamsLiqourShop.Product);
 
+            LoadCountries();
+
             if (currentMode == FormMode.Add)
             {
                 // Prepare a blank canvas for a new record
                 this.productBindingSource.AddNew(); // Forces the form to clear and prepare a brand new record
+
+                cmbOrigin.SelectedItem = "South Africa";
+                numericUpDownAlcoholPercentage.Value = 0;
+                numericUpDownSellingPrice.Value = 0;
+                numericUpDownCostPrice.Value = 0;
+                numericUpDownQuantityInStock.Value = 0;
+                numericUpDownReorderQuantity.Value = 0;
+
+                SetupPlaceholders();
             }
             else if (currentMode == FormMode.Edit)
             {
@@ -80,6 +187,7 @@ namespace TheByteClubPOS
                 if (rowIndex > -1)
                 {
                     this.productBindingSource.Position = rowIndex;
+                    DisplayProductImage(currentProductID);
                 }
                 else
                 {
@@ -147,6 +255,23 @@ namespace TheByteClubPOS
                 // Global Catch: Prevents the app from crashing if the UI routing fails
                 MessageBox.Show("An unexpected error occurred while trying to close the window:\n\n" + ex.Message, "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             } 
+        }
+
+        private string GetCleanText(System.Windows.Forms.TextBox box)
+        {
+            // If the text matches the placeholder, return an empty string
+            if (_placeholders.ContainsKey(box) && box.Text == _placeholders[box])
+            {
+                return string.Empty;
+            }
+            return box.Text;
+        }
+
+        private void btnSaveProduct_Click(object sender, EventArgs e)
+        {
+            // In your Save button:
+            string nameToSave = GetCleanText(product_NameTextBox);
+            // Use 'nameToSave' when assigning to your BindingSource or SQL command
         }
     }
 }

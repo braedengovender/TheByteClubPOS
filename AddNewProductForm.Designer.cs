@@ -58,14 +58,9 @@
             this.product_BrandTextBox = new System.Windows.Forms.TextBox();
             this.product_TypeTextBox = new System.Windows.Forms.TextBox();
             this.product_FlavourTextBox = new System.Windows.Forms.TextBox();
-            this.product_AlcoholPercentageTextBox = new System.Windows.Forms.TextBox();
-            this.product_OriginRegionTextBox = new System.Windows.Forms.TextBox();
             this.product_IngredientsTextBox = new System.Windows.Forms.TextBox();
             this.product_SizeMLTextBox = new System.Windows.Forms.TextBox();
             this.product_BarcodeNumberTextBox = new System.Windows.Forms.TextBox();
-            this.product_SellingPriceTextBox = new System.Windows.Forms.TextBox();
-            this.product_CostPriceTextBox = new System.Windows.Forms.TextBox();
-            this.product_ReorderQuantityTextBox = new System.Windows.Forms.TextBox();
             this.lblInventory = new System.Windows.Forms.Label();
             this.lblDetails = new System.Windows.Forms.Label();
             this.lblClassificaction = new System.Windows.Forms.Label();
@@ -92,7 +87,13 @@
             this.discountBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.discountTableAdapter = new TheByteClubPOS.dsSamsLiqourShopTableAdapters.DiscountTableAdapter();
             this.cmbStatus = new System.Windows.Forms.ComboBox();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDownQuantityInStock = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDownReorderQuantity = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDownAlcoholPercentage = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDownSellingPrice = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDownCostPrice = new System.Windows.Forms.NumericUpDown();
+            this.lblProductHelp = new System.Windows.Forms.Label();
+            this.cmbOrigin = new System.Windows.Forms.ComboBox();
             product_IDLabel = new System.Windows.Forms.Label();
             category_IDLabel = new System.Windows.Forms.Label();
             supplier_IDLabel = new System.Windows.Forms.Label();
@@ -118,7 +119,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.categoryBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.supplierBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.discountBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownQuantityInStock)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownReorderQuantity)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownAlcoholPercentage)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownSellingPrice)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCostPrice)).BeginInit();
             this.SuspendLayout();
             // 
             // product_IDLabel
@@ -399,24 +404,6 @@
             this.product_FlavourTextBox.Size = new System.Drawing.Size(185, 27);
             this.product_FlavourTextBox.TabIndex = 18;
             // 
-            // product_AlcoholPercentageTextBox
-            // 
-            this.product_AlcoholPercentageTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productBindingSource, "Product_AlcoholPercentage", true));
-            this.product_AlcoholPercentageTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.product_AlcoholPercentageTextBox.Location = new System.Drawing.Point(58, 334);
-            this.product_AlcoholPercentageTextBox.Name = "product_AlcoholPercentageTextBox";
-            this.product_AlcoholPercentageTextBox.Size = new System.Drawing.Size(185, 27);
-            this.product_AlcoholPercentageTextBox.TabIndex = 20;
-            // 
-            // product_OriginRegionTextBox
-            // 
-            this.product_OriginRegionTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productBindingSource, "Product_OriginRegion", true));
-            this.product_OriginRegionTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.product_OriginRegionTextBox.Location = new System.Drawing.Point(258, 334);
-            this.product_OriginRegionTextBox.Name = "product_OriginRegionTextBox";
-            this.product_OriginRegionTextBox.Size = new System.Drawing.Size(185, 27);
-            this.product_OriginRegionTextBox.TabIndex = 22;
-            // 
             // product_IngredientsTextBox
             // 
             this.product_IngredientsTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productBindingSource, "Product_Ingredients", true));
@@ -443,33 +430,6 @@
             this.product_BarcodeNumberTextBox.Name = "product_BarcodeNumberTextBox";
             this.product_BarcodeNumberTextBox.Size = new System.Drawing.Size(141, 27);
             this.product_BarcodeNumberTextBox.TabIndex = 28;
-            // 
-            // product_SellingPriceTextBox
-            // 
-            this.product_SellingPriceTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productBindingSource, "Product_SellingPrice", true, System.Windows.Forms.DataSourceUpdateMode.OnValidation, null, "C2"));
-            this.product_SellingPriceTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.product_SellingPriceTextBox.Location = new System.Drawing.Point(611, 459);
-            this.product_SellingPriceTextBox.Name = "product_SellingPriceTextBox";
-            this.product_SellingPriceTextBox.Size = new System.Drawing.Size(212, 27);
-            this.product_SellingPriceTextBox.TabIndex = 30;
-            // 
-            // product_CostPriceTextBox
-            // 
-            this.product_CostPriceTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productBindingSource, "Product_CostPrice", true, System.Windows.Forms.DataSourceUpdateMode.OnValidation, null, "C2"));
-            this.product_CostPriceTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.product_CostPriceTextBox.Location = new System.Drawing.Point(611, 535);
-            this.product_CostPriceTextBox.Name = "product_CostPriceTextBox";
-            this.product_CostPriceTextBox.Size = new System.Drawing.Size(212, 27);
-            this.product_CostPriceTextBox.TabIndex = 32;
-            // 
-            // product_ReorderQuantityTextBox
-            // 
-            this.product_ReorderQuantityTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productBindingSource, "Product_ReorderQuantity", true));
-            this.product_ReorderQuantityTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.product_ReorderQuantityTextBox.Location = new System.Drawing.Point(950, 535);
-            this.product_ReorderQuantityTextBox.Name = "product_ReorderQuantityTextBox";
-            this.product_ReorderQuantityTextBox.Size = new System.Drawing.Size(142, 27);
-            this.product_ReorderQuantityTextBox.TabIndex = 36;
             // 
             // lblInventory
             // 
@@ -569,6 +529,7 @@
             this.btnSaveProduct.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSaveProduct.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSaveProduct.UseVisualStyleBackColor = true;
+            this.btnSaveProduct.Click += new System.EventHandler(this.btnSaveProduct_Click);
             // 
             // lblProductDescription
             // 
@@ -636,7 +597,7 @@
             this.lblTips.AutoSize = true;
             this.lblTips.BackColor = System.Drawing.Color.Transparent;
             this.lblTips.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTips.Location = new System.Drawing.Point(366, 93);
+            this.lblTips.Location = new System.Drawing.Point(366, 103);
             this.lblTips.Name = "lblTips";
             this.lblTips.Size = new System.Drawing.Size(38, 20);
             this.lblTips.TabIndex = 52;
@@ -743,19 +704,98 @@
             this.cmbStatus.Size = new System.Drawing.Size(195, 28);
             this.cmbStatus.TabIndex = 57;
             // 
-            // numericUpDown1
+            // numericUpDownQuantityInStock
             // 
-            this.numericUpDown1.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.productBindingSource, "Product_QuantityInStock", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.numericUpDown1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numericUpDown1.Location = new System.Drawing.Point(950, 462);
-            this.numericUpDown1.Maximum = new decimal(new int[] {
+            this.numericUpDownQuantityInStock.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.productBindingSource, "Product_QuantityInStock", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.numericUpDownQuantityInStock.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numericUpDownQuantityInStock.Location = new System.Drawing.Point(950, 462);
+            this.numericUpDownQuantityInStock.Maximum = new decimal(new int[] {
             9999,
             0,
             0,
             0});
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(142, 27);
-            this.numericUpDown1.TabIndex = 58;
+            this.numericUpDownQuantityInStock.Name = "numericUpDownQuantityInStock";
+            this.numericUpDownQuantityInStock.Size = new System.Drawing.Size(142, 27);
+            this.numericUpDownQuantityInStock.TabIndex = 58;
+            // 
+            // numericUpDownReorderQuantity
+            // 
+            this.numericUpDownReorderQuantity.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.productBindingSource, "Product_ReorderQuantity", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.numericUpDownReorderQuantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numericUpDownReorderQuantity.Location = new System.Drawing.Point(950, 536);
+            this.numericUpDownReorderQuantity.Maximum = new decimal(new int[] {
+            9999,
+            0,
+            0,
+            0});
+            this.numericUpDownReorderQuantity.Name = "numericUpDownReorderQuantity";
+            this.numericUpDownReorderQuantity.Size = new System.Drawing.Size(142, 27);
+            this.numericUpDownReorderQuantity.TabIndex = 59;
+            // 
+            // numericUpDownAlcoholPercentage
+            // 
+            this.numericUpDownAlcoholPercentage.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.productBindingSource, "Product_AlcoholPercentage", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.numericUpDownAlcoholPercentage.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numericUpDownAlcoholPercentage.Location = new System.Drawing.Point(58, 334);
+            this.numericUpDownAlcoholPercentage.Maximum = new decimal(new int[] {
+            9999,
+            0,
+            0,
+            0});
+            this.numericUpDownAlcoholPercentage.Name = "numericUpDownAlcoholPercentage";
+            this.numericUpDownAlcoholPercentage.Size = new System.Drawing.Size(187, 27);
+            this.numericUpDownAlcoholPercentage.TabIndex = 60;
+            // 
+            // numericUpDownSellingPrice
+            // 
+            this.numericUpDownSellingPrice.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.productBindingSource, "Product_SellingPrice", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, null, "C2"));
+            this.numericUpDownSellingPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numericUpDownSellingPrice.Location = new System.Drawing.Point(611, 462);
+            this.numericUpDownSellingPrice.Maximum = new decimal(new int[] {
+            9999,
+            0,
+            0,
+            0});
+            this.numericUpDownSellingPrice.Name = "numericUpDownSellingPrice";
+            this.numericUpDownSellingPrice.Size = new System.Drawing.Size(212, 27);
+            this.numericUpDownSellingPrice.TabIndex = 61;
+            // 
+            // numericUpDownCostPrice
+            // 
+            this.numericUpDownCostPrice.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.productBindingSource, "Product_CostPrice", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, null, "C2"));
+            this.numericUpDownCostPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numericUpDownCostPrice.Location = new System.Drawing.Point(611, 535);
+            this.numericUpDownCostPrice.Maximum = new decimal(new int[] {
+            9999,
+            0,
+            0,
+            0});
+            this.numericUpDownCostPrice.Name = "numericUpDownCostPrice";
+            this.numericUpDownCostPrice.Size = new System.Drawing.Size(212, 27);
+            this.numericUpDownCostPrice.TabIndex = 62;
+            // 
+            // lblProductHelp
+            // 
+            this.lblProductHelp.AutoSize = true;
+            this.lblProductHelp.BackColor = System.Drawing.Color.Transparent;
+            this.lblProductHelp.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblProductHelp.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.lblProductHelp.Location = new System.Drawing.Point(367, 82);
+            this.lblProductHelp.Name = "lblProductHelp";
+            this.lblProductHelp.Size = new System.Drawing.Size(97, 16);
+            this.lblProductHelp.TabIndex = 63;
+            this.lblProductHelp.Text = "Product Help";
+            // 
+            // cmbOrigin
+            // 
+            this.cmbOrigin.DataBindings.Add(new System.Windows.Forms.Binding("SelectedItem", this.productBindingSource, "Product_Status", true));
+            this.cmbOrigin.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbOrigin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbOrigin.FormattingEnabled = true;
+            this.cmbOrigin.Location = new System.Drawing.Point(258, 334);
+            this.cmbOrigin.Name = "cmbOrigin";
+            this.cmbOrigin.Size = new System.Drawing.Size(186, 28);
+            this.cmbOrigin.TabIndex = 64;
             // 
             // AddNewProductForm
             // 
@@ -763,8 +803,15 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::TheByteClubPOS.Properties.Resources.AddNewProductFormBackground;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1134, 666);
-            this.Controls.Add(this.numericUpDown1);
+            this.ClientSize = new System.Drawing.Size(1130, 662);
+            this.ControlBox = false;
+            this.Controls.Add(this.cmbOrigin);
+            this.Controls.Add(this.lblProductHelp);
+            this.Controls.Add(this.numericUpDownCostPrice);
+            this.Controls.Add(this.numericUpDownSellingPrice);
+            this.Controls.Add(this.numericUpDownAlcoholPercentage);
+            this.Controls.Add(this.numericUpDownReorderQuantity);
+            this.Controls.Add(this.numericUpDownQuantityInStock);
             this.Controls.Add(this.cmbStatus);
             this.Controls.Add(this.cmbDiscount);
             this.Controls.Add(this.cmbSupplier);
@@ -800,9 +847,7 @@
             this.Controls.Add(product_FlavourLabel);
             this.Controls.Add(this.product_FlavourTextBox);
             this.Controls.Add(product_AlcoholPercentageLabel);
-            this.Controls.Add(this.product_AlcoholPercentageTextBox);
             this.Controls.Add(product_OriginRegionLabel);
-            this.Controls.Add(this.product_OriginRegionTextBox);
             this.Controls.Add(product_IngredientsLabel);
             this.Controls.Add(this.product_IngredientsTextBox);
             this.Controls.Add(product_SizeMLLabel);
@@ -810,14 +855,13 @@
             this.Controls.Add(product_BarcodeNumberLabel);
             this.Controls.Add(this.product_BarcodeNumberTextBox);
             this.Controls.Add(product_SellingPriceLabel);
-            this.Controls.Add(this.product_SellingPriceTextBox);
             this.Controls.Add(product_CostPriceLabel);
-            this.Controls.Add(this.product_CostPriceTextBox);
             this.Controls.Add(product_QuantityInStockLabel);
             this.Controls.Add(product_ReorderQuantityLabel);
-            this.Controls.Add(this.product_ReorderQuantityTextBox);
             this.Controls.Add(product_StatusLabel);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "AddNewProductForm";
+            this.ShowIcon = false;
             this.Text = "Add New Product";
             this.Load += new System.EventHandler(this.AddNewProductForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dsSamsLiqourShop)).EndInit();
@@ -826,7 +870,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.categoryBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.supplierBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.discountBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownQuantityInStock)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownReorderQuantity)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownAlcoholPercentage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownSellingPrice)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCostPrice)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -844,14 +892,9 @@
         private System.Windows.Forms.TextBox product_BrandTextBox;
         private System.Windows.Forms.TextBox product_TypeTextBox;
         private System.Windows.Forms.TextBox product_FlavourTextBox;
-        private System.Windows.Forms.TextBox product_AlcoholPercentageTextBox;
-        private System.Windows.Forms.TextBox product_OriginRegionTextBox;
         private System.Windows.Forms.TextBox product_IngredientsTextBox;
         private System.Windows.Forms.TextBox product_SizeMLTextBox;
         private System.Windows.Forms.TextBox product_BarcodeNumberTextBox;
-        private System.Windows.Forms.TextBox product_SellingPriceTextBox;
-        private System.Windows.Forms.TextBox product_CostPriceTextBox;
-        private System.Windows.Forms.TextBox product_ReorderQuantityTextBox;
         private System.Windows.Forms.Label lblInventory;
         private System.Windows.Forms.Label lblDetails;
         private System.Windows.Forms.Label lblClassificaction;
@@ -878,6 +921,12 @@
         private System.Windows.Forms.BindingSource discountBindingSource;
         private dsSamsLiqourShopTableAdapters.DiscountTableAdapter discountTableAdapter;
         private System.Windows.Forms.ComboBox cmbStatus;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown numericUpDownQuantityInStock;
+        private System.Windows.Forms.NumericUpDown numericUpDownReorderQuantity;
+        private System.Windows.Forms.NumericUpDown numericUpDownAlcoholPercentage;
+        private System.Windows.Forms.NumericUpDown numericUpDownSellingPrice;
+        private System.Windows.Forms.NumericUpDown numericUpDownCostPrice;
+        private System.Windows.Forms.Label lblProductHelp;
+        private System.Windows.Forms.ComboBox cmbOrigin;
     }
 }
