@@ -53,9 +53,6 @@
             this.productTableAdapter = new TheByteClubPOS.dsSamsLiqourShopTableAdapters.ProductTableAdapter();
             this.tableAdapterManager = new TheByteClubPOS.dsSamsLiqourShopTableAdapters.TableAdapterManager();
             this.product_IDTextBox = new System.Windows.Forms.TextBox();
-            this.category_IDTextBox = new System.Windows.Forms.TextBox();
-            this.supplier_IDTextBox = new System.Windows.Forms.TextBox();
-            this.discount_IDTextBox = new System.Windows.Forms.TextBox();
             this.product_NameTextBox = new System.Windows.Forms.TextBox();
             this.product_DescriptionTextBox = new System.Windows.Forms.TextBox();
             this.product_BrandTextBox = new System.Windows.Forms.TextBox();
@@ -68,9 +65,7 @@
             this.product_BarcodeNumberTextBox = new System.Windows.Forms.TextBox();
             this.product_SellingPriceTextBox = new System.Windows.Forms.TextBox();
             this.product_CostPriceTextBox = new System.Windows.Forms.TextBox();
-            this.product_QuantityInStockTextBox = new System.Windows.Forms.TextBox();
             this.product_ReorderQuantityTextBox = new System.Windows.Forms.TextBox();
-            this.product_StatusTextBox = new System.Windows.Forms.TextBox();
             this.lblInventory = new System.Windows.Forms.Label();
             this.lblDetails = new System.Windows.Forms.Label();
             this.lblClassificaction = new System.Windows.Forms.Label();
@@ -86,6 +81,18 @@
             this.btnSaveImage = new System.Windows.Forms.Button();
             this.lblTips = new System.Windows.Forms.Label();
             this.timerTips = new System.Windows.Forms.Timer(this.components);
+            this.lblProductID = new System.Windows.Forms.Label();
+            this.cmbCategory = new System.Windows.Forms.ComboBox();
+            this.categoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.categoryTableAdapter = new TheByteClubPOS.dsSamsLiqourShopTableAdapters.CategoryTableAdapter();
+            this.cmbSupplier = new System.Windows.Forms.ComboBox();
+            this.supplierBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.supplierTableAdapter = new TheByteClubPOS.dsSamsLiqourShopTableAdapters.SupplierTableAdapter();
+            this.cmbDiscount = new System.Windows.Forms.ComboBox();
+            this.discountBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.discountTableAdapter = new TheByteClubPOS.dsSamsLiqourShopTableAdapters.DiscountTableAdapter();
+            this.cmbStatus = new System.Windows.Forms.ComboBox();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             product_IDLabel = new System.Windows.Forms.Label();
             category_IDLabel = new System.Windows.Forms.Label();
             supplier_IDLabel = new System.Windows.Forms.Label();
@@ -108,23 +115,28 @@
             ((System.ComponentModel.ISupportInitialize)(this.dsSamsLiqourShop)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.categoryBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.supplierBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.discountBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
             // product_IDLabel
             // 
             product_IDLabel.AutoSize = true;
             product_IDLabel.BackColor = System.Drawing.Color.Transparent;
-            product_IDLabel.Location = new System.Drawing.Point(532, 158);
+            product_IDLabel.Location = new System.Drawing.Point(532, 203);
             product_IDLabel.Name = "product_IDLabel";
             product_IDLabel.Size = new System.Drawing.Size(21, 13);
             product_IDLabel.TabIndex = 1;
             product_IDLabel.Text = "ID:";
+            product_IDLabel.Visible = false;
             // 
             // category_IDLabel
             // 
             category_IDLabel.AutoSize = true;
             category_IDLabel.BackColor = System.Drawing.Color.Transparent;
-            category_IDLabel.Location = new System.Drawing.Point(53, 440);
+            category_IDLabel.Location = new System.Drawing.Point(53, 425);
             category_IDLabel.Name = "category_IDLabel";
             category_IDLabel.Size = new System.Drawing.Size(59, 13);
             category_IDLabel.TabIndex = 3;
@@ -134,7 +146,7 @@
             // 
             supplier_IDLabel.AutoSize = true;
             supplier_IDLabel.BackColor = System.Drawing.Color.Transparent;
-            supplier_IDLabel.Location = new System.Drawing.Point(53, 501);
+            supplier_IDLabel.Location = new System.Drawing.Point(53, 471);
             supplier_IDLabel.Name = "supplier_IDLabel";
             supplier_IDLabel.Size = new System.Drawing.Size(55, 13);
             supplier_IDLabel.TabIndex = 5;
@@ -144,11 +156,11 @@
             // 
             discount_IDLabel.AutoSize = true;
             discount_IDLabel.BackColor = System.Drawing.Color.Transparent;
-            discount_IDLabel.Location = new System.Drawing.Point(53, 563);
+            discount_IDLabel.Location = new System.Drawing.Point(53, 519);
             discount_IDLabel.Name = "discount_IDLabel";
-            discount_IDLabel.Size = new System.Drawing.Size(59, 13);
+            discount_IDLabel.Size = new System.Drawing.Size(52, 13);
             discount_IDLabel.TabIndex = 7;
-            discount_IDLabel.Text = "Discount: *";
+            discount_IDLabel.Text = "Discount:";
             // 
             // product_NameLabel
             // 
@@ -338,35 +350,9 @@
             this.product_IDTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.product_IDTextBox.Location = new System.Drawing.Point(599, 150);
             this.product_IDTextBox.Name = "product_IDTextBox";
+            this.product_IDTextBox.ReadOnly = true;
             this.product_IDTextBox.Size = new System.Drawing.Size(52, 27);
             this.product_IDTextBox.TabIndex = 2;
-            // 
-            // category_IDTextBox
-            // 
-            this.category_IDTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productBindingSource, "Category_ID", true));
-            this.category_IDTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.category_IDTextBox.Location = new System.Drawing.Point(125, 428);
-            this.category_IDTextBox.Name = "category_IDTextBox";
-            this.category_IDTextBox.Size = new System.Drawing.Size(48, 27);
-            this.category_IDTextBox.TabIndex = 4;
-            // 
-            // supplier_IDTextBox
-            // 
-            this.supplier_IDTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productBindingSource, "Supplier_ID", true));
-            this.supplier_IDTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.supplier_IDTextBox.Location = new System.Drawing.Point(125, 489);
-            this.supplier_IDTextBox.Name = "supplier_IDTextBox";
-            this.supplier_IDTextBox.Size = new System.Drawing.Size(48, 27);
-            this.supplier_IDTextBox.TabIndex = 6;
-            // 
-            // discount_IDTextBox
-            // 
-            this.discount_IDTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productBindingSource, "Discount_ID", true));
-            this.discount_IDTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.discount_IDTextBox.Location = new System.Drawing.Point(125, 551);
-            this.discount_IDTextBox.Name = "discount_IDTextBox";
-            this.discount_IDTextBox.Size = new System.Drawing.Size(48, 27);
-            this.discount_IDTextBox.TabIndex = 8;
             // 
             // product_NameTextBox
             // 
@@ -460,48 +446,30 @@
             // 
             // product_SellingPriceTextBox
             // 
-            this.product_SellingPriceTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productBindingSource, "Product_SellingPrice", true));
+            this.product_SellingPriceTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productBindingSource, "Product_SellingPrice", true, System.Windows.Forms.DataSourceUpdateMode.OnValidation, null, "C2"));
             this.product_SellingPriceTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.product_SellingPriceTextBox.Location = new System.Drawing.Point(311, 535);
+            this.product_SellingPriceTextBox.Location = new System.Drawing.Point(611, 459);
             this.product_SellingPriceTextBox.Name = "product_SellingPriceTextBox";
-            this.product_SellingPriceTextBox.Size = new System.Drawing.Size(198, 27);
+            this.product_SellingPriceTextBox.Size = new System.Drawing.Size(212, 27);
             this.product_SellingPriceTextBox.TabIndex = 30;
             // 
             // product_CostPriceTextBox
             // 
-            this.product_CostPriceTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productBindingSource, "Product_CostPrice", true));
+            this.product_CostPriceTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productBindingSource, "Product_CostPrice", true, System.Windows.Forms.DataSourceUpdateMode.OnValidation, null, "C2"));
             this.product_CostPriceTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.product_CostPriceTextBox.Location = new System.Drawing.Point(611, 459);
+            this.product_CostPriceTextBox.Location = new System.Drawing.Point(611, 535);
             this.product_CostPriceTextBox.Name = "product_CostPriceTextBox";
             this.product_CostPriceTextBox.Size = new System.Drawing.Size(212, 27);
             this.product_CostPriceTextBox.TabIndex = 32;
-            // 
-            // product_QuantityInStockTextBox
-            // 
-            this.product_QuantityInStockTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productBindingSource, "Product_QuantityInStock", true));
-            this.product_QuantityInStockTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.product_QuantityInStockTextBox.Location = new System.Drawing.Point(611, 535);
-            this.product_QuantityInStockTextBox.Name = "product_QuantityInStockTextBox";
-            this.product_QuantityInStockTextBox.Size = new System.Drawing.Size(212, 27);
-            this.product_QuantityInStockTextBox.TabIndex = 34;
             // 
             // product_ReorderQuantityTextBox
             // 
             this.product_ReorderQuantityTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productBindingSource, "Product_ReorderQuantity", true));
             this.product_ReorderQuantityTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.product_ReorderQuantityTextBox.Location = new System.Drawing.Point(950, 459);
+            this.product_ReorderQuantityTextBox.Location = new System.Drawing.Point(950, 535);
             this.product_ReorderQuantityTextBox.Name = "product_ReorderQuantityTextBox";
             this.product_ReorderQuantityTextBox.Size = new System.Drawing.Size(142, 27);
             this.product_ReorderQuantityTextBox.TabIndex = 36;
-            // 
-            // product_StatusTextBox
-            // 
-            this.product_StatusTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productBindingSource, "Product_Status", true));
-            this.product_StatusTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.product_StatusTextBox.Location = new System.Drawing.Point(950, 535);
-            this.product_StatusTextBox.Name = "product_StatusTextBox";
-            this.product_StatusTextBox.Size = new System.Drawing.Size(142, 27);
-            this.product_StatusTextBox.TabIndex = 38;
             // 
             // lblInventory
             // 
@@ -587,6 +555,7 @@
             this.btnCancel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCancel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnSaveProduct
             // 
@@ -609,21 +578,21 @@
             this.lblProductDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblProductDescription.Location = new System.Drawing.Point(37, 144);
             this.lblProductDescription.Name = "lblProductDescription";
-            this.lblProductDescription.Size = new System.Drawing.Size(305, 24);
+            this.lblProductDescription.Size = new System.Drawing.Size(290, 24);
             this.lblProductDescription.TabIndex = 47;
-            this.lblProductDescription.Text = "Enter the details of the new product";
+            this.lblProductDescription.Text = "Enter/ Edit the details of a product";
             // 
             // lblAddNewProducts
             // 
             this.lblAddNewProducts.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.lblAddNewProducts.AutoSize = true;
             this.lblAddNewProducts.BackColor = System.Drawing.Color.Transparent;
-            this.lblAddNewProducts.Font = new System.Drawing.Font("Segoe UI", 21.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAddNewProducts.Font = new System.Drawing.Font("Segoe UI", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAddNewProducts.Location = new System.Drawing.Point(34, 100);
             this.lblAddNewProducts.Name = "lblAddNewProducts";
-            this.lblAddNewProducts.Size = new System.Drawing.Size(273, 40);
+            this.lblAddNewProducts.Size = new System.Drawing.Size(260, 37);
             this.lblAddNewProducts.TabIndex = 48;
-            this.lblAddNewProducts.Text = "Add New Products";
+            this.lblAddNewProducts.Text = "Add/ Edit Products";
             // 
             // btnClearImage
             // 
@@ -679,6 +648,115 @@
             this.timerTips.Interval = 5000;
             this.timerTips.Tick += new System.EventHandler(this.timerTips_Tick);
             // 
+            // lblProductID
+            // 
+            this.lblProductID.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.lblProductID.AutoSize = true;
+            this.lblProductID.BackColor = System.Drawing.Color.Transparent;
+            this.lblProductID.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblProductID.Location = new System.Drawing.Point(532, 200);
+            this.lblProductID.Name = "lblProductID";
+            this.lblProductID.Size = new System.Drawing.Size(23, 17);
+            this.lblProductID.TabIndex = 53;
+            this.lblProductID.Text = "ID:";
+            // 
+            // cmbCategory
+            // 
+            this.cmbCategory.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.productBindingSource, "Category_ID", true));
+            this.cmbCategory.DataSource = this.categoryBindingSource;
+            this.cmbCategory.DisplayMember = "Category_Name";
+            this.cmbCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbCategory.FormattingEnabled = true;
+            this.cmbCategory.Location = new System.Drawing.Point(56, 442);
+            this.cmbCategory.Name = "cmbCategory";
+            this.cmbCategory.Size = new System.Drawing.Size(217, 28);
+            this.cmbCategory.TabIndex = 54;
+            this.cmbCategory.ValueMember = "Category_ID";
+            // 
+            // categoryBindingSource
+            // 
+            this.categoryBindingSource.DataMember = "Category";
+            this.categoryBindingSource.DataSource = this.dsSamsLiqourShop;
+            // 
+            // categoryTableAdapter
+            // 
+            this.categoryTableAdapter.ClearBeforeFill = true;
+            // 
+            // cmbSupplier
+            // 
+            this.cmbSupplier.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.productBindingSource, "Supplier_ID", true));
+            this.cmbSupplier.DataSource = this.supplierBindingSource;
+            this.cmbSupplier.DisplayMember = "Supplier_Name";
+            this.cmbSupplier.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbSupplier.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbSupplier.FormattingEnabled = true;
+            this.cmbSupplier.Location = new System.Drawing.Point(56, 488);
+            this.cmbSupplier.Name = "cmbSupplier";
+            this.cmbSupplier.Size = new System.Drawing.Size(217, 28);
+            this.cmbSupplier.TabIndex = 55;
+            this.cmbSupplier.ValueMember = "Supplier_ID";
+            // 
+            // supplierBindingSource
+            // 
+            this.supplierBindingSource.DataMember = "Supplier";
+            this.supplierBindingSource.DataSource = this.dsSamsLiqourShop;
+            // 
+            // supplierTableAdapter
+            // 
+            this.supplierTableAdapter.ClearBeforeFill = true;
+            // 
+            // cmbDiscount
+            // 
+            this.cmbDiscount.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.productBindingSource, "Discount_ID", true));
+            this.cmbDiscount.DataSource = this.discountBindingSource;
+            this.cmbDiscount.DisplayMember = "Discount_Name";
+            this.cmbDiscount.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbDiscount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbDiscount.FormattingEnabled = true;
+            this.cmbDiscount.Location = new System.Drawing.Point(56, 535);
+            this.cmbDiscount.Name = "cmbDiscount";
+            this.cmbDiscount.Size = new System.Drawing.Size(217, 28);
+            this.cmbDiscount.TabIndex = 56;
+            this.cmbDiscount.ValueMember = "Discount_ID";
+            // 
+            // discountBindingSource
+            // 
+            this.discountBindingSource.DataMember = "Discount";
+            this.discountBindingSource.DataSource = this.dsSamsLiqourShop;
+            // 
+            // discountTableAdapter
+            // 
+            this.discountTableAdapter.ClearBeforeFill = true;
+            // 
+            // cmbStatus
+            // 
+            this.cmbStatus.DataBindings.Add(new System.Windows.Forms.Binding("SelectedItem", this.productBindingSource, "Product_Status", true));
+            this.cmbStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbStatus.FormattingEnabled = true;
+            this.cmbStatus.Items.AddRange(new object[] {
+            "Active",
+            "Inactive"});
+            this.cmbStatus.Location = new System.Drawing.Point(311, 535);
+            this.cmbStatus.Name = "cmbStatus";
+            this.cmbStatus.Size = new System.Drawing.Size(195, 28);
+            this.cmbStatus.TabIndex = 57;
+            // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.productBindingSource, "Product_QuantityInStock", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.numericUpDown1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numericUpDown1.Location = new System.Drawing.Point(950, 462);
+            this.numericUpDown1.Maximum = new decimal(new int[] {
+            9999,
+            0,
+            0,
+            0});
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(142, 27);
+            this.numericUpDown1.TabIndex = 58;
+            // 
             // AddNewProductForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -686,6 +764,12 @@
             this.BackgroundImage = global::TheByteClubPOS.Properties.Resources.AddNewProductFormBackground;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1134, 666);
+            this.Controls.Add(this.numericUpDown1);
+            this.Controls.Add(this.cmbStatus);
+            this.Controls.Add(this.cmbDiscount);
+            this.Controls.Add(this.cmbSupplier);
+            this.Controls.Add(this.cmbCategory);
+            this.Controls.Add(this.lblProductID);
             this.Controls.Add(this.lblTips);
             this.Controls.Add(this.btnSaveImage);
             this.Controls.Add(this.pbImage);
@@ -703,11 +787,8 @@
             this.Controls.Add(product_IDLabel);
             this.Controls.Add(this.product_IDTextBox);
             this.Controls.Add(category_IDLabel);
-            this.Controls.Add(this.category_IDTextBox);
             this.Controls.Add(supplier_IDLabel);
-            this.Controls.Add(this.supplier_IDTextBox);
             this.Controls.Add(discount_IDLabel);
-            this.Controls.Add(this.discount_IDTextBox);
             this.Controls.Add(product_NameLabel);
             this.Controls.Add(this.product_NameTextBox);
             this.Controls.Add(product_DescriptionLabel);
@@ -733,17 +814,19 @@
             this.Controls.Add(product_CostPriceLabel);
             this.Controls.Add(this.product_CostPriceTextBox);
             this.Controls.Add(product_QuantityInStockLabel);
-            this.Controls.Add(this.product_QuantityInStockTextBox);
             this.Controls.Add(product_ReorderQuantityLabel);
             this.Controls.Add(this.product_ReorderQuantityTextBox);
             this.Controls.Add(product_StatusLabel);
-            this.Controls.Add(this.product_StatusTextBox);
             this.Name = "AddNewProductForm";
             this.Text = "Add New Product";
             this.Load += new System.EventHandler(this.AddNewProductForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dsSamsLiqourShop)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.categoryBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.supplierBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.discountBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -756,9 +839,6 @@
         private dsSamsLiqourShopTableAdapters.ProductTableAdapter productTableAdapter;
         private dsSamsLiqourShopTableAdapters.TableAdapterManager tableAdapterManager;
         private System.Windows.Forms.TextBox product_IDTextBox;
-        private System.Windows.Forms.TextBox category_IDTextBox;
-        private System.Windows.Forms.TextBox supplier_IDTextBox;
-        private System.Windows.Forms.TextBox discount_IDTextBox;
         private System.Windows.Forms.TextBox product_NameTextBox;
         private System.Windows.Forms.TextBox product_DescriptionTextBox;
         private System.Windows.Forms.TextBox product_BrandTextBox;
@@ -771,9 +851,7 @@
         private System.Windows.Forms.TextBox product_BarcodeNumberTextBox;
         private System.Windows.Forms.TextBox product_SellingPriceTextBox;
         private System.Windows.Forms.TextBox product_CostPriceTextBox;
-        private System.Windows.Forms.TextBox product_QuantityInStockTextBox;
         private System.Windows.Forms.TextBox product_ReorderQuantityTextBox;
-        private System.Windows.Forms.TextBox product_StatusTextBox;
         private System.Windows.Forms.Label lblInventory;
         private System.Windows.Forms.Label lblDetails;
         private System.Windows.Forms.Label lblClassificaction;
@@ -789,5 +867,17 @@
         private System.Windows.Forms.Button btnSaveImage;
         private System.Windows.Forms.Label lblTips;
         private System.Windows.Forms.Timer timerTips;
+        private System.Windows.Forms.Label lblProductID;
+        private System.Windows.Forms.ComboBox cmbCategory;
+        private System.Windows.Forms.BindingSource categoryBindingSource;
+        private dsSamsLiqourShopTableAdapters.CategoryTableAdapter categoryTableAdapter;
+        private System.Windows.Forms.ComboBox cmbSupplier;
+        private System.Windows.Forms.BindingSource supplierBindingSource;
+        private dsSamsLiqourShopTableAdapters.SupplierTableAdapter supplierTableAdapter;
+        private System.Windows.Forms.ComboBox cmbDiscount;
+        private System.Windows.Forms.BindingSource discountBindingSource;
+        private dsSamsLiqourShopTableAdapters.DiscountTableAdapter discountTableAdapter;
+        private System.Windows.Forms.ComboBox cmbStatus;
+        private System.Windows.Forms.NumericUpDown numericUpDown1;
     }
 }

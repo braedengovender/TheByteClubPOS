@@ -394,20 +394,101 @@ namespace TheByteClubPOS
 
         private void btnAddNewProduct_Click(object sender, EventArgs e)
         {
-
-            // Open Add New Product Form
-            AddNewProductForm addNewProductForm = new AddNewProductForm();
-
-            addNewProductForm.MdiParent = this.ParentForm;
-
-            addNewProductForm.FormClosed += (senderForm, eventArgs) =>
+            try
             {
-                // This code runs only when the window closes
-                this.productTableAdapter.Fill(this.dsSamsLiqourShop.Product); // Refresh the Product table
-                this.productInnerJoinDTTableAdapter.FillWithDetails(this.dsSamsLiqourShop.ProductInnerJoinDT);
-            };
+                // Open Add New Product Form
+                AddNewProductForm addNewProductForm = new AddNewProductForm(AddNewProductForm.FormMode.Add);
 
-            addNewProductForm.Show();
+                addNewProductForm.MdiParent = this.ParentForm;
+
+                addNewProductForm.FormClosed += (senderForm, eventArgs) =>
+                {
+
+                    try
+                    {
+                        // Refresh both the base table and the inner join grid view to show the newly added product
+                        // This code runs only when the window closes
+                        this.productTableAdapter.Fill(this.dsSamsLiqourShop.Product); // Refresh the Product table
+                        this.productInnerJoinDTTableAdapter.FillWithDetails(this.dsSamsLiqourShop.ProductInnerJoinDT);
+                    }
+                    catch (Exception fillEx)
+                    {
+                        // Warn the user if the save worked but the dashboard visual refresh failed
+                        MessageBox.Show("The product window closed, but the dashboard failed to refresh automatically.\n\n" + fillEx.Message,
+                                        "Dashboard Refresh Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                };
+
+                // Display the form to the user
+                addNewProductForm.Show();
+            }
+            catch (Exception ex)
+            {
+                // Global Catch: Prevents the app from crashing if the form fails to initialize (e.g., memory or DB load error)
+                MessageBox.Show("An unexpected system error occurred while trying to open the Add Product window:\n\n" + ex.Message, "Critical Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+        }
+
+        private void btnEditProduct_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Validation: Ensures a valid, existing row is highlighted
+                if (productInnerJoinDTDataGridView.CurrentRow == null || productInnerJoinDTDataGridView.CurrentRow.IsNewRow)
+                {
+                    MessageBox.Show("Please select a specific product from the inventory list to edit.", "No Product Selected", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return; // Stop execution here
+                }
+
+                // Direct Validation: Ensure the cell isn't completely missing before reading it
+                if (productInnerJoinDTDataGridView.CurrentRow.Cells["dataGridViewTextBoxColumn1"].Value == null)
+                {
+                    MessageBox.Show("The system cannot read the ID for this product because the cell is empty.", "Missing Data", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                // Explicit Typing: Grab the value directly as a string
+                string idString = productInnerJoinDTDataGridView.CurrentRow.Cells["dataGridViewTextBoxColumn1"].Value.ToString();
+
+                // Explicit Parsing: Attempt to convert that string into an integer safely
+                int selectedID;
+                if (!int.TryParse(idString, out selectedID))
+                {
+                    MessageBox.Show("The product ID is corrupted or not a valid number. Please check your database.", "Data Format Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                // Initialize/ Open Add New Product Form - Pass 'Edit' mode AND the specific Product ID
+                AddNewProductForm addNewProductForm = new AddNewProductForm(AddNewProductForm.FormMode.Edit, selectedID);
+                addNewProductForm.MdiParent = this.ParentForm;
+
+                // This code runs only when the window closes
+                addNewProductForm.FormClosed += (senderForm, eventArgs) =>
+                {
+                    try
+                    {
+                        // Refresh both the base table and the inner join grid view
+                        this.productTableAdapter.Fill(this.dsSamsLiqourShop.Product); // Refresh the Product table
+                        this.productInnerJoinDTTableAdapter.FillWithDetails(this.dsSamsLiqourShop.ProductInnerJoinDT); // Refresh your main grid after they close the form to show updates
+                    }
+                    catch (Exception fillEx)
+                    {
+                        MessageBox.Show("The product was updated, but the grid failed to refresh automatically.\n\n" + fillEx.Message, "Refresh Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+
+                };
+
+                // Display the form to the user
+                addNewProductForm.Show();
+            }
+            catch (Exception ex)
+            {
+                // Captures any completely unexpected UI or memory crashes
+                MessageBox.Show("An unexpected system error occurred while trying to open the editor:\n\n" + ex.Message, "Critical Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+                
         }
     }
 }

@@ -150,6 +150,7 @@
             this.btnEditProduct.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnEditProduct.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnEditProduct.UseVisualStyleBackColor = true;
+            this.btnEditProduct.Click += new System.EventHandler(this.btnEditProduct_Click);
             // 
             // btnDeactivateProduct
             // 

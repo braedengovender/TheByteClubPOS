@@ -368,10 +368,14 @@ namespace TheByteClubPOS
             OpenChildForm(manageinventory);
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        public void LoadProductsForm()
         {
             ViewProducts viewProductsForm = new ViewProducts();
             OpenChildForm(viewProductsForm);
+        }
+        private void button2_Click(object sender, EventArgs e)
+        {
+            LoadProductsForm();
         }
     }
 }
