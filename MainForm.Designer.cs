@@ -81,13 +81,13 @@
             this.btnCustomers = new System.Windows.Forms.Button();
             this.btnSuppliers = new System.Windows.Forms.Button();
             this.btnLogout = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.dsSamsLiqourShop = new TheByteClubPOS.dsSamsLiqourShop();
             this.employeeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.employeeTableAdapter = new TheByteClubPOS.dsSamsLiqourShopTableAdapters.EmployeeTableAdapter();
             this.tableAdapterManager = new TheByteClubPOS.dsSamsLiqourShopTableAdapters.TableAdapterManager();
+            this.button1 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -469,8 +469,8 @@
             this.flowLayoutPanel1.Controls.Add(this.btnCustomers);
             this.flowLayoutPanel1.Controls.Add(this.btnSuppliers);
             this.flowLayoutPanel1.Controls.Add(this.btnLogout);
-            this.flowLayoutPanel1.Controls.Add(this.button1);
             this.flowLayoutPanel1.Controls.Add(this.button2);
+            this.flowLayoutPanel1.Controls.Add(this.button1);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 130);
@@ -579,21 +579,9 @@
             this.btnLogout.UseVisualStyleBackColor = true;
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(12, 369);
-            this.button1.Margin = new System.Windows.Forms.Padding(2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(201, 45);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "Add Product Image";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Visible = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(12, 418);
+            this.button2.Location = new System.Drawing.Point(12, 369);
             this.button2.Margin = new System.Windows.Forms.Padding(2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(201, 45);
@@ -645,6 +633,17 @@
             this.tableAdapterManager.SaleTypeTableAdapter = null;
             this.tableAdapterManager.SupplierTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = TheByteClubPOS.dsSamsLiqourShopTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(12, 418);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(201, 45);
+            this.button1.TabIndex = 9;
+            this.button1.Text = "Supplier Map";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // MainForm
             // 
@@ -728,7 +727,6 @@
         private System.Windows.Forms.Button btnSuppliers;
         private System.Windows.Forms.Button btnLogout;
         private System.Windows.Forms.ToolStripMenuItem darkModeToolStripMenuItem;
-        private System.Windows.Forms.Button button1;
         public System.Windows.Forms.Button btnProcessSale;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
@@ -737,5 +735,6 @@
         private System.Windows.Forms.ToolStripMenuItem troubleshootingToolStripMenuItem;
         public System.Windows.Forms.Button btnProducts;
         public System.Windows.Forms.Button button2;
+        public System.Windows.Forms.Button button1;
     }
 }
