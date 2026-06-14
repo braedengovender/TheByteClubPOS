@@ -4,7 +4,6 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Runtime.InteropServices;
 using System.Runtime.InteropServices; // Required for releasing COM objects
 using System.Text;
 using System.Threading.Tasks;
@@ -395,8 +394,20 @@ namespace TheByteClubPOS
 
         private void btnAddNewProduct_Click(object sender, EventArgs e)
         {
+
+            // Open Add New Product Form
             AddNewProductForm addNewProductForm = new AddNewProductForm();
-            addNewProductForm.ShowDialog();
+
+            addNewProductForm.MdiParent = this.ParentForm;
+
+            addNewProductForm.FormClosed += (senderForm, eventArgs) =>
+            {
+                // This code runs only when the window closes
+                this.productTableAdapter.Fill(this.dsSamsLiqourShop.Product); // Refresh the Product table
+                this.productInnerJoinDTTableAdapter.FillWithDetails(this.dsSamsLiqourShop.ProductInnerJoinDT);
+            };
+
+            addNewProductForm.Show();
         }
     }
 }

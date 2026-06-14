@@ -356,6 +356,9 @@
     <None Include="Resources\Reseticon.png" />
     <None Include="Resources\SmallDeactivateIcon.png" />
     <None Include="Resources\SearchIcon.png" />
+    <None Include="Resources\TrashIcon.png" />
+    <None Include="Resources\SaveIcon.png" />
+    <None Include="Resources\SaveImage.png" />
     <Content Include="Resources\Untitled design %281%29.png" />
     <None Include="Resources\Untitled design %281%291.png" />
   </ItemGroup>
