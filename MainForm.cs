@@ -375,7 +375,12 @@ namespace TheByteClubPOS
         }
         private void button2_Click(object sender, EventArgs e)
         {
-            LoadProductsForm();
+            ViewProducts viewProductsForm = new ViewProducts();
+            if (employeeRole == "Cashier")
+            {
+                viewProductsForm.SetAdminButtonsVisibility(false);
+            }
+            OpenChildForm(viewProductsForm);
         }
 
         private void button1_Click_1(object sender, EventArgs e)

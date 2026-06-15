@@ -61,10 +61,6 @@
             this.saleLinesSummaryInnerJoinDTBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.saleLinesSummaryInnerJoinDTTableAdapter = new TheByteClubPOS.dsSamsLiqourShopTableAdapters.SaleLinesSummaryInnerJoinDTTableAdapter();
             this.saleLinesSummaryInnerJoinDTDataGridView = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtSearch = new System.Windows.Forms.TextBox();
-            this.btnClear = new System.Windows.Forms.Button();
-            this.btnRefresh = new System.Windows.Forms.Button();
             this.Product_Image = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -75,6 +71,16 @@
             this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtSearch = new System.Windows.Forms.TextBox();
+            this.btnClear = new System.Windows.Forms.Button();
+            this.btnRefresh = new System.Windows.Forms.Button();
+            this.btnHelp = new System.Windows.Forms.Button();
+            this.dtpStartDate = new System.Windows.Forms.DateTimePicker();
+            this.dtpEndDate = new System.Windows.Forms.DateTimePicker();
+            this.btnFilterDate = new System.Windows.Forms.Button();
+            this.btnPDFExport = new System.Windows.Forms.Button();
+            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             ((System.ComponentModel.ISupportInitialize)(this.dsSamsLiqourShop)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.salesSummaryInnerJoinDTBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.salesSummaryInnerJoinDTDataGridView)).BeginInit();
@@ -163,10 +169,10 @@
             this.dataGridViewTextBoxColumn6,
             this.dataGridViewTextBoxColumn8});
             this.salesSummaryInnerJoinDTDataGridView.DataSource = this.salesSummaryInnerJoinDTBindingSource;
-            this.salesSummaryInnerJoinDTDataGridView.Location = new System.Drawing.Point(33, 125);
+            this.salesSummaryInnerJoinDTDataGridView.Location = new System.Drawing.Point(33, 184);
             this.salesSummaryInnerJoinDTDataGridView.Name = "salesSummaryInnerJoinDTDataGridView";
             this.salesSummaryInnerJoinDTDataGridView.ReadOnly = true;
-            this.salesSummaryInnerJoinDTDataGridView.Size = new System.Drawing.Size(1077, 300);
+            this.salesSummaryInnerJoinDTDataGridView.Size = new System.Drawing.Size(1077, 241);
             this.salesSummaryInnerJoinDTDataGridView.TabIndex = 7;
             this.salesSummaryInnerJoinDTDataGridView.SelectionChanged += new System.EventHandler(this.salesSummaryInnerJoinDTDataGridView_SelectionChanged);
             // 
@@ -332,53 +338,6 @@
             this.saleLinesSummaryInnerJoinDTDataGridView.Size = new System.Drawing.Size(1077, 154);
             this.saleLinesSummaryInnerJoinDTDataGridView.TabIndex = 8;
             // 
-            // label1
-            // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(29, 92);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(335, 20);
-            this.label1.TabIndex = 9;
-            this.label1.Text = "View Sales History && Transaction Details";
-            // 
-            // txtSearch
-            // 
-            this.txtSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSearch.ForeColor = System.Drawing.Color.Gray;
-            this.txtSearch.Location = new System.Drawing.Point(506, 69);
-            this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(470, 35);
-            this.txtSearch.TabIndex = 10;
-            this.txtSearch.Text = "Search by Customer, Employee or Promo...";
-            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
-            this.txtSearch.Enter += new System.EventHandler(this.txtSearch_Enter);
-            this.txtSearch.Leave += new System.EventHandler(this.txtSearch_Leave);
-            // 
-            // btnClear
-            // 
-            this.btnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClear.Image = global::TheByteClubPOS.Properties.Resources.ClearIcon;
-            this.btnClear.Location = new System.Drawing.Point(985, 67);
-            this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(79, 38);
-            this.btnClear.TabIndex = 11;
-            this.btnClear.UseVisualStyleBackColor = true;
-            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
-            // 
-            // btnRefresh
-            // 
-            this.btnRefresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRefresh.Image = global::TheByteClubPOS.Properties.Resources.RefreshIcon;
-            this.btnRefresh.Location = new System.Drawing.Point(1071, 67);
-            this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(39, 38);
-            this.btnRefresh.TabIndex = 12;
-            this.btnRefresh.UseVisualStyleBackColor = true;
-            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
-            // 
             // Product_Image
             // 
             this.Product_Image.DataPropertyName = "Product_Image";
@@ -465,6 +424,117 @@
             this.dataGridViewTextBoxColumn19.ReadOnly = true;
             this.dataGridViewTextBoxColumn19.Visible = false;
             // 
+            // label1
+            // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(29, 92);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(335, 20);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "View Sales History && Transaction Details";
+            // 
+            // txtSearch
+            // 
+            this.txtSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSearch.ForeColor = System.Drawing.Color.Gray;
+            this.txtSearch.Location = new System.Drawing.Point(455, 66);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(470, 35);
+            this.txtSearch.TabIndex = 10;
+            this.txtSearch.Text = "Search by Customer, Employee or Promo...";
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
+            this.txtSearch.Enter += new System.EventHandler(this.txtSearch_Enter);
+            this.txtSearch.Leave += new System.EventHandler(this.txtSearch_Leave);
+            // 
+            // btnClear
+            // 
+            this.btnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClear.Image = global::TheByteClubPOS.Properties.Resources.ClearIcon;
+            this.btnClear.Location = new System.Drawing.Point(934, 64);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(79, 38);
+            this.btnClear.TabIndex = 11;
+            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            // 
+            // btnRefresh
+            // 
+            this.btnRefresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRefresh.Image = global::TheByteClubPOS.Properties.Resources.RefreshIcon;
+            this.btnRefresh.Location = new System.Drawing.Point(1022, 64);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(39, 38);
+            this.btnRefresh.TabIndex = 12;
+            this.btnRefresh.UseVisualStyleBackColor = true;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
+            // 
+            // btnHelp
+            // 
+            this.btnHelp.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHelp.Image = global::TheByteClubPOS.Properties.Resources.HelpIcon;
+            this.btnHelp.Location = new System.Drawing.Point(1071, 64);
+            this.btnHelp.Name = "btnHelp";
+            this.btnHelp.Size = new System.Drawing.Size(39, 37);
+            this.btnHelp.TabIndex = 33;
+            this.btnHelp.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnHelp.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnHelp.UseVisualStyleBackColor = true;
+            this.btnHelp.Click += new System.EventHandler(this.btnHelp_Click);
+            // 
+            // dtpStartDate
+            // 
+            this.dtpStartDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpStartDate.Location = new System.Drawing.Point(690, 119);
+            this.dtpStartDate.Name = "dtpStartDate";
+            this.dtpStartDate.Size = new System.Drawing.Size(235, 21);
+            this.dtpStartDate.TabIndex = 34;
+            this.dtpStartDate.ValueChanged += new System.EventHandler(this.dtpStartDate_ValueChanged);
+            // 
+            // dtpEndDate
+            // 
+            this.dtpEndDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpEndDate.Location = new System.Drawing.Point(690, 146);
+            this.dtpEndDate.Name = "dtpEndDate";
+            this.dtpEndDate.Size = new System.Drawing.Size(235, 21);
+            this.dtpEndDate.TabIndex = 35;
+            this.dtpEndDate.ValueChanged += new System.EventHandler(this.dtpEndDate_ValueChanged);
+            // 
+            // btnFilterDate
+            // 
+            this.btnFilterDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFilterDate.Image = global::TheByteClubPOS.Properties.Resources.FilterIcon;
+            this.btnFilterDate.Location = new System.Drawing.Point(934, 119);
+            this.btnFilterDate.Name = "btnFilterDate";
+            this.btnFilterDate.Size = new System.Drawing.Size(176, 48);
+            this.btnFilterDate.TabIndex = 36;
+            this.btnFilterDate.Text = "Clear Date Filter";
+            this.btnFilterDate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnFilterDate.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnFilterDate.UseVisualStyleBackColor = true;
+            this.btnFilterDate.Click += new System.EventHandler(this.btnFilterDate_Click);
+            // 
+            // btnPDFExport
+            // 
+            this.btnPDFExport.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPDFExport.Image = global::TheByteClubPOS.Properties.Resources.PDFIcon;
+            this.btnPDFExport.Location = new System.Drawing.Point(455, 119);
+            this.btnPDFExport.Name = "btnPDFExport";
+            this.btnPDFExport.Size = new System.Drawing.Size(229, 48);
+            this.btnPDFExport.TabIndex = 37;
+            this.btnPDFExport.Text = "Export to PDF";
+            this.btnPDFExport.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnPDFExport.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnPDFExport.UseVisualStyleBackColor = true;
+            this.btnPDFExport.Visible = false;
+            this.btnPDFExport.Click += new System.EventHandler(this.btnPDFExport_Click);
+            // 
+            // printDocument1
+            // 
+            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage_1);
+            // 
             // ManageSales
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -472,6 +542,11 @@
             this.BackgroundImage = global::TheByteClubPOS.Properties.Resources.Background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1134, 715);
+            this.Controls.Add(this.btnPDFExport);
+            this.Controls.Add(this.btnFilterDate);
+            this.Controls.Add(this.dtpEndDate);
+            this.Controls.Add(this.dtpStartDate);
+            this.Controls.Add(this.btnHelp);
             this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.txtSearch);
@@ -534,5 +609,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn19;
+        private System.Windows.Forms.Button btnHelp;
+        private System.Windows.Forms.DateTimePicker dtpStartDate;
+        private System.Windows.Forms.DateTimePicker dtpEndDate;
+        private System.Windows.Forms.Button btnFilterDate;
+        private System.Windows.Forms.Button btnPDFExport;
+        private System.Drawing.Printing.PrintDocument printDocument1;
     }
 }

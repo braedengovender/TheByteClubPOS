@@ -91,6 +91,8 @@
             this.dataGridViewTextBoxColumn21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.productBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.productTableAdapter = new TheByteClubPOS.dsSamsLiqourShopTableAdapters.ProductTableAdapter();
+            this.btnPDFExport = new System.Windows.Forms.Button();
+            this.btnHelp = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dsSamsLiqourShop)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productInnerJoinDTBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoryBindingSource)).BeginInit();
@@ -128,7 +130,7 @@
             // 
             this.btnAddNewProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddNewProduct.Image = global::TheByteClubPOS.Properties.Resources.AddIcon;
-            this.btnAddNewProduct.Location = new System.Drawing.Point(552, 42);
+            this.btnAddNewProduct.Location = new System.Drawing.Point(457, 42);
             this.btnAddNewProduct.Name = "btnAddNewProduct";
             this.btnAddNewProduct.Size = new System.Drawing.Size(186, 38);
             this.btnAddNewProduct.TabIndex = 12;
@@ -142,7 +144,7 @@
             // 
             this.btnEditProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEditProduct.Image = global::TheByteClubPOS.Properties.Resources.EditIcon;
-            this.btnEditProduct.Location = new System.Drawing.Point(744, 42);
+            this.btnEditProduct.Location = new System.Drawing.Point(649, 42);
             this.btnEditProduct.Name = "btnEditProduct";
             this.btnEditProduct.Size = new System.Drawing.Size(186, 38);
             this.btnEditProduct.TabIndex = 13;
@@ -156,7 +158,7 @@
             // 
             this.btnDeactivateProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDeactivateProduct.Image = global::TheByteClubPOS.Properties.Resources.SmallDeactivateIcon;
-            this.btnDeactivateProduct.Location = new System.Drawing.Point(936, 42);
+            this.btnDeactivateProduct.Location = new System.Drawing.Point(841, 42);
             this.btnDeactivateProduct.Name = "btnDeactivateProduct";
             this.btnDeactivateProduct.Size = new System.Drawing.Size(186, 38);
             this.btnDeactivateProduct.TabIndex = 14;
@@ -363,7 +365,7 @@
             this.lblTotalProducts.AutoSize = true;
             this.lblTotalProducts.BackColor = System.Drawing.Color.Transparent;
             this.lblTotalProducts.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalProducts.Location = new System.Drawing.Point(658, 575);
+            this.lblTotalProducts.Location = new System.Drawing.Point(610, 575);
             this.lblTotalProducts.Name = "lblTotalProducts";
             this.lblTotalProducts.Size = new System.Drawing.Size(119, 20);
             this.lblTotalProducts.TabIndex = 29;
@@ -631,6 +633,34 @@
             // 
             this.productTableAdapter.ClearBeforeFill = true;
             // 
+            // btnPDFExport
+            // 
+            this.btnPDFExport.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPDFExport.Image = global::TheByteClubPOS.Properties.Resources.PDFIcon;
+            this.btnPDFExport.Location = new System.Drawing.Point(796, 604);
+            this.btnPDFExport.Name = "btnPDFExport";
+            this.btnPDFExport.Size = new System.Drawing.Size(160, 38);
+            this.btnPDFExport.TabIndex = 31;
+            this.btnPDFExport.Text = "Export to PDF";
+            this.btnPDFExport.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnPDFExport.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnPDFExport.UseVisualStyleBackColor = true;
+            this.btnPDFExport.Click += new System.EventHandler(this.btnPDFExport_Click);
+            // 
+            // btnHelp
+            // 
+            this.btnHelp.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHelp.Image = global::TheByteClubPOS.Properties.Resources.HelpIcon;
+            this.btnHelp.Location = new System.Drawing.Point(1033, 42);
+            this.btnHelp.Name = "btnHelp";
+            this.btnHelp.Size = new System.Drawing.Size(89, 38);
+            this.btnHelp.TabIndex = 32;
+            this.btnHelp.Text = "Help";
+            this.btnHelp.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnHelp.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnHelp.UseVisualStyleBackColor = true;
+            this.btnHelp.Click += new System.EventHandler(this.button1_Click);
+            // 
             // ViewProducts
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -638,6 +668,8 @@
             this.BackgroundImage = global::TheByteClubPOS.Properties.Resources.Background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1142, 674);
+            this.Controls.Add(this.btnHelp);
+            this.Controls.Add(this.btnPDFExport);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.cmbSupplierFilter);
             this.Controls.Add(this.cmbCategoryFilter);
@@ -726,5 +758,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn22;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn20;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn21;
+        private System.Windows.Forms.Button btnPDFExport;
+        private System.Windows.Forms.Button btnHelp;
     }
 }

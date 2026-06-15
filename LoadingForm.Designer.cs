@@ -115,11 +115,11 @@
             this.lblSystemName.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.lblSystemName.AutoSize = true;
             this.lblSystemName.Font = new System.Drawing.Font("Segoe UI", 21.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSystemName.Location = new System.Drawing.Point(211, 322);
+            this.lblSystemName.Location = new System.Drawing.Point(395, 322);
             this.lblSystemName.Name = "lblSystemName";
-            this.lblSystemName.Size = new System.Drawing.Size(668, 40);
+            this.lblSystemName.Size = new System.Drawing.Size(300, 40);
             this.lblSystemName.TabIndex = 2;
-            this.lblSystemName.Text = "Point Of Sale && Inventory Management System";
+            this.lblSystemName.Text = "Point Of Sale System";
             // 
             // tmrProgressBar
             // 

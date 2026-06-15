@@ -285,6 +285,7 @@ namespace TheByteClubPOS
             this.paymentMethodTableAdapter.Fill(this.dsSamsLiqourShop.PaymentMethod);
             // TODO: This line of code loads data into the 'dsSamsLiqourShop.Product' table. You can move, or remove it, as needed.
             this.productTableAdapter.Fill(this.dsSamsLiqourShop.Product);
+            productBindingSource.Filter = "Product_Status = 'Active'";
 
             // 2. GRAB THE REAL EMPLOYEE ID FROM THE PARENT FORM
             if (this.MdiParent != null)
@@ -313,6 +314,7 @@ namespace TheByteClubPOS
         private void txtUsername_TextChanged(object sender, EventArgs e)
         {
             productTableAdapter.FillByProductSearch(dsSamsLiqourShop.Product, txtSearch.Text);
+            productBindingSource.Filter = "Product_Status = 'Active'";
         }
 
         private void lblLoyaltyProgram_Click(object sender, EventArgs e)

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Printing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -36,6 +37,36 @@ namespace TheByteClubPOS
             {
                 MessageBox.Show("Error loading sales history summary: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void ApplyFilters()
+        {
+            // 1. Validate dates so the range is always logical
+            if (dtpStartDate.Value > dtpEndDate.Value)
+            {
+                // Automatically sync the end date to the start date 
+                // to prevent the filter from breaking.
+                dtpEndDate.Value = dtpStartDate.Value;
+            }
+
+            // Use explicit formatting to prevent regional setting errors
+            string startStr = dtpStartDate.Value.Date.ToString("yyyy-MM-dd 00:00:00");
+            string endStr = dtpEndDate.Value.Date.AddDays(1).AddSeconds(-1).ToString("yyyy-MM-dd HH:mm:ss");
+
+            string dateFilter = $"Sale_DateTime >= '{startStr}' AND Sale_DateTime <= '{endStr}'";
+
+            string searchFilter = "";
+            if (txtSearch.Text != "Search by Customer, Employee or Promo..." && !string.IsNullOrWhiteSpace(txtSearch.Text))
+            {
+                string safeSearch = txtSearch.Text.Replace("'", "''").Trim();
+                searchFilter = $"(Customer_Details LIKE '%{safeSearch}%' OR Employee_Name LIKE '%{safeSearch}%' OR Sale_Status LIKE '%{safeSearch}%' OR SaleType_Name LIKE '%{safeSearch}%' OR Sale_Discount_Name LIKE '%{safeSearch}%')";
+            }
+
+            // Combine them safely
+            if (!string.IsNullOrEmpty(searchFilter))
+                salesSummaryInnerJoinDTBindingSource.Filter = $"{dateFilter} AND {searchFilter}";
+            else
+                salesSummaryInnerJoinDTBindingSource.Filter = dateFilter;
         }
 
         private void ManageSales_Load(object sender, EventArgs e)
@@ -75,13 +106,21 @@ namespace TheByteClubPOS
         private void btnRefresh_Click(object sender, EventArgs e)
         {
             txtSearch.Clear(); // Wipe the search input window to reset display bounds
+            txtSearch.Text = "Search by Customer, Employee or Promo...";
+            txtSearch.ForeColor = Color.Gray;
+
+            // Reset date pickers to today
+            dtpStartDate.Value = DateTime.Now;
+            dtpEndDate.Value = DateTime.Now;
+
+            salesSummaryInnerJoinDTBindingSource.Filter = ""; // Clears both text and date filters
             LoadMasterSalesData();
         }
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
             // Ignore filtering if the textbox currently contains the placeholder text
-            if (txtSearch.Text == "Search by Customer, Employee or Promo..." && txtSearch.ForeColor == Color.Gray)
+            /*if (txtSearch.Text == "Search by Customer, Employee or Promo..." && txtSearch.ForeColor == Color.Gray)
             {
                 return;
             }
@@ -114,7 +153,8 @@ namespace TheByteClubPOS
             {
                 // Soft warning log to prevent crashing if temporary syntax string clipping occurs during rapid input
                 System.Diagnostics.Debug.WriteLine("Search string processing mismatch: " + ex.Message);
-            }
+            }*/
+            ApplyFilters();
         }
 
         private void txtSearch_Enter(object sender, EventArgs e)
@@ -134,6 +174,71 @@ namespace TheByteClubPOS
                 txtSearch.ForeColor = Color.Gray;
                 salesSummaryInnerJoinDTBindingSource.Filter = ""; // Clear active filters
             }
+        }
+
+        private void btnHelp_Click(object sender, EventArgs e)
+        {
+            string helpMessage = "Sales History Help:\n\n" +
+                         "1. View Sales: The table lists all completed transactions.\n" +
+                         "2. Search: Use the search bar to find sales by Date or Receipt Number.\n" +
+                         "3. Print: Select a row and click 'Print Invoice' to generate a copy.\n" +
+                         "4. Filter: Use the date range pickers to narrow down historical data.\n\n" +
+                         "If you need further assistance, please contact the IT Administrator.";
+
+            MessageBox.Show(helpMessage, "Help - Manage Sales History", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void btnFilterDate_Click(object sender, EventArgs e)
+        {
+            /*try
+            {
+                // Get the dates from the pickers
+                DateTime startDate = dtpStartDate.Value.Date;
+                DateTime endDate = dtpEndDate.Value.Date.AddDays(1).AddSeconds(-1); // Includes the full end day
+
+                // Construct a filter string based on the Sale_DateTime column
+                // We use the '#' delimiter which is standard for DataView filters with dates
+                string dateFilter = $"Sale_DateTime >= '{startDate}' AND Sale_DateTime <= '{endDate}'";
+
+                // Apply the filter to the BindingSource
+                salesSummaryInnerJoinDTBindingSource.Filter = dateFilter;
+
+                salesSummaryInnerJoinDTDataGridView.ClearSelection();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error filtering by date: " + ex.Message);
+            }*/
+
+            // 1. Reset pickers to a default "wide" range (e.g., beginning of time to now)
+            // You can also use DateTime.MinValue if you want to include every sale ever
+            dtpStartDate.Value = new DateTime(2000, 1, 1);
+            dtpEndDate.Value = DateTime.Now;
+
+            // 2. Do NOT clear the search box or reload the data from the database.
+            // By calling ApplyFilters(), the system will automatically rebuild 
+            // the filter string using the new (wide) date range AND your existing text search.
+            ApplyFilters();
+        }
+
+        private void dtpStartDate_ValueChanged(object sender, EventArgs e)
+        {
+            ApplyFilters();
+        }
+
+        private void dtpEndDate_ValueChanged(object sender, EventArgs e)
+        {
+            ApplyFilters();
+        }
+
+        private void btnPDFExport_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void printDocument1_PrintPage_1(object sender, PrintPageEventArgs e)
+        {
+            
         }
     }
 }

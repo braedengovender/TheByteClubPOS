@@ -82,12 +82,12 @@
             this.btnSuppliers = new System.Windows.Forms.Button();
             this.btnLogout = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.dsSamsLiqourShop = new TheByteClubPOS.dsSamsLiqourShop();
             this.employeeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.employeeTableAdapter = new TheByteClubPOS.dsSamsLiqourShopTableAdapters.EmployeeTableAdapter();
             this.tableAdapterManager = new TheByteClubPOS.dsSamsLiqourShopTableAdapters.TableAdapterManager();
-            this.button1 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -325,33 +325,33 @@
             this.troubleshootingToolStripMenuItem});
             this.helpToolStripMenuItem.Image = global::TheByteClubPOS.Properties.Resources.HelpIcon;
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(68, 28);
-            this.helpToolStripMenuItem.Text = "Help";
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(109, 28);
+            this.helpToolStripMenuItem.Text = "System Help";
             this.helpToolStripMenuItem.Click += new System.EventHandler(this.helpToolStripMenuItem_Click);
             // 
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(158, 6);
+            this.toolStripSeparator5.Size = new System.Drawing.Size(177, 6);
             // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.aboutToolStripMenuItem.Text = "About...";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
             // userGuideToolStripMenuItem
             // 
             this.userGuideToolStripMenuItem.Name = "userGuideToolStripMenuItem";
-            this.userGuideToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.userGuideToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.userGuideToolStripMenuItem.Text = "User Guide";
             this.userGuideToolStripMenuItem.Click += new System.EventHandler(this.userGuideToolStripMenuItem_Click);
             // 
             // troubleshootingToolStripMenuItem
             // 
             this.troubleshootingToolStripMenuItem.Name = "troubleshootingToolStripMenuItem";
-            this.troubleshootingToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.troubleshootingToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.troubleshootingToolStripMenuItem.Text = "Troubleshooting";
             this.troubleshootingToolStripMenuItem.Click += new System.EventHandler(this.troubleshootingToolStripMenuItem_Click);
             // 
@@ -590,6 +590,17 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(12, 418);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(201, 45);
+            this.button1.TabIndex = 9;
+            this.button1.Text = "Supplier Map";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.SystemColors.ActiveCaption;
@@ -633,17 +644,6 @@
             this.tableAdapterManager.SaleTypeTableAdapter = null;
             this.tableAdapterManager.SupplierTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = TheByteClubPOS.dsSamsLiqourShopTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(12, 418);
-            this.button1.Margin = new System.Windows.Forms.Padding(2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(201, 45);
-            this.button1.TabIndex = 9;
-            this.button1.Text = "Supplier Map";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // MainForm
             // 

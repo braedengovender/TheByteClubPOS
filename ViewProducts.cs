@@ -1,4 +1,11 @@
-﻿using System;
+﻿using iText.IO.Font.Constants;
+using iText.Kernel.Colors;
+using iText.Kernel.Font;
+using iText.Kernel.Pdf;
+using iText.Layout;
+using iText.Layout.Element;
+using iText.Layout.Properties;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,6 +24,13 @@ namespace TheByteClubPOS
         // Class-level flag to prevent the dropdowns from fighting each other
         bool isResetting = false;
 
+        public void SetAdminButtonsVisibility(bool isVisible)
+        {
+            btnAddNewProduct.Visible = isVisible;
+            btnEditProduct.Visible = isVisible;
+            btnDeactivateProduct.Visible = isVisible;
+        }
+
         public ViewProducts()
         {
             InitializeComponent();
@@ -24,8 +38,6 @@ namespace TheByteClubPOS
 
         private void ViewProducts_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'dsSamsLiqourShop.Product' table. You can move, or remove it, as needed.
-            this.productTableAdapter.Fill(this.dsSamsLiqourShop.Product);
             // TODO: This line of code loads data into the 'dsSamsLiqourShop.Product' table. You can move, or remove it, as needed.
             this.productTableAdapter.Fill(this.dsSamsLiqourShop.Product);
             // TODO: This line of code loads data into the 'dsSamsLiqourShop.Supplier' table. You can move, or remove it, as needed.
@@ -84,11 +96,11 @@ namespace TheByteClubPOS
 
                     if (stockQty <= reorderQty)
                     {
-                        row.DefaultCellStyle.BackColor = Color.MistyRose; // Soft warning red/pink color
+                        row.DefaultCellStyle.BackColor = System.Drawing.Color.MistyRose; // Soft warning red/pink color
                     }
                     else
                     {
-                        row.DefaultCellStyle.BackColor = Color.White; // Reset back to white if stock is safe
+                        row.DefaultCellStyle.BackColor = System.Drawing.Color.White; // Reset back to white if stock is safe
                     }
                 }
             }
@@ -205,10 +217,17 @@ namespace TheByteClubPOS
             try
             {
                 txtProductSearch.Clear();
+                txtProductSearch.Text = "Search by name, brand or barcode...";
+                txtProductSearch.ForeColor = System.Drawing.Color.DarkGray;
 
                 // 2. Re-execute the Fill method to pull live records from the database
                 // (Verify that 'productInnerJoinDTTableAdapter' matches your exact backend utility name)
                 this.productInnerJoinDTTableAdapter.FillWithDetails(this.dsSamsLiqourShop.ProductInnerJoinDT);
+
+                // Clear any active filters
+                this.productInnerJoinDTBindingSource.Filter = "";
+                cmbCategoryFilter.SelectedIndex = -1;
+                cmbSupplierFilter.SelectedIndex = -1;
 
                 // 3. User feedback confirmation
                 MessageBox.Show("Product database successfully refreshed.",
@@ -277,7 +296,7 @@ namespace TheByteClubPOS
         private void btnClear_Click(object sender, EventArgs e)
         {
             txtProductSearch.Text = "Search by name, brand or barcode...";
-            txtProductSearch.ForeColor = Color.DarkGray; // Fade it out to look like a placeholder again
+            txtProductSearch.ForeColor = System.Drawing.Color.DarkGray; // Fade it out to look like a placeholder again
 
             // Remove the filter string from the binding source completely
             this.productInnerJoinDTBindingSource.Filter = "";
@@ -293,7 +312,7 @@ namespace TheByteClubPOS
             if (txtProductSearch.Text == "Search by name, brand or barcode...")
             {
                 txtProductSearch.Text = "";
-                txtProductSearch.ForeColor = Color.Black; // Change text color back to normal typing color
+                txtProductSearch.ForeColor = System.Drawing.Color.Black; // Change text color back to normal typing color
             }
         }
 
@@ -303,7 +322,7 @@ namespace TheByteClubPOS
             if (string.IsNullOrWhiteSpace(txtProductSearch.Text))
             {
                 txtProductSearch.Text = "Search by name, brand or barcode...";
-                txtProductSearch.ForeColor = Color.DarkGray; // Fade it out to look like a placeholder again
+                txtProductSearch.ForeColor = System.Drawing.Color.DarkGray; // Fade it out to look like a placeholder again
             }
         }
 
@@ -489,6 +508,90 @@ namespace TheByteClubPOS
                 return;
             }
                 
+        }
+
+        private void btnPDFExport_Click(object sender, EventArgs e)
+        {
+            if (productInnerJoinDTDataGridView.Rows.Count == 0)
+    {
+                MessageBox.Show("No data available to export.", "Export Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            SaveFileDialog saveFileDialog = new SaveFileDialog { Filter = "PDF Documents (*.pdf)|*.pdf", FileName = "Inventory_Report_" + DateTime.Now.ToString("yyyyMMdd") };
+
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    Cursor.Current = Cursors.WaitCursor;
+                    PdfWriter writer = new PdfWriter(saveFileDialog.FileName);
+                    PdfDocument pdf = new PdfDocument(writer);
+                    Document document = new Document(pdf, iText.Kernel.Geom.PageSize.A4.Rotate());
+                    document.SetMargins(20, 20, 20, 20);
+
+                    // Create Bold Font for the Title
+                    PdfFont boldFont = PdfFontFactory.CreateFont(StandardFonts.HELVETICA_BOLD);
+
+                    document.Add(new Paragraph("Product Inventory Report")
+                        .SetFontSize(16)
+                        .SetFont(boldFont));
+
+                    // Identify columns to export (excluding image)
+                    List<DataGridViewColumn> visibleCols = productInnerJoinDTDataGridView.Columns
+                        .Cast<DataGridViewColumn>().Where(c => c.Name != "Product_Image").ToList();
+
+                    // Set table to use all available width
+                    Table table = new Table(visibleCols.Count).UseAllAvailableWidth();
+                    table.SetFixedLayout();
+
+                    // Add Headers
+                    foreach (var col in visibleCols)
+                    {
+                        table.AddHeaderCell(new Cell().Add(new Paragraph(col.HeaderText)
+                            .SetFontSize(8)
+                            .SetFont(boldFont)) // Using the boldFont object
+                            .SetBackgroundColor(ColorConstants.LIGHT_GRAY) // Using ColorConstants
+                            .SetTextAlignment(TextAlignment.CENTER));
+                    }
+
+                    // Add Rows
+                    foreach (DataGridViewRow row in productInnerJoinDTDataGridView.Rows)
+                    {
+                        if (row.IsNewRow) continue;
+                        foreach (var col in visibleCols)
+                        {
+                            string cellValue = row.Cells[col.Index].Value?.ToString() ?? "";
+                            table.AddCell(new Cell().Add(new Paragraph(cellValue)
+                                .SetFontSize(7)) // Smaller font to prevent cutoff
+                                .SetTextAlignment(TextAlignment.CENTER));
+                        }
+                    }
+
+                    document.Add(table);
+                    document.Close();
+
+                    Cursor.Current = Cursors.Default;
+                    MessageBox.Show("Export successful!");
+                }
+                catch (Exception ex)
+                {
+                    Cursor.Current = Cursors.Default;
+                    MessageBox.Show("Error: " + ex.Message);
+                }
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string helpMessage = "Product Management Help:                                                          \n\n" +
+                 "• Search: Type in the search box to find items by name or barcode.              \n" +
+                 "• Filters: Use the Category or Supplier dropdowns to narrow your list.         \n" +
+                 "• Low Stock: Items highlighted in red are at or below reorder levels.          \n" +
+                 "• Actions: Select a row to 'Deactivate' or 'Reactivate' a product.              \n" +
+                 "• Export: Use the Excel or PDF buttons to save your current view as a report.  ";
+
+            MessageBox.Show(helpMessage, "How to use Product Inventory", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }
