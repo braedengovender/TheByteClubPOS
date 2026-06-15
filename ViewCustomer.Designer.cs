@@ -268,7 +268,7 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(284, 60);
+            this.textBox1.Location = new System.Drawing.Point(622, 60);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(373, 20);
             this.textBox1.TabIndex = 2;
@@ -281,9 +281,9 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(31, 60);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(229, 20);
+            this.label1.Size = new System.Drawing.Size(553, 20);
             this.label1.TabIndex = 3;
-            this.label1.Text = "Search by customer First name";
+            this.label1.Text = "Search By Customer First Name, Last Name, Email, ID Number or Username:";
             // 
             // groupBox1
             // 

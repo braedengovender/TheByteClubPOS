@@ -41,7 +41,8 @@ namespace TheByteClubPOS
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            customerTableAdapter.FillByCustomerFirstName(dsSamsLiqourShop.Customer, textBox1.Text);
+            //customerTableAdapter.FillByCustomerFirstName(dsSamsLiqourShop.Customer, textBox1.Text);
+            customerTableAdapter.FillByDynamicCustomerSearch(dsSamsLiqourShop.Customer, textBox1.Text);
         }
 
         private void customerDataGridView_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)

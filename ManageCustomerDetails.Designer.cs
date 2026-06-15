@@ -60,11 +60,11 @@
             System.Windows.Forms.Label label30;
             System.Windows.Forms.Label label31;
             System.Windows.Forms.Label label32;
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ManageCustomerDetails));
             System.Windows.Forms.Label label27;
             System.Windows.Forms.Label label23;
             System.Windows.Forms.Label customer_PostalCodeLabel1;
             System.Windows.Forms.Label customer_CountryLabel1;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ManageCustomerDetails));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.button1 = new System.Windows.Forms.Button();
@@ -75,6 +75,8 @@
             this.dtpRegistrationDateTime = new System.Windows.Forms.DateTimePicker();
             this.txtLoyaltyPointsBalance = new System.Windows.Forms.TextBox();
             this.panel8 = new System.Windows.Forms.Panel();
+            this.txtCountry = new System.Windows.Forms.TextBox();
+            this.txtSuburb = new System.Windows.Forms.TextBox();
             this.maskedTextBox2 = new System.Windows.Forms.MaskedTextBox();
             this.txtUnitNumber = new System.Windows.Forms.TextBox();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
@@ -105,6 +107,8 @@
             this.customer_LoyaltyPointsBalanceTextBox = new System.Windows.Forms.TextBox();
             this.customer_StatusTextBox1 = new System.Windows.Forms.TextBox();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.customer_CountryTextBox = new System.Windows.Forms.TextBox();
+            this.customer_PostalCodeTextBox = new System.Windows.Forms.TextBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label5 = new System.Windows.Forms.Label();
             this.customer_UnitNameTextBox = new System.Windows.Forms.TextBox();
@@ -183,10 +187,6 @@
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.customerTableAdapter1 = new TheByteClubPOS.dsSamsLiqourShopTableAdapters.CustomerTableAdapter();
             this.tableAdapterManager1 = new TheByteClubPOS.dsSamsLiqourShopTableAdapters.TableAdapterManager();
-            this.txtSuburb = new System.Windows.Forms.TextBox();
-            this.txtCountry = new System.Windows.Forms.TextBox();
-            this.customer_PostalCodeTextBox = new System.Windows.Forms.TextBox();
-            this.customer_CountryTextBox = new System.Windows.Forms.TextBox();
             customer_FirstNameLabel2 = new System.Windows.Forms.Label();
             customer_LastNameLabel2 = new System.Windows.Forms.Label();
             customer_IDNumberLabel2 = new System.Windows.Forms.Label();
@@ -498,7 +498,7 @@
             // 
             label24.AutoSize = true;
             label24.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label24.Location = new System.Drawing.Point(15, 204);
+            label24.Location = new System.Drawing.Point(268, 171);
             label24.Name = "label24";
             label24.Size = new System.Drawing.Size(73, 20);
             label24.TabIndex = 26;
@@ -508,7 +508,7 @@
             // 
             label25.AutoSize = true;
             label25.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label25.Location = new System.Drawing.Point(268, 167);
+            label25.Location = new System.Drawing.Point(16, 210);
             label25.Name = "label25";
             label25.Size = new System.Drawing.Size(40, 20);
             label25.TabIndex = 24;
@@ -563,6 +563,46 @@
             label32.Size = new System.Drawing.Size(129, 20);
             label32.TabIndex = 44;
             label32.Text = "Customer Status:";
+            // 
+            // label27
+            // 
+            label27.AutoSize = true;
+            label27.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label27.Location = new System.Drawing.Point(16, 132);
+            label27.Name = "label27";
+            label27.Size = new System.Drawing.Size(63, 20);
+            label27.TabIndex = 118;
+            label27.Text = "Suburb:";
+            // 
+            // label23
+            // 
+            label23.AutoSize = true;
+            label23.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label23.Location = new System.Drawing.Point(16, 168);
+            label23.Name = "label23";
+            label23.Size = new System.Drawing.Size(70, 20);
+            label23.TabIndex = 120;
+            label23.Text = "Country:";
+            // 
+            // customer_PostalCodeLabel1
+            // 
+            customer_PostalCodeLabel1.AutoSize = true;
+            customer_PostalCodeLabel1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            customer_PostalCodeLabel1.Location = new System.Drawing.Point(268, 132);
+            customer_PostalCodeLabel1.Name = "customer_PostalCodeLabel1";
+            customer_PostalCodeLabel1.Size = new System.Drawing.Size(95, 20);
+            customer_PostalCodeLabel1.TabIndex = 46;
+            customer_PostalCodeLabel1.Text = "Postal Code:";
+            // 
+            // customer_CountryLabel1
+            // 
+            customer_CountryLabel1.AutoSize = true;
+            customer_CountryLabel1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            customer_CountryLabel1.Location = new System.Drawing.Point(16, 165);
+            customer_CountryLabel1.Name = "customer_CountryLabel1";
+            customer_CountryLabel1.Size = new System.Drawing.Size(70, 20);
+            customer_CountryLabel1.TabIndex = 48;
+            customer_CountryLabel1.Text = "Country:";
             // 
             // tabControl1
             // 
@@ -697,6 +737,24 @@
             this.panel8.Size = new System.Drawing.Size(525, 241);
             this.panel8.TabIndex = 115;
             // 
+            // txtCountry
+            // 
+            this.txtCountry.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCountry.Location = new System.Drawing.Point(138, 167);
+            this.txtCountry.Name = "txtCountry";
+            this.txtCountry.ReadOnly = true;
+            this.txtCountry.Size = new System.Drawing.Size(124, 26);
+            this.txtCountry.TabIndex = 11;
+            this.txtCountry.Text = "South Africa";
+            // 
+            // txtSuburb
+            // 
+            this.txtSuburb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSuburb.Location = new System.Drawing.Point(138, 128);
+            this.txtSuburb.Name = "txtSuburb";
+            this.txtSuburb.Size = new System.Drawing.Size(123, 26);
+            this.txtSuburb.TabIndex = 9;
+            // 
             // maskedTextBox2
             // 
             this.maskedTextBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -755,9 +813,9 @@
             "North West",
             "Western Cape",
             "Free State"});
-            this.cmbProvince.Location = new System.Drawing.Point(137, 201);
+            this.cmbProvince.Location = new System.Drawing.Point(372, 168);
             this.cmbProvince.Name = "cmbProvince";
-            this.cmbProvince.Size = new System.Drawing.Size(123, 28);
+            this.cmbProvince.Size = new System.Drawing.Size(146, 28);
             this.cmbProvince.TabIndex = 13;
             // 
             // label19
@@ -782,9 +840,9 @@
             // txtCity
             // 
             this.txtCity.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCity.Location = new System.Drawing.Point(372, 166);
+            this.txtCity.Location = new System.Drawing.Point(138, 210);
             this.txtCity.Name = "txtCity";
-            this.txtCity.Size = new System.Drawing.Size(146, 26);
+            this.txtCity.Size = new System.Drawing.Size(124, 26);
             this.txtCity.TabIndex = 12;
             // 
             // panel7
@@ -1031,6 +1089,24 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(525, 241);
             this.panel4.TabIndex = 47;
+            // 
+            // customer_CountryTextBox
+            // 
+            this.customer_CountryTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customerBindingSource, "Customer_Country", true));
+            this.customer_CountryTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.customer_CountryTextBox.Location = new System.Drawing.Point(130, 164);
+            this.customer_CountryTextBox.Name = "customer_CountryTextBox";
+            this.customer_CountryTextBox.Size = new System.Drawing.Size(117, 26);
+            this.customer_CountryTextBox.TabIndex = 31;
+            // 
+            // customer_PostalCodeTextBox
+            // 
+            this.customer_PostalCodeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customerBindingSource, "Customer_PostalCode", true));
+            this.customer_PostalCodeTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.customer_PostalCodeTextBox.Location = new System.Drawing.Point(374, 128);
+            this.customer_PostalCodeTextBox.Name = "customer_PostalCodeTextBox";
+            this.customer_PostalCodeTextBox.Size = new System.Drawing.Size(133, 26);
+            this.customer_PostalCodeTextBox.TabIndex = 30;
             // 
             // pictureBox3
             // 
@@ -1593,13 +1669,13 @@
             this.label35.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label35.Location = new System.Drawing.Point(26, 53);
             this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(229, 20);
+            this.label35.Size = new System.Drawing.Size(553, 20);
             this.label35.TabIndex = 11;
-            this.label35.Text = "Search by customer First name";
+            this.label35.Text = "Search By Customer First Name, Last Name, Email, ID Number or Username:";
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(279, 53);
+            this.textBox1.Location = new System.Drawing.Point(585, 55);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(373, 20);
             this.textBox1.TabIndex = 39;
@@ -1786,82 +1862,6 @@
             this.tableAdapterManager1.SaleTypeTableAdapter = null;
             this.tableAdapterManager1.SupplierTableAdapter = null;
             this.tableAdapterManager1.UpdateOrder = TheByteClubPOS.dsSamsLiqourShopTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            // 
-            // txtSuburb
-            // 
-            this.txtSuburb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSuburb.Location = new System.Drawing.Point(138, 128);
-            this.txtSuburb.Name = "txtSuburb";
-            this.txtSuburb.Size = new System.Drawing.Size(123, 26);
-            this.txtSuburb.TabIndex = 9;
-            // 
-            // label27
-            // 
-            label27.AutoSize = true;
-            label27.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label27.Location = new System.Drawing.Point(16, 132);
-            label27.Name = "label27";
-            label27.Size = new System.Drawing.Size(63, 20);
-            label27.TabIndex = 118;
-            label27.Text = "Suburb:";
-            // 
-            // txtCountry
-            // 
-            this.txtCountry.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCountry.Location = new System.Drawing.Point(138, 167);
-            this.txtCountry.Name = "txtCountry";
-            this.txtCountry.ReadOnly = true;
-            this.txtCountry.Size = new System.Drawing.Size(124, 26);
-            this.txtCountry.TabIndex = 11;
-            this.txtCountry.Text = "South Africa";
-            // 
-            // label23
-            // 
-            label23.AutoSize = true;
-            label23.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label23.Location = new System.Drawing.Point(16, 168);
-            label23.Name = "label23";
-            label23.Size = new System.Drawing.Size(70, 20);
-            label23.TabIndex = 120;
-            label23.Text = "Country:";
-            // 
-            // customer_PostalCodeTextBox
-            // 
-            this.customer_PostalCodeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customerBindingSource, "Customer_PostalCode", true));
-            this.customer_PostalCodeTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.customer_PostalCodeTextBox.Location = new System.Drawing.Point(374, 128);
-            this.customer_PostalCodeTextBox.Name = "customer_PostalCodeTextBox";
-            this.customer_PostalCodeTextBox.Size = new System.Drawing.Size(133, 26);
-            this.customer_PostalCodeTextBox.TabIndex = 30;
-            // 
-            // customer_PostalCodeLabel1
-            // 
-            customer_PostalCodeLabel1.AutoSize = true;
-            customer_PostalCodeLabel1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            customer_PostalCodeLabel1.Location = new System.Drawing.Point(268, 132);
-            customer_PostalCodeLabel1.Name = "customer_PostalCodeLabel1";
-            customer_PostalCodeLabel1.Size = new System.Drawing.Size(95, 20);
-            customer_PostalCodeLabel1.TabIndex = 46;
-            customer_PostalCodeLabel1.Text = "Postal Code:";
-            // 
-            // customer_CountryTextBox
-            // 
-            this.customer_CountryTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customerBindingSource, "Customer_Country", true));
-            this.customer_CountryTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.customer_CountryTextBox.Location = new System.Drawing.Point(130, 164);
-            this.customer_CountryTextBox.Name = "customer_CountryTextBox";
-            this.customer_CountryTextBox.Size = new System.Drawing.Size(117, 26);
-            this.customer_CountryTextBox.TabIndex = 31;
-            // 
-            // customer_CountryLabel1
-            // 
-            customer_CountryLabel1.AutoSize = true;
-            customer_CountryLabel1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            customer_CountryLabel1.Location = new System.Drawing.Point(16, 165);
-            customer_CountryLabel1.Name = "customer_CountryLabel1";
-            customer_CountryLabel1.Size = new System.Drawing.Size(70, 20);
-            customer_CountryLabel1.TabIndex = 48;
-            customer_CountryLabel1.Text = "Country:";
             // 
             // ManageCustomerDetails
             // 
