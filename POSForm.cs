@@ -266,6 +266,10 @@ namespace TheByteClubPOS
 
         private void POSForm_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'dsSamsLiqourShop.Payment' table. You can move, or remove it, as needed.
+            this.paymentTableAdapter.Fill(this.dsSamsLiqourShop.Payment);
+            // TODO: This line of code loads data into the 'dsSamsLiqourShop.Payment' table. You can move, or remove it, as needed.
+            this.paymentTableAdapter.Fill(this.dsSamsLiqourShop.Payment);
             // TODO: This line of code loads data into the 'dsSamsLiqourShop.Discount' table. You can move, or remove it, as needed.
             this.discountTableAdapter.Fill(this.dsSamsLiqourShop.Discount);
             // Filter out the automatic item-level discount rows so the cashier cannot manually pick them
@@ -1078,6 +1082,34 @@ namespace TheByteClubPOS
                     amountTendered = getTotal();
                     // Fallback success message for Card/Other payment types
                     //MessageBox.Show("Sale completed successfully! ID: " + saleID + " Loyalty points earned: " + loyaltyPointsEarned, "Transaction Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
+                try
+                {
+                    // 1. Grab the ID from the selected combo box item (matches how you did comboBox2)
+                    int chosenPaymentMethodID = Convert.ToInt32(comboBox1.SelectedValue);
+
+                    // 2. Determine if loyalty points were used as the actual payment currency
+                    int loyaltyPointsUsed = paymentMethodUsed.Equals("Loyalty Points", StringComparison.OrdinalIgnoreCase)
+                        ? (int)Math.Ceiling(getTotal())
+                        : 0;
+
+                    // 3. Fire the insert query directly into your Payment table
+                    this.paymentTableAdapter.Insert(
+                        saleID,                       // Sale_ID
+                        chosenPaymentMethodID,        // PaymentMethod_ID
+                        DateTime.Now,                 // Payment_DateTime
+                        loyaltyPointsUsed,            // Payment_LoyaltyPointsUsed
+                        getTotal(),                   // Payment_AmountPaid (The actual total of the cart)
+                        amountTendered,               // Payment_AmountTendered
+                        changeDue,                    // Payment_ChangeAmount
+                        "Completed"                        // Payment_Status
+                    );
+                }
+                catch (Exception ex)
+                {
+                    // Small defensive warning log just in case a payment constraint fails, without crashing receipt generation
+                    MessageBox.Show($"Sale logged, but failed to record payment details: {ex.Message}", "Payment Logging Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
 
                 string msgPrompt = "";
