@@ -81,11 +81,31 @@
             this.btnFilterDate = new System.Windows.Forms.Button();
             this.btnPDFExport = new System.Windows.Forms.Button();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
+            this.paymentInnerJoinDTBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.paymentInnerJoinDTTableAdapter = new TheByteClubPOS.dsSamsLiqourShopTableAdapters.PaymentInnerJoinDTTableAdapter();
+            this.fillBySaleIDToolStrip = new System.Windows.Forms.ToolStrip();
+            this.saleIDToolStripLabel = new System.Windows.Forms.ToolStripLabel();
+            this.saleIDToolStripTextBox = new System.Windows.Forms.ToolStripTextBox();
+            this.fillBySaleIDToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.paymentInnerJoinDTDataGridView = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn25 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn26 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn27 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn28 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn29 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn30 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn31 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn32 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn33 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn34 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dsSamsLiqourShop)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.salesSummaryInnerJoinDTBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.salesSummaryInnerJoinDTDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.saleLinesSummaryInnerJoinDTBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.saleLinesSummaryInnerJoinDTDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.paymentInnerJoinDTBindingSource)).BeginInit();
+            this.fillBySaleIDToolStrip.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.paymentInnerJoinDTDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // lblManageSales
@@ -106,7 +126,7 @@
             this.lblTransactionDetails.AutoSize = true;
             this.lblTransactionDetails.BackColor = System.Drawing.Color.Transparent;
             this.lblTransactionDetails.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTransactionDetails.Location = new System.Drawing.Point(27, 402);
+            this.lblTransactionDetails.Location = new System.Drawing.Point(27, 429);
             this.lblTransactionDetails.Name = "lblTransactionDetails";
             this.lblTransactionDetails.Size = new System.Drawing.Size(573, 31);
             this.lblTransactionDetails.TabIndex = 6;
@@ -172,7 +192,8 @@
             this.salesSummaryInnerJoinDTDataGridView.Location = new System.Drawing.Point(33, 184);
             this.salesSummaryInnerJoinDTDataGridView.Name = "salesSummaryInnerJoinDTDataGridView";
             this.salesSummaryInnerJoinDTDataGridView.ReadOnly = true;
-            this.salesSummaryInnerJoinDTDataGridView.Size = new System.Drawing.Size(1077, 241);
+            this.salesSummaryInnerJoinDTDataGridView.RowHeadersVisible = false;
+            this.salesSummaryInnerJoinDTDataGridView.Size = new System.Drawing.Size(1077, 187);
             this.salesSummaryInnerJoinDTDataGridView.TabIndex = 7;
             this.salesSummaryInnerJoinDTDataGridView.SelectionChanged += new System.EventHandler(this.salesSummaryInnerJoinDTDataGridView_SelectionChanged);
             // 
@@ -332,10 +353,11 @@
             this.dataGridViewTextBoxColumn17,
             this.dataGridViewTextBoxColumn19});
             this.saleLinesSummaryInnerJoinDTDataGridView.DataSource = this.saleLinesSummaryInnerJoinDTBindingSource;
-            this.saleLinesSummaryInnerJoinDTDataGridView.Location = new System.Drawing.Point(33, 491);
+            this.saleLinesSummaryInnerJoinDTDataGridView.Location = new System.Drawing.Point(33, 512);
             this.saleLinesSummaryInnerJoinDTDataGridView.Name = "saleLinesSummaryInnerJoinDTDataGridView";
             this.saleLinesSummaryInnerJoinDTDataGridView.ReadOnly = true;
-            this.saleLinesSummaryInnerJoinDTDataGridView.Size = new System.Drawing.Size(1077, 154);
+            this.saleLinesSummaryInnerJoinDTDataGridView.RowHeadersVisible = false;
+            this.saleLinesSummaryInnerJoinDTDataGridView.Size = new System.Drawing.Size(1077, 130);
             this.saleLinesSummaryInnerJoinDTDataGridView.TabIndex = 8;
             // 
             // Product_Image
@@ -528,12 +550,151 @@
             this.btnPDFExport.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnPDFExport.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnPDFExport.UseVisualStyleBackColor = true;
-            this.btnPDFExport.Visible = false;
             this.btnPDFExport.Click += new System.EventHandler(this.btnPDFExport_Click);
             // 
             // printDocument1
             // 
             this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage_1);
+            // 
+            // paymentInnerJoinDTBindingSource
+            // 
+            this.paymentInnerJoinDTBindingSource.DataMember = "PaymentInnerJoinDT";
+            this.paymentInnerJoinDTBindingSource.DataSource = this.dsSamsLiqourShop;
+            // 
+            // paymentInnerJoinDTTableAdapter
+            // 
+            this.paymentInnerJoinDTTableAdapter.ClearBeforeFill = true;
+            // 
+            // fillBySaleIDToolStrip
+            // 
+            this.fillBySaleIDToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.saleIDToolStripLabel,
+            this.saleIDToolStripTextBox,
+            this.fillBySaleIDToolStripButton});
+            this.fillBySaleIDToolStrip.Location = new System.Drawing.Point(0, 0);
+            this.fillBySaleIDToolStrip.Name = "fillBySaleIDToolStrip";
+            this.fillBySaleIDToolStrip.Size = new System.Drawing.Size(1134, 25);
+            this.fillBySaleIDToolStrip.TabIndex = 38;
+            this.fillBySaleIDToolStrip.Text = "fillBySaleIDToolStrip";
+            // 
+            // saleIDToolStripLabel
+            // 
+            this.saleIDToolStripLabel.Name = "saleIDToolStripLabel";
+            this.saleIDToolStripLabel.Size = new System.Drawing.Size(41, 22);
+            this.saleIDToolStripLabel.Text = "saleID:";
+            // 
+            // saleIDToolStripTextBox
+            // 
+            this.saleIDToolStripTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.saleIDToolStripTextBox.Name = "saleIDToolStripTextBox";
+            this.saleIDToolStripTextBox.Size = new System.Drawing.Size(100, 25);
+            // 
+            // fillBySaleIDToolStripButton
+            // 
+            this.fillBySaleIDToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.fillBySaleIDToolStripButton.Name = "fillBySaleIDToolStripButton";
+            this.fillBySaleIDToolStripButton.Size = new System.Drawing.Size(71, 22);
+            this.fillBySaleIDToolStripButton.Text = "FillBySaleID";
+            this.fillBySaleIDToolStripButton.Click += new System.EventHandler(this.fillBySaleIDToolStripButton_Click);
+            // 
+            // paymentInnerJoinDTDataGridView
+            // 
+            this.paymentInnerJoinDTDataGridView.AllowUserToAddRows = false;
+            this.paymentInnerJoinDTDataGridView.AllowUserToDeleteRows = false;
+            this.paymentInnerJoinDTDataGridView.AutoGenerateColumns = false;
+            this.paymentInnerJoinDTDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.paymentInnerJoinDTDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.paymentInnerJoinDTDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn25,
+            this.dataGridViewTextBoxColumn26,
+            this.dataGridViewTextBoxColumn27,
+            this.dataGridViewTextBoxColumn28,
+            this.dataGridViewTextBoxColumn29,
+            this.dataGridViewTextBoxColumn30,
+            this.dataGridViewTextBoxColumn31,
+            this.dataGridViewTextBoxColumn32,
+            this.dataGridViewTextBoxColumn33,
+            this.dataGridViewTextBoxColumn34});
+            this.paymentInnerJoinDTDataGridView.DataSource = this.paymentInnerJoinDTBindingSource;
+            this.paymentInnerJoinDTDataGridView.Location = new System.Drawing.Point(32, 386);
+            this.paymentInnerJoinDTDataGridView.Name = "paymentInnerJoinDTDataGridView";
+            this.paymentInnerJoinDTDataGridView.ReadOnly = true;
+            this.paymentInnerJoinDTDataGridView.RowHeadersVisible = false;
+            this.paymentInnerJoinDTDataGridView.Size = new System.Drawing.Size(1077, 71);
+            this.paymentInnerJoinDTDataGridView.TabIndex = 38;
+            // 
+            // dataGridViewTextBoxColumn25
+            // 
+            this.dataGridViewTextBoxColumn25.DataPropertyName = "Payment_ID";
+            this.dataGridViewTextBoxColumn25.HeaderText = "Payment_ID";
+            this.dataGridViewTextBoxColumn25.Name = "dataGridViewTextBoxColumn25";
+            this.dataGridViewTextBoxColumn25.ReadOnly = true;
+            this.dataGridViewTextBoxColumn25.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn26
+            // 
+            this.dataGridViewTextBoxColumn26.DataPropertyName = "Sale_ID";
+            this.dataGridViewTextBoxColumn26.HeaderText = "Sale_ID";
+            this.dataGridViewTextBoxColumn26.Name = "dataGridViewTextBoxColumn26";
+            this.dataGridViewTextBoxColumn26.ReadOnly = true;
+            this.dataGridViewTextBoxColumn26.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn27
+            // 
+            this.dataGridViewTextBoxColumn27.DataPropertyName = "PaymentMethod_ID";
+            this.dataGridViewTextBoxColumn27.HeaderText = "PaymentMethod_ID";
+            this.dataGridViewTextBoxColumn27.Name = "dataGridViewTextBoxColumn27";
+            this.dataGridViewTextBoxColumn27.ReadOnly = true;
+            this.dataGridViewTextBoxColumn27.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn28
+            // 
+            this.dataGridViewTextBoxColumn28.DataPropertyName = "PaymentMethod_Name";
+            this.dataGridViewTextBoxColumn28.HeaderText = "Payment Method";
+            this.dataGridViewTextBoxColumn28.Name = "dataGridViewTextBoxColumn28";
+            this.dataGridViewTextBoxColumn28.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn29
+            // 
+            this.dataGridViewTextBoxColumn29.DataPropertyName = "Payment_DateTime";
+            this.dataGridViewTextBoxColumn29.HeaderText = "Date & Time";
+            this.dataGridViewTextBoxColumn29.Name = "dataGridViewTextBoxColumn29";
+            this.dataGridViewTextBoxColumn29.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn30
+            // 
+            this.dataGridViewTextBoxColumn30.DataPropertyName = "Payment_LoyaltyPointsUsed";
+            this.dataGridViewTextBoxColumn30.HeaderText = "Loyalty Points Used";
+            this.dataGridViewTextBoxColumn30.Name = "dataGridViewTextBoxColumn30";
+            this.dataGridViewTextBoxColumn30.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn31
+            // 
+            this.dataGridViewTextBoxColumn31.DataPropertyName = "Payment_AmountPaid";
+            this.dataGridViewTextBoxColumn31.HeaderText = "Amount Paid";
+            this.dataGridViewTextBoxColumn31.Name = "dataGridViewTextBoxColumn31";
+            this.dataGridViewTextBoxColumn31.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn32
+            // 
+            this.dataGridViewTextBoxColumn32.DataPropertyName = "Payment_AmountTendered";
+            this.dataGridViewTextBoxColumn32.HeaderText = "Amount Tendered";
+            this.dataGridViewTextBoxColumn32.Name = "dataGridViewTextBoxColumn32";
+            this.dataGridViewTextBoxColumn32.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn33
+            // 
+            this.dataGridViewTextBoxColumn33.DataPropertyName = "Payment_ChangeAmount";
+            this.dataGridViewTextBoxColumn33.HeaderText = "Change Amount";
+            this.dataGridViewTextBoxColumn33.Name = "dataGridViewTextBoxColumn33";
+            this.dataGridViewTextBoxColumn33.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn34
+            // 
+            this.dataGridViewTextBoxColumn34.DataPropertyName = "Payment_Status";
+            this.dataGridViewTextBoxColumn34.HeaderText = "Status";
+            this.dataGridViewTextBoxColumn34.Name = "dataGridViewTextBoxColumn34";
+            this.dataGridViewTextBoxColumn34.ReadOnly = true;
             // 
             // ManageSales
             // 
@@ -542,6 +703,8 @@
             this.BackgroundImage = global::TheByteClubPOS.Properties.Resources.Background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1134, 715);
+            this.Controls.Add(this.paymentInnerJoinDTDataGridView);
+            this.Controls.Add(this.fillBySaleIDToolStrip);
             this.Controls.Add(this.btnPDFExport);
             this.Controls.Add(this.btnFilterDate);
             this.Controls.Add(this.dtpEndDate);
@@ -564,6 +727,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.salesSummaryInnerJoinDTDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.saleLinesSummaryInnerJoinDTBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.saleLinesSummaryInnerJoinDTDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.paymentInnerJoinDTBindingSource)).EndInit();
+            this.fillBySaleIDToolStrip.ResumeLayout(false);
+            this.fillBySaleIDToolStrip.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.paymentInnerJoinDTDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -615,5 +782,22 @@
         private System.Windows.Forms.Button btnFilterDate;
         private System.Windows.Forms.Button btnPDFExport;
         private System.Drawing.Printing.PrintDocument printDocument1;
+        private System.Windows.Forms.BindingSource paymentInnerJoinDTBindingSource;
+        private dsSamsLiqourShopTableAdapters.PaymentInnerJoinDTTableAdapter paymentInnerJoinDTTableAdapter;
+        private System.Windows.Forms.ToolStrip fillBySaleIDToolStrip;
+        private System.Windows.Forms.ToolStripLabel saleIDToolStripLabel;
+        private System.Windows.Forms.ToolStripTextBox saleIDToolStripTextBox;
+        private System.Windows.Forms.ToolStripButton fillBySaleIDToolStripButton;
+        private System.Windows.Forms.DataGridView paymentInnerJoinDTDataGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn25;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn26;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn27;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn28;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn29;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn30;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn31;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn32;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn33;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn34;
     }
 }

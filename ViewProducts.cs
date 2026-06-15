@@ -513,7 +513,7 @@ namespace TheByteClubPOS
         private void btnPDFExport_Click(object sender, EventArgs e)
         {
             if (productInnerJoinDTDataGridView.Rows.Count == 0)
-    {
+            {
                 MessageBox.Show("No data available to export.", "Export Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }

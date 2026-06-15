@@ -1,4 +1,10 @@
-﻿using System;
+﻿using iText.IO.Font.Constants;
+using iText.Kernel.Colors;
+using iText.Kernel.Font;
+using iText.Kernel.Pdf;
+using iText.Layout.Element;
+using iText.Layout.Properties;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,6 +14,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using iText.Layout;
 
 namespace TheByteClubPOS
 {
@@ -90,6 +97,8 @@ namespace TheByteClubPOS
 
                     // 4. Pass the selected ID to filter the line items table breakdown automatically
                     this.saleLinesSummaryInnerJoinDTTableAdapter.FillBySaleID(this.dsSamsLiqourShop.SaleLinesSummaryInnerJoinDT, selectedSaleID);
+
+                    this.paymentInnerJoinDTTableAdapter.FillBySaleID(this.dsSamsLiqourShop.PaymentInnerJoinDT, selectedSaleID);
                 }
                 catch (Exception ex)
                 {
@@ -111,7 +120,7 @@ namespace TheByteClubPOS
             {
                 txtSearch.Clear(); // Wipe the search input window to reset display bounds
                 txtSearch.Text = "Search by Customer, Employee or Promo...";
-                txtSearch.ForeColor = Color.Gray;
+                txtSearch.ForeColor = System.Drawing.Color.Gray;
 
                 // Reset date pickers to today
                 dtpStartDate.Value = DateTime.Now;
@@ -166,10 +175,10 @@ namespace TheByteClubPOS
 
         private void txtSearch_Enter(object sender, EventArgs e)
         {
-            if (txtSearch.Text == "Search by Customer, Employee or Promo..." && txtSearch.ForeColor == Color.Gray)
+            if (txtSearch.Text == "Search by Customer, Employee or Promo..." && txtSearch.ForeColor ==  System.Drawing.Color.Gray)
             {
                 txtSearch.Text = "";
-                txtSearch.ForeColor = Color.Black; // Change text back to crisp typing color
+                txtSearch.ForeColor = System.Drawing.Color.Black; // Change text back to crisp typing color
             }
         }
 
@@ -178,7 +187,7 @@ namespace TheByteClubPOS
             if (string.IsNullOrWhiteSpace(txtSearch.Text))
             {
                 txtSearch.Text = "Search by Customer, Employee or Promo...";
-                txtSearch.ForeColor = Color.Gray;
+                txtSearch.ForeColor = System.Drawing.Color.Gray;
                 salesSummaryInnerJoinDTBindingSource.Filter = ""; // Clear active filters
             }
         }
@@ -240,12 +249,115 @@ namespace TheByteClubPOS
 
         private void btnPDFExport_Click(object sender, EventArgs e)
         {
+            // 1. Verify there is actual filtered/loaded data in the main sales grid to export
+            if (salesSummaryInnerJoinDTDataGridView.Rows.Count == 0)
+            {
+                MessageBox.Show("No sales data available to export.", "Export Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
+            // 2. Set up the Save Dialog specifically for a Sales History Report
+            SaveFileDialog saveFileDialog = new SaveFileDialog
+            {
+                Filter = "PDF Documents (*.pdf)|*.pdf",
+                FileName = "Sales_History_Report_" + DateTime.Now.ToString("yyyyMMdd")
+            };
+
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    // Set cursor to wait mode while building the document
+                    Cursor.Current = Cursors.WaitCursor;
+
+                    // 3. Initialize iText PDF Engine components
+                    PdfWriter writer = new PdfWriter(saveFileDialog.FileName);
+                    PdfDocument pdf = new PdfDocument(writer);
+
+                    // Using A4 Landscape (Rotate) to ensure wide columns (Customer, Employee names) don't clip
+                    Document document = new Document(pdf, iText.Kernel.Geom.PageSize.A4.Rotate());
+                    document.SetMargins(20, 20, 20, 20);
+
+                    // Create Bold Font for the Header text elements
+                    PdfFont boldFont = PdfFontFactory.CreateFont(StandardFonts.HELVETICA_BOLD);
+
+                    // Add the Document Header Title
+                    document.Add(new Paragraph("Sales History Summary Report")
+                        .SetFontSize(16)
+                        .SetFont(boldFont));
+
+                    // Optional Subheader tracking when the export was processed
+                    document.Add(new Paragraph($"Generated on: {DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")}")
+                        .SetFontSize(9));
+
+                    // 4. Extract all currently visible columns from the master sales grid
+                    List<DataGridViewColumn> visibleCols = salesSummaryInnerJoinDTDataGridView.Columns
+                        .Cast<DataGridViewColumn>()
+                        .Where(c => c.Visible).ToList();
+
+                    // Set iText table layout based on visible count
+                    Table table = new Table(visibleCols.Count).UseAllAvailableWidth();
+                    table.SetFixedLayout();
+
+                    // 5. Build and format Table Header Cells
+                    foreach (var col in visibleCols)
+                    {
+                        table.AddHeaderCell(new Cell().Add(new Paragraph(col.HeaderText)
+                            .SetFontSize(8)
+                            .SetFont(boldFont))
+                            .SetBackgroundColor(ColorConstants.LIGHT_GRAY)
+                            .SetTextAlignment(TextAlignment.CENTER));
+                    }
+
+                    // 6. Loop through rows and systematically append data cells
+                    foreach (DataGridViewRow row in salesSummaryInnerJoinDTDataGridView.Rows)
+                    {
+                        // Skip the blank insertion row if the grid allows inline adding
+                        if (row.IsNewRow) continue;
+
+                        foreach (var col in visibleCols)
+                        {
+                            string cellValue = row.Cells[col.Index].Value?.ToString() ?? "";
+
+                            // Formats cell strings nicely, applying small clean text sizes
+                            table.AddCell(new Cell().Add(new Paragraph(cellValue)
+                                .SetFontSize(7))
+                                .SetTextAlignment(TextAlignment.CENTER));
+                        }
+                    }
+
+                    // 7. Flush the generated layout to the local storage target
+                    document.Add(table);
+                    document.Close();
+
+                    // Reset cursor and alert the operator
+                    Cursor.Current = Cursors.Default;
+                    MessageBox.Show("Sales report exported successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    Cursor.Current = Cursors.Default;
+                    MessageBox.Show("An error occurred during export: " + ex.Message, "Export Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
 
         private void printDocument1_PrintPage_1(object sender, PrintPageEventArgs e)
         {
             
+        }
+
+        private void fillBySaleIDToolStripButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.paymentInnerJoinDTTableAdapter.FillBySaleID(this.dsSamsLiqourShop.PaymentInnerJoinDT, ((int)(System.Convert.ChangeType(saleIDToolStripTextBox.Text, typeof(int)))));
+            }
+            catch (System.Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+            }
+
         }
     }
 }

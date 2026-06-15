@@ -58,6 +58,8 @@ namespace TheByteClubPOS {
         
         private ProductInnerJoinDTDataTable tableProductInnerJoinDT;
         
+        private PaymentInnerJoinDTDataTable tablePaymentInnerJoinDT;
+        
         private CartDataTable tableCart;
         
         private global::System.Data.DataRelation relationFK_Category_Discount;
@@ -115,6 +117,8 @@ namespace TheByteClubPOS {
         private global::System.Data.DataRelation relationFK_Product_Category1;
         
         private global::System.Data.DataRelation relationFK_Category_Discount1;
+        
+        private global::System.Data.DataRelation relationFK_Payment_PaymentMethod1;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -194,6 +198,9 @@ namespace TheByteClubPOS {
                 }
                 if ((ds.Tables["ProductInnerJoinDT"] != null)) {
                     base.Tables.Add(new ProductInnerJoinDTDataTable(ds.Tables["ProductInnerJoinDT"]));
+                }
+                if ((ds.Tables["PaymentInnerJoinDT"] != null)) {
+                    base.Tables.Add(new PaymentInnerJoinDTDataTable(ds.Tables["PaymentInnerJoinDT"]));
                 }
                 if ((ds.Tables["Cart"] != null)) {
                     base.Tables.Add(new CartDataTable(ds.Tables["Cart"]));
@@ -390,6 +397,16 @@ namespace TheByteClubPOS {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public PaymentInnerJoinDTDataTable PaymentInnerJoinDT {
+            get {
+                return this.tablePaymentInnerJoinDT;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
         public CartDataTable Cart {
             get {
                 return this.tableCart;
@@ -513,6 +530,9 @@ namespace TheByteClubPOS {
                 }
                 if ((ds.Tables["ProductInnerJoinDT"] != null)) {
                     base.Tables.Add(new ProductInnerJoinDTDataTable(ds.Tables["ProductInnerJoinDT"]));
+                }
+                if ((ds.Tables["PaymentInnerJoinDT"] != null)) {
+                    base.Tables.Add(new PaymentInnerJoinDTDataTable(ds.Tables["PaymentInnerJoinDT"]));
                 }
                 if ((ds.Tables["Cart"] != null)) {
                     base.Tables.Add(new CartDataTable(ds.Tables["Cart"]));
@@ -652,6 +672,12 @@ namespace TheByteClubPOS {
                     this.tableProductInnerJoinDT.InitVars();
                 }
             }
+            this.tablePaymentInnerJoinDT = ((PaymentInnerJoinDTDataTable)(base.Tables["PaymentInnerJoinDT"]));
+            if ((initTable == true)) {
+                if ((this.tablePaymentInnerJoinDT != null)) {
+                    this.tablePaymentInnerJoinDT.InitVars();
+                }
+            }
             this.tableCart = ((CartDataTable)(base.Tables["Cart"]));
             if ((initTable == true)) {
                 if ((this.tableCart != null)) {
@@ -686,6 +712,7 @@ namespace TheByteClubPOS {
             this.relationFK_Product_Discount1 = this.Relations["FK_Product_Discount1"];
             this.relationFK_Product_Category1 = this.Relations["FK_Product_Category1"];
             this.relationFK_Category_Discount1 = this.Relations["FK_Category_Discount1"];
+            this.relationFK_Payment_PaymentMethod1 = this.Relations["FK_Payment_PaymentMethod1"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -730,6 +757,8 @@ namespace TheByteClubPOS {
             base.Tables.Add(this.tableSaleLinesSummaryInnerJoinDT);
             this.tableProductInnerJoinDT = new ProductInnerJoinDTDataTable();
             base.Tables.Add(this.tableProductInnerJoinDT);
+            this.tablePaymentInnerJoinDT = new PaymentInnerJoinDTDataTable();
+            base.Tables.Add(this.tablePaymentInnerJoinDT);
             this.tableCart = new CartDataTable();
             base.Tables.Add(this.tableCart);
             this.relationFK_Category_Discount = new global::System.Data.DataRelation("FK_Category_Discount", new global::System.Data.DataColumn[] {
@@ -844,6 +873,10 @@ namespace TheByteClubPOS {
                         this.tableDiscount.Discount_IDColumn}, new global::System.Data.DataColumn[] {
                         this.tableProductInnerJoinDT.Discount_IDColumn}, false);
             this.Relations.Add(this.relationFK_Category_Discount1);
+            this.relationFK_Payment_PaymentMethod1 = new global::System.Data.DataRelation("FK_Payment_PaymentMethod1", new global::System.Data.DataColumn[] {
+                        this.tablePaymentInnerJoinDT.PaymentMethod_IDColumn}, new global::System.Data.DataColumn[] {
+                        this.tablePayment.PaymentMethod_IDColumn}, false);
+            this.Relations.Add(this.relationFK_Payment_PaymentMethod1);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -945,6 +978,12 @@ namespace TheByteClubPOS {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private bool ShouldSerializeProductInnerJoinDT() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private bool ShouldSerializePaymentInnerJoinDT() {
             return false;
         }
         
@@ -1059,6 +1098,9 @@ namespace TheByteClubPOS {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public delegate void ProductInnerJoinDTRowChangeEventHandler(object sender, ProductInnerJoinDTRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public delegate void PaymentInnerJoinDTRowChangeEventHandler(object sender, PaymentInnerJoinDTRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public delegate void CartRowChangeEventHandler(object sender, CartRowChangeEvent e);
@@ -8047,6 +8089,402 @@ namespace TheByteClubPOS {
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class PaymentInnerJoinDTDataTable : global::System.Data.TypedTableBase<PaymentInnerJoinDTRow> {
+            
+            private global::System.Data.DataColumn columnPayment_ID;
+            
+            private global::System.Data.DataColumn columnSale_ID;
+            
+            private global::System.Data.DataColumn columnPaymentMethod_ID;
+            
+            private global::System.Data.DataColumn columnPaymentMethod_Name;
+            
+            private global::System.Data.DataColumn columnPayment_DateTime;
+            
+            private global::System.Data.DataColumn columnPayment_LoyaltyPointsUsed;
+            
+            private global::System.Data.DataColumn columnPayment_AmountPaid;
+            
+            private global::System.Data.DataColumn columnPayment_AmountTendered;
+            
+            private global::System.Data.DataColumn columnPayment_ChangeAmount;
+            
+            private global::System.Data.DataColumn columnPayment_Status;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public PaymentInnerJoinDTDataTable() {
+                this.TableName = "PaymentInnerJoinDT";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal PaymentInnerJoinDTDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected PaymentInnerJoinDTDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn Payment_IDColumn {
+                get {
+                    return this.columnPayment_ID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn Sale_IDColumn {
+                get {
+                    return this.columnSale_ID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn PaymentMethod_IDColumn {
+                get {
+                    return this.columnPaymentMethod_ID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn PaymentMethod_NameColumn {
+                get {
+                    return this.columnPaymentMethod_Name;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn Payment_DateTimeColumn {
+                get {
+                    return this.columnPayment_DateTime;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn Payment_LoyaltyPointsUsedColumn {
+                get {
+                    return this.columnPayment_LoyaltyPointsUsed;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn Payment_AmountPaidColumn {
+                get {
+                    return this.columnPayment_AmountPaid;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn Payment_AmountTenderedColumn {
+                get {
+                    return this.columnPayment_AmountTendered;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn Payment_ChangeAmountColumn {
+                get {
+                    return this.columnPayment_ChangeAmount;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn Payment_StatusColumn {
+                get {
+                    return this.columnPayment_Status;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public PaymentInnerJoinDTRow this[int index] {
+                get {
+                    return ((PaymentInnerJoinDTRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event PaymentInnerJoinDTRowChangeEventHandler PaymentInnerJoinDTRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event PaymentInnerJoinDTRowChangeEventHandler PaymentInnerJoinDTRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event PaymentInnerJoinDTRowChangeEventHandler PaymentInnerJoinDTRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event PaymentInnerJoinDTRowChangeEventHandler PaymentInnerJoinDTRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void AddPaymentInnerJoinDTRow(PaymentInnerJoinDTRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public PaymentInnerJoinDTRow AddPaymentInnerJoinDTRow(int Sale_ID, int PaymentMethod_ID, string PaymentMethod_Name, System.DateTime Payment_DateTime, int Payment_LoyaltyPointsUsed, decimal Payment_AmountPaid, decimal Payment_AmountTendered, decimal Payment_ChangeAmount, string Payment_Status) {
+                PaymentInnerJoinDTRow rowPaymentInnerJoinDTRow = ((PaymentInnerJoinDTRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        null,
+                        Sale_ID,
+                        PaymentMethod_ID,
+                        PaymentMethod_Name,
+                        Payment_DateTime,
+                        Payment_LoyaltyPointsUsed,
+                        Payment_AmountPaid,
+                        Payment_AmountTendered,
+                        Payment_ChangeAmount,
+                        Payment_Status};
+                rowPaymentInnerJoinDTRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowPaymentInnerJoinDTRow);
+                return rowPaymentInnerJoinDTRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public PaymentInnerJoinDTRow FindByPayment_ID(int Payment_ID) {
+                return ((PaymentInnerJoinDTRow)(this.Rows.Find(new object[] {
+                            Payment_ID})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                PaymentInnerJoinDTDataTable cln = ((PaymentInnerJoinDTDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new PaymentInnerJoinDTDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal void InitVars() {
+                this.columnPayment_ID = base.Columns["Payment_ID"];
+                this.columnSale_ID = base.Columns["Sale_ID"];
+                this.columnPaymentMethod_ID = base.Columns["PaymentMethod_ID"];
+                this.columnPaymentMethod_Name = base.Columns["PaymentMethod_Name"];
+                this.columnPayment_DateTime = base.Columns["Payment_DateTime"];
+                this.columnPayment_LoyaltyPointsUsed = base.Columns["Payment_LoyaltyPointsUsed"];
+                this.columnPayment_AmountPaid = base.Columns["Payment_AmountPaid"];
+                this.columnPayment_AmountTendered = base.Columns["Payment_AmountTendered"];
+                this.columnPayment_ChangeAmount = base.Columns["Payment_ChangeAmount"];
+                this.columnPayment_Status = base.Columns["Payment_Status"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            private void InitClass() {
+                this.columnPayment_ID = new global::System.Data.DataColumn("Payment_ID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPayment_ID);
+                this.columnSale_ID = new global::System.Data.DataColumn("Sale_ID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSale_ID);
+                this.columnPaymentMethod_ID = new global::System.Data.DataColumn("PaymentMethod_ID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPaymentMethod_ID);
+                this.columnPaymentMethod_Name = new global::System.Data.DataColumn("PaymentMethod_Name", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPaymentMethod_Name);
+                this.columnPayment_DateTime = new global::System.Data.DataColumn("Payment_DateTime", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPayment_DateTime);
+                this.columnPayment_LoyaltyPointsUsed = new global::System.Data.DataColumn("Payment_LoyaltyPointsUsed", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPayment_LoyaltyPointsUsed);
+                this.columnPayment_AmountPaid = new global::System.Data.DataColumn("Payment_AmountPaid", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPayment_AmountPaid);
+                this.columnPayment_AmountTendered = new global::System.Data.DataColumn("Payment_AmountTendered", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPayment_AmountTendered);
+                this.columnPayment_ChangeAmount = new global::System.Data.DataColumn("Payment_ChangeAmount", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPayment_ChangeAmount);
+                this.columnPayment_Status = new global::System.Data.DataColumn("Payment_Status", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPayment_Status);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnPayment_ID}, true));
+                this.columnPayment_ID.AutoIncrement = true;
+                this.columnPayment_ID.AutoIncrementSeed = -1;
+                this.columnPayment_ID.AutoIncrementStep = -1;
+                this.columnPayment_ID.AllowDBNull = false;
+                this.columnPayment_ID.ReadOnly = true;
+                this.columnPayment_ID.Unique = true;
+                this.columnSale_ID.AllowDBNull = false;
+                this.columnPaymentMethod_ID.AllowDBNull = false;
+                this.columnPaymentMethod_Name.AllowDBNull = false;
+                this.columnPaymentMethod_Name.MaxLength = 50;
+                this.columnPayment_DateTime.AllowDBNull = false;
+                this.columnPayment_AmountPaid.AllowDBNull = false;
+                this.columnPayment_Status.AllowDBNull = false;
+                this.columnPayment_Status.MaxLength = 20;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public PaymentInnerJoinDTRow NewPaymentInnerJoinDTRow() {
+                return ((PaymentInnerJoinDTRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new PaymentInnerJoinDTRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(PaymentInnerJoinDTRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.PaymentInnerJoinDTRowChanged != null)) {
+                    this.PaymentInnerJoinDTRowChanged(this, new PaymentInnerJoinDTRowChangeEvent(((PaymentInnerJoinDTRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.PaymentInnerJoinDTRowChanging != null)) {
+                    this.PaymentInnerJoinDTRowChanging(this, new PaymentInnerJoinDTRowChangeEvent(((PaymentInnerJoinDTRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.PaymentInnerJoinDTRowDeleted != null)) {
+                    this.PaymentInnerJoinDTRowDeleted(this, new PaymentInnerJoinDTRowChangeEvent(((PaymentInnerJoinDTRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.PaymentInnerJoinDTRowDeleting != null)) {
+                    this.PaymentInnerJoinDTRowDeleting(this, new PaymentInnerJoinDTRowChangeEvent(((PaymentInnerJoinDTRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void RemovePaymentInnerJoinDTRow(PaymentInnerJoinDTRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                dsSamsLiqourShop ds = new dsSamsLiqourShop();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "PaymentInnerJoinDTDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class CartDataTable : global::System.Data.TypedTableBase<CartRow> {
             
             private global::System.Data.DataColumn columnProduct_ID;
@@ -9345,6 +9783,17 @@ namespace TheByteClubPOS {
                 }
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["FK_Payment_Sale1"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public PaymentInnerJoinDTRow PaymentInnerJoinDTRow {
+                get {
+                    return ((PaymentInnerJoinDTRow)(this.GetParentRow(this.Table.ParentRelations["FK_Payment_PaymentMethod1"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_Payment_PaymentMethod1"]);
                 }
             }
             
@@ -12103,6 +12552,196 @@ namespace TheByteClubPOS {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
+        public partial class PaymentInnerJoinDTRow : global::System.Data.DataRow {
+            
+            private PaymentInnerJoinDTDataTable tablePaymentInnerJoinDT;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal PaymentInnerJoinDTRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tablePaymentInnerJoinDT = ((PaymentInnerJoinDTDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int Payment_ID {
+                get {
+                    return ((int)(this[this.tablePaymentInnerJoinDT.Payment_IDColumn]));
+                }
+                set {
+                    this[this.tablePaymentInnerJoinDT.Payment_IDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int Sale_ID {
+                get {
+                    return ((int)(this[this.tablePaymentInnerJoinDT.Sale_IDColumn]));
+                }
+                set {
+                    this[this.tablePaymentInnerJoinDT.Sale_IDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int PaymentMethod_ID {
+                get {
+                    return ((int)(this[this.tablePaymentInnerJoinDT.PaymentMethod_IDColumn]));
+                }
+                set {
+                    this[this.tablePaymentInnerJoinDT.PaymentMethod_IDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string PaymentMethod_Name {
+                get {
+                    return ((string)(this[this.tablePaymentInnerJoinDT.PaymentMethod_NameColumn]));
+                }
+                set {
+                    this[this.tablePaymentInnerJoinDT.PaymentMethod_NameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public System.DateTime Payment_DateTime {
+                get {
+                    return ((global::System.DateTime)(this[this.tablePaymentInnerJoinDT.Payment_DateTimeColumn]));
+                }
+                set {
+                    this[this.tablePaymentInnerJoinDT.Payment_DateTimeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int Payment_LoyaltyPointsUsed {
+                get {
+                    try {
+                        return ((int)(this[this.tablePaymentInnerJoinDT.Payment_LoyaltyPointsUsedColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Payment_LoyaltyPointsUsed\' in table \'PaymentInnerJoinDT\' is" +
+                                " DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePaymentInnerJoinDT.Payment_LoyaltyPointsUsedColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal Payment_AmountPaid {
+                get {
+                    return ((decimal)(this[this.tablePaymentInnerJoinDT.Payment_AmountPaidColumn]));
+                }
+                set {
+                    this[this.tablePaymentInnerJoinDT.Payment_AmountPaidColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal Payment_AmountTendered {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablePaymentInnerJoinDT.Payment_AmountTenderedColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Payment_AmountTendered\' in table \'PaymentInnerJoinDT\' is DB" +
+                                "Null.", e);
+                    }
+                }
+                set {
+                    this[this.tablePaymentInnerJoinDT.Payment_AmountTenderedColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal Payment_ChangeAmount {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablePaymentInnerJoinDT.Payment_ChangeAmountColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Payment_ChangeAmount\' in table \'PaymentInnerJoinDT\' is DBNu" +
+                                "ll.", e);
+                    }
+                }
+                set {
+                    this[this.tablePaymentInnerJoinDT.Payment_ChangeAmountColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string Payment_Status {
+                get {
+                    return ((string)(this[this.tablePaymentInnerJoinDT.Payment_StatusColumn]));
+                }
+                set {
+                    this[this.tablePaymentInnerJoinDT.Payment_StatusColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsPayment_LoyaltyPointsUsedNull() {
+                return this.IsNull(this.tablePaymentInnerJoinDT.Payment_LoyaltyPointsUsedColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetPayment_LoyaltyPointsUsedNull() {
+                this[this.tablePaymentInnerJoinDT.Payment_LoyaltyPointsUsedColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsPayment_AmountTenderedNull() {
+                return this.IsNull(this.tablePaymentInnerJoinDT.Payment_AmountTenderedColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetPayment_AmountTenderedNull() {
+                this[this.tablePaymentInnerJoinDT.Payment_AmountTenderedColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsPayment_ChangeAmountNull() {
+                return this.IsNull(this.tablePaymentInnerJoinDT.Payment_ChangeAmountColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetPayment_ChangeAmountNull() {
+                this[this.tablePaymentInnerJoinDT.Payment_ChangeAmountColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public PaymentRow[] GetPaymentRows() {
+                if ((this.Table.ChildRelations["FK_Payment_PaymentMethod1"] == null)) {
+                    return new PaymentRow[0];
+                }
+                else {
+                    return ((PaymentRow[])(base.GetChildRows(this.Table.ChildRelations["FK_Payment_PaymentMethod1"])));
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
         public partial class CartRow : global::System.Data.DataRow {
             
             private CartDataTable tableCart;
@@ -12847,6 +13486,40 @@ namespace TheByteClubPOS {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public ProductInnerJoinDTRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public class PaymentInnerJoinDTRowChangeEvent : global::System.EventArgs {
+            
+            private PaymentInnerJoinDTRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public PaymentInnerJoinDTRowChangeEvent(PaymentInnerJoinDTRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public PaymentInnerJoinDTRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -22318,6 +22991,189 @@ FROM            Product AS p INNER JOIN
     }
     
     /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class PaymentInnerJoinDTTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
+        
+        private global::System.Data.SqlClient.SqlConnection _connection;
+        
+        private global::System.Data.SqlClient.SqlTransaction _transaction;
+        
+        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public PaymentInnerJoinDTTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        internal global::System.Data.SqlClient.SqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        internal global::System.Data.SqlClient.SqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "PaymentInnerJoinDT";
+            tableMapping.ColumnMappings.Add("Payment_ID", "Payment_ID");
+            tableMapping.ColumnMappings.Add("Sale_ID", "Sale_ID");
+            tableMapping.ColumnMappings.Add("PaymentMethod_ID", "PaymentMethod_ID");
+            tableMapping.ColumnMappings.Add("PaymentMethod_Name", "PaymentMethod_Name");
+            tableMapping.ColumnMappings.Add("Payment_DateTime", "Payment_DateTime");
+            tableMapping.ColumnMappings.Add("Payment_LoyaltyPointsUsed", "Payment_LoyaltyPointsUsed");
+            tableMapping.ColumnMappings.Add("Payment_AmountPaid", "Payment_AmountPaid");
+            tableMapping.ColumnMappings.Add("Payment_AmountTendered", "Payment_AmountTendered");
+            tableMapping.ColumnMappings.Add("Payment_ChangeAmount", "Payment_ChangeAmount");
+            tableMapping.ColumnMappings.Add("Payment_Status", "Payment_Status");
+            this._adapter.TableMappings.Add(tableMapping);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = global::TheByteClubPOS.Properties.Settings.Default.GroupWst15ConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = @"SELECT        Payment.Payment_ID, Payment.Sale_ID, Payment.PaymentMethod_ID, PaymentMethod.PaymentMethod_Name, Payment.Payment_DateTime, Payment.Payment_LoyaltyPointsUsed, Payment.Payment_AmountPaid, 
+                         Payment.Payment_AmountTendered, Payment.Payment_ChangeAmount, Payment.Payment_Status
+FROM            Payment INNER JOIN
+                         PaymentMethod ON Payment.PaymentMethod_ID = PaymentMethod.PaymentMethod_ID
+WHERE        (Payment.Sale_ID = @saleID)";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@saleID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Sale_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int FillBySaleID(dsSamsLiqourShop.PaymentInnerJoinDTDataTable dataTable, int saleID) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(saleID));
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual dsSamsLiqourShop.PaymentInnerJoinDTDataTable GetDataBySaleID(int saleID) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(saleID));
+            dsSamsLiqourShop.PaymentInnerJoinDTDataTable dataTable = new dsSamsLiqourShop.PaymentInnerJoinDTDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+    }
+    
+    /// <summary>
     ///TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
     ///</summary>
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -22704,6 +23560,24 @@ FROM            Product AS p INNER JOIN
                     allChangedRows.AddRange(updatedRows);
                 }
             }
+            if ((this._customerTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Customer.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._customerTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._employeeTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Employee.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._employeeTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
             if ((this._supplierTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.Supplier.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
@@ -22722,39 +23596,12 @@ FROM            Product AS p INNER JOIN
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._employeeTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Employee.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._saleTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Sale.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._employeeTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._customerTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Customer.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._customerTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._paymentMethodTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.PaymentMethod.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._paymentMethodTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._productTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Product.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._productTableAdapter.Update(updatedRows));
+                    result = (result + this._saleTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -22767,12 +23614,21 @@ FROM            Product AS p INNER JOIN
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._saleTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Sale.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._productTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Product.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._saleTableAdapter.Update(updatedRows));
+                    result = (result + this._productTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._paymentMethodTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.PaymentMethod.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._paymentMethodTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -22829,6 +23685,22 @@ FROM            Product AS p INNER JOIN
                     allAddedRows.AddRange(addedRows);
                 }
             }
+            if ((this._customerTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Customer.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._customerTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._employeeTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Employee.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._employeeTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
             if ((this._supplierTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.Supplier.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
@@ -22845,35 +23717,11 @@ FROM            Product AS p INNER JOIN
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._employeeTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Employee.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._saleTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Sale.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._employeeTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._customerTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Customer.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._customerTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._paymentMethodTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.PaymentMethod.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._paymentMethodTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._productTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Product.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._productTableAdapter.Update(addedRows));
+                    result = (result + this._saleTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -22885,11 +23733,19 @@ FROM            Product AS p INNER JOIN
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._saleTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Sale.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._productTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Product.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._saleTableAdapter.Update(addedRows));
+                    result = (result + this._productTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._paymentMethodTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.PaymentMethod.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._paymentMethodTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -22951,19 +23807,11 @@ FROM            Product AS p INNER JOIN
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._saleTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Sale.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._paymentMethodTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.PaymentMethod.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._saleTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._purchaseOrderTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.PurchaseOrder.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._purchaseOrderTableAdapter.Update(deletedRows));
+                    result = (result + this._paymentMethodTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -22975,27 +23823,19 @@ FROM            Product AS p INNER JOIN
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._paymentMethodTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.PaymentMethod.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._purchaseOrderTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.PurchaseOrder.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._paymentMethodTableAdapter.Update(deletedRows));
+                    result = (result + this._purchaseOrderTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._customerTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Customer.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._saleTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Sale.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._customerTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._employeeTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Employee.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._employeeTableAdapter.Update(deletedRows));
+                    result = (result + this._saleTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -23012,6 +23852,22 @@ FROM            Product AS p INNER JOIN
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._supplierTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._employeeTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Employee.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._employeeTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._customerTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Customer.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._customerTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
