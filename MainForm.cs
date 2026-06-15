@@ -80,6 +80,13 @@ namespace TheByteClubPOS
             
         }
 
+        public void OpenAddCustomerFormOnly()
+        {
+            ManageCustomerDetails manageCustomerDetails = new ManageCustomerDetails();
+            manageCustomerDetails.HideOtherTabs();
+            OpenChildForm(manageCustomerDetails);
+        }
+
         private void ApplyDarkMode()
         {
 

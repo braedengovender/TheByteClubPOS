@@ -86,7 +86,7 @@ namespace TheByteClubPOS
                     DataRowView currentRow = (DataRowView)salesSummaryInnerJoinDTDataGridView.CurrentRow.DataBoundItem;
                     int selectedSaleID = Convert.ToInt32(currentRow["Sale_ID"]);
 
-                    lblTransactionDetails.Text = $"Transaction Details (Sale ID: {selectedSaleID})";
+                    lblTransactionDetails.Text = $"Transaction Details (Invoice Number: {selectedSaleID})";
 
                     // 4. Pass the selected ID to filter the line items table breakdown automatically
                     this.saleLinesSummaryInnerJoinDTTableAdapter.FillBySaleID(this.dsSamsLiqourShop.SaleLinesSummaryInnerJoinDT, selectedSaleID);
@@ -105,16 +105,23 @@ namespace TheByteClubPOS
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
-            txtSearch.Clear(); // Wipe the search input window to reset display bounds
-            txtSearch.Text = "Search by Customer, Employee or Promo...";
-            txtSearch.ForeColor = Color.Gray;
+            DialogResult result = MessageBox.Show( "Are you sure you want to refresh? This will clear your active search and filters.", "Confirm Refresh", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-            // Reset date pickers to today
-            dtpStartDate.Value = DateTime.Now;
-            dtpEndDate.Value = DateTime.Now;
+            if (result == DialogResult.Yes)
+            {
+                txtSearch.Clear(); // Wipe the search input window to reset display bounds
+                txtSearch.Text = "Search by Customer, Employee or Promo...";
+                txtSearch.ForeColor = Color.Gray;
 
-            salesSummaryInnerJoinDTBindingSource.Filter = ""; // Clears both text and date filters
-            LoadMasterSalesData();
+                // Reset date pickers to today
+                dtpStartDate.Value = DateTime.Now;
+                dtpEndDate.Value = DateTime.Now;
+
+                salesSummaryInnerJoinDTBindingSource.Filter = ""; // Clears both text and date filters
+                LoadMasterSalesData();
+                MessageBox.Show("Data successfully refreshed!", "Refresh Complete", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+                
         }
 
         private void txtSearch_TextChanged(object sender, EventArgs e)

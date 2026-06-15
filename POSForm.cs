@@ -937,6 +937,35 @@ namespace TheByteClubPOS
                     {
                         return; // Stops the sale entirely so they can input the number!
                     }
+                    else
+                    {
+                        // Clear instructions mapping to standard MessageBox buttons
+                        string prompt = "Does the Customer want to create a loyalty account?\n\n" +
+                                        "• Click YES to open the 'Add New Customer' screen.\n" +
+                                        "• Click NO to proceed as a Walk-in Customer.\n" +
+                                        "• Click CANCEL to go back and type in their ID.";
+
+                        DialogResult loyaltyCheckMessageBox = MessageBox.Show(prompt, "Customer Verification", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+
+                        if (loyaltyCheckMessageBox == DialogResult.Cancel)
+                        {
+                            return; // Stops the sale entirely
+                        }
+                        else if (loyaltyCheckMessageBox == DialogResult.Yes)
+                        {
+                            // Access the MDI Parent and trigger its button click programmatically
+                            if (this.MdiParent is MainForm mainForm)
+                            {
+                                mainForm.OpenAddCustomerFormOnly();
+                            }
+
+                            // Stop the current checkout process so they can fill out the registration
+                            return;
+                        }
+
+                        // If they click NO, the code naturally ignores the 'if' statements 
+                        // and continues down to process the sale as a Walk-in!
+                    }
                 }
             }
 

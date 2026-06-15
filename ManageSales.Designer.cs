@@ -108,9 +108,9 @@
             this.lblTransactionDetails.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTransactionDetails.Location = new System.Drawing.Point(27, 402);
             this.lblTransactionDetails.Name = "lblTransactionDetails";
-            this.lblTransactionDetails.Size = new System.Drawing.Size(473, 31);
+            this.lblTransactionDetails.Size = new System.Drawing.Size(573, 31);
             this.lblTransactionDetails.TabIndex = 6;
-            this.lblTransactionDetails.Text = "Transaction Details (Sale ID : 000):";
+            this.lblTransactionDetails.Text = "Transaction Details (Invoice Number: 000):";
             // 
             // dsSamsLiqourShop
             // 

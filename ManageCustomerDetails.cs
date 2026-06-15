@@ -25,6 +25,24 @@ namespace TheByteClubPOS
             UpdateCustomerCard(); //call the method to update the customer card display when the form loads
         }
 
+        public void HideOtherTabs()
+        {
+            // Use SuspendLayout to stop the UI from flickering during changes
+            tabControl1.SuspendLayout();
+
+            if (tabControl1.TabPages.Contains(tabPage2))
+            {
+                tabControl1.TabPages.Remove(tabPage2);
+            }
+
+            if (tabControl1.TabPages.Contains(tabPage3))
+            {
+                tabControl1.TabPages.Remove(tabPage3);
+            }
+
+            tabControl1.ResumeLayout();
+        }
+
         private void UpdateCustomerCard() //method for the updateCustomer tab to display ID , name and loyalty points in panel
         {
             label8.Text = "Customer ID : " + customer_IDTextBox.Text;

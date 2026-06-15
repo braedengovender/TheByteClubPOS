@@ -572,7 +572,7 @@ namespace TheByteClubPOS
                     document.Close();
 
                     Cursor.Current = Cursors.Default;
-                    MessageBox.Show("Export successful!");
+                    MessageBox.Show("Export successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 catch (Exception ex)
                 {
