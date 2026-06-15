@@ -64,25 +64,24 @@ namespace TheByteClubPOS
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(employee_FirstNameTextBox.Text)) { MessageBox.Show("Enter a Firstname."); }
-            if (string.IsNullOrWhiteSpace(employee_LastNameTextBox.Text)) { MessageBox.Show("Enter a Lastname."); }
-            if (string.IsNullOrWhiteSpace(employee_IDNumberTextBox.Text)) { MessageBox.Show("Enter an ID."); }
-            if (string.IsNullOrWhiteSpace(employee_EmailAddressTextBox.Text)) { MessageBox.Show("Enter an Email."); }
-            if (string.IsNullOrWhiteSpace(employee_PhoneNumberTextBox.Text)) { MessageBox.Show("Enter a Phone Number."); }
-            if (string.IsNullOrWhiteSpace(employee_UsernameTextBox.Text)) { MessageBox.Show("Enter a Username."); }
-            if (string.IsNullOrWhiteSpace(employee_PasswordTextBox.Text)) { MessageBox.Show("Enter a Password."); }
+            if (string.IsNullOrWhiteSpace(employee_FirstNameTextBox.Text)) { MessageBox.Show("Enter a Firstname.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning); }
+            if (string.IsNullOrWhiteSpace(employee_LastNameTextBox.Text)) { MessageBox.Show("Enter a Lastname.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning); }
+            if (string.IsNullOrWhiteSpace(employee_IDNumberTextBox.Text)) { MessageBox.Show("Enter an ID.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning); }
+            if (string.IsNullOrWhiteSpace(employee_EmailAddressTextBox.Text)) { MessageBox.Show("Enter an Email.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning); }
+            if (string.IsNullOrWhiteSpace(employee_PhoneNumberTextBox.Text)) { MessageBox.Show("Enter a Phone Number.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning); }
+            if (string.IsNullOrWhiteSpace(employee_UsernameTextBox.Text)) { MessageBox.Show("Enter a Username.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning); }
+            if (string.IsNullOrWhiteSpace(employee_PasswordTextBox.Text)) { MessageBox.Show("Enter a Password.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning); }
             if (employee_RoleComboBox.SelectedIndex == -1)
             {
                 MessageBox.Show(
-                    "Select a Role.");
-
+                    "Select a Role.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             if (employee_StatusComboBox.SelectedIndex == -1)
             {
                 MessageBox.Show(
-                    "Select a Status.");
+                    "Select a Status.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
                 return;
             }
@@ -105,7 +104,7 @@ namespace TheByteClubPOS
             );
 
             MessageBox.Show(
-                "Employee updated successfully.");
+                "Employee updated successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             this.Close();
         }
@@ -247,18 +246,18 @@ namespace TheByteClubPOS
         private void btnInsert_Click(object sender, EventArgs e)
         {
 
-            if (string.IsNullOrWhiteSpace(AddFirstname.Text)) {MessageBox.Show("Enter a Firstname.");}
-            if (string.IsNullOrWhiteSpace(AddLastName.Text)) { MessageBox.Show("Enter a Lastname."); }
-            if (string.IsNullOrWhiteSpace(AddID.Text)) { MessageBox.Show("Enter an ID."); }
-            if (string.IsNullOrWhiteSpace(AddEmail.Text)) { MessageBox.Show("Enter an Email."); }
-            if (string.IsNullOrWhiteSpace(AddPhoneNumber.Text)) { MessageBox.Show("Enter a Phone Number."); }
-            if (string.IsNullOrWhiteSpace(AddUsername.Text)) { MessageBox.Show("Enter a Username."); }
-            if (string.IsNullOrWhiteSpace(AddPassword.Text)) { MessageBox.Show("Enter a Password."); }
+            if (string.IsNullOrWhiteSpace(AddFirstname.Text)) {MessageBox.Show("Enter a Firstname.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);}
+            if (string.IsNullOrWhiteSpace(AddLastName.Text)) { MessageBox.Show("Enter a Lastname.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning); }
+            if (string.IsNullOrWhiteSpace(AddID.Text)) { MessageBox.Show("Enter an ID.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning); }
+            if (string.IsNullOrWhiteSpace(AddEmail.Text)) { MessageBox.Show("Enter an Email.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning); }
+            if (string.IsNullOrWhiteSpace(AddPhoneNumber.Text)) { MessageBox.Show("Enter a Phone Number.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning); }
+            if (string.IsNullOrWhiteSpace(AddUsername.Text)) { MessageBox.Show("Enter a Username.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning); }
+            if (string.IsNullOrWhiteSpace(AddPassword.Text)) { MessageBox.Show("Enter a Password.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning); }
             // Role
             if (cbRole.SelectedIndex == -1)
             {
                 MessageBox.Show(
-                    "Please select a Role.");
+                    "Please select a Role.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
                 return;
             }
@@ -267,7 +266,7 @@ namespace TheByteClubPOS
             if (cbStatus.SelectedIndex == -1)
             {
                 MessageBox.Show(
-                    "Please select a Status.");
+                    "Please select a Status.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
                 return;
             }
@@ -280,7 +279,7 @@ namespace TheByteClubPOS
                 AddUsername.Text.Trim()) > 0)
             {
                 MessageBox.Show(
-                    "Username already exists.");
+                    "Username already exists.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
                 return;
             }
@@ -317,7 +316,7 @@ namespace TheByteClubPOS
                 );
 
                 MessageBox.Show(
-                    "Employee added successfully.");
+                    "Employee added successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 this.Close();
             }
@@ -325,7 +324,7 @@ namespace TheByteClubPOS
             {
                 MessageBox.Show(
                     "Error adding employee:\n\n" +
-                    ex.Message);
+                    ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -368,7 +367,7 @@ namespace TheByteClubPOS
         @"^[A-Za-z ]+$"))
             {
                 MessageBox.Show(
-                    "First Name can only contain letters.");
+                    "First Name can only contain letters.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
                 AddFirstname.Focus();
                 return;
@@ -382,7 +381,7 @@ namespace TheByteClubPOS
                @"^[A-Za-z ]+$"))
             {
                 MessageBox.Show(
-                    "Last Name can only contain letters.");
+                    "Last Name can only contain letters.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 AddLastName.Focus();
                 return;
             }
@@ -396,7 +395,7 @@ namespace TheByteClubPOS
                 @"^\d{13}$"))
             {
                 MessageBox.Show(
-                    "ID Number must contain exactly 13 digits.");
+                    "ID Number must contain exactly 13 digits.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
                 return;
             }
@@ -413,7 +412,7 @@ namespace TheByteClubPOS
             catch
             {
                 MessageBox.Show(
-                    "Please enter a valid Email Address.");
+                    "Please enter a valid Email Address.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
                 return;
             }
@@ -427,7 +426,7 @@ namespace TheByteClubPOS
                 @"^\d{10,12}$"))
             {
                 MessageBox.Show(
-                    "Phone Number is invalid.");
+                    "Phone Number is invalid.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
                 return;
             }
@@ -439,7 +438,7 @@ namespace TheByteClubPOS
             if (AddUsername.Text.Trim().Length < 4)
             {
                 MessageBox.Show(
-                    "Username must be at least 4 characters.");
+                    "Username must be at least 4 characters.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
                 return;
             }

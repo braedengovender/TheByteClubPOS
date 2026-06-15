@@ -366,7 +366,7 @@
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
-            this.tabControl1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(2);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(1134, 666);
@@ -381,9 +381,9 @@
             this.tabPage1.Controls.Add(this.panel2);
             this.tabPage1.Controls.Add(this.panel1);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(2);
             this.tabPage1.Size = new System.Drawing.Size(1126, 640);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Edit Details";
@@ -539,7 +539,7 @@
             "Active",
             "In-Active"});
             this.employee_StatusComboBox.Location = new System.Drawing.Point(188, 209);
-            this.employee_StatusComboBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.employee_StatusComboBox.Margin = new System.Windows.Forms.Padding(2);
             this.employee_StatusComboBox.Name = "employee_StatusComboBox";
             this.employee_StatusComboBox.Size = new System.Drawing.Size(281, 28);
             this.employee_StatusComboBox.TabIndex = 24;
@@ -564,7 +564,7 @@
             "Cashier",
             "Admin"});
             this.employee_RoleComboBox.Location = new System.Drawing.Point(189, 52);
-            this.employee_RoleComboBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.employee_RoleComboBox.Margin = new System.Windows.Forms.Padding(2);
             this.employee_RoleComboBox.Name = "employee_RoleComboBox";
             this.employee_RoleComboBox.Size = new System.Drawing.Size(280, 28);
             this.employee_RoleComboBox.TabIndex = 23;
@@ -692,7 +692,7 @@
             // btnCancel
             // 
             this.btnCancel.Location = new System.Drawing.Point(341, 66);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(2);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(109, 34);
             this.btnCancel.TabIndex = 39;
@@ -713,7 +713,7 @@
             // btnUpdate
             // 
             this.btnUpdate.Location = new System.Drawing.Point(341, 19);
-            this.btnUpdate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnUpdate.Margin = new System.Windows.Forms.Padding(2);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(109, 34);
             this.btnUpdate.TabIndex = 37;
@@ -731,9 +731,9 @@
             this.tabPage2.Controls.Add(this.panel6);
             this.tabPage2.Controls.Add(this.panel7);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage2.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(2);
             this.tabPage2.Size = new System.Drawing.Size(1126, 640);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Add Employee";
@@ -742,7 +742,7 @@
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(828, 401);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(158, 72);
             this.button1.TabIndex = 54;
@@ -753,7 +753,7 @@
             // btnInsert
             // 
             this.btnInsert.Location = new System.Drawing.Point(610, 400);
-            this.btnInsert.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnInsert.Margin = new System.Windows.Forms.Padding(2);
             this.btnInsert.Name = "btnInsert";
             this.btnInsert.Size = new System.Drawing.Size(158, 75);
             this.btnInsert.TabIndex = 53;
@@ -858,9 +858,9 @@
             // pictureBox8
             // 
             this.pictureBox8.Image = global::TheByteClubPOS.Properties.Resources.ShowEye;
-            this.pictureBox8.Location = new System.Drawing.Point(401, 150);
+            this.pictureBox8.Location = new System.Drawing.Point(423, 150);
             this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(28, 22);
+            this.pictureBox8.Size = new System.Drawing.Size(28, 25);
             this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox8.TabIndex = 48;
             this.pictureBox8.TabStop = false;
@@ -870,26 +870,26 @@
             // 
             this.AddHire.Enabled = false;
             this.AddHire.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddHire.Location = new System.Drawing.Point(190, 89);
+            this.AddHire.Location = new System.Drawing.Point(136, 89);
             this.AddHire.Name = "AddHire";
-            this.AddHire.Size = new System.Drawing.Size(200, 26);
+            this.AddHire.Size = new System.Drawing.Size(279, 26);
             this.AddHire.TabIndex = 16;
             // 
             // AddUsername
             // 
             this.AddUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddUsername.Location = new System.Drawing.Point(190, 120);
+            this.AddUsername.Location = new System.Drawing.Point(136, 120);
             this.AddUsername.Name = "AddUsername";
-            this.AddUsername.Size = new System.Drawing.Size(200, 26);
+            this.AddUsername.Size = new System.Drawing.Size(279, 26);
             this.AddUsername.TabIndex = 18;
             this.AddUsername.Leave += new System.EventHandler(this.AddUsername_Leave);
             // 
             // AddPassword
             // 
             this.AddPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddPassword.Location = new System.Drawing.Point(189, 149);
+            this.AddPassword.Location = new System.Drawing.Point(135, 149);
             this.AddPassword.Name = "AddPassword";
-            this.AddPassword.Size = new System.Drawing.Size(200, 26);
+            this.AddPassword.Size = new System.Drawing.Size(279, 26);
             this.AddPassword.TabIndex = 20;
             this.AddPassword.UseSystemPasswordChar = true;
             this.AddPassword.TextChanged += new System.EventHandler(this.AddPassword_TextChanged);
@@ -901,10 +901,10 @@
             this.cbStatus.Items.AddRange(new object[] {
             "Active",
             "In-Active"});
-            this.cbStatus.Location = new System.Drawing.Point(188, 195);
-            this.cbStatus.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbStatus.Location = new System.Drawing.Point(134, 195);
+            this.cbStatus.Margin = new System.Windows.Forms.Padding(2);
             this.cbStatus.Name = "cbStatus";
-            this.cbStatus.Size = new System.Drawing.Size(201, 21);
+            this.cbStatus.Size = new System.Drawing.Size(280, 21);
             this.cbStatus.TabIndex = 24;
             // 
             // label10
@@ -925,10 +925,10 @@
             "Manager",
             "Cashier",
             "Admin"});
-            this.cbRole.Location = new System.Drawing.Point(189, 64);
-            this.cbRole.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbRole.Location = new System.Drawing.Point(135, 64);
+            this.cbRole.Margin = new System.Windows.Forms.Padding(2);
             this.cbRole.Name = "cbRole";
-            this.cbRole.Size = new System.Drawing.Size(201, 21);
+            this.cbRole.Size = new System.Drawing.Size(280, 21);
             this.cbRole.TabIndex = 23;
             // 
             // panel7
@@ -1004,7 +1004,7 @@
             this.ClientSize = new System.Drawing.Size(1134, 666);
             this.Controls.Add(this.tabControl1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "UpdateEmployeesForm";
             this.Text = "Create & Update Employees";
             this.Load += new System.EventHandler(this.UpdateEmployeesForm_Load);
