@@ -819,12 +819,20 @@ namespace TheByteClubPOS
                     string productName = row["Product_Name"] != DBNull.Value ? row["Product_Name"].ToString() : "Item";
                     int qty = row["SaleLine_Quantity"] != DBNull.Value ? Convert.ToInt32(row["SaleLine_Quantity"]) : 1;
 
-                    // Prices
+                    /* // Prices
                     decimal totalPaidForLine = row["SaleLine_UnitPriceAfterDiscount"] != DBNull.Value ? Convert.ToDecimal(row["SaleLine_UnitPriceAfterDiscount"]) : 0.00m;
                     decimal originalUnitPrice = row["SaleLine_OriginalUnitPrice"] != DBNull.Value ? Convert.ToDecimal(row["SaleLine_OriginalUnitPrice"]) : 0.00m;
 
                     // Calc unit price and discount
                     decimal unitPriceAfter = qty > 0 ? (totalPaidForLine / qty) : totalPaidForLine;
+                    decimal discountPerUnit = originalUnitPrice - unitPriceAfter;*/
+
+                    // 👉 FIX: Pull the actual line total from Subtotal, and use UnitPriceAfterDiscount directly
+                    decimal totalPaidForLine = row["SaleLine_Subtotal"] != DBNull.Value ? Convert.ToDecimal(row["SaleLine_Subtotal"]) : 0.00m;
+                    decimal originalUnitPrice = row["SaleLine_OriginalUnitPrice"] != DBNull.Value ? Convert.ToDecimal(row["SaleLine_OriginalUnitPrice"]) : 0.00m;
+                    decimal unitPriceAfter = row["SaleLine_UnitPriceAfterDiscount"] != DBNull.Value ? Convert.ToDecimal(row["SaleLine_UnitPriceAfterDiscount"]) : 0.00m;
+
+                    // Calculate the single item discount cleanly by comparing the two unit prices directly
                     decimal discountPerUnit = originalUnitPrice - unitPriceAfter;
 
                     htmlBuilder.Append($"<tr style='border-bottom: 1px solid #f5f6fa;'>");

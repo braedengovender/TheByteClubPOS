@@ -136,7 +136,7 @@ namespace TheByteClubPOS
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
             // Ignore filtering if the textbox currently contains the placeholder text
-            /*if (txtSearch.Text == "Search by Customer, Employee or Promo..." && txtSearch.ForeColor == Color.Gray)
+            if (txtSearch.Text == "Search by Customer, Employee or Promo..." && txtSearch.ForeColor == System.Drawing.Color.Gray)
             {
                 return;
             }
@@ -169,8 +169,7 @@ namespace TheByteClubPOS
             {
                 // Soft warning log to prevent crashing if temporary syntax string clipping occurs during rapid input
                 System.Diagnostics.Debug.WriteLine("Search string processing mismatch: " + ex.Message);
-            }*/
-            ApplyFilters();
+            }
         }
 
         private void txtSearch_Enter(object sender, EventArgs e)
