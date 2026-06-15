@@ -96,9 +96,9 @@
             this.lblManageSales.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblManageSales.Location = new System.Drawing.Point(27, 49);
             this.lblManageSales.Name = "lblManageSales";
-            this.lblManageSales.Size = new System.Drawing.Size(329, 33);
+            this.lblManageSales.Size = new System.Drawing.Size(210, 33);
             this.lblManageSales.TabIndex = 5;
-            this.lblManageSales.Text = "Manage Sales History:";
+            this.lblManageSales.Text = "Sales History:";
             // 
             // lblTransactionDetails
             // 
@@ -557,7 +557,7 @@
             this.Controls.Add(this.lblManageSales);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ManageSales";
-            this.Text = "ManageSales";
+            this.Text = "Sales";
             this.Load += new System.EventHandler(this.ManageSales_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dsSamsLiqourShop)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.salesSummaryInnerJoinDTBindingSource)).EndInit();
