@@ -15,6 +15,10 @@ namespace TheByteClubPOS
 {
     public partial class CashierDashboardForm : Form
     {
+        private Label lblWelcome = new Label();
+        private Label lblName = new Label();
+        private Label lblRole = new Label();
+
         private int cashierID;
         private string cashierName;
 
@@ -91,6 +95,7 @@ namespace TheByteClubPOS
                 canvas.Location = new Point(0, 0);
                 canvas.Controls.Clear();
                 BuildDashboard(canvas);
+                isDarkMode(LoginForm.IsDarkMode); // Reapply theme
             };
 
             // Use a one-shot timer so the MDI framework finishes its layout
@@ -149,18 +154,18 @@ namespace TheByteClubPOS
 
         private void BuildHeader(Panel canvas, ref int y, int h)
         {
-            Label lblWelcome = new Label();
+            // Label lblWelcome = new Label();
             lblWelcome.Text = "Welcome back,";
             lblWelcome.Font = new Font("Microsoft Sans Serif", 10f, FontStyle.Regular);
-            lblWelcome.ForeColor = Color.FromArgb(20, 20, 40);
+            lblWelcome.ForeColor = LoginForm.IsDarkMode ? Color.White : Color.FromArgb(20, 20, 40); ;
             lblWelcome.BackColor = Color.Transparent;
             lblWelcome.Bounds = new Rectangle(PAD, y, 300, 20);
             canvas.Controls.Add(lblWelcome);
 
-            Label lblName = new Label();
+            // Label lblName = new Label();
             lblName.Text = cashierName;
             lblName.Font = new Font("Microsoft Sans Serif", 18f, FontStyle.Bold | FontStyle.Underline);
-            lblName.ForeColor = Color.FromArgb(20, 20, 60);
+            lblName.ForeColor = LoginForm.IsDarkMode ? Color.White : Color.FromArgb(20, 20, 60);
             lblName.BackColor = Color.Transparent;
             lblName.AutoSize = true;
             lblName.Location = new Point(PAD, y + 20);
@@ -171,10 +176,10 @@ namespace TheByteClubPOS
                 new Font("Microsoft Sans Serif", 18f, FontStyle.Bold | FontStyle.Underline));
             int roleX = PAD + (int)nameSize.Width + 12;
 
-            Label lblRole = new Label();
+            // Label lblRole = new Label();
             lblRole.Text = "Cashier - Dashboard";
             lblRole.Font = new Font("Microsoft Sans Serif", 12f, FontStyle.Bold);
-            lblRole.ForeColor = navyBlue;
+            lblRole.ForeColor = LoginForm.IsDarkMode ? Color.White : navyBlue; ;
             lblRole.BackColor = Color.Transparent;
             lblRole.AutoSize = true;
             // Vertically align baseline with the 18pt name label:
@@ -591,10 +596,16 @@ namespace TheByteClubPOS
             {
                 this.BackgroundImage = null;
                 this.BackColor = Color.Black;
+                lblWelcome.ForeColor = Color.White;
+                lblName.ForeColor = Color.White;
+                lblRole.ForeColor = Color.White;
             }
             else
             {
                 this.BackgroundImage = Properties.Resources.POINT_OF_SALES;
+                lblWelcome.ForeColor = Color.FromArgb(20, 20, 40);
+                lblName.ForeColor = Color.FromArgb(20, 20, 60);
+                lblRole.ForeColor = navyBlue;
             }
         }
     }
