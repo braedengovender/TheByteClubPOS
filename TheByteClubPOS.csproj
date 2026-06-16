@@ -457,6 +457,7 @@
     <None Include="Resources\ExcelIcon.png" />
     <None Include="Resources\AddNewProductFormBackground.png" />
     <None Include="Resources\FilterIcon.png" />
+    <None Include="Resources\DarkModeIconInverted.png" />
     <Content Include="Resources\FormIcon.ico" />
     <None Include="Resources\HelpFormIcon.png" />
     <None Include="Resources\HelpIcon.png" />

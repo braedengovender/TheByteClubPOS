@@ -116,7 +116,7 @@ namespace TheByteClubPOS
                 btnTheme.FlatStyle = FlatStyle.Flat;
                 btnTheme.FlatAppearance.BorderColor = Color.FromArgb(60, 60, 60);
 
-                btnTheme.Text = "Change to Light Mode";
+                btnTheme.Image = Properties.Resources.DarkModeIconInverted;
             }
             else
             {
@@ -149,7 +149,7 @@ namespace TheByteClubPOS
                 btnTheme.ForeColor = SystemColors.ControlText;
                 btnTheme.FlatStyle = FlatStyle.Standard;
 
-                btnTheme.Text = "Change to Dark Mode";
+                btnTheme.Image = Properties.Resources.DarkModeIcon;
             }
 
             // Forces the blinking cursor into the username textbox instantly when the theme flips
@@ -337,7 +337,6 @@ namespace TheByteClubPOS
         {
             // 1. Flip the switch
             IsDarkMode = !IsDarkMode;
-
             // 2. Apply the theme to THIS form
             ApplyTheme();
         }
@@ -386,7 +385,7 @@ namespace TheByteClubPOS
             if (txtUsername.Text == "Enter Username")
             {
                 txtUsername.Text = "";
-                txtUsername.ForeColor = Color.Black;
+                txtUsername.ForeColor = IsDarkMode ? Color.White : Color.Black;
             }
         }
 

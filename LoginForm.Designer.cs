@@ -297,13 +297,12 @@
             // 
             this.btnTheme.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnTheme.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTheme.Location = new System.Drawing.Point(1543, 375);
+            this.btnTheme.Image = global::TheByteClubPOS.Properties.Resources.DarkModeIcon;
+            this.btnTheme.Location = new System.Drawing.Point(1307, 12);
             this.btnTheme.Name = "btnTheme";
-            this.btnTheme.Size = new System.Drawing.Size(188, 40);
+            this.btnTheme.Size = new System.Drawing.Size(35, 35);
             this.btnTheme.TabIndex = 8;
-            this.btnTheme.Text = "Change to Dark Mode";
             this.btnTheme.UseVisualStyleBackColor = true;
-            this.btnTheme.Visible = false;
             this.btnTheme.Click += new System.EventHandler(this.btnTheme_Click);
             // 
             // button1
