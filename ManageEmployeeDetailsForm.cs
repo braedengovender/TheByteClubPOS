@@ -24,6 +24,7 @@ namespace TheByteClubPOS
             this.employeeTableAdapter.Fill(this.dsSamsLiqourShop.Employee);
 
             UpdateRemoveButtonText();
+            UpdateEmployeeStatistics();
         }
 
         private void ApplySorting()
@@ -252,6 +253,7 @@ namespace TheByteClubPOS
 
             updateemployees.Show();
             //updateemployees.ShowDialog();
+            UpdateEmployeeStatistics();
 
             // Refresh grid after editing
             // employeeTableAdapter.Fill(dsSamsLiqourShop.Employee); - moved to UpdateEmployeesForm's FormClosed event to ensure it refreshes after the form is closed
@@ -279,6 +281,7 @@ namespace TheByteClubPOS
             };
 
             addemployee.Show();
+            UpdateEmployeeStatistics();
 
             // Refresh employee list when form closes
             // employeeTableAdapter.Fill(dsSamsLiqourShop.Employee); - moved to UpdateEmployeesForm's FormClosed event to ensure it refreshes after the form is closed
@@ -313,6 +316,20 @@ namespace TheByteClubPOS
         private void rdoDesc_CheckedChanged_1(object sender, EventArgs e)
         {
 
+        }
+        private void UpdateEmployeeStatistics()
+        {
+            int total = dsSamsLiqourShop.Employee.Rows.Count;
+
+            int active = dsSamsLiqourShop.Employee.AsEnumerable()
+                .Count(row => row["Employee_Status"].ToString() == "Active");
+
+            int inactive = dsSamsLiqourShop.Employee.AsEnumerable()
+                .Count(row => row["Employee_Status"].ToString() == "Inactive");
+
+            lblTotalEmployees.Text =  total.ToString();
+            lblActive.Text = "Active Staff: " + active;
+            lblInactive.Text = "Inactive Staff: " + inactive;
         }
 
         private void dgvEmployees_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)

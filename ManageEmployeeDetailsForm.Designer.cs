@@ -79,6 +79,12 @@
             this.employeeTableAdapter = new TheByteClubPOS.dsSamsLiqourShopTableAdapters.EmployeeTableAdapter();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.lblInactive = new System.Windows.Forms.Label();
+            this.lblActive = new System.Windows.Forms.Label();
+            this.lblTotalEmployees = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.employeeBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsSamsLiqourShopBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsSamsLiqourShop)).BeginInit();
@@ -86,6 +92,7 @@
             this.grpOrderby.SuspendLayout();
             this.grpSort.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmployees)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // employeeBindingSource
@@ -122,7 +129,7 @@
             this.grpFilter.Controls.Add(this.rdoAdmin);
             this.grpFilter.Controls.Add(this.rdoCashier);
             this.grpFilter.Controls.Add(this.rdoManager);
-            this.grpFilter.Location = new System.Drawing.Point(390, 71);
+            this.grpFilter.Location = new System.Drawing.Point(360, 75);
             this.grpFilter.Name = "grpFilter";
             this.grpFilter.Size = new System.Drawing.Size(157, 198);
             this.grpFilter.TabIndex = 23;
@@ -205,7 +212,7 @@
             this.grpOrderby.BackColor = System.Drawing.Color.Transparent;
             this.grpOrderby.Controls.Add(this.rdoDesc);
             this.grpOrderby.Controls.Add(this.rdoAsc);
-            this.grpOrderby.Location = new System.Drawing.Point(745, 182);
+            this.grpOrderby.Location = new System.Drawing.Point(701, 182);
             this.grpOrderby.Name = "grpOrderby";
             this.grpOrderby.Size = new System.Drawing.Size(268, 87);
             this.grpOrderby.TabIndex = 20;
@@ -245,7 +252,7 @@
             this.grpSort.Controls.Add(this.rdoUsername);
             this.grpSort.Controls.Add(this.rdoSurname);
             this.grpSort.Controls.Add(this.rdoName);
-            this.grpSort.Location = new System.Drawing.Point(558, 71);
+            this.grpSort.Location = new System.Drawing.Point(528, 75);
             this.grpSort.Name = "grpSort";
             this.grpSort.Size = new System.Drawing.Size(152, 198);
             this.grpSort.TabIndex = 19;
@@ -304,7 +311,7 @@
             // 
             this.btnReset.Image = global::TheByteClubPOS.Properties.Resources.Reseticon;
             this.btnReset.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnReset.Location = new System.Drawing.Point(1087, 182);
+            this.btnReset.Location = new System.Drawing.Point(984, 182);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(268, 68);
             this.btnReset.TabIndex = 18;
@@ -316,7 +323,7 @@
             // btnDeactivate
             // 
             this.btnDeactivate.Image = global::TheByteClubPOS.Properties.Resources.DeactivateButton;
-            this.btnDeactivate.Location = new System.Drawing.Point(1409, 75);
+            this.btnDeactivate.Location = new System.Drawing.Point(1267, 75);
             this.btnDeactivate.Name = "btnDeactivate";
             this.btnDeactivate.Size = new System.Drawing.Size(268, 68);
             this.btnDeactivate.TabIndex = 17;
@@ -328,9 +335,10 @@
             // 
             // btnAdd
             // 
+            this.btnAdd.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnAdd.Image = global::TheByteClubPOS.Properties.Resources.AddEmployeeIcon;
             this.btnAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnAdd.Location = new System.Drawing.Point(745, 75);
+            this.btnAdd.Location = new System.Drawing.Point(701, 75);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(268, 68);
             this.btnAdd.TabIndex = 16;
@@ -343,7 +351,7 @@
             // btnEdit
             // 
             this.btnEdit.Image = global::TheByteClubPOS.Properties.Resources.EditIcon;
-            this.btnEdit.Location = new System.Drawing.Point(1087, 75);
+            this.btnEdit.Location = new System.Drawing.Point(984, 75);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(268, 68);
             this.btnEdit.TabIndex = 15;
@@ -389,7 +397,7 @@
             this.dgvEmployees.RowHeadersVisible = false;
             this.dgvEmployees.RowHeadersWidth = 62;
             this.dgvEmployees.RowTemplate.Height = 28;
-            this.dgvEmployees.Size = new System.Drawing.Size(1646, 676);
+            this.dgvEmployees.Size = new System.Drawing.Size(1504, 676);
             this.dgvEmployees.TabIndex = 14;
             this.dgvEmployees.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvEmployees_CellFormatting);
             // 
@@ -627,13 +635,74 @@
             this.label2.TabIndex = 26;
             this.label2.Text = "Search by Name, Surname or Username";
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.label6);
+            this.panel1.Controls.Add(this.lblInactive);
+            this.panel1.Controls.Add(this.lblActive);
+            this.panel1.Controls.Add(this.lblTotalEmployees);
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Location = new System.Drawing.Point(1267, 169);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(268, 100);
+            this.panel1.TabIndex = 27;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(125, 65);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(14, 20);
+            this.label6.TabIndex = 4;
+            this.label6.Text = "|";
+            // 
+            // lblInactive
+            // 
+            this.lblInactive.AutoSize = true;
+            this.lblInactive.ForeColor = System.Drawing.Color.Red;
+            this.lblInactive.Location = new System.Drawing.Point(145, 65);
+            this.lblInactive.Name = "lblInactive";
+            this.lblInactive.Size = new System.Drawing.Size(51, 20);
+            this.lblInactive.TabIndex = 3;
+            this.lblInactive.Text = "label5";
+            // 
+            // lblActive
+            // 
+            this.lblActive.AutoSize = true;
+            this.lblActive.ForeColor = System.Drawing.Color.LimeGreen;
+            this.lblActive.Location = new System.Drawing.Point(15, 65);
+            this.lblActive.Name = "lblActive";
+            this.lblActive.Size = new System.Drawing.Size(51, 20);
+            this.lblActive.TabIndex = 2;
+            this.lblActive.Text = "label4";
+            // 
+            // lblTotalEmployees
+            // 
+            this.lblTotalEmployees.AutoSize = true;
+            this.lblTotalEmployees.Location = new System.Drawing.Point(120, 25);
+            this.lblTotalEmployees.Name = "lblTotalEmployees";
+            this.lblTotalEmployees.Size = new System.Drawing.Size(40, 20);
+            this.lblTotalEmployees.TabIndex = 1;
+            this.lblTotalEmployees.Text = "num";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(63, 5);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(141, 20);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Total Employees";
+            // 
             // ManageEmployeeDetailsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::TheByteClubPOS.Properties.Resources.Background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1701, 1025);
+            this.ClientSize = new System.Drawing.Size(1545, 795);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtSearch);
@@ -662,6 +731,8 @@
             this.grpSort.ResumeLayout(false);
             this.grpSort.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmployees)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -717,5 +788,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn employeeStatusDataGridViewTextBoxColumn;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label lblTotalEmployees;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lblInactive;
+        private System.Windows.Forms.Label lblActive;
     }
 }
