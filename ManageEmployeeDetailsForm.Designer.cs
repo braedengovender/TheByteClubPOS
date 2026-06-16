@@ -77,6 +77,8 @@
             this.employeePasswordDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.employeeStatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.employeeTableAdapter = new TheByteClubPOS.dsSamsLiqourShopTableAdapters.EmployeeTableAdapter();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.employeeBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsSamsLiqourShopBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsSamsLiqourShop)).BeginInit();
@@ -107,10 +109,9 @@
             this.lblTitle.AutoSize = true;
             this.lblTitle.BackColor = System.Drawing.Color.Transparent;
             this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 21.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.Location = new System.Drawing.Point(20, 50);
-            this.lblTitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblTitle.Location = new System.Drawing.Point(12, -1);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(260, 40);
+            this.lblTitle.Size = new System.Drawing.Size(393, 60);
             this.lblTitle.TabIndex = 24;
             this.lblTitle.Text = "Employee Details:";
             // 
@@ -121,11 +122,9 @@
             this.grpFilter.Controls.Add(this.rdoAdmin);
             this.grpFilter.Controls.Add(this.rdoCashier);
             this.grpFilter.Controls.Add(this.rdoManager);
-            this.grpFilter.Location = new System.Drawing.Point(162, 481);
-            this.grpFilter.Margin = new System.Windows.Forms.Padding(2);
+            this.grpFilter.Location = new System.Drawing.Point(390, 71);
             this.grpFilter.Name = "grpFilter";
-            this.grpFilter.Padding = new System.Windows.Forms.Padding(2);
-            this.grpFilter.Size = new System.Drawing.Size(197, 129);
+            this.grpFilter.Size = new System.Drawing.Size(157, 198);
             this.grpFilter.TabIndex = 23;
             this.grpFilter.TabStop = false;
             this.grpFilter.Text = "Filter by:";
@@ -133,10 +132,9 @@
             // rdoAll
             // 
             this.rdoAll.AutoSize = true;
-            this.rdoAll.Location = new System.Drawing.Point(31, 17);
-            this.rdoAll.Margin = new System.Windows.Forms.Padding(2);
+            this.rdoAll.Location = new System.Drawing.Point(25, 26);
             this.rdoAll.Name = "rdoAll";
-            this.rdoAll.Size = new System.Drawing.Size(36, 17);
+            this.rdoAll.Size = new System.Drawing.Size(51, 24);
             this.rdoAll.TabIndex = 3;
             this.rdoAll.TabStop = true;
             this.rdoAll.Text = "All";
@@ -147,10 +145,9 @@
             // rdoAdmin
             // 
             this.rdoAdmin.AutoSize = true;
-            this.rdoAdmin.Location = new System.Drawing.Point(31, 102);
-            this.rdoAdmin.Margin = new System.Windows.Forms.Padding(2);
+            this.rdoAdmin.Location = new System.Drawing.Point(25, 157);
             this.rdoAdmin.Name = "rdoAdmin";
-            this.rdoAdmin.Size = new System.Drawing.Size(54, 17);
+            this.rdoAdmin.Size = new System.Drawing.Size(79, 24);
             this.rdoAdmin.TabIndex = 2;
             this.rdoAdmin.TabStop = true;
             this.rdoAdmin.Text = "Admin";
@@ -160,10 +157,9 @@
             // rdoCashier
             // 
             this.rdoCashier.AutoSize = true;
-            this.rdoCashier.Location = new System.Drawing.Point(31, 72);
-            this.rdoCashier.Margin = new System.Windows.Forms.Padding(2);
+            this.rdoCashier.Location = new System.Drawing.Point(25, 111);
             this.rdoCashier.Name = "rdoCashier";
-            this.rdoCashier.Size = new System.Drawing.Size(60, 17);
+            this.rdoCashier.Size = new System.Drawing.Size(88, 24);
             this.rdoCashier.TabIndex = 1;
             this.rdoCashier.TabStop = true;
             this.rdoCashier.Text = "Cashier";
@@ -173,10 +169,9 @@
             // rdoManager
             // 
             this.rdoManager.AutoSize = true;
-            this.rdoManager.Location = new System.Drawing.Point(31, 44);
-            this.rdoManager.Margin = new System.Windows.Forms.Padding(2);
+            this.rdoManager.Location = new System.Drawing.Point(25, 68);
             this.rdoManager.Name = "rdoManager";
-            this.rdoManager.Size = new System.Drawing.Size(67, 17);
+            this.rdoManager.Size = new System.Drawing.Size(97, 24);
             this.rdoManager.TabIndex = 0;
             this.rdoManager.TabStop = true;
             this.rdoManager.Text = "Manager";
@@ -186,11 +181,12 @@
             // 
             // txtSearch
             // 
-            this.txtSearch.Location = new System.Drawing.Point(162, 444);
-            this.txtSearch.Margin = new System.Windows.Forms.Padding(2);
+            this.txtSearch.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.txtSearch.Location = new System.Drawing.Point(31, 228);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(198, 20);
+            this.txtSearch.Size = new System.Drawing.Size(295, 26);
             this.txtSearch.TabIndex = 22;
+            this.txtSearch.Text = "Type Text here...";
             this.txtSearch.Click += new System.EventHandler(this.txtSearch_TextChanged);
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
@@ -198,23 +194,20 @@
             // 
             this.lblSearch.AutoSize = true;
             this.lblSearch.BackColor = System.Drawing.Color.Transparent;
-            this.lblSearch.Location = new System.Drawing.Point(159, 415);
-            this.lblSearch.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblSearch.Location = new System.Drawing.Point(27, 75);
             this.lblSearch.Name = "lblSearch";
-            this.lblSearch.Size = new System.Drawing.Size(200, 13);
+            this.lblSearch.Size = new System.Drawing.Size(317, 20);
             this.lblSearch.TabIndex = 21;
-            this.lblSearch.Text = "Search by Name, Surname or Username:";
+            this.lblSearch.Text = "View, Search and manage employee details";
             // 
             // grpOrderby
             // 
             this.grpOrderby.BackColor = System.Drawing.Color.Transparent;
             this.grpOrderby.Controls.Add(this.rdoDesc);
             this.grpOrderby.Controls.Add(this.rdoAsc);
-            this.grpOrderby.Location = new System.Drawing.Point(585, 436);
-            this.grpOrderby.Margin = new System.Windows.Forms.Padding(2);
+            this.grpOrderby.Location = new System.Drawing.Point(745, 182);
             this.grpOrderby.Name = "grpOrderby";
-            this.grpOrderby.Padding = new System.Windows.Forms.Padding(2);
-            this.grpOrderby.Size = new System.Drawing.Size(179, 119);
+            this.grpOrderby.Size = new System.Drawing.Size(268, 87);
             this.grpOrderby.TabIndex = 20;
             this.grpOrderby.TabStop = false;
             this.grpOrderby.Text = "Order by:";
@@ -222,10 +215,9 @@
             // rdoDesc
             // 
             this.rdoDesc.AutoSize = true;
-            this.rdoDesc.Location = new System.Drawing.Point(25, 62);
-            this.rdoDesc.Margin = new System.Windows.Forms.Padding(2);
+            this.rdoDesc.Location = new System.Drawing.Point(23, 55);
             this.rdoDesc.Name = "rdoDesc";
-            this.rdoDesc.Size = new System.Drawing.Size(82, 17);
+            this.rdoDesc.Size = new System.Drawing.Size(119, 24);
             this.rdoDesc.TabIndex = 2;
             this.rdoDesc.TabStop = true;
             this.rdoDesc.Text = "Descending";
@@ -236,10 +228,9 @@
             // rdoAsc
             // 
             this.rdoAsc.AutoSize = true;
-            this.rdoAsc.Location = new System.Drawing.Point(25, 29);
-            this.rdoAsc.Margin = new System.Windows.Forms.Padding(2);
+            this.rdoAsc.Location = new System.Drawing.Point(23, 25);
             this.rdoAsc.Name = "rdoAsc";
-            this.rdoAsc.Size = new System.Drawing.Size(75, 17);
+            this.rdoAsc.Size = new System.Drawing.Size(109, 24);
             this.rdoAsc.TabIndex = 1;
             this.rdoAsc.TabStop = true;
             this.rdoAsc.Text = "Ascending";
@@ -254,11 +245,9 @@
             this.grpSort.Controls.Add(this.rdoUsername);
             this.grpSort.Controls.Add(this.rdoSurname);
             this.grpSort.Controls.Add(this.rdoName);
-            this.grpSort.Location = new System.Drawing.Point(382, 436);
-            this.grpSort.Margin = new System.Windows.Forms.Padding(2);
+            this.grpSort.Location = new System.Drawing.Point(558, 71);
             this.grpSort.Name = "grpSort";
-            this.grpSort.Padding = new System.Windows.Forms.Padding(2);
-            this.grpSort.Size = new System.Drawing.Size(183, 174);
+            this.grpSort.Size = new System.Drawing.Size(152, 198);
             this.grpSort.TabIndex = 19;
             this.grpSort.TabStop = false;
             this.grpSort.Text = "Sort by:";
@@ -266,10 +255,9 @@
             // rdoID
             // 
             this.rdoID.AutoSize = true;
-            this.rdoID.Location = new System.Drawing.Point(23, 147);
-            this.rdoID.Margin = new System.Windows.Forms.Padding(2);
+            this.rdoID.Location = new System.Drawing.Point(22, 157);
             this.rdoID.Name = "rdoID";
-            this.rdoID.Size = new System.Drawing.Size(36, 17);
+            this.rdoID.Size = new System.Drawing.Size(51, 24);
             this.rdoID.TabIndex = 4;
             this.rdoID.TabStop = true;
             this.rdoID.Text = "ID";
@@ -279,10 +267,9 @@
             // rdoUsername
             // 
             this.rdoUsername.AutoSize = true;
-            this.rdoUsername.Location = new System.Drawing.Point(23, 110);
-            this.rdoUsername.Margin = new System.Windows.Forms.Padding(2);
+            this.rdoUsername.Location = new System.Drawing.Point(22, 111);
             this.rdoUsername.Name = "rdoUsername";
-            this.rdoUsername.Size = new System.Drawing.Size(73, 17);
+            this.rdoUsername.Size = new System.Drawing.Size(108, 24);
             this.rdoUsername.TabIndex = 3;
             this.rdoUsername.TabStop = true;
             this.rdoUsername.Text = "Username";
@@ -292,10 +279,9 @@
             // rdoSurname
             // 
             this.rdoSurname.AutoSize = true;
-            this.rdoSurname.Location = new System.Drawing.Point(23, 68);
-            this.rdoSurname.Margin = new System.Windows.Forms.Padding(2);
+            this.rdoSurname.Location = new System.Drawing.Point(22, 68);
             this.rdoSurname.Name = "rdoSurname";
-            this.rdoSurname.Size = new System.Drawing.Size(67, 17);
+            this.rdoSurname.Size = new System.Drawing.Size(99, 24);
             this.rdoSurname.TabIndex = 2;
             this.rdoSurname.TabStop = true;
             this.rdoSurname.Text = "Surname";
@@ -305,10 +291,9 @@
             // rdoName
             // 
             this.rdoName.AutoSize = true;
-            this.rdoName.Location = new System.Drawing.Point(23, 29);
-            this.rdoName.Margin = new System.Windows.Forms.Padding(2);
+            this.rdoName.Location = new System.Drawing.Point(22, 26);
             this.rdoName.Name = "rdoName";
-            this.rdoName.Size = new System.Drawing.Size(53, 17);
+            this.rdoName.Size = new System.Drawing.Size(76, 24);
             this.rdoName.TabIndex = 1;
             this.rdoName.TabStop = true;
             this.rdoName.Text = "Name";
@@ -319,10 +304,9 @@
             // 
             this.btnReset.Image = global::TheByteClubPOS.Properties.Resources.Reseticon;
             this.btnReset.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnReset.Location = new System.Drawing.Point(585, 566);
-            this.btnReset.Margin = new System.Windows.Forms.Padding(2);
+            this.btnReset.Location = new System.Drawing.Point(1087, 182);
             this.btnReset.Name = "btnReset";
-            this.btnReset.Size = new System.Drawing.Size(179, 44);
+            this.btnReset.Size = new System.Drawing.Size(268, 68);
             this.btnReset.TabIndex = 18;
             this.btnReset.Text = " Reset Filter";
             this.btnReset.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -332,10 +316,9 @@
             // btnDeactivate
             // 
             this.btnDeactivate.Image = global::TheByteClubPOS.Properties.Resources.DeactivateButton;
-            this.btnDeactivate.Location = new System.Drawing.Point(801, 566);
-            this.btnDeactivate.Margin = new System.Windows.Forms.Padding(2);
+            this.btnDeactivate.Location = new System.Drawing.Point(1409, 75);
             this.btnDeactivate.Name = "btnDeactivate";
-            this.btnDeactivate.Size = new System.Drawing.Size(179, 44);
+            this.btnDeactivate.Size = new System.Drawing.Size(268, 68);
             this.btnDeactivate.TabIndex = 17;
             this.btnDeactivate.Text = " Deactivate Employee";
             this.btnDeactivate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -347,10 +330,9 @@
             // 
             this.btnAdd.Image = global::TheByteClubPOS.Properties.Resources.AddEmployeeIcon;
             this.btnAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnAdd.Location = new System.Drawing.Point(801, 502);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(2);
+            this.btnAdd.Location = new System.Drawing.Point(745, 75);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(179, 44);
+            this.btnAdd.Size = new System.Drawing.Size(268, 68);
             this.btnAdd.TabIndex = 16;
             this.btnAdd.Text = " Add Employee";
             this.btnAdd.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -361,10 +343,9 @@
             // btnEdit
             // 
             this.btnEdit.Image = global::TheByteClubPOS.Properties.Resources.EditIcon;
-            this.btnEdit.Location = new System.Drawing.Point(801, 438);
-            this.btnEdit.Margin = new System.Windows.Forms.Padding(2);
+            this.btnEdit.Location = new System.Drawing.Point(1087, 75);
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(179, 44);
+            this.btnEdit.Size = new System.Drawing.Size(268, 68);
             this.btnEdit.TabIndex = 15;
             this.btnEdit.Text = " Edit Details";
             this.btnEdit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -402,14 +383,13 @@
             this.employeePasswordDataGridViewTextBoxColumn,
             this.employeeStatusDataGridViewTextBoxColumn});
             this.dgvEmployees.DataSource = this.employeeBindingSource;
-            this.dgvEmployees.Location = new System.Drawing.Point(26, 128);
-            this.dgvEmployees.Margin = new System.Windows.Forms.Padding(2);
+            this.dgvEmployees.Location = new System.Drawing.Point(31, 308);
             this.dgvEmployees.Name = "dgvEmployees";
             this.dgvEmployees.ReadOnly = true;
             this.dgvEmployees.RowHeadersVisible = false;
             this.dgvEmployees.RowHeadersWidth = 62;
             this.dgvEmployees.RowTemplate.Height = 28;
-            this.dgvEmployees.Size = new System.Drawing.Size(1097, 247);
+            this.dgvEmployees.Size = new System.Drawing.Size(1646, 676);
             this.dgvEmployees.TabIndex = 14;
             this.dgvEmployees.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvEmployees_CellFormatting);
             // 
@@ -516,104 +496,149 @@
             // 
             this.employeeIDDataGridViewTextBoxColumn.DataPropertyName = "Employee_ID";
             this.employeeIDDataGridViewTextBoxColumn.HeaderText = "Employee_ID";
+            this.employeeIDDataGridViewTextBoxColumn.MinimumWidth = 8;
             this.employeeIDDataGridViewTextBoxColumn.Name = "employeeIDDataGridViewTextBoxColumn";
             this.employeeIDDataGridViewTextBoxColumn.ReadOnly = true;
             this.employeeIDDataGridViewTextBoxColumn.Visible = false;
+            this.employeeIDDataGridViewTextBoxColumn.Width = 150;
             // 
             // employeeFirstNameDataGridViewTextBoxColumn
             // 
             this.employeeFirstNameDataGridViewTextBoxColumn.DataPropertyName = "Employee_FirstName";
             this.employeeFirstNameDataGridViewTextBoxColumn.HeaderText = "Employee_FirstName";
+            this.employeeFirstNameDataGridViewTextBoxColumn.MinimumWidth = 8;
             this.employeeFirstNameDataGridViewTextBoxColumn.Name = "employeeFirstNameDataGridViewTextBoxColumn";
             this.employeeFirstNameDataGridViewTextBoxColumn.ReadOnly = true;
             this.employeeFirstNameDataGridViewTextBoxColumn.Visible = false;
+            this.employeeFirstNameDataGridViewTextBoxColumn.Width = 150;
             // 
             // employeeLastNameDataGridViewTextBoxColumn
             // 
             this.employeeLastNameDataGridViewTextBoxColumn.DataPropertyName = "Employee_LastName";
             this.employeeLastNameDataGridViewTextBoxColumn.HeaderText = "Employee_LastName";
+            this.employeeLastNameDataGridViewTextBoxColumn.MinimumWidth = 8;
             this.employeeLastNameDataGridViewTextBoxColumn.Name = "employeeLastNameDataGridViewTextBoxColumn";
             this.employeeLastNameDataGridViewTextBoxColumn.ReadOnly = true;
             this.employeeLastNameDataGridViewTextBoxColumn.Visible = false;
+            this.employeeLastNameDataGridViewTextBoxColumn.Width = 150;
             // 
             // employeeIDNumberDataGridViewTextBoxColumn
             // 
             this.employeeIDNumberDataGridViewTextBoxColumn.DataPropertyName = "Employee_IDNumber";
             this.employeeIDNumberDataGridViewTextBoxColumn.HeaderText = "Employee_IDNumber";
+            this.employeeIDNumberDataGridViewTextBoxColumn.MinimumWidth = 8;
             this.employeeIDNumberDataGridViewTextBoxColumn.Name = "employeeIDNumberDataGridViewTextBoxColumn";
             this.employeeIDNumberDataGridViewTextBoxColumn.ReadOnly = true;
             this.employeeIDNumberDataGridViewTextBoxColumn.Visible = false;
+            this.employeeIDNumberDataGridViewTextBoxColumn.Width = 150;
             // 
             // employeeRoleDataGridViewTextBoxColumn
             // 
             this.employeeRoleDataGridViewTextBoxColumn.DataPropertyName = "Employee_Role";
             this.employeeRoleDataGridViewTextBoxColumn.HeaderText = "Employee_Role";
+            this.employeeRoleDataGridViewTextBoxColumn.MinimumWidth = 8;
             this.employeeRoleDataGridViewTextBoxColumn.Name = "employeeRoleDataGridViewTextBoxColumn";
             this.employeeRoleDataGridViewTextBoxColumn.ReadOnly = true;
             this.employeeRoleDataGridViewTextBoxColumn.Visible = false;
+            this.employeeRoleDataGridViewTextBoxColumn.Width = 150;
             // 
             // employeeEmailAddressDataGridViewTextBoxColumn
             // 
             this.employeeEmailAddressDataGridViewTextBoxColumn.DataPropertyName = "Employee_EmailAddress";
             this.employeeEmailAddressDataGridViewTextBoxColumn.HeaderText = "Employee_EmailAddress";
+            this.employeeEmailAddressDataGridViewTextBoxColumn.MinimumWidth = 8;
             this.employeeEmailAddressDataGridViewTextBoxColumn.Name = "employeeEmailAddressDataGridViewTextBoxColumn";
             this.employeeEmailAddressDataGridViewTextBoxColumn.ReadOnly = true;
             this.employeeEmailAddressDataGridViewTextBoxColumn.Visible = false;
+            this.employeeEmailAddressDataGridViewTextBoxColumn.Width = 150;
             // 
             // employeePhoneNumberDataGridViewTextBoxColumn
             // 
             this.employeePhoneNumberDataGridViewTextBoxColumn.DataPropertyName = "Employee_PhoneNumber";
             this.employeePhoneNumberDataGridViewTextBoxColumn.HeaderText = "Employee_PhoneNumber";
+            this.employeePhoneNumberDataGridViewTextBoxColumn.MinimumWidth = 8;
             this.employeePhoneNumberDataGridViewTextBoxColumn.Name = "employeePhoneNumberDataGridViewTextBoxColumn";
             this.employeePhoneNumberDataGridViewTextBoxColumn.ReadOnly = true;
             this.employeePhoneNumberDataGridViewTextBoxColumn.Visible = false;
+            this.employeePhoneNumberDataGridViewTextBoxColumn.Width = 150;
             // 
             // employeeHireDateDataGridViewTextBoxColumn
             // 
             this.employeeHireDateDataGridViewTextBoxColumn.DataPropertyName = "Employee_HireDate";
             this.employeeHireDateDataGridViewTextBoxColumn.HeaderText = "Employee_HireDate";
+            this.employeeHireDateDataGridViewTextBoxColumn.MinimumWidth = 8;
             this.employeeHireDateDataGridViewTextBoxColumn.Name = "employeeHireDateDataGridViewTextBoxColumn";
             this.employeeHireDateDataGridViewTextBoxColumn.ReadOnly = true;
             this.employeeHireDateDataGridViewTextBoxColumn.Visible = false;
+            this.employeeHireDateDataGridViewTextBoxColumn.Width = 150;
             // 
             // employeeUsernameDataGridViewTextBoxColumn
             // 
             this.employeeUsernameDataGridViewTextBoxColumn.DataPropertyName = "Employee_Username";
             this.employeeUsernameDataGridViewTextBoxColumn.HeaderText = "Employee_Username";
+            this.employeeUsernameDataGridViewTextBoxColumn.MinimumWidth = 8;
             this.employeeUsernameDataGridViewTextBoxColumn.Name = "employeeUsernameDataGridViewTextBoxColumn";
             this.employeeUsernameDataGridViewTextBoxColumn.ReadOnly = true;
             this.employeeUsernameDataGridViewTextBoxColumn.Visible = false;
+            this.employeeUsernameDataGridViewTextBoxColumn.Width = 150;
             // 
             // employeePasswordDataGridViewTextBoxColumn
             // 
             this.employeePasswordDataGridViewTextBoxColumn.DataPropertyName = "Employee_Password";
             this.employeePasswordDataGridViewTextBoxColumn.HeaderText = "Employee_Password";
+            this.employeePasswordDataGridViewTextBoxColumn.MinimumWidth = 8;
             this.employeePasswordDataGridViewTextBoxColumn.Name = "employeePasswordDataGridViewTextBoxColumn";
             this.employeePasswordDataGridViewTextBoxColumn.ReadOnly = true;
             this.employeePasswordDataGridViewTextBoxColumn.Visible = false;
+            this.employeePasswordDataGridViewTextBoxColumn.Width = 150;
             // 
             // employeeStatusDataGridViewTextBoxColumn
             // 
             this.employeeStatusDataGridViewTextBoxColumn.DataPropertyName = "Employee_Status";
             this.employeeStatusDataGridViewTextBoxColumn.HeaderText = "Employee_Status";
+            this.employeeStatusDataGridViewTextBoxColumn.MinimumWidth = 8;
             this.employeeStatusDataGridViewTextBoxColumn.Name = "employeeStatusDataGridViewTextBoxColumn";
             this.employeeStatusDataGridViewTextBoxColumn.ReadOnly = true;
             this.employeeStatusDataGridViewTextBoxColumn.Visible = false;
+            this.employeeStatusDataGridViewTextBoxColumn.Width = 150;
             // 
             // employeeTableAdapter
             // 
             this.employeeTableAdapter.ClearBeforeFill = true;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(24, 126);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(246, 38);
+            this.label1.TabIndex = 25;
+            this.label1.Text = "Search and Filter:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Location = new System.Drawing.Point(27, 181);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(295, 20);
+            this.label2.TabIndex = 26;
+            this.label2.Text = "Search by Name, Surname or Username";
+            // 
             // ManageEmployeeDetailsForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::TheByteClubPOS.Properties.Resources.Background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1134, 666);
+            this.ClientSize = new System.Drawing.Size(1701, 1025);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.grpFilter);
-            this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.lblSearch);
             this.Controls.Add(this.grpOrderby);
             this.Controls.Add(this.grpSort);
@@ -623,7 +648,6 @@
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.dgvEmployees);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ManageEmployeeDetailsForm";
             this.Text = "Manage Employees";
             this.Load += new System.EventHandler(this.ManageEmployeeDetailsForm_Load);
@@ -691,5 +715,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn employeeUsernameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn employeePasswordDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn employeeStatusDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }
