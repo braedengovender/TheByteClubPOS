@@ -692,8 +692,6 @@ namespace TheByteClubPOS
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            ManageSuppliers manageSuppliersForm = new ManageSuppliers();
-            OpenChildForm(manageSuppliersForm);
         }
     }
 }

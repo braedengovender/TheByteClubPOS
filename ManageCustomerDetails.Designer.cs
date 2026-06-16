@@ -1341,16 +1341,16 @@
             this.label1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(14, 65);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(191, 25);
+            this.label1.Size = new System.Drawing.Size(322, 25);
             this.label1.TabIndex = 42;
-            this.label1.Text = "Search for customer";
+            this.label1.Text = "Search for customer by ID Number";
             // 
             // textBox2
             // 
             this.textBox2.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(235, 62);
+            this.textBox2.Location = new System.Drawing.Point(342, 62);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(309, 33);
+            this.textBox2.Size = new System.Drawing.Size(202, 33);
             this.textBox2.TabIndex = 18;
             this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 

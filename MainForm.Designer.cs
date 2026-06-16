@@ -82,7 +82,6 @@
             this.btnSuppliers = new System.Windows.Forms.Button();
             this.btnLogout = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.dsSamsLiqourShop = new TheByteClubPOS.dsSamsLiqourShop();
             this.employeeBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -471,7 +470,6 @@
             this.flowLayoutPanel1.Controls.Add(this.btnSuppliers);
             this.flowLayoutPanel1.Controls.Add(this.btnLogout);
             this.flowLayoutPanel1.Controls.Add(this.button2);
-            this.flowLayoutPanel1.Controls.Add(this.button1);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 130);
@@ -590,17 +588,6 @@
             this.button2.Text = "New View Products";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(12, 418);
-            this.button1.Margin = new System.Windows.Forms.Padding(2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(201, 45);
-            this.button1.TabIndex = 9;
-            this.button1.Text = "Supplier Map";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // pictureBox1
             // 
@@ -736,6 +723,5 @@
         private System.Windows.Forms.ToolStripMenuItem troubleshootingToolStripMenuItem;
         public System.Windows.Forms.Button btnProducts;
         public System.Windows.Forms.Button button2;
-        public System.Windows.Forms.Button button1;
     }
 }
