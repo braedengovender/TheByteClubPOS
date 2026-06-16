@@ -91,6 +91,7 @@ namespace TheByteClubPOS
                 lblUsername.ForeColor = Color.White;
                 lblPassword.ForeColor = Color.White;
                 linkLabel1.LinkColor = Color.White;
+                lblQuote.ForeColor = Color.White;
 
                 // Textboxes become solid black with white text
                 txtUsername.BackColor = Color.Black;
@@ -128,6 +129,7 @@ namespace TheByteClubPOS
                 lblUsername.ForeColor = SystemColors.ControlText;
                 lblPassword.ForeColor = SystemColors.ControlText;
                 linkLabel1.LinkColor = SystemColors.HotTrack; // Default blue link color for light mode
+                lblQuote.ForeColor = SystemColors.ControlText;
 
                 txtUsername.BackColor = Color.White;
                 txtUsername.ForeColor = SystemColors.ControlText;

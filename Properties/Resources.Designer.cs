@@ -73,6 +73,16 @@ namespace TheByteClubPOS.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap AccountRecoveryFormDarkBackground {
+            get {
+                object obj = ResourceManager.GetObject("AccountRecoveryFormDarkBackground", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap AddEmployeeIcon {
             get {
                 object obj = ResourceManager.GetObject("AddEmployeeIcon", resourceCulture);
@@ -496,6 +506,16 @@ namespace TheByteClubPOS.Properties {
         internal static System.Drawing.Bitmap MainFormPanel1 {
             get {
                 object obj = ResourceManager.GetObject("MainFormPanel1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MDIFormLogoDarkMode {
+            get {
+                object obj = ResourceManager.GetObject("MDIFormLogoDarkMode", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -196,6 +196,8 @@ namespace TheByteClubPOS
 
         private void ApplyDarkMode()
         {
+            this.pictureBox1.Image = Properties.Resources.MDIFormLogoDarkMode;
+
             Color darkBack = Color.Black;
             Color darkFore = Color.White;
 
@@ -309,6 +311,7 @@ namespace TheByteClubPOS
 
         private void ApplyLightMode()
         {
+            this.pictureBox1.Image = Properties.Resources.MainFormPanel1;
             Color lightBack = SystemColors.ActiveCaption;
             Color lightFore = Color.Black;
 

@@ -143,7 +143,7 @@ namespace TheByteClubPOS
             if (LoginForm.IsDarkMode)
             {
                 // 1. Dark Mode Rules
-                this.BackgroundImage = Properties.Resources.DarkMode_Background;
+                this.BackgroundImage = Properties.Resources.AccountRecoveryFormDarkBackground;
 
                 // Labels turned completely white
                 lblCredentials.ForeColor = Color.White;
@@ -302,7 +302,7 @@ namespace TheByteClubPOS
             {
                 txtEmployeeDetails.Text = "";
                 btnClearClickCount3++;
-                txtEmployeeDetails.ForeColor = Color.Black;
+                txtEmployeeDetails.ForeColor = LoginForm.IsDarkMode ? Color.White : SystemColors.ControlText;
                 txtEmployeeDetails.Font = new Font(txtEmployeeDetails.Font, FontStyle.Regular);
             }
         }

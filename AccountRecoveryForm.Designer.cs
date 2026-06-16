@@ -39,11 +39,11 @@
             this.btnClear = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.btnTheme = new System.Windows.Forms.Button();
             this.dsSamsLiqourShop = new TheByteClubPOS.dsSamsLiqourShop();
             this.employeeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.employeeTableAdapter = new TheByteClubPOS.dsSamsLiqourShopTableAdapters.EmployeeTableAdapter();
             this.tableAdapterManager = new TheByteClubPOS.dsSamsLiqourShopTableAdapters.TableAdapterManager();
+            this.btnTheme = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dsSamsLiqourShop)).BeginInit();
@@ -172,19 +172,6 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(416, 50);
             this.tableLayoutPanel2.TabIndex = 9;
             // 
-            // btnTheme
-            // 
-            this.btnTheme.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnTheme.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTheme.Location = new System.Drawing.Point(1145, 12);
-            this.btnTheme.Name = "btnTheme";
-            this.btnTheme.Size = new System.Drawing.Size(197, 40);
-            this.btnTheme.TabIndex = 9;
-            this.btnTheme.Text = "Change to Dark Mode";
-            this.btnTheme.UseVisualStyleBackColor = true;
-            this.btnTheme.Visible = false;
-            this.btnTheme.Click += new System.EventHandler(this.btnTheme_Click);
-            // 
             // dsSamsLiqourShop
             // 
             this.dsSamsLiqourShop.DataSetName = "dsSamsLiqourShop";
@@ -216,6 +203,19 @@
             this.tableAdapterManager.SaleTypeTableAdapter = null;
             this.tableAdapterManager.SupplierTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = TheByteClubPOS.dsSamsLiqourShopTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            // 
+            // btnTheme
+            // 
+            this.btnTheme.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnTheme.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTheme.Location = new System.Drawing.Point(1145, 12);
+            this.btnTheme.Name = "btnTheme";
+            this.btnTheme.Size = new System.Drawing.Size(197, 40);
+            this.btnTheme.TabIndex = 9;
+            this.btnTheme.Text = "Change to Dark Mode";
+            this.btnTheme.UseVisualStyleBackColor = true;
+            this.btnTheme.Visible = false;
+            this.btnTheme.Click += new System.EventHandler(this.btnTheme_Click);
             // 
             // AccountRecoveryForm
             // 
@@ -253,10 +253,10 @@
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.Button btnTheme;
         private dsSamsLiqourShop dsSamsLiqourShop;
         private System.Windows.Forms.BindingSource employeeBindingSource;
         private dsSamsLiqourShopTableAdapters.EmployeeTableAdapter employeeTableAdapter;
         private dsSamsLiqourShopTableAdapters.TableAdapterManager tableAdapterManager;
+        private System.Windows.Forms.Button btnTheme;
     }
 }

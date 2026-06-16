@@ -221,6 +221,11 @@
     <Compile Include="ManageSuppliers.Designer.cs">
       <DependentUpon>ManageSuppliers.cs</DependentUpon>
     </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="ReceiptForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -360,14 +365,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <EmbeddedResource Include="ReceiptForm.resx">
       <DependentUpon>ReceiptForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -458,6 +458,7 @@
     <None Include="Resources\AddNewProductFormBackground.png" />
     <None Include="Resources\FilterIcon.png" />
     <None Include="Resources\DarkModeIconInverted.png" />
+    <None Include="Resources\AccountRecoveryFormDarkBackground.png" />
     <Content Include="Resources\FormIcon.ico" />
     <None Include="Resources\HelpFormIcon.png" />
     <None Include="Resources\HelpIcon.png" />
@@ -469,6 +470,7 @@
     <None Include="Resources\MainFormImage.png" />
     <None Include="Resources\MainFormPanel1.png" />
     <None Include="Resources\PDFIcon.png" />
+    <None Include="Resources\MDIFormLogoDarkMode.png" />
     <Content Include="Resources\PersonalDetailsIcon.png" />
     <None Include="Resources\RefreshIcon.png" />
     <None Include="Resources\RecoverAccountBackground.png" />
