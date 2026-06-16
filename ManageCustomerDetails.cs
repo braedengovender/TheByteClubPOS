@@ -164,7 +164,7 @@ namespace TheByteClubPOS
 
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
-            customerTableAdapter.FillByCustomerName(dsSamsLiqourShop.Customer, textBox2.Text);
+            customerTableAdapter.FillByIDNumber(dsSamsLiqourShop.Customer, textBox2.Text);
             UpdateCustomerCard();
 
         }
