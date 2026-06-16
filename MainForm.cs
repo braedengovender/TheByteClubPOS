@@ -20,6 +20,11 @@ namespace TheByteClubPOS
         public string employeeFullName;
         public string employeeRole;
 
+        private Dictionary<Control, Image> originalButtonImages = new Dictionary<Control, Image>();
+        private Dictionary<ToolStripItem, Image> originalMenuImages = new Dictionary<ToolStripItem, Image>();
+        private Dictionary<ToolStripItem, Image> originalStatusStripImages = new Dictionary<ToolStripItem, Image>();
+        private Dictionary<Image, Image> invertedImageCache = new Dictionary<Image, Image>();
+
         private void ApplyRolePermissions()
         {
             // Convert to lowercase to prevent typos/case mismatch bugs
@@ -49,6 +54,63 @@ namespace TheByteClubPOS
                     MessageBox.Show("Unknown role detected.", "Security Warning");
                     break;
             }
+        }
+
+        private void StoreMenuImages(ToolStripItemCollection items)
+        {
+            foreach (ToolStripItem item in items)
+            {
+                if (item.Image != null)
+                    originalMenuImages[item] = item.Image;
+
+                if (item is ToolStripMenuItem menuItem)
+                {
+                    StoreMenuImages(menuItem.DropDownItems);
+                }
+            }
+        }
+
+        private void StoreOriginalImages()
+        {
+            Button[] buttons =
+            {
+            btnDashboard,
+            btnProcessSale,
+            btnManageSales,
+            btnProducts,
+            btnCustomers,
+            btnSuppliers,
+            btnLogout
+            };
+
+            foreach (Button btn in buttons)
+            {
+                if (btn.Image != null)
+                    originalButtonImages[btn] = btn.Image;
+            }
+
+            StoreMenuImages(menuStrip1.Items);
+        }
+
+        private void StoreStatusStripImages()
+        {
+            foreach (ToolStripItem item in statusStrip1.Items)
+            {
+                if (item.Image != null)
+                {
+                    originalStatusStripImages[item] = item.Image;
+                }
+            }
+        }
+
+        private Image GetInvertedImage(Image original)
+        {
+            if (!invertedImageCache.ContainsKey(original))
+            {
+                invertedImageCache[original] = InvertImage(original);
+            }
+
+            return invertedImageCache[original];
         }
 
         public MainForm(int employeeID, bool IsDarkMode)
@@ -87,14 +149,224 @@ namespace TheByteClubPOS
             OpenChildForm(manageCustomerDetails);
         }
 
+        private void ApplyMenuTheme(ToolStripItemCollection items)
+        {
+            foreach (ToolStripItem item in items)
+            {
+                item.BackColor = Color.Black;
+                item.ForeColor = Color.White;
+
+                if (item is ToolStripMenuItem menuItem)
+                {
+                    ApplyMenuTheme(menuItem.DropDownItems);
+                }
+            }
+        }
+
+        private void ApplyMenuThemeLight(ToolStripItemCollection items)
+        {
+            foreach (ToolStripItem item in items)
+            {
+                item.BackColor = SystemColors.ActiveCaption;
+                item.ForeColor = Color.Black;
+
+                if (item is ToolStripMenuItem menuItem)
+                {
+                    ApplyMenuThemeLight(menuItem.DropDownItems);
+                }
+            }
+        }
+
+        private void InvertMenuImages(ToolStripItemCollection items)
+        {
+            foreach (ToolStripItem item in items)
+            {
+                if (originalMenuImages.ContainsKey(item))
+                {
+                    item.Image =
+                        GetInvertedImage(originalMenuImages[item]);
+                }
+
+                if (item is ToolStripMenuItem menuItem)
+                {
+                    InvertMenuImages(menuItem.DropDownItems);
+                }
+            }
+        }
+
         private void ApplyDarkMode()
         {
+            Color darkBack = Color.Black;
+            Color darkFore = Color.White;
 
+            // Main Form
+            this.BackgroundImage = Properties.Resources.Dark_Background;
+            this.BackgroundImageLayout = ImageLayout.Stretch;
+            this.BackColor = darkBack;
+
+            // MenuStrip
+            menuStrip1.BackColor = darkBack;
+            menuStrip1.ForeColor = darkFore;
+
+            ApplyMenuTheme(menuStrip1.Items);
+            InvertMenuImages(menuStrip1.Items);
+
+            // FlowLayoutPanel
+            flowLayoutPanel1.BackColor = darkBack;
+
+            Button[] buttons =
+            {
+            btnDashboard,
+            btnProcessSale,
+            btnManageSales,
+            btnProducts,
+            btnCustomers,
+            btnSuppliers,
+            btnLogout
+            };
+
+            foreach (Button btn in buttons)
+            {
+                btn.BackColor = darkBack;
+                btn.ForeColor = darkFore;
+
+                btn.FlatStyle = FlatStyle.Flat;
+                btn.FlatAppearance.BorderColor = Color.FromArgb(60, 60, 60);
+
+                if (originalButtonImages.ContainsKey(btn))
+                {
+                    btn.Image =
+                        GetInvertedImage(originalButtonImages[btn]);
+                }
+            }
+
+            // StatusStrip
+            statusStrip1.BackColor = darkBack;
+            statusStrip1.ForeColor = darkFore;
+
+            foreach (ToolStripItem item in statusStrip1.Items)
+            {
+                item.BackColor = darkBack;
+                item.ForeColor = darkFore;
+
+                if (originalStatusStripImages.ContainsKey(item))
+                {
+                    // Keep connection icon original colour
+                    if (item == toolStripStatusLabelConnection)
+                    {
+                        item.Image =
+                            originalStatusStripImages[item];
+                    }
+                    else
+                    {
+                        item.Image =
+                            GetInvertedImage(originalStatusStripImages[item]);
+                    }
+                }
+            }
+        }
+
+        private Image InvertImage(Image original)
+        {
+            Bitmap bmp = new Bitmap(original);
+
+            for (int y = 0; y < bmp.Height; y++)
+            {
+                for (int x = 0; x < bmp.Width; x++)
+                {
+                    Color pixel = bmp.GetPixel(x, y);
+
+                    bmp.SetPixel(
+                        x,
+                        y,
+                        Color.FromArgb(
+                            pixel.A,
+                            255 - pixel.R,
+                            255 - pixel.G,
+                            255 - pixel.B));
+                }
+            }
+
+            return bmp;
+        }
+
+        private void RestoreMenuImages(ToolStripItemCollection items)
+        {
+            foreach (ToolStripItem item in items)
+            {
+                if (originalMenuImages.ContainsKey(item))
+                {
+                    item.Image =
+                        originalMenuImages[item];
+                }
+
+                if (item is ToolStripMenuItem menuItem)
+                {
+                    RestoreMenuImages(menuItem.DropDownItems);
+                }
+            }
         }
 
         private void ApplyLightMode()
         {
+            Color lightBack = SystemColors.ActiveCaption;
+            Color lightFore = Color.Black;
 
+            // Main Form
+            this.BackgroundImage = Properties.Resources.POINT_OF_SALES;
+            this.BackgroundImageLayout = ImageLayout.Stretch;
+            this.BackColor = lightBack;
+
+            // MenuStrip
+            menuStrip1.BackColor = lightBack;
+            menuStrip1.ForeColor = lightFore;
+
+            ApplyMenuThemeLight(menuStrip1.Items);
+            RestoreMenuImages(menuStrip1.Items);
+
+            // FlowLayoutPanel
+            flowLayoutPanel1.BackColor = lightBack;
+
+            Button[] buttons =
+            {
+            btnDashboard,
+            btnProcessSale,
+            btnManageSales,
+            btnProducts,
+            btnCustomers,
+            btnSuppliers,
+            btnLogout
+            };
+
+            foreach (Button btn in buttons)
+            {
+                btn.BackColor = lightBack;
+                btn.ForeColor = lightFore;
+
+                btn.FlatStyle = FlatStyle.Standard;
+
+                if (originalButtonImages.ContainsKey(btn))
+                {
+                    btn.Image =
+                        originalButtonImages[btn];
+                }
+            }
+
+            // StatusStrip
+            statusStrip1.BackColor = lightBack;
+            statusStrip1.ForeColor = lightFore;
+
+            foreach (ToolStripItem item in statusStrip1.Items)
+            {
+                item.BackColor = lightBack;
+                item.ForeColor = lightFore;
+
+                if (originalStatusStripImages.ContainsKey(item))
+                {
+                    item.Image =
+                        originalStatusStripImages[item];
+                }
+            }
         }
 
         private void OpenChildForm(Form childForm)
@@ -120,6 +392,9 @@ namespace TheByteClubPOS
             // TODO: This line of code loads data into the 'dsSamsLiqourShop.Employee' table. You can move, or remove it, as needed.
             this.employeeTableAdapter.Fill(this.dsSamsLiqourShop.Employee);
 
+            StoreOriginalImages();
+            StoreStatusStripImages();
+
             toolStripMenuItemDate.Text = DateTime.Now.ToString("dddd, dd MMM yyyy");
             toolStripMenuItemTime.Text = DateTime.Now.ToString("HH:mm:ss");
             tmrClock.Start();
@@ -130,13 +405,13 @@ namespace TheByteClubPOS
                 
                 ApplyDarkMode();
                 darkModeToolStripMenuItem.Text = "Light Mode"; // Set text to the opposite action
-                darkModeToolStripMenuItem.Image = Properties.Resources.LightModeIcon; // Set to the light icon
+                // darkModeToolStripMenuItem.Image = Properties.Resources.LightModeIcon; // Set to the light icon
             }
             else
             {
                 ApplyLightMode();
                 darkModeToolStripMenuItem.Text = "Dark Mode"; // Set text to the opposite action
-                darkModeToolStripMenuItem.Image = Properties.Resources.DarkModeIcon; // Set to the dark icon
+                // darkModeToolStripMenuItem.Image = Properties.Resources.DarkModeIcon; // Set to the dark icon
             }
 
             btnDashboard.PerformClick();
@@ -198,11 +473,15 @@ namespace TheByteClubPOS
         {
             if (employeeRole.Equals("Cashier", StringComparison.OrdinalIgnoreCase))
             {
-                OpenChildForm(new CashierDashboardForm(employeeID, employeeFullName));
+                CashierDashboardForm cashierDashboardForm = new CashierDashboardForm(employeeID, employeeFullName);
+                cashierDashboardForm.isDarkMode(IsDarkMode);
+                OpenChildForm(cashierDashboardForm);
             }
             else
             {
-                OpenChildForm(new DashboardForm(employeeID, employeeFullName, employeeRole));
+                DashboardForm dashboardForm = new DashboardForm(employeeID, employeeFullName, employeeRole);
+                dashboardForm.isDarkMode(IsDarkMode);
+                OpenChildForm(dashboardForm);
             }
         }
 
@@ -285,7 +564,7 @@ namespace TheByteClubPOS
 
             // Update the parent form's UI text/icons
             darkModeToolStripMenuItem.Text = IsDarkMode ? "Light Mode" : "Dark Mode";
-            darkModeToolStripMenuItem.Image = IsDarkMode ? Properties.Resources.LightModeIcon : Properties.Resources.DarkModeIcon;
+            // darkModeToolStripMenuItem.Image = IsDarkMode ? Properties.Resources.LightModeIcon : Properties.Resources.DarkModeIcon;
 
             // IF a child form is currently active, update it immediately!
             if (this.ActiveMdiChild != null)
@@ -297,6 +576,16 @@ namespace TheByteClubPOS
                     {
                         posForm.ApplyDarkMode();
                     }
+
+                    if (this.ActiveMdiChild is DashboardForm dashboardForm)
+                    {
+                        dashboardForm.isDarkMode(IsDarkMode);
+                    }
+
+                    if (this.ActiveMdiChild is CashierDashboardForm cashierDashboardForm)
+                    {
+                        cashierDashboardForm.isDarkMode(IsDarkMode);
+                    }
                 }
                 else
                 {
@@ -304,6 +593,16 @@ namespace TheByteClubPOS
                     if (this.ActiveMdiChild is POSForm posForm)
                     {
                         posForm.ApplyLightMode();
+                    }
+
+                    if (this.ActiveMdiChild is DashboardForm dashboardForm)
+                    {
+                        dashboardForm.isDarkMode(IsDarkMode);
+                    }
+
+                    if (this.ActiveMdiChild is CashierDashboardForm cashierDashboardForm)
+                    {
+                        cashierDashboardForm.isDarkMode(IsDarkMode);
                     }
                 }
             }

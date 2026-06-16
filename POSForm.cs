@@ -529,8 +529,13 @@ namespace TheByteClubPOS
         {
             isDarkMode = true;
 
-            this.BackgroundImage = Properties.Resources.Dark_Background;
-            this.BackColor = Color.FromArgb(32, 32, 32); // Dark Charcoal
+            //this.BackgroundImage = Properties.Resources.Dark_Background;
+
+            this.BackgroundImage = null;
+            this.BackColor = Color.Black;
+
+
+            //this.BackColor = Color.FromArgb(32, 32, 32); // Dark Charcoal
             this.ForeColor = Color.White;
             btnToggleTheme.Text = "Switch to Light Mode";
             btnToggleTheme.BackColor = Color.FromArgb(50, 50, 50);
