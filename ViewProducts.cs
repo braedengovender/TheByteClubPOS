@@ -29,6 +29,11 @@ namespace TheByteClubPOS
             btnAddNewProduct.Visible = isVisible;
             btnEditProduct.Visible = isVisible;
             btnDeactivateProduct.Visible = isVisible;
+            lblTotalValue.Visible = isVisible;
+            btnPDFExport.Visible = isVisible;
+            btnExcelExport.Visible = isVisible;
+            productInnerJoinDTDataGridView.Columns["dataGridViewTextBoxColumn16"].Visible = isVisible;
+            this.productInnerJoinDTDataGridView.Columns["dataGridViewTextBoxColumn5"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
 
         public ViewProducts()

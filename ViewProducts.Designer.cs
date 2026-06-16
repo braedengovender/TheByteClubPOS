@@ -263,7 +263,7 @@
             this.lblTotalValue.AutoSize = true;
             this.lblTotalValue.BackColor = System.Drawing.Color.Transparent;
             this.lblTotalValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalValue.Location = new System.Drawing.Point(19, 575);
+            this.lblTotalValue.Location = new System.Drawing.Point(551, 575);
             this.lblTotalValue.Name = "lblTotalValue";
             this.lblTotalValue.Size = new System.Drawing.Size(93, 20);
             this.lblTotalValue.TabIndex = 24;
@@ -365,7 +365,7 @@
             this.lblTotalProducts.AutoSize = true;
             this.lblTotalProducts.BackColor = System.Drawing.Color.Transparent;
             this.lblTotalProducts.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalProducts.Location = new System.Drawing.Point(610, 575);
+            this.lblTotalProducts.Location = new System.Drawing.Point(19, 575);
             this.lblTotalProducts.Name = "lblTotalProducts";
             this.lblTotalProducts.Size = new System.Drawing.Size(119, 20);
             this.lblTotalProducts.TabIndex = 29;
