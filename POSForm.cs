@@ -691,6 +691,28 @@ namespace TheByteClubPOS
                         allowLoyaltyPoints = true; // UNLOCK point accumulation safely
                         // SUCCESS POPUP: Gives clear confirmation to the cashier
                         MessageBox.Show($"Customer profile found successfully!\n\nName: {lblName.Text}", "Profile Loaded", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        
+                        decimal customerPoints = Convert.ToDecimal(lblPointsAmount.Text);
+                        decimal total = getTotal();
+
+                        if (total > 0 && customerPoints >= total)
+                        {
+                            DialogResult usePoints = MessageBox.Show(
+                                $"Customer has {customerPoints} loyalty points.\n\n" +
+                                $"The sale total is R{total:N2}.\n\n" +
+                                $"Use loyalty points to pay for this purchase?",
+                                "Loyalty Payment Available",
+                                MessageBoxButtons.YesNo,
+                                MessageBoxIcon.Question);
+
+                            if (usePoints == DialogResult.Yes)
+                            {
+                                comboBox1.Text = "Loyalty Points";
+                                comboBox1.SelectedItem = "Loyalty Points";
+                                txtAmountTendered.Text = total.ToString("N2");
+                                txtAmountTendered.ReadOnly = true; // Lock it
+                            }
+                        }
                     }
                        
                 }
@@ -720,6 +742,7 @@ namespace TheByteClubPOS
             // 4. Activate amount tendered IF the option is "Cash" (case-insensitive check)
             if (comboBox1.Text.Trim().Equals("Cash", StringComparison.OrdinalIgnoreCase))
             {
+                txtAmountTendered.ReadOnly = false;    // UNLOCK
                 txtAmountTendered.Visible = true;
                 lblAmountTendered.Visible = true;
                 txtAmountTendered.Enabled = true;
@@ -729,6 +752,7 @@ namespace TheByteClubPOS
             }
             else if (comboBox1.Text.Trim().Equals("Card", StringComparison.OrdinalIgnoreCase))
             {
+                txtAmountTendered.ReadOnly = false;    // UNLOCK
                 txtAmountTendered.Enabled = false;
                 txtAmountTendered.Visible = false;
                 lblAmountTendered.Visible = false;
@@ -738,13 +762,17 @@ namespace TheByteClubPOS
             {
                 txtAmountTendered.Visible = true;
                 lblAmountTendered.Visible = true;
-                txtAmountTendered.Enabled = true;
+
+                txtAmountTendered.Text = getTotal().ToString("N2");
+                txtAmountTendered.ReadOnly = true; // Lock it to prevent editing since it's auto-filled
+                //txtAmountTendered.Enabled = true;
                 txtAmountTendered.BackColor = Color.White; // Highlighting it as active
-                txtAmountTendered.Focus();
+                //txtAmountTendered.Focus();
                 lblAmountTendered.Text = "Loyalty Points to Use:";
             }
             else if (comboBox1.Text.Trim().Equals("Voucher", StringComparison.OrdinalIgnoreCase))
             {
+                txtAmountTendered.ReadOnly = false;    // UNLOCK
                 txtAmountTendered.Visible = true;
                 lblAmountTendered.Visible = true;
                 txtAmountTendered.Enabled = true;
@@ -754,6 +782,7 @@ namespace TheByteClubPOS
             }
             else
             {
+                txtAmountTendered.ReadOnly = false;    // UNLOCK
                 txtAmountTendered.Enabled = false;
                 txtAmountTendered.Text = "";
                 //txtAmountTendered.BackColor = Color.LightGray; // Grayed out style visual cue
@@ -934,6 +963,7 @@ namespace TheByteClubPOS
                 return; // Stops the sale if cash calculations fail or money is short
             }
 
+
             // Check if the masked textbox actually contains characters (excluding mask prompt/literals)
             maskedTextBox1.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
             bool hasInput = !string.IsNullOrWhiteSpace(maskedTextBox1.Text.Replace("-", "").Trim());
@@ -983,6 +1013,33 @@ namespace TheByteClubPOS
                         // If they click NO, the code naturally ignores the 'if' statements 
                         // and continues down to process the sale as a Walk-in!
                     }
+                }
+            }
+
+            if (comboBox1.Text == "Loyalty Points")
+            {
+                // Force the textbox to always match the sale total
+                txtAmountTendered.Text = getTotal().ToString("N2");
+
+                if (currentCustomerID == null)
+                {
+                    MessageBox.Show("A loyalty customer must be loaded before loyalty points can be used.", "No Customer Loaded", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                int currentPoints;
+                if (!int.TryParse(lblPointsAmount.Text, out currentPoints))
+                {
+                    MessageBox.Show("Invalid loyalty points value. Please reload the customer profile.", "Points Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                    return;
+                }
+
+                if (currentPoints < getTotal())
+                {
+                    MessageBox.Show("Customer does not have enough loyalty points.", "Insufficient Points", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                    return;
                 }
             }
 
@@ -1037,9 +1094,10 @@ namespace TheByteClubPOS
 
             try
             {
+                bool paidWithPoints = comboBox1.Text.Equals("Loyalty Points", StringComparison.OrdinalIgnoreCase);
                 int loyaltyPointsEarned = 0;
 
-                if (currentCustomerID != null && allowLoyaltyPoints)
+                /*if (currentCustomerID != null && allowLoyaltyPoints)
                 {
                     loyaltyPointsEarned = (int)Math.Floor(getTotal() / 10); // Example: 1 point for every R10 spent
 
@@ -1050,7 +1108,28 @@ namespace TheByteClubPOS
                 {
                     // If the customer is a Walk-in OR their account is Inactive, they explicitly get 0 points
                     loyaltyPointsEarned = 0;
+                }*/
+
+                if (currentCustomerID != null && allowLoyaltyPoints)
+                {
+                    if (paidWithPoints)
+                    {
+                        int pointsUsed = (int)Math.Ceiling(getTotal());
+
+                        customerTableAdapter.UpdateQueryCustLoyaltyPoints(-pointsUsed,Convert.ToInt32(currentCustomerID));
+
+                        loyaltyPointsEarned = 0;
+                    }
+                    else
+                    {
+                        loyaltyPointsEarned = (int)Math.Floor(getTotal() / 10);
+
+                        customerTableAdapter.UpdateQueryCustLoyaltyPoints(loyaltyPointsEarned,Convert.ToInt32(currentCustomerID));
+                    }
+
+                    newCustLoyaltyPointsBalance = (int)customerTableAdapter.getCustomerLoyaltyPointsBalance(Convert.ToInt32(currentCustomerID));
                 }
+
 
                 int chosenSaleTypeID = Convert.ToInt32(comboBox2.SelectedValue);
                 string saleTypeText = comboBox2.Text.Trim();
@@ -1082,11 +1161,14 @@ namespace TheByteClubPOS
 
                     //MessageBox.Show("Sale completed successfully! ID: " + saleID + " Loyalty points earned: " + loyaltyPointsEarned, "Transaction Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
+                else if (paymentMethodUsed.Equals("Loyalty Points", StringComparison.OrdinalIgnoreCase))
+                {
+                    amountTendered = getTotal(); // exact amount covered by points
+                    changeDue = 0;
+                }
                 else
                 {
                     amountTendered = getTotal();
-                    // Fallback success message for Card/Other payment types
-                    //MessageBox.Show("Sale completed successfully! ID: " + saleID + " Loyalty points earned: " + loyaltyPointsEarned, "Transaction Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
                 try
@@ -1153,7 +1235,15 @@ namespace TheByteClubPOS
                     string firstName = custRow["Customer_FirstName"]?.ToString() ?? "";
                     string lastName = custRow["Customer_LastName"]?.ToString() ?? "";
                     custName = string.IsNullOrWhiteSpace(firstName + lastName) ? "Valued Customer" : $"{firstName} {lastName}".Trim();
-                    loyaltyDisplay = $"{newCustLoyaltyPointsBalance} pts (Earned +{loyaltyPointsEarned} today)";
+                    //loyaltyDisplay = $"{newCustLoyaltyPointsBalance} pts (Earned +{loyaltyPointsEarned} today)";
+                    if (paidWithPoints)
+                    {
+                        loyaltyDisplay = $"{newCustLoyaltyPointsBalance} pts (Points Redeemed)";
+                    }
+                    else
+                    {
+                        loyaltyDisplay = $"{newCustLoyaltyPointsBalance} pts (Earned +{loyaltyPointsEarned} today)";
+                    }
                 }
 
                 string employeeDisplayName = "Unknown Cashier"; // Default fallback
