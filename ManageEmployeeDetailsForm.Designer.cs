@@ -115,7 +115,7 @@
             this.lblTitle.AutoSize = true;
             this.lblTitle.BackColor = System.Drawing.Color.Transparent;
             this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 21.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.Location = new System.Drawing.Point(12, -1);
+            this.lblTitle.Location = new System.Drawing.Point(12, 52);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(393, 60);
             this.lblTitle.TabIndex = 24;
@@ -128,7 +128,7 @@
             this.grpFilter.Controls.Add(this.rdoAdmin);
             this.grpFilter.Controls.Add(this.rdoCashier);
             this.grpFilter.Controls.Add(this.rdoManager);
-            this.grpFilter.Location = new System.Drawing.Point(33, 155);
+            this.grpFilter.Location = new System.Drawing.Point(33, 208);
             this.grpFilter.Name = "grpFilter";
             this.grpFilter.Size = new System.Drawing.Size(157, 198);
             this.grpFilter.TabIndex = 23;
@@ -189,19 +189,20 @@
             // 
             this.txtSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSearch.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.txtSearch.Location = new System.Drawing.Point(396, 87);
+            this.txtSearch.Location = new System.Drawing.Point(396, 140);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(612, 35);
             this.txtSearch.TabIndex = 22;
-            this.txtSearch.Text = "Search by Name, Surname or Username";
             this.txtSearch.Click += new System.EventHandler(this.txtSearch_TextChanged);
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
+            this.txtSearch.Leave += new System.EventHandler(this.txtSearch_Leave);
+            this.txtSearch.MouseEnter += new System.EventHandler(this.txtSearch_MouseEnter);
             // 
             // lblSearch
             // 
             this.lblSearch.AutoSize = true;
             this.lblSearch.BackColor = System.Drawing.Color.Transparent;
-            this.lblSearch.Location = new System.Drawing.Point(29, 97);
+            this.lblSearch.Location = new System.Drawing.Point(29, 150);
             this.lblSearch.Name = "lblSearch";
             this.lblSearch.Size = new System.Drawing.Size(317, 20);
             this.lblSearch.TabIndex = 21;
@@ -212,7 +213,7 @@
             this.grpOrderby.BackColor = System.Drawing.Color.Transparent;
             this.grpOrderby.Controls.Add(this.rdoDesc);
             this.grpOrderby.Controls.Add(this.rdoAsc);
-            this.grpOrderby.Location = new System.Drawing.Point(396, 257);
+            this.grpOrderby.Location = new System.Drawing.Point(396, 310);
             this.grpOrderby.Name = "grpOrderby";
             this.grpOrderby.Size = new System.Drawing.Size(175, 87);
             this.grpOrderby.TabIndex = 20;
@@ -252,7 +253,7 @@
             this.grpSort.Controls.Add(this.rdoUsername);
             this.grpSort.Controls.Add(this.rdoSurname);
             this.grpSort.Controls.Add(this.rdoName);
-            this.grpSort.Location = new System.Drawing.Point(220, 155);
+            this.grpSort.Location = new System.Drawing.Point(220, 208);
             this.grpSort.Name = "grpSort";
             this.grpSort.Size = new System.Drawing.Size(152, 198);
             this.grpSort.TabIndex = 19;
@@ -311,7 +312,7 @@
             // 
             this.btnReset.Image = global::TheByteClubPOS.Properties.Resources.Reseticon;
             this.btnReset.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnReset.Location = new System.Drawing.Point(613, 273);
+            this.btnReset.Location = new System.Drawing.Point(613, 326);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(175, 68);
             this.btnReset.TabIndex = 18;
@@ -323,7 +324,7 @@
             // btnDeactivate
             // 
             this.btnDeactivate.Image = global::TheByteClubPOS.Properties.Resources.DeactivateButton;
-            this.btnDeactivate.Location = new System.Drawing.Point(885, 155);
+            this.btnDeactivate.Location = new System.Drawing.Point(885, 208);
             this.btnDeactivate.Name = "btnDeactivate";
             this.btnDeactivate.Size = new System.Drawing.Size(175, 68);
             this.btnDeactivate.TabIndex = 17;
@@ -338,7 +339,7 @@
             this.btnAdd.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnAdd.Image = global::TheByteClubPOS.Properties.Resources.AddEmployeeIcon;
             this.btnAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnAdd.Location = new System.Drawing.Point(396, 155);
+            this.btnAdd.Location = new System.Drawing.Point(396, 208);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(175, 68);
             this.btnAdd.TabIndex = 16;
@@ -351,7 +352,7 @@
             // btnEdit
             // 
             this.btnEdit.Image = global::TheByteClubPOS.Properties.Resources.EditIcon;
-            this.btnEdit.Location = new System.Drawing.Point(613, 155);
+            this.btnEdit.Location = new System.Drawing.Point(613, 208);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(175, 68);
             this.btnEdit.TabIndex = 15;
@@ -391,13 +392,13 @@
             this.employeePasswordDataGridViewTextBoxColumn,
             this.employeeStatusDataGridViewTextBoxColumn});
             this.dgvEmployees.DataSource = this.employeeBindingSource;
-            this.dgvEmployees.Location = new System.Drawing.Point(22, 358);
+            this.dgvEmployees.Location = new System.Drawing.Point(22, 411);
             this.dgvEmployees.Name = "dgvEmployees";
             this.dgvEmployees.ReadOnly = true;
             this.dgvEmployees.RowHeadersVisible = false;
             this.dgvEmployees.RowHeadersWidth = 62;
             this.dgvEmployees.RowTemplate.Height = 28;
-            this.dgvEmployees.Size = new System.Drawing.Size(1090, 676);
+            this.dgvEmployees.Size = new System.Drawing.Size(1090, 270);
             this.dgvEmployees.TabIndex = 14;
             this.dgvEmployees.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvEmployees_CellFormatting);
             // 
@@ -619,7 +620,7 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(26, 59);
+            this.label1.Location = new System.Drawing.Point(26, 112);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(246, 38);
             this.label1.TabIndex = 25;
@@ -632,7 +633,7 @@
             this.panel1.Controls.Add(this.lblActive);
             this.panel1.Controls.Add(this.lblTotalEmployees);
             this.panel1.Controls.Add(this.label3);
-            this.panel1.Location = new System.Drawing.Point(844, 252);
+            this.panel1.Location = new System.Drawing.Point(835, 300);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(268, 100);
             this.panel1.TabIndex = 27;
