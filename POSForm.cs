@@ -336,7 +336,7 @@ namespace TheByteClubPOS
 
             // Ensure the user clicked a valid row data index, not the header row (-1)
             if (e.RowIndex < 0) return;
-
+            int stockAvailable = Convert.ToInt32(this.productDataGridView.CurrentRow.Cells["productQuantityInStockDataGridViewTextBoxColumn"].Value);
             int productID = Convert.ToInt32(this.productDataGridView.CurrentRow.Cells[0].Value);
             string productName = this.productDataGridView.CurrentRow.Cells[2].Value.ToString();
             decimal price = Convert.ToDecimal(this.productDataGridView.CurrentRow.Cells[6].Value);
@@ -420,6 +420,12 @@ namespace TheByteClubPOS
                 {
                     // Item found! Grab current quantity, bump it up by 1
                     int currentQty = Convert.ToInt32(row["SaleLine_Quantity"]);
+                    // Check stock limit
+                    if (currentQty + 1 > stockAvailable)
+                    {
+                        MessageBox.Show("Not enough stock available for this product.", "Stock Limit", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
                     int newQty = currentQty + 1;
 
                     row["SaleLine_Quantity"] = newQty;
@@ -447,6 +453,12 @@ namespace TheByteClubPOS
             if (!itemExistsInCart)
             {
                 int initialQuantity = 1;
+
+                if (initialQuantity > stockAvailable)
+                {
+                    MessageBox.Show("This item is out of stock.", "Stock Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
                 decimal initialSubtotal = initialQuantity * unitPriceAfterDiscount;
                 DataRow newCartRow = this.dsSamsLiqourShop.Cart.Rows.Add(productID, productName, price, isDiscountApplied ? (object)appliedDiscountID : DBNull.Value, isDiscountApplied ? (object)foundDiscountName : DBNull.Value, unitPriceAfterDiscount, initialQuantity, initialSubtotal, productAlcoholPercentage);
             }
