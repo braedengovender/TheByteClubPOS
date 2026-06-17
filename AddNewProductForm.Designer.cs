@@ -130,7 +130,7 @@
             // 
             product_IDLabel.AutoSize = true;
             product_IDLabel.BackColor = System.Drawing.Color.Transparent;
-            product_IDLabel.Location = new System.Drawing.Point(532, 203);
+            product_IDLabel.Location = new System.Drawing.Point(532, 189);
             product_IDLabel.Name = "product_IDLabel";
             product_IDLabel.Size = new System.Drawing.Size(21, 13);
             product_IDLabel.TabIndex = 1;
@@ -576,6 +576,7 @@
             this.pbImage.Location = new System.Drawing.Point(694, 174);
             this.pbImage.Name = "pbImage";
             this.pbImage.Size = new System.Drawing.Size(239, 185);
+            this.pbImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbImage.TabIndex = 50;
             this.pbImage.TabStop = false;
             this.pbImage.Click += new System.EventHandler(this.pbImage_Click);
@@ -618,7 +619,7 @@
             this.lblProductID.AutoSize = true;
             this.lblProductID.BackColor = System.Drawing.Color.Transparent;
             this.lblProductID.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblProductID.Location = new System.Drawing.Point(532, 200);
+            this.lblProductID.Location = new System.Drawing.Point(532, 186);
             this.lblProductID.Name = "lblProductID";
             this.lblProductID.Size = new System.Drawing.Size(23, 17);
             this.lblProductID.TabIndex = 53;
@@ -738,13 +739,9 @@
             // numericUpDownAlcoholPercentage
             // 
             this.numericUpDownAlcoholPercentage.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.productBindingSource, "Product_AlcoholPercentage", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.numericUpDownAlcoholPercentage.DecimalPlaces = 2;
             this.numericUpDownAlcoholPercentage.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numericUpDownAlcoholPercentage.Location = new System.Drawing.Point(58, 334);
-            this.numericUpDownAlcoholPercentage.Maximum = new decimal(new int[] {
-            9999,
-            0,
-            0,
-            0});
             this.numericUpDownAlcoholPercentage.Name = "numericUpDownAlcoholPercentage";
             this.numericUpDownAlcoholPercentage.Size = new System.Drawing.Size(187, 27);
             this.numericUpDownAlcoholPercentage.TabIndex = 60;
@@ -752,6 +749,7 @@
             // numericUpDownSellingPrice
             // 
             this.numericUpDownSellingPrice.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.productBindingSource, "Product_SellingPrice", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, null, "C2"));
+            this.numericUpDownSellingPrice.DecimalPlaces = 2;
             this.numericUpDownSellingPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numericUpDownSellingPrice.Location = new System.Drawing.Point(611, 462);
             this.numericUpDownSellingPrice.Maximum = new decimal(new int[] {
@@ -766,6 +764,7 @@
             // numericUpDownCostPrice
             // 
             this.numericUpDownCostPrice.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.productBindingSource, "Product_CostPrice", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, null, "C2"));
+            this.numericUpDownCostPrice.DecimalPlaces = 2;
             this.numericUpDownCostPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numericUpDownCostPrice.Location = new System.Drawing.Point(611, 535);
             this.numericUpDownCostPrice.Maximum = new decimal(new int[] {
@@ -806,7 +805,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::TheByteClubPOS.Properties.Resources.AddNewProductFormBackground;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1126, 658);
+            this.ClientSize = new System.Drawing.Size(1122, 654);
             this.ControlBox = false;
             this.Controls.Add(this.cmbOrigin);
             this.Controls.Add(this.lblProductHelp);

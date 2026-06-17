@@ -500,15 +500,22 @@ namespace TheByteClubPOS
 
         private void manageProductsToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            ManageProducts manageProducts = new ManageProducts();
-            OpenChildForm(manageProducts);
+            ViewProducts viewProductsForm = new ViewProducts();
+            if (employeeRole == "Cashier")
+            {
+                viewProductsForm.SetAdminButtonsVisibility(false);
+            }
+            OpenChildForm(viewProductsForm);
         }
 
         private void btnProducts_Click(object sender, EventArgs e)
         {
-            ManageProducts manageProducts = new ManageProducts();
-            manageProducts.showOnlyViewProducts();
-            OpenChildForm(manageProducts);
+            ViewProducts viewProductsForm = new ViewProducts();
+            if (employeeRole == "Cashier")
+            {
+                viewProductsForm.SetAdminButtonsVisibility(false);
+            }
+            OpenChildForm(viewProductsForm);
         }
 
         private void manageProducToolStripMenuItem_Click(object sender, EventArgs e)
@@ -682,12 +689,7 @@ namespace TheByteClubPOS
         }
         private void button2_Click(object sender, EventArgs e)
         {
-            ViewProducts viewProductsForm = new ViewProducts();
-            if (employeeRole == "Cashier")
-            {
-                viewProductsForm.SetAdminButtonsVisibility(false);
-            }
-            OpenChildForm(viewProductsForm);
+            
         }
 
         private void button1_Click_1(object sender, EventArgs e)

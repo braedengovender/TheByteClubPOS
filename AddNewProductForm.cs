@@ -53,7 +53,7 @@ namespace TheByteClubPOS
 
                 pbImage.Image?.Dispose();
                 pbImage.Image = Image.FromStream(_activeImageStream);
-                pbImage.SizeMode = PictureBoxSizeMode.Zoom;
+                //pbImage.SizeMode = PictureBoxSizeMode.Zoom;
             }
             catch
             {
@@ -190,6 +190,10 @@ namespace TheByteClubPOS
             {
                 this.productBindingSource.AddNew();
 
+                cmbCategory.SelectedIndex = -1;
+                cmbSupplier.SelectedIndex = -1;
+                cmbDiscount.SelectedIndex = -1;
+
                 cmbOrigin.SelectedItem = "South Africa";
                 numericUpDownAlcoholPercentage.Value = 0;
                 numericUpDownSellingPrice.Value = 0;
@@ -324,6 +328,18 @@ namespace TheByteClubPOS
                 if (resp != DialogResult.Yes) return false;
             }
 
+            if (numericUpDownAlcoholPercentage.Value < 0 || numericUpDownAlcoholPercentage.Value > 100)
+            {
+                MessageBox.Show(
+                    "Alcohol percentage must be between 0 and 100.",
+                    "Validation",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
+                numericUpDownAlcoholPercentage.Focus();
+                return false;
+            }
+
             // Strip placeholder text before committing to the binding source
             foreach (var entry in _placeholders)
             {
@@ -342,55 +358,154 @@ namespace TheByteClubPOS
 
             try
             {
-                this.productBindingSource.EndEdit();
-                this.productTableAdapter.Update(this.dsSamsLiqourShop.Product);
+                // ─── SAFE TEXT EXTRACTION + NULL CLEANUP ─────────────────────────────
+                string name = GetCleanText(product_NameTextBox);
+                string desc = GetCleanText(product_DescriptionTextBox);
+                string brand = GetCleanText(product_BrandTextBox);
+                string type = GetCleanText(product_TypeTextBox);
+                string flavour = GetCleanText(product_FlavourTextBox);
+                string ingredients = GetCleanText(product_IngredientsTextBox);
+                string barcode = GetCleanText(product_BarcodeNumberTextBox);
 
+                // convert empty strings to NULL (SQL-friendly)
+                if (string.IsNullOrWhiteSpace(name)) name = null;
+                if (string.IsNullOrWhiteSpace(desc)) desc = null;
+                if (string.IsNullOrWhiteSpace(brand)) brand = null;
+                if (string.IsNullOrWhiteSpace(type)) type = null;
+                if (string.IsNullOrWhiteSpace(flavour)) flavour = null;
+                if (string.IsNullOrWhiteSpace(ingredients)) ingredients = null;
+                if (string.IsNullOrWhiteSpace(barcode)) barcode = null;
+
+                // ─── SAFE NUMBER PARSING (NO CRASHES) ─────────────────
+                int sizeML = 0;
+                int.TryParse(GetCleanText(product_SizeMLTextBox), out sizeML);
+
+                decimal sellingPrice = 0;
+                decimal.TryParse(numericUpDownSellingPrice.Value.ToString(), out sellingPrice);
+
+                decimal costPrice = 0;
+                decimal.TryParse(numericUpDownCostPrice.Value.ToString(), out costPrice);
+
+                decimal alcohol = numericUpDownAlcoholPercentage.Value;
+
+                int qty = (int)numericUpDownQuantityInStock.Value;
+                int reorder = (int)numericUpDownReorderQuantity.Value;
+
+                // ─── SAFE COMBOBOX HANDLING ───────────────────────────
+                int categoryID = 0;
+                int supplierID = 0;
+
+                try
+                {
+                    if (cmbCategory.SelectedValue != null)
+                        categoryID = Convert.ToInt32(cmbCategory.SelectedValue is DataRowView row ? row[0] : cmbCategory.SelectedValue);
+                }
+                catch
+                {
+                    MessageBox.Show("Invalid Category selected.", "Validation",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                try
+                {
+                    if (cmbSupplier.SelectedValue != null)
+                        supplierID = Convert.ToInt32(cmbSupplier.SelectedValue is DataRowView r ? r[0] : cmbSupplier.SelectedValue);
+                }
+                catch
+                {
+                    MessageBox.Show("Invalid Supplier selected.", "Validation",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                string origin = cmbOrigin.Text ?? "";
+                string status = cmbStatus.Text ?? "";
+
+                int? discountID = cmbDiscount.SelectedValue != null
+                ? Convert.ToInt32(cmbDiscount.SelectedValue)
+                : (int?)null;
+
+                // ─── IMAGE SAFETY (IMPORTANT) ─────────────────────────
+
+                byte[] imageBytes = _pendingImageBytes;
+
+                if (_currentMode == FormMode.Edit && imageBytes == null)
+                {
+                    // KEEP EXISTING IMAGE (do NOT overwrite with null)
+                    object img = this.productTableAdapter.GetImageByID(_currentProductID);
+                    imageBytes = img == DBNull.Value ? null : (byte[])img;
+                }
+
+                // ─── FINAL SAVE ───────────────────────────────────────
                 if (_currentMode == FormMode.Add)
                 {
-                    DataRowView currentRowView = (DataRowView)this.productBindingSource.Current;
-                    int newProductID = Convert.ToInt32(currentRowView["Product_ID"]);
+                    productTableAdapter.InsertProductQuery(
+                    categoryID,
+                    supplierID,
+                    discountID,
+                    name,
+                    desc,
+                    brand,
+                    type,
+                    flavour,
+                    alcohol,
+                    origin,
+                    ingredients,
+                    sizeML,
+                    barcode,
+                    sellingPrice,
+                    costPrice,
+                    qty,
+                    reorder,
+                    status,
+                    imageBytes
+                );
 
-                    if (_pendingImageBytes != null)
-                    {
-                        bool imageUploaded = TrySaveImage(_pendingImageBytes, newProductID);
-
-                        if (!imageUploaded)
-                        {
-                            // Image failed — set null to keep the column clean, never block the save
-                            TrySaveImage(null, newProductID);
-
-                            MessageBox.Show(
-                                "Product saved successfully, but the image could not be uploaded and has been cleared.\n" +
-                                "You can add the image later by editing the product.",
-                                "Saved Without Image", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        }
-                        else
-                        {
-                            MessageBox.Show("New product added successfully!", "Success",
-                                MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        }
-                    }
-                    else
-                    {
-                        MessageBox.Show("New product added successfully!", "Success",
-                            MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
+                    MessageBox.Show("Product added successfully!");
                 }
                 else
                 {
-                    MessageBox.Show("Product updated successfully!", "Success",
-                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    productTableAdapter.UpdateEntireProductQuery(
+                        categoryID,
+                    supplierID,
+                    discountID,
+                    name,
+                    desc,
+                    brand,
+                    type,
+                    flavour,
+                    alcohol,
+                    origin,
+                    ingredients,
+                    sizeML,
+                    barcode,
+                    sellingPrice,
+                    costPrice,
+                    qty,
+                    reorder,
+                    status,
+                    imageBytes,
+                    _currentProductID
+                    );
+
+                    MessageBox.Show("Product updated successfully!");
                 }
 
                 if (this.MdiParent is MainForm mainForm)
                     mainForm.LoadProductsForm();
 
+                _pendingImageBytes = null;
                 this.Close();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("An error occurred while saving:\n\n" + ex.Message,
-                    "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(
+                    "Save failed, but system is safe.\n\n" + ex.Message,
+                    "Warning",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
             }
         }
 
@@ -402,47 +517,44 @@ namespace TheByteClubPOS
             {
                 openFileDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp";
 
-                if (openFileDialog.ShowDialog() != DialogResult.OK) return;
+                if (openFileDialog.ShowDialog() != DialogResult.OK)
+                    return;
 
                 try
                 {
-                    byte[] rawBytes = System.IO.File.ReadAllBytes(openFileDialog.FileName);
+                    byte[] rawBytes;
 
-                    if (rawBytes.Length == 0)
-                        throw new Exception("The selected file is empty.");
-
-                    if (_currentMode == FormMode.Add)
+                    try
                     {
-                        _pendingImageBytes = rawBytes;
-                        LoadImageIntoBox(rawBytes);
-
-                        MessageBox.Show(
-                            "Image staged. It will be saved when you click 'Save Product'.",
-                            "Image Staged", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        rawBytes = System.IO.File.ReadAllBytes(openFileDialog.FileName);
                     }
-                    else
+                    catch
                     {
-                        bool success = TrySaveImage(rawBytes, _currentProductID);
-
-                        if (!success)
-                        {
-                            // Upload failed — clear column so it is not left corrupted
-                            TrySaveImage(null, _currentProductID);
-
-                            MessageBox.Show(
-                                "The image could not be uploaded and has been cleared.\n" +
-                                "Please try a different image file.",
-                                "Image Upload Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        }
-
-                        // Always refresh display from DB so UI reflects what is actually stored
-                        this.productTableAdapter.Fill(this.dsSamsLiqourShop.Product);
-                        DisplayProductImage(_currentProductID);
+                        MessageBox.Show("Could not read image file.", "Error",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
                     }
+
+                    if (rawBytes == null || rawBytes.Length == 0)
+                    {
+                        MessageBox.Show("Invalid image file selected.", "Error",
+                            MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+
+                    // SAME LOGIC FOR ADD + EDIT (SAFE)
+                    _pendingImageBytes = rawBytes;
+                    LoadImageIntoBox(rawBytes);
+
+                    MessageBox.Show(
+                        "Image selected. It will be saved when you click Save.",
+                        "Image Ready",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Could not read the selected file:\n\n" + ex.Message,
+                    MessageBox.Show("Could not read image:\n\n" + ex.Message,
                         "File Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
@@ -488,26 +600,19 @@ namespace TheByteClubPOS
 
                 if (result != DialogResult.Yes) return;
 
-                if (_currentMode == FormMode.Add)
-                {
-                    _pendingImageBytes = null;
+                _pendingImageBytes = null;
 
-                    _activeImageStream?.Dispose();
-                    _activeImageStream = null;
+                _activeImageStream?.Dispose();
+                _activeImageStream = null;
 
-                    pbImage.Image?.Dispose();
-                    pbImage.Image = Properties.Resources.NoImageAvailable;
-                }
-                else
+                pbImage.Image?.Dispose();
+                pbImage.Image = Properties.Resources.NoImageAvailable;
+
+                // ONLY delete from DB in EDIT mode
+                if (_currentMode == FormMode.Edit)
                 {
-                    this.productTableAdapter.UpdateQueryClearProductImage(_currentProductID);
+                    productTableAdapter.UpdateQueryClearProductImage(_currentProductID);
                     this.productTableAdapter.Fill(this.dsSamsLiqourShop.Product);
-
-                    _activeImageStream?.Dispose();
-                    _activeImageStream = null;
-
-                    pbImage.Image?.Dispose();
-                    pbImage.Image = Properties.Resources.NoImageAvailable;
                 }
 
                 MessageBox.Show("Image removed successfully.", "Done",
