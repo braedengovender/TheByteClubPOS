@@ -25,7 +25,7 @@ namespace TheByteClubPOS
 
             UpdateRemoveButtonText();
             UpdateEmployeeStatistics();
-            txtSearch.Text = "Search by Name, Surname or Username";
+            //txtSearch.Text = "Search by Name, Surname or Username";
             txtSearch.ForeColor = Color.Gray;
         }
 

@@ -115,9 +115,10 @@
             this.lblTitle.AutoSize = true;
             this.lblTitle.BackColor = System.Drawing.Color.Transparent;
             this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 21.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.Location = new System.Drawing.Point(12, 52);
+            this.lblTitle.Location = new System.Drawing.Point(17, 43);
+            this.lblTitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(393, 60);
+            this.lblTitle.Size = new System.Drawing.Size(260, 40);
             this.lblTitle.TabIndex = 24;
             this.lblTitle.Text = "Employee Details:";
             // 
@@ -128,9 +129,11 @@
             this.grpFilter.Controls.Add(this.rdoAdmin);
             this.grpFilter.Controls.Add(this.rdoCashier);
             this.grpFilter.Controls.Add(this.rdoManager);
-            this.grpFilter.Location = new System.Drawing.Point(33, 208);
+            this.grpFilter.Location = new System.Drawing.Point(24, 169);
+            this.grpFilter.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.grpFilter.Name = "grpFilter";
-            this.grpFilter.Size = new System.Drawing.Size(157, 198);
+            this.grpFilter.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grpFilter.Size = new System.Drawing.Size(166, 132);
             this.grpFilter.TabIndex = 23;
             this.grpFilter.TabStop = false;
             this.grpFilter.Text = "Filter by:";
@@ -138,9 +141,10 @@
             // rdoAll
             // 
             this.rdoAll.AutoSize = true;
-            this.rdoAll.Location = new System.Drawing.Point(25, 26);
+            this.rdoAll.Location = new System.Drawing.Point(17, 17);
+            this.rdoAll.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.rdoAll.Name = "rdoAll";
-            this.rdoAll.Size = new System.Drawing.Size(51, 24);
+            this.rdoAll.Size = new System.Drawing.Size(36, 17);
             this.rdoAll.TabIndex = 3;
             this.rdoAll.TabStop = true;
             this.rdoAll.Text = "All";
@@ -151,9 +155,10 @@
             // rdoAdmin
             // 
             this.rdoAdmin.AutoSize = true;
-            this.rdoAdmin.Location = new System.Drawing.Point(25, 157);
+            this.rdoAdmin.Location = new System.Drawing.Point(17, 102);
+            this.rdoAdmin.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.rdoAdmin.Name = "rdoAdmin";
-            this.rdoAdmin.Size = new System.Drawing.Size(79, 24);
+            this.rdoAdmin.Size = new System.Drawing.Size(54, 17);
             this.rdoAdmin.TabIndex = 2;
             this.rdoAdmin.TabStop = true;
             this.rdoAdmin.Text = "Admin";
@@ -163,9 +168,10 @@
             // rdoCashier
             // 
             this.rdoCashier.AutoSize = true;
-            this.rdoCashier.Location = new System.Drawing.Point(25, 111);
+            this.rdoCashier.Location = new System.Drawing.Point(17, 72);
+            this.rdoCashier.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.rdoCashier.Name = "rdoCashier";
-            this.rdoCashier.Size = new System.Drawing.Size(88, 24);
+            this.rdoCashier.Size = new System.Drawing.Size(60, 17);
             this.rdoCashier.TabIndex = 1;
             this.rdoCashier.TabStop = true;
             this.rdoCashier.Text = "Cashier";
@@ -175,9 +181,10 @@
             // rdoManager
             // 
             this.rdoManager.AutoSize = true;
-            this.rdoManager.Location = new System.Drawing.Point(25, 68);
+            this.rdoManager.Location = new System.Drawing.Point(17, 44);
+            this.rdoManager.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.rdoManager.Name = "rdoManager";
-            this.rdoManager.Size = new System.Drawing.Size(97, 24);
+            this.rdoManager.Size = new System.Drawing.Size(67, 17);
             this.rdoManager.TabIndex = 0;
             this.rdoManager.TabStop = true;
             this.rdoManager.Text = "Manager";
@@ -189,9 +196,10 @@
             // 
             this.txtSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSearch.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.txtSearch.Location = new System.Drawing.Point(396, 140);
+            this.txtSearch.Location = new System.Drawing.Point(251, 113);
+            this.txtSearch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(612, 35);
+            this.txtSearch.Size = new System.Drawing.Size(360, 26);
             this.txtSearch.TabIndex = 22;
             this.txtSearch.Click += new System.EventHandler(this.txtSearch_TextChanged);
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
@@ -202,9 +210,10 @@
             // 
             this.lblSearch.AutoSize = true;
             this.lblSearch.BackColor = System.Drawing.Color.Transparent;
-            this.lblSearch.Location = new System.Drawing.Point(29, 150);
+            this.lblSearch.Location = new System.Drawing.Point(21, 132);
+            this.lblSearch.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblSearch.Name = "lblSearch";
-            this.lblSearch.Size = new System.Drawing.Size(317, 20);
+            this.lblSearch.Size = new System.Drawing.Size(213, 13);
             this.lblSearch.TabIndex = 21;
             this.lblSearch.Text = "View, Search and manage employee details";
             // 
@@ -213,9 +222,11 @@
             this.grpOrderby.BackColor = System.Drawing.Color.Transparent;
             this.grpOrderby.Controls.Add(this.rdoDesc);
             this.grpOrderby.Controls.Add(this.rdoAsc);
-            this.grpOrderby.Location = new System.Drawing.Point(396, 310);
+            this.grpOrderby.Location = new System.Drawing.Point(432, 173);
+            this.grpOrderby.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.grpOrderby.Name = "grpOrderby";
-            this.grpOrderby.Size = new System.Drawing.Size(175, 87);
+            this.grpOrderby.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grpOrderby.Size = new System.Drawing.Size(179, 63);
             this.grpOrderby.TabIndex = 20;
             this.grpOrderby.TabStop = false;
             this.grpOrderby.Text = "Order by:";
@@ -223,9 +234,10 @@
             // rdoDesc
             // 
             this.rdoDesc.AutoSize = true;
-            this.rdoDesc.Location = new System.Drawing.Point(23, 55);
+            this.rdoDesc.Location = new System.Drawing.Point(15, 36);
+            this.rdoDesc.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.rdoDesc.Name = "rdoDesc";
-            this.rdoDesc.Size = new System.Drawing.Size(119, 24);
+            this.rdoDesc.Size = new System.Drawing.Size(82, 17);
             this.rdoDesc.TabIndex = 2;
             this.rdoDesc.TabStop = true;
             this.rdoDesc.Text = "Descending";
@@ -236,9 +248,10 @@
             // rdoAsc
             // 
             this.rdoAsc.AutoSize = true;
-            this.rdoAsc.Location = new System.Drawing.Point(23, 25);
+            this.rdoAsc.Location = new System.Drawing.Point(15, 16);
+            this.rdoAsc.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.rdoAsc.Name = "rdoAsc";
-            this.rdoAsc.Size = new System.Drawing.Size(109, 24);
+            this.rdoAsc.Size = new System.Drawing.Size(75, 17);
             this.rdoAsc.TabIndex = 1;
             this.rdoAsc.TabStop = true;
             this.rdoAsc.Text = "Ascending";
@@ -253,9 +266,11 @@
             this.grpSort.Controls.Add(this.rdoUsername);
             this.grpSort.Controls.Add(this.rdoSurname);
             this.grpSort.Controls.Add(this.rdoName);
-            this.grpSort.Location = new System.Drawing.Point(220, 208);
+            this.grpSort.Location = new System.Drawing.Point(230, 169);
+            this.grpSort.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.grpSort.Name = "grpSort";
-            this.grpSort.Size = new System.Drawing.Size(152, 198);
+            this.grpSort.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grpSort.Size = new System.Drawing.Size(173, 129);
             this.grpSort.TabIndex = 19;
             this.grpSort.TabStop = false;
             this.grpSort.Text = "Sort by:";
@@ -263,9 +278,10 @@
             // rdoID
             // 
             this.rdoID.AutoSize = true;
-            this.rdoID.Location = new System.Drawing.Point(22, 157);
+            this.rdoID.Location = new System.Drawing.Point(15, 102);
+            this.rdoID.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.rdoID.Name = "rdoID";
-            this.rdoID.Size = new System.Drawing.Size(51, 24);
+            this.rdoID.Size = new System.Drawing.Size(36, 17);
             this.rdoID.TabIndex = 4;
             this.rdoID.TabStop = true;
             this.rdoID.Text = "ID";
@@ -275,9 +291,10 @@
             // rdoUsername
             // 
             this.rdoUsername.AutoSize = true;
-            this.rdoUsername.Location = new System.Drawing.Point(22, 111);
+            this.rdoUsername.Location = new System.Drawing.Point(15, 72);
+            this.rdoUsername.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.rdoUsername.Name = "rdoUsername";
-            this.rdoUsername.Size = new System.Drawing.Size(108, 24);
+            this.rdoUsername.Size = new System.Drawing.Size(73, 17);
             this.rdoUsername.TabIndex = 3;
             this.rdoUsername.TabStop = true;
             this.rdoUsername.Text = "Username";
@@ -287,9 +304,10 @@
             // rdoSurname
             // 
             this.rdoSurname.AutoSize = true;
-            this.rdoSurname.Location = new System.Drawing.Point(22, 68);
+            this.rdoSurname.Location = new System.Drawing.Point(15, 44);
+            this.rdoSurname.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.rdoSurname.Name = "rdoSurname";
-            this.rdoSurname.Size = new System.Drawing.Size(99, 24);
+            this.rdoSurname.Size = new System.Drawing.Size(67, 17);
             this.rdoSurname.TabIndex = 2;
             this.rdoSurname.TabStop = true;
             this.rdoSurname.Text = "Surname";
@@ -299,9 +317,10 @@
             // rdoName
             // 
             this.rdoName.AutoSize = true;
-            this.rdoName.Location = new System.Drawing.Point(22, 26);
+            this.rdoName.Location = new System.Drawing.Point(15, 17);
+            this.rdoName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.rdoName.Name = "rdoName";
-            this.rdoName.Size = new System.Drawing.Size(76, 24);
+            this.rdoName.Size = new System.Drawing.Size(53, 17);
             this.rdoName.TabIndex = 1;
             this.rdoName.TabStop = true;
             this.rdoName.Text = "Name";
@@ -312,9 +331,10 @@
             // 
             this.btnReset.Image = global::TheByteClubPOS.Properties.Resources.Reseticon;
             this.btnReset.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnReset.Location = new System.Drawing.Point(613, 326);
+            this.btnReset.Location = new System.Drawing.Point(432, 254);
+            this.btnReset.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnReset.Name = "btnReset";
-            this.btnReset.Size = new System.Drawing.Size(175, 68);
+            this.btnReset.Size = new System.Drawing.Size(179, 44);
             this.btnReset.TabIndex = 18;
             this.btnReset.Text = " Reset Filter";
             this.btnReset.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -324,9 +344,10 @@
             // btnDeactivate
             // 
             this.btnDeactivate.Image = global::TheByteClubPOS.Properties.Resources.DeactivateButton;
-            this.btnDeactivate.Location = new System.Drawing.Point(885, 208);
+            this.btnDeactivate.Location = new System.Drawing.Point(914, 259);
+            this.btnDeactivate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnDeactivate.Name = "btnDeactivate";
-            this.btnDeactivate.Size = new System.Drawing.Size(175, 68);
+            this.btnDeactivate.Size = new System.Drawing.Size(179, 44);
             this.btnDeactivate.TabIndex = 17;
             this.btnDeactivate.Text = " Deactivate Employee";
             this.btnDeactivate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -339,9 +360,10 @@
             this.btnAdd.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnAdd.Image = global::TheByteClubPOS.Properties.Resources.AddEmployeeIcon;
             this.btnAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnAdd.Location = new System.Drawing.Point(396, 208);
+            this.btnAdd.Location = new System.Drawing.Point(914, 150);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(175, 68);
+            this.btnAdd.Size = new System.Drawing.Size(179, 44);
             this.btnAdd.TabIndex = 16;
             this.btnAdd.Text = " Add Employee";
             this.btnAdd.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -352,9 +374,10 @@
             // btnEdit
             // 
             this.btnEdit.Image = global::TheByteClubPOS.Properties.Resources.EditIcon;
-            this.btnEdit.Location = new System.Drawing.Point(613, 208);
+            this.btnEdit.Location = new System.Drawing.Point(914, 204);
+            this.btnEdit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(175, 68);
+            this.btnEdit.Size = new System.Drawing.Size(179, 44);
             this.btnEdit.TabIndex = 15;
             this.btnEdit.Text = " Edit Details";
             this.btnEdit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -392,13 +415,14 @@
             this.employeePasswordDataGridViewTextBoxColumn,
             this.employeeStatusDataGridViewTextBoxColumn});
             this.dgvEmployees.DataSource = this.employeeBindingSource;
-            this.dgvEmployees.Location = new System.Drawing.Point(22, 411);
+            this.dgvEmployees.Location = new System.Drawing.Point(24, 333);
+            this.dgvEmployees.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgvEmployees.Name = "dgvEmployees";
             this.dgvEmployees.ReadOnly = true;
             this.dgvEmployees.RowHeadersVisible = false;
             this.dgvEmployees.RowHeadersWidth = 62;
             this.dgvEmployees.RowTemplate.Height = 28;
-            this.dgvEmployees.Size = new System.Drawing.Size(1090, 270);
+            this.dgvEmployees.Size = new System.Drawing.Size(1097, 294);
             this.dgvEmployees.TabIndex = 14;
             this.dgvEmployees.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvEmployees_CellFormatting);
             // 
@@ -620,9 +644,10 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(26, 112);
+            this.label1.Location = new System.Drawing.Point(19, 107);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(246, 38);
+            this.label1.Size = new System.Drawing.Size(166, 25);
             this.label1.TabIndex = 25;
             this.label1.Text = "Search and Filter:";
             // 
@@ -633,17 +658,19 @@
             this.panel1.Controls.Add(this.lblActive);
             this.panel1.Controls.Add(this.lblTotalEmployees);
             this.panel1.Controls.Add(this.label3);
-            this.panel1.Location = new System.Drawing.Point(835, 300);
+            this.panel1.Location = new System.Drawing.Point(914, 67);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(268, 100);
+            this.panel1.Size = new System.Drawing.Size(179, 65);
             this.panel1.TabIndex = 27;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(125, 65);
+            this.label6.Location = new System.Drawing.Point(83, 42);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(14, 20);
+            this.label6.Size = new System.Drawing.Size(9, 13);
             this.label6.TabIndex = 4;
             this.label6.Text = "|";
             // 
@@ -651,9 +678,10 @@
             // 
             this.lblInactive.AutoSize = true;
             this.lblInactive.ForeColor = System.Drawing.Color.Red;
-            this.lblInactive.Location = new System.Drawing.Point(145, 65);
+            this.lblInactive.Location = new System.Drawing.Point(97, 42);
+            this.lblInactive.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblInactive.Name = "lblInactive";
-            this.lblInactive.Size = new System.Drawing.Size(51, 20);
+            this.lblInactive.Size = new System.Drawing.Size(35, 13);
             this.lblInactive.TabIndex = 3;
             this.lblInactive.Text = "label5";
             // 
@@ -661,18 +689,20 @@
             // 
             this.lblActive.AutoSize = true;
             this.lblActive.ForeColor = System.Drawing.Color.LimeGreen;
-            this.lblActive.Location = new System.Drawing.Point(15, 65);
+            this.lblActive.Location = new System.Drawing.Point(10, 42);
+            this.lblActive.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblActive.Name = "lblActive";
-            this.lblActive.Size = new System.Drawing.Size(51, 20);
+            this.lblActive.Size = new System.Drawing.Size(35, 13);
             this.lblActive.TabIndex = 2;
             this.lblActive.Text = "label4";
             // 
             // lblTotalEmployees
             // 
             this.lblTotalEmployees.AutoSize = true;
-            this.lblTotalEmployees.Location = new System.Drawing.Point(120, 25);
+            this.lblTotalEmployees.Location = new System.Drawing.Point(80, 16);
+            this.lblTotalEmployees.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTotalEmployees.Name = "lblTotalEmployees";
-            this.lblTotalEmployees.Size = new System.Drawing.Size(40, 20);
+            this.lblTotalEmployees.Size = new System.Drawing.Size(27, 13);
             this.lblTotalEmployees.TabIndex = 1;
             this.lblTotalEmployees.Text = "num";
             // 
@@ -680,19 +710,20 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(63, 5);
+            this.label3.Location = new System.Drawing.Point(42, 3);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(141, 20);
+            this.label3.Size = new System.Drawing.Size(100, 13);
             this.label3.TabIndex = 0;
             this.label3.Text = "Total Employees";
             // 
             // ManageEmployeeDetailsForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::TheByteClubPOS.Properties.Resources.Background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1128, 694);
+            this.ClientSize = new System.Drawing.Size(1166, 666);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtSearch);
@@ -707,6 +738,7 @@
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.dgvEmployees);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "ManageEmployeeDetailsForm";
             this.Text = "Manage Employees";
             this.Load += new System.EventHandler(this.ManageEmployeeDetailsForm_Load);
