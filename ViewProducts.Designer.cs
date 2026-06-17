@@ -108,9 +108,10 @@
             this.lblProductDescription.AutoSize = true;
             this.lblProductDescription.BackColor = System.Drawing.Color.Transparent;
             this.lblProductDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblProductDescription.Location = new System.Drawing.Point(19, 79);
+            this.lblProductDescription.Location = new System.Drawing.Point(28, 122);
+            this.lblProductDescription.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblProductDescription.Name = "lblProductDescription";
-            this.lblProductDescription.Size = new System.Drawing.Size(409, 24);
+            this.lblProductDescription.Size = new System.Drawing.Size(633, 33);
             this.lblProductDescription.TabIndex = 3;
             this.lblProductDescription.Text = "Manage your product inventory and stock levels";
             // 
@@ -120,9 +121,10 @@
             this.lblProducts.AutoSize = true;
             this.lblProducts.BackColor = System.Drawing.Color.Transparent;
             this.lblProducts.Font = new System.Drawing.Font("Segoe UI", 21.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblProducts.Location = new System.Drawing.Point(16, 35);
+            this.lblProducts.Location = new System.Drawing.Point(24, 54);
+            this.lblProducts.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblProducts.Name = "lblProducts";
-            this.lblProducts.Size = new System.Drawing.Size(139, 40);
+            this.lblProducts.Size = new System.Drawing.Size(208, 60);
             this.lblProducts.TabIndex = 4;
             this.lblProducts.Text = "Products";
             // 
@@ -130,9 +132,10 @@
             // 
             this.btnAddNewProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddNewProduct.Image = global::TheByteClubPOS.Properties.Resources.AddIcon;
-            this.btnAddNewProduct.Location = new System.Drawing.Point(457, 42);
+            this.btnAddNewProduct.Location = new System.Drawing.Point(686, 65);
+            this.btnAddNewProduct.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnAddNewProduct.Name = "btnAddNewProduct";
-            this.btnAddNewProduct.Size = new System.Drawing.Size(186, 38);
+            this.btnAddNewProduct.Size = new System.Drawing.Size(279, 58);
             this.btnAddNewProduct.TabIndex = 12;
             this.btnAddNewProduct.Text = " Add New Product";
             this.btnAddNewProduct.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -144,9 +147,10 @@
             // 
             this.btnEditProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEditProduct.Image = global::TheByteClubPOS.Properties.Resources.EditIcon;
-            this.btnEditProduct.Location = new System.Drawing.Point(649, 42);
+            this.btnEditProduct.Location = new System.Drawing.Point(974, 65);
+            this.btnEditProduct.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnEditProduct.Name = "btnEditProduct";
-            this.btnEditProduct.Size = new System.Drawing.Size(186, 38);
+            this.btnEditProduct.Size = new System.Drawing.Size(279, 58);
             this.btnEditProduct.TabIndex = 13;
             this.btnEditProduct.Text = " Edit Product";
             this.btnEditProduct.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -158,9 +162,10 @@
             // 
             this.btnDeactivateProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDeactivateProduct.Image = global::TheByteClubPOS.Properties.Resources.SmallDeactivateIcon;
-            this.btnDeactivateProduct.Location = new System.Drawing.Point(841, 42);
+            this.btnDeactivateProduct.Location = new System.Drawing.Point(1262, 65);
+            this.btnDeactivateProduct.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnDeactivateProduct.Name = "btnDeactivateProduct";
-            this.btnDeactivateProduct.Size = new System.Drawing.Size(186, 38);
+            this.btnDeactivateProduct.Size = new System.Drawing.Size(279, 58);
             this.btnDeactivateProduct.TabIndex = 14;
             this.btnDeactivateProduct.Text = "Deactivate Product";
             this.btnDeactivateProduct.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -174,9 +179,10 @@
             this.lblSearch.AutoSize = true;
             this.lblSearch.BackColor = System.Drawing.Color.Transparent;
             this.lblSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSearch.Location = new System.Drawing.Point(19, 126);
+            this.lblSearch.Location = new System.Drawing.Point(28, 194);
+            this.lblSearch.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblSearch.Name = "lblSearch";
-            this.lblSearch.Size = new System.Drawing.Size(149, 24);
+            this.lblSearch.Size = new System.Drawing.Size(223, 33);
             this.lblSearch.TabIndex = 15;
             this.lblSearch.Text = "Search && Filter";
             // 
@@ -186,9 +192,10 @@
             this.lblSearchProduct.AutoSize = true;
             this.lblSearchProduct.BackColor = System.Drawing.Color.Transparent;
             this.lblSearchProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSearchProduct.Location = new System.Drawing.Point(19, 171);
+            this.lblSearchProduct.Location = new System.Drawing.Point(28, 263);
+            this.lblSearchProduct.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblSearchProduct.Name = "lblSearchProduct";
-            this.lblSearchProduct.Size = new System.Drawing.Size(123, 20);
+            this.lblSearchProduct.Size = new System.Drawing.Size(184, 29);
             this.lblSearchProduct.TabIndex = 16;
             this.lblSearchProduct.Text = "Search Product:";
             // 
@@ -198,9 +205,10 @@
             this.lblCategory.AutoSize = true;
             this.lblCategory.BackColor = System.Drawing.Color.Transparent;
             this.lblCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCategory.Location = new System.Drawing.Point(386, 172);
+            this.lblCategory.Location = new System.Drawing.Point(579, 265);
+            this.lblCategory.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCategory.Name = "lblCategory";
-            this.lblCategory.Size = new System.Drawing.Size(77, 20);
+            this.lblCategory.Size = new System.Drawing.Size(116, 29);
             this.lblCategory.TabIndex = 17;
             this.lblCategory.Text = "Category:";
             // 
@@ -210,9 +218,10 @@
             this.lblSupplier.AutoSize = true;
             this.lblSupplier.BackColor = System.Drawing.Color.Transparent;
             this.lblSupplier.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSupplier.Location = new System.Drawing.Point(658, 172);
+            this.lblSupplier.Location = new System.Drawing.Point(987, 265);
+            this.lblSupplier.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblSupplier.Name = "lblSupplier";
-            this.lblSupplier.Size = new System.Drawing.Size(71, 20);
+            this.lblSupplier.Size = new System.Drawing.Size(110, 29);
             this.lblSupplier.TabIndex = 18;
             this.lblSupplier.Text = "Supplier:";
             // 
@@ -220,9 +229,10 @@
             // 
             this.btnRefresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRefresh.Image = global::TheByteClubPOS.Properties.Resources.RefreshIcon;
-            this.btnRefresh.Location = new System.Drawing.Point(994, 192);
+            this.btnRefresh.Location = new System.Drawing.Point(1491, 295);
+            this.btnRefresh.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(128, 38);
+            this.btnRefresh.Size = new System.Drawing.Size(192, 58);
             this.btnRefresh.TabIndex = 20;
             this.btnRefresh.Text = "Refresh";
             this.btnRefresh.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -234,9 +244,10 @@
             // 
             this.txtProductSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtProductSearch.ForeColor = System.Drawing.Color.DarkGray;
-            this.txtProductSearch.Location = new System.Drawing.Point(23, 197);
+            this.txtProductSearch.Location = new System.Drawing.Point(34, 303);
+            this.txtProductSearch.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtProductSearch.Name = "txtProductSearch";
-            this.txtProductSearch.Size = new System.Drawing.Size(321, 29);
+            this.txtProductSearch.Size = new System.Drawing.Size(480, 40);
             this.txtProductSearch.TabIndex = 21;
             this.txtProductSearch.Text = "Search by name, brand or barcode...";
             this.txtProductSearch.TextChanged += new System.EventHandler(this.txtProductSearch_TextChanged);
@@ -247,9 +258,10 @@
             // 
             this.btnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClear.Image = global::TheByteClubPOS.Properties.Resources.CloseIcon;
-            this.btnClear.Location = new System.Drawing.Point(860, 192);
+            this.btnClear.Location = new System.Drawing.Point(1290, 295);
+            this.btnClear.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(128, 38);
+            this.btnClear.Size = new System.Drawing.Size(192, 58);
             this.btnClear.TabIndex = 23;
             this.btnClear.Text = "Clear Filter";
             this.btnClear.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -263,9 +275,10 @@
             this.lblTotalValue.AutoSize = true;
             this.lblTotalValue.BackColor = System.Drawing.Color.Transparent;
             this.lblTotalValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalValue.Location = new System.Drawing.Point(551, 575);
+            this.lblTotalValue.Location = new System.Drawing.Point(826, 885);
+            this.lblTotalValue.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTotalValue.Name = "lblTotalValue";
-            this.lblTotalValue.Size = new System.Drawing.Size(93, 20);
+            this.lblTotalValue.Size = new System.Drawing.Size(141, 29);
             this.lblTotalValue.TabIndex = 24;
             this.lblTotalValue.Text = "Total Value:";
             // 
@@ -273,9 +286,10 @@
             // 
             this.btnExcelExport.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExcelExport.Image = global::TheByteClubPOS.Properties.Resources.ExcelIcon;
-            this.btnExcelExport.Location = new System.Drawing.Point(962, 604);
+            this.btnExcelExport.Location = new System.Drawing.Point(1443, 929);
+            this.btnExcelExport.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnExcelExport.Name = "btnExcelExport";
-            this.btnExcelExport.Size = new System.Drawing.Size(160, 38);
+            this.btnExcelExport.Size = new System.Drawing.Size(240, 58);
             this.btnExcelExport.TabIndex = 25;
             this.btnExcelExport.Text = "Export to Excel";
             this.btnExcelExport.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -329,9 +343,10 @@
             this.cmbCategoryFilter.DisplayMember = "Category_Name";
             this.cmbCategoryFilter.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbCategoryFilter.FormattingEnabled = true;
-            this.cmbCategoryFilter.Location = new System.Drawing.Point(390, 198);
+            this.cmbCategoryFilter.Location = new System.Drawing.Point(585, 305);
+            this.cmbCategoryFilter.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cmbCategoryFilter.Name = "cmbCategoryFilter";
-            this.cmbCategoryFilter.Size = new System.Drawing.Size(254, 28);
+            this.cmbCategoryFilter.Size = new System.Drawing.Size(379, 38);
             this.cmbCategoryFilter.TabIndex = 27;
             this.cmbCategoryFilter.ValueMember = "Category_Name";
             this.cmbCategoryFilter.SelectedIndexChanged += new System.EventHandler(this.cmbCategoryFilter_SelectedIndexChanged);
@@ -347,9 +362,10 @@
             this.cmbSupplierFilter.DisplayMember = "Supplier_Name";
             this.cmbSupplierFilter.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbSupplierFilter.FormattingEnabled = true;
-            this.cmbSupplierFilter.Location = new System.Drawing.Point(662, 197);
+            this.cmbSupplierFilter.Location = new System.Drawing.Point(993, 303);
+            this.cmbSupplierFilter.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cmbSupplierFilter.Name = "cmbSupplierFilter";
-            this.cmbSupplierFilter.Size = new System.Drawing.Size(188, 28);
+            this.cmbSupplierFilter.Size = new System.Drawing.Size(280, 38);
             this.cmbSupplierFilter.TabIndex = 28;
             this.cmbSupplierFilter.ValueMember = "Supplier_Name";
             this.cmbSupplierFilter.SelectedIndexChanged += new System.EventHandler(this.cmbSupplierFilter_SelectedIndexChanged);
@@ -365,9 +381,10 @@
             this.lblTotalProducts.AutoSize = true;
             this.lblTotalProducts.BackColor = System.Drawing.Color.Transparent;
             this.lblTotalProducts.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalProducts.Location = new System.Drawing.Point(19, 575);
+            this.lblTotalProducts.Location = new System.Drawing.Point(28, 885);
+            this.lblTotalProducts.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTotalProducts.Name = "lblTotalProducts";
-            this.lblTotalProducts.Size = new System.Drawing.Size(119, 20);
+            this.lblTotalProducts.Size = new System.Drawing.Size(181, 29);
             this.lblTotalProducts.TabIndex = 29;
             this.lblTotalProducts.Text = "Total Products: ";
             // 
@@ -375,9 +392,10 @@
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.Image = global::TheByteClubPOS.Properties.Resources.SearchIcon;
-            this.pictureBox1.Location = new System.Drawing.Point(350, 198);
+            this.pictureBox1.Location = new System.Drawing.Point(525, 305);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(27, 28);
+            this.pictureBox1.Size = new System.Drawing.Size(40, 43);
             this.pictureBox1.TabIndex = 30;
             this.pictureBox1.TabStop = false;
             // 
@@ -412,11 +430,13 @@
             this.dataGridViewTextBoxColumn20,
             this.dataGridViewTextBoxColumn21});
             this.productInnerJoinDTDataGridView.DataSource = this.productInnerJoinDTBindingSource;
-            this.productInnerJoinDTDataGridView.Location = new System.Drawing.Point(23, 249);
+            this.productInnerJoinDTDataGridView.Location = new System.Drawing.Point(34, 383);
+            this.productInnerJoinDTDataGridView.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.productInnerJoinDTDataGridView.Name = "productInnerJoinDTDataGridView";
             this.productInnerJoinDTDataGridView.ReadOnly = true;
             this.productInnerJoinDTDataGridView.RowHeadersVisible = false;
-            this.productInnerJoinDTDataGridView.Size = new System.Drawing.Size(1099, 343);
+            this.productInnerJoinDTDataGridView.RowHeadersWidth = 62;
+            this.productInnerJoinDTDataGridView.Size = new System.Drawing.Size(1648, 528);
             this.productInnerJoinDTDataGridView.TabIndex = 26;
             this.productInnerJoinDTDataGridView.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.productInnerJoinDTDataGridView_DataBindingComplete);
             this.productInnerJoinDTDataGridView.SelectionChanged += new System.EventHandler(this.productInnerJoinDTDataGridView_SelectionChanged);
@@ -426,6 +446,7 @@
             this.dataGridViewImageColumn1.DataPropertyName = "Product_Image";
             this.dataGridViewImageColumn1.HeaderText = "Product";
             this.dataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.dataGridViewImageColumn1.MinimumWidth = 8;
             this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
             this.dataGridViewImageColumn1.ReadOnly = true;
             this.dataGridViewImageColumn1.Width = 50;
@@ -434,38 +455,47 @@
             // 
             this.dataGridViewTextBoxColumn1.DataPropertyName = "Product_ID";
             this.dataGridViewTextBoxColumn1.HeaderText = "ID";
+            this.dataGridViewTextBoxColumn1.MinimumWidth = 8;
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             this.dataGridViewTextBoxColumn1.ReadOnly = true;
             this.dataGridViewTextBoxColumn1.Visible = false;
+            this.dataGridViewTextBoxColumn1.Width = 150;
             // 
             // dataGridViewTextBoxColumn2
             // 
             this.dataGridViewTextBoxColumn2.DataPropertyName = "Category_ID";
             this.dataGridViewTextBoxColumn2.HeaderText = "Category_ID";
+            this.dataGridViewTextBoxColumn2.MinimumWidth = 8;
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             this.dataGridViewTextBoxColumn2.ReadOnly = true;
             this.dataGridViewTextBoxColumn2.Visible = false;
+            this.dataGridViewTextBoxColumn2.Width = 150;
             // 
             // dataGridViewTextBoxColumn3
             // 
             this.dataGridViewTextBoxColumn3.DataPropertyName = "Supplier_ID";
             this.dataGridViewTextBoxColumn3.HeaderText = "Supplier_ID";
+            this.dataGridViewTextBoxColumn3.MinimumWidth = 8;
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             this.dataGridViewTextBoxColumn3.ReadOnly = true;
             this.dataGridViewTextBoxColumn3.Visible = false;
+            this.dataGridViewTextBoxColumn3.Width = 150;
             // 
             // dataGridViewTextBoxColumn4
             // 
             this.dataGridViewTextBoxColumn4.DataPropertyName = "Discount_ID";
             this.dataGridViewTextBoxColumn4.HeaderText = "Discount_ID";
+            this.dataGridViewTextBoxColumn4.MinimumWidth = 8;
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             this.dataGridViewTextBoxColumn4.ReadOnly = true;
             this.dataGridViewTextBoxColumn4.Visible = false;
+            this.dataGridViewTextBoxColumn4.Width = 150;
             // 
             // dataGridViewTextBoxColumn5
             // 
             this.dataGridViewTextBoxColumn5.DataPropertyName = "Product_Name";
             this.dataGridViewTextBoxColumn5.HeaderText = "Item Description";
+            this.dataGridViewTextBoxColumn5.MinimumWidth = 8;
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             this.dataGridViewTextBoxColumn5.ReadOnly = true;
             this.dataGridViewTextBoxColumn5.Width = 178;
@@ -476,9 +506,11 @@
             dataGridViewCellStyle1.NullValue = "-";
             this.dataGridViewTextBoxColumn6.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewTextBoxColumn6.HeaderText = "Description";
+            this.dataGridViewTextBoxColumn6.MinimumWidth = 8;
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             this.dataGridViewTextBoxColumn6.ReadOnly = true;
             this.dataGridViewTextBoxColumn6.Visible = false;
+            this.dataGridViewTextBoxColumn6.Width = 150;
             // 
             // dataGridViewTextBoxColumn7
             // 
@@ -486,8 +518,10 @@
             dataGridViewCellStyle2.NullValue = "-";
             this.dataGridViewTextBoxColumn7.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewTextBoxColumn7.HeaderText = "Brand";
+            this.dataGridViewTextBoxColumn7.MinimumWidth = 8;
             this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
             this.dataGridViewTextBoxColumn7.ReadOnly = true;
+            this.dataGridViewTextBoxColumn7.Width = 150;
             // 
             // dataGridViewTextBoxColumn8
             // 
@@ -495,9 +529,11 @@
             dataGridViewCellStyle3.NullValue = "-";
             this.dataGridViewTextBoxColumn8.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewTextBoxColumn8.HeaderText = "Type";
+            this.dataGridViewTextBoxColumn8.MinimumWidth = 8;
             this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
             this.dataGridViewTextBoxColumn8.ReadOnly = true;
             this.dataGridViewTextBoxColumn8.Visible = false;
+            this.dataGridViewTextBoxColumn8.Width = 150;
             // 
             // dataGridViewTextBoxColumn9
             // 
@@ -505,9 +541,11 @@
             dataGridViewCellStyle4.NullValue = "-";
             this.dataGridViewTextBoxColumn9.DefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridViewTextBoxColumn9.HeaderText = "Flavour";
+            this.dataGridViewTextBoxColumn9.MinimumWidth = 8;
             this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
             this.dataGridViewTextBoxColumn9.ReadOnly = true;
             this.dataGridViewTextBoxColumn9.Visible = false;
+            this.dataGridViewTextBoxColumn9.Width = 150;
             // 
             // dataGridViewTextBoxColumn10
             // 
@@ -516,6 +554,7 @@
             dataGridViewCellStyle5.NullValue = "0.0%";
             this.dataGridViewTextBoxColumn10.DefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridViewTextBoxColumn10.HeaderText = "Alcohol %";
+            this.dataGridViewTextBoxColumn10.MinimumWidth = 8;
             this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
             this.dataGridViewTextBoxColumn10.ReadOnly = true;
             this.dataGridViewTextBoxColumn10.Width = 60;
@@ -526,9 +565,11 @@
             dataGridViewCellStyle6.NullValue = "-";
             this.dataGridViewTextBoxColumn11.DefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridViewTextBoxColumn11.HeaderText = "Origin Region";
+            this.dataGridViewTextBoxColumn11.MinimumWidth = 8;
             this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
             this.dataGridViewTextBoxColumn11.ReadOnly = true;
             this.dataGridViewTextBoxColumn11.Visible = false;
+            this.dataGridViewTextBoxColumn11.Width = 150;
             // 
             // dataGridViewTextBoxColumn12
             // 
@@ -536,24 +577,30 @@
             dataGridViewCellStyle7.NullValue = "-";
             this.dataGridViewTextBoxColumn12.DefaultCellStyle = dataGridViewCellStyle7;
             this.dataGridViewTextBoxColumn12.HeaderText = "Ingredients";
+            this.dataGridViewTextBoxColumn12.MinimumWidth = 8;
             this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
             this.dataGridViewTextBoxColumn12.ReadOnly = true;
             this.dataGridViewTextBoxColumn12.Visible = false;
+            this.dataGridViewTextBoxColumn12.Width = 150;
             // 
             // dataGridViewTextBoxColumn13
             // 
             this.dataGridViewTextBoxColumn13.DataPropertyName = "Product_SizeML";
             this.dataGridViewTextBoxColumn13.HeaderText = "Size (ml)";
+            this.dataGridViewTextBoxColumn13.MinimumWidth = 8;
             this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
             this.dataGridViewTextBoxColumn13.ReadOnly = true;
             this.dataGridViewTextBoxColumn13.Visible = false;
+            this.dataGridViewTextBoxColumn13.Width = 150;
             // 
             // dataGridViewTextBoxColumn14
             // 
             this.dataGridViewTextBoxColumn14.DataPropertyName = "Product_BarcodeNumber";
             this.dataGridViewTextBoxColumn14.HeaderText = "Barcode Number";
+            this.dataGridViewTextBoxColumn14.MinimumWidth = 8;
             this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
             this.dataGridViewTextBoxColumn14.ReadOnly = true;
+            this.dataGridViewTextBoxColumn14.Width = 150;
             // 
             // dataGridViewTextBoxColumn16
             // 
@@ -562,6 +609,7 @@
             dataGridViewCellStyle8.NullValue = null;
             this.dataGridViewTextBoxColumn16.DefaultCellStyle = dataGridViewCellStyle8;
             this.dataGridViewTextBoxColumn16.HeaderText = "Cost Price";
+            this.dataGridViewTextBoxColumn16.MinimumWidth = 8;
             this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
             this.dataGridViewTextBoxColumn16.ReadOnly = true;
             this.dataGridViewTextBoxColumn16.Width = 60;
@@ -573,6 +621,7 @@
             dataGridViewCellStyle9.NullValue = null;
             this.dataGridViewTextBoxColumn15.DefaultCellStyle = dataGridViewCellStyle9;
             this.dataGridViewTextBoxColumn15.HeaderText = "Selling Price";
+            this.dataGridViewTextBoxColumn15.MinimumWidth = 8;
             this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
             this.dataGridViewTextBoxColumn15.ReadOnly = true;
             this.dataGridViewTextBoxColumn15.Width = 60;
@@ -581,6 +630,7 @@
             // 
             this.dataGridViewTextBoxColumn17.DataPropertyName = "Product_QuantityInStock";
             this.dataGridViewTextBoxColumn17.HeaderText = "Stock Quantity";
+            this.dataGridViewTextBoxColumn17.MinimumWidth = 8;
             this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
             this.dataGridViewTextBoxColumn17.ReadOnly = true;
             this.dataGridViewTextBoxColumn17.Width = 60;
@@ -589,6 +639,7 @@
             // 
             this.dataGridViewTextBoxColumn18.DataPropertyName = "Product_ReorderQuantity";
             this.dataGridViewTextBoxColumn18.HeaderText = "Reorder Quantity";
+            this.dataGridViewTextBoxColumn18.MinimumWidth = 8;
             this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
             this.dataGridViewTextBoxColumn18.ReadOnly = true;
             this.dataGridViewTextBoxColumn18.Width = 60;
@@ -597,6 +648,7 @@
             // 
             this.dataGridViewTextBoxColumn19.DataPropertyName = "Product_Status";
             this.dataGridViewTextBoxColumn19.HeaderText = "Status";
+            this.dataGridViewTextBoxColumn19.MinimumWidth = 8;
             this.dataGridViewTextBoxColumn19.Name = "dataGridViewTextBoxColumn19";
             this.dataGridViewTextBoxColumn19.ReadOnly = true;
             this.dataGridViewTextBoxColumn19.Width = 50;
@@ -607,22 +659,28 @@
             dataGridViewCellStyle10.NullValue = "None";
             this.dataGridViewTextBoxColumn22.DefaultCellStyle = dataGridViewCellStyle10;
             this.dataGridViewTextBoxColumn22.HeaderText = "Discount";
+            this.dataGridViewTextBoxColumn22.MinimumWidth = 8;
             this.dataGridViewTextBoxColumn22.Name = "dataGridViewTextBoxColumn22";
             this.dataGridViewTextBoxColumn22.ReadOnly = true;
+            this.dataGridViewTextBoxColumn22.Width = 150;
             // 
             // dataGridViewTextBoxColumn20
             // 
             this.dataGridViewTextBoxColumn20.DataPropertyName = "Category_Name";
             this.dataGridViewTextBoxColumn20.HeaderText = "Category";
+            this.dataGridViewTextBoxColumn20.MinimumWidth = 8;
             this.dataGridViewTextBoxColumn20.Name = "dataGridViewTextBoxColumn20";
             this.dataGridViewTextBoxColumn20.ReadOnly = true;
+            this.dataGridViewTextBoxColumn20.Width = 150;
             // 
             // dataGridViewTextBoxColumn21
             // 
             this.dataGridViewTextBoxColumn21.DataPropertyName = "Supplier_Name";
             this.dataGridViewTextBoxColumn21.HeaderText = "Supplier";
+            this.dataGridViewTextBoxColumn21.MinimumWidth = 8;
             this.dataGridViewTextBoxColumn21.Name = "dataGridViewTextBoxColumn21";
             this.dataGridViewTextBoxColumn21.ReadOnly = true;
+            this.dataGridViewTextBoxColumn21.Width = 150;
             // 
             // productBindingSource
             // 
@@ -637,9 +695,10 @@
             // 
             this.btnPDFExport.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPDFExport.Image = global::TheByteClubPOS.Properties.Resources.PDFIcon;
-            this.btnPDFExport.Location = new System.Drawing.Point(796, 604);
+            this.btnPDFExport.Location = new System.Drawing.Point(1194, 929);
+            this.btnPDFExport.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnPDFExport.Name = "btnPDFExport";
-            this.btnPDFExport.Size = new System.Drawing.Size(160, 38);
+            this.btnPDFExport.Size = new System.Drawing.Size(240, 58);
             this.btnPDFExport.TabIndex = 31;
             this.btnPDFExport.Text = "Export to PDF";
             this.btnPDFExport.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -651,9 +710,10 @@
             // 
             this.btnHelp.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnHelp.Image = global::TheByteClubPOS.Properties.Resources.HelpIcon;
-            this.btnHelp.Location = new System.Drawing.Point(1033, 42);
+            this.btnHelp.Location = new System.Drawing.Point(1550, 65);
+            this.btnHelp.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnHelp.Name = "btnHelp";
-            this.btnHelp.Size = new System.Drawing.Size(89, 38);
+            this.btnHelp.Size = new System.Drawing.Size(134, 58);
             this.btnHelp.TabIndex = 32;
             this.btnHelp.Text = "Help";
             this.btnHelp.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -663,11 +723,11 @@
             // 
             // ViewProducts
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::TheByteClubPOS.Properties.Resources.Background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1142, 674);
+            this.ClientSize = new System.Drawing.Size(1713, 1037);
             this.Controls.Add(this.btnHelp);
             this.Controls.Add(this.btnPDFExport);
             this.Controls.Add(this.pictureBox1);
@@ -689,6 +749,7 @@
             this.Controls.Add(this.lblProducts);
             this.Controls.Add(this.lblTotalProducts);
             this.Controls.Add(this.productInnerJoinDTDataGridView);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "ViewProducts";
             this.Text = "Products";
             this.Load += new System.EventHandler(this.ViewProducts_Load);
