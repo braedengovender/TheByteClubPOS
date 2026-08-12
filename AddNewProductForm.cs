@@ -1,32 +1,27 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace TheByteClubPOS
 {
     public partial class AddNewProductForm : Form
     {
-        // Define the available modes
         public enum FormMode
         {
             Add,
             Edit
         }
 
-        private readonly System.Collections.Generic.Dictionary<System.Windows.Forms.TextBox, string> _placeholders = new System.Collections.Generic.Dictionary<System.Windows.Forms.TextBox, string>();
+        private readonly Dictionary<TextBox, string> _placeholders = new Dictionary<TextBox, string>();
+        private FormMode _currentMode;
+        private int _currentProductID;
+        private byte[] _pendingImageBytes = null;
+        private System.IO.MemoryStream _activeImageStream = null;
 
-        // 2. Class-level variables to store the passed-in data
-        private FormMode currentMode;
-        private int currentProductID;
-
-        private int currentTip = 0;
-        private string[] tips =
+        private int _currentTip = 0;
+        private readonly string[] _tips =
         {
             "💡 Use the barcode search for faster product lookup.",
             "💡 Review low-stock products daily on your dashboard.",
@@ -38,64 +33,99 @@ namespace TheByteClubPOS
         public AddNewProductForm(FormMode mode, int productID = -1)
         {
             InitializeComponent();
-            this.currentMode = mode;
-            this.currentProductID = productID;
+            _currentMode = mode;
+            _currentProductID = productID;
         }
 
+        // ─── Image Helpers ────────────────────────────────────────────────────────
+
+        /// <summary>
+        /// Loads a byte array into the PictureBox, keeping the MemoryStream alive
+        /// so GDI+ can read from it lazily during rendering.
+        /// </summary>
+        private void LoadImageIntoBox(byte[] imageBytes)
+        {
+            try
+            {
+                // Dispose the previous stream before creating a new one
+                _activeImageStream?.Dispose();
+                _activeImageStream = new System.IO.MemoryStream(imageBytes);
+
+                pbImage.Image?.Dispose();
+                pbImage.Image = Image.FromStream(_activeImageStream);
+                //pbImage.SizeMode = PictureBoxSizeMode.Zoom;
+            }
+            catch
+            {
+                pbImage.Image = Properties.Resources.NoImageAvailable;
+            }
+        }
+
+        /// <summary>
+        /// Loads the stored image for a product from the database into the PictureBox.
+        /// Falls back to the placeholder image on any failure.
+        /// </summary>
         private void DisplayProductImage(int productID)
         {
             try
             {
-                // 1. Explicitly type the result as a nullable byte array
                 byte[] imageBytes = (byte[])this.productTableAdapter.GetImageByID(productID);
 
-                // 2. Validation: Check if the returned byte array is null or has no data
                 if (imageBytes == null || imageBytes.Length == 0)
                 {
                     pbImage.Image = Properties.Resources.NoImageAvailable;
                     return;
                 }
 
-                // 3. Convert byte array to Image using a MemoryStream
-                using (System.IO.MemoryStream ms = new System.IO.MemoryStream(imageBytes))
-                {
-                    pbImage.Image = System.Drawing.Image.FromStream(ms);
-                    pbImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-                }
+                LoadImageIntoBox(imageBytes);
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
-                // 4. Validation: Log/Report errors explicitly
-                MessageBox.Show("Could not load product image. The data might be corrupted.\n\nDetails: " + ex.Message,
-                                "Image Load Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(
+                    "Could not load product image. The data might be corrupted.\n\nDetails: " + ex.Message,
+                    "Image Load Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                 pbImage.Image = Properties.Resources.NoImageAvailable;
             }
         }
 
+        /// <summary>
+        /// Attempts to write imageBytes (or null) to the database for the given product ID.
+        /// Returns true on success, false on failure. Never throws.
+        /// </summary>
+        private bool TrySaveImage(byte[] imageBytes, int productID)
+        {
+            try
+            {
+                this.productTableAdapter.UpdateQuery(imageBytes, productID);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        // ─── UI Setup ─────────────────────────────────────────────────────────────
+
         private void LoadCountries()
         {
             cmbOrigin.Items.Clear();
 
-            // Get all cultures from Windows
-            foreach (System.Globalization.CultureInfo culture in System.Globalization.CultureInfo.GetCultures(System.Globalization.CultureTypes.SpecificCultures))
+            foreach (System.Globalization.CultureInfo culture in
+                System.Globalization.CultureInfo.GetCultures(System.Globalization.CultureTypes.SpecificCultures))
             {
                 System.Globalization.RegionInfo region = new System.Globalization.RegionInfo(culture.Name);
                 if (!cmbOrigin.Items.Contains(region.EnglishName))
-                {
                     cmbOrigin.Items.Add(region.EnglishName);
-                }
             }
 
-            // Sort alphabetically
             cmbOrigin.Sorted = true;
-            // Set the default to South Africa
             cmbOrigin.SelectedItem = "South Africa";
         }
 
         private void SetupPlaceholders()
         {
-            // Define the boxes and their specific messages
             _placeholders.Add(product_NameTextBox, "Enter product name");
             _placeholders.Add(product_DescriptionTextBox, "Enter description (optional)");
             _placeholders.Add(product_BrandTextBox, "Enter brand (optional)");
@@ -107,10 +137,8 @@ namespace TheByteClubPOS
 
             foreach (var entry in _placeholders)
             {
-                entry.Key.ForeColor = System.Drawing.Color.Gray;
+                entry.Key.ForeColor = Color.Gray;
                 entry.Key.Text = entry.Value;
-
-                // Subscribe to events
                 entry.Key.Enter += InputBox_Enter;
                 entry.Key.Leave += InputBox_Leave;
             }
@@ -118,57 +146,53 @@ namespace TheByteClubPOS
 
         private void InputBox_Enter(object sender, EventArgs e)
         {
-            System.Windows.Forms.TextBox box = (System.Windows.Forms.TextBox)sender;
+            TextBox box = (TextBox)sender;
             if (box.Text == _placeholders[box])
             {
-                box.Text = "";
-                box.ForeColor = System.Drawing.Color.Black;
+                box.Text = string.Empty;
+                box.ForeColor = Color.Black;
             }
         }
 
         private void InputBox_Leave(object sender, EventArgs e)
         {
-            System.Windows.Forms.TextBox box = (System.Windows.Forms.TextBox)sender;
+            TextBox box = (TextBox)sender;
             if (string.IsNullOrWhiteSpace(box.Text))
             {
                 box.Text = _placeholders[box];
-                box.ForeColor = System.Drawing.Color.Gray;
+                box.ForeColor = Color.Gray;
             }
         }
 
         private void SetupUI()
         {
-            if (currentMode == FormMode.Add)
+            if (_currentMode == FormMode.Add)
             {
-                this.Text = "Add New Product"; // Changes the window title
-                                               // (Assuming your save button is named btnSave)
-
-                // lblTitle.Text = "Create a New Record";
-                lblProductID.Visible = false; // Hides the product ID label
-                product_IDTextBox.Visible = false; // Hides the product ID textbox
+                this.Text = "Add New Product";
+                lblProductID.Visible = false;
+                product_IDTextBox.Visible = false;
+                pbImage.Image = Properties.Resources.NoImageAvailable;
             }
-            else if (currentMode == FormMode.Edit)
+            else
             {
-                this.Text = "Edit Product Details"; // Changes the window title
-
-                // Hide components that shouldn't be changed during an edit
-                // txtBarcode.Enabled = false; 
-
+                this.Text = "Edit Product Details";
                 lblProductID.Visible = true;
+                product_IDTextBox.Visible = true;
             }
         }
 
         private void LoadData()
         {
-            // First, load the data into memory
             this.productTableAdapter.Fill(this.dsSamsLiqourShop.Product);
-
             LoadCountries();
 
-            if (currentMode == FormMode.Add)
+            if (_currentMode == FormMode.Add)
             {
-                // Prepare a blank canvas for a new record
-                this.productBindingSource.AddNew(); // Forces the form to clear and prepare a brand new record
+                this.productBindingSource.AddNew();
+
+                cmbCategory.SelectedIndex = -1;
+                cmbSupplier.SelectedIndex = -1;
+                cmbDiscount.SelectedIndex = -1;
 
                 cmbOrigin.SelectedItem = "South Africa";
                 numericUpDownAlcoholPercentage.Value = 0;
@@ -179,289 +203,434 @@ namespace TheByteClubPOS
 
                 SetupPlaceholders();
             }
-            else if (currentMode == FormMode.Edit)
+            else
             {
-                // Find the specific row using the Primary Key and tell the form to jump to it
-                int rowIndex = this.productBindingSource.Find("Product_ID", currentProductID);
+                int rowIndex = this.productBindingSource.Find("Product_ID", _currentProductID);
 
                 if (rowIndex > -1)
                 {
                     this.productBindingSource.Position = rowIndex;
-                    DisplayProductImage(currentProductID);
+                    DisplayProductImage(_currentProductID);
                 }
                 else
                 {
-                    MessageBox.Show("Could not locate the product record.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    this.Close(); // Close if the record is missing
+                    MessageBox.Show("Could not locate the product record.", "Error",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    this.Close();
                 }
             }
         }
 
+        // ─── Form Events ──────────────────────────────────────────────────────────
+
         private void AddNewProductForm_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'dsSamsLiqourShop.Discount' table. You can move, or remove it, as needed.
             this.discountTableAdapter.Fill(this.dsSamsLiqourShop.Discount);
-            // TODO: This line of code loads data into the 'dsSamsLiqourShop.Supplier' table. You can move, or remove it, as needed.
             this.supplierTableAdapter.Fill(this.dsSamsLiqourShop.Supplier);
-            // TODO: This line of code loads data into the 'dsSamsLiqourShop.Category' table. You can move, or remove it, as needed.
             this.categoryTableAdapter.Fill(this.dsSamsLiqourShop.Category);
             SetupUI();
             LoadData();
-            lblTips.Text = tips[0];
+            lblTips.Text = _tips[0];
         }
 
         private void timerTips_Tick(object sender, EventArgs e)
         {
-            currentTip++;
-
-            if (currentTip >= tips.Length)
-                currentTip = 0;
-
-            lblTips.Text = tips[currentTip];
+            _currentTip = (_currentTip + 1) % _tips.Length;
+            lblTips.Text = _tips[_currentTip];
         }
 
-        private void btnCancel_Click(object sender, EventArgs e)
+        // ─── Validation ───────────────────────────────────────────────────────────
+
+        private string GetCleanText(TextBox box)
         {
-            try
-            {
-                // Validation: Ask the user for confirmation before canceling
-                DialogResult userChoice = MessageBox.Show("Are you sure you want to cancel? Any unsaved product details will be lost.",
-                    "Confirm Cancel",
-                    MessageBoxButtons.YesNo,
-                    MessageBoxIcon.Question
-                );
-
-                // 2. If the user clicks 'No', abort the cancellation and leave the form open
-                if (userChoice == DialogResult.No)
-                {
-                    return;
-                }
-
-                // 1. Strictly check if the parent exists and is specifically your dashboard class
-                if (this.MdiParent != null && this.MdiParent is MainForm)
-                {
-                    // 2. Explicitly cast the generic MdiParent using direct casting (No 'var', no 'as')
-                    MainForm mainForm = (MainForm)this.MdiParent;
-
-                    // 3. Safely call the public method on the parent form
-                    mainForm.LoadProductsForm();
-                }
-
-                // 4. Finally, close the form to clean up the screen
-                this.Close();
-            }
-            catch (Exception ex)
-            {
-                // Global Catch: Prevents the app from crashing if the UI routing fails
-                MessageBox.Show("An unexpected error occurred while trying to close the window:\n\n" + ex.Message, "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            } 
-        }
-
-        private string GetCleanText(System.Windows.Forms.TextBox box)
-        {
-            // If the text matches the placeholder, return an empty string
             if (_placeholders.ContainsKey(box) && box.Text == _placeholders[box])
-            {
                 return string.Empty;
-            }
+
             return box.Text;
         }
 
         private bool ValidateProductData()
         {
-            // --- 1) Basic required UI selections ---
             if (cmbCategory.SelectedValue == null)
             {
-                MessageBox.Show("Please select a Category.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Please select a Category.", "Validation",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 cmbCategory.Focus();
                 return false;
             }
 
             if (cmbSupplier.SelectedValue == null)
             {
-                MessageBox.Show("Please select a Supplier.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Please select a Supplier.", "Validation",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 cmbSupplier.Focus();
                 return false;
             }
 
             if (string.IsNullOrWhiteSpace(cmbStatus.Text) || cmbStatus.SelectedIndex == -1)
             {
-                MessageBox.Show("Please select a valid Status.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Please select a valid Status.", "Validation",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 cmbStatus.Focus();
                 return false;
             }
 
-            // --- 2) Text fields validation (using helper to clean placeholders) ---
             if (string.IsNullOrWhiteSpace(GetCleanText(product_NameTextBox)))
             {
-                MessageBox.Show("Product Name is required.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Product Name is required.", "Validation",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 product_NameTextBox.Focus();
                 return false;
             }
 
             if (string.IsNullOrWhiteSpace(GetCleanText(product_BarcodeNumberTextBox)))
             {
-                MessageBox.Show("Barcode is required.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Barcode is required.", "Validation",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 product_BarcodeNumberTextBox.Focus();
                 return false;
             }
 
-            // --- 3) Numeric fields & Business Logic ---
-            // Size (ML) - Using TryParse as a fallback
             string sizeText = GetCleanText(product_SizeMLTextBox);
             if (!string.IsNullOrWhiteSpace(sizeText))
             {
                 if (!int.TryParse(sizeText, out int sizeVal) || sizeVal <= 0)
                 {
-                    MessageBox.Show("Size (ML) must be a positive whole number greater than 0.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Size (ML) must be a positive whole number greater than 0.", "Validation",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     product_SizeMLTextBox.Focus();
                     return false;
                 }
             }
 
-            // Selling Price
             if (numericUpDownSellingPrice.Value < 0)
             {
-                MessageBox.Show("Enter a valid non-negative Selling Price.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Enter a valid non-negative Selling Price.", "Validation",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 numericUpDownSellingPrice.Focus();
                 return false;
             }
 
-            // Cost Price
             if (numericUpDownCostPrice.Value < 0)
             {
-                MessageBox.Show("Enter a valid non-negative Cost Price.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Enter a valid non-negative Cost Price.", "Validation",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 numericUpDownCostPrice.Focus();
                 return false;
             }
 
-            // Business Logic: Selling vs Cost
             if (numericUpDownSellingPrice.Value < numericUpDownCostPrice.Value)
             {
-                DialogResult resp = MessageBox.Show("Selling price is lower than cost price. Continue?", "Price Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                DialogResult resp = MessageBox.Show(
+                    "Selling price is lower than cost price. Continue?",
+                    "Price Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
                 if (resp != DialogResult.Yes) return false;
             }
 
-            // --- 4) Final Placeholder Cleanup ---
-            // If the user left any optional field as its placeholder, clear it for the DB
+            if (numericUpDownAlcoholPercentage.Value < 0 || numericUpDownAlcoholPercentage.Value > 100)
+            {
+                MessageBox.Show(
+                    "Alcohol percentage must be between 0 and 100.",
+                    "Validation",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
+                numericUpDownAlcoholPercentage.Focus();
+                return false;
+            }
+
+            // Strip placeholder text before committing to the binding source
             foreach (var entry in _placeholders)
             {
                 if (entry.Key.Text == entry.Value)
-                {
                     entry.Key.Text = string.Empty;
-                }
             }
 
             return true;
         }
 
+        // ─── Save ─────────────────────────────────────────────────────────────────
+
         private void btnSaveProduct_Click(object sender, EventArgs e)
         {
-            // In your Save button:
-            string nameToSave = GetCleanText(product_NameTextBox);
-            // Use 'nameToSave' when assigning to your BindingSource or SQL command
-
-            // Run validation first
             if (!ValidateProductData()) return;
 
             try
             {
+                // ─── SAFE TEXT EXTRACTION + NULL CLEANUP ─────────────────────────────
+                string name = GetCleanText(product_NameTextBox);
+                string desc = GetCleanText(product_DescriptionTextBox);
+                string brand = GetCleanText(product_BrandTextBox);
+                string type = GetCleanText(product_TypeTextBox);
+                string flavour = GetCleanText(product_FlavourTextBox);
+                string ingredients = GetCleanText(product_IngredientsTextBox);
+                string barcode = GetCleanText(product_BarcodeNumberTextBox);
 
-                // 2. Perform Save based on mode
-                if (currentMode == FormMode.Add)
+                // convert empty strings to NULL (SQL-friendly)
+                if (string.IsNullOrWhiteSpace(name)) name = null;
+                if (string.IsNullOrWhiteSpace(desc)) desc = null;
+                if (string.IsNullOrWhiteSpace(brand)) brand = null;
+                if (string.IsNullOrWhiteSpace(type)) type = null;
+                if (string.IsNullOrWhiteSpace(flavour)) flavour = null;
+                if (string.IsNullOrWhiteSpace(ingredients)) ingredients = null;
+                if (string.IsNullOrWhiteSpace(barcode)) barcode = null;
+
+                // ─── SAFE NUMBER PARSING (NO CRASHES) ─────────────────
+                int sizeML = 0;
+                int.TryParse(GetCleanText(product_SizeMLTextBox), out sizeML);
+
+                decimal sellingPrice = 0;
+                decimal.TryParse(numericUpDownSellingPrice.Value.ToString(), out sellingPrice);
+
+                decimal costPrice = 0;
+                decimal.TryParse(numericUpDownCostPrice.Value.ToString(), out costPrice);
+
+                decimal alcohol = numericUpDownAlcoholPercentage.Value;
+
+                int qty = (int)numericUpDownQuantityInStock.Value;
+                int reorder = (int)numericUpDownReorderQuantity.Value;
+
+                // ─── SAFE COMBOBOX HANDLING ───────────────────────────
+                int categoryID = 0;
+                int supplierID = 0;
+
+                try
                 {
-                    // End the edit to commit UI values to the BindingSource
-                    this.productBindingSource.EndEdit();
-
-                    // Save the new row
-                    this.productTableAdapter.Update(this.dsSamsLiqourShop.Product);
-                    MessageBox.Show("New product added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (cmbCategory.SelectedValue != null)
+                        categoryID = Convert.ToInt32(cmbCategory.SelectedValue is DataRowView row ? row[0] : cmbCategory.SelectedValue);
                 }
-                else if (currentMode == FormMode.Edit)
+                catch
                 {
-                    // Commit UI changes to the BindingSource
-                    this.productBindingSource.EndEdit();
-
-                    // Update the specific row in the database
-                    this.productTableAdapter.Update(this.dsSamsLiqourShop.Product);
-                    MessageBox.Show("Product updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Invalid Category selected.", "Validation",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
                 }
 
-                // 3. Close the form and return to the main dashboard
+                try
+                {
+                    if (cmbSupplier.SelectedValue != null)
+                        supplierID = Convert.ToInt32(cmbSupplier.SelectedValue is DataRowView r ? r[0] : cmbSupplier.SelectedValue);
+                }
+                catch
+                {
+                    MessageBox.Show("Invalid Supplier selected.", "Validation",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                string origin = cmbOrigin.Text ?? "";
+                string status = cmbStatus.Text ?? "";
+
+                int? discountID = cmbDiscount.SelectedValue != null
+                ? Convert.ToInt32(cmbDiscount.SelectedValue)
+                : (int?)null;
+
+                // ─── IMAGE SAFETY (IMPORTANT) ─────────────────────────
+
+                byte[] imageBytes = _pendingImageBytes;
+
+                if (_currentMode == FormMode.Edit && imageBytes == null)
+                {
+                    // KEEP EXISTING IMAGE (do NOT overwrite with null)
+                    object img = this.productTableAdapter.GetImageByID(_currentProductID);
+                    imageBytes = img == DBNull.Value ? null : (byte[])img;
+                }
+
+                // ─── FINAL SAVE ───────────────────────────────────────
+                if (_currentMode == FormMode.Add)
+                {
+                    productTableAdapter.InsertProductQuery(
+                    categoryID,
+                    supplierID,
+                    discountID,
+                    name,
+                    desc,
+                    brand,
+                    type,
+                    flavour,
+                    alcohol,
+                    origin,
+                    ingredients,
+                    sizeML,
+                    barcode,
+                    sellingPrice,
+                    costPrice,
+                    qty,
+                    reorder,
+                    status,
+                    imageBytes
+                );
+
+                    MessageBox.Show("Product added successfully!");
+                }
+                else
+                {
+                    productTableAdapter.UpdateEntireProductQuery(
+                        categoryID,
+                    supplierID,
+                    discountID,
+                    name,
+                    desc,
+                    brand,
+                    type,
+                    flavour,
+                    alcohol,
+                    origin,
+                    ingredients,
+                    sizeML,
+                    barcode,
+                    sellingPrice,
+                    costPrice,
+                    qty,
+                    reorder,
+                    status,
+                    imageBytes,
+                    _currentProductID
+                    );
+
+                    MessageBox.Show("Product updated successfully!");
+                }
+
+                if (this.MdiParent is MainForm mainForm)
+                    mainForm.LoadProductsForm();
+
+                _pendingImageBytes = null;
                 this.Close();
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
-                MessageBox.Show("An error occurred while saving: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(
+                    "Save failed, but system is safe.\n\n" + ex.Message,
+                    "Warning",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
             }
         }
+
+        // ─── Image Upload ─────────────────────────────────────────────────────────
 
         private void UploadProductImage()
         {
-            using (System.Windows.Forms.OpenFileDialog openFileDialog = new System.Windows.Forms.OpenFileDialog())
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
             {
                 openFileDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp";
 
-                if (openFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                if (openFileDialog.ShowDialog() != DialogResult.OK)
+                    return;
+
+                try
                 {
+                    byte[] rawBytes;
+
                     try
                     {
-                        // 1. Convert file to byte array
-                        byte[] rawBytes = System.IO.File.ReadAllBytes(openFileDialog.FileName);
-                        if (rawBytes.Length == 0) throw new System.Exception("The selected file is empty.");
-
-                        // 2. Perform direct DB Update using the PK
-                        // This assumes your TableAdapter has an UpdateQuery(byte[] image, int id)
-                        this.productTableAdapter.UpdateQuery(rawBytes, this.currentProductID);
-
-                        // 3. Refresh the local data to reflect the change
-                        this.productTableAdapter.Fill(this.dsSamsLiqourShop.Product);
-
-                        // 4. Refresh the PictureBox UI
-                        DisplayProductImage(this.currentProductID);
-
-                        MessageBox.Show("Success! Image updated.", "System Update", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        rawBytes = System.IO.File.ReadAllBytes(openFileDialog.FileName);
                     }
-                    catch (Exception ex)
+                    catch
                     {
-                        MessageBox.Show("Upload Failed: " + ex.Message, "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Could not read image file.", "Error",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
                     }
+
+                    if (rawBytes == null || rawBytes.Length == 0)
+                    {
+                        MessageBox.Show("Invalid image file selected.", "Error",
+                            MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+
+                    // SAME LOGIC FOR ADD + EDIT (SAFE)
+                    _pendingImageBytes = rawBytes;
+                    LoadImageIntoBox(rawBytes);
+
+                    MessageBox.Show(
+                        "Image selected. It will be saved when you click Save.",
+                        "Image Ready",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Could not read image:\n\n" + ex.Message,
+                        "File Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
 
-        private void pbImage_Click(object sender, EventArgs e)
+        // ─── Control Events ───────────────────────────────────────────────────────
+
+        private void btnCancel_Click(object sender, EventArgs e)
         {
-            UploadProductImage();
+            try
+            {
+                DialogResult userChoice = MessageBox.Show(
+                    "Are you sure you want to cancel? Any unsaved product details will be lost.",
+                    "Confirm Cancel", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (userChoice == DialogResult.No) return;
+
+                this.productBindingSource.CancelEdit();
+
+                if (this.MdiParent is MainForm mainForm)
+                    mainForm.LoadProductsForm();
+
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    "An unexpected error occurred while trying to close the window:\n\n" + ex.Message,
+                    "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
-        private void btnSaveImage_Click(object sender, EventArgs e)
-        {
-            UploadProductImage();
-        }
+        private void pbImage_Click(object sender, EventArgs e) => UploadProductImage();
+        private void btnSaveImage_Click(object sender, EventArgs e) => UploadProductImage();
 
         private void btnClearImage_Click(object sender, EventArgs e)
         {
             try
             {
-                // 1. Confirm with user to avoid accidental deletions
-                DialogResult result = MessageBox.Show("Are you sure you want to remove the product image?", "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                DialogResult result = MessageBox.Show(
+                    "Are you sure you want to remove the product image?",
+                    "Confirm Remove", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
-                if (result == DialogResult.Yes)
+                if (result != DialogResult.Yes) return;
+
+                _pendingImageBytes = null;
+
+                _activeImageStream?.Dispose();
+                _activeImageStream = null;
+
+                pbImage.Image?.Dispose();
+                pbImage.Image = Properties.Resources.NoImageAvailable;
+
+                // ONLY delete from DB in EDIT mode
+                if (_currentMode == FormMode.Edit)
                 {
-                    this.productTableAdapter.UpdateQueryClearProductImage(this.currentProductID);
-
-                    // 3. Refresh the UI
+                    productTableAdapter.UpdateQueryClearProductImage(_currentProductID);
                     this.productTableAdapter.Fill(this.dsSamsLiqourShop.Product);
-                    pbImage.Image = Properties.Resources.NoImageAvailable;
-
-                    MessageBox.Show("Image removed successfully.");
                 }
+
+                MessageBox.Show("Image removed successfully.", "Done",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
-                MessageBox.Show("Could not remove image: " + ex.Message);
+                MessageBox.Show("Could not remove image:\n\n" + ex.Message,
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        // ─── Dispose ──────────────────────────────────────────────────────────────
+
+        protected override void OnFormClosed(FormClosedEventArgs e)
+        {
+            _activeImageStream?.Dispose();
+            base.OnFormClosed(e);
         }
     }
 }

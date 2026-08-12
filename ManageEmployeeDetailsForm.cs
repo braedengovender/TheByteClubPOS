@@ -25,6 +25,8 @@ namespace TheByteClubPOS
 
             UpdateRemoveButtonText();
             UpdateEmployeeStatistics();
+            //txtSearch.Text = "Search by Name, Surname or Username";
+            txtSearch.ForeColor = Color.Gray;
         }
 
         private void ApplySorting()
@@ -348,6 +350,24 @@ namespace TheByteClubPOS
                     // Reset to default white (or your grid's default color) if they are active
                     dgvEmployees.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.White;
                 }
+            }
+        }
+
+        private void txtSearch_MouseEnter(object sender, EventArgs e)
+        {
+            if (txtSearch.Text == "Search by Name, Surname or Username")
+            {
+                txtSearch.Text = "";
+                txtSearch.ForeColor = Color.Black;
+            }
+        }
+
+        private void txtSearch_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtSearch.Text))
+            {
+                txtSearch.Text = "Search by Name, Surname or Username";
+                txtSearch.ForeColor = Color.Gray;
             }
         }
     }
