@@ -384,7 +384,12 @@ namespace TheByteClubPOS
             childForm.MdiParent = this;
 
             childForm.ControlBox = false; // Removes the minimize, maximize, and close buttons
-            childForm.WindowState = FormWindowState.Maximized;
+
+            if (childForm is SalesReport)
+                childForm.Dock = DockStyle.Fill;
+            else
+                childForm.WindowState = FormWindowState.Maximized;
+
             childForm.FormBorderStyle = FormBorderStyle.None;
 
             childForm.Show();
@@ -692,6 +697,12 @@ namespace TheByteClubPOS
 
         private void button1_Click_1(object sender, EventArgs e)
         {
+        }
+
+        private void btnSalesReport_Click(object sender, EventArgs e)
+        {
+            SalesReport salesReport = new SalesReport();
+            OpenChildForm(salesReport);
         }
     }
 }

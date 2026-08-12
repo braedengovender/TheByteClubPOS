@@ -1,0 +1,4155 @@
+<?xml version="1.0" standalone="yes"?>
+<SalesReportData>
+  <xs:schema id="SalesReportData" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xs:element name="SalesReportData" msdata:IsDataSet="true" msdata:MainDataTable="SalesFact" msdata:UseCurrentLocale="true">
+      <xs:complexType>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:element name="SalesFact">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="Sale_ID" type="xs:int" minOccurs="0" />
+                <xs:element name="Product_ID" type="xs:int" minOccurs="0" />
+                <xs:element name="Category_ID" type="xs:int" minOccurs="0" />
+                <xs:element name="Employee_ID" type="xs:int" minOccurs="0" />
+                <xs:element name="Customer_ID" type="xs:int" minOccurs="0" />
+                <xs:element name="Sale_DateTime" type="xs:dateTime" minOccurs="0" />
+                <xs:element name="Sale_Date" type="xs:dateTime" minOccurs="0" />
+                <xs:element name="Sale_Year" type="xs:int" minOccurs="0" />
+                <xs:element name="Sale_MonthNumber" type="xs:int" minOccurs="0" />
+                <xs:element name="Sale_MonthName" type="xs:string" minOccurs="0" />
+                <xs:element name="Sale_Quarter" type="xs:int" minOccurs="0" />
+                <xs:element name="Sale_DayName" type="xs:string" minOccurs="0" />
+                <xs:element name="Sale_Hour" type="xs:int" minOccurs="0" />
+                <xs:element name="Product_Name" type="xs:string" minOccurs="0" />
+                <xs:element name="Product_Brand" type="xs:string" minOccurs="0" />
+                <xs:element name="Product_SizeML" type="xs:int" minOccurs="0" />
+                <xs:element name="Category_Name" type="xs:string" minOccurs="0" />
+                <xs:element name="Supplier_Name" type="xs:string" minOccurs="0" />
+                <xs:element name="SaleType_Name" type="xs:string" minOccurs="0" />
+                <xs:element name="Employee_Name" type="xs:string" minOccurs="0" />
+                <xs:element name="Employee_Role" type="xs:string" minOccurs="0" />
+                <xs:element name="Customer_Name" type="xs:string" minOccurs="0" />
+                <xs:element name="PaymentMethod_Name" type="xs:string" minOccurs="0" />
+                <xs:element name="Sale_Status" type="xs:string" minOccurs="0" />
+                <xs:element name="Quantity" type="xs:int" minOccurs="0" />
+                <xs:element name="UnitPrice_Original" type="xs:decimal" minOccurs="0" />
+                <xs:element name="UnitPrice_AfterDiscount" type="xs:decimal" minOccurs="0" />
+                <xs:element name="LineRevenue" type="xs:decimal" minOccurs="0" />
+                <xs:element name="LineDiscountAmount" type="xs:decimal" minOccurs="0" />
+                <xs:element name="LineCost" type="xs:decimal" minOccurs="0" />
+                <xs:element name="LineGrossProfit" type="xs:decimal" minOccurs="0" />
+                <xs:element name="Sale_Subtotal" type="xs:decimal" minOccurs="0" />
+                <xs:element name="Sale_DiscountAmount" type="xs:decimal" minOccurs="0" />
+                <xs:element name="Sale_TotalAmount" type="xs:decimal" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:choice>
+      </xs:complexType>
+    </xs:element>
+  </xs:schema>
+  <SalesFact>
+    <Sale_ID>1001</Sale_ID>
+    <Product_ID>14</Product_ID>
+    <Category_ID>3</Category_ID>
+    <Employee_ID>1</Employee_ID>
+    <Customer_ID>3</Customer_ID>
+    <Sale_DateTime>2026-07-01T11:25:00</Sale_DateTime>
+    <Sale_Date>2026-07-01T00:00:00</Sale_Date>
+    <Sale_Year>2026</Sale_Year>
+    <Sale_MonthNumber>7</Sale_MonthNumber>
+    <Sale_MonthName>July</Sale_MonthName>
+    <Sale_Quarter>3</Sale_Quarter>
+    <Sale_DayName>Wednesday</Sale_DayName>
+    <Sale_Hour>11</Sale_Hour>
+    <Product_Name>JC le Roux La Chanson</Product_Name>
+    <Product_Brand>JC</Product_Brand>
+    <Product_SizeML>750</Product_SizeML>
+    <Category_Name>Wine</Category_Name>
+    <Supplier_Name>Distell</Supplier_Name>
+    <SaleType_Name>In-Store</SaleType_Name>
+    <Employee_Name>Thabo Mokoena</Employee_Name>
+    <Employee_Role>Cashier</Employee_Role>
+    <Customer_Name>Walk-in Customer</Customer_Name>
+    <PaymentMethod_Name>Card</PaymentMethod_Name>
+    <Sale_Status>Completed</Sale_Status>
+    <Quantity>1</Quantity>
+    <UnitPrice_Original>89.99</UnitPrice_Original>
+    <UnitPrice_AfterDiscount>80.99</UnitPrice_AfterDiscount>
+    <LineRevenue>80.99</LineRevenue>
+    <LineDiscountAmount>9.00</LineDiscountAmount>
+    <LineCost>56.00</LineCost>
+    <LineGrossProfit>24.99</LineGrossProfit>
+    <Sale_Subtotal>80.99</Sale_Subtotal>
+    <Sale_DiscountAmount>0.00</Sale_DiscountAmount>
+    <Sale_TotalAmount>80.99</Sale_TotalAmount>
+  </SalesFact>
+  <SalesFact>
+    <Sale_ID>1002</Sale_ID>
+    <Product_ID>8</Product_ID>
+    <Category_ID>5</Category_ID>
+    <Employee_ID>4</Employee_ID>
+    <Customer_ID>15</Customer_ID>
+    <Sale_DateTime>2026-07-01T10:27:00</Sale_DateTime>
+    <Sale_Date>2026-07-01T00:00:00</Sale_Date>
+    <Sale_Year>2026</Sale_Year>
+    <Sale_MonthNumber>7</Sale_MonthNumber>
+    <Sale_MonthName>July</Sale_MonthName>
+    <Sale_Quarter>3</Sale_Quarter>
+    <Sale_DayName>Wednesday</Sale_DayName>
+    <Sale_Hour>10</Sale_Hour>
+    <Product_Name>Hunters Gold 6-pack</Product_Name>
+    <Product_Brand>Hunters</Product_Brand>
+    <Product_SizeML>330</Product_SizeML>
+    <Category_Name>Ciders</Category_Name>
+    <Supplier_Name>Distell</Supplier_Name>
+    <SaleType_Name>In-Store</SaleType_Name>
+    <Employee_Name>Ashwin Pillay</Employee_Name>
+    <Employee_Role>Cashier</Employee_Role>
+    <Customer_Name>Walk-in Customer</Customer_Name>
+    <PaymentMethod_Name>Card</PaymentMethod_Name>
+    <Sale_Status>Completed</Sale_Status>
+    <Quantity>1</Quantity>
+    <UnitPrice_Original>109.99</UnitPrice_Original>
+    <UnitPrice_AfterDiscount>98.99</UnitPrice_AfterDiscount>
+    <LineRevenue>98.99</LineRevenue>
+    <LineDiscountAmount>11.00</LineDiscountAmount>
+    <LineCost>71.00</LineCost>
+    <LineGrossProfit>27.99</LineGrossProfit>
+    <Sale_Subtotal>98.99</Sale_Subtotal>
+    <Sale_DiscountAmount>0.00</Sale_DiscountAmount>
+    <Sale_TotalAmount>98.99</Sale_TotalAmount>
+  </SalesFact>
+  <SalesFact>
+    <Sale_ID>1003</Sale_ID>
+    <Product_ID>35</Product_ID>
+    <Category_ID>1</Category_ID>
+    <Employee_ID>1</Employee_ID>
+    <Customer_ID>8</Customer_ID>
+    <Sale_DateTime>2026-07-02T19:37:00</Sale_DateTime>
+    <Sale_Date>2026-07-02T00:00:00</Sale_Date>
+    <Sale_Year>2026</Sale_Year>
+    <Sale_MonthNumber>7</Sale_MonthNumber>
+    <Sale_MonthName>July</Sale_MonthName>
+    <Sale_Quarter>3</Sale_Quarter>
+    <Sale_DayName>Thursday</Sale_DayName>
+    <Sale_Hour>19</Sale_Hour>
+    <Product_Name>Johnnie Walker Black</Product_Name>
+    <Product_Brand>Johnnie</Product_Brand>
+    <Product_SizeML>750</Product_SizeML>
+    <Category_Name>Whisky</Category_Name>
+    <Supplier_Name>Diageo</Supplier_Name>
+    <SaleType_Name>In-Store</SaleType_Name>
+    <Employee_Name>Thabo Mokoena</Employee_Name>
+    <Employee_Role>Cashier</Employee_Role>
+    <Customer_Name>Walk-in Customer</Customer_Name>
+    <PaymentMethod_Name>Card</PaymentMethod_Name>
+    <Sale_Status>Completed</Sale_Status>
+    <Quantity>1</Quantity>
+    <UnitPrice_Original>389.99</UnitPrice_Original>
+    <UnitPrice_AfterDiscount>350.99</UnitPrice_AfterDiscount>
+    <LineRevenue>350.99</LineRevenue>
+    <LineDiscountAmount>39.00</LineDiscountAmount>
+    <LineCost>255.00</LineCost>
+    <LineGrossProfit>95.99</LineGrossProfit>
+    <Sale_Subtotal>830.95</Sale_Subtotal>
+    <Sale_DiscountAmount>0.00</Sale_DiscountAmount>
+    <Sale_TotalAmount>830.95</Sale_TotalAmount>
+  </SalesFact>
+  <SalesFact>
+    <Sale_ID>1003</Sale_ID>
+    <Product_ID>37</Product_ID>
+    <Category_ID>2</Category_ID>
+    <Employee_ID>1</Employee_ID>
+    <Customer_ID>20</Customer_ID>
+    <Sale_DateTime>2026-07-02T19:37:00</Sale_DateTime>
+    <Sale_Date>2026-07-02T00:00:00</Sale_Date>
+    <Sale_Year>2026</Sale_Year>
+    <Sale_MonthNumber>7</Sale_MonthNumber>
+    <Sale_MonthName>July</Sale_MonthName>
+    <Sale_Quarter>3</Sale_Quarter>
+    <Sale_DayName>Thursday</Sale_DayName>
+    <Sale_Hour>19</Sale_Hour>
+    <Product_Name>Heineken 6-pack</Product_Name>
+    <Product_Brand>Heineken</Product_Brand>
+    <Product_SizeML>330</Product_SizeML>
+    <Category_Name>Beer</Category_Name>
+    <Supplier_Name>Heineken SA</Supplier_Name>
+    <SaleType_Name>In-Store</SaleType_Name>
+    <Employee_Name>Thabo Mokoena</Employee_Name>
+    <Employee_Role>Cashier</Employee_Role>
+    <Customer_Name>Walk-in Customer</Customer_Name>
+    <PaymentMethod_Name>Card</PaymentMethod_Name>
+    <Sale_Status>Completed</Sale_Status>
+    <Quantity>4</Quantity>
+    <UnitPrice_Original>119.99</UnitPrice_Original>
+    <UnitPrice_AfterDiscount>119.99</UnitPrice_AfterDiscount>
+    <LineRevenue>479.96</LineRevenue>
+    <LineDiscountAmount>0.00</LineDiscountAmount>
+    <LineCost>316.00</LineCost>
+    <LineGrossProfit>163.96</LineGrossProfit>
+    <Sale_Subtotal>830.95</Sale_Subtotal>
+    <Sale_DiscountAmount>0.00</Sale_DiscountAmount>
+    <Sale_TotalAmount>830.95</Sale_TotalAmount>
+  </SalesFact>
+  <SalesFact>
+    <Sale_ID>1004</Sale_ID>
+    <Product_ID>30</Product_ID>
+    <Category_ID>2</Category_ID>
+    <Employee_ID>2</Employee_ID>
+    <Customer_ID>38</Customer_ID>
+    <Sale_DateTime>2026-07-02T17:52:00</Sale_DateTime>
+    <Sale_Date>2026-07-02T00:00:00</Sale_Date>
+    <Sale_Year>2026</Sale_Year>
+    <Sale_MonthNumber>7</Sale_MonthNumber>
+    <Sale_MonthName>July</Sale_MonthName>
+    <Sale_Quarter>3</Sale_Quarter>
+    <Sale_DayName>Thursday</Sale_DayName>
+    <Sale_Hour>17</Sale_Hour>
+    <Product_Name>Heineken 6-pack</Product_Name>
+    <Product_Brand>Heineken</Product_Brand>
+    <Product_SizeML>330</Product_SizeML>
+    <Category_Name>Beer</Category_Name>
+    <Supplier_Name>Heineken SA</Supplier_Name>
+    <SaleType_Name>In-Store</SaleType_Name>
+    <Employee_Name>Priya Naidoo</Employee_Name>
+    <Employee_Role>Cashier</Employee_Role>
+    <Customer_Name>Walk-in Customer</Customer_Name>
+    <PaymentMethod_Name>Card</PaymentMethod_Name>
+    <Sale_Status>Completed</Sale_Status>
+    <Quantity>1</Quantity>
+    <UnitPrice_Original>119.99</UnitPrice_Original>
+    <UnitPrice_AfterDiscount>107.99</UnitPrice_AfterDiscount>
+    <LineRevenue>107.99</LineRevenue>
+    <LineDiscountAmount>12.00</LineDiscountAmount>
+    <LineCost>79.00</LineCost>
+    <LineGrossProfit>28.99</LineGrossProfit>
+    <Sale_Subtotal>812.94</Sale_Subtotal>
+    <Sale_DiscountAmount>0.00</Sale_DiscountAmount>
+    <Sale_TotalAmount>812.94</Sale_TotalAmount>
+  </SalesFact>
+  <SalesFact>
+    <Sale_ID>1004</Sale_ID>
+    <Product_ID>60</Product_ID>
+    <Category_ID>1</Category_ID>
+    <Employee_ID>2</Employee_ID>
+    <Customer_ID>30</Customer_ID>
+    <Sale_DateTime>2026-07-02T17:52:00</Sale_DateTime>
+    <Sale_Date>2026-07-02T00:00:00</Sale_Date>
+    <Sale_Year>2026</Sale_Year>
+    <Sale_MonthNumber>7</Sale_MonthNumber>
+    <Sale_MonthName>July</Sale_MonthName>
+    <Sale_Quarter>3</Sale_Quarter>
+    <Sale_DayName>Thursday</Sale_DayName>
+    <Sale_Hour>17</Sale_Hour>
+    <Product_Name>Bells Extra Special</Product_Name>
+    <Product_Brand>Bells</Product_Brand>
+    <Product_SizeML>1000</Product_SizeML>
+    <Category_Name>Whisky</Category_Name>
+    <Supplier_Name>Diageo</Supplier_Name>
+    <SaleType_Name>In-Store</SaleType_Name>
+    <Employee_Name>Priya Naidoo</Employee_Name>
+    <Employee_Role>Cashier</Employee_Role>
+    <Customer_Name>Walk-in Customer</Customer_Name>
+    <PaymentMethod_Name>Card</PaymentMethod_Name>
+    <Sale_Status>Completed</Sale_Status>
+    <Quantity>1</Quantity>
+    <UnitPrice_Original>249.99</UnitPrice_Original>
+    <UnitPrice_AfterDiscount>224.99</UnitPrice_AfterDiscount>
+    <LineRevenue>224.99</LineRevenue>
+    <LineDiscountAmount>25.00</LineDiscountAmount>
+    <LineCost>160.00</LineCost>
+    <LineGrossProfit>64.99</LineGrossProfit>
+    <Sale_Subtotal>812.94</Sale_Subtotal>
+    <Sale_DiscountAmount>0.00</Sale_DiscountAmount>
+    <Sale_TotalAmount>812.94</Sale_TotalAmount>
+  </SalesFact>
+  <SalesFact>
+    <Sale_ID>1004</Sale_ID>
+    <Product_ID>24</Product_ID>
+    <Category_ID>2</Category_ID>
+    <Employee_ID>2</Employee_ID>
+    <Customer_ID>20</Customer_ID>
+    <Sale_DateTime>2026-07-02T17:52:00</Sale_DateTime>
+    <Sale_Date>2026-07-02T00:00:00</Sale_Date>
+    <Sale_Year>2026</Sale_Year>
+    <Sale_MonthNumber>7</Sale_MonthNumber>
+    <Sale_MonthName>July</Sale_MonthName>
+    <Sale_Quarter>3</Sale_Quarter>
+    <Sale_DayName>Thursday</Sale_DayName>
+    <Sale_Hour>17</Sale_Hour>
+    <Product_Name>Heineken 6-pack</Product_Name>
+    <Product_Brand>Heineken</Product_Brand>
+    <Product_SizeML>330</Product_SizeML>
+    <Category_Name>Beer</Category_Name>
+    <Supplier_Name>Heineken SA</Supplier_Name>
+    <SaleType_Name>In-Store</SaleType_Name>
+    <Employee_Name>Priya Naidoo</Employee_Name>
+    <Employee_Role>Cashier</Employee_Role>
+    <Customer_Name>Walk-in Customer</Customer_Name>
+    <PaymentMethod_Name>Card</PaymentMethod_Name>
+    <Sale_Status>Completed</Sale_Status>
+    <Quantity>4</Quantity>
+    <UnitPrice_Original>119.99</UnitPrice_Original>
+    <UnitPrice_AfterDiscount>119.99</UnitPrice_AfterDiscount>
+    <LineRevenue>479.96</LineRevenue>
+    <LineDiscountAmount>0.00</LineDiscountAmount>
+    <LineCost>316.00</LineCost>
+    <LineGrossProfit>163.96</LineGrossProfit>
+    <Sale_Subtotal>812.94</Sale_Subtotal>
+    <Sale_DiscountAmount>0.00</Sale_DiscountAmount>
+    <Sale_TotalAmount>812.94</Sale_TotalAmount>
+  </SalesFact>
+  <SalesFact>
+    <Sale_ID>1005</Sale_ID>
+    <Product_ID>47</Product_ID>
+    <Category_ID>5</Category_ID>
+    <Employee_ID>2</Employee_ID>
+    <Customer_ID>29</Customer_ID>
+    <Sale_DateTime>2026-07-02T12:50:00</Sale_DateTime>
+    <Sale_Date>2026-07-02T00:00:00</Sale_Date>
+    <Sale_Year>2026</Sale_Year>
+    <Sale_MonthNumber>7</Sale_MonthNumber>
+    <Sale_MonthName>July</Sale_MonthName>
+    <Sale_Quarter>3</Sale_Quarter>
+    <Sale_DayName>Thursday</Sale_DayName>
+    <Sale_Hour>12</Sale_Hour>
+    <Product_Name>Hunters Gold 6-pack</Product_Name>
+    <Product_Brand>Hunters</Product_Brand>
+    <Product_SizeML>330</Product_SizeML>
+    <Category_Name>Ciders</Category_Name>
+    <Supplier_Name>Distell</Supplier_Name>
+    <SaleType_Name>In-Store</SaleType_Name>
+    <Employee_Name>Priya Naidoo</Employee_Name>
+    <Employee_Role>Cashier</Employee_Role>
+    <Customer_Name>Lerato Molefe</Customer_Name>
+    <PaymentMethod_Name>Card</PaymentMethod_Name>
+    <Sale_Status>Completed</Sale_Status>
+    <Quantity>4</Quantity>
+    <UnitPrice_Original>109.99</UnitPrice_Original>
+    <UnitPrice_AfterDiscount>109.99</UnitPrice_AfterDiscount>
+    <LineRevenue>439.96</LineRevenue>
+    <LineDiscountAmount>0.00</LineDiscountAmount>
+    <LineCost>284.00</LineCost>
+    <LineGrossProfit>155.96</LineGrossProfit>
+    <Sale_Subtotal>439.96</Sale_Subtotal>
+    <Sale_DiscountAmount>0.00</Sale_DiscountAmount>
+    <Sale_TotalAmount>439.96</Sale_TotalAmount>
+  </SalesFact>
+  <SalesFact>
+    <Sale_ID>1006</Sale_ID>
+    <Product_ID>3</Product_ID>
+    <Category_ID>3</Category_ID>
+    <Employee_ID>1</Employee_ID>
+    <Customer_ID>5</Customer_ID>
+    <Sale_DateTime>2026-07-03T18:04:00</Sale_DateTime>
+    <Sale_Date>2026-07-03T00:00:00</Sale_Date>
+    <Sale_Year>2026</Sale_Year>
+    <Sale_MonthNumber>7</Sale_MonthNumber>
+    <Sale_MonthName>July</Sale_MonthName>
+    <Sale_Quarter>3</Sale_Quarter>
+    <Sale_DayName>Friday</Sale_DayName>
+    <Sale_Hour>18</Sale_Hour>
+    <Product_Name>Nederburg Cabernet</Product_Name>
+    <Product_Brand>Nederburg</Product_Brand>
+    <Product_SizeML>750</Product_SizeML>
+    <Category_Name>Wine</Category_Name>
+    <Supplier_Name>Distell</Supplier_Name>
+    <SaleType_Name>In-Store</SaleType_Name>
+    <Employee_Name>Thabo Mokoena</Employee_Name>
+    <Employee_Role>Cashier</Employee_Role>
+    <Customer_Name>Walk-in Customer</Customer_Name>
+    <PaymentMethod_Name>Cash</PaymentMethod_Name>
+    <Sale_Status>Completed</Sale_Status>
+    <Quantity>4</Quantity>
+    <UnitPrice_Original>109.99</UnitPrice_Original>
+    <UnitPrice_AfterDiscount>104.49</UnitPrice_AfterDiscount>
+    <LineRevenue>417.96</LineRevenue>
+    <LineDiscountAmount>22.00</LineDiscountAmount>
+    <LineCost>272.00</LineCost>
+    <LineGrossProfit>145.96</LineGrossProfit>
+    <Sale_Subtotal>417.96</Sale_Subtotal>
+    <Sale_DiscountAmount>0.00</Sale_DiscountAmount>
+    <Sale_TotalAmount>417.96</Sale_TotalAmount>
+  </SalesFact>
+  <SalesFact>
+    <Sale_ID>1007</Sale_ID>
+    <Product_ID>44</Product_ID>
+    <Category_ID>4</Category_ID>
+    <Employee_ID>3</Employee_ID>
+    <Customer_ID>29</Customer_ID>
+    <Sale_DateTime>2026-07-03T17:36:00</Sale_DateTime>
+    <Sale_Date>2026-07-03T00:00:00</Sale_Date>
+    <Sale_Year>2026</Sale_Year>
+    <Sale_MonthNumber>7</Sale_MonthNumber>
+    <Sale_MonthName>July</Sale_MonthName>
+    <Sale_Quarter>3</Sale_Quarter>
+    <Sale_DayName>Friday</Sale_DayName>
+    <Sale_Hour>17</Sale_Hour>
+    <Product_Name>Klipdrift Premium</Product_Name>
+    <Product_Brand>Klipdrift</Product_Brand>
+    <Product_SizeML>750</Product_SizeML>
+    <Category_Name>Spirits</Category_Name>
+    <Supplier_Name>Distell</Supplier_Name>
+    <SaleType_Name>In-Store</SaleType_Name>
+    <Employee_Name>Sipho Dlamini</Employee_Name>
+    <Employee_Role>Manager</Employee_Role>
+    <Customer_Name>Nomsa Khumalo</Customer_Name>
+    <PaymentMethod_Name>Card</PaymentMethod_Name>
+    <Sale_Status>Completed</Sale_Status>
+    <Quantity>4</Quantity>
+    <UnitPrice_Original>259.99</UnitPrice_Original>
+    <UnitPrice_AfterDiscount>259.99</UnitPrice_AfterDiscount>
+    <LineRevenue>1039.96</LineRevenue>
+    <LineDiscountAmount>0.00</LineDiscountAmount>
+    <LineCost>680.00</LineCost>
+    <LineGrossProfit>359.96</LineGrossProfit>
+    <Sale_Subtotal>3034.89</Sale_Subtotal>
+    <Sale_DiscountAmount>0.00</Sale_DiscountAmount>
+    <Sale_TotalAmount>3034.89</Sale_TotalAmount>
+  </SalesFact>
+  <SalesFact>
+    <Sale_ID>1007</Sale_ID>
+    <Product_ID>19</Product_ID>
+    <Category_ID>1</Category_ID>
+    <Employee_ID>3</Employee_ID>
+    <Customer_ID>25</Customer_ID>
+    <Sale_DateTime>2026-07-03T17:36:00</Sale_DateTime>
+    <Sale_Date>2026-07-03T00:00:00</Sale_Date>
+    <Sale_Year>2026</Sale_Year>
+    <Sale_MonthNumber>7</Sale_MonthNumber>
+    <Sale_MonthName>July</Sale_MonthName>
+    <Sale_Quarter>3</Sale_Quarter>
+    <Sale_DayName>Friday</Sale_DayName>
+    <Sale_Hour>17</Sale_Hour>
+    <Product_Name>Jameson Irish Whiskey</Product_Name>
+    <Product_Brand>Jameson</Product_Brand>
+    <Product_SizeML>750</Product_SizeML>
+    <Category_Name>Whisky</Category_Name>
+    <Supplier_Name>Diageo</Supplier_Name>
+    <SaleType_Name>In-Store</SaleType_Name>
+    <Employee_Name>Sipho Dlamini</Employee_Name>
+    <Employee_Role>Manager</Employee_Role>
+    <Customer_Name>Nomsa Khumalo</Customer_Name>
+    <PaymentMethod_Name>Card</PaymentMethod_Name>
+    <Sale_Status>Completed</Sale_Status>
+    <Quantity>4</Quantity>
+    <UnitPrice_Original>329.99</UnitPrice_Original>
+    <UnitPrice_AfterDiscount>329.99</UnitPrice_AfterDiscount>
+    <LineRevenue>1319.96</LineRevenue>
+    <LineDiscountAmount>0.00</LineDiscountAmount>
+    <LineCost>860.00</LineCost>
+    <LineGrossProfit>459.96</LineGrossProfit>
+    <Sale_Subtotal>3034.89</Sale_Subtotal>
+    <Sale_DiscountAmount>0.00</Sale_DiscountAmount>
+    <Sale_TotalAmount>3034.89</Sale_TotalAmount>
+  </SalesFact>
+  <SalesFact>
+    <Sale_ID>1007</Sale_ID>
+    <Product_ID>57</Product_ID>
+    <Category_ID>1</Category_ID>
+    <Employee_ID>3</Employee_ID>
+    <Customer_ID>23</Customer_ID>
+    <Sale_DateTime>2026-07-03T17:36:00</Sale_DateTime>
+    <Sale_Date>2026-07-03T00:00:00</Sale_Date>
+    <Sale_Year>2026</Sale_Year>
+    <Sale_MonthNumber>7</Sale_MonthNumber>
+    <Sale_MonthName>July</Sale_MonthName>
+    <Sale_Quarter>3</Sale_Quarter>
+    <Sale_DayName>Friday</Sale_DayName>
+    <Sale_Hour>17</Sale_Hour>
+    <Product_Name>Bells Extra Special</Product_Name>
+    <Product_Brand>Bells</Product_Brand>
+    <Product_SizeML>1000</Product_SizeML>
+    <Category_Name>Whisky</Category_Name>
+    <Supplier_Name>Diageo</Supplier_Name>
+    <SaleType_Name>In-Store</SaleType_Name>
+    <Employee_Name>Sipho Dlamini</Employee_Name>
+    <Employee_Role>Manager</Employee_Role>
+    <Customer_Name>Nomsa Khumalo</Customer_Name>
+    <PaymentMethod_Name>Card</PaymentMethod_Name>
+    <Sale_Status>Completed</Sale_Status>
+    <Quantity>3</Quantity>
+    <UnitPrice_Original>249.99</UnitPrice_Original>
+    <UnitPrice_AfterDiscount>224.99</UnitPrice_AfterDiscount>
+    <LineRevenue>674.97</LineRevenue>
+    <LineDiscountAmount>75.00</LineDiscountAmount>
+    <LineCost>480.00</LineCost>
+    <LineGrossProfit>194.97</LineGrossProfit>
+    <Sale_Subtotal>3034.89</Sale_Subtotal>
+    <Sale_DiscountAmount>0.00</Sale_DiscountAmount>
+    <Sale_TotalAmount>3034.89</Sale_TotalAmount>
+  </SalesFact>
+  <SalesFact>
+    <Sale_ID>1008</Sale_ID>
+    <Product_ID>6</Product_ID>
+    <Category_ID>1</Category_ID>
+    <Employee_ID>2</Employee_ID>
+    <Customer_ID>11</Customer_ID>
+    <Sale_DateTime>2026-07-04T16:22:00</Sale_DateTime>
+    <Sale_Date>2026-07-04T00:00:00</Sale_Date>
+    <Sale_Year>2026</Sale_Year>
+    <Sale_MonthNumber>7</Sale_MonthNumber>
+    <Sale_MonthName>July</Sale_MonthName>
+    <Sale_Quarter>3</Sale_Quarter>
+    <Sale_DayName>Saturday</Sale_DayName>
+    <Sale_Hour>16</Sale_Hour>
+    <Product_Name>Johnnie Walker Black</Product_Name>
+    <Product_Brand>Johnnie</Product_Brand>
+    <Product_SizeML>750</Product_SizeML>
+    <Category_Name>Whisky</Category_Name>
+    <Supplier_Name>Diageo</Supplier_Name>
+    <SaleType_Name>In-Store</SaleType_Name>
+    <Employee_Name>Priya Naidoo</Employee_Name>
+    <Employee_Role>Cashier</Employee_Role>
+    <Customer_Name>Walk-in Customer</Customer_Name>
+    <PaymentMethod_Name>Cash</PaymentMethod_Name>
+    <Sale_Status>Completed</Sale_Status>
+    <Quantity>3</Quantity>
+    <UnitPrice_Original>389.99</UnitPrice_Original>
+    <UnitPrice_AfterDiscount>389.99</UnitPrice_AfterDiscount>
+    <LineRevenue>1169.97</LineRevenue>
+    <LineDiscountAmount>0.00</LineDiscountAmount>
+    <LineCost>765.00</LineCost>
+    <LineGrossProfit>404.97</LineGrossProfit>
+    <Sale_Subtotal>1625.93</Sale_Subtotal>
+    <Sale_DiscountAmount>0.00</Sale_DiscountAmount>
+    <Sale_TotalAmount>1625.93</Sale_TotalAmount>
+  </SalesFact>
+  <SalesFact>
+    <Sale_ID>1008</Sale_ID>
+    <Product_ID>29</Product_ID>
+    <Category_ID>2</Category_ID>
+    <Employee_ID>2</Employee_ID>
+    <Customer_ID>26</Customer_ID>
+    <Sale_DateTime>2026-07-04T16:22:00</Sale_DateTime>
+    <Sale_Date>2026-07-04T00:00:00</Sale_Date>
+    <Sale_Year>2026</Sale_Year>
+    <Sale_MonthNumber>7</Sale_MonthNumber>
+    <Sale_MonthName>July</Sale_MonthName>
+    <Sale_Quarter>3</Sale_Quarter>
+    <Sale_DayName>Saturday</Sale_DayName>
+    <Sale_Hour>16</Sale_Hour>
+    <Product_Name>Heineken 6-pack</Product_Name>
+    <Product_Brand>Heineken</Product_Brand>
+    <Product_SizeML>330</Product_SizeML>
+    <Category_Name>Beer</Category_Name>
+    <Supplier_Name>Heineken SA</Supplier_Name>
+    <SaleType_Name>In-Store</SaleType_Name>
+    <Employee_Name>Priya Naidoo</Employee_Name>
+    <Employee_Role>Cashier</Employee_Role>
+    <Customer_Name>Walk-in Customer</Customer_Name>
+    <PaymentMethod_Name>Cash</PaymentMethod_Name>
+    <Sale_Status>Completed</Sale_Status>
+    <Quantity>4</Quantity>
+    <UnitPrice_Original>119.99</UnitPrice_Original>
+    <UnitPrice_AfterDiscount>113.99</UnitPrice_AfterDiscount>
+    <LineRevenue>455.96</LineRevenue>
+    <LineDiscountAmount>24.00</LineDiscountAmount>
+    <LineCost>316.00</LineCost>
+    <LineGrossProfit>139.96</LineGrossProfit>
+    <Sale_Subtotal>1625.93</Sale_Subtotal>
+    <Sale_DiscountAmount>0.00</Sale_DiscountAmount>
+    <Sale_TotalAmount>1625.93</Sale_TotalAmount>
+  </SalesFact>
+  <SalesFact>
+    <Sale_ID>1009</Sale_ID>
+    <Product_ID>1</Product_ID>
+    <Category_ID>3</Category_ID>
+    <Employee_ID>2</Employee_ID>
+    <Customer_ID>32</Customer_ID>
+    <Sale_DateTime>2026-07-05T13:56:00</Sale_DateTime>
+    <Sale_Date>2026-07-05T00:00:00</Sale_Date>
+    <Sale_Year>2026</Sale_Year>
+    <Sale_MonthNumber>7</Sale_MonthNumber>
+    <Sale_MonthName>July</Sale_MonthName>
+    <Sale_Quarter>3</Sale_Quarter>
+    <Sale_DayName>Sunday</Sale_DayName>
+    <Sale_Hour>13</Sale_Hour>
+    <Product_Name>JC le Roux La Chanson</Product_Name>
+    <Product_Brand>JC</Product_Brand>
+    <Product_SizeML>750</Product_SizeML>
+    <Category_Name>Wine</Category_Name>
+    <Supplier_Name>Distell</Supplier_Name>
+    <SaleType_Name>In-Store</SaleType_Name>
+    <Employee_Name>Priya Naidoo</Employee_Name>
+    <Employee_Role>Cashier</Employee_Role>
+    <Customer_Name>Yusuf Ebrahim</Customer_Name>
+    <PaymentMethod_Name>Cash</PaymentMethod_Name>
+    <Sale_Status>Completed</Sale_Status>
+    <Quantity>4</Quantity>
+    <UnitPrice_Original>89.99</UnitPrice_Original>
+    <UnitPrice_AfterDiscount>89.99</UnitPrice_AfterDiscount>
+    <LineRevenue>359.96</LineRevenue>
+    <LineDiscountAmount>0.00</LineDiscountAmount>
+    <LineCost>224.00</LineCost>
+    <LineGrossProfit>135.96</LineGrossProfit>
+    <Sale_Subtotal>979.92</Sale_Subtotal>
+    <Sale_DiscountAmount>0.00</Sale_DiscountAmount>
+    <Sale_TotalAmount>979.92</Sale_TotalAmount>
+  </SalesFact>
+  <SalesFact>
+    <Sale_ID>1009</Sale_ID>
+    <Product_ID>54</Product_ID>
+    <Category_ID>4</Category_ID>
+    <Employee_ID>2</Employee_ID>
+    <Customer_ID>38</Customer_ID>
+    <Sale_DateTime>2026-07-05T13:56:00</Sale_DateTime>
+    <Sale_Date>2026-07-05T00:00:00</Sale_Date>
+    <Sale_Year>2026</Sale_Year>
+    <Sale_MonthNumber>7</Sale_MonthNumber>
+    <Sale_MonthName>July</Sale_MonthName>
+    <Sale_Quarter>3</Sale_Quarter>
+    <Sale_DayName>Sunday</Sale_DayName>
+    <Sale_Hour>13</Sale_Hour>
+    <Product_Name>Smirnoff Vodka 1893</Product_Name>
+    <Product_Brand>Smirnoff</Product_Brand>
+    <Product_SizeML>750</Product_SizeML>
+    <Category_Name>Spirits</Category_Name>
+    <Supplier_Name>Diageo</Supplier_Name>
+    <SaleType_Name>In-Store</SaleType_Name>
+    <Employee_Name>Priya Naidoo</Employee_Name>
+    <Employee_Role>Cashier</Employee_Role>
+    <Customer_Name>Yusuf Ebrahim</Customer_Name>
+    <PaymentMethod_Name>Cash</PaymentMethod_Name>
+    <Sale_Status>Completed</Sale_Status>
+    <Quantity>2</Quantity>
+    <UnitPrice_Original>219.99</UnitPrice_Original>
+    <UnitPrice_AfterDiscount>219.99</UnitPrice_AfterDiscount>
+    <LineRevenue>439.98</LineRevenue>
+    <LineDiscountAmount>0.00</LineDiscountAmount>
+    <LineCost>284.00</LineCost>
+    <LineGrossProfit>155.98</LineGrossProfit>
+    <Sale_Subtotal>979.92</Sale_Subtotal>
+    <Sale_DiscountAmount>0.00</Sale_DiscountAmount>
+    <Sale_TotalAmount>979.92</Sale_TotalAmount>
+  </SalesFact>
+  <SalesFact>
+    <Sale_ID>1009</Sale_ID>
+    <Product_ID>12</Product_ID>
+    <Category_ID>2</Category_ID>
+    <Employee_ID>2</Employee_ID>
+    <Customer_ID>17</Customer_ID>
+    <Sale_DateTime>2026-07-05T13:56:00</Sale_DateTime>
+    <Sale_Date>2026-07-05T00:00:00</Sale_Date>
+    <Sale_Year>2026</Sale_Year>
+    <Sale_MonthNumber>7</Sale_MonthNumber>
+    <Sale_MonthName>July</Sale_MonthName>
+    <Sale_Quarter>3</Sale_Quarter>
+    <Sale_DayName>Sunday</Sale_DayName>
+    <Sale_Hour>13</Sale_Hour>
+    <Product_Name>Castle Lager 6-pack</Product_Name>
+    <Product_Brand>Castle</Product_Brand>
+    <Product_SizeML>330</Product_SizeML>
+    <Category_Name>Beer</Category_Name>
+    <Supplier_Name>SAB Miller</Supplier_Name>
+    <SaleType_Name>In-Store</SaleType_Name>
+    <Employee_Name>Priya Naidoo</Employee_Name>
+    <Employee_Role>Cashier</Employee_Role>
+    <Customer_Name>Yusuf Ebrahim</Customer_Name>
+    <PaymentMethod_Name>Cash</PaymentMethod_Name>
+    <Sale_Status>Completed</Sale_Status>
+    <Quantity>2</Quantity>
+    <UnitPrice_Original>89.99</UnitPrice_Original>
+    <UnitPrice_AfterDiscount>89.99</UnitPrice_AfterDiscount>
+    <LineRevenue>179.98</LineRevenue>
+    <LineDiscountAmount>0.00</LineDiscountAmount>
+    <LineCost>116.00</LineCost>
+    <LineGrossProfit>63.98</LineGrossProfit>
+    <Sale_Subtotal>979.92</Sale_Subtotal>
+    <Sale_DiscountAmount>0.00</Sale_DiscountAmount>
+    <Sale_TotalAmount>979.92</Sale_TotalAmount>
+  </SalesFact>
+  <SalesFact>
+    <Sale_ID>1010</Sale_ID>
+    <Product_ID>26</Product_ID>
+    <Category_ID>5</Category_ID>
+    <Employee_ID>2</Employee_ID>
+    <Customer_ID>26</Customer_ID>
+    <Sale_DateTime>2026-07-05T13:00:00</Sale_DateTime>
+    <Sale_Date>2026-07-05T00:00:00</Sale_Date>
+    <Sale_Year>2026</Sale_Year>
+    <Sale_MonthNumber>7</Sale_MonthNumber>
+    <Sale_MonthName>July</Sale_MonthName>
+    <Sale_Quarter>3</Sale_Quarter>
+    <Sale_DayName>Sunday</Sale_DayName>
+    <Sale_Hour>13</Sale_Hour>
+    <Product_Name>Hunters Gold 6-pack</Product_Name>
+    <Product_Brand>Hunters</Product_Brand>
+    <Product_SizeML>330</Product_SizeML>
+    <Category_Name>Ciders</Category_Name>
+    <Supplier_Name>Distell</Supplier_Name>
+    <SaleType_Name>In-Store</SaleType_Name>
+    <Employee_Name>Priya Naidoo</Employee_Name>
+    <Employee_Role>Cashier</Employee_Role>
+    <Customer_Name>Rajesh Singh</Customer_Name>
+    <PaymentMethod_Name>Card</PaymentMethod_Name>
+    <Sale_Status>Completed</Sale_Status>
+    <Quantity>2</Quantity>
+    <UnitPrice_Original>109.99</UnitPrice_Original>
+    <UnitPrice_AfterDiscount>98.99</UnitPrice_AfterDiscount>
+    <LineRevenue>197.98</LineRevenue>
+    <LineDiscountAmount>22.00</LineDiscountAmount>
+    <LineCost>142.00</LineCost>
+    <LineGrossProfit>55.98</LineGrossProfit>
+    <Sale_Subtotal>611.94</Sale_Subtotal>
+    <Sale_DiscountAmount>0.00</Sale_DiscountAmount>
+    <Sale_TotalAmount>611.94</Sale_TotalAmount>
+  </SalesFact>
+  <SalesFact>
+    <Sale_ID>1010</Sale_ID>
+    <Product_ID>26</Product_ID>
+    <Category_ID>5</Category_ID>
+    <Employee_ID>2</Employee_ID>
+    <Customer_ID>26</Customer_ID>
+    <Sale_DateTime>2026-07-05T13:00:00</Sale_DateTime>
+    <Sale_Date>2026-07-05T00:00:00</Sale_Date>
+    <Sale_Year>2026</Sale_Year>
+    <Sale_MonthNumber>7</Sale_MonthNumber>
+    <Sale_MonthName>July</Sale_MonthName>
+    <Sale_Quarter>3</Sale_Quarter>
+    <Sale_DayName>Sunday</Sale_DayName>
+    <Sale_Hour>13</Sale_Hour>
+    <Product_Name>Savanna Dry 6-pack</Product_Name>
+    <Product_Brand>Savanna</Product_Brand>
+    <Product_SizeML>330</Product_SizeML>
+    <Category_Name>Ciders</Category_Name>
+    <Supplier_Name>Distell</Supplier_Name>
+    <SaleType_Name>In-Store</SaleType_Name>
+    <Employee_Name>Priya Naidoo</Employee_Name>
+    <Employee_Role>Cashier</Employee_Role>
+    <Customer_Name>Rajesh Singh</Customer_Name>
+    <PaymentMethod_Name>Card</PaymentMethod_Name>
+    <Sale_Status>Completed</Sale_Status>
+    <Quantity>4</Quantity>
+    <UnitPrice_Original>114.99</UnitPrice_Original>
+    <UnitPrice_AfterDiscount>103.49</UnitPrice_AfterDiscount>
+    <LineRevenue>413.96</LineRevenue>
+    <LineDiscountAmount>46.00</LineDiscountAmount>
+    <LineCost>296.00</LineCost>
+    <LineGrossProfit>117.96</LineGrossProfit>
+    <Sale_Subtotal>611.94</Sale_Subtotal>
+    <Sale_DiscountAmount>0.00</Sale_DiscountAmount>
+    <Sale_TotalAmount>611.94</Sale_TotalAmount>
+  </SalesFact>
+  <SalesFact>
+    <Sale_ID>1011</Sale_ID>
+    <Product_ID>22</Product_ID>
+    <Category_ID>2</Category_ID>
+    <Employee_ID>4</Employee_ID>
+    <Customer_ID>39</Customer_ID>
+    <Sale_DateTime>2026-07-05T10:30:00</Sale_DateTime>
+    <Sale_Date>2026-07-05T00:00:00</Sale_Date>
+    <Sale_Year>2026</Sale_Year>
+    <Sale_MonthNumber>7</Sale_MonthNumber>
+    <Sale_MonthName>July</Sale_MonthName>
+    <Sale_Quarter>3</Sale_Quarter>
+    <Sale_DayName>Sunday</Sale_DayName>
+    <Sale_Hour>10</Sale_Hour>
+    <Product_Name>Heineken 6-pack</Product_Name>
+    <Product_Brand>Heineken</Product_Brand>
+    <Product_SizeML>330</Product_SizeML>
+    <Category_Name>Beer</Category_Name>
+    <Supplier_Name>Heineken SA</Supplier_Name>
+    <SaleType_Name>In-Store</SaleType_Name>
+    <Employee_Name>Ashwin Pillay</Employee_Name>
+    <Employee_Role>Cashier</Employee_Role>
+    <Customer_Name>Walk-in Customer</Customer_Name>
+    <PaymentMethod_Name>Card</PaymentMethod_Name>
+    <Sale_Status>Completed</Sale_Status>
+    <Quantity>2</Quantity>
+    <UnitPrice_Original>119.99</UnitPrice_Original>
+    <UnitPrice_AfterDiscount>119.99</UnitPrice_AfterDiscount>
+    <LineRevenue>239.98</LineRevenue>
+    <LineDiscountAmount>0.00</LineDiscountAmount>
+    <LineCost>158.00</LineCost>
+    <LineGrossProfit>81.98</LineGrossProfit>
+    <Sale_Subtotal>239.98</Sale_Subtotal>
+    <Sale_DiscountAmount>0.00</Sale_DiscountAmount>
+    <Sale_TotalAmount>239.98</Sale_TotalAmount>
+  </SalesFact>
+  <SalesFact>
+    <Sale_ID>1012</Sale_ID>
+    <Product_ID>23</Product_ID>
+    <Category_ID>5</Category_ID>
+    <Employee_ID>2</Employee_ID>
+    <Customer_ID>39</Customer_ID>
+    <Sale_DateTime>2026-07-06T10:00:00</Sale_DateTime>
+    <Sale_Date>2026-07-06T00:00:00</Sale_Date>
+    <Sale_Year>2026</Sale_Year>
+    <Sale_MonthNumber>7</Sale_MonthNumber>
+    <Sale_MonthName>July</Sale_MonthName>
+    <Sale_Quarter>3</Sale_Quarter>
+    <Sale_DayName>Monday</Sale_DayName>
+    <Sale_Hour>10</Sale_Hour>
+    <Product_Name>Savanna Dry 6-pack</Product_Name>
+    <Product_Brand>Savanna</Product_Brand>
+    <Product_SizeML>330</Product_SizeML>
+    <Category_Name>Ciders</Category_Name>
+    <Supplier_Name>Distell</Supplier_Name>
+    <SaleType_Name>In-Store</SaleType_Name>
+    <Employee_Name>Priya Naidoo</Employee_Name>
+    <Employee_Role>Cashier</Employee_Role>
+    <Customer_Name>Walk-in Customer</Customer_Name>
+    <PaymentMethod_Name>Cash</PaymentMethod_Name>
+    <Sale_Status>Completed</Sale_Status>
+    <Quantity>1</Quantity>
+    <UnitPrice_Original>114.99</UnitPrice_Original>
+    <UnitPrice_AfterDiscount>114.99</UnitPrice_AfterDiscount>
+    <LineRevenue>114.99</LineRevenue>
+    <LineDiscountAmount>0.00</LineDiscountAmount>
+    <LineCost>74.00</LineCost>
+    <LineGrossProfit>40.99</LineGrossProfit>
+    <Sale_Subtotal>334.97</Sale_Subtotal>
+    <Sale_DiscountAmount>0.00</Sale_DiscountAmount>
+    <Sale_TotalAmount>334.97</Sale_TotalAmount>
+  </SalesFact>
+  <SalesFact>
+    <Sale_ID>1012</Sale_ID>
+    <Product_ID>24</Product_ID>
+    <Category_ID>5</Category_ID>
+    <Employee_ID>2</Employee_ID>
+    <Customer_ID>31</Customer_ID>
+    <Sale_DateTime>2026-07-06T10:00:00</Sale_DateTime>
+    <Sale_Date>2026-07-06T00:00:00</Sale_Date>
+    <Sale_Year>2026</Sale_Year>
+    <Sale_MonthNumber>7</Sale_MonthNumber>
+    <Sale_MonthName>July</Sale_MonthName>
+    <Sale_Quarter>3</Sale_Quarter>
+    <Sale_DayName>Monday</Sale_DayName>
+    <Sale_Hour>10</Sale_Hour>
+    <Product_Name>Hunters Gold 6-pack</Product_Name>
+    <Product_Brand>Hunters</Product_Brand>
+    <Product_SizeML>330</Product_SizeML>
+    <Category_Name>Ciders</Category_Name>
+    <Supplier_Name>Distell</Supplier_Name>
+    <SaleType_Name>In-Store</SaleType_Name>
+    <Employee_Name>Priya Naidoo</Employee_Name>
+    <Employee_Role>Cashier</Employee_Role>
+    <Customer_Name>Walk-in Customer</Customer_Name>
+    <PaymentMethod_Name>Cash</PaymentMethod_Name>
+    <Sale_Status>Completed</Sale_Status>
+    <Quantity>2</Quantity>
+    <UnitPrice_Original>109.99</UnitPrice_Original>
+    <UnitPrice_AfterDiscount>109.99</UnitPrice_AfterDiscount>
+    <LineRevenue>219.98</LineRevenue>
+    <LineDiscountAmount>0.00</LineDiscountAmount>
+    <LineCost>142.00</LineCost>
+    <LineGrossProfit>77.98</LineGrossProfit>
+    <Sale_Subtotal>334.97</Sale_Subtotal>
+    <Sale_DiscountAmount>0.00</Sale_DiscountAmount>
+    <Sale_TotalAmount>334.97</Sale_TotalAmount>
+  </SalesFact>
+  <SalesFact>
+    <Sale_ID>1013</Sale_ID>
+    <Product_ID>54</Product_ID>
+    <Category_ID>3</Category_ID>
+    <Employee_ID>4</Employee_ID>
+    <Customer_ID>11</Customer_ID>
+    <Sale_DateTime>2026-07-07T10:54:00</Sale_DateTime>
+    <Sale_Date>2026-07-07T00:00:00</Sale_Date>
+    <Sale_Year>2026</Sale_Year>
+    <Sale_MonthNumber>7</Sale_MonthNumber>
+    <Sale_MonthName>July</Sale_MonthName>
+    <Sale_Quarter>3</Sale_Quarter>
+    <Sale_DayName>Tuesday</Sale_DayName>
+    <Sale_Hour>10</Sale_Hour>
+    <Product_Name>Nederburg Cabernet</Product_Name>
+    <Product_Brand>Nederburg</Product_Brand>
+    <Product_SizeML>750</Product_SizeML>
+    <Category_Name>Wine</Category_Name>
+    <Supplier_Name>Distell</Supplier_Name>
+    <SaleType_Name>In-Store</SaleType_Name>
+    <Employee_Name>Ashwin Pillay</Employee_Name>
+    <Employee_Role>Cashier</Employee_Role>
+    <Customer_Name>Rajesh Singh</Customer_Name>
+    <PaymentMethod_Name>Cash</PaymentMethod_Name>
+    <Sale_Status>Completed</Sale_Status>
+    <Quantity>2</Quantity>
+    <UnitPrice_Original>109.99</UnitPrice_Original>
+    <UnitPrice_AfterDiscount>109.99</UnitPrice_AfterDiscount>
+    <LineRevenue>219.98</LineRevenue>
+    <LineDiscountAmount>0.00</LineDiscountAmount>
+    <LineCost>136.00</LineCost>
+    <LineGrossProfit>83.98</LineGrossProfit>
+    <Sale_Subtotal>476.45</Sale_Subtotal>
+    <Sale_DiscountAmount>0.00</Sale_DiscountAmount>
+    <Sale_TotalAmount>476.45</Sale_TotalAmount>
+  </SalesFact>
+  <SalesFact>
+    <Sale_ID>1013</Sale_ID>
+    <Product_ID>34</Product_ID>
+    <Category_ID>3</Category_ID>
+    <Employee_ID>4</Employee_ID>
+    <Customer_ID>2</Customer_ID>
+    <Sale_DateTime>2026-07-07T10:54:00</Sale_DateTime>
+    <Sale_Date>2026-07-07T00:00:00</Sale_Date>
+    <Sale_Year>2026</Sale_Year>
+    <Sale_MonthNumber>7</Sale_MonthNumber>
+    <Sale_MonthName>July</Sale_MonthName>
+    <Sale_Quarter>3</Sale_Quarter>
+    <Sale_DayName>Tuesday</Sale_DayName>
+    <Sale_Hour>10</Sale_Hour>
+    <Product_Name>JC le Roux La Chanson</Product_Name>
+    <Product_Brand>JC</Product_Brand>
+    <Product_SizeML>750</Product_SizeML>
+    <Category_Name>Wine</Category_Name>
+    <Supplier_Name>Distell</Supplier_Name>
+    <SaleType_Name>In-Store</SaleType_Name>
+    <Employee_Name>Ashwin Pillay</Employee_Name>
+    <Employee_Role>Cashier</Employee_Role>
+    <Customer_Name>Rajesh Singh</Customer_Name>
+    <PaymentMethod_Name>Cash</PaymentMethod_Name>
+    <Sale_Status>Completed</Sale_Status>
+    <Quantity>3</Quantity>
+    <UnitPrice_Original>89.99</UnitPrice_Original>
+    <UnitPrice_AfterDiscount>85.49</UnitPrice_AfterDiscount>
+    <LineRevenue>256.47</LineRevenue>
+    <LineDiscountAmount>13.50</LineDiscountAmount>
+    <LineCost>168.00</LineCost>
+    <LineGrossProfit>88.47</LineGrossProfit>
+    <Sale_Subtotal>476.45</Sale_Subtotal>
+    <Sale_DiscountAmount>0.00</Sale_DiscountAmount>
+    <Sale_TotalAmount>476.45</Sale_TotalAmount>
+  </SalesFact>
+  <SalesFact>
+    <Sale_ID>1014</Sale_ID>
+    <Product_ID>34</Product_ID>
+    <Category_ID>5</Category_ID>
+    <Employee_ID>2</Employee_ID>
+    <Customer_ID>24</Customer_ID>
+    <Sale_DateTime>2026-07-08T17:23:00</Sale_DateTime>
+    <Sale_Date>2026-07-08T00:00:00</Sale_Date>
+    <Sale_Year>2026</Sale_Year>
+    <Sale_MonthNumber>7</Sale_MonthNumber>
+    <Sale_MonthName>July</Sale_MonthName>
+    <Sale_Quarter>3</Sale_Quarter>
+    <Sale_DayName>Wednesday</Sale_DayName>
+    <Sale_Hour>17</Sale_Hour>
+    <Product_Name>Hunters Gold 6-pack</Product_Name>
+    <Product_Brand>Hunters</Product_Brand>
+    <Product_SizeML>330</Product_SizeML>
+    <Category_Name>Ciders</Category_Name>
+    <Supplier_Name>Distell</Supplier_Name>
+    <SaleType_Name>In-Store</SaleType_Name>
+    <Employee_Name>Priya Naidoo</Employee_Name>
+    <Employee_Role>Cashier</Employee_Role>
+    <Customer_Name>Lerato Molefe</Customer_Name>
+    <PaymentMethod_Name>Card</PaymentMethod_Name>
+    <Sale_Status>Completed</Sale_Status>
+    <Quantity>1</Quantity>
+    <UnitPrice_Original>109.99</UnitPrice_Original>
+    <UnitPrice_AfterDiscount>109.99</UnitPrice_AfterDiscount>
+    <LineRevenue>109.99</LineRevenue>
+    <LineDiscountAmount>0.00</LineDiscountAmount>
+    <LineCost>71.00</LineCost>
+    <LineGrossProfit>38.99</LineGrossProfit>
+    <Sale_Subtotal>109.99</Sale_Subtotal>
+    <Sale_DiscountAmount>0.00</Sale_DiscountAmount>
+    <Sale_TotalAmount>109.99</Sale_TotalAmount>
+  </SalesFact>
+  <SalesFact>
+    <Sale_ID>1015</Sale_ID>
+    <Product_ID>47</Product_ID>
+    <Category_ID>3</Category_ID>
+    <Employee_ID>2</Employee_ID>
+    <Customer_ID>2</Customer_ID>
+    <Sale_DateTime>2026-07-09T14:49:00</Sale_DateTime>
+    <Sale_Date>2026-07-09T00:00:00</Sale_Date>
+    <Sale_Year>2026</Sale_Year>
+    <Sale_MonthNumber>7</Sale_MonthNumber>
+    <Sale_MonthName>July</Sale_MonthName>
+    <Sale_Quarter>3</Sale_Quarter>
+    <Sale_DayName>Thursday</Sale_DayName>
+    <Sale_Hour>14</Sale_Hour>
+    <Product_Name>JC le Roux La Chanson</Product_Name>
+    <Product_Brand>JC</Product_Brand>
+    <Product_SizeML>750</Product_SizeML>
+    <Category_Name>Wine</Category_Name>
+    <Supplier_Name>Distell</Supplier_Name>
+    <SaleType_Name>In-Store</SaleType_Name>
+    <Employee_Name>Priya Naidoo</Employee_Name>
+    <Employee_Role>Cashier</Employee_Role>
+    <Customer_Name>Walk-in Customer</Customer_Name>
+    <PaymentMethod_Name>Card</PaymentMethod_Name>
+    <Sale_Status>Completed</Sale_Status>
+    <Quantity>2</Quantity>
+    <UnitPrice_Original>89.99</UnitPrice_Original>
+    <UnitPrice_AfterDiscount>80.99</UnitPrice_AfterDiscount>
+    <LineRevenue>161.98</LineRevenue>
+    <LineDiscountAmount>18.00</LineDiscountAmount>
+    <LineCost>112.00</LineCost>
+    <LineGrossProfit>49.98</LineGrossProfit>
+    <Sale_Subtotal>621.90</Sale_Subtotal>
+    <Sale_DiscountAmount>0.00</Sale_DiscountAmount>
+    <Sale_TotalAmount>621.90</Sale_TotalAmount>
+  </SalesFact>
+  <SalesFact>
+    <Sale_ID>1015</Sale_ID>
+    <Product_ID>2</Product_ID>
+    <Category_ID>2</Category_ID>
+    <Employee_ID>2</Employee_ID>
+    <Customer_ID>18</Customer_ID>
+    <Sale_DateTime>2026-07-09T14:49:00</Sale_DateTime>
+    <Sale_Date>2026-07-09T00:00:00</Sale_Date>
+    <Sale_Year>2026</Sale_Year>
+    <Sale_MonthNumber>7</Sale_MonthNumber>
+    <Sale_MonthName>July</Sale_MonthName>
+    <Sale_Quarter>3</Sale_Quarter>
+    <Sale_DayName>Thursday</Sale_DayName>
+    <Sale_Hour>14</Sale_Hour>
+    <Product_Name>Castle Lager 6-pack</Product_Name>
+    <Product_Brand>Castle</Product_Brand>
+    <Product_SizeML>330</Product_SizeML>
+    <Category_Name>Beer</Category_Name>
+    <Supplier_Name>SAB Miller</Supplier_Name>
+    <SaleType_Name>In-Store</SaleType_Name>
+    <Employee_Name>Priya Naidoo</Employee_Name>
+    <Employee_Role>Cashier</Employee_Role>
+    <Customer_Name>Walk-in Customer</Customer_Name>
+    <PaymentMethod_Name>Card</PaymentMethod_Name>
+    <Sale_Status>Completed</Sale_Status>
+    <Quantity>4</Quantity>
+    <UnitPrice_Original>89.99</UnitPrice_Original>
+    <UnitPrice_AfterDiscount>89.99</UnitPrice_AfterDiscount>
+    <LineRevenue>359.96</LineRevenue>
+    <LineDiscountAmount>0.00</LineDiscountAmount>
+    <LineCost>232.00</LineCost>
+    <LineGrossProfit>127.96</LineGrossProfit>
+    <Sale_Subtotal>621.90</Sale_Subtotal>
+    <Sale_DiscountAmount>0.00</Sale_DiscountAmount>
+    <Sale_TotalAmount>621.90</Sale_TotalAmount>
+  </SalesFact>
+  <SalesFact>
+    <Sale_ID>1015</Sale_ID>
+    <Product_ID>31</Product_ID>
+    <Category_ID>2</Category_ID>
+    <Employee_ID>2</Employee_ID>
+    <Customer_ID>17</Customer_ID>
+    <Sale_DateTime>2026-07-09T14:49:00</Sale_DateTime>
+    <Sale_Date>2026-07-09T00:00:00</Sale_Date>
+    <Sale_Year>2026</Sale_Year>
+    <Sale_MonthNumber>7</Sale_MonthNumber>
+    <Sale_MonthName>July</Sale_MonthName>
+    <Sale_Quarter>3</Sale_Quarter>
+    <Sale_DayName>Thursday</Sale_DayName>
+    <Sale_Hour>14</Sale_Hour>
+    <Product_Name>Black Label Quart</Product_Name>
+    <Product_Brand>Black</Product_Brand>
+    <Product_SizeML>750</Product_SizeML>
+    <Category_Name>Beer</Category_Name>
+    <Supplier_Name>SAB Miller</Supplier_Name>
+    <SaleType_Name>In-Store</SaleType_Name>
+    <Employee_Name>Priya Naidoo</Employee_Name>
+    <Employee_Role>Cashier</Employee_Role>
+    <Customer_Name>Walk-in Customer</Customer_Name>
+    <PaymentMethod_Name>Card</PaymentMethod_Name>
+    <Sale_Status>Completed</Sale_Status>
+    <Quantity>4</Quantity>
+    <UnitPrice_Original>24.99</UnitPrice_Original>
+    <UnitPrice_AfterDiscount>24.99</UnitPrice_AfterDiscount>
+    <LineRevenue>99.96</LineRevenue>
+    <LineDiscountAmount>0.00</LineDiscountAmount>
+    <LineCost>62.00</LineCost>
+    <LineGrossProfit>37.96</LineGrossProfit>
+    <Sale_Subtotal>621.90</Sale_Subtotal>
+    <Sale_DiscountAmount>0.00</Sale_DiscountAmount>
+    <Sale_TotalAmount>621.90</Sale_TotalAmount>
+  </SalesFact>
+  <SalesFact>
+    <Sale_ID>1016</Sale_ID>
+    <Product_ID>31</Product_ID>
+    <Category_ID>1</Category_ID>
+    <Employee_ID>3</Employee_ID>
+    <Customer_ID>40</Customer_ID>
+    <Sale_DateTime>2026-07-10T20:38:00</Sale_DateTime>
+    <Sale_Date>2026-07-10T00:00:00</Sale_Date>
+    <Sale_Year>2026</Sale_Year>
+    <Sale_MonthNumber>7</Sale_MonthNumber>
+    <Sale_MonthName>July</Sale_MonthName>
+    <Sale_Quarter>3</Sale_Quarter>
+    <Sale_DayName>Friday</Sale_DayName>
+    <Sale_Hour>20</Sale_Hour>
+    <Product_Name>Johnnie Walker Black</Product_Name>
+    <Product_Brand>Johnnie</Product_Brand>
+    <Product_SizeML>750</Product_SizeML>
+    <Category_Name>Whisky</Category_Name>
+    <Supplier_Name>Diageo</Supplier_Name>
+    <SaleType_Name>In-Store</SaleType_Name>
+    <Employee_Name>Sipho Dlamini</Employee_Name>
+    <Employee_Role>Manager</Employee_Role>
+    <Customer_Name>Rajesh Singh</Customer_Name>
+    <PaymentMethod_Name>Card</PaymentMethod_Name>
+    <Sale_Status>Completed</Sale_Status>
+    <Quantity>1</Quantity>
+    <UnitPrice_Original>389.99</UnitPrice_Original>
+    <UnitPrice_AfterDiscount>389.99</UnitPrice_AfterDiscount>
+    <LineRevenue>389.99</LineRevenue>
+    <LineDiscountAmount>0.00</LineDiscountAmount>
+    <LineCost>255.00</LineCost>
+    <LineGrossProfit>134.99</LineGrossProfit>
+    <Sale_Subtotal>1049.96</Sale_Subtotal>
+    <Sale_DiscountAmount>0.00</Sale_DiscountAmount>
+    <Sale_TotalAmount>1049.96</Sale_TotalAmount>
+  </SalesFact>
+  <SalesFact>
+    <Sale_ID>1016</Sale_ID>
+    <Product_ID>58</Product_ID>
+    <Category_ID>4</Category_ID>
+    <Employee_ID>3</Employee_ID>
+    <Customer_ID>40</Customer_ID>
+    <Sale_DateTime>2026-07-10T20:38:00</Sale_DateTime>
+    <Sale_Date>2026-07-10T00:00:00</Sale_Date>
+    <Sale_Year>2026</Sale_Year>
+    <Sale_MonthNumber>7</Sale_MonthNumber>
+    <Sale_MonthName>July</Sale_MonthName>
+    <Sale_Quarter>3</Sale_Quarter>
+    <Sale_DayName>Friday</Sale_DayName>
+    <Sale_Hour>20</Sale_Hour>
+    <Product_Name>Smirnoff Vodka 1893</Product_Name>
+    <Product_Brand>Smirnoff</Product_Brand>
+    <Product_SizeML>750</Product_SizeML>
+    <Category_Name>Spirits</Category_Name>
+    <Supplier_Name>Diageo</Supplier_Name>
+    <SaleType_Name>In-Store</SaleType_Name>
+    <Employee_Name>Sipho Dlamini</Employee_Name>
+    <Employee_Role>Manager</Employee_Role>
+    <Customer_Name>Rajesh Singh</Customer_Name>
+    <PaymentMethod_Name>Card</PaymentMethod_Name>
+    <Sale_Status>Completed</Sale_Status>
+    <Quantity>3</Quantity>
+    <UnitPrice_Original>219.99</UnitPrice_Original>
+    <UnitPrice_AfterDiscount>219.99</UnitPrice_AfterDiscount>
+    <LineRevenue>659.97</LineRevenue>
+    <LineDiscountAmount>0.00</LineDiscountAmount>
+    <LineCost>426.00</LineCost>
+    <LineGrossProfit>233.97</LineGrossProfit>
+    <Sale_Subtotal>1049.96</Sale_Subtotal>
+    <Sale_DiscountAmount>0.00</Sale_DiscountAmount>
+    <Sale_TotalAmount>1049.96</Sale_TotalAmount>
+  </SalesFact>
+  <SalesFact>
+    <Sale_ID>1017</Sale_ID>
+    <Product_ID>47</Product_ID>
+    <Category_ID>1</Category_ID>
+    <Employee_ID>3</Employee_ID>
+    <Customer_ID>11</Customer_ID>
+    <Sale_DateTime>2026-07-11T16:58:00</Sale_DateTime>
+    <Sale_Date>2026-07-11T00:00:00</Sale_Date>
+    <Sale_Year>2026</Sale_Year>
+    <Sale_MonthNumber>7</Sale_MonthNumber>
+    <Sale_MonthName>July</Sale_MonthName>
+    <Sale_Quarter>3</Sale_Quarter>
+    <Sale_DayName>Saturday</Sale_DayName>
+    <Sale_Hour>16</Sale_Hour>
+    <Product_Name>Jameson Irish Whiskey</Product_Name>
+    <Product_Brand>Jameson</Product_Brand>
+    <Product_SizeML>750</Product_SizeML>
+    <Category_Name>Whisky</Category_Name>
+    <Supplier_Name>Diageo</Supplier_Name>
+    <SaleType_Name>In-Store</SaleType_Name>
+    <Employee_Name>Sipho Dlamini</Employee_Name>
+    <Employee_Role>Manager</Employee_Role>
+    <Customer_Name>Yusuf Ebrahim</Customer_Name>
+    <PaymentMethod_Name>Cash</PaymentMethod_Name>
+    <Sale_Status>Completed</Sale_Status>
+    <Quantity>2</Quantity>
+    <UnitPrice_Original>329.99</UnitPrice_Original>
+    <UnitPrice_AfterDiscount>313.49</UnitPrice_AfterDiscount>
+    <LineRevenue>626.98</LineRevenue>
+    <LineDiscountAmount>33.00</LineDiscountAmount>
+    <LineCost>430.00</LineCost>
+    <LineGrossProfit>196.98</LineGrossProfit>
+    <Sale_Subtotal>1906.91</Sale_Subtotal>
+    <Sale_DiscountAmount>0.00</Sale_DiscountAmount>
+    <Sale_TotalAmount>1906.91</Sale_TotalAmount>
+  </SalesFact>
+  <SalesFact>
+    <Sale_ID>1017</Sale_ID>
+    <Product_ID>11</Product_ID>
+    <Category_ID>2</Category_ID>
+    <Employee_ID>3</Employee_ID>
+    <Customer_ID>9</Customer_ID>
+    <Sale_DateTime>2026-07-11T16:58:00</Sale_DateTime>
+    <Sale_Date>2026-07-11T00:00:00</Sale_Date>
+    <Sale_Year>2026</Sale_Year>
+    <Sale_MonthNumber>7</Sale_MonthNumber>
+    <Sale_MonthName>July</Sale_MonthName>
+    <Sale_Quarter>3</Sale_Quarter>
+    <Sale_DayName>Saturday</Sale_DayName>
+    <Sale_Hour>16</Sale_Hour>
+    <Product_Name>Heineken 6-pack</Product_Name>
+    <Product_Brand>Heineken</Product_Brand>
+    <Product_SizeML>330</Product_SizeML>
+    <Category_Name>Beer</Category_Name>
+    <Supplier_Name>Heineken SA</Supplier_Name>
+    <SaleType_Name>In-Store</SaleType_Name>
+    <Employee_Name>Sipho Dlamini</Employee_Name>
+    <Employee_Role>Manager</Employee_Role>
+    <Customer_Name>Yusuf Ebrahim</Customer_Name>
+    <PaymentMethod_Name>Cash</PaymentMethod_Name>
+    <Sale_Status>Completed</Sale_Status>
+    <Quantity>3</Quantity>
+    <UnitPrice_Original>119.99</UnitPrice_Original>
+    <UnitPrice_AfterDiscount>119.99</UnitPrice_AfterDiscount>
+    <LineRevenue>359.97</LineRevenue>
+    <LineDiscountAmount>0.00</LineDiscountAmount>
+    <LineCost>237.00</LineCost>
+    <LineGrossProfit>122.97</LineGrossProfit>
+    <Sale_Subtotal>1906.91</Sale_Subtotal>
+    <Sale_DiscountAmount>0.00</Sale_DiscountAmount>
+    <Sale_TotalAmount>1906.91</Sale_TotalAmount>
+  </SalesFact>
+  <SalesFact>
+    <Sale_ID>1017</Sale_ID>
+    <Product_ID>2</Product_ID>
+    <Category_ID>4</Category_ID>
+    <Employee_ID>3</Employee_ID>
+    <Customer_ID>10</Customer_ID>
+    <Sale_DateTime>2026-07-11T16:58:00</Sale_DateTime>
+    <Sale_Date>2026-07-11T00:00:00</Sale_Date>
+    <Sale_Year>2026</Sale_Year>
+    <Sale_MonthNumber>7</Sale_MonthNumber>
+    <Sale_MonthName>July</Sale_MonthName>
+    <Sale_Quarter>3</Sale_Quarter>
+    <Sale_DayName>Saturday</Sale_DayName>
+    <Sale_Hour>16</Sale_Hour>
+    <Product_Name>Gordons Dry Gin</Product_Name>
+    <Product_Brand>Gordons</Product_Brand>
+    <Product_SizeML>750</Product_SizeML>
+    <Category_Name>Spirits</Category_Name>
+    <Supplier_Name>Diageo</Supplier_Name>
+    <SaleType_Name>In-Store</SaleType_Name>
+    <Employee_Name>Sipho Dlamini</Employee_Name>
+    <Employee_Role>Manager</Employee_Role>
+    <Customer_Name>Yusuf Ebrahim</Customer_Name>
+    <PaymentMethod_Name>Cash</PaymentMethod_Name>
+    <Sale_Status>Completed</Sale_Status>
+    <Quantity>4</Quantity>
+    <UnitPrice_Original>229.99</UnitPrice_Original>
+    <UnitPrice_AfterDiscount>229.99</UnitPrice_AfterDiscount>
+    <LineRevenue>919.96</LineRevenue>
+    <LineDiscountAmount>0.00</LineDiscountAmount>
+    <LineCost>592.00</LineCost>
+    <LineGrossProfit>327.96</LineGrossProfit>
+    <Sale_Subtotal>1906.91</Sale_Subtotal>
+    <Sale_DiscountAmount>0.00</Sale_DiscountAmount>
+    <Sale_TotalAmount>1906.91</Sale_TotalAmount>
+  </SalesFact>
+  <SalesFact>
+    <Sale_ID>1018</Sale_ID>
+    <Product_ID>48</Product_ID>
+    <Category_ID>3</Category_ID>
+    <Employee_ID>2</Employee_ID>
+    <Customer_ID>9</Customer_ID>
+    <Sale_DateTime>2026-07-12T16:51:00</Sale_DateTime>
+    <Sale_Date>2026-07-12T00:00:00</Sale_Date>
+    <Sale_Year>2026</Sale_Year>
+    <Sale_MonthNumber>7</Sale_MonthNumber>
+    <Sale_MonthName>July</Sale_MonthName>
+    <Sale_Quarter>3</Sale_Quarter>
+    <Sale_DayName>Sunday</Sale_DayName>
+    <Sale_Hour>16</Sale_Hour>
+    <Product_Name>Nederburg Cabernet</Product_Name>
+    <Product_Brand>Nederburg</Product_Brand>
+    <Product_SizeML>750</Product_SizeML>
+    <Category_Name>Wine</Category_Name>
+    <Supplier_Name>Distell</Supplier_Name>
+    <SaleType_Name>In-Store</SaleType_Name>
+    <Employee_Name>Priya Naidoo</Employee_Name>
+    <Employee_Role>Cashier</Employee_Role>
+    <Customer_Name>Walk-in Customer</Customer_Name>
+    <PaymentMethod_Name>Card</PaymentMethod_Name>
+    <Sale_Status>Completed</Sale_Status>
+    <Quantity>2</Quantity>
+    <UnitPrice_Original>109.99</UnitPrice_Original>
+    <UnitPrice_AfterDiscount>109.99</UnitPrice_AfterDiscount>
+    <LineRevenue>219.98</LineRevenue>
+    <LineDiscountAmount>0.00</LineDiscountAmount>
+    <LineCost>136.00</LineCost>
+    <LineGrossProfit>83.98</LineGrossProfit>
+    <Sale_Subtotal>444.97</Sale_Subtotal>
+    <Sale_DiscountAmount>0.00</Sale_DiscountAmount>
+    <Sale_TotalAmount>444.97</Sale_TotalAmount>
+  </SalesFact>
+  <SalesFact>
+    <Sale_ID>1018</Sale_ID>
+    <Product_ID>28</Product_ID>
+    <Category_ID>1</Category_ID>
+    <Employee_ID>2</Employee_ID>
+    <Customer_ID>13</Customer_ID>
+    <Sale_DateTime>2026-07-12T16:51:00</Sale_DateTime>
+    <Sale_Date>2026-07-12T00:00:00</Sale_Date>
+    <Sale_Year>2026</Sale_Year>
+    <Sale_MonthNumber>7</Sale_MonthNumber>
+    <Sale_MonthName>July</Sale_MonthName>
+    <Sale_Quarter>3</Sale_Quarter>
+    <Sale_DayName>Sunday</Sale_DayName>
+    <Sale_Hour>16</Sale_Hour>
+    <Product_Name>Bells Extra Special</Product_Name>
+    <Product_Brand>Bells</Product_Brand>
+    <Product_SizeML>1000</Product_SizeML>
+    <Category_Name>Whisky</Category_Name>
+    <Supplier_Name>Diageo</Supplier_Name>
+    <SaleType_Name>In-Store</SaleType_Name>
+    <Employee_Name>Priya Naidoo</Employee_Name>
+    <Employee_Role>Cashier</Employee_Role>
+    <Customer_Name>Walk-in Customer</Customer_Name>
+    <PaymentMethod_Name>Card</PaymentMethod_Name>
+    <Sale_Status>Completed</Sale_Status>
+    <Quantity>1</Quantity>
+    <UnitPrice_Original>249.99</UnitPrice_Original>
+    <UnitPrice_AfterDiscount>224.99</UnitPrice_AfterDiscount>
+    <LineRevenue>224.99</LineRevenue>
+    <LineDiscountAmount>25.00</LineDiscountAmount>
+    <LineCost>160.00</LineCost>
+    <LineGrossProfit>64.99</LineGrossProfit>
+    <Sale_Subtotal>444.97</Sale_Subtotal>
+    <Sale_DiscountAmount>0.00</Sale_DiscountAmount>
+    <Sale_TotalAmount>444.97</Sale_TotalAmount>
+  </SalesFact>
+  <SalesFact>
+    <Sale_ID>1019</Sale_ID>
+    <Product_ID>9</Product_ID>
+    <Category_ID>2</Category_ID>
+    <Employee_ID>3</Employee_ID>
+    <Customer_ID>35</Customer_ID>
+    <Sale_DateTime>2026-07-12T12:01:00</Sale_DateTime>
+    <Sale_Date>2026-07-12T00:00:00</Sale_Date>
+    <Sale_Year>2026</Sale_Year>
+    <Sale_MonthNumber>7</Sale_MonthNumber>
+    <Sale_MonthName>July</Sale_MonthName>
+    <Sale_Quarter>3</Sale_Quarter>
+    <Sale_DayName>Sunday</Sale_DayName>
+    <Sale_Hour>12</Sale_Hour>
+    <Product_Name>Black Label Quart</Product_Name>
+    <Product_Brand>Black</Product_Brand>
+    <Product_SizeML>750</Product_SizeML>
+    <Category_Name>Beer</Category_Name>
+    <Supplier_Name>SAB Miller</Supplier_Name>
+    <SaleType_Name>In-Store</SaleType_Name>
+    <Employee_Name>Sipho Dlamini</Employee_Name>
+    <Employee_Role>Manager</Employee_Role>
+    <Customer_Name>Walk-in Customer</Customer_Name>
+    <PaymentMethod_Name>Card</PaymentMethod_Name>
+    <Sale_Status>Completed</Sale_Status>
+    <Quantity>3</Quantity>
+    <UnitPrice_Original>24.99</UnitPrice_Original>
+    <UnitPrice_AfterDiscount>24.99</UnitPrice_AfterDiscount>
+    <LineRevenue>74.97</LineRevenue>
+    <LineDiscountAmount>0.00</LineDiscountAmount>
+    <LineCost>46.50</LineCost>
+    <LineGrossProfit>28.47</LineGrossProfit>
+    <Sale_Subtotal>528.91</Sale_Subtotal>
+    <Sale_DiscountAmount>0.00</Sale_DiscountAmount>
+    <Sale_TotalAmount>528.91</Sale_TotalAmount>
+  </SalesFact>
+  <SalesFact>
+    <Sale_ID>1019</Sale_ID>
+    <Product_ID>10</Product_ID>
+    <Category_ID>5</Category_ID>
+    <Employee_ID>3</Employee_ID>
+    <Customer_ID>34</Customer_ID>
+    <Sale_DateTime>2026-07-12T12:01:00</Sale_DateTime>
+    <Sale_Date>2026-07-12T00:00:00</Sale_Date>
+    <Sale_Year>2026</Sale_Year>
+    <Sale_MonthNumber>7</Sale_MonthNumber>
+    <Sale_MonthName>July</Sale_MonthName>
+    <Sale_Quarter>3</Sale_Quarter>
+    <Sale_DayName>Sunday</Sale_DayName>
+    <Sale_Hour>12</Sale_Hour>
+    <Product_Name>Hunters Gold 6-pack</Product_Name>
+    <Product_Brand>Hunters</Product_Brand>
+    <Product_SizeML>330</Product_SizeML>
+    <Category_Name>Ciders</Category_Name>
+    <Supplier_Name>Distell</Supplier_Name>
+    <SaleType_Name>In-Store</SaleType_Name>
+    <Employee_Name>Sipho Dlamini</Employee_Name>
+    <Employee_Role>Manager</Employee_Role>
+    <Customer_Name>Walk-in Customer</Customer_Name>
+    <PaymentMethod_Name>Card</PaymentMethod_Name>
+    <Sale_Status>Completed</Sale_Status>
+    <Quantity>2</Quantity>
+    <UnitPrice_Original>109.99</UnitPrice_Original>
+    <UnitPrice_AfterDiscount>109.99</UnitPrice_AfterDiscount>
+    <LineRevenue>219.98</LineRevenue>
+    <LineDiscountAmount>0.00</LineDiscountAmount>
+    <LineCost>142.00</LineCost>
+    <LineGrossProfit>77.98</LineGrossProfit>
+    <Sale_Subtotal>528.91</Sale_Subtotal>
+    <Sale_DiscountAmount>0.00</Sale_DiscountAmount>
+    <Sale_TotalAmount>528.91</Sale_TotalAmount>
+  </SalesFact>
+  <SalesFact>
+    <Sale_ID>1019</Sale_ID>
+    <Product_ID>33</Product_ID>
+    <Category_ID>3</Category_ID>
+    <Employee_ID>3</Employee_ID>
+    <Customer_ID>2</Customer_ID>
+    <Sale_DateTime>2026-07-12T12:01:00</Sale_DateTime>
+    <Sale_Date>2026-07-12T00:00:00</Sale_Date>
+    <Sale_Year>2026</Sale_Year>
+    <Sale_MonthNumber>7</Sale_MonthNumber>
+    <Sale_MonthName>July</Sale_MonthName>
+    <Sale_Quarter>3</Sale_Quarter>
+    <Sale_DayName>Sunday</Sale_DayName>
+    <Sale_Hour>12</Sale_Hour>
+    <Product_Name>Four Cousins Sweet Red</Product_Name>
+    <Product_Brand>Four</Product_Brand>
+    <Product_SizeML>750</Product_SizeML>
+    <Category_Name>Wine</Category_Name>
+    <Supplier_Name>Van Loveren</Supplier_Name>
+    <SaleType_Name>In-Store</SaleType_Name>
+    <Employee_Name>Sipho Dlamini</Employee_Name>
+    <Employee_Role>Manager</Employee_Role>
+    <Customer_Name>Walk-in Customer</Customer_Name>
+    <PaymentMethod_Name>Card</PaymentMethod_Name>
+    <Sale_Status>Completed</Sale_Status>
+    <Quantity>4</Quantity>
+    <UnitPrice_Original>64.99</UnitPrice_Original>
+    <UnitPrice_AfterDiscount>58.49</UnitPrice_AfterDiscount>
+    <LineRevenue>233.96</LineRevenue>
+    <LineDiscountAmount>26.00</LineDiscountAmount>
+    <LineCost>156.00</LineCost>
+    <LineGrossProfit>77.96</LineGrossProfit>
+    <Sale_Subtotal>528.91</Sale_Subtotal>
+    <Sale_DiscountAmount>0.00</Sale_DiscountAmount>
+    <Sale_TotalAmount>528.91</Sale_TotalAmount>
+  </SalesFact>
+  <SalesFact>
+    <Sale_ID>1020</Sale_ID>
+    <Product_ID>47</Product_ID>
+    <Category_ID>2</Category_ID>
+    <Employee_ID>2</Employee_ID>
+    <Customer_ID>8</Customer_ID>
+    <Sale_DateTime>2026-07-12T16:49:00</Sale_DateTime>
+    <Sale_Date>2026-07-12T00:00:00</Sale_Date>
+    <Sale_Year>2026</Sale_Year>
+    <Sale_MonthNumber>7</Sale_MonthNumber>
+    <Sale_MonthName>July</Sale_MonthName>
+    <Sale_Quarter>3</Sale_Quarter>
+    <Sale_DayName>Sunday</Sale_DayName>
+    <Sale_Hour>16</Sale_Hour>
+    <Product_Name>Castle Lager 6-pack</Product_Name>
+    <Product_Brand>Castle</Product_Brand>
+    <Product_SizeML>330</Product_SizeML>
+    <Category_Name>Beer</Category_Name>
+    <Supplier_Name>SAB Miller</Supplier_Name>
+    <SaleType_Name>In-Store</SaleType_Name>
+    <Employee_Name>Priya Naidoo</Employee_Name>
+    <Employee_Role>Cashier</Employee_Role>
+    <Customer_Name>Walk-in Customer</Customer_Name>
+    <PaymentMethod_Name>Cash</PaymentMethod_Name>
+    <Sale_Status>Completed</Sale_Status>
+    <Quantity>4</Quantity>
+    <UnitPrice_Original>89.99</UnitPrice_Original>
+    <UnitPrice_AfterDiscount>80.99</UnitPrice_AfterDiscount>
+    <LineRevenue>323.96</LineRevenue>
+    <LineDiscountAmount>36.00</LineDiscountAmount>
+    <LineCost>232.00</LineCost>
+    <LineGrossProfit>91.96</LineGrossProfit>
+    <Sale_Subtotal>323.96</Sale_Subtotal>
+    <Sale_DiscountAmount>0.00</Sale_DiscountAmount>
+    <Sale_TotalAmount>323.96</Sale_TotalAmount>
+  </SalesFact>
+  <SalesFact>
+    <Sale_ID>1021</Sale_ID>
+    <Product_ID>40</Product_ID>
+    <Category_ID>1</Category_ID>
+    <Employee_ID>4</Employee_ID>
+    <Customer_ID>33</Customer_ID>
+    <Sale_DateTime>2026-07-13T09:20:00</Sale_DateTime>
+    <Sale_Date>2026-07-13T00:00:00</Sale_Date>
+    <Sale_Year>2026</Sale_Year>
+    <Sale_MonthNumber>7</Sale_MonthNumber>
+    <Sale_MonthName>July</Sale_MonthName>
+    <Sale_Quarter>3</Sale_Quarter>
+    <Sale_DayName>Monday</Sale_DayName>
+    <Sale_Hour>9</Sale_Hour>
+    <Product_Name>Johnnie Walker Black</Product_Name>
+    <Product_Brand>Johnnie</Product_Brand>
+    <Product_SizeML>750</Product_SizeML>
+    <Category_Name>Whisky</Category_Name>
+    <Supplier_Name>Diageo</Supplier_Name>
+    <SaleType_Name>In-Store</SaleType_Name>
+    <Employee_Name>Ashwin Pillay</Employee_Name>
+    <Employee_Role>Cashier</Employee_Role>
+    <Customer_Name>Yusuf Ebrahim</Customer_Name>
+    <PaymentMethod_Name>Cash</PaymentMethod_Name>
+    <Sale_Status>Completed</Sale_Status>
+    <Quantity>2</Quantity>
+    <UnitPrice_Original>389.99</UnitPrice_Original>
+    <UnitPrice_AfterDiscount>389.99</UnitPrice_AfterDiscount>
+    <LineRevenue>779.98</LineRevenue>
+    <LineDiscountAmount>0.00</LineDiscountAmount>
+    <LineCost>510.00</LineCost>
+    <LineGrossProfit>269.98</LineGrossProfit>
+    <Sale_Subtotal>3743.90</Sale_Subtotal>
+    <Sale_DiscountAmount>0.00</Sale_DiscountAmount>
+    <Sale_TotalAmount>3743.90</Sale_TotalAmount>
+  </SalesFact>
+  <SalesFact>
+    <Sale_ID>1021</Sale_ID>
+    <Product_ID>39</Product_ID>
+    <Category_ID>1</Category_ID>
+    <Employee_ID>4</Employee_ID>
+    <Customer_ID>33</Customer_ID>
+    <Sale_DateTime>2026-07-13T09:20:00</Sale_DateTime>
+    <Sale_Date>2026-07-13T00:00:00</Sale_Date>
+    <Sale_Year>2026</Sale_Year>
+    <Sale_MonthNumber>7</Sale_MonthNumber>
+    <Sale_MonthName>July</Sale_MonthName>
+    <Sale_Quarter>3</Sale_Quarter>
+    <Sale_DayName>Monday</Sale_DayName>
+    <Sale_Hour>9</Sale_Hour>
+    <Product_Name>Johnnie Walker Black</Product_Name>
+    <Product_Brand>Johnnie</Product_Brand>
+    <Product_SizeML>750</Product_SizeML>
+    <Category_Name>Whisky</Category_Name>
+    <Supplier_Name>Diageo</Supplier_Name>
+    <SaleType_Name>In-Store</SaleType_Name>
+    <Employee_Name>Ashwin Pillay</Employee_Name>
+    <Employee_Role>Cashier</Employee_Role>
+    <Customer_Name>Yusuf Ebrahim</Customer_Name>
+    <PaymentMethod_Name>Cash</PaymentMethod_Name>
+    <Sale_Status>Completed</Sale_Status>
+    <Quantity>4</Quantity>
+    <UnitPrice_Original>389.99</UnitPrice_Original>
+    <UnitPrice_AfterDiscount>350.99</UnitPrice_AfterDiscount>
+    <LineRevenue>1403.96</LineRevenue>
+    <LineDiscountAmount>156.00</LineDiscountAmount>
+    <LineCost>1020.00</LineCost>
+    <LineGrossProfit>383.96</LineGrossProfit>
+    <Sale_Subtotal>3743.90</Sale_Subtotal>
+    <Sale_DiscountAmount>0.00</Sale_DiscountAmount>
+    <Sale_TotalAmount>3743.90</Sale_TotalAmount>
+  </SalesFact>
+  <SalesFact>
+    <Sale_ID>1021</Sale_ID>
+    <Product_ID>13</Product_ID>
+    <Category_ID>1</Category_ID>
+    <Employee_ID>4</Employee_ID>
+    <Customer_ID>18</Customer_ID>
+    <Sale_DateTime>2026-07-13T09:20:00</Sale_DateTime>
+    <Sale_Date>2026-07-13T00:00:00</Sale_Date>
+    <Sale_Year>2026</Sale_Year>
+    <Sale_MonthNumber>7</Sale_MonthNumber>
+    <Sale_MonthName>July</Sale_MonthName>
+    <Sale_Quarter>3</Sale_Quarter>
+    <Sale_DayName>Monday</Sale_DayName>
+    <Sale_Hour>9</Sale_Hour>
+    <Product_Name>Johnnie Walker Black</Product_Name>
+    <Product_Brand>Johnnie</Product_Brand>
+    <Product_SizeML>750</Product_SizeML>
+    <Category_Name>Whisky</Category_Name>
+    <Supplier_Name>Diageo</Supplier_Name>
+    <SaleType_Name>In-Store</SaleType_Name>
+    <Employee_Name>Ashwin Pillay</Employee_Name>
+    <Employee_Role>Cashier</Employee_Role>
+    <Customer_Name>Yusuf Ebrahim</Customer_Name>
+    <PaymentMethod_Name>Cash</PaymentMethod_Name>
+    <Sale_Status>Completed</Sale_Status>
+    <Quantity>4</Quantity>
+    <UnitPrice_Original>389.99</UnitPrice_Original>
+    <UnitPrice_AfterDiscount>389.99</UnitPrice_AfterDiscount>
+    <LineRevenue>1559.96</LineRevenue>
+    <LineDiscountAmount>0.00</LineDiscountAmount>
+    <LineCost>1020.00</LineCost>
+    <LineGrossProfit>539.96</LineGrossProfit>
+    <Sale_Subtotal>3743.90</Sale_Subtotal>
+    <Sale_DiscountAmount>0.00</Sale_DiscountAmount>
+    <Sale_TotalAmount>3743.90</Sale_TotalAmount>
+  </SalesFact>
+  <SalesFact>
+    <Sale_ID>1022</Sale_ID>
+    <Product_ID>28</Product_ID>
+    <Category_ID>5</Category_ID>
+    <Employee_ID>4</Employee_ID>
+    <Customer_ID>5</Customer_ID>
+    <Sale_DateTime>2026-07-13T16:32:00</Sale_DateTime>
+    <Sale_Date>2026-07-13T00:00:00</Sale_Date>
+    <Sale_Year>2026</Sale_Year>
+    <Sale_MonthNumber>7</Sale_MonthNumber>
+    <Sale_MonthName>July</Sale_MonthName>
+    <Sale_Quarter>3</Sale_Quarter>
+    <Sale_DayName>Monday</Sale_DayName>
+    <Sale_Hour>16</Sale_Hour>
+    <Product_Name>Hunters Gold 6-pack</Product_Name>
+    <Product_Brand>Hunters</Product_Brand>
+    <Product_SizeML>330</Product_SizeML>
+    <Category_Name>Ciders</Category_Name>
+    <Supplier_Name>Distell</Supplier_Name>
+    <SaleType_Name>In-Store</SaleType_Name>
+    <Employee_Name>Ashwin Pillay</Employee_Name>
+    <Employee_Role>Cashier</Employee_Role>
+    <Customer_Name>Walk-in Customer</Customer_Name>
+    <PaymentMethod_Name>Card</PaymentMethod_Name>
+    <Sale_Status>Completed</Sale_Status>
+    <Quantity>2</Quantity>
+    <UnitPrice_Original>109.99</UnitPrice_Original>
+    <UnitPrice_AfterDiscount>104.49</UnitPrice_AfterDiscount>
+    <LineRevenue>208.98</LineRevenue>
+    <LineDiscountAmount>11.00</LineDiscountAmount>
+    <LineCost>142.00</LineCost>
+    <LineGrossProfit>66.98</LineGrossProfit>
+    <Sale_Subtotal>552.96</Sale_Subtotal>
+    <Sale_DiscountAmount>0.00</Sale_DiscountAmount>
+    <Sale_TotalAmount>552.96</Sale_TotalAmount>
+  </SalesFact>
+  <SalesFact>
+    <Sale_ID>1022</Sale_ID>
+    <Product_ID>14</Product_ID>
+    <Category_ID>2</Category_ID>
+    <Employee_ID>4</Employee_ID>
+    <Customer_ID>20</Customer_ID>
+    <Sale_DateTime>2026-07-13T16:32:00</Sale_DateTime>
+    <Sale_Date>2026-07-13T00:00:00</Sale_Date>
+    <Sale_Year>2026</Sale_Year>
+    <Sale_MonthNumber>7</Sale_MonthNumber>
+    <Sale_MonthName>July</Sale_MonthName>
+    <Sale_Quarter>3</Sale_Quarter>
+    <Sale_DayName>Monday</Sale_DayName>
+    <Sale_Hour>16</Sale_Hour>
+    <Product_Name>Heineken 6-pack</Product_Name>
+    <Product_Brand>Heineken</Product_Brand>
+    <Product_SizeML>330</Product_SizeML>
+    <Category_Name>Beer</Category_Name>
+    <Supplier_Name>Heineken SA</Supplier_Name>
+    <SaleType_Name>In-Store</SaleType_Name>
+    <Employee_Name>Ashwin Pillay</Employee_Name>
+    <Employee_Role>Cashier</Employee_Role>
+    <Customer_Name>Walk-in Customer</Customer_Name>
+    <PaymentMethod_Name>Card</PaymentMethod_Name>
+    <Sale_Status>Completed</Sale_Status>
+    <Quantity>1</Quantity>
+    <UnitPrice_Original>119.99</UnitPrice_Original>
+    <UnitPrice_AfterDiscount>113.99</UnitPrice_AfterDiscount>
+    <LineRevenue>113.99</LineRevenue>
+    <LineDiscountAmount>6.00</LineDiscountAmount>
+    <LineCost>79.00</LineCost>
+    <LineGrossProfit>34.99</LineGrossProfit>
+    <Sale_Subtotal>552.96</Sale_Subtotal>
+    <Sale_DiscountAmount>0.00</Sale_DiscountAmount>
+    <Sale_TotalAmount>552.96</Sale_TotalAmount>
+  </SalesFact>
+  <SalesFact>
+    <Sale_ID>1022</Sale_ID>
+    <Product_ID>51</Product_ID>
+    <Category_ID>4</Category_ID>
+    <Employee_ID>4</Employee_ID>
+    <Customer_ID>8</Customer_ID>
+    <Sale_DateTime>2026-07-13T16:32:00</Sale_DateTime>
+    <Sale_Date>2026-07-13T00:00:00</Sale_Date>
+    <Sale_Year>2026</Sale_Year>
+    <Sale_MonthNumber>7</Sale_MonthNumber>
+    <Sale_MonthName>July</Sale_MonthName>
+    <Sale_Quarter>3</Sale_Quarter>
+    <Sale_DayName>Monday</Sale_DayName>
+    <Sale_Hour>16</Sale_Hour>
+    <Product_Name>Gordons Dry Gin</Product_Name>
+    <Product_Brand>Gordons</Product_Brand>
+    <Product_SizeML>750</Product_SizeML>
+    <Category_Name>Spirits</Category_Name>
+    <Supplier_Name>Diageo</Supplier_Name>
+    <SaleType_Name>In-Store</SaleType_Name>
+    <Employee_Name>Ashwin Pillay</Employee_Name>
+    <Employee_Role>Cashier</Employee_Role>
+    <Customer_Name>Walk-in Customer</Customer_Name>
+    <PaymentMethod_Name>Card</PaymentMethod_Name>
+    <Sale_Status>Completed</Sale_Status>
+    <Quantity>1</Quantity>
+    <UnitPrice_Original>229.99</UnitPrice_Original>
+    <UnitPrice_AfterDiscount>229.99</UnitPrice_AfterDiscount>
+    <LineRevenue>229.99</LineRevenue>
+    <LineDiscountAmount>0.00</LineDiscountAmount>
+    <LineCost>148.00</LineCost>
+    <LineGrossProfit>81.99</LineGrossProfit>
+    <Sale_Subtotal>552.96</Sale_Subtotal>
+    <Sale_DiscountAmount>0.00</Sale_DiscountAmount>
+    <Sale_TotalAmount>552.96</Sale_TotalAmount>
+  </SalesFact>
+  <SalesFact>
+    <Sale_ID>1023</Sale_ID>
+    <Product_ID>57</Product_ID>
+    <Category_ID>4</Category_ID>
+    <Employee_ID>3</Employee_ID>
+    <Customer_ID>32</Customer_ID>
+    <Sale_DateTime>2026-07-13T11:45:00</Sale_DateTime>
+    <Sale_Date>2026-07-13T00:00:00</Sale_Date>
+    <Sale_Year>2026</Sale_Year>
+    <Sale_MonthNumber>7</Sale_MonthNumber>
+    <Sale_MonthName>July</Sale_MonthName>
+    <Sale_Quarter>3</Sale_Quarter>
+    <Sale_DayName>Monday</Sale_DayName>
+    <Sale_Hour>11</Sale_Hour>
+    <Product_Name>Smirnoff Vodka 1893</Product_Name>
+    <Product_Brand>Smirnoff</Product_Brand>
+    <Product_SizeML>750</Product_SizeML>
+    <Category_Name>Spirits</Category_Name>
+    <Supplier_Name>Diageo</Supplier_Name>
+    <SaleType_Name>In-Store</SaleType_Name>
+    <Employee_Name>Sipho Dlamini</Employee_Name>
+    <Employee_Role>Manager</Employee_Role>
+    <Customer_Name>Walk-in Customer</Customer_Name>
+    <PaymentMethod_Name>Card</PaymentMethod_Name>
+    <Sale_Status>Completed</Sale_Status>
+    <Quantity>1</Quantity>
+    <UnitPrice_Original>219.99</UnitPrice_Original>
+    <UnitPrice_AfterDiscount>208.99</UnitPrice_AfterDiscount>
+    <LineRevenue>208.99</LineRevenue>
+    <LineDiscountAmount>11.00</LineDiscountAmount>
+    <LineCost>142.00</LineCost>
+    <LineGrossProfit>66.99</LineGrossProfit>
+    <Sale_Subtotal>208.99</Sale_Subtotal>
+    <Sale_DiscountAmount>0.00</Sale_DiscountAmount>
+    <Sale_TotalAmount>208.99</Sale_TotalAmount>
+  </SalesFact>
+  <SalesFact>
+    <Sale_ID>1024</Sale_ID>
+    <Product_ID>46</Product_ID>
+    <Category_ID>4</Category_ID>
+    <Employee_ID>2</Employee_ID>
+    <Customer_ID>2</Customer_ID>
+    <Sale_DateTime>2026-07-14T19:53:00</Sale_DateTime>
+    <Sale_Date>2026-07-14T00:00:00</Sale_Date>
+    <Sale_Year>2026</Sale_Year>
+    <Sale_MonthNumber>7</Sale_MonthNumber>
+    <Sale_MonthName>July</Sale_MonthName>
+    <Sale_Quarter>3</Sale_Quarter>
+    <Sale_DayName>Tuesday</Sale_DayName>
+    <Sale_Hour>19</Sale_Hour>
+    <Product_Name>Gordons Dry Gin</Product_Name>
+    <Product_Brand>Gordons</Product_Brand>
+    <Product_SizeML>750</Product_SizeML>
+    <Category_Name>Spirits</Category_Name>
+    <Supplier_Name>Diageo</Supplier_Name>
+    <SaleType_Name>In-Store</SaleType_Name>
+    <Employee_Name>Priya Naidoo</Employee_Name>
+    <Employee_Role>Cashier</Employee_Role>
+    <Customer_Name>Walk-in Customer</Customer_Name>
+    <PaymentMethod_Name>Cash</PaymentMethod_Name>
+    <Sale_Status>Completed</Sale_Status>
+    <Quantity>4</Quantity>
+    <UnitPrice_Original>229.99</UnitPrice_Original>
+    <UnitPrice_AfterDiscount>229.99</UnitPrice_AfterDiscount>
+    <LineRevenue>919.96</LineRevenue>
+    <LineDiscountAmount>0.00</LineDiscountAmount>
+    <LineCost>592.00</LineCost>
+    <LineGrossProfit>327.96</LineGrossProfit>
+    <Sale_Subtotal>2238.91</Sale_Subtotal>
+    <Sale_DiscountAmount>0.00</Sale_DiscountAmount>
+    <Sale_TotalAmount>2238.91</Sale_TotalAmount>
+  </SalesFact>
+  <SalesFact>
+    <Sale_ID>1024</Sale_ID>
+    <Product_ID>25</Product_ID>
+    <Category_ID>3</Category_ID>
+    <Employee_ID>2</Employee_ID>
+    <Customer_ID>22</Customer_ID>
+    <Sale_DateTime>2026-07-14T19:53:00</Sale_DateTime>
+    <Sale_Date>2026-07-14T00:00:00</Sale_Date>
+    <Sale_Year>2026</Sale_Year>
+    <Sale_MonthNumber>7</Sale_MonthNumber>
+    <Sale_MonthName>July</Sale_MonthName>
+    <Sale_Quarter>3</Sale_Quarter>
+    <Sale_DayName>Tuesday</Sale_DayName>
+    <Sale_Hour>19</Sale_Hour>
+    <Product_Name>Four Cousins Sweet Red</Product_Name>
+    <Product_Brand>Four</Product_Brand>
+    <Product_SizeML>750</Product_SizeML>
+    <Category_Name>Wine</Category_Name>
+    <Supplier_Name>Van Loveren</Supplier_Name>
+    <SaleType_Name>In-Store</SaleType_Name>
+    <Employee_Name>Priya Naidoo</Employee_Name>
+    <Employee_Role>Cashier</Employee_Role>
+    <Customer_Name>Walk-in Customer</Customer_Name>
+    <PaymentMethod_Name>Cash</PaymentMethod_Name>
+    <Sale_Status>Completed</Sale_Status>
+    <Quantity>1</Quantity>
+    <UnitPrice_Original>64.99</UnitPrice_Original>
+    <UnitPrice_AfterDiscount>64.99</UnitPrice_AfterDiscount>
+    <LineRevenue>64.99</LineRevenue>
+    <LineDiscountAmount>0.00</LineDiscountAmount>
+    <LineCost>39.00</LineCost>
+    <LineGrossProfit>25.99</LineGrossProfit>
+    <Sale_Subtotal>2238.91</Sale_Subtotal>
+    <Sale_DiscountAmount>0.00</Sale_DiscountAmount>
+    <Sale_TotalAmount>2238.91</Sale_TotalAmount>
+  </SalesFact>
+  <SalesFact>
+    <Sale_ID>1024</Sale_ID>
+    <Product_ID>34</Product_ID>
+    <Category_ID>1</Category_ID>
+    <Employee_ID>2</Employee_ID>
+    <Customer_ID>40</Customer_ID>
+    <Sale_DateTime>2026-07-14T19:53:00</Sale_DateTime>
+    <Sale_Date>2026-07-14T00:00:00</Sale_Date>
+    <Sale_Year>2026</Sale_Year>
+    <Sale_MonthNumber>7</Sale_MonthNumber>
+    <Sale_MonthName>July</Sale_MonthName>
+    <Sale_Quarter>3</Sale_Quarter>
+    <Sale_DayName>Tuesday</Sale_DayName>
+    <Sale_Hour>19</Sale_Hour>
+    <Product_Name>Jameson Irish Whiskey</Product_Name>
+    <Product_Brand>Jameson</Product_Brand>
+    <Product_SizeML>750</Product_SizeML>
+    <Category_Name>Whisky</Category_Name>
+    <Supplier_Name>Diageo</Supplier_Name>
+    <SaleType_Name>In-Store</SaleType_Name>
+    <Employee_Name>Priya Naidoo</Employee_Name>
+    <Employee_Role>Cashier</Employee_Role>
+    <Customer_Name>Walk-in Customer</Customer_Name>
+    <PaymentMethod_Name>Cash</PaymentMethod_Name>
+    <Sale_Status>Completed</Sale_Status>
+    <Quantity>4</Quantity>
+    <UnitPrice_Original>329.99</UnitPrice_Original>
+    <UnitPrice_AfterDiscount>313.49</UnitPrice_AfterDiscount>
+    <LineRevenue>1253.96</LineRevenue>
+    <LineDiscountAmount>66.00</LineDiscountAmount>
+    <LineCost>860.00</LineCost>
+    <LineGrossProfit>393.96</LineGrossProfit>
+    <Sale_Subtotal>2238.91</Sale_Subtotal>
+    <Sale_DiscountAmount>0.00</Sale_DiscountAmount>
+    <Sale_TotalAmount>2238.91</Sale_TotalAmount>
+  </SalesFact>
+  <SalesFact>
+    <Sale_ID>1025</Sale_ID>
+    <Product_ID>58</Product_ID>
+    <Category_ID>1</Category_ID>
+    <Employee_ID>1</Employee_ID>
+    <Customer_ID>12</Customer_ID>
+    <Sale_DateTime>2026-07-15T17:04:00</Sale_DateTime>
+    <Sale_Date>2026-07-15T00:00:00</Sale_Date>
+    <Sale_Year>2026</Sale_Year>
+    <Sale_MonthNumber>7</Sale_MonthNumber>
+    <Sale_MonthName>July</Sale_MonthName>
+    <Sale_Quarter>3</Sale_Quarter>
+    <Sale_DayName>Wednesday</Sale_DayName>
+    <Sale_Hour>17</Sale_Hour>
+    <Product_Name>Jameson Irish Whiskey</Product_Name>
+    <Product_Brand>Jameson</Product_Brand>
+    <Product_SizeML>750</Product_SizeML>
+    <Category_Name>Whisky</Category_Name>
+    <Supplier_Name>Diageo</Supplier_Name>
+    <SaleType_Name>In-Store</SaleType_Name>
+    <Employee_Name>Thabo Mokoena</Employee_Name>
+    <Employee_Role>Cashier</Employee_Role>
+    <Customer_Name>Yusuf Ebrahim</Customer_Name>
+    <PaymentMethod_Name>Card</PaymentMethod_Name>
+    <Sale_Status>Completed</Sale_Status>
+    <Quantity>3</Quantity>
+    <UnitPrice_Original>329.99</UnitPrice_Original>
+    <UnitPrice_AfterDiscount>329.99</UnitPrice_AfterDiscount>
+    <LineRevenue>989.97</LineRevenue>
+    <LineDiscountAmount>0.00</LineDiscountAmount>
+    <LineCost>645.00</LineCost>
+    <LineGrossProfit>344.97</LineGrossProfit>
+    <Sale_Subtotal>989.97</Sale_Subtotal>
+    <Sale_DiscountAmount>0.00</Sale_DiscountAmount>
+    <Sale_TotalAmount>989.97</Sale_TotalAmount>
+  </SalesFact>
+  <SalesFact>
+    <Sale_ID>1026</Sale_ID>
+    <Product_ID>58</Product_ID>
+    <Category_ID>3</Category_ID>
+    <Employee_ID>2</Employee_ID>
+    <Customer_ID>5</Customer_ID>
+    <Sale_DateTime>2026-07-15T13:48:00</Sale_DateTime>
+    <Sale_Date>2026-07-15T00:00:00</Sale_Date>
+    <Sale_Year>2026</Sale_Year>
+    <Sale_MonthNumber>7</Sale_MonthNumber>
+    <Sale_MonthName>July</Sale_MonthName>
+    <Sale_Quarter>3</Sale_Quarter>
+    <Sale_DayName>Wednesday</Sale_DayName>
+    <Sale_Hour>13</Sale_Hour>
+    <Product_Name>Four Cousins Sweet Red</Product_Name>
+    <Product_Brand>Four</Product_Brand>
+    <Product_SizeML>750</Product_SizeML>
+    <Category_Name>Wine</Category_Name>
+    <Supplier_Name>Van Loveren</Supplier_Name>
+    <SaleType_Name>In-Store</SaleType_Name>
+    <Employee_Name>Priya Naidoo</Employee_Name>
+    <Employee_Role>Cashier</Employee_Role>
+    <Customer_Name>Yusuf Ebrahim</Customer_Name>
+    <PaymentMethod_Name>Cash</PaymentMethod_Name>
+    <Sale_Status>Completed</Sale_Status>
+    <Quantity>2</Quantity>
+    <UnitPrice_Original>64.99</UnitPrice_Original>
+    <UnitPrice_AfterDiscount>58.49</UnitPrice_AfterDiscount>
+    <LineRevenue>116.98</LineRevenue>
+    <LineDiscountAmount>13.00</LineDiscountAmount>
+    <LineCost>78.00</LineCost>
+    <LineGrossProfit>38.98</LineGrossProfit>
+    <Sale_Subtotal>655.93</Sale_Subtotal>
+    <Sale_DiscountAmount>0.00</Sale_DiscountAmount>
+    <Sale_TotalAmount>655.93</Sale_TotalAmount>
+  </SalesFact>
+  <SalesFact>
+    <Sale_ID>1026</Sale_ID>
+    <Product_ID>18</Product_ID>
+    <Category_ID>5</Category_ID>
+    <Employee_ID>2</Employee_ID>
+    <Customer_ID>2</Customer_ID>
+    <Sale_DateTime>2026-07-15T13:48:00</Sale_DateTime>
+    <Sale_Date>2026-07-15T00:00:00</Sale_Date>
+    <Sale_Year>2026</Sale_Year>
+    <Sale_MonthNumber>7</Sale_MonthNumber>
+    <Sale_MonthName>July</Sale_MonthName>
+    <Sale_Quarter>3</Sale_Quarter>
+    <Sale_DayName>Wednesday</Sale_DayName>
+    <Sale_Hour>13</Sale_Hour>
+    <Product_Name>Hunters Gold 6-pack</Product_Name>
+    <Product_Brand>Hunters</Product_Brand>
+    <Product_SizeML>330</Product_SizeML>
+    <Category_Name>Ciders</Category_Name>
+    <Supplier_Name>Distell</Supplier_Name>
+    <SaleType_Name>In-Store</SaleType_Name>
+    <Employee_Name>Priya Naidoo</Employee_Name>
+    <Employee_Role>Cashier</Employee_Role>
+    <Customer_Name>Yusuf Ebrahim</Customer_Name>
+    <PaymentMethod_Name>Cash</PaymentMethod_Name>
+    <Sale_Status>Completed</Sale_Status>
+    <Quantity>3</Quantity>
+    <UnitPrice_Original>109.99</UnitPrice_Original>
+    <UnitPrice_AfterDiscount>109.99</UnitPrice_AfterDiscount>
+    <LineRevenue>329.97</LineRevenue>
+    <LineDiscountAmount>0.00</LineDiscountAmount>
+    <LineCost>213.00</LineCost>
+    <LineGrossProfit>116.97</LineGrossProfit>
+    <Sale_Subtotal>655.93</Sale_Subtotal>
+    <Sale_DiscountAmount>0.00</Sale_DiscountAmount>
+    <Sale_TotalAmount>655.93</Sale_TotalAmount>
+  </SalesFact>
+  <SalesFact>
+    <Sale_ID>1026</Sale_ID>
+    <Product_ID>41</Product_ID>
+    <Category_ID>3</Category_ID>
+    <Employee_ID>2</Employee_ID>
+    <Customer_ID>6</Customer_ID>
+    <Sale_DateTime>2026-07-15T13:48:00</Sale_DateTime>
+    <Sale_Date>2026-07-15T00:00:00</Sale_Date>
+    <Sale_Year>2026</Sale_Year>
+    <Sale_MonthNumber>7</Sale_MonthNumber>
+    <Sale_MonthName>July</Sale_MonthName>
+    <Sale_Quarter>3</Sale_Quarter>
+    <Sale_DayName>Wednesday</Sale_DayName>
+    <Sale_Hour>13</Sale_Hour>
+    <Product_Name>Nederburg Cabernet</Product_Name>
+    <Product_Brand>Nederburg</Product_Brand>
+    <Product_SizeML>750</Product_SizeML>
+    <Category_Name>Wine</Category_Name>
+    <Supplier_Name>Distell</Supplier_Name>
+    <SaleType_Name>In-Store</SaleType_Name>
+    <Employee_Name>Priya Naidoo</Employee_Name>
+    <Employee_Role>Cashier</Employee_Role>
+    <Customer_Name>Yusuf Ebrahim</Customer_Name>
+    <PaymentMethod_Name>Cash</PaymentMethod_Name>
+    <Sale_Status>Completed</Sale_Status>
+    <Quantity>2</Quantity>
+    <UnitPrice_Original>109.99</UnitPrice_Original>
+    <UnitPrice_AfterDiscount>104.49</UnitPrice_AfterDiscount>
+    <LineRevenue>208.98</LineRevenue>
+    <LineDiscountAmount>11.00</LineDiscountAmount>
+    <LineCost>136.00</LineCost>
+    <LineGrossProfit>72.98</LineGrossProfit>
+    <Sale_Subtotal>655.93</Sale_Subtotal>
+    <Sale_DiscountAmount>0.00</Sale_DiscountAmount>
+    <Sale_TotalAmount>655.93</Sale_TotalAmount>
+  </SalesFact>
+  <SalesFact>
+    <Sale_ID>1027</Sale_ID>
+    <Product_ID>27</Product_ID>
+    <Category_ID>4</Category_ID>
+    <Employee_ID>2</Employee_ID>
+    <Customer_ID>18</Customer_ID>
+    <Sale_DateTime>2026-07-16T10:38:00</Sale_DateTime>
+    <Sale_Date>2026-07-16T00:00:00</Sale_Date>
+    <Sale_Year>2026</Sale_Year>
+    <Sale_MonthNumber>7</Sale_MonthNumber>
+    <Sale_MonthName>July</Sale_MonthName>
+    <Sale_Quarter>3</Sale_Quarter>
+    <Sale_DayName>Thursday</Sale_DayName>
+    <Sale_Hour>10</Sale_Hour>
+    <Product_Name>Smirnoff Vodka 1893</Product_Name>
+    <Product_Brand>Smirnoff</Product_Brand>
+    <Product_SizeML>750</Product_SizeML>
+    <Category_Name>Spirits</Category_Name>
+    <Supplier_Name>Diageo</Supplier_Name>
+    <SaleType_Name>In-Store</SaleType_Name>
+    <Employee_Name>Priya Naidoo</Employee_Name>
+    <Employee_Role>Cashier</Employee_Role>
+    <Customer_Name>Walk-in Customer</Customer_Name>
+    <PaymentMethod_Name>Card</PaymentMethod_Name>
+    <Sale_Status>Completed</Sale_Status>
+    <Quantity>3</Quantity>
+    <UnitPrice_Original>219.99</UnitPrice_Original>
+    <UnitPrice_AfterDiscount>197.99</UnitPrice_AfterDiscount>
+    <LineRevenue>593.97</LineRevenue>
+    <LineDiscountAmount>66.00</LineDiscountAmount>
+    <LineCost>426.00</LineCost>
+    <LineGrossProfit>167.97</LineGrossProfit>
+    <Sale_Subtotal>593.97</Sale_Subtotal>
+    <Sale_DiscountAmount>0.00</Sale_DiscountAmount>
+    <Sale_TotalAmount>593.97</Sale_TotalAmount>
+  </SalesFact>
+  <SalesFact>
+    <Sale_ID>1028</Sale_ID>
+    <Product_ID>13</Product_ID>
+    <Category_ID>2</Category_ID>
+    <Employee_ID>1</Employee_ID>
+    <Customer_ID>20</Customer_ID>
+    <Sale_DateTime>2026-07-16T18:08:00</Sale_DateTime>
+    <Sale_Date>2026-07-16T00:00:00</Sale_Date>
+    <Sale_Year>2026</Sale_Year>
+    <Sale_MonthNumber>7</Sale_MonthNumber>
+    <Sale_MonthName>July</Sale_MonthName>
+    <Sale_Quarter>3</Sale_Quarter>
+    <Sale_DayName>Thursday</Sale_DayName>
+    <Sale_Hour>18</Sale_Hour>
+    <Product_Name>Heineken 6-pack</Product_Name>
+    <Product_Brand>Heineken</Product_Brand>
+    <Product_SizeML>330</Product_SizeML>
+    <Category_Name>Beer</Category_Name>
+    <Supplier_Name>Heineken SA</Supplier_Name>
+    <SaleType_Name>In-Store</SaleType_Name>
+    <Employee_Name>Thabo Mokoena</Employee_Name>
+    <Employee_Role>Cashier</Employee_Role>
+    <Customer_Name>Walk-in Customer</Customer_Name>
+    <PaymentMethod_Name>Card</PaymentMethod_Name>
+    <Sale_Status>Completed</Sale_Status>
+    <Quantity>1</Quantity>
+    <UnitPrice_Original>119.99</UnitPrice_Original>
+    <UnitPrice_AfterDiscount>119.99</UnitPrice_AfterDiscount>
+    <LineRevenue>119.99</LineRevenue>
+    <LineDiscountAmount>0.00</LineDiscountAmount>
+    <LineCost>79.00</LineCost>
+    <LineGrossProfit>40.99</LineGrossProfit>
+    <Sale_Subtotal>119.99</Sale_Subtotal>
+    <Sale_DiscountAmount>0.00</Sale_DiscountAmount>
+    <Sale_TotalAmount>119.99</Sale_TotalAmount>
+  </SalesFact>
+  <SalesFact>
+    <Sale_ID>1029</Sale_ID>
+    <Product_ID>60</Product_ID>
+    <Category_ID>2</Category_ID>
+    <Employee_ID>2</Employee_ID>
+    <Customer_ID>29</Customer_ID>
+    <Sale_DateTime>2026-07-17T13:33:00</Sale_DateTime>
+    <Sale_Date>2026-07-17T00:00:00</Sale_Date>
+    <Sale_Year>2026</Sale_Year>
+    <Sale_MonthNumber>7</Sale_MonthNumber>
+    <Sale_MonthName>July</Sale_MonthName>
+    <Sale_Quarter>3</Sale_Quarter>
+    <Sale_DayName>Friday</Sale_DayName>
+    <Sale_Hour>13</Sale_Hour>
+    <Product_Name>Heineken 6-pack</Product_Name>
+    <Product_Brand>Heineken</Product_Brand>
+    <Product_SizeML>330</Product_SizeML>
+    <Category_Name>Beer</Category_Name>
+    <Supplier_Name>Heineken SA</Supplier_Name>
+    <SaleType_Name>In-Store</SaleType_Name>
+    <Employee_Name>Priya Naidoo</Employee_Name>
+    <Employee_Role>Cashier</Employee_Role>
+    <Customer_Name>Nomsa Khumalo</Customer_Name>
+    <PaymentMethod_Name>Cash</PaymentMethod_Name>
+    <Sale_Status>Completed</Sale_Status>
+    <Quantity>3</Quantity>
+    <UnitPrice_Original>119.99</UnitPrice_Original>
+    <UnitPrice_AfterDiscount>119.99</UnitPrice_AfterDiscount>
+    <LineRevenue>359.97</LineRevenue>
+    <LineDiscountAmount>0.00</LineDiscountAmount>
+    <LineCost>237.00</LineCost>
+    <LineGrossProfit>122.97</LineGrossProfit>
+    <Sale_Subtotal>929.92</Sale_Subtotal>
+    <Sale_DiscountAmount>0.00</Sale_DiscountAmount>
+    <Sale_TotalAmount>929.92</Sale_TotalAmount>
+  </SalesFact>
+  <SalesFact>
+    <Sale_ID>1029</Sale_ID>
+    <Product_ID>7</Product_ID>
+    <Category_ID>3</Category_ID>
+    <Employee_ID>2</Employee_ID>
+    <Customer_ID>28</Customer_ID>
+    <Sale_DateTime>2026-07-17T13:33:00</Sale_DateTime>
+    <Sale_Date>2026-07-17T00:00:00</Sale_Date>
+    <Sale_Year>2026</Sale_Year>
+    <Sale_MonthNumber>7</Sale_MonthNumber>
+    <Sale_MonthName>July</Sale_MonthName>
+    <Sale_Quarter>3</Sale_Quarter>
+    <Sale_DayName>Friday</Sale_DayName>
+    <Sale_Hour>13</Sale_Hour>
+    <Product_Name>Nederburg Cabernet</Product_Name>
+    <Product_Brand>Nederburg</Product_Brand>
+    <Product_SizeML>750</Product_SizeML>
+    <Category_Name>Wine</Category_Name>
+    <Supplier_Name>Distell</Supplier_Name>
+    <SaleType_Name>In-Store</SaleType_Name>
+    <Employee_Name>Priya Naidoo</Employee_Name>
+    <Employee_Role>Cashier</Employee_Role>
+    <Customer_Name>Nomsa Khumalo</Customer_Name>
+    <PaymentMethod_Name>Cash</PaymentMethod_Name>
+    <Sale_Status>Completed</Sale_Status>
+    <Quantity>1</Quantity>
+    <UnitPrice_Original>109.99</UnitPrice_Original>
+    <UnitPrice_AfterDiscount>109.99</UnitPrice_AfterDiscount>
+    <LineRevenue>109.99</LineRevenue>
+    <LineDiscountAmount>0.00</LineDiscountAmount>
+    <LineCost>68.00</LineCost>
+    <LineGrossProfit>41.99</LineGrossProfit>
+    <Sale_Subtotal>929.92</Sale_Subtotal>
+    <Sale_DiscountAmount>0.00</Sale_DiscountAmount>
+    <Sale_TotalAmount>929.92</Sale_TotalAmount>
+  </SalesFact>
+  <SalesFact>
+    <Sale_ID>1029</Sale_ID>
+    <Product_ID>43</Product_ID>
+    <Category_ID>5</Category_ID>
+    <Employee_ID>2</Employee_ID>
+    <Customer_ID>32</Customer_ID>
+    <Sale_DateTime>2026-07-17T13:33:00</Sale_DateTime>
+    <Sale_Date>2026-07-17T00:00:00</Sale_Date>
+    <Sale_Year>2026</Sale_Year>
+    <Sale_MonthNumber>7</Sale_MonthNumber>
+    <Sale_MonthName>July</Sale_MonthName>
+    <Sale_Quarter>3</Sale_Quarter>
+    <Sale_DayName>Friday</Sale_DayName>
+    <Sale_Hour>13</Sale_Hour>
+    <Product_Name>Savanna Dry 6-pack</Product_Name>
+    <Product_Brand>Savanna</Product_Brand>
+    <Product_SizeML>330</Product_SizeML>
+    <Category_Name>Ciders</Category_Name>
+    <Supplier_Name>Distell</Supplier_Name>
+    <SaleType_Name>In-Store</SaleType_Name>
+    <Employee_Name>Priya Naidoo</Employee_Name>
+    <Employee_Role>Cashier</Employee_Role>
+    <Customer_Name>Nomsa Khumalo</Customer_Name>
+    <PaymentMethod_Name>Cash</PaymentMethod_Name>
+    <Sale_Status>Completed</Sale_Status>
+    <Quantity>4</Quantity>
+    <UnitPrice_Original>114.99</UnitPrice_Original>
+    <UnitPrice_AfterDiscount>114.99</UnitPrice_AfterDiscount>
+    <LineRevenue>459.96</LineRevenue>
+    <LineDiscountAmount>0.00</LineDiscountAmount>
+    <LineCost>296.00</LineCost>
+    <LineGrossProfit>163.96</LineGrossProfit>
+    <Sale_Subtotal>929.92</Sale_Subtotal>
+    <Sale_DiscountAmount>0.00</Sale_DiscountAmount>
+    <Sale_TotalAmount>929.92</Sale_TotalAmount>
+  </SalesFact>
+  <SalesFact>
+    <Sale_ID>1030</Sale_ID>
+    <Product_ID>28</Product_ID>
+    <Category_ID>2</Category_ID>
+    <Employee_ID>4</Employee_ID>
+    <Customer_ID>11</Customer_ID>
+    <Sale_DateTime>2026-07-17T17:53:00</Sale_DateTime>
+    <Sale_Date>2026-07-17T00:00:00</Sale_Date>
+    <Sale_Year>2026</Sale_Year>
+    <Sale_MonthNumber>7</Sale_MonthNumber>
+    <Sale_MonthName>July</Sale_MonthName>
+    <Sale_Quarter>3</Sale_Quarter>
+    <Sale_DayName>Friday</Sale_DayName>
+    <Sale_Hour>17</Sale_Hour>
+    <Product_Name>Castle Lager 6-pack</Product_Name>
+    <Product_Brand>Castle</Product_Brand>
+    <Product_SizeML>330</Product_SizeML>
+    <Category_Name>Beer</Category_Name>
+    <Supplier_Name>SAB Miller</Supplier_Name>
+    <SaleType_Name>In-Store</SaleType_Name>
+    <Employee_Name>Ashwin Pillay</Employee_Name>
+    <Employee_Role>Cashier</Employee_Role>
+    <Customer_Name>Walk-in Customer</Customer_Name>
+    <PaymentMethod_Name>Card</PaymentMethod_Name>
+    <Sale_Status>Completed</Sale_Status>
+    <Quantity>3</Quantity>
+    <UnitPrice_Original>89.99</UnitPrice_Original>
+    <UnitPrice_AfterDiscount>89.99</UnitPrice_AfterDiscount>
+    <LineRevenue>269.97</LineRevenue>
+    <LineDiscountAmount>0.00</LineDiscountAmount>
+    <LineCost>174.00</LineCost>
+    <LineGrossProfit>95.97</LineGrossProfit>
+    <Sale_Subtotal>719.93</Sale_Subtotal>
+    <Sale_DiscountAmount>0.00</Sale_DiscountAmount>
+    <Sale_TotalAmount>719.93</Sale_TotalAmount>
+  </SalesFact>
+  <SalesFact>
+    <Sale_ID>1030</Sale_ID>
+    <Product_ID>4</Product_ID>
+    <Category_ID>2</Category_ID>
+    <Employee_ID>4</Employee_ID>
+    <Customer_ID>6</Customer_ID>
+    <Sale_DateTime>2026-07-17T17:53:00</Sale_DateTime>
+    <Sale_Date>2026-07-17T00:00:00</Sale_Date>
+    <Sale_Year>2026</Sale_Year>
+    <Sale_MonthNumber>7</Sale_MonthNumber>
+    <Sale_MonthName>July</Sale_MonthName>
+    <Sale_Quarter>3</Sale_Quarter>
+    <Sale_DayName>Friday</Sale_DayName>
+    <Sale_Hour>17</Sale_Hour>
+    <Product_Name>Heineken 6-pack</Product_Name>
+    <Product_Brand>Heineken</Product_Brand>
+    <Product_SizeML>330</Product_SizeML>
+    <Category_Name>Beer</Category_Name>
+    <Supplier_Name>Heineken SA</Supplier_Name>
+    <SaleType_Name>In-Store</SaleType_Name>
+    <Employee_Name>Ashwin Pillay</Employee_Name>
+    <Employee_Role>Cashier</Employee_Role>
+    <Customer_Name>Walk-in Customer</Customer_Name>
+    <PaymentMethod_Name>Card</PaymentMethod_Name>
+    <Sale_Status>Completed</Sale_Status>
+    <Quantity>3</Quantity>
+    <UnitPrice_Original>119.99</UnitPrice_Original>
+    <UnitPrice_AfterDiscount>119.99</UnitPrice_AfterDiscount>
+    <LineRevenue>359.97</LineRevenue>
+    <LineDiscountAmount>0.00</LineDiscountAmount>
+    <LineCost>237.00</LineCost>
+    <LineGrossProfit>122.97</LineGrossProfit>
+    <Sale_Subtotal>719.93</Sale_Subtotal>
+    <Sale_DiscountAmount>0.00</Sale_DiscountAmount>
+    <Sale_TotalAmount>719.93</Sale_TotalAmount>
+  </SalesFact>
+  <SalesFact>
+    <Sale_ID>1030</Sale_ID>
+    <Product_ID>43</Product_ID>
+    <Category_ID>2</Category_ID>
+    <Employee_ID>4</Employee_ID>
+    <Customer_ID>25</Customer_ID>
+    <Sale_DateTime>2026-07-17T17:53:00</Sale_DateTime>
+    <Sale_Date>2026-07-17T00:00:00</Sale_Date>
+    <Sale_Year>2026</Sale_Year>
+    <Sale_MonthNumber>7</Sale_MonthNumber>
+    <Sale_MonthName>July</Sale_MonthName>
+    <Sale_Quarter>3</Sale_Quarter>
+    <Sale_DayName>Friday</Sale_DayName>
+    <Sale_Hour>17</Sale_Hour>
+    <Product_Name>Castle Lager 6-pack</Product_Name>
+    <Product_Brand>Castle</Product_Brand>
+    <Product_SizeML>330</Product_SizeML>
+    <Category_Name>Beer</Category_Name>
+    <Supplier_Name>SAB Miller</Supplier_Name>
+    <SaleType_Name>In-Store</SaleType_Name>
+    <Employee_Name>Ashwin Pillay</Employee_Name>
+    <Employee_Role>Cashier</Employee_Role>
+    <Customer_Name>Walk-in Customer</Customer_Name>
+    <PaymentMethod_Name>Card</PaymentMethod_Name>
+    <Sale_Status>Completed</Sale_Status>
+    <Quantity>1</Quantity>
+    <UnitPrice_Original>89.99</UnitPrice_Original>
+    <UnitPrice_AfterDiscount>89.99</UnitPrice_AfterDiscount>
+    <LineRevenue>89.99</LineRevenue>
+    <LineDiscountAmount>0.00</LineDiscountAmount>
+    <LineCost>58.00</LineCost>
+    <LineGrossProfit>31.99</LineGrossProfit>
+    <Sale_Subtotal>719.93</Sale_Subtotal>
+    <Sale_DiscountAmount>0.00</Sale_DiscountAmount>
+    <Sale_TotalAmount>719.93</Sale_TotalAmount>
+  </SalesFact>
+  <SalesFact>
+    <Sale_ID>1031</Sale_ID>
+    <Product_ID>21</Product_ID>
+    <Category_ID>3</Category_ID>
+    <Employee_ID>3</Employee_ID>
+    <Customer_ID>16</Customer_ID>
+    <Sale_DateTime>2026-07-17T17:42:00</Sale_DateTime>
+    <Sale_Date>2026-07-17T00:00:00</Sale_Date>
+    <Sale_Year>2026</Sale_Year>
+    <Sale_MonthNumber>7</Sale_MonthNumber>
+    <Sale_MonthName>July</Sale_MonthName>
+    <Sale_Quarter>3</Sale_Quarter>
+    <Sale_DayName>Friday</Sale_DayName>
+    <Sale_Hour>17</Sale_Hour>
+    <Product_Name>Nederburg Cabernet</Product_Name>
+    <Product_Brand>Nederburg</Product_Brand>
+    <Product_SizeML>750</Product_SizeML>
+    <Category_Name>Wine</Category_Name>
+    <Supplier_Name>Distell</Supplier_Name>
+    <SaleType_Name>In-Store</SaleType_Name>
+    <Employee_Name>Sipho Dlamini</Employee_Name>
+    <Employee_Role>Manager</Employee_Role>
+    <Customer_Name>Walk-in Customer</Customer_Name>
+    <PaymentMethod_Name>Card</PaymentMethod_Name>
+    <Sale_Status>Completed</Sale_Status>
+    <Quantity>4</Quantity>
+    <UnitPrice_Original>109.99</UnitPrice_Original>
+    <UnitPrice_AfterDiscount>109.99</UnitPrice_AfterDiscount>
+    <LineRevenue>439.96</LineRevenue>
+    <LineDiscountAmount>0.00</LineDiscountAmount>
+    <LineCost>272.00</LineCost>
+    <LineGrossProfit>167.96</LineGrossProfit>
+    <Sale_Subtotal>1095.39</Sale_Subtotal>
+    <Sale_DiscountAmount>0.00</Sale_DiscountAmount>
+    <Sale_TotalAmount>1095.39</Sale_TotalAmount>
+  </SalesFact>
+  <SalesFact>
+    <Sale_ID>1031</Sale_ID>
+    <Product_ID>3</Product_ID>
+    <Category_ID>2</Category_ID>
+    <Employee_ID>3</Employee_ID>
+    <Customer_ID>20</Customer_ID>
+    <Sale_DateTime>2026-07-17T17:42:00</Sale_DateTime>
+    <Sale_Date>2026-07-17T00:00:00</Sale_Date>
+    <Sale_Year>2026</Sale_Year>
+    <Sale_MonthNumber>7</Sale_MonthNumber>
+    <Sale_MonthName>July</Sale_MonthName>
+    <Sale_Quarter>3</Sale_Quarter>
+    <Sale_DayName>Friday</Sale_DayName>
+    <Sale_Hour>17</Sale_Hour>
+    <Product_Name>Heineken 6-pack</Product_Name>
+    <Product_Brand>Heineken</Product_Brand>
+    <Product_SizeML>330</Product_SizeML>
+    <Category_Name>Beer</Category_Name>
+    <Supplier_Name>Heineken SA</Supplier_Name>
+    <SaleType_Name>In-Store</SaleType_Name>
+    <Employee_Name>Sipho Dlamini</Employee_Name>
+    <Employee_Role>Manager</Employee_Role>
+    <Customer_Name>Walk-in Customer</Customer_Name>
+    <PaymentMethod_Name>Card</PaymentMethod_Name>
+    <Sale_Status>Completed</Sale_Status>
+    <Quantity>4</Quantity>
+    <UnitPrice_Original>119.99</UnitPrice_Original>
+    <UnitPrice_AfterDiscount>119.99</UnitPrice_AfterDiscount>
+    <LineRevenue>479.96</LineRevenue>
+    <LineDiscountAmount>0.00</LineDiscountAmount>
+    <LineCost>316.00</LineCost>
+    <LineGrossProfit>163.96</LineGrossProfit>
+    <Sale_Subtotal>1095.39</Sale_Subtotal>
+    <Sale_DiscountAmount>0.00</Sale_DiscountAmount>
+    <Sale_TotalAmount>1095.39</Sale_TotalAmount>
+  </SalesFact>
+  <SalesFact>
+    <Sale_ID>1031</Sale_ID>
+    <Product_ID>14</Product_ID>
+    <Category_ID>3</Category_ID>
+    <Employee_ID>3</Employee_ID>
+    <Customer_ID>23</Customer_ID>
+    <Sale_DateTime>2026-07-17T17:42:00</Sale_DateTime>
+    <Sale_Date>2026-07-17T00:00:00</Sale_Date>
+    <Sale_Year>2026</Sale_Year>
+    <Sale_MonthNumber>7</Sale_MonthNumber>
+    <Sale_MonthName>July</Sale_MonthName>
+    <Sale_Quarter>3</Sale_Quarter>
+    <Sale_DayName>Friday</Sale_DayName>
+    <Sale_Hour>17</Sale_Hour>
+    <Product_Name>Four Cousins Sweet Red</Product_Name>
+    <Product_Brand>Four</Product_Brand>
+    <Product_SizeML>750</Product_SizeML>
+    <Category_Name>Wine</Category_Name>
+    <Supplier_Name>Van Loveren</Supplier_Name>
+    <SaleType_Name>In-Store</SaleType_Name>
+    <Employee_Name>Sipho Dlamini</Employee_Name>
+    <Employee_Role>Manager</Employee_Role>
+    <Customer_Name>Walk-in Customer</Customer_Name>
+    <PaymentMethod_Name>Card</PaymentMethod_Name>
+    <Sale_Status>Completed</Sale_Status>
+    <Quantity>3</Quantity>
+    <UnitPrice_Original>64.99</UnitPrice_Original>
+    <UnitPrice_AfterDiscount>58.49</UnitPrice_AfterDiscount>
+    <LineRevenue>175.47</LineRevenue>
+    <LineDiscountAmount>19.50</LineDiscountAmount>
+    <LineCost>117.00</LineCost>
+    <LineGrossProfit>58.47</LineGrossProfit>
+    <Sale_Subtotal>1095.39</Sale_Subtotal>
+    <Sale_DiscountAmount>0.00</Sale_DiscountAmount>
+    <Sale_TotalAmount>1095.39</Sale_TotalAmount>
+  </SalesFact>
+  <SalesFact>
+    <Sale_ID>1032</Sale_ID>
+    <Product_ID>10</Product_ID>
+    <Category_ID>5</Category_ID>
+    <Employee_ID>4</Employee_ID>
+    <Customer_ID>26</Customer_ID>
+    <Sale_DateTime>2026-07-18T09:21:00</Sale_DateTime>
+    <Sale_Date>2026-07-18T00:00:00</Sale_Date>
+    <Sale_Year>2026</Sale_Year>
+    <Sale_MonthNumber>7</Sale_MonthNumber>
+    <Sale_MonthName>July</Sale_MonthName>
+    <Sale_Quarter>3</Sale_Quarter>
+    <Sale_DayName>Saturday</Sale_DayName>
+    <Sale_Hour>9</Sale_Hour>
+    <Product_Name>Savanna Dry 6-pack</Product_Name>
+    <Product_Brand>Savanna</Product_Brand>
+    <Product_SizeML>330</Product_SizeML>
+    <Category_Name>Ciders</Category_Name>
+    <Supplier_Name>Distell</Supplier_Name>
+    <SaleType_Name>In-Store</SaleType_Name>
+    <Employee_Name>Ashwin Pillay</Employee_Name>
+    <Employee_Role>Cashier</Employee_Role>
+    <Customer_Name>Walk-in Customer</Customer_Name>
+    <PaymentMethod_Name>Cash</PaymentMethod_Name>
+    <Sale_Status>Completed</Sale_Status>
+    <Quantity>2</Quantity>
+    <UnitPrice_Original>114.99</UnitPrice_Original>
+    <UnitPrice_AfterDiscount>103.49</UnitPrice_AfterDiscount>
+    <LineRevenue>206.98</LineRevenue>
+    <LineDiscountAmount>23.00</LineDiscountAmount>
+    <LineCost>148.00</LineCost>
+    <LineGrossProfit>58.98</LineGrossProfit>
+    <Sale_Subtotal>1376.95</Sale_Subtotal>
+    <Sale_DiscountAmount>0.00</Sale_DiscountAmount>
+    <Sale_TotalAmount>1376.95</Sale_TotalAmount>
+  </SalesFact>
+  <SalesFact>
+    <Sale_ID>1032</Sale_ID>
+    <Product_ID>38</Product_ID>
+    <Category_ID>1</Category_ID>
+    <Employee_ID>4</Employee_ID>
+    <Customer_ID>3</Customer_ID>
+    <Sale_DateTime>2026-07-18T09:21:00</Sale_DateTime>
+    <Sale_Date>2026-07-18T00:00:00</Sale_Date>
+    <Sale_Year>2026</Sale_Year>
+    <Sale_MonthNumber>7</Sale_MonthNumber>
+    <Sale_MonthName>July</Sale_MonthName>
+    <Sale_Quarter>3</Sale_Quarter>
+    <Sale_DayName>Saturday</Sale_DayName>
+    <Sale_Hour>9</Sale_Hour>
+    <Product_Name>Johnnie Walker Black</Product_Name>
+    <Product_Brand>Johnnie</Product_Brand>
+    <Product_SizeML>750</Product_SizeML>
+    <Category_Name>Whisky</Category_Name>
+    <Supplier_Name>Diageo</Supplier_Name>
+    <SaleType_Name>In-Store</SaleType_Name>
+    <Employee_Name>Ashwin Pillay</Employee_Name>
+    <Employee_Role>Cashier</Employee_Role>
+    <Customer_Name>Walk-in Customer</Customer_Name>
+    <PaymentMethod_Name>Cash</PaymentMethod_Name>
+    <Sale_Status>Completed</Sale_Status>
+    <Quantity>3</Quantity>
+    <UnitPrice_Original>389.99</UnitPrice_Original>
+    <UnitPrice_AfterDiscount>389.99</UnitPrice_AfterDiscount>
+    <LineRevenue>1169.97</LineRevenue>
+    <LineDiscountAmount>0.00</LineDiscountAmount>
+    <LineCost>765.00</LineCost>
+    <LineGrossProfit>404.97</LineGrossProfit>
+    <Sale_Subtotal>1376.95</Sale_Subtotal>
+    <Sale_DiscountAmount>0.00</Sale_DiscountAmount>
+    <Sale_TotalAmount>1376.95</Sale_TotalAmount>
+  </SalesFact>
+  <SalesFact>
+    <Sale_ID>1033</Sale_ID>
+    <Product_ID>47</Product_ID>
+    <Category_ID>5</Category_ID>
+    <Employee_ID>3</Employee_ID>
+    <Customer_ID>32</Customer_ID>
+    <Sale_DateTime>2026-07-19T09:19:00</Sale_DateTime>
+    <Sale_Date>2026-07-19T00:00:00</Sale_Date>
+    <Sale_Year>2026</Sale_Year>
+    <Sale_MonthNumber>7</Sale_MonthNumber>
+    <Sale_MonthName>July</Sale_MonthName>
+    <Sale_Quarter>3</Sale_Quarter>
+    <Sale_DayName>Sunday</Sale_DayName>
+    <Sale_Hour>9</Sale_Hour>
+    <Product_Name>Savanna Dry 6-pack</Product_Name>
+    <Product_Brand>Savanna</Product_Brand>
+    <Product_SizeML>330</Product_SizeML>
+    <Category_Name>Ciders</Category_Name>
+    <Supplier_Name>Distell</Supplier_Name>
+    <SaleType_Name>In-Store</SaleType_Name>
+    <Employee_Name>Sipho Dlamini</Employee_Name>
+    <Employee_Role>Manager</Employee_Role>
+    <Customer_Name>Lerato Molefe</Customer_Name>
+    <PaymentMethod_Name>Card</PaymentMethod_Name>
+    <Sale_Status>Completed</Sale_Status>
+    <Quantity>4</Quantity>
+    <UnitPrice_Original>114.99</UnitPrice_Original>
+    <UnitPrice_AfterDiscount>114.99</UnitPrice_AfterDiscount>
+    <LineRevenue>459.96</LineRevenue>
+    <LineDiscountAmount>0.00</LineDiscountAmount>
+    <LineCost>296.00</LineCost>
+    <LineGrossProfit>163.96</LineGrossProfit>
+    <Sale_Subtotal>459.96</Sale_Subtotal>
+    <Sale_DiscountAmount>0.00</Sale_DiscountAmount>
+    <Sale_TotalAmount>459.96</Sale_TotalAmount>
+  </SalesFact>
+  <SalesFact>
+    <Sale_ID>1034</Sale_ID>
+    <Product_ID>7</Product_ID>
+    <Category_ID>4</Category_ID>
+    <Employee_ID>2</Employee_ID>
+    <Customer_ID>25</Customer_ID>
+    <Sale_DateTime>2026-07-19T11:18:00</Sale_DateTime>
+    <Sale_Date>2026-07-19T00:00:00</Sale_Date>
+    <Sale_Year>2026</Sale_Year>
+    <Sale_MonthNumber>7</Sale_MonthNumber>
+    <Sale_MonthName>July</Sale_MonthName>
+    <Sale_Quarter>3</Sale_Quarter>
+    <Sale_DayName>Sunday</Sale_DayName>
+    <Sale_Hour>11</Sale_Hour>
+    <Product_Name>Klipdrift Premium</Product_Name>
+    <Product_Brand>Klipdrift</Product_Brand>
+    <Product_SizeML>750</Product_SizeML>
+    <Category_Name>Spirits</Category_Name>
+    <Supplier_Name>Distell</Supplier_Name>
+    <SaleType_Name>In-Store</SaleType_Name>
+    <Employee_Name>Priya Naidoo</Employee_Name>
+    <Employee_Role>Cashier</Employee_Role>
+    <Customer_Name>Walk-in Customer</Customer_Name>
+    <PaymentMethod_Name>Card</PaymentMethod_Name>
+    <Sale_Status>Completed</Sale_Status>
+    <Quantity>2</Quantity>
+    <UnitPrice_Original>259.99</UnitPrice_Original>
+    <UnitPrice_AfterDiscount>233.99</UnitPrice_AfterDiscount>
+    <LineRevenue>467.98</LineRevenue>
+    <LineDiscountAmount>52.00</LineDiscountAmount>
+    <LineCost>340.00</LineCost>
+    <LineGrossProfit>127.98</LineGrossProfit>
+    <Sale_Subtotal>1477.94</Sale_Subtotal>
+    <Sale_DiscountAmount>0.00</Sale_DiscountAmount>
+    <Sale_TotalAmount>1477.94</Sale_TotalAmount>
+  </SalesFact>
+  <SalesFact>
+    <Sale_ID>1034</Sale_ID>
+    <Product_ID>54</Product_ID>
+    <Category_ID>5</Category_ID>
+    <Employee_ID>2</Employee_ID>
+    <Customer_ID>29</Customer_ID>
+    <Sale_DateTime>2026-07-19T11:18:00</Sale_DateTime>
+    <Sale_Date>2026-07-19T00:00:00</Sale_Date>
+    <Sale_Year>2026</Sale_Year>
+    <Sale_MonthNumber>7</Sale_MonthNumber>
+    <Sale_MonthName>July</Sale_MonthName>
+    <Sale_Quarter>3</Sale_Quarter>
+    <Sale_DayName>Sunday</Sale_DayName>
+    <Sale_Hour>11</Sale_Hour>
+    <Product_Name>Savanna Dry 6-pack</Product_Name>
+    <Product_Brand>Savanna</Product_Brand>
+    <Product_SizeML>330</Product_SizeML>
+    <Category_Name>Ciders</Category_Name>
+    <Supplier_Name>Distell</Supplier_Name>
+    <SaleType_Name>In-Store</SaleType_Name>
+    <Employee_Name>Priya Naidoo</Employee_Name>
+    <Employee_Role>Cashier</Employee_Role>
+    <Customer_Name>Walk-in Customer</Customer_Name>
+    <PaymentMethod_Name>Card</PaymentMethod_Name>
+    <Sale_Status>Completed</Sale_Status>
+    <Quantity>2</Quantity>
+    <UnitPrice_Original>114.99</UnitPrice_Original>
+    <UnitPrice_AfterDiscount>114.99</UnitPrice_AfterDiscount>
+    <LineRevenue>229.98</LineRevenue>
+    <LineDiscountAmount>0.00</LineDiscountAmount>
+    <LineCost>148.00</LineCost>
+    <LineGrossProfit>81.98</LineGrossProfit>
+    <Sale_Subtotal>1477.94</Sale_Subtotal>
+    <Sale_DiscountAmount>0.00</Sale_DiscountAmount>
+    <Sale_TotalAmount>1477.94</Sale_TotalAmount>
+  </SalesFact>
+  <SalesFact>
+    <Sale_ID>1034</Sale_ID>
+    <Product_ID>36</Product_ID>
+    <Category_ID>1</Category_ID>
+    <Employee_ID>2</Employee_ID>
+    <Customer_ID>4</Customer_ID>
+    <Sale_DateTime>2026-07-19T11:18:00</Sale_DateTime>
+    <Sale_Date>2026-07-19T00:00:00</Sale_Date>
+    <Sale_Year>2026</Sale_Year>
+    <Sale_MonthNumber>7</Sale_MonthNumber>
+    <Sale_MonthName>July</Sale_MonthName>
+    <Sale_Quarter>3</Sale_Quarter>
+    <Sale_DayName>Sunday</Sale_DayName>
+    <Sale_Hour>11</Sale_Hour>
+    <Product_Name>Johnnie Walker Black</Product_Name>
+    <Product_Brand>Johnnie</Product_Brand>
+    <Product_SizeML>750</Product_SizeML>
+    <Category_Name>Whisky</Category_Name>
+    <Supplier_Name>Diageo</Supplier_Name>
+    <SaleType_Name>In-Store</SaleType_Name>
+    <Employee_Name>Priya Naidoo</Employee_Name>
+    <Employee_Role>Cashier</Employee_Role>
+    <Customer_Name>Walk-in Customer</Customer_Name>
+    <PaymentMethod_Name>Card</PaymentMethod_Name>
+    <Sale_Status>Completed</Sale_Status>
+    <Quantity>2</Quantity>
+    <UnitPrice_Original>389.99</UnitPrice_Original>
+    <UnitPrice_AfterDiscount>389.99</UnitPrice_AfterDiscount>
+    <LineRevenue>779.98</LineRevenue>
+    <LineDiscountAmount>0.00</LineDiscountAmount>
+    <LineCost>510.00</LineCost>
+    <LineGrossProfit>269.98</LineGrossProfit>
+    <Sale_Subtotal>1477.94</Sale_Subtotal>
+    <Sale_DiscountAmount>0.00</Sale_DiscountAmount>
+    <Sale_TotalAmount>1477.94</Sale_TotalAmount>
+  </SalesFact>
+  <SalesFact>
+    <Sale_ID>1035</Sale_ID>
+    <Product_ID>5</Product_ID>
+    <Category_ID>4</Category_ID>
+    <Employee_ID>2</Employee_ID>
+    <Customer_ID>31</Customer_ID>
+    <Sale_DateTime>2026-07-20T09:40:00</Sale_DateTime>
+    <Sale_Date>2026-07-20T00:00:00</Sale_Date>
+    <Sale_Year>2026</Sale_Year>
+    <Sale_MonthNumber>7</Sale_MonthNumber>
+    <Sale_MonthName>July</Sale_MonthName>
+    <Sale_Quarter>3</Sale_Quarter>
+    <Sale_DayName>Monday</Sale_DayName>
+    <Sale_Hour>9</Sale_Hour>
+    <Product_Name>Smirnoff Vodka 1893</Product_Name>
+    <Product_Brand>Smirnoff</Product_Brand>
+    <Product_SizeML>750</Product_SizeML>
+    <Category_Name>Spirits</Category_Name>
+    <Supplier_Name>Diageo</Supplier_Name>
+    <SaleType_Name>In-Store</SaleType_Name>
+    <Employee_Name>Priya Naidoo</Employee_Name>
+    <Employee_Role>Cashier</Employee_Role>
+    <Customer_Name>Rajesh Singh</Customer_Name>
+    <PaymentMethod_Name>Card</PaymentMethod_Name>
+    <Sale_Status>Completed</Sale_Status>
+    <Quantity>1</Quantity>
+    <UnitPrice_Original>219.99</UnitPrice_Original>
+    <UnitPrice_AfterDiscount>197.99</UnitPrice_AfterDiscount>
+    <LineRevenue>197.99</LineRevenue>
+    <LineDiscountAmount>22.00</LineDiscountAmount>
+    <LineCost>142.00</LineCost>
+    <LineGrossProfit>55.99</LineGrossProfit>
+    <Sale_Subtotal>197.99</Sale_Subtotal>
+    <Sale_DiscountAmount>0.00</Sale_DiscountAmount>
+    <Sale_TotalAmount>197.99</Sale_TotalAmount>
+  </SalesFact>
+  <SalesFact>
+    <Sale_ID>1036</Sale_ID>
+    <Product_ID>55</Product_ID>
+    <Category_ID>2</Category_ID>
+    <Employee_ID>1</Employee_ID>
+    <Customer_ID>25</Customer_ID>
+    <Sale_DateTime>2026-07-20T13:51:00</Sale_DateTime>
+    <Sale_Date>2026-07-20T00:00:00</Sale_Date>
+    <Sale_Year>2026</Sale_Year>
+    <Sale_MonthNumber>7</Sale_MonthNumber>
+    <Sale_MonthName>July</Sale_MonthName>
+    <Sale_Quarter>3</Sale_Quarter>
+    <Sale_DayName>Monday</Sale_DayName>
+    <Sale_Hour>13</Sale_Hour>
+    <Product_Name>Castle Lager 6-pack</Product_Name>
+    <Product_Brand>Castle</Product_Brand>
+    <Product_SizeML>330</Product_SizeML>
+    <Category_Name>Beer</Category_Name>
+    <Supplier_Name>SAB Miller</Supplier_Name>
+    <SaleType_Name>In-Store</SaleType_Name>
+    <Employee_Name>Thabo Mokoena</Employee_Name>
+    <Employee_Role>Cashier</Employee_Role>
+    <Customer_Name>Yusuf Ebrahim</Customer_Name>
+    <PaymentMethod_Name>Card</PaymentMethod_Name>
+    <Sale_Status>Completed</Sale_Status>
+    <Quantity>4</Quantity>
+    <UnitPrice_Original>89.99</UnitPrice_Original>
+    <UnitPrice_AfterDiscount>85.49</UnitPrice_AfterDiscount>
+    <LineRevenue>341.96</LineRevenue>
+    <LineDiscountAmount>18.00</LineDiscountAmount>
+    <LineCost>232.00</LineCost>
+    <LineGrossProfit>109.96</LineGrossProfit>
+    <Sale_Subtotal>341.96</Sale_Subtotal>
+    <Sale_DiscountAmount>0.00</Sale_DiscountAmount>
+    <Sale_TotalAmount>341.96</Sale_TotalAmount>
+  </SalesFact>
+  <SalesFact>
+    <Sale_ID>1037</Sale_ID>
+    <Product_ID>4</Product_ID>
+    <Category_ID>2</Category_ID>
+    <Employee_ID>3</Employee_ID>
+    <Customer_ID>32</Customer_ID>
+    <Sale_DateTime>2026-07-20T10:30:00</Sale_DateTime>
+    <Sale_Date>2026-07-20T00:00:00</Sale_Date>
+    <Sale_Year>2026</Sale_Year>
+    <Sale_MonthNumber>7</Sale_MonthNumber>
+    <Sale_MonthName>July</Sale_MonthName>
+    <Sale_Quarter>3</Sale_Quarter>
+    <Sale_DayName>Monday</Sale_DayName>
+    <Sale_Hour>10</Sale_Hour>
+    <Product_Name>Castle Lager 6-pack</Product_Name>
+    <Product_Brand>Castle</Product_Brand>
+    <Product_SizeML>330</Product_SizeML>
+    <Category_Name>Beer</Category_Name>
+    <Supplier_Name>SAB Miller</Supplier_Name>
+    <SaleType_Name>In-Store</SaleType_Name>
+    <Employee_Name>Sipho Dlamini</Employee_Name>
+    <Employee_Role>Manager</Employee_Role>
+    <Customer_Name>Yusuf Ebrahim</Customer_Name>
+    <PaymentMethod_Name>Cash</PaymentMethod_Name>
+    <Sale_Status>Completed</Sale_Status>
+    <Quantity>2</Quantity>
+    <UnitPrice_Original>89.99</UnitPrice_Original>
+    <UnitPrice_AfterDiscount>89.99</UnitPrice_AfterDiscount>
+    <LineRevenue>179.98</LineRevenue>
+    <LineDiscountAmount>0.00</LineDiscountAmount>
+    <LineCost>116.00</LineCost>
+    <LineGrossProfit>63.98</LineGrossProfit>
+    <Sale_Subtotal>532.19</Sale_Subtotal>
+    <Sale_DiscountAmount>0.00</Sale_DiscountAmount>
+    <Sale_TotalAmount>532.19</Sale_TotalAmount>
+  </SalesFact>
+  <SalesFact>
+    <Sale_ID>1037</Sale_ID>
+    <Product_ID>18</Product_ID>
+    <Category_ID>3</Category_ID>
+    <Employee_ID>3</Employee_ID>
+    <Customer_ID>7</Customer_ID>
+    <Sale_DateTime>2026-07-20T10:30:00</Sale_DateTime>
+    <Sale_Date>2026-07-20T00:00:00</Sale_Date>
+    <Sale_Year>2026</Sale_Year>
+    <Sale_MonthNumber>7</Sale_MonthNumber>
+    <Sale_MonthName>July</Sale_MonthName>
+    <Sale_Quarter>3</Sale_Quarter>
+    <Sale_DayName>Monday</Sale_DayName>
+    <Sale_Hour>10</Sale_Hour>
+    <Product_Name>JC le Roux La Chanson</Product_Name>
+    <Product_Brand>JC</Product_Brand>
+    <Product_SizeML>750</Product_SizeML>
+    <Category_Name>Wine</Category_Name>
+    <Supplier_Name>Distell</Supplier_Name>
+    <SaleType_Name>In-Store</SaleType_Name>
+    <Employee_Name>Sipho Dlamini</Employee_Name>
+    <Employee_Role>Manager</Employee_Role>
+    <Customer_Name>Yusuf Ebrahim</Customer_Name>
+    <PaymentMethod_Name>Cash</PaymentMethod_Name>
+    <Sale_Status>Completed</Sale_Status>
+    <Quantity>3</Quantity>
+    <UnitPrice_Original>89.99</UnitPrice_Original>
+    <UnitPrice_AfterDiscount>80.99</UnitPrice_AfterDiscount>
+    <LineRevenue>242.97</LineRevenue>
+    <LineDiscountAmount>27.00</LineDiscountAmount>
+    <LineCost>168.00</LineCost>
+    <LineGrossProfit>74.97</LineGrossProfit>
+    <Sale_Subtotal>532.19</Sale_Subtotal>
+    <Sale_DiscountAmount>0.00</Sale_DiscountAmount>
+    <Sale_TotalAmount>532.19</Sale_TotalAmount>
+  </SalesFact>
+  <SalesFact>
+    <Sale_ID>1037</Sale_ID>
+    <Product_ID>45</Product_ID>
+    <Category_ID>5</Category_ID>
+    <Employee_ID>3</Employee_ID>
+    <Customer_ID>14</Customer_ID>
+    <Sale_DateTime>2026-07-20T10:30:00</Sale_DateTime>
+    <Sale_Date>2026-07-20T00:00:00</Sale_Date>
+    <Sale_Year>2026</Sale_Year>
+    <Sale_MonthNumber>7</Sale_MonthNumber>
+    <Sale_MonthName>July</Sale_MonthName>
+    <Sale_Quarter>3</Sale_Quarter>
+    <Sale_DayName>Monday</Sale_DayName>
+    <Sale_Hour>10</Sale_Hour>
+    <Product_Name>Savanna Dry 6-pack</Product_Name>
+    <Product_Brand>Savanna</Product_Brand>
+    <Product_SizeML>330</Product_SizeML>
+    <Category_Name>Ciders</Category_Name>
+    <Supplier_Name>Distell</Supplier_Name>
+    <SaleType_Name>In-Store</SaleType_Name>
+    <Employee_Name>Sipho Dlamini</Employee_Name>
+    <Employee_Role>Manager</Employee_Role>
+    <Customer_Name>Yusuf Ebrahim</Customer_Name>
+    <PaymentMethod_Name>Cash</PaymentMethod_Name>
+    <Sale_Status>Completed</Sale_Status>
+    <Quantity>1</Quantity>
+    <UnitPrice_Original>114.99</UnitPrice_Original>
+    <UnitPrice_AfterDiscount>109.24</UnitPrice_AfterDiscount>
+    <LineRevenue>109.24</LineRevenue>
+    <LineDiscountAmount>5.75</LineDiscountAmount>
+    <LineCost>74.00</LineCost>
+    <LineGrossProfit>35.24</LineGrossProfit>
+    <Sale_Subtotal>532.19</Sale_Subtotal>
+    <Sale_DiscountAmount>0.00</Sale_DiscountAmount>
+    <Sale_TotalAmount>532.19</Sale_TotalAmount>
+  </SalesFact>
+  <SalesFact>
+    <Sale_ID>1038</Sale_ID>
+    <Product_ID>30</Product_ID>
+    <Category_ID>1</Category_ID>
+    <Employee_ID>3</Employee_ID>
+    <Customer_ID>5</Customer_ID>
+    <Sale_DateTime>2026-07-21T16:18:00</Sale_DateTime>
+    <Sale_Date>2026-07-21T00:00:00</Sale_Date>
+    <Sale_Year>2026</Sale_Year>
+    <Sale_MonthNumber>7</Sale_MonthNumber>
+    <Sale_MonthName>July</Sale_MonthName>
+    <Sale_Quarter>3</Sale_Quarter>
+    <Sale_DayName>Tuesday</Sale_DayName>
+    <Sale_Hour>16</Sale_Hour>
+    <Product_Name>Bells Extra Special</Product_Name>
+    <Product_Brand>Bells</Product_Brand>
+    <Product_SizeML>1000</Product_SizeML>
+    <Category_Name>Whisky</Category_Name>
+    <Supplier_Name>Diageo</Supplier_Name>
+    <SaleType_Name>In-Store</SaleType_Name>
+    <Employee_Name>Sipho Dlamini</Employee_Name>
+    <Employee_Role>Manager</Employee_Role>
+    <Customer_Name>Rajesh Singh</Customer_Name>
+    <PaymentMethod_Name>Cash</PaymentMethod_Name>
+    <Sale_Status>Completed</Sale_Status>
+    <Quantity>2</Quantity>
+    <UnitPrice_Original>249.99</UnitPrice_Original>
+    <UnitPrice_AfterDiscount>249.99</UnitPrice_AfterDiscount>
+    <LineRevenue>499.98</LineRevenue>
+    <LineDiscountAmount>0.00</LineDiscountAmount>
+    <LineCost>320.00</LineCost>
+    <LineGrossProfit>179.98</LineGrossProfit>
+    <Sale_Subtotal>829.97</Sale_Subtotal>
+    <Sale_DiscountAmount>0.00</Sale_DiscountAmount>
+    <Sale_TotalAmount>829.97</Sale_TotalAmount>
+  </SalesFact>
+  <SalesFact>
+    <Sale_ID>1038</Sale_ID>
+    <Product_ID>53</Product_ID>
+    <Category_ID>1</Category_ID>
+    <Employee_ID>3</Employee_ID>
+    <Customer_ID>33</Customer_ID>
+    <Sale_DateTime>2026-07-21T16:18:00</Sale_DateTime>
+    <Sale_Date>2026-07-21T00:00:00</Sale_Date>
+    <Sale_Year>2026</Sale_Year>
+    <Sale_MonthNumber>7</Sale_MonthNumber>
+    <Sale_MonthName>July</Sale_MonthName>
+    <Sale_Quarter>3</Sale_Quarter>
+    <Sale_DayName>Tuesday</Sale_DayName>
+    <Sale_Hour>16</Sale_Hour>
+    <Product_Name>Jameson Irish Whiskey</Product_Name>
+    <Product_Brand>Jameson</Product_Brand>
+    <Product_SizeML>750</Product_SizeML>
+    <Category_Name>Whisky</Category_Name>
+    <Supplier_Name>Diageo</Supplier_Name>
+    <SaleType_Name>In-Store</SaleType_Name>
+    <Employee_Name>Sipho Dlamini</Employee_Name>
+    <Employee_Role>Manager</Employee_Role>
+    <Customer_Name>Rajesh Singh</Customer_Name>
+    <PaymentMethod_Name>Cash</PaymentMethod_Name>
+    <Sale_Status>Completed</Sale_Status>
+    <Quantity>1</Quantity>
+    <UnitPrice_Original>329.99</UnitPrice_Original>
+    <UnitPrice_AfterDiscount>329.99</UnitPrice_AfterDiscount>
+    <LineRevenue>329.99</LineRevenue>
+    <LineDiscountAmount>0.00</LineDiscountAmount>
+    <LineCost>215.00</LineCost>
+    <LineGrossProfit>114.99</LineGrossProfit>
+    <Sale_Subtotal>829.97</Sale_Subtotal>
+    <Sale_DiscountAmount>0.00</Sale_DiscountAmount>
+    <Sale_TotalAmount>829.97</Sale_TotalAmount>
+  </SalesFact>
+  <SalesFact>
+    <Sale_ID>1039</Sale_ID>
+    <Product_ID>17</Product_ID>
+    <Category_ID>5</Category_ID>
+    <Employee_ID>4</Employee_ID>
+    <Customer_ID>24</Customer_ID>
+    <Sale_DateTime>2026-07-21T16:17:00</Sale_DateTime>
+    <Sale_Date>2026-07-21T00:00:00</Sale_Date>
+    <Sale_Year>2026</Sale_Year>
+    <Sale_MonthNumber>7</Sale_MonthNumber>
+    <Sale_MonthName>July</Sale_MonthName>
+    <Sale_Quarter>3</Sale_Quarter>
+    <Sale_DayName>Tuesday</Sale_DayName>
+    <Sale_Hour>16</Sale_Hour>
+    <Product_Name>Savanna Dry 6-pack</Product_Name>
+    <Product_Brand>Savanna</Product_Brand>
+    <Product_SizeML>330</Product_SizeML>
+    <Category_Name>Ciders</Category_Name>
+    <Supplier_Name>Distell</Supplier_Name>
+    <SaleType_Name>In-Store</SaleType_Name>
+    <Employee_Name>Ashwin Pillay</Employee_Name>
+    <Employee_Role>Cashier</Employee_Role>
+    <Customer_Name>Walk-in Customer</Customer_Name>
+    <PaymentMethod_Name>Card</PaymentMethod_Name>
+    <Sale_Status>Completed</Sale_Status>
+    <Quantity>2</Quantity>
+    <UnitPrice_Original>114.99</UnitPrice_Original>
+    <UnitPrice_AfterDiscount>103.49</UnitPrice_AfterDiscount>
+    <LineRevenue>206.98</LineRevenue>
+    <LineDiscountAmount>23.00</LineDiscountAmount>
+    <LineCost>148.00</LineCost>
+    <LineGrossProfit>58.98</LineGrossProfit>
+    <Sale_Subtotal>206.98</Sale_Subtotal>
+    <Sale_DiscountAmount>0.00</Sale_DiscountAmount>
+    <Sale_TotalAmount>206.98</Sale_TotalAmount>
+  </SalesFact>
+  <SalesFact>
+    <Sale_ID>1040</Sale_ID>
+    <Product_ID>11</Product_ID>
+    <Category_ID>4</Category_ID>
+    <Employee_ID>3</Employee_ID>
+    <Customer_ID>1</Customer_ID>
+    <Sale_DateTime>2026-07-21T11:38:00</Sale_DateTime>
+    <Sale_Date>2026-07-21T00:00:00</Sale_Date>
+    <Sale_Year>2026</Sale_Year>
+    <Sale_MonthNumber>7</Sale_MonthNumber>
+    <Sale_MonthName>July</Sale_MonthName>
+    <Sale_Quarter>3</Sale_Quarter>
+    <Sale_DayName>Tuesday</Sale_DayName>
+    <Sale_Hour>11</Sale_Hour>
+    <Product_Name>Gordons Dry Gin</Product_Name>
+    <Product_Brand>Gordons</Product_Brand>
+    <Product_SizeML>750</Product_SizeML>
+    <Category_Name>Spirits</Category_Name>
+    <Supplier_Name>Diageo</Supplier_Name>
+    <SaleType_Name>In-Store</SaleType_Name>
+    <Employee_Name>Sipho Dlamini</Employee_Name>
+    <Employee_Role>Manager</Employee_Role>
+    <Customer_Name>Walk-in Customer</Customer_Name>
+    <PaymentMethod_Name>Card</PaymentMethod_Name>
+    <Sale_Status>Completed</Sale_Status>
+    <Quantity>4</Quantity>
+    <UnitPrice_Original>229.99</UnitPrice_Original>
+    <UnitPrice_AfterDiscount>229.99</UnitPrice_AfterDiscount>
+    <LineRevenue>919.96</LineRevenue>
+    <LineDiscountAmount>0.00</LineDiscountAmount>
+    <LineCost>592.00</LineCost>
+    <LineGrossProfit>327.96</LineGrossProfit>
+    <Sale_Subtotal>919.96</Sale_Subtotal>
+    <Sale_DiscountAmount>0.00</Sale_DiscountAmount>
+    <Sale_TotalAmount>919.96</Sale_TotalAmount>
+  </SalesFact>
+  <SalesFact>
+    <Sale_ID>1041</Sale_ID>
+    <Product_ID>54</Product_ID>
+    <Category_ID>3</Category_ID>
+    <Employee_ID>4</Employee_ID>
+    <Customer_ID>26</Customer_ID>
+    <Sale_DateTime>2026-07-22T19:28:00</Sale_DateTime>
+    <Sale_Date>2026-07-22T00:00:00</Sale_Date>
+    <Sale_Year>2026</Sale_Year>
+    <Sale_MonthNumber>7</Sale_MonthNumber>
+    <Sale_MonthName>July</Sale_MonthName>
+    <Sale_Quarter>3</Sale_Quarter>
+    <Sale_DayName>Wednesday</Sale_DayName>
+    <Sale_Hour>19</Sale_Hour>
+    <Product_Name>Four Cousins Sweet Red</Product_Name>
+    <Product_Brand>Four</Product_Brand>
+    <Product_SizeML>750</Product_SizeML>
+    <Category_Name>Wine</Category_Name>
+    <Supplier_Name>Van Loveren</Supplier_Name>
+    <SaleType_Name>In-Store</SaleType_Name>
+    <Employee_Name>Ashwin Pillay</Employee_Name>
+    <Employee_Role>Cashier</Employee_Role>
+    <Customer_Name>Nomsa Khumalo</Customer_Name>
+    <PaymentMethod_Name>Card</PaymentMethod_Name>
+    <Sale_Status>Completed</Sale_Status>
+    <Quantity>3</Quantity>
+    <UnitPrice_Original>64.99</UnitPrice_Original>
+    <UnitPrice_AfterDiscount>64.99</UnitPrice_AfterDiscount>
+    <LineRevenue>194.97</LineRevenue>
+    <LineDiscountAmount>0.00</LineDiscountAmount>
+    <LineCost>117.00</LineCost>
+    <LineGrossProfit>77.97</LineGrossProfit>
+    <Sale_Subtotal>524.94</Sale_Subtotal>
+    <Sale_DiscountAmount>0.00</Sale_DiscountAmount>
+    <Sale_TotalAmount>524.94</Sale_TotalAmount>
+  </SalesFact>
+  <SalesFact>
+    <Sale_ID>1041</Sale_ID>
+    <Product_ID>8</Product_ID>
+    <Category_ID>3</Category_ID>
+    <Employee_ID>4</Employee_ID>
+    <Customer_ID>13</Customer_ID>
+    <Sale_DateTime>2026-07-22T19:28:00</Sale_DateTime>
+    <Sale_Date>2026-07-22T00:00:00</Sale_Date>
+    <Sale_Year>2026</Sale_Year>
+    <Sale_MonthNumber>7</Sale_MonthNumber>
+    <Sale_MonthName>July</Sale_MonthName>
+    <Sale_Quarter>3</Sale_Quarter>
+    <Sale_DayName>Wednesday</Sale_DayName>
+    <Sale_Hour>19</Sale_Hour>
+    <Product_Name>Nederburg Cabernet</Product_Name>
+    <Product_Brand>Nederburg</Product_Brand>
+    <Product_SizeML>750</Product_SizeML>
+    <Category_Name>Wine</Category_Name>
+    <Supplier_Name>Distell</Supplier_Name>
+    <SaleType_Name>In-Store</SaleType_Name>
+    <Employee_Name>Ashwin Pillay</Employee_Name>
+    <Employee_Role>Cashier</Employee_Role>
+    <Customer_Name>Nomsa Khumalo</Customer_Name>
+    <PaymentMethod_Name>Card</PaymentMethod_Name>
+    <Sale_Status>Completed</Sale_Status>
+    <Quantity>3</Quantity>
+    <UnitPrice_Original>109.99</UnitPrice_Original>
+    <UnitPrice_AfterDiscount>109.99</UnitPrice_AfterDiscount>
+    <LineRevenue>329.97</LineRevenue>
+    <LineDiscountAmount>0.00</LineDiscountAmount>
+    <LineCost>204.00</LineCost>
+    <LineGrossProfit>125.97</LineGrossProfit>
+    <Sale_Subtotal>524.94</Sale_Subtotal>
+    <Sale_DiscountAmount>0.00</Sale_DiscountAmount>
+    <Sale_TotalAmount>524.94</Sale_TotalAmount>
+  </SalesFact>
+  <SalesFact>
+    <Sale_ID>1042</Sale_ID>
+    <Product_ID>60</Product_ID>
+    <Category_ID>4</Category_ID>
+    <Employee_ID>3</Employee_ID>
+    <Customer_ID>28</Customer_ID>
+    <Sale_DateTime>2026-07-22T20:00:00</Sale_DateTime>
+    <Sale_Date>2026-07-22T00:00:00</Sale_Date>
+    <Sale_Year>2026</Sale_Year>
+    <Sale_MonthNumber>7</Sale_MonthNumber>
+    <Sale_MonthName>July</Sale_MonthName>
+    <Sale_Quarter>3</Sale_Quarter>
+    <Sale_DayName>Wednesday</Sale_DayName>
+    <Sale_Hour>20</Sale_Hour>
+    <Product_Name>Gordons Dry Gin</Product_Name>
+    <Product_Brand>Gordons</Product_Brand>
+    <Product_SizeML>750</Product_SizeML>
+    <Category_Name>Spirits</Category_Name>
+    <Supplier_Name>Diageo</Supplier_Name>
+    <SaleType_Name>In-Store</SaleType_Name>
+    <Employee_Name>Sipho Dlamini</Employee_Name>
+    <Employee_Role>Manager</Employee_Role>
+    <Customer_Name>Nomsa Khumalo</Customer_Name>
+    <PaymentMethod_Name>Card</PaymentMethod_Name>
+    <Sale_Status>Completed</Sale_Status>
+    <Quantity>1</Quantity>
+    <UnitPrice_Original>229.99</UnitPrice_Original>
+    <UnitPrice_AfterDiscount>229.99</UnitPrice_AfterDiscount>
+    <LineRevenue>229.99</LineRevenue>
+    <LineDiscountAmount>0.00</LineDiscountAmount>
+    <LineCost>148.00</LineCost>
+    <LineGrossProfit>81.99</LineGrossProfit>
+    <Sale_Subtotal>229.99</Sale_Subtotal>
+    <Sale_DiscountAmount>0.00</Sale_DiscountAmount>
+    <Sale_TotalAmount>229.99</Sale_TotalAmount>
+  </SalesFact>
+  <SalesFact>
+    <Sale_ID>1043</Sale_ID>
+    <Product_ID>36</Product_ID>
+    <Category_ID>2</Category_ID>
+    <Employee_ID>1</Employee_ID>
+    <Customer_ID>14</Customer_ID>
+    <Sale_DateTime>2026-07-23T09:17:00</Sale_DateTime>
+    <Sale_Date>2026-07-23T00:00:00</Sale_Date>
+    <Sale_Year>2026</Sale_Year>
+    <Sale_MonthNumber>7</Sale_MonthNumber>
+    <Sale_MonthName>July</Sale_MonthName>
+    <Sale_Quarter>3</Sale_Quarter>
+    <Sale_DayName>Thursday</Sale_DayName>
+    <Sale_Hour>9</Sale_Hour>
+    <Product_Name>Castle Lager 6-pack</Product_Name>
+    <Product_Brand>Castle</Product_Brand>
+    <Product_SizeML>330</Product_SizeML>
+    <Category_Name>Beer</Category_Name>
+    <Supplier_Name>SAB Miller</Supplier_Name>
+    <SaleType_Name>In-Store</SaleType_Name>
+    <Employee_Name>Thabo Mokoena</Employee_Name>
+    <Employee_Role>Cashier</Employee_Role>
+    <Customer_Name>Walk-in Customer</Customer_Name>
+    <PaymentMethod_Name>Card</PaymentMethod_Name>
+    <Sale_Status>Completed</Sale_Status>
+    <Quantity>3</Quantity>
+    <UnitPrice_Original>89.99</UnitPrice_Original>
+    <UnitPrice_AfterDiscount>85.49</UnitPrice_AfterDiscount>
+    <LineRevenue>256.47</LineRevenue>
+    <LineDiscountAmount>13.50</LineDiscountAmount>
+    <LineCost>174.00</LineCost>
+    <LineGrossProfit>82.47</LineGrossProfit>
+    <Sale_Subtotal>1268.41</Sale_Subtotal>
+    <Sale_DiscountAmount>0.00</Sale_DiscountAmount>
+    <Sale_TotalAmount>1268.41</Sale_TotalAmount>
+  </SalesFact>
+  <SalesFact>
+    <Sale_ID>1043</Sale_ID>
+    <Product_ID>47</Product_ID>
+    <Category_ID>5</Category_ID>
+    <Employee_ID>1</Employee_ID>
+    <Customer_ID>6</Customer_ID>
+    <Sale_DateTime>2026-07-23T09:17:00</Sale_DateTime>
+    <Sale_Date>2026-07-23T00:00:00</Sale_Date>
+    <Sale_Year>2026</Sale_Year>
+    <Sale_MonthNumber>7</Sale_MonthNumber>
+    <Sale_MonthName>July</Sale_MonthName>
+    <Sale_Quarter>3</Sale_Quarter>
+    <Sale_DayName>Thursday</Sale_DayName>
+    <Sale_Hour>9</Sale_Hour>
+    <Product_Name>Hunters Gold 6-pack</Product_Name>
+    <Product_Brand>Hunters</Product_Brand>
+    <Product_SizeML>330</Product_SizeML>
+    <Category_Name>Ciders</Category_Name>
+    <Supplier_Name>Distell</Supplier_Name>
+    <SaleType_Name>In-Store</SaleType_Name>
+    <Employee_Name>Thabo Mokoena</Employee_Name>
+    <Employee_Role>Cashier</Employee_Role>
+    <Customer_Name>Walk-in Customer</Customer_Name>
+    <PaymentMethod_Name>Card</PaymentMethod_Name>
+    <Sale_Status>Completed</Sale_Status>
+    <Quantity>2</Quantity>
+    <UnitPrice_Original>109.99</UnitPrice_Original>
+    <UnitPrice_AfterDiscount>109.99</UnitPrice_AfterDiscount>
+    <LineRevenue>219.98</LineRevenue>
+    <LineDiscountAmount>0.00</LineDiscountAmount>
+    <LineCost>142.00</LineCost>
+    <LineGrossProfit>77.98</LineGrossProfit>
+    <Sale_Subtotal>1268.41</Sale_Subtotal>
+    <Sale_DiscountAmount>0.00</Sale_DiscountAmount>
+    <Sale_TotalAmount>1268.41</Sale_TotalAmount>
+  </SalesFact>
+  <SalesFact>
+    <Sale_ID>1043</Sale_ID>
+    <Product_ID>4</Product_ID>
+    <Category_ID>4</Category_ID>
+    <Employee_ID>1</Employee_ID>
+    <Customer_ID>27</Customer_ID>
+    <Sale_DateTime>2026-07-23T09:17:00</Sale_DateTime>
+    <Sale_Date>2026-07-23T00:00:00</Sale_Date>
+    <Sale_Year>2026</Sale_Year>
+    <Sale_MonthNumber>7</Sale_MonthNumber>
+    <Sale_MonthName>July</Sale_MonthName>
+    <Sale_Quarter>3</Sale_Quarter>
+    <Sale_DayName>Thursday</Sale_DayName>
+    <Sale_Hour>9</Sale_Hour>
+    <Product_Name>Smirnoff Vodka 1893</Product_Name>
+    <Product_Brand>Smirnoff</Product_Brand>
+    <Product_SizeML>750</Product_SizeML>
+    <Category_Name>Spirits</Category_Name>
+    <Supplier_Name>Diageo</Supplier_Name>
+    <SaleType_Name>In-Store</SaleType_Name>
+    <Employee_Name>Thabo Mokoena</Employee_Name>
+    <Employee_Role>Cashier</Employee_Role>
+    <Customer_Name>Walk-in Customer</Customer_Name>
+    <PaymentMethod_Name>Card</PaymentMethod_Name>
+    <Sale_Status>Completed</Sale_Status>
+    <Quantity>4</Quantity>
+    <UnitPrice_Original>219.99</UnitPrice_Original>
+    <UnitPrice_AfterDiscount>197.99</UnitPrice_AfterDiscount>
+    <LineRevenue>791.96</LineRevenue>
+    <LineDiscountAmount>88.00</LineDiscountAmount>
+    <LineCost>568.00</LineCost>
+    <LineGrossProfit>223.96</LineGrossProfit>
+    <Sale_Subtotal>1268.41</Sale_Subtotal>
+    <Sale_DiscountAmount>0.00</Sale_DiscountAmount>
+    <Sale_TotalAmount>1268.41</Sale_TotalAmount>
+  </SalesFact>
+  <SalesFact>
+    <Sale_ID>1044</Sale_ID>
+    <Product_ID>20</Product_ID>
+    <Category_ID>1</Category_ID>
+    <Employee_ID>2</Employee_ID>
+    <Customer_ID>17</Customer_ID>
+    <Sale_DateTime>2026-07-23T16:39:00</Sale_DateTime>
+    <Sale_Date>2026-07-23T00:00:00</Sale_Date>
+    <Sale_Year>2026</Sale_Year>
+    <Sale_MonthNumber>7</Sale_MonthNumber>
+    <Sale_MonthName>July</Sale_MonthName>
+    <Sale_Quarter>3</Sale_Quarter>
+    <Sale_DayName>Thursday</Sale_DayName>
+    <Sale_Hour>16</Sale_Hour>
+    <Product_Name>Bells Extra Special</Product_Name>
+    <Product_Brand>Bells</Product_Brand>
+    <Product_SizeML>1000</Product_SizeML>
+    <Category_Name>Whisky</Category_Name>
+    <Supplier_Name>Diageo</Supplier_Name>
+    <SaleType_Name>In-Store</SaleType_Name>
+    <Employee_Name>Priya Naidoo</Employee_Name>
+    <Employee_Role>Cashier</Employee_Role>
+    <Customer_Name>Lerato Molefe</Customer_Name>
+    <PaymentMethod_Name>Card</PaymentMethod_Name>
+    <Sale_Status>Completed</Sale_Status>
+    <Quantity>2</Quantity>
+    <UnitPrice_Original>249.99</UnitPrice_Original>
+    <UnitPrice_AfterDiscount>249.99</UnitPrice_AfterDiscount>
+    <LineRevenue>499.98</LineRevenue>
+    <LineDiscountAmount>0.00</LineDiscountAmount>
+    <LineCost>320.00</LineCost>
+    <LineGrossProfit>179.98</LineGrossProfit>
+    <Sale_Subtotal>1189.95</Sale_Subtotal>
+    <Sale_DiscountAmount>0.00</Sale_DiscountAmount>
+    <Sale_TotalAmount>1189.95</Sale_TotalAmount>
+  </SalesFact>
+  <SalesFact>
+    <Sale_ID>1044</Sale_ID>
+    <Product_ID>48</Product_ID>
+    <Category_ID>4</Category_ID>
+    <Employee_ID>2</Employee_ID>
+    <Customer_ID>17</Customer_ID>
+    <Sale_DateTime>2026-07-23T16:39:00</Sale_DateTime>
+    <Sale_Date>2026-07-23T00:00:00</Sale_Date>
+    <Sale_Year>2026</Sale_Year>
+    <Sale_MonthNumber>7</Sale_MonthNumber>
+    <Sale_MonthName>July</Sale_MonthName>
+    <Sale_Quarter>3</Sale_Quarter>
+    <Sale_DayName>Thursday</Sale_DayName>
+    <Sale_Hour>16</Sale_Hour>
+    <Product_Name>Gordons Dry Gin</Product_Name>
+    <Product_Brand>Gordons</Product_Brand>
+    <Product_SizeML>750</Product_SizeML>
+    <Category_Name>Spirits</Category_Name>
+    <Supplier_Name>Diageo</Supplier_Name>
+    <SaleType_Name>In-Store</SaleType_Name>
+    <Employee_Name>Priya Naidoo</Employee_Name>
+    <Employee_Role>Cashier</Employee_Role>
+    <Customer_Name>Lerato Molefe</Customer_Name>
+    <PaymentMethod_Name>Card</PaymentMethod_Name>
+    <Sale_Status>Completed</Sale_Status>
+    <Quantity>3</Quantity>
+    <UnitPrice_Original>229.99</UnitPrice_Original>
+    <UnitPrice_AfterDiscount>229.99</UnitPrice_AfterDiscount>
+    <LineRevenue>689.97</LineRevenue>
+    <LineDiscountAmount>0.00</LineDiscountAmount>
+    <LineCost>444.00</LineCost>
+    <LineGrossProfit>245.97</LineGrossProfit>
+    <Sale_Subtotal>1189.95</Sale_Subtotal>
+    <Sale_DiscountAmount>0.00</Sale_DiscountAmount>
+    <Sale_TotalAmount>1189.95</Sale_TotalAmount>
+  </SalesFact>
+  <SalesFact>
+    <Sale_ID>1045</Sale_ID>
+    <Product_ID>28</Product_ID>
+    <Category_ID>4</Category_ID>
+    <Employee_ID>3</Employee_ID>
+    <Customer_ID>9</Customer_ID>
+    <Sale_DateTime>2026-07-24T19:15:00</Sale_DateTime>
+    <Sale_Date>2026-07-24T00:00:00</Sale_Date>
+    <Sale_Year>2026</Sale_Year>
+    <Sale_MonthNumber>7</Sale_MonthNumber>
+    <Sale_MonthName>July</Sale_MonthName>
+    <Sale_Quarter>3</Sale_Quarter>
+    <Sale_DayName>Friday</Sale_DayName>
+    <Sale_Hour>19</Sale_Hour>
+    <Product_Name>Smirnoff Vodka 1893</Product_Name>
+    <Product_Brand>Smirnoff</Product_Brand>
+    <Product_SizeML>750</Product_SizeML>
+    <Category_Name>Spirits</Category_Name>
+    <Supplier_Name>Diageo</Supplier_Name>
+    <SaleType_Name>In-Store</SaleType_Name>
+    <Employee_Name>Sipho Dlamini</Employee_Name>
+    <Employee_Role>Manager</Employee_Role>
+    <Customer_Name>Rajesh Singh</Customer_Name>
+    <PaymentMethod_Name>Card</PaymentMethod_Name>
+    <Sale_Status>Completed</Sale_Status>
+    <Quantity>2</Quantity>
+    <UnitPrice_Original>219.99</UnitPrice_Original>
+    <UnitPrice_AfterDiscount>219.99</UnitPrice_AfterDiscount>
+    <LineRevenue>439.98</LineRevenue>
+    <LineDiscountAmount>0.00</LineDiscountAmount>
+    <LineCost>284.00</LineCost>
+    <LineGrossProfit>155.98</LineGrossProfit>
+    <Sale_Subtotal>2185.91</Sale_Subtotal>
+    <Sale_DiscountAmount>0.00</Sale_DiscountAmount>
+    <Sale_TotalAmount>2185.91</Sale_TotalAmount>
+  </SalesFact>
+  <SalesFact>
+    <Sale_ID>1045</Sale_ID>
+    <Product_ID>36</Product_ID>
+    <Category_ID>1</Category_ID>
+    <Employee_ID>3</Employee_ID>
+    <Customer_ID>13</Customer_ID>
+    <Sale_DateTime>2026-07-24T19:15:00</Sale_DateTime>
+    <Sale_Date>2026-07-24T00:00:00</Sale_Date>
+    <Sale_Year>2026</Sale_Year>
+    <Sale_MonthNumber>7</Sale_MonthNumber>
+    <Sale_MonthName>July</Sale_MonthName>
+    <Sale_Quarter>3</Sale_Quarter>
+    <Sale_DayName>Friday</Sale_DayName>
+    <Sale_Hour>19</Sale_Hour>
+    <Product_Name>Johnnie Walker Black</Product_Name>
+    <Product_Brand>Johnnie</Product_Brand>
+    <Product_SizeML>750</Product_SizeML>
+    <Category_Name>Whisky</Category_Name>
+    <Supplier_Name>Diageo</Supplier_Name>
+    <SaleType_Name>In-Store</SaleType_Name>
+    <Employee_Name>Sipho Dlamini</Employee_Name>
+    <Employee_Role>Manager</Employee_Role>
+    <Customer_Name>Rajesh Singh</Customer_Name>
+    <PaymentMethod_Name>Card</PaymentMethod_Name>
+    <Sale_Status>Completed</Sale_Status>
+    <Quantity>4</Quantity>
+    <UnitPrice_Original>389.99</UnitPrice_Original>
+    <UnitPrice_AfterDiscount>350.99</UnitPrice_AfterDiscount>
+    <LineRevenue>1403.96</LineRevenue>
+    <LineDiscountAmount>156.00</LineDiscountAmount>
+    <LineCost>1020.00</LineCost>
+    <LineGrossProfit>383.96</LineGrossProfit>
+    <Sale_Subtotal>2185.91</Sale_Subtotal>
+    <Sale_DiscountAmount>0.00</Sale_DiscountAmount>
+    <Sale_TotalAmount>2185.91</Sale_TotalAmount>
+  </SalesFact>
+  <SalesFact>
+    <Sale_ID>1045</Sale_ID>
+    <Product_ID>16</Product_ID>
+    <Category_ID>2</Category_ID>
+    <Employee_ID>3</Employee_ID>
+    <Customer_ID>6</Customer_ID>
+    <Sale_DateTime>2026-07-24T19:15:00</Sale_DateTime>
+    <Sale_Date>2026-07-24T00:00:00</Sale_Date>
+    <Sale_Year>2026</Sale_Year>
+    <Sale_MonthNumber>7</Sale_MonthNumber>
+    <Sale_MonthName>July</Sale_MonthName>
+    <Sale_Quarter>3</Sale_Quarter>
+    <Sale_DayName>Friday</Sale_DayName>
+    <Sale_Hour>19</Sale_Hour>
+    <Product_Name>Heineken 6-pack</Product_Name>
+    <Product_Brand>Heineken</Product_Brand>
+    <Product_SizeML>330</Product_SizeML>
+    <Category_Name>Beer</Category_Name>
+    <Supplier_Name>Heineken SA</Supplier_Name>
+    <SaleType_Name>In-Store</SaleType_Name>
+    <Employee_Name>Sipho Dlamini</Employee_Name>
+    <Employee_Role>Manager</Employee_Role>
+    <Customer_Name>Rajesh Singh</Customer_Name>
+    <PaymentMethod_Name>Card</PaymentMethod_Name>
+    <Sale_Status>Completed</Sale_Status>
+    <Quantity>3</Quantity>
+    <UnitPrice_Original>119.99</UnitPrice_Original>
+    <UnitPrice_AfterDiscount>113.99</UnitPrice_AfterDiscount>
+    <LineRevenue>341.97</LineRevenue>
+    <LineDiscountAmount>18.00</LineDiscountAmount>
+    <LineCost>237.00</LineCost>
+    <LineGrossProfit>104.97</LineGrossProfit>
+    <Sale_Subtotal>2185.91</Sale_Subtotal>
+    <Sale_DiscountAmount>0.00</Sale_DiscountAmount>
+    <Sale_TotalAmount>2185.91</Sale_TotalAmount>
+  </SalesFact>
+  <SalesFact>
+    <Sale_ID>1046</Sale_ID>
+    <Product_ID>14</Product_ID>
+    <Category_ID>3</Category_ID>
+    <Employee_ID>1</Employee_ID>
+    <Customer_ID>25</Customer_ID>
+    <Sale_DateTime>2026-07-24T11:21:00</Sale_DateTime>
+    <Sale_Date>2026-07-24T00:00:00</Sale_Date>
+    <Sale_Year>2026</Sale_Year>
+    <Sale_MonthNumber>7</Sale_MonthNumber>
+    <Sale_MonthName>July</Sale_MonthName>
+    <Sale_Quarter>3</Sale_Quarter>
+    <Sale_DayName>Friday</Sale_DayName>
+    <Sale_Hour>11</Sale_Hour>
+    <Product_Name>JC le Roux La Chanson</Product_Name>
+    <Product_Brand>JC</Product_Brand>
+    <Product_SizeML>750</Product_SizeML>
+    <Category_Name>Wine</Category_Name>
+    <Supplier_Name>Distell</Supplier_Name>
+    <SaleType_Name>In-Store</SaleType_Name>
+    <Employee_Name>Thabo Mokoena</Employee_Name>
+    <Employee_Role>Cashier</Employee_Role>
+    <Customer_Name>Nomsa Khumalo</Customer_Name>
+    <PaymentMethod_Name>Card</PaymentMethod_Name>
+    <Sale_Status>Completed</Sale_Status>
+    <Quantity>2</Quantity>
+    <UnitPrice_Original>89.99</UnitPrice_Original>
+    <UnitPrice_AfterDiscount>89.99</UnitPrice_AfterDiscount>
+    <LineRevenue>179.98</LineRevenue>
+    <LineDiscountAmount>0.00</LineDiscountAmount>
+    <LineCost>112.00</LineCost>
+    <LineGrossProfit>67.98</LineGrossProfit>
+    <Sale_Subtotal>1007.94</Sale_Subtotal>
+    <Sale_DiscountAmount>0.00</Sale_DiscountAmount>
+    <Sale_TotalAmount>1007.94</Sale_TotalAmount>
+  </SalesFact>
+  <SalesFact>
+    <Sale_ID>1046</Sale_ID>
+    <Product_ID>18</Product_ID>
+    <Category_ID>4</Category_ID>
+    <Employee_ID>1</Employee_ID>
+    <Customer_ID>22</Customer_ID>
+    <Sale_DateTime>2026-07-24T11:21:00</Sale_DateTime>
+    <Sale_Date>2026-07-24T00:00:00</Sale_Date>
+    <Sale_Year>2026</Sale_Year>
+    <Sale_MonthNumber>7</Sale_MonthNumber>
+    <Sale_MonthName>July</Sale_MonthName>
+    <Sale_Quarter>3</Sale_Quarter>
+    <Sale_DayName>Friday</Sale_DayName>
+    <Sale_Hour>11</Sale_Hour>
+    <Product_Name>Gordons Dry Gin</Product_Name>
+    <Product_Brand>Gordons</Product_Brand>
+    <Product_SizeML>750</Product_SizeML>
+    <Category_Name>Spirits</Category_Name>
+    <Supplier_Name>Diageo</Supplier_Name>
+    <SaleType_Name>In-Store</SaleType_Name>
+    <Employee_Name>Thabo Mokoena</Employee_Name>
+    <Employee_Role>Cashier</Employee_Role>
+    <Customer_Name>Nomsa Khumalo</Customer_Name>
+    <PaymentMethod_Name>Card</PaymentMethod_Name>
+    <Sale_Status>Completed</Sale_Status>
+    <Quantity>4</Quantity>
+    <UnitPrice_Original>229.99</UnitPrice_Original>
+    <UnitPrice_AfterDiscount>206.99</UnitPrice_AfterDiscount>
+    <LineRevenue>827.96</LineRevenue>
+    <LineDiscountAmount>92.00</LineDiscountAmount>
+    <LineCost>592.00</LineCost>
+    <LineGrossProfit>235.96</LineGrossProfit>
+    <Sale_Subtotal>1007.94</Sale_Subtotal>
+    <Sale_DiscountAmount>0.00</Sale_DiscountAmount>
+    <Sale_TotalAmount>1007.94</Sale_TotalAmount>
+  </SalesFact>
+  <SalesFact>
+    <Sale_ID>1047</Sale_ID>
+    <Product_ID>28</Product_ID>
+    <Category_ID>2</Category_ID>
+    <Employee_ID>3</Employee_ID>
+    <Customer_ID>31</Customer_ID>
+    <Sale_DateTime>2026-07-25T16:17:00</Sale_DateTime>
+    <Sale_Date>2026-07-25T00:00:00</Sale_Date>
+    <Sale_Year>2026</Sale_Year>
+    <Sale_MonthNumber>7</Sale_MonthNumber>
+    <Sale_MonthName>July</Sale_MonthName>
+    <Sale_Quarter>3</Sale_Quarter>
+    <Sale_DayName>Saturday</Sale_DayName>
+    <Sale_Hour>16</Sale_Hour>
+    <Product_Name>Castle Lager 6-pack</Product_Name>
+    <Product_Brand>Castle</Product_Brand>
+    <Product_SizeML>330</Product_SizeML>
+    <Category_Name>Beer</Category_Name>
+    <Supplier_Name>SAB Miller</Supplier_Name>
+    <SaleType_Name>In-Store</SaleType_Name>
+    <Employee_Name>Sipho Dlamini</Employee_Name>
+    <Employee_Role>Manager</Employee_Role>
+    <Customer_Name>Walk-in Customer</Customer_Name>
+    <PaymentMethod_Name>Card</PaymentMethod_Name>
+    <Sale_Status>Completed</Sale_Status>
+    <Quantity>3</Quantity>
+    <UnitPrice_Original>89.99</UnitPrice_Original>
+    <UnitPrice_AfterDiscount>89.99</UnitPrice_AfterDiscount>
+    <LineRevenue>269.97</LineRevenue>
+    <LineDiscountAmount>0.00</LineDiscountAmount>
+    <LineCost>174.00</LineCost>
+    <LineGrossProfit>95.97</LineGrossProfit>
+    <Sale_Subtotal>1363.91</Sale_Subtotal>
+    <Sale_DiscountAmount>0.00</Sale_DiscountAmount>
+    <Sale_TotalAmount>1363.91</Sale_TotalAmount>
+  </SalesFact>
+  <SalesFact>
+    <Sale_ID>1047</Sale_ID>
+    <Product_ID>38</Product_ID>
+    <Category_ID>4</Category_ID>
+    <Employee_ID>3</Employee_ID>
+    <Customer_ID>32</Customer_ID>
+    <Sale_DateTime>2026-07-25T16:17:00</Sale_DateTime>
+    <Sale_Date>2026-07-25T00:00:00</Sale_Date>
+    <Sale_Year>2026</Sale_Year>
+    <Sale_MonthNumber>7</Sale_MonthNumber>
+    <Sale_MonthName>July</Sale_MonthName>
+    <Sale_Quarter>3</Sale_Quarter>
+    <Sale_DayName>Saturday</Sale_DayName>
+    <Sale_Hour>16</Sale_Hour>
+    <Product_Name>Gordons Dry Gin</Product_Name>
+    <Product_Brand>Gordons</Product_Brand>
+    <Product_SizeML>750</Product_SizeML>
+    <Category_Name>Spirits</Category_Name>
+    <Supplier_Name>Diageo</Supplier_Name>
+    <SaleType_Name>In-Store</SaleType_Name>
+    <Employee_Name>Sipho Dlamini</Employee_Name>
+    <Employee_Role>Manager</Employee_Role>
+    <Customer_Name>Walk-in Customer</Customer_Name>
+    <PaymentMethod_Name>Card</PaymentMethod_Name>
+    <Sale_Status>Completed</Sale_Status>
+    <Quantity>4</Quantity>
+    <UnitPrice_Original>229.99</UnitPrice_Original>
+    <UnitPrice_AfterDiscount>218.49</UnitPrice_AfterDiscount>
+    <LineRevenue>873.96</LineRevenue>
+    <LineDiscountAmount>46.00</LineDiscountAmount>
+    <LineCost>592.00</LineCost>
+    <LineGrossProfit>281.96</LineGrossProfit>
+    <Sale_Subtotal>1363.91</Sale_Subtotal>
+    <Sale_DiscountAmount>0.00</Sale_DiscountAmount>
+    <Sale_TotalAmount>1363.91</Sale_TotalAmount>
+  </SalesFact>
+  <SalesFact>
+    <Sale_ID>1047</Sale_ID>
+    <Product_ID>1</Product_ID>
+    <Category_ID>3</Category_ID>
+    <Employee_ID>3</Employee_ID>
+    <Customer_ID>5</Customer_ID>
+    <Sale_DateTime>2026-07-25T16:17:00</Sale_DateTime>
+    <Sale_Date>2026-07-25T00:00:00</Sale_Date>
+    <Sale_Year>2026</Sale_Year>
+    <Sale_MonthNumber>7</Sale_MonthNumber>
+    <Sale_MonthName>July</Sale_MonthName>
+    <Sale_Quarter>3</Sale_Quarter>
+    <Sale_DayName>Saturday</Sale_DayName>
+    <Sale_Hour>16</Sale_Hour>
+    <Product_Name>Nederburg Cabernet</Product_Name>
+    <Product_Brand>Nederburg</Product_Brand>
+    <Product_SizeML>750</Product_SizeML>
+    <Category_Name>Wine</Category_Name>
+    <Supplier_Name>Distell</Supplier_Name>
+    <SaleType_Name>In-Store</SaleType_Name>
+    <Employee_Name>Sipho Dlamini</Employee_Name>
+    <Employee_Role>Manager</Employee_Role>
+    <Customer_Name>Walk-in Customer</Customer_Name>
+    <PaymentMethod_Name>Card</PaymentMethod_Name>
+    <Sale_Status>Completed</Sale_Status>
+    <Quantity>2</Quantity>
+    <UnitPrice_Original>109.99</UnitPrice_Original>
+    <UnitPrice_AfterDiscount>109.99</UnitPrice_AfterDiscount>
+    <LineRevenue>219.98</LineRevenue>
+    <LineDiscountAmount>0.00</LineDiscountAmount>
+    <LineCost>136.00</LineCost>
+    <LineGrossProfit>83.98</LineGrossProfit>
+    <Sale_Subtotal>1363.91</Sale_Subtotal>
+    <Sale_DiscountAmount>0.00</Sale_DiscountAmount>
+    <Sale_TotalAmount>1363.91</Sale_TotalAmount>
+  </SalesFact>
+  <SalesFact>
+    <Sale_ID>1048</Sale_ID>
+    <Product_ID>44</Product_ID>
+    <Category_ID>2</Category_ID>
+    <Employee_ID>4</Employee_ID>
+    <Customer_ID>7</Customer_ID>
+    <Sale_DateTime>2026-07-26T17:54:00</Sale_DateTime>
+    <Sale_Date>2026-07-26T00:00:00</Sale_Date>
+    <Sale_Year>2026</Sale_Year>
+    <Sale_MonthNumber>7</Sale_MonthNumber>
+    <Sale_MonthName>July</Sale_MonthName>
+    <Sale_Quarter>3</Sale_Quarter>
+    <Sale_DayName>Sunday</Sale_DayName>
+    <Sale_Hour>17</Sale_Hour>
+    <Product_Name>Castle Lager 6-pack</Product_Name>
+    <Product_Brand>Castle</Product_Brand>
+    <Product_SizeML>330</Product_SizeML>
+    <Category_Name>Beer</Category_Name>
+    <Supplier_Name>SAB Miller</Supplier_Name>
+    <SaleType_Name>In-Store</SaleType_Name>
+    <Employee_Name>Ashwin Pillay</Employee_Name>
+    <Employee_Role>Cashier</Employee_Role>
+    <Customer_Name>Rajesh Singh</Customer_Name>
+    <PaymentMethod_Name>Card</PaymentMethod_Name>
+    <Sale_Status>Completed</Sale_Status>
+    <Quantity>2</Quantity>
+    <UnitPrice_Original>89.99</UnitPrice_Original>
+    <UnitPrice_AfterDiscount>80.99</UnitPrice_AfterDiscount>
+    <LineRevenue>161.98</LineRevenue>
+    <LineDiscountAmount>18.00</LineDiscountAmount>
+    <LineCost>116.00</LineCost>
+    <LineGrossProfit>45.98</LineGrossProfit>
+    <Sale_Subtotal>161.98</Sale_Subtotal>
+    <Sale_DiscountAmount>0.00</Sale_DiscountAmount>
+    <Sale_TotalAmount>161.98</Sale_TotalAmount>
+  </SalesFact>
+  <SalesFact>
+    <Sale_ID>1049</Sale_ID>
+    <Product_ID>59</Product_ID>
+    <Category_ID>1</Category_ID>
+    <Employee_ID>4</Employee_ID>
+    <Customer_ID>3</Customer_ID>
+    <Sale_DateTime>2026-07-26T20:44:00</Sale_DateTime>
+    <Sale_Date>2026-07-26T00:00:00</Sale_Date>
+    <Sale_Year>2026</Sale_Year>
+    <Sale_MonthNumber>7</Sale_MonthNumber>
+    <Sale_MonthName>July</Sale_MonthName>
+    <Sale_Quarter>3</Sale_Quarter>
+    <Sale_DayName>Sunday</Sale_DayName>
+    <Sale_Hour>20</Sale_Hour>
+    <Product_Name>Johnnie Walker Black</Product_Name>
+    <Product_Brand>Johnnie</Product_Brand>
+    <Product_SizeML>750</Product_SizeML>
+    <Category_Name>Whisky</Category_Name>
+    <Supplier_Name>Diageo</Supplier_Name>
+    <SaleType_Name>In-Store</SaleType_Name>
+    <Employee_Name>Ashwin Pillay</Employee_Name>
+    <Employee_Role>Cashier</Employee_Role>
+    <Customer_Name>Walk-in Customer</Customer_Name>
+    <PaymentMethod_Name>Card</PaymentMethod_Name>
+    <Sale_Status>Completed</Sale_Status>
+    <Quantity>2</Quantity>
+    <UnitPrice_Original>389.99</UnitPrice_Original>
+    <UnitPrice_AfterDiscount>350.99</UnitPrice_AfterDiscount>
+    <LineRevenue>701.98</LineRevenue>
+    <LineDiscountAmount>78.00</LineDiscountAmount>
+    <LineCost>510.00</LineCost>
+    <LineGrossProfit>191.98</LineGrossProfit>
+    <Sale_Subtotal>701.98</Sale_Subtotal>
+    <Sale_DiscountAmount>0.00</Sale_DiscountAmount>
+    <Sale_TotalAmount>701.98</Sale_TotalAmount>
+  </SalesFact>
+  <SalesFact>
+    <Sale_ID>1050</Sale_ID>
+    <Product_ID>35</Product_ID>
+    <Category_ID>4</Category_ID>
+    <Employee_ID>2</Employee_ID>
+    <Customer_ID>20</Customer_ID>
+    <Sale_DateTime>2026-07-27T20:19:00</Sale_DateTime>
+    <Sale_Date>2026-07-27T00:00:00</Sale_Date>
+    <Sale_Year>2026</Sale_Year>
+    <Sale_MonthNumber>7</Sale_MonthNumber>
+    <Sale_MonthName>July</Sale_MonthName>
+    <Sale_Quarter>3</Sale_Quarter>
+    <Sale_DayName>Monday</Sale_DayName>
+    <Sale_Hour>20</Sale_Hour>
+    <Product_Name>Klipdrift Premium</Product_Name>
+    <Product_Brand>Klipdrift</Product_Brand>
+    <Product_SizeML>750</Product_SizeML>
+    <Category_Name>Spirits</Category_Name>
+    <Supplier_Name>Distell</Supplier_Name>
+    <SaleType_Name>In-Store</SaleType_Name>
+    <Employee_Name>Priya Naidoo</Employee_Name>
+    <Employee_Role>Cashier</Employee_Role>
+    <Customer_Name>Lerato Molefe</Customer_Name>
+    <PaymentMethod_Name>Card</PaymentMethod_Name>
+    <Sale_Status>Completed</Sale_Status>
+    <Quantity>1</Quantity>
+    <UnitPrice_Original>259.99</UnitPrice_Original>
+    <UnitPrice_AfterDiscount>259.99</UnitPrice_AfterDiscount>
+    <LineRevenue>259.99</LineRevenue>
+    <LineDiscountAmount>0.00</LineDiscountAmount>
+    <LineCost>170.00</LineCost>
+    <LineGrossProfit>89.99</LineGrossProfit>
+    <Sale_Subtotal>996.96</Sale_Subtotal>
+    <Sale_DiscountAmount>0.00</Sale_DiscountAmount>
+    <Sale_TotalAmount>996.96</Sale_TotalAmount>
+  </SalesFact>
+  <SalesFact>
+    <Sale_ID>1050</Sale_ID>
+    <Product_ID>30</Product_ID>
+    <Category_ID>1</Category_ID>
+    <Employee_ID>2</Employee_ID>
+    <Customer_ID>18</Customer_ID>
+    <Sale_DateTime>2026-07-27T20:19:00</Sale_DateTime>
+    <Sale_Date>2026-07-27T00:00:00</Sale_Date>
+    <Sale_Year>2026</Sale_Year>
+    <Sale_MonthNumber>7</Sale_MonthNumber>
+    <Sale_MonthName>July</Sale_MonthName>
+    <Sale_Quarter>3</Sale_Quarter>
+    <Sale_DayName>Monday</Sale_DayName>
+    <Sale_Hour>20</Sale_Hour>
+    <Product_Name>Jameson Irish Whiskey</Product_Name>
+    <Product_Brand>Jameson</Product_Brand>
+    <Product_SizeML>750</Product_SizeML>
+    <Category_Name>Whisky</Category_Name>
+    <Supplier_Name>Diageo</Supplier_Name>
+    <SaleType_Name>In-Store</SaleType_Name>
+    <Employee_Name>Priya Naidoo</Employee_Name>
+    <Employee_Role>Cashier</Employee_Role>
+    <Customer_Name>Lerato Molefe</Customer_Name>
+    <PaymentMethod_Name>Card</PaymentMethod_Name>
+    <Sale_Status>Completed</Sale_Status>
+    <Quantity>2</Quantity>
+    <UnitPrice_Original>329.99</UnitPrice_Original>
+    <UnitPrice_AfterDiscount>313.49</UnitPrice_AfterDiscount>
+    <LineRevenue>626.98</LineRevenue>
+    <LineDiscountAmount>33.00</LineDiscountAmount>
+    <LineCost>430.00</LineCost>
+    <LineGrossProfit>196.98</LineGrossProfit>
+    <Sale_Subtotal>996.96</Sale_Subtotal>
+    <Sale_DiscountAmount>0.00</Sale_DiscountAmount>
+    <Sale_TotalAmount>996.96</Sale_TotalAmount>
+  </SalesFact>
+  <SalesFact>
+    <Sale_ID>1050</Sale_ID>
+    <Product_ID>21</Product_ID>
+    <Category_ID>3</Category_ID>
+    <Employee_ID>2</Employee_ID>
+    <Customer_ID>16</Customer_ID>
+    <Sale_DateTime>2026-07-27T20:19:00</Sale_DateTime>
+    <Sale_Date>2026-07-27T00:00:00</Sale_Date>
+    <Sale_Year>2026</Sale_Year>
+    <Sale_MonthNumber>7</Sale_MonthNumber>
+    <Sale_MonthName>July</Sale_MonthName>
+    <Sale_Quarter>3</Sale_Quarter>
+    <Sale_DayName>Monday</Sale_DayName>
+    <Sale_Hour>20</Sale_Hour>
+    <Product_Name>Nederburg Cabernet</Product_Name>
+    <Product_Brand>Nederburg</Product_Brand>
+    <Product_SizeML>750</Product_SizeML>
+    <Category_Name>Wine</Category_Name>
+    <Supplier_Name>Distell</Supplier_Name>
+    <SaleType_Name>In-Store</SaleType_Name>
+    <Employee_Name>Priya Naidoo</Employee_Name>
+    <Employee_Role>Cashier</Employee_Role>
+    <Customer_Name>Lerato Molefe</Customer_Name>
+    <PaymentMethod_Name>Card</PaymentMethod_Name>
+    <Sale_Status>Completed</Sale_Status>
+    <Quantity>1</Quantity>
+    <UnitPrice_Original>109.99</UnitPrice_Original>
+    <UnitPrice_AfterDiscount>109.99</UnitPrice_AfterDiscount>
+    <LineRevenue>109.99</LineRevenue>
+    <LineDiscountAmount>0.00</LineDiscountAmount>
+    <LineCost>68.00</LineCost>
+    <LineGrossProfit>41.99</LineGrossProfit>
+    <Sale_Subtotal>996.96</Sale_Subtotal>
+    <Sale_DiscountAmount>0.00</Sale_DiscountAmount>
+    <Sale_TotalAmount>996.96</Sale_TotalAmount>
+  </SalesFact>
+  <SalesFact>
+    <Sale_ID>1051</Sale_ID>
+    <Product_ID>2</Product_ID>
+    <Category_ID>4</Category_ID>
+    <Employee_ID>2</Employee_ID>
+    <Customer_ID>13</Customer_ID>
+    <Sale_DateTime>2026-07-27T16:33:00</Sale_DateTime>
+    <Sale_Date>2026-07-27T00:00:00</Sale_Date>
+    <Sale_Year>2026</Sale_Year>
+    <Sale_MonthNumber>7</Sale_MonthNumber>
+    <Sale_MonthName>July</Sale_MonthName>
+    <Sale_Quarter>3</Sale_Quarter>
+    <Sale_DayName>Monday</Sale_DayName>
+    <Sale_Hour>16</Sale_Hour>
+    <Product_Name>Klipdrift Premium</Product_Name>
+    <Product_Brand>Klipdrift</Product_Brand>
+    <Product_SizeML>750</Product_SizeML>
+    <Category_Name>Spirits</Category_Name>
+    <Supplier_Name>Distell</Supplier_Name>
+    <SaleType_Name>In-Store</SaleType_Name>
+    <Employee_Name>Priya Naidoo</Employee_Name>
+    <Employee_Role>Cashier</Employee_Role>
+    <Customer_Name>Walk-in Customer</Customer_Name>
+    <PaymentMethod_Name>Card</PaymentMethod_Name>
+    <Sale_Status>Completed</Sale_Status>
+    <Quantity>3</Quantity>
+    <UnitPrice_Original>259.99</UnitPrice_Original>
+    <UnitPrice_AfterDiscount>259.99</UnitPrice_AfterDiscount>
+    <LineRevenue>779.97</LineRevenue>
+    <LineDiscountAmount>0.00</LineDiscountAmount>
+    <LineCost>510.00</LineCost>
+    <LineGrossProfit>269.97</LineGrossProfit>
+    <Sale_Subtotal>779.97</Sale_Subtotal>
+    <Sale_DiscountAmount>0.00</Sale_DiscountAmount>
+    <Sale_TotalAmount>779.97</Sale_TotalAmount>
+  </SalesFact>
+  <SalesFact>
+    <Sale_ID>1052</Sale_ID>
+    <Product_ID>3</Product_ID>
+    <Category_ID>4</Category_ID>
+    <Employee_ID>4</Employee_ID>
+    <Customer_ID>22</Customer_ID>
+    <Sale_DateTime>2026-07-27T16:56:00</Sale_DateTime>
+    <Sale_Date>2026-07-27T00:00:00</Sale_Date>
+    <Sale_Year>2026</Sale_Year>
+    <Sale_MonthNumber>7</Sale_MonthNumber>
+    <Sale_MonthName>July</Sale_MonthName>
+    <Sale_Quarter>3</Sale_Quarter>
+    <Sale_DayName>Monday</Sale_DayName>
+    <Sale_Hour>16</Sale_Hour>
+    <Product_Name>Gordons Dry Gin</Product_Name>
+    <Product_Brand>Gordons</Product_Brand>
+    <Product_SizeML>750</Product_SizeML>
+    <Category_Name>Spirits</Category_Name>
+    <Supplier_Name>Diageo</Supplier_Name>
+    <SaleType_Name>In-Store</SaleType_Name>
+    <Employee_Name>Ashwin Pillay</Employee_Name>
+    <Employee_Role>Cashier</Employee_Role>
+    <Customer_Name>Walk-in Customer</Customer_Name>
+    <PaymentMethod_Name>Card</PaymentMethod_Name>
+    <Sale_Status>Completed</Sale_Status>
+    <Quantity>2</Quantity>
+    <UnitPrice_Original>229.99</UnitPrice_Original>
+    <UnitPrice_AfterDiscount>218.49</UnitPrice_AfterDiscount>
+    <LineRevenue>436.98</LineRevenue>
+    <LineDiscountAmount>23.00</LineDiscountAmount>
+    <LineCost>296.00</LineCost>
+    <LineGrossProfit>140.98</LineGrossProfit>
+    <Sale_Subtotal>436.98</Sale_Subtotal>
+    <Sale_DiscountAmount>0.00</Sale_DiscountAmount>
+    <Sale_TotalAmount>436.98</Sale_TotalAmount>
+  </SalesFact>
+  <SalesFact>
+    <Sale_ID>1053</Sale_ID>
+    <Product_ID>30</Product_ID>
+    <Category_ID>5</Category_ID>
+    <Employee_ID>4</Employee_ID>
+    <Customer_ID>15</Customer_ID>
+    <Sale_DateTime>2026-07-28T15:23:00</Sale_DateTime>
+    <Sale_Date>2026-07-28T00:00:00</Sale_Date>
+    <Sale_Year>2026</Sale_Year>
+    <Sale_MonthNumber>7</Sale_MonthNumber>
+    <Sale_MonthName>July</Sale_MonthName>
+    <Sale_Quarter>3</Sale_Quarter>
+    <Sale_DayName>Tuesday</Sale_DayName>
+    <Sale_Hour>15</Sale_Hour>
+    <Product_Name>Savanna Dry 6-pack</Product_Name>
+    <Product_Brand>Savanna</Product_Brand>
+    <Product_SizeML>330</Product_SizeML>
+    <Category_Name>Ciders</Category_Name>
+    <Supplier_Name>Distell</Supplier_Name>
+    <SaleType_Name>In-Store</SaleType_Name>
+    <Employee_Name>Ashwin Pillay</Employee_Name>
+    <Employee_Role>Cashier</Employee_Role>
+    <Customer_Name>Walk-in Customer</Customer_Name>
+    <PaymentMethod_Name>Cash</PaymentMethod_Name>
+    <Sale_Status>Completed</Sale_Status>
+    <Quantity>2</Quantity>
+    <UnitPrice_Original>114.99</UnitPrice_Original>
+    <UnitPrice_AfterDiscount>109.24</UnitPrice_AfterDiscount>
+    <LineRevenue>218.48</LineRevenue>
+    <LineDiscountAmount>11.50</LineDiscountAmount>
+    <LineCost>148.00</LineCost>
+    <LineGrossProfit>70.48</LineGrossProfit>
+    <Sale_Subtotal>458.46</Sale_Subtotal>
+    <Sale_DiscountAmount>0.00</Sale_DiscountAmount>
+    <Sale_TotalAmount>458.46</Sale_TotalAmount>
+  </SalesFact>
+  <SalesFact>
+    <Sale_ID>1053</Sale_ID>
+    <Product_ID>17</Product_ID>
+    <Category_ID>2</Category_ID>
+    <Employee_ID>4</Employee_ID>
+    <Customer_ID>19</Customer_ID>
+    <Sale_DateTime>2026-07-28T15:23:00</Sale_DateTime>
+    <Sale_Date>2026-07-28T00:00:00</Sale_Date>
+    <Sale_Year>2026</Sale_Year>
+    <Sale_MonthNumber>7</Sale_MonthNumber>
+    <Sale_MonthName>July</Sale_MonthName>
+    <Sale_Quarter>3</Sale_Quarter>
+    <Sale_DayName>Tuesday</Sale_DayName>
+    <Sale_Hour>15</Sale_Hour>
+    <Product_Name>Heineken 6-pack</Product_Name>
+    <Product_Brand>Heineken</Product_Brand>
+    <Product_SizeML>330</Product_SizeML>
+    <Category_Name>Beer</Category_Name>
+    <Supplier_Name>Heineken SA</Supplier_Name>
+    <SaleType_Name>In-Store</SaleType_Name>
+    <Employee_Name>Ashwin Pillay</Employee_Name>
+    <Employee_Role>Cashier</Employee_Role>
+    <Customer_Name>Walk-in Customer</Customer_Name>
+    <PaymentMethod_Name>Cash</PaymentMethod_Name>
+    <Sale_Status>Completed</Sale_Status>
+    <Quantity>2</Quantity>
+    <UnitPrice_Original>119.99</UnitPrice_Original>
+    <UnitPrice_AfterDiscount>119.99</UnitPrice_AfterDiscount>
+    <LineRevenue>239.98</LineRevenue>
+    <LineDiscountAmount>0.00</LineDiscountAmount>
+    <LineCost>158.00</LineCost>
+    <LineGrossProfit>81.98</LineGrossProfit>
+    <Sale_Subtotal>458.46</Sale_Subtotal>
+    <Sale_DiscountAmount>0.00</Sale_DiscountAmount>
+    <Sale_TotalAmount>458.46</Sale_TotalAmount>
+  </SalesFact>
+  <SalesFact>
+    <Sale_ID>1054</Sale_ID>
+    <Product_ID>10</Product_ID>
+    <Category_ID>4</Category_ID>
+    <Employee_ID>4</Employee_ID>
+    <Customer_ID>26</Customer_ID>
+    <Sale_DateTime>2026-07-28T10:39:00</Sale_DateTime>
+    <Sale_Date>2026-07-28T00:00:00</Sale_Date>
+    <Sale_Year>2026</Sale_Year>
+    <Sale_MonthNumber>7</Sale_MonthNumber>
+    <Sale_MonthName>July</Sale_MonthName>
+    <Sale_Quarter>3</Sale_Quarter>
+    <Sale_DayName>Tuesday</Sale_DayName>
+    <Sale_Hour>10</Sale_Hour>
+    <Product_Name>Gordons Dry Gin</Product_Name>
+    <Product_Brand>Gordons</Product_Brand>
+    <Product_SizeML>750</Product_SizeML>
+    <Category_Name>Spirits</Category_Name>
+    <Supplier_Name>Diageo</Supplier_Name>
+    <SaleType_Name>In-Store</SaleType_Name>
+    <Employee_Name>Ashwin Pillay</Employee_Name>
+    <Employee_Role>Cashier</Employee_Role>
+    <Customer_Name>Walk-in Customer</Customer_Name>
+    <PaymentMethod_Name>Card</PaymentMethod_Name>
+    <Sale_Status>Completed</Sale_Status>
+    <Quantity>1</Quantity>
+    <UnitPrice_Original>229.99</UnitPrice_Original>
+    <UnitPrice_AfterDiscount>206.99</UnitPrice_AfterDiscount>
+    <LineRevenue>206.99</LineRevenue>
+    <LineDiscountAmount>23.00</LineDiscountAmount>
+    <LineCost>148.00</LineCost>
+    <LineGrossProfit>58.99</LineGrossProfit>
+    <Sale_Subtotal>206.99</Sale_Subtotal>
+    <Sale_DiscountAmount>0.00</Sale_DiscountAmount>
+    <Sale_TotalAmount>206.99</Sale_TotalAmount>
+  </SalesFact>
+  <SalesFact>
+    <Sale_ID>1055</Sale_ID>
+    <Product_ID>6</Product_ID>
+    <Category_ID>1</Category_ID>
+    <Employee_ID>1</Employee_ID>
+    <Customer_ID>11</Customer_ID>
+    <Sale_DateTime>2026-07-28T09:13:00</Sale_DateTime>
+    <Sale_Date>2026-07-28T00:00:00</Sale_Date>
+    <Sale_Year>2026</Sale_Year>
+    <Sale_MonthNumber>7</Sale_MonthNumber>
+    <Sale_MonthName>July</Sale_MonthName>
+    <Sale_Quarter>3</Sale_Quarter>
+    <Sale_DayName>Tuesday</Sale_DayName>
+    <Sale_Hour>9</Sale_Hour>
+    <Product_Name>Bells Extra Special</Product_Name>
+    <Product_Brand>Bells</Product_Brand>
+    <Product_SizeML>1000</Product_SizeML>
+    <Category_Name>Whisky</Category_Name>
+    <Supplier_Name>Diageo</Supplier_Name>
+    <SaleType_Name>In-Store</SaleType_Name>
+    <Employee_Name>Thabo Mokoena</Employee_Name>
+    <Employee_Role>Cashier</Employee_Role>
+    <Customer_Name>Walk-in Customer</Customer_Name>
+    <PaymentMethod_Name>Card</PaymentMethod_Name>
+    <Sale_Status>Completed</Sale_Status>
+    <Quantity>1</Quantity>
+    <UnitPrice_Original>249.99</UnitPrice_Original>
+    <UnitPrice_AfterDiscount>249.99</UnitPrice_AfterDiscount>
+    <LineRevenue>249.99</LineRevenue>
+    <LineDiscountAmount>0.00</LineDiscountAmount>
+    <LineCost>160.00</LineCost>
+    <LineGrossProfit>89.99</LineGrossProfit>
+    <Sale_Subtotal>939.96</Sale_Subtotal>
+    <Sale_DiscountAmount>0.00</Sale_DiscountAmount>
+    <Sale_TotalAmount>939.96</Sale_TotalAmount>
+  </SalesFact>
+  <SalesFact>
+    <Sale_ID>1055</Sale_ID>
+    <Product_ID>22</Product_ID>
+    <Category_ID>4</Category_ID>
+    <Employee_ID>1</Employee_ID>
+    <Customer_ID>13</Customer_ID>
+    <Sale_DateTime>2026-07-28T09:13:00</Sale_DateTime>
+    <Sale_Date>2026-07-28T00:00:00</Sale_Date>
+    <Sale_Year>2026</Sale_Year>
+    <Sale_MonthNumber>7</Sale_MonthNumber>
+    <Sale_MonthName>July</Sale_MonthName>
+    <Sale_Quarter>3</Sale_Quarter>
+    <Sale_DayName>Tuesday</Sale_DayName>
+    <Sale_Hour>9</Sale_Hour>
+    <Product_Name>Gordons Dry Gin</Product_Name>
+    <Product_Brand>Gordons</Product_Brand>
+    <Product_SizeML>750</Product_SizeML>
+    <Category_Name>Spirits</Category_Name>
+    <Supplier_Name>Diageo</Supplier_Name>
+    <SaleType_Name>In-Store</SaleType_Name>
+    <Employee_Name>Thabo Mokoena</Employee_Name>
+    <Employee_Role>Cashier</Employee_Role>
+    <Customer_Name>Walk-in Customer</Customer_Name>
+    <PaymentMethod_Name>Card</PaymentMethod_Name>
+    <Sale_Status>Completed</Sale_Status>
+    <Quantity>3</Quantity>
+    <UnitPrice_Original>229.99</UnitPrice_Original>
+    <UnitPrice_AfterDiscount>229.99</UnitPrice_AfterDiscount>
+    <LineRevenue>689.97</LineRevenue>
+    <LineDiscountAmount>0.00</LineDiscountAmount>
+    <LineCost>444.00</LineCost>
+    <LineGrossProfit>245.97</LineGrossProfit>
+    <Sale_Subtotal>939.96</Sale_Subtotal>
+    <Sale_DiscountAmount>0.00</Sale_DiscountAmount>
+    <Sale_TotalAmount>939.96</Sale_TotalAmount>
+  </SalesFact>
+  <SalesFact>
+    <Sale_ID>1056</Sale_ID>
+    <Product_ID>57</Product_ID>
+    <Category_ID>4</Category_ID>
+    <Employee_ID>4</Employee_ID>
+    <Customer_ID>8</Customer_ID>
+    <Sale_DateTime>2026-07-29T19:59:00</Sale_DateTime>
+    <Sale_Date>2026-07-29T00:00:00</Sale_Date>
+    <Sale_Year>2026</Sale_Year>
+    <Sale_MonthNumber>7</Sale_MonthNumber>
+    <Sale_MonthName>July</Sale_MonthName>
+    <Sale_Quarter>3</Sale_Quarter>
+    <Sale_DayName>Wednesday</Sale_DayName>
+    <Sale_Hour>19</Sale_Hour>
+    <Product_Name>Gordons Dry Gin</Product_Name>
+    <Product_Brand>Gordons</Product_Brand>
+    <Product_SizeML>750</Product_SizeML>
+    <Category_Name>Spirits</Category_Name>
+    <Supplier_Name>Diageo</Supplier_Name>
+    <SaleType_Name>In-Store</SaleType_Name>
+    <Employee_Name>Ashwin Pillay</Employee_Name>
+    <Employee_Role>Cashier</Employee_Role>
+    <Customer_Name>Walk-in Customer</Customer_Name>
+    <PaymentMethod_Name>Card</PaymentMethod_Name>
+    <Sale_Status>Completed</Sale_Status>
+    <Quantity>3</Quantity>
+    <UnitPrice_Original>229.99</UnitPrice_Original>
+    <UnitPrice_AfterDiscount>218.49</UnitPrice_AfterDiscount>
+    <LineRevenue>655.47</LineRevenue>
+    <LineDiscountAmount>34.50</LineDiscountAmount>
+    <LineCost>444.00</LineCost>
+    <LineGrossProfit>211.47</LineGrossProfit>
+    <Sale_Subtotal>1058.93</Sale_Subtotal>
+    <Sale_DiscountAmount>0.00</Sale_DiscountAmount>
+    <Sale_TotalAmount>1058.93</Sale_TotalAmount>
+  </SalesFact>
+  <SalesFact>
+    <Sale_ID>1056</Sale_ID>
+    <Product_ID>36</Product_ID>
+    <Category_ID>2</Category_ID>
+    <Employee_ID>4</Employee_ID>
+    <Customer_ID>14</Customer_ID>
+    <Sale_DateTime>2026-07-29T19:59:00</Sale_DateTime>
+    <Sale_Date>2026-07-29T00:00:00</Sale_Date>
+    <Sale_Year>2026</Sale_Year>
+    <Sale_MonthNumber>7</Sale_MonthNumber>
+    <Sale_MonthName>July</Sale_MonthName>
+    <Sale_Quarter>3</Sale_Quarter>
+    <Sale_DayName>Wednesday</Sale_DayName>
+    <Sale_Hour>19</Sale_Hour>
+    <Product_Name>Castle Lager 6-pack</Product_Name>
+    <Product_Brand>Castle</Product_Brand>
+    <Product_SizeML>330</Product_SizeML>
+    <Category_Name>Beer</Category_Name>
+    <Supplier_Name>SAB Miller</Supplier_Name>
+    <SaleType_Name>In-Store</SaleType_Name>
+    <Employee_Name>Ashwin Pillay</Employee_Name>
+    <Employee_Role>Cashier</Employee_Role>
+    <Customer_Name>Walk-in Customer</Customer_Name>
+    <PaymentMethod_Name>Card</PaymentMethod_Name>
+    <Sale_Status>Completed</Sale_Status>
+    <Quantity>1</Quantity>
+    <UnitPrice_Original>89.99</UnitPrice_Original>
+    <UnitPrice_AfterDiscount>89.99</UnitPrice_AfterDiscount>
+    <LineRevenue>89.99</LineRevenue>
+    <LineDiscountAmount>0.00</LineDiscountAmount>
+    <LineCost>58.00</LineCost>
+    <LineGrossProfit>31.99</LineGrossProfit>
+    <Sale_Subtotal>1058.93</Sale_Subtotal>
+    <Sale_DiscountAmount>0.00</Sale_DiscountAmount>
+    <Sale_TotalAmount>1058.93</Sale_TotalAmount>
+  </SalesFact>
+  <SalesFact>
+    <Sale_ID>1056</Sale_ID>
+    <Product_ID>25</Product_ID>
+    <Category_ID>3</Category_ID>
+    <Employee_ID>4</Employee_ID>
+    <Customer_ID>23</Customer_ID>
+    <Sale_DateTime>2026-07-29T19:59:00</Sale_DateTime>
+    <Sale_Date>2026-07-29T00:00:00</Sale_Date>
+    <Sale_Year>2026</Sale_Year>
+    <Sale_MonthNumber>7</Sale_MonthNumber>
+    <Sale_MonthName>July</Sale_MonthName>
+    <Sale_Quarter>3</Sale_Quarter>
+    <Sale_DayName>Wednesday</Sale_DayName>
+    <Sale_Hour>19</Sale_Hour>
+    <Product_Name>Nederburg Cabernet</Product_Name>
+    <Product_Brand>Nederburg</Product_Brand>
+    <Product_SizeML>750</Product_SizeML>
+    <Category_Name>Wine</Category_Name>
+    <Supplier_Name>Distell</Supplier_Name>
+    <SaleType_Name>In-Store</SaleType_Name>
+    <Employee_Name>Ashwin Pillay</Employee_Name>
+    <Employee_Role>Cashier</Employee_Role>
+    <Customer_Name>Walk-in Customer</Customer_Name>
+    <PaymentMethod_Name>Card</PaymentMethod_Name>
+    <Sale_Status>Completed</Sale_Status>
+    <Quantity>3</Quantity>
+    <UnitPrice_Original>109.99</UnitPrice_Original>
+    <UnitPrice_AfterDiscount>104.49</UnitPrice_AfterDiscount>
+    <LineRevenue>313.47</LineRevenue>
+    <LineDiscountAmount>16.50</LineDiscountAmount>
+    <LineCost>204.00</LineCost>
+    <LineGrossProfit>109.47</LineGrossProfit>
+    <Sale_Subtotal>1058.93</Sale_Subtotal>
+    <Sale_DiscountAmount>0.00</Sale_DiscountAmount>
+    <Sale_TotalAmount>1058.93</Sale_TotalAmount>
+  </SalesFact>
+  <SalesFact>
+    <Sale_ID>1057</Sale_ID>
+    <Product_ID>21</Product_ID>
+    <Category_ID>3</Category_ID>
+    <Employee_ID>1</Employee_ID>
+    <Customer_ID>24</Customer_ID>
+    <Sale_DateTime>2026-07-30T15:05:00</Sale_DateTime>
+    <Sale_Date>2026-07-30T00:00:00</Sale_Date>
+    <Sale_Year>2026</Sale_Year>
+    <Sale_MonthNumber>7</Sale_MonthNumber>
+    <Sale_MonthName>July</Sale_MonthName>
+    <Sale_Quarter>3</Sale_Quarter>
+    <Sale_DayName>Thursday</Sale_DayName>
+    <Sale_Hour>15</Sale_Hour>
+    <Product_Name>JC le Roux La Chanson</Product_Name>
+    <Product_Brand>JC</Product_Brand>
+    <Product_SizeML>750</Product_SizeML>
+    <Category_Name>Wine</Category_Name>
+    <Supplier_Name>Distell</Supplier_Name>
+    <SaleType_Name>In-Store</SaleType_Name>
+    <Employee_Name>Thabo Mokoena</Employee_Name>
+    <Employee_Role>Cashier</Employee_Role>
+    <Customer_Name>Lerato Molefe</Customer_Name>
+    <PaymentMethod_Name>Cash</PaymentMethod_Name>
+    <Sale_Status>Completed</Sale_Status>
+    <Quantity>4</Quantity>
+    <UnitPrice_Original>89.99</UnitPrice_Original>
+    <UnitPrice_AfterDiscount>89.99</UnitPrice_AfterDiscount>
+    <LineRevenue>359.96</LineRevenue>
+    <LineDiscountAmount>0.00</LineDiscountAmount>
+    <LineCost>224.00</LineCost>
+    <LineGrossProfit>135.96</LineGrossProfit>
+    <Sale_Subtotal>359.96</Sale_Subtotal>
+    <Sale_DiscountAmount>0.00</Sale_DiscountAmount>
+    <Sale_TotalAmount>359.96</Sale_TotalAmount>
+  </SalesFact>
+  <SalesFact>
+    <Sale_ID>1058</Sale_ID>
+    <Product_ID>30</Product_ID>
+    <Category_ID>4</Category_ID>
+    <Employee_ID>4</Employee_ID>
+    <Customer_ID>5</Customer_ID>
+    <Sale_DateTime>2026-07-30T20:57:00</Sale_DateTime>
+    <Sale_Date>2026-07-30T00:00:00</Sale_Date>
+    <Sale_Year>2026</Sale_Year>
+    <Sale_MonthNumber>7</Sale_MonthNumber>
+    <Sale_MonthName>July</Sale_MonthName>
+    <Sale_Quarter>3</Sale_Quarter>
+    <Sale_DayName>Thursday</Sale_DayName>
+    <Sale_Hour>20</Sale_Hour>
+    <Product_Name>Smirnoff Vodka 1893</Product_Name>
+    <Product_Brand>Smirnoff</Product_Brand>
+    <Product_SizeML>750</Product_SizeML>
+    <Category_Name>Spirits</Category_Name>
+    <Supplier_Name>Diageo</Supplier_Name>
+    <SaleType_Name>In-Store</SaleType_Name>
+    <Employee_Name>Ashwin Pillay</Employee_Name>
+    <Employee_Role>Cashier</Employee_Role>
+    <Customer_Name>Walk-in Customer</Customer_Name>
+    <PaymentMethod_Name>Cash</PaymentMethod_Name>
+    <Sale_Status>Completed</Sale_Status>
+    <Quantity>4</Quantity>
+    <UnitPrice_Original>219.99</UnitPrice_Original>
+    <UnitPrice_AfterDiscount>219.99</UnitPrice_AfterDiscount>
+    <LineRevenue>879.96</LineRevenue>
+    <LineDiscountAmount>0.00</LineDiscountAmount>
+    <LineCost>568.00</LineCost>
+    <LineGrossProfit>311.96</LineGrossProfit>
+    <Sale_Subtotal>879.96</Sale_Subtotal>
+    <Sale_DiscountAmount>0.00</Sale_DiscountAmount>
+    <Sale_TotalAmount>879.96</Sale_TotalAmount>
+  </SalesFact>
+  <SalesFact>
+    <Sale_ID>1059</Sale_ID>
+    <Product_ID>47</Product_ID>
+    <Category_ID>3</Category_ID>
+    <Employee_ID>1</Employee_ID>
+    <Customer_ID>39</Customer_ID>
+    <Sale_DateTime>2026-07-31T13:12:00</Sale_DateTime>
+    <Sale_Date>2026-07-31T00:00:00</Sale_Date>
+    <Sale_Year>2026</Sale_Year>
+    <Sale_MonthNumber>7</Sale_MonthNumber>
+    <Sale_MonthName>July</Sale_MonthName>
+    <Sale_Quarter>3</Sale_Quarter>
+    <Sale_DayName>Friday</Sale_DayName>
+    <Sale_Hour>13</Sale_Hour>
+    <Product_Name>Four Cousins Sweet Red</Product_Name>
+    <Product_Brand>Four</Product_Brand>
+    <Product_SizeML>750</Product_SizeML>
+    <Category_Name>Wine</Category_Name>
+    <Supplier_Name>Van Loveren</Supplier_Name>
+    <SaleType_Name>In-Store</SaleType_Name>
+    <Employee_Name>Thabo Mokoena</Employee_Name>
+    <Employee_Role>Cashier</Employee_Role>
+    <Customer_Name>Walk-in Customer</Customer_Name>
+    <PaymentMethod_Name>Card</PaymentMethod_Name>
+    <Sale_Status>Completed</Sale_Status>
+    <Quantity>1</Quantity>
+    <UnitPrice_Original>64.99</UnitPrice_Original>
+    <UnitPrice_AfterDiscount>64.99</UnitPrice_AfterDiscount>
+    <LineRevenue>64.99</LineRevenue>
+    <LineDiscountAmount>0.00</LineDiscountAmount>
+    <LineCost>39.00</LineCost>
+    <LineGrossProfit>25.99</LineGrossProfit>
+    <Sale_Subtotal>259.96</Sale_Subtotal>
+    <Sale_DiscountAmount>0.00</Sale_DiscountAmount>
+    <Sale_TotalAmount>259.96</Sale_TotalAmount>
+  </SalesFact>
+  <SalesFact>
+    <Sale_ID>1059</Sale_ID>
+    <Product_ID>59</Product_ID>
+    <Category_ID>3</Category_ID>
+    <Employee_ID>1</Employee_ID>
+    <Customer_ID>5</Customer_ID>
+    <Sale_DateTime>2026-07-31T13:12:00</Sale_DateTime>
+    <Sale_Date>2026-07-31T00:00:00</Sale_Date>
+    <Sale_Year>2026</Sale_Year>
+    <Sale_MonthNumber>7</Sale_MonthNumber>
+    <Sale_MonthName>July</Sale_MonthName>
+    <Sale_Quarter>3</Sale_Quarter>
+    <Sale_DayName>Friday</Sale_DayName>
+    <Sale_Hour>13</Sale_Hour>
+    <Product_Name>Four Cousins Sweet Red</Product_Name>
+    <Product_Brand>Four</Product_Brand>
+    <Product_SizeML>750</Product_SizeML>
+    <Category_Name>Wine</Category_Name>
+    <Supplier_Name>Van Loveren</Supplier_Name>
+    <SaleType_Name>In-Store</SaleType_Name>
+    <Employee_Name>Thabo Mokoena</Employee_Name>
+    <Employee_Role>Cashier</Employee_Role>
+    <Customer_Name>Walk-in Customer</Customer_Name>
+    <PaymentMethod_Name>Card</PaymentMethod_Name>
+    <Sale_Status>Completed</Sale_Status>
+    <Quantity>3</Quantity>
+    <UnitPrice_Original>64.99</UnitPrice_Original>
+    <UnitPrice_AfterDiscount>64.99</UnitPrice_AfterDiscount>
+    <LineRevenue>194.97</LineRevenue>
+    <LineDiscountAmount>0.00</LineDiscountAmount>
+    <LineCost>117.00</LineCost>
+    <LineGrossProfit>77.97</LineGrossProfit>
+    <Sale_Subtotal>259.96</Sale_Subtotal>
+    <Sale_DiscountAmount>0.00</Sale_DiscountAmount>
+    <Sale_TotalAmount>259.96</Sale_TotalAmount>
+  </SalesFact>
+</SalesReportData>

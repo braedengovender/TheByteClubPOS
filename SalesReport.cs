@@ -1,367 +1,209 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+using System.Configuration;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Data.SqlClient;
+using System.IO;
 using System.Windows.Forms;
+using CrystalDecisions.CrystalReports.Engine;
 
 namespace TheByteClubPOS
 {
+    /// <summary>
+    /// Sales Report using the CRYSTAL PUSH MODEL.
+    ///
+    /// The .rpt is designed against SalesReportSchema.xsd -- it holds no
+    /// connection details at all. This class fetches the rows itself and hands
+    /// the DataTable to the report via SetDataSource().
+    ///
+    /// Advantages over letting Crystal connect for itself:
+    ///   * No database credentials stored inside the .rpt file
+    ///   * No "Database Logon Failed" prompt at runtime
+    ///   * You can design the report with no database access (use sample data)
+    ///   * The same .rpt drops into the ASP.NET Web Forms project unchanged
+    /// </summary>
     public partial class SalesReport : Form
     {
-        private dsSamsLiqourShop dsSamsLiqourShop;
-        private dsSamsLiqourShopTableAdapters.CategoryTableAdapter categoryTableAdapter;
-        private dsSamsLiqourShopTableAdapters.ProductTableAdapter productTableAdapter;
-        private dsSamsLiqourShopTableAdapters.SaleTableAdapter saleTableAdapter;
-        private dsSamsLiqourShopTableAdapters.SaleLineTableAdapter saleLineTableAdapter;
+        private ReportDocument reportDocument;
+
+        /// <summary>
+        /// Set to true to render from SalesReportSampleData.xml instead of the
+        /// database. Useful while you have no DB access, and for demoing the
+        /// report if the server is unreachable. Flip to false once connected.
+        /// </summary>
+        private const bool UseSampleData = false;
 
         public SalesReport()
         {
             InitializeComponent();
-            dsSamsLiqourShop = new dsSamsLiqourShop();
-
-            // Initialize the table adapters
-            categoryTableAdapter = new dsSamsLiqourShopTableAdapters.CategoryTableAdapter();
-            productTableAdapter = new dsSamsLiqourShopTableAdapters.ProductTableAdapter();
-            saleTableAdapter = new dsSamsLiqourShopTableAdapters.SaleTableAdapter();
-            saleLineTableAdapter = new dsSamsLiqourShopTableAdapters.SaleLineTableAdapter();
         }
 
         private void SalesReport_Load(object sender, EventArgs e)
         {
-            LoadAllData();
+            dtpStart.Value = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
+            dtpEnd.Value = DateTime.Now;
+            GenerateReport();
         }
 
-        private void LoadAllData()
+        private void btnGenerate_Click(object sender, EventArgs e)
         {
+            GenerateReport();
+        }
+
+        // ─────────────────────────────────────────────────────────────────
+        private void GenerateReport()
+        {
+            if (dtpStart.Value.Date > dtpEnd.Value.Date)
+            {
+                MessageBox.Show("The start date cannot be after the end date.",
+                                "Invalid Date Range",
+                                MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             try
             {
-                // Load all necessary tables from the database
-                saleTableAdapter.Fill(dsSamsLiqourShop.Sale);
-                saleLineTableAdapter.Fill(dsSamsLiqourShop.SaleLine);
-                productTableAdapter.Fill(dsSamsLiqourShop.Product);
-                categoryTableAdapter.Fill(dsSamsLiqourShop.Category);
+                Cursor = Cursors.WaitCursor;
+
+                DataTable data = UseSampleData
+                    ? LoadSampleData()
+                    : LoadSalesData(dtpStart.Value.Date, dtpEnd.Value.Date);
+
+                if (data.Rows.Count == 0)
+                {
+                    MessageBox.Show(
+                        "No sales were found for the selected period.",
+                        "No Data",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    crystalReportViewer1.ReportSource = null;
+                    return;
+                }
+
+                reportDocument?.Close();
+                reportDocument?.Dispose();
+                reportDocument = new ReportDocument();
+
+                reportDocument.Load(Path.Combine(
+                    AppDomain.CurrentDomain.BaseDirectory, "rptSalesReport.rpt"));
+
+                // THE KEY LINE -- pushes the rows into the report
+                reportDocument.SetDataSource(data);
+
+                // Header text. These are report parameters, NOT command parameters,
+                // so they only affect what is printed -- they do not filter anything.
+                reportDocument.SetParameterValue("StartDate", dtpStart.Value.Date);
+                reportDocument.SetParameterValue("EndDate", dtpEnd.Value.Date);
+
+                crystalReportViewer1.ReportSource = reportDocument;
+                crystalReportViewer1.Refresh();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error loading data: " + ex.Message);
+                MessageBox.Show("Could not generate the report:\n\n" + ex.Message,
+                                "Report Error",
+                                MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                Cursor = Cursors.Default;
             }
         }
 
-        // Button 1: Total Revenue
-        private void button1_Click(object sender, EventArgs e)
+        // ─────────────────────────────────────────────────────────────────
+        /// <summary>
+        /// Runs Query 1 from SalesReport_Queries.sql against GroupWst15.
+        /// Read-only -- creates nothing on the server.
+        /// </summary>
+        private DataTable LoadSalesData(DateTime startDate, DateTime endDate)
         {
-            try
+            const string sql = @"
+SELECT
+    s.Sale_ID, sl.Product_ID, p.Category_ID, s.Employee_ID, s.Customer_ID,
+    s.Sale_DateTime,
+    CAST(s.Sale_DateTime AS DATE)                    AS Sale_Date,
+    DATEPART(YEAR,    s.Sale_DateTime)               AS Sale_Year,
+    DATEPART(MONTH,   s.Sale_DateTime)               AS Sale_MonthNumber,
+    DATENAME(MONTH,   s.Sale_DateTime)               AS Sale_MonthName,
+    DATEPART(QUARTER, s.Sale_DateTime)               AS Sale_Quarter,
+    DATENAME(WEEKDAY, s.Sale_DateTime)               AS Sale_DayName,
+    DATEPART(HOUR,    s.Sale_DateTime)               AS Sale_Hour,
+    p.Product_Name, p.Product_Brand, p.Product_SizeML,
+    c.Category_Name, sup.Supplier_Name, st.SaleType_Name,
+    e.Employee_FirstName + ' ' + e.Employee_LastName AS Employee_Name,
+    e.Employee_Role,
+    ISNULL(cust.Customer_FirstName + ' ' + cust.Customer_LastName,
+           'Walk-in Customer')                       AS Customer_Name,
+    pm.PaymentMethod_Name,
+    s.Sale_Status,
+    sl.SaleLine_Quantity                             AS Quantity,
+    sl.SaleLine_OriginalUnitPrice                    AS UnitPrice_Original,
+    sl.SaleLine_UnitPriceAfterDiscount               AS UnitPrice_AfterDiscount,
+    sl.SaleLine_Subtotal                             AS LineRevenue,
+    CAST((sl.SaleLine_OriginalUnitPrice - sl.SaleLine_UnitPriceAfterDiscount)
+         * sl.SaleLine_Quantity AS DECIMAL(18,2))    AS LineDiscountAmount,
+    CAST(p.Product_CostPrice * sl.SaleLine_Quantity AS DECIMAL(18,2))
+                                                     AS LineCost,
+    CAST(sl.SaleLine_Subtotal - (p.Product_CostPrice * sl.SaleLine_Quantity)
+         AS DECIMAL(18,2))                           AS LineGrossProfit,
+    s.Sale_Subtotal, s.Sale_DiscountAmount, s.Sale_TotalAmount
+FROM        dbo.SaleLine       AS sl
+INNER JOIN  dbo.Sale           AS s    ON s.Sale_ID           = sl.Sale_ID
+INNER JOIN  dbo.Product        AS p    ON p.Product_ID        = sl.Product_ID
+INNER JOIN  dbo.Category       AS c    ON c.Category_ID       = p.Category_ID
+LEFT  JOIN  dbo.Supplier       AS sup  ON sup.Supplier_ID     = p.Supplier_ID
+LEFT  JOIN  dbo.SaleType       AS st   ON st.SaleType_ID      = s.SaleType_ID
+LEFT  JOIN  dbo.Employee       AS e    ON e.Employee_ID       = s.Employee_ID
+LEFT  JOIN  dbo.Customer       AS cust ON cust.Customer_ID    = s.Customer_ID
+LEFT  JOIN  dbo.Payment        AS pay  ON pay.Sale_ID         = s.Sale_ID
+LEFT  JOIN  dbo.PaymentMethod  AS pm   ON pm.PaymentMethod_ID = pay.PaymentMethod_ID
+WHERE       s.Sale_Status <> 'Cancelled'
+  AND       s.Sale_DateTime >= @StartDate
+  AND       s.Sale_DateTime <  DATEADD(DAY, 1, CAST(@EndDate AS DATE))
+ORDER BY    s.Sale_DateTime, s.Sale_ID;";
+
+            string connStr = ConfigurationManager.ConnectionStrings[
+                "TheByteClubPOS.Properties.Settings.GroupWst15ConnectionString"]
+                .ConnectionString;
+
+            // The DataTable name MUST match the table name in the .xsd,
+            // otherwise SetDataSource cannot bind the fields.
+            var table = new DataTable("SalesFact");
+
+            using (var conn = new SqlConnection(connStr))
+            using (var cmd = new SqlCommand(sql, conn))
             {
-                decimal totalRevenue = 0;
+                cmd.Parameters.Add("@StartDate", SqlDbType.DateTime).Value = startDate;
+                cmd.Parameters.Add("@EndDate", SqlDbType.DateTime).Value = endDate;
+                cmd.CommandTimeout = 60;
 
-                foreach (DataRow saleRow in dsSamsLiqourShop.Sale.Rows)
-                {
-                    if (saleRow.RowState != DataRowState.Deleted)
-                    {
-                        int saleID = Convert.ToInt32(saleRow["Sale_ID"]);
-                        
-                        // Sum all sale line subtotals for this sale
-                        var saleLinesForSale = dsSamsLiqourShop.SaleLine.AsEnumerable()
-                            .Where(row => Convert.ToInt32(row["Sale_ID"]) == saleID && row.RowState != DataRowState.Deleted);
-
-                        foreach (var saleLine in saleLinesForSale)
-                        {
-                            totalRevenue += Convert.ToDecimal(saleLine["SaleLine_Subtotal"]);
-                        }
-                    }
-                }
-
-                richTextBox1.Clear();
-                richTextBox1.AppendText("TOTAL REVENUE REPORT\n");
-                richTextBox1.AppendText("====================\n\n");
-                richTextBox1.AppendText($"Total Revenue: R{totalRevenue:N2}\n");
+                using (var adapter = new SqlDataAdapter(cmd))
+                    adapter.Fill(table);
             }
-            catch (Exception ex)
-            {
-                richTextBox1.Clear();
-                richTextBox1.AppendText("Error: " + ex.Message);
-            }
+
+            return table;
         }
 
-        // Button 2: Total Sales Per Category
-        private void button2_Click(object sender, EventArgs e)
+        // ─────────────────────────────────────────────────────────────────
+        /// <summary>
+        /// Reads SalesReportData.xml so the report renders with no database
+        /// connection. That file carries its schema inline, so ReadXml picks up
+        /// the correct column types on its own -- no separate .xsd needed.
+        /// Set the file to Copy to Output Directory.
+        /// </summary>
+        private DataTable LoadSampleData()
         {
-            try
-            {
-                richTextBox1.Clear();
-                richTextBox1.AppendText("TOTAL SALES PER CATEGORY\n");
-                richTextBox1.AppendText("========================\n\n");
+            var ds = new DataSet();
+            ds.ReadXml(Path.Combine(
+                AppDomain.CurrentDomain.BaseDirectory, "SalesReportData.xml"),
+                XmlReadMode.ReadSchema);
 
-                var categorySales = new Dictionary<string, decimal>();
-
-                foreach (DataRow saleLineRow in dsSamsLiqourShop.SaleLine.Rows)
-                {
-                    if (saleLineRow.RowState != DataRowState.Deleted)
-                    {
-                        int productID = Convert.ToInt32(saleLineRow["Product_ID"]);
-                        decimal subtotal = Convert.ToDecimal(saleLineRow["SaleLine_Subtotal"]);
-
-                        var product = dsSamsLiqourShop.Product.AsEnumerable()
-                            .FirstOrDefault(p => Convert.ToInt32(p["Product_ID"]) == productID && p.RowState != DataRowState.Deleted);
-
-                        if (product != null)
-                        {
-                            int categoryID = Convert.ToInt32(product["Category_ID"]);
-                            var category = dsSamsLiqourShop.Category.AsEnumerable()
-                                .FirstOrDefault(c => Convert.ToInt32(c["Category_ID"]) == categoryID && c.RowState != DataRowState.Deleted);
-
-                            if (category != null)
-                            {
-                                string categoryName = category["Category_Name"].ToString();
-                                if (!categorySales.ContainsKey(categoryName))
-                                {
-                                    categorySales[categoryName] = 0;
-                                }
-                                categorySales[categoryName] += subtotal;
-                            }
-                        }
-                    }
-                }
-
-                if (categorySales.Count == 0)
-                {
-                    richTextBox1.AppendText("No sales data available.\n");
-                }
-                else
-                {
-                    foreach (var category in categorySales.OrderByDescending(x => x.Value))
-                    {
-                        richTextBox1.AppendText($"{category.Key}: R{category.Value:N2}\n");
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                richTextBox1.Clear();
-                richTextBox1.AppendText("Error: " + ex.Message);
-            }
+            return ds.Tables["SalesFact"];
         }
 
-        // Button 3: Products That Are Low on Stock
-        private void button3_Click(object sender, EventArgs e)
+        private void SalesReport_FormClosed(object sender, FormClosedEventArgs e)
         {
-            try
-            {
-                richTextBox1.Clear();
-                richTextBox1.AppendText("LOW STOCK PRODUCTS\n");
-                richTextBox1.AppendText("==================\n\n");
-
-                const int lowStockThreshold = 10; // Products with 10 or fewer units
-                bool hasLowStockProducts = false;
-
-                foreach (DataRow productRow in dsSamsLiqourShop.Product.Rows)
-                {
-                    if (productRow.RowState != DataRowState.Deleted)
-                    {
-                        int quantity = Convert.ToInt32(productRow["Product_Quantity"]);
-                        if (quantity <= lowStockThreshold)
-                        {
-                            hasLowStockProducts = true;
-                            string productName = productRow["Product_Name"].ToString();
-                            richTextBox1.AppendText($"• {productName}: {quantity} units\n");
-                        }
-                    }
-                }
-
-                if (!hasLowStockProducts)
-                {
-                    richTextBox1.AppendText("All products have adequate stock levels.\n");
-                }
-            }
-            catch (Exception ex)
-            {
-                richTextBox1.Clear();
-                richTextBox1.AppendText("Error: " + ex.Message);
-            }
+            reportDocument?.Close();
+            reportDocument?.Dispose();
         }
 
-        // Button 4: Products That Are Below Average Stock Levels
-        private void button4_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                richTextBox1.Clear();
-                richTextBox1.AppendText("BELOW AVERAGE STOCK PRODUCTS\n");
-                richTextBox1.AppendText("============================\n\n");
-
-                // Calculate average stock level
-                double averageStock = 0;
-                int productCount = 0;
-
-                foreach (DataRow productRow in dsSamsLiqourShop.Product.Rows)
-                {
-                    if (productRow.RowState != DataRowState.Deleted)
-                    {
-                        averageStock += Convert.ToInt32(productRow["Product_Quantity"]);
-                        productCount++;
-                    }
-                }
-
-                if (productCount > 0)
-                {
-                    averageStock /= productCount;
-
-                    richTextBox1.AppendText($"Average Stock Level: {averageStock:F2} units\n\n");
-
-                    bool hasBelowAverage = false;
-
-                    foreach (DataRow productRow in dsSamsLiqourShop.Product.Rows)
-                    {
-                        if (productRow.RowState != DataRowState.Deleted)
-                        {
-                            int quantity = Convert.ToInt32(productRow["Product_Quantity"]);
-                            if (quantity < averageStock)
-                            {
-                                hasBelowAverage = true;
-                                string productName = productRow["Product_Name"].ToString();
-                                richTextBox1.AppendText($"• {productName}: {quantity} units\n");
-                            }
-                        }
-                    }
-
-                    if (!hasBelowAverage)
-                    {
-                        richTextBox1.AppendText("No products below average stock level.\n");
-                    }
-                }
-                else
-                {
-                    richTextBox1.AppendText("No product data available.\n");
-                }
-            }
-            catch (Exception ex)
-            {
-                richTextBox1.Clear();
-                richTextBox1.AppendText("Error: " + ex.Message);
-            }
-        }
-
-        // Button 5: Best Selling Product
-        private void button5_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                richTextBox1.Clear();
-                richTextBox1.AppendText("BEST SELLING PRODUCT\n");
-                richTextBox1.AppendText("====================\n\n");
-
-                var productSales = new Dictionary<int, int>(); // ProductID, Quantity Sold
-                var productInfo = new Dictionary<int, string>(); // ProductID, ProductName
-
-                foreach (DataRow saleLineRow in dsSamsLiqourShop.SaleLine.Rows)
-                {
-                    if (saleLineRow.RowState != DataRowState.Deleted)
-                    {
-                        int productID = Convert.ToInt32(saleLineRow["Product_ID"]);
-                        int quantity = Convert.ToInt32(saleLineRow["SaleLine_Quantity"]);
-
-                        if (!productSales.ContainsKey(productID))
-                        {
-                            productSales[productID] = 0;
-
-                            var product = dsSamsLiqourShop.Product.AsEnumerable()
-                                .FirstOrDefault(p => Convert.ToInt32(p["Product_ID"]) == productID && p.RowState != DataRowState.Deleted);
-
-                            if (product != null)
-                            {
-                                productInfo[productID] = product["Product_Name"].ToString();
-                            }
-                        }
-
-                        productSales[productID] += quantity;
-                    }
-                }
-
-                if (productSales.Count == 0)
-                {
-                    richTextBox1.AppendText("No sales data available.\n");
-                }
-                else
-                {
-                    var bestSeller = productSales.OrderByDescending(x => x.Value).First();
-                    string productName = productInfo.ContainsKey(bestSeller.Key) 
-                        ? productInfo[bestSeller.Key] 
-                        : "Unknown";
-
-                    richTextBox1.AppendText($"Product: {productName}\n");
-                    richTextBox1.AppendText($"Total Units Sold: {bestSeller.Value}\n");
-                }
-            }
-            catch (Exception ex)
-            {
-                richTextBox1.Clear();
-                richTextBox1.AppendText("Error: " + ex.Message);
-            }
-        }
-
-        // Button 6: Products That Have Never Been Sold
-        private void button6_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                richTextBox1.Clear();
-                richTextBox1.AppendText("NEVER SOLD PRODUCTS\n");
-                richTextBox1.AppendText("===================\n\n");
-
-                var soldProductIDs = new HashSet<int>();
-
-                foreach (DataRow saleLineRow in dsSamsLiqourShop.SaleLine.Rows)
-                {
-                    if (saleLineRow.RowState != DataRowState.Deleted)
-                    {
-                        int productID = Convert.ToInt32(saleLineRow["Product_ID"]);
-                        soldProductIDs.Add(productID);
-                    }
-                }
-
-                bool hasNeverSold = false;
-
-                foreach (DataRow productRow in dsSamsLiqourShop.Product.Rows)
-                {
-                    if (productRow.RowState != DataRowState.Deleted)
-                    {
-                        int productID = Convert.ToInt32(productRow["Product_ID"]);
-
-                        if (!soldProductIDs.Contains(productID))
-                        {
-                            hasNeverSold = true;
-                            string productName = productRow["Product_Name"].ToString();
-                            richTextBox1.AppendText($"• {productName}\n");
-                        }
-                    }
-                }
-
-                if (!hasNeverSold)
-                {
-                    richTextBox1.AppendText("All products have been sold.\n");
-                }
-            }
-            catch (Exception ex)
-            {
-                richTextBox1.Clear();
-                richTextBox1.AppendText("Error: " + ex.Message);
-            }
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void richTextBox1_TextChanged(object sender, EventArgs e)
-        {
-        }
     }
 }
