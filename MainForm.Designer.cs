@@ -87,7 +87,6 @@
             this.employeeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.employeeTableAdapter = new TheByteClubPOS.dsSamsLiqourShopTableAdapters.EmployeeTableAdapter();
             this.tableAdapterManager = new TheByteClubPOS.dsSamsLiqourShopTableAdapters.TableAdapterManager();
-            this.btnSalesReport = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -114,8 +113,8 @@
             this.helpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 1, 0, 1);
-            this.menuStrip1.Size = new System.Drawing.Size(1805, 30);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 1, 0, 1);
+            this.menuStrip1.Size = new System.Drawing.Size(1354, 30);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -129,42 +128,42 @@
             this.manageSaleTypesToolStripMenuItem});
             this.manageSalesToolStripMenuItem.Image = global::TheByteClubPOS.Properties.Resources.SalesIcon;
             this.manageSalesToolStripMenuItem.Name = "manageSalesToolStripMenuItem";
-            this.manageSalesToolStripMenuItem.Size = new System.Drawing.Size(81, 28);
+            this.manageSalesToolStripMenuItem.Size = new System.Drawing.Size(69, 28);
             this.manageSalesToolStripMenuItem.Text = "Sales";
             this.manageSalesToolStripMenuItem.Click += new System.EventHandler(this.manageSalesToolStripMenuItem_Click);
             // 
             // processSaleToolStripMenuItem1
             // 
             this.processSaleToolStripMenuItem1.Name = "processSaleToolStripMenuItem1";
-            this.processSaleToolStripMenuItem1.Size = new System.Drawing.Size(268, 26);
+            this.processSaleToolStripMenuItem1.Size = new System.Drawing.Size(217, 22);
             this.processSaleToolStripMenuItem1.Text = "Process Sale";
             this.processSaleToolStripMenuItem1.Click += new System.EventHandler(this.processSaleToolStripMenuItem1_Click);
             // 
             // manageSalesToolStripMenuItem1
             // 
             this.manageSalesToolStripMenuItem1.Name = "manageSalesToolStripMenuItem1";
-            this.manageSalesToolStripMenuItem1.Size = new System.Drawing.Size(268, 26);
+            this.manageSalesToolStripMenuItem1.Size = new System.Drawing.Size(217, 22);
             this.manageSalesToolStripMenuItem1.Text = "View Sales";
             this.manageSalesToolStripMenuItem1.Click += new System.EventHandler(this.manageSalesToolStripMenuItem1_Click);
             // 
             // managePaymentsToolStripMenuItem
             // 
             this.managePaymentsToolStripMenuItem.Name = "managePaymentsToolStripMenuItem";
-            this.managePaymentsToolStripMenuItem.Size = new System.Drawing.Size(268, 26);
+            this.managePaymentsToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
             this.managePaymentsToolStripMenuItem.Text = "View Payments";
             this.managePaymentsToolStripMenuItem.Visible = false;
             // 
             // managePaymentMethodsToolStripMenuItem
             // 
             this.managePaymentMethodsToolStripMenuItem.Name = "managePaymentMethodsToolStripMenuItem";
-            this.managePaymentMethodsToolStripMenuItem.Size = new System.Drawing.Size(268, 26);
+            this.managePaymentMethodsToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
             this.managePaymentMethodsToolStripMenuItem.Text = "Manage Payment Methods";
             this.managePaymentMethodsToolStripMenuItem.Visible = false;
             // 
             // manageSaleTypesToolStripMenuItem
             // 
             this.manageSaleTypesToolStripMenuItem.Name = "manageSaleTypesToolStripMenuItem";
-            this.manageSaleTypesToolStripMenuItem.Size = new System.Drawing.Size(268, 26);
+            this.manageSaleTypesToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
             this.manageSaleTypesToolStripMenuItem.Text = "Manage Sale Types";
             this.manageSaleTypesToolStripMenuItem.Visible = false;
             // 
@@ -178,20 +177,20 @@
             this.manageSuppliersToolStripMenuItem});
             this.inventoryToolStripMenuItem.Image = global::TheByteClubPOS.Properties.Resources.InventoryIcon;
             this.inventoryToolStripMenuItem.Name = "inventoryToolStripMenuItem";
-            this.inventoryToolStripMenuItem.Size = new System.Drawing.Size(108, 28);
+            this.inventoryToolStripMenuItem.Size = new System.Drawing.Size(93, 28);
             this.inventoryToolStripMenuItem.Text = "Inventory";
             // 
             // manageProductsToolStripMenuItem1
             // 
             this.manageProductsToolStripMenuItem1.Name = "manageProductsToolStripMenuItem1";
-            this.manageProductsToolStripMenuItem1.Size = new System.Drawing.Size(276, 26);
+            this.manageProductsToolStripMenuItem1.Size = new System.Drawing.Size(221, 22);
             this.manageProductsToolStripMenuItem1.Text = "Manage Products";
             this.manageProductsToolStripMenuItem1.Click += new System.EventHandler(this.manageProductsToolStripMenuItem1_Click);
             // 
             // manageProducToolStripMenuItem
             // 
             this.manageProducToolStripMenuItem.Name = "manageProducToolStripMenuItem";
-            this.manageProducToolStripMenuItem.Size = new System.Drawing.Size(276, 26);
+            this.manageProducToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
             this.manageProducToolStripMenuItem.Text = "Manage Product Categories";
             this.manageProducToolStripMenuItem.Visible = false;
             this.manageProducToolStripMenuItem.Click += new System.EventHandler(this.manageProducToolStripMenuItem_Click);
@@ -199,7 +198,7 @@
             // processInventoryOrderToolStripMenuItem1
             // 
             this.processInventoryOrderToolStripMenuItem1.Name = "processInventoryOrderToolStripMenuItem1";
-            this.processInventoryOrderToolStripMenuItem1.Size = new System.Drawing.Size(276, 26);
+            this.processInventoryOrderToolStripMenuItem1.Size = new System.Drawing.Size(221, 22);
             this.processInventoryOrderToolStripMenuItem1.Text = "Process Inventory Order";
             this.processInventoryOrderToolStripMenuItem1.Visible = false;
             this.processInventoryOrderToolStripMenuItem1.Click += new System.EventHandler(this.processInventoryOrderToolStripMenuItem1_Click);
@@ -207,7 +206,7 @@
             // manageInventoryOrdersToolStripMenuItem1
             // 
             this.manageInventoryOrdersToolStripMenuItem1.Name = "manageInventoryOrdersToolStripMenuItem1";
-            this.manageInventoryOrdersToolStripMenuItem1.Size = new System.Drawing.Size(276, 26);
+            this.manageInventoryOrdersToolStripMenuItem1.Size = new System.Drawing.Size(221, 22);
             this.manageInventoryOrdersToolStripMenuItem1.Text = "Manage Inventory Orders";
             this.manageInventoryOrdersToolStripMenuItem1.Visible = false;
             this.manageInventoryOrdersToolStripMenuItem1.Click += new System.EventHandler(this.manageInventoryOrdersToolStripMenuItem1_Click);
@@ -215,7 +214,7 @@
             // manageSuppliersToolStripMenuItem
             // 
             this.manageSuppliersToolStripMenuItem.Name = "manageSuppliersToolStripMenuItem";
-            this.manageSuppliersToolStripMenuItem.Size = new System.Drawing.Size(276, 26);
+            this.manageSuppliersToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
             this.manageSuppliersToolStripMenuItem.Text = "Manage Suppliers";
             this.manageSuppliersToolStripMenuItem.Visible = false;
             this.manageSuppliersToolStripMenuItem.Click += new System.EventHandler(this.manageSuppliersToolStripMenuItem_Click);
@@ -226,13 +225,13 @@
             this.manageCustomersToolStripMenuItem});
             this.manageCustomerToolStripMenuItem.Image = global::TheByteClubPOS.Properties.Resources.CustomersIcon;
             this.manageCustomerToolStripMenuItem.Name = "manageCustomerToolStripMenuItem";
-            this.manageCustomerToolStripMenuItem.Size = new System.Drawing.Size(116, 28);
+            this.manageCustomerToolStripMenuItem.Size = new System.Drawing.Size(100, 28);
             this.manageCustomerToolStripMenuItem.Text = "Customers";
             // 
             // manageCustomersToolStripMenuItem
             // 
             this.manageCustomersToolStripMenuItem.Name = "manageCustomersToolStripMenuItem";
-            this.manageCustomersToolStripMenuItem.Size = new System.Drawing.Size(219, 26);
+            this.manageCustomersToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
             this.manageCustomersToolStripMenuItem.Text = "Manage Customers";
             this.manageCustomersToolStripMenuItem.Click += new System.EventHandler(this.manageCustomersToolStripMenuItem_Click);
             // 
@@ -242,13 +241,13 @@
             this.manageEmployeesToolStripMenuItem1});
             this.manageEmployeesToolStripMenuItem.Image = global::TheByteClubPOS.Properties.Resources.EmployeesIcon;
             this.manageEmployeesToolStripMenuItem.Name = "manageEmployeesToolStripMenuItem";
-            this.manageEmployeesToolStripMenuItem.Size = new System.Drawing.Size(78, 28);
+            this.manageEmployeesToolStripMenuItem.Size = new System.Drawing.Size(67, 28);
             this.manageEmployeesToolStripMenuItem.Text = "Staff";
             // 
             // manageEmployeesToolStripMenuItem1
             // 
             this.manageEmployeesToolStripMenuItem1.Name = "manageEmployeesToolStripMenuItem1";
-            this.manageEmployeesToolStripMenuItem1.Size = new System.Drawing.Size(222, 26);
+            this.manageEmployeesToolStripMenuItem1.Size = new System.Drawing.Size(177, 22);
             this.manageEmployeesToolStripMenuItem1.Text = "Manage Employees";
             this.manageEmployeesToolStripMenuItem1.Click += new System.EventHandler(this.manageEmployeesToolStripMenuItem1_Click);
             // 
@@ -258,21 +257,21 @@
             this.manageDiscountsToolStripMenuItem1});
             this.manageDiscountsToolStripMenuItem.Image = global::TheByteClubPOS.Properties.Resources.DiscountIcon;
             this.manageDiscountsToolStripMenuItem.Name = "manageDiscountsToolStripMenuItem";
-            this.manageDiscountsToolStripMenuItem.Size = new System.Drawing.Size(111, 28);
+            this.manageDiscountsToolStripMenuItem.Size = new System.Drawing.Size(95, 28);
             this.manageDiscountsToolStripMenuItem.Text = "Discounts";
             this.manageDiscountsToolStripMenuItem.Visible = false;
             // 
             // manageDiscountsToolStripMenuItem1
             // 
             this.manageDiscountsToolStripMenuItem1.Name = "manageDiscountsToolStripMenuItem1";
-            this.manageDiscountsToolStripMenuItem1.Size = new System.Drawing.Size(214, 26);
+            this.manageDiscountsToolStripMenuItem1.Size = new System.Drawing.Size(172, 22);
             this.manageDiscountsToolStripMenuItem1.Text = "Manage Discounts";
             // 
             // darkModeToolStripMenuItem
             // 
             this.darkModeToolStripMenuItem.Image = global::TheByteClubPOS.Properties.Resources.DarkModeIcon;
             this.darkModeToolStripMenuItem.Name = "darkModeToolStripMenuItem";
-            this.darkModeToolStripMenuItem.Size = new System.Drawing.Size(121, 28);
+            this.darkModeToolStripMenuItem.Size = new System.Drawing.Size(101, 28);
             this.darkModeToolStripMenuItem.Text = "Dark Mode";
             this.darkModeToolStripMenuItem.Click += new System.EventHandler(this.darkModeToolStripMenuItem_Click);
             // 
@@ -283,21 +282,21 @@
             this.logoutToolStripMenuItem1});
             this.manageAccountToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("manageAccountToolStripMenuItem.Image")));
             this.manageAccountToolStripMenuItem.Name = "manageAccountToolStripMenuItem";
-            this.manageAccountToolStripMenuItem.Size = new System.Drawing.Size(125, 28);
+            this.manageAccountToolStripMenuItem.Size = new System.Drawing.Size(108, 28);
             this.manageAccountToolStripMenuItem.Text = "My Account";
             this.manageAccountToolStripMenuItem.Click += new System.EventHandler(this.manageAccountToolStripMenuItem_Click);
             // 
             // manageMyProfileToolStripMenuItem
             // 
             this.manageMyProfileToolStripMenuItem.Name = "manageMyProfileToolStripMenuItem";
-            this.manageMyProfileToolStripMenuItem.Size = new System.Drawing.Size(217, 26);
+            this.manageMyProfileToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
             this.manageMyProfileToolStripMenuItem.Text = "Manage My Profile";
             this.manageMyProfileToolStripMenuItem.Click += new System.EventHandler(this.manageMyProfileToolStripMenuItem_Click);
             // 
             // logoutToolStripMenuItem1
             // 
             this.logoutToolStripMenuItem1.Name = "logoutToolStripMenuItem1";
-            this.logoutToolStripMenuItem1.Size = new System.Drawing.Size(217, 26);
+            this.logoutToolStripMenuItem1.Size = new System.Drawing.Size(174, 22);
             this.logoutToolStripMenuItem1.Text = "Logout";
             this.logoutToolStripMenuItem1.Click += new System.EventHandler(this.logoutToolStripMenuItem1_Click);
             // 
@@ -306,7 +305,7 @@
             this.toolStripMenuItemTime.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolStripMenuItemTime.Image = global::TheByteClubPOS.Properties.Resources.ClockIcon;
             this.toolStripMenuItemTime.Name = "toolStripMenuItemTime";
-            this.toolStripMenuItemTime.Size = new System.Drawing.Size(101, 28);
+            this.toolStripMenuItemTime.Size = new System.Drawing.Size(85, 28);
             this.toolStripMenuItemTime.Text = "14:30:00";
             // 
             // toolStripMenuItemDate
@@ -314,7 +313,7 @@
             this.toolStripMenuItemDate.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolStripMenuItemDate.Image = global::TheByteClubPOS.Properties.Resources.CalendarIcon;
             this.toolStripMenuItemDate.Name = "toolStripMenuItemDate";
-            this.toolStripMenuItemDate.Size = new System.Drawing.Size(131, 28);
+            this.toolStripMenuItemDate.Size = new System.Drawing.Size(108, 28);
             this.toolStripMenuItemDate.Text = "31 May 2026";
             // 
             // helpToolStripMenuItem
@@ -326,33 +325,33 @@
             this.troubleshootingToolStripMenuItem});
             this.helpToolStripMenuItem.Image = global::TheByteClubPOS.Properties.Resources.HelpIcon;
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(130, 28);
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(109, 28);
             this.helpToolStripMenuItem.Text = "System Help";
             this.helpToolStripMenuItem.Click += new System.EventHandler(this.helpToolStripMenuItem_Click);
             // 
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(197, 6);
+            this.toolStripSeparator5.Size = new System.Drawing.Size(158, 6);
             // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(200, 26);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
             this.aboutToolStripMenuItem.Text = "About...";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
             // userGuideToolStripMenuItem
             // 
             this.userGuideToolStripMenuItem.Name = "userGuideToolStripMenuItem";
-            this.userGuideToolStripMenuItem.Size = new System.Drawing.Size(200, 26);
+            this.userGuideToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
             this.userGuideToolStripMenuItem.Text = "User Guide";
             this.userGuideToolStripMenuItem.Click += new System.EventHandler(this.userGuideToolStripMenuItem_Click);
             // 
             // troubleshootingToolStripMenuItem
             // 
             this.troubleshootingToolStripMenuItem.Name = "troubleshootingToolStripMenuItem";
-            this.troubleshootingToolStripMenuItem.Size = new System.Drawing.Size(200, 26);
+            this.troubleshootingToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
             this.troubleshootingToolStripMenuItem.Text = "Troubleshooting";
             this.troubleshootingToolStripMenuItem.Click += new System.EventHandler(this.troubleshootingToolStripMenuItem_Click);
             // 
@@ -371,10 +370,9 @@
             this.toolStripStatusLabelVersion,
             this.toolStripStatusLabel5,
             this.toolStripStatusLabelConnection});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 814);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 657);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 19, 0);
-            this.statusStrip1.Size = new System.Drawing.Size(1805, 30);
+            this.statusStrip1.Size = new System.Drawing.Size(1354, 29);
             this.statusStrip1.TabIndex = 2;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -382,66 +380,66 @@
             // 
             this.toolStripStatusLabelUser.Image = ((System.Drawing.Image)(resources.GetObject("toolStripStatusLabelUser.Image")));
             this.toolStripStatusLabelUser.Name = "toolStripStatusLabelUser";
-            this.toolStripStatusLabelUser.Size = new System.Drawing.Size(125, 24);
+            this.toolStripStatusLabelUser.Size = new System.Drawing.Size(104, 24);
             this.toolStripStatusLabelUser.Text = "Logged in as: ";
             this.toolStripStatusLabelUser.Click += new System.EventHandler(this.toolStripStatusLabel1_Click);
             // 
             // toolStripStatusLabel2
             // 
             this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
-            this.toolStripStatusLabel2.Size = new System.Drawing.Size(13, 24);
+            this.toolStripStatusLabel2.Size = new System.Drawing.Size(10, 24);
             this.toolStripStatusLabel2.Text = "|";
             // 
             // toolStripStatusLabelRole
             // 
             this.toolStripStatusLabelRole.Image = global::TheByteClubPOS.Properties.Resources.BadgeIcon;
             this.toolStripStatusLabelRole.Name = "toolStripStatusLabelRole";
-            this.toolStripStatusLabelRole.Size = new System.Drawing.Size(70, 24);
+            this.toolStripStatusLabelRole.Size = new System.Drawing.Size(60, 24);
             this.toolStripStatusLabelRole.Text = "Role: ";
             // 
             // toolStripStatusLabel3
             // 
             this.toolStripStatusLabel3.Name = "toolStripStatusLabel3";
-            this.toolStripStatusLabel3.Size = new System.Drawing.Size(13, 24);
+            this.toolStripStatusLabel3.Size = new System.Drawing.Size(10, 24);
             this.toolStripStatusLabel3.Text = "|";
             // 
             // toolStripStatusLabelTerminal
             // 
             this.toolStripStatusLabelTerminal.Image = global::TheByteClubPOS.Properties.Resources.ComputerIcon;
             this.toolStripStatusLabelTerminal.Name = "toolStripStatusLabelTerminal";
-            this.toolStripStatusLabelTerminal.Size = new System.Drawing.Size(146, 24);
+            this.toolStripStatusLabelTerminal.Size = new System.Drawing.Size(122, 24);
             this.toolStripStatusLabelTerminal.Text = "Terminal: POS-01";
             // 
             // toolStripStatusLabel4
             // 
             this.toolStripStatusLabel4.Name = "toolStripStatusLabel4";
-            this.toolStripStatusLabel4.Size = new System.Drawing.Size(13, 24);
+            this.toolStripStatusLabel4.Size = new System.Drawing.Size(10, 24);
             this.toolStripStatusLabel4.Text = "|";
             // 
             // toolStripStatusLabelSpacer
             // 
             this.toolStripStatusLabelSpacer.Name = "toolStripStatusLabelSpacer";
-            this.toolStripStatusLabelSpacer.Size = new System.Drawing.Size(1083, 24);
+            this.toolStripStatusLabelSpacer.Size = new System.Drawing.Size(755, 24);
             this.toolStripStatusLabelSpacer.Spring = true;
             // 
             // toolStripStatusLabelVersion
             // 
             this.toolStripStatusLabelVersion.Image = global::TheByteClubPOS.Properties.Resources.InfoIcon;
             this.toolStripStatusLabelVersion.Name = "toolStripStatusLabelVersion";
-            this.toolStripStatusLabelVersion.Size = new System.Drawing.Size(158, 24);
+            this.toolStripStatusLabelVersion.Size = new System.Drawing.Size(131, 24);
             this.toolStripStatusLabelVersion.Text = "System Version: 1.2";
             // 
             // toolStripStatusLabel5
             // 
             this.toolStripStatusLabel5.Name = "toolStripStatusLabel5";
-            this.toolStripStatusLabel5.Size = new System.Drawing.Size(13, 24);
+            this.toolStripStatusLabel5.Size = new System.Drawing.Size(10, 24);
             this.toolStripStatusLabel5.Text = "|";
             // 
             // toolStripStatusLabelConnection
             // 
             this.toolStripStatusLabelConnection.Image = global::TheByteClubPOS.Properties.Resources.GreenCircleIcon;
             this.toolStripStatusLabelConnection.Name = "toolStripStatusLabelConnection";
-            this.toolStripStatusLabelConnection.Size = new System.Drawing.Size(151, 24);
+            this.toolStripStatusLabelConnection.Size = new System.Drawing.Size(127, 24);
             this.toolStripStatusLabelConnection.Text = "Status: Connected";
             // 
             // tmrClock
@@ -456,9 +454,8 @@
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 30);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(293, 784);
+            this.panel1.Size = new System.Drawing.Size(220, 627);
             this.panel1.TabIndex = 4;
             // 
             // flowLayoutPanel1
@@ -468,7 +465,6 @@
             this.flowLayoutPanel1.Controls.Add(this.btnDashboard);
             this.flowLayoutPanel1.Controls.Add(this.btnProcessSale);
             this.flowLayoutPanel1.Controls.Add(this.btnManageSales);
-            this.flowLayoutPanel1.Controls.Add(this.btnSalesReport);
             this.flowLayoutPanel1.Controls.Add(this.btnProducts);
             this.flowLayoutPanel1.Controls.Add(this.btnCustomers);
             this.flowLayoutPanel1.Controls.Add(this.btnSuppliers);
@@ -476,11 +472,10 @@
             this.flowLayoutPanel1.Controls.Add(this.button2);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 160);
-            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 130);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(13, 12, 13, 12);
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(293, 624);
+            this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(10, 10, 10, 10);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(220, 497);
             this.flowLayoutPanel1.TabIndex = 1;
             this.flowLayoutPanel1.WrapContents = false;
             // 
@@ -489,11 +484,10 @@
             this.btnDashboard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDashboard.Image = global::TheByteClubPOS.Properties.Resources.HomeIcon;
             this.btnDashboard.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDashboard.Location = new System.Drawing.Point(17, 16);
-            this.btnDashboard.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDashboard.Location = new System.Drawing.Point(13, 13);
             this.btnDashboard.Name = "btnDashboard";
-            this.btnDashboard.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.btnDashboard.Size = new System.Drawing.Size(267, 55);
+            this.btnDashboard.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.btnDashboard.Size = new System.Drawing.Size(200, 45);
             this.btnDashboard.TabIndex = 0;
             this.btnDashboard.Text = "Dashboard";
             this.btnDashboard.UseVisualStyleBackColor = true;
@@ -504,11 +498,10 @@
             this.btnProcessSale.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnProcessSale.Image = global::TheByteClubPOS.Properties.Resources.CartIcon;
             this.btnProcessSale.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnProcessSale.Location = new System.Drawing.Point(17, 79);
-            this.btnProcessSale.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnProcessSale.Location = new System.Drawing.Point(13, 64);
             this.btnProcessSale.Name = "btnProcessSale";
-            this.btnProcessSale.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.btnProcessSale.Size = new System.Drawing.Size(267, 55);
+            this.btnProcessSale.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.btnProcessSale.Size = new System.Drawing.Size(200, 45);
             this.btnProcessSale.TabIndex = 1;
             this.btnProcessSale.Text = "Process Sale";
             this.btnProcessSale.UseVisualStyleBackColor = true;
@@ -519,11 +512,10 @@
             this.btnManageSales.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnManageSales.Image = ((System.Drawing.Image)(resources.GetObject("btnManageSales.Image")));
             this.btnManageSales.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnManageSales.Location = new System.Drawing.Point(17, 142);
-            this.btnManageSales.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnManageSales.Location = new System.Drawing.Point(13, 115);
             this.btnManageSales.Name = "btnManageSales";
-            this.btnManageSales.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.btnManageSales.Size = new System.Drawing.Size(267, 55);
+            this.btnManageSales.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.btnManageSales.Size = new System.Drawing.Size(200, 45);
             this.btnManageSales.TabIndex = 2;
             this.btnManageSales.Text = "View Sales";
             this.btnManageSales.UseVisualStyleBackColor = true;
@@ -534,11 +526,10 @@
             this.btnProducts.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnProducts.Image = ((System.Drawing.Image)(resources.GetObject("btnProducts.Image")));
             this.btnProducts.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnProducts.Location = new System.Drawing.Point(17, 268);
-            this.btnProducts.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnProducts.Location = new System.Drawing.Point(13, 166);
             this.btnProducts.Name = "btnProducts";
-            this.btnProducts.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.btnProducts.Size = new System.Drawing.Size(267, 55);
+            this.btnProducts.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.btnProducts.Size = new System.Drawing.Size(200, 45);
             this.btnProducts.TabIndex = 3;
             this.btnProducts.Text = "View Products";
             this.btnProducts.UseVisualStyleBackColor = true;
@@ -549,11 +540,10 @@
             this.btnCustomers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCustomers.Image = global::TheByteClubPOS.Properties.Resources.CustomerIcon;
             this.btnCustomers.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCustomers.Location = new System.Drawing.Point(17, 331);
-            this.btnCustomers.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCustomers.Location = new System.Drawing.Point(13, 217);
             this.btnCustomers.Name = "btnCustomers";
-            this.btnCustomers.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.btnCustomers.Size = new System.Drawing.Size(267, 55);
+            this.btnCustomers.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.btnCustomers.Size = new System.Drawing.Size(200, 45);
             this.btnCustomers.TabIndex = 4;
             this.btnCustomers.Text = "View Customers";
             this.btnCustomers.UseVisualStyleBackColor = true;
@@ -564,11 +554,10 @@
             this.btnSuppliers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSuppliers.Image = global::TheByteClubPOS.Properties.Resources.TruckIcon;
             this.btnSuppliers.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSuppliers.Location = new System.Drawing.Point(17, 394);
-            this.btnSuppliers.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSuppliers.Location = new System.Drawing.Point(13, 268);
             this.btnSuppliers.Name = "btnSuppliers";
-            this.btnSuppliers.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.btnSuppliers.Size = new System.Drawing.Size(267, 55);
+            this.btnSuppliers.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.btnSuppliers.Size = new System.Drawing.Size(200, 45);
             this.btnSuppliers.TabIndex = 5;
             this.btnSuppliers.Text = "Suppliers";
             this.btnSuppliers.UseVisualStyleBackColor = true;
@@ -580,11 +569,10 @@
             this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogout.Image = global::TheByteClubPOS.Properties.Resources.LogoutIcon;
             this.btnLogout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLogout.Location = new System.Drawing.Point(17, 457);
-            this.btnLogout.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnLogout.Location = new System.Drawing.Point(13, 319);
             this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.btnLogout.Size = new System.Drawing.Size(267, 55);
+            this.btnLogout.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.btnLogout.Size = new System.Drawing.Size(200, 45);
             this.btnLogout.TabIndex = 6;
             this.btnLogout.Text = "Logout";
             this.btnLogout.UseVisualStyleBackColor = true;
@@ -592,10 +580,10 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(16, 518);
-            this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button2.Location = new System.Drawing.Point(12, 369);
+            this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(268, 55);
+            this.button2.Size = new System.Drawing.Size(201, 45);
             this.button2.TabIndex = 8;
             this.button2.Text = "New View Products";
             this.button2.UseVisualStyleBackColor = true;
@@ -608,9 +596,8 @@
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Top;
             this.pictureBox1.Image = global::TheByteClubPOS.Properties.Resources.MainFormPanel1;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(293, 160);
+            this.pictureBox1.Size = new System.Drawing.Size(220, 130);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -647,35 +634,19 @@
             this.tableAdapterManager.SupplierTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = TheByteClubPOS.dsSamsLiqourShopTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
-            // btnSalesReport
-            // 
-            this.btnSalesReport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSalesReport.Image = ((System.Drawing.Image)(resources.GetObject("btnSalesReport.Image")));
-            this.btnSalesReport.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSalesReport.Location = new System.Drawing.Point(17, 205);
-            this.btnSalesReport.Margin = new System.Windows.Forms.Padding(4);
-            this.btnSalesReport.Name = "btnSalesReport";
-            this.btnSalesReport.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.btnSalesReport.Size = new System.Drawing.Size(267, 55);
-            this.btnSalesReport.TabIndex = 9;
-            this.btnSalesReport.Text = " View Sales Report";
-            this.btnSalesReport.UseVisualStyleBackColor = true;
-            this.btnSalesReport.Click += new System.EventHandler(this.btnSalesReport_Click);
-            // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::TheByteClubPOS.Properties.Resources.POINT_OF_SALES;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1805, 844);
+            this.ClientSize = new System.Drawing.Size(1354, 686);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sam\'s Liquor Shop - Point of Sale System";
@@ -753,6 +724,5 @@
         private System.Windows.Forms.ToolStripMenuItem troubleshootingToolStripMenuItem;
         public System.Windows.Forms.Button btnProducts;
         public System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button btnSalesReport;
     }
 }

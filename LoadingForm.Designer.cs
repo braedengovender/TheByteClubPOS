@@ -96,7 +96,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(84, 16);
             this.label1.TabIndex = 5;
-            this.label1.Text = "Version 1.2";
+            this.label1.Text = "Version 3.0";
             // 
             // lblCopyright
             // 

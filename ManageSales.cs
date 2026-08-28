@@ -358,5 +358,12 @@ namespace TheByteClubPOS
             }
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            SalesReport salesReport = new SalesReport();
+            salesReport.MdiParent = this.ParentForm;
+            salesReport.Show();
+        }
     }
 }

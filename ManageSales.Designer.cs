@@ -83,10 +83,6 @@
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.paymentInnerJoinDTBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.paymentInnerJoinDTTableAdapter = new TheByteClubPOS.dsSamsLiqourShopTableAdapters.PaymentInnerJoinDTTableAdapter();
-            this.fillBySaleIDToolStrip = new System.Windows.Forms.ToolStrip();
-            this.saleIDToolStripLabel = new System.Windows.Forms.ToolStripLabel();
-            this.saleIDToolStripTextBox = new System.Windows.Forms.ToolStripTextBox();
-            this.fillBySaleIDToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.paymentInnerJoinDTDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn25 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn26 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -98,14 +94,19 @@
             this.dataGridViewTextBoxColumn32 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn33 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn34 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.saleIDToolStripLabel = new System.Windows.Forms.ToolStripLabel();
+            this.saleIDToolStripTextBox = new System.Windows.Forms.ToolStripTextBox();
+            this.fillBySaleIDToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.fillBySaleIDToolStrip = new System.Windows.Forms.ToolStrip();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dsSamsLiqourShop)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.salesSummaryInnerJoinDTBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.salesSummaryInnerJoinDTDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.saleLinesSummaryInnerJoinDTBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.saleLinesSummaryInnerJoinDTDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.paymentInnerJoinDTBindingSource)).BeginInit();
-            this.fillBySaleIDToolStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.paymentInnerJoinDTDataGridView)).BeginInit();
+            this.fillBySaleIDToolStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblManageSales
@@ -462,11 +463,11 @@
             // 
             this.txtSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSearch.ForeColor = System.Drawing.Color.Gray;
-            this.txtSearch.Location = new System.Drawing.Point(455, 66);
+            this.txtSearch.Location = new System.Drawing.Point(385, 66);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(470, 35);
+            this.txtSearch.Size = new System.Drawing.Size(540, 35);
             this.txtSearch.TabIndex = 10;
-            this.txtSearch.Text = "Search by Customer, Employee or Promo...";
+            this.txtSearch.Text = "Search by Customer, Employee or Promotion...";
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             this.txtSearch.Enter += new System.EventHandler(this.txtSearch_Enter);
             this.txtSearch.Leave += new System.EventHandler(this.txtSearch_Leave);
@@ -542,9 +543,9 @@
             // 
             this.btnPDFExport.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPDFExport.Image = global::TheByteClubPOS.Properties.Resources.PDFIcon;
-            this.btnPDFExport.Location = new System.Drawing.Point(455, 119);
+            this.btnPDFExport.Location = new System.Drawing.Point(385, 119);
             this.btnPDFExport.Name = "btnPDFExport";
-            this.btnPDFExport.Size = new System.Drawing.Size(229, 48);
+            this.btnPDFExport.Size = new System.Drawing.Size(299, 48);
             this.btnPDFExport.TabIndex = 37;
             this.btnPDFExport.Text = "Export to PDF";
             this.btnPDFExport.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -564,38 +565,6 @@
             // paymentInnerJoinDTTableAdapter
             // 
             this.paymentInnerJoinDTTableAdapter.ClearBeforeFill = true;
-            // 
-            // fillBySaleIDToolStrip
-            // 
-            this.fillBySaleIDToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.saleIDToolStripLabel,
-            this.saleIDToolStripTextBox,
-            this.fillBySaleIDToolStripButton});
-            this.fillBySaleIDToolStrip.Location = new System.Drawing.Point(0, 0);
-            this.fillBySaleIDToolStrip.Name = "fillBySaleIDToolStrip";
-            this.fillBySaleIDToolStrip.Size = new System.Drawing.Size(1134, 25);
-            this.fillBySaleIDToolStrip.TabIndex = 38;
-            this.fillBySaleIDToolStrip.Text = "fillBySaleIDToolStrip";
-            // 
-            // saleIDToolStripLabel
-            // 
-            this.saleIDToolStripLabel.Name = "saleIDToolStripLabel";
-            this.saleIDToolStripLabel.Size = new System.Drawing.Size(41, 22);
-            this.saleIDToolStripLabel.Text = "saleID:";
-            // 
-            // saleIDToolStripTextBox
-            // 
-            this.saleIDToolStripTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.saleIDToolStripTextBox.Name = "saleIDToolStripTextBox";
-            this.saleIDToolStripTextBox.Size = new System.Drawing.Size(100, 25);
-            // 
-            // fillBySaleIDToolStripButton
-            // 
-            this.fillBySaleIDToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.fillBySaleIDToolStripButton.Name = "fillBySaleIDToolStripButton";
-            this.fillBySaleIDToolStripButton.Size = new System.Drawing.Size(71, 22);
-            this.fillBySaleIDToolStripButton.Text = "FillBySaleID";
-            this.fillBySaleIDToolStripButton.Click += new System.EventHandler(this.fillBySaleIDToolStripButton_Click);
             // 
             // paymentInnerJoinDTDataGridView
             // 
@@ -696,6 +665,53 @@
             this.dataGridViewTextBoxColumn34.Name = "dataGridViewTextBoxColumn34";
             this.dataGridViewTextBoxColumn34.ReadOnly = true;
             // 
+            // saleIDToolStripLabel
+            // 
+            this.saleIDToolStripLabel.Name = "saleIDToolStripLabel";
+            this.saleIDToolStripLabel.Size = new System.Drawing.Size(41, 22);
+            this.saleIDToolStripLabel.Text = "saleID:";
+            // 
+            // saleIDToolStripTextBox
+            // 
+            this.saleIDToolStripTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.saleIDToolStripTextBox.Name = "saleIDToolStripTextBox";
+            this.saleIDToolStripTextBox.Size = new System.Drawing.Size(100, 25);
+            // 
+            // fillBySaleIDToolStripButton
+            // 
+            this.fillBySaleIDToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.fillBySaleIDToolStripButton.Name = "fillBySaleIDToolStripButton";
+            this.fillBySaleIDToolStripButton.Size = new System.Drawing.Size(71, 22);
+            this.fillBySaleIDToolStripButton.Text = "FillBySaleID";
+            this.fillBySaleIDToolStripButton.Click += new System.EventHandler(this.fillBySaleIDToolStripButton_Click);
+            // 
+            // fillBySaleIDToolStrip
+            // 
+            this.fillBySaleIDToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.saleIDToolStripLabel,
+            this.saleIDToolStripTextBox,
+            this.fillBySaleIDToolStripButton});
+            this.fillBySaleIDToolStrip.Location = new System.Drawing.Point(0, 0);
+            this.fillBySaleIDToolStrip.Name = "fillBySaleIDToolStrip";
+            this.fillBySaleIDToolStrip.Size = new System.Drawing.Size(1134, 25);
+            this.fillBySaleIDToolStrip.TabIndex = 38;
+            this.fillBySaleIDToolStrip.Text = "fillBySaleIDToolStrip";
+            this.fillBySaleIDToolStrip.Visible = false;
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Image = global::TheByteClubPOS.Properties.Resources.ReceiptIcon;
+            this.button1.Location = new System.Drawing.Point(33, 119);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(332, 48);
+            this.button1.TabIndex = 39;
+            this.button1.Text = "Generate Sales Report";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // ManageSales
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -703,6 +719,7 @@
             this.BackgroundImage = global::TheByteClubPOS.Properties.Resources.Background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1134, 715);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.paymentInnerJoinDTDataGridView);
             this.Controls.Add(this.fillBySaleIDToolStrip);
             this.Controls.Add(this.btnPDFExport);
@@ -728,9 +745,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.saleLinesSummaryInnerJoinDTBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.saleLinesSummaryInnerJoinDTDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.paymentInnerJoinDTBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.paymentInnerJoinDTDataGridView)).EndInit();
             this.fillBySaleIDToolStrip.ResumeLayout(false);
             this.fillBySaleIDToolStrip.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.paymentInnerJoinDTDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -784,10 +801,6 @@
         private System.Drawing.Printing.PrintDocument printDocument1;
         private System.Windows.Forms.BindingSource paymentInnerJoinDTBindingSource;
         private dsSamsLiqourShopTableAdapters.PaymentInnerJoinDTTableAdapter paymentInnerJoinDTTableAdapter;
-        private System.Windows.Forms.ToolStrip fillBySaleIDToolStrip;
-        private System.Windows.Forms.ToolStripLabel saleIDToolStripLabel;
-        private System.Windows.Forms.ToolStripTextBox saleIDToolStripTextBox;
-        private System.Windows.Forms.ToolStripButton fillBySaleIDToolStripButton;
         private System.Windows.Forms.DataGridView paymentInnerJoinDTDataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn25;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn26;
@@ -799,5 +812,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn32;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn33;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn34;
+        private System.Windows.Forms.ToolStripLabel saleIDToolStripLabel;
+        private System.Windows.Forms.ToolStripTextBox saleIDToolStripTextBox;
+        private System.Windows.Forms.ToolStripButton fillBySaleIDToolStripButton;
+        private System.Windows.Forms.ToolStrip fillBySaleIDToolStrip;
+        private System.Windows.Forms.Button button1;
     }
 }
