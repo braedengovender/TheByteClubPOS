@@ -34,7 +34,7 @@ namespace TheByteClubPOS
         private const int CANVAS_H = 740;
         private const int PAD = 20;
         private const int GAP = 10;
-        private const int VPAD = 12;
+        private const int VPAD = 35;
 
         // Data-bound controls
         private Label lblLowStock;
@@ -228,7 +228,7 @@ namespace TheByteClubPOS
                 lblVal.Font = new Font("Microsoft Sans Serif", 20f, FontStyle.Bold);
                 lblVal.ForeColor = accents[i];
                 lblVal.BackColor = Color.Transparent;
-                lblVal.Bounds = new Rectangle(10, 28, cardW - 20, h - 36);
+                lblVal.Bounds = new Rectangle(10, 27, cardW - 20, h - 27);
                 card.Controls.Add(lblVal);
 
                 valueLabels[i] = lblVal;
