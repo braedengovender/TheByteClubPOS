@@ -88,7 +88,7 @@ namespace TheByteClubPOS
 
             Panel canvas = new Panel();
             canvas.BackColor = Color.Transparent;
-            canvas.Location = new Point(0, 0);
+            canvas.Location = new Point(0, 30);
             canvas.Size = new Size(10, 10);
             this.Controls.Add(canvas);
 
@@ -187,7 +187,7 @@ namespace TheByteClubPOS
             lblWelcome.Font = new Font("Microsoft Sans Serif", 10f, FontStyle.Regular);
             lblWelcome.ForeColor = Color.FromArgb(20, 20, 40);
             lblWelcome.BackColor = Color.Transparent;
-            lblWelcome.Bounds = new Rectangle(PAD, y, 300, 20);
+            lblWelcome.Bounds = new Rectangle(PAD, y + 30, 300, 20);
             canvas.Controls.Add(lblWelcome);
 
             Label lblName = new Label();
@@ -196,7 +196,7 @@ namespace TheByteClubPOS
             lblName.ForeColor = Color.FromArgb(20, 20, 60);
             lblName.BackColor = Color.Transparent;
             lblName.AutoSize = true;
-            lblName.Location = new Point(PAD, y + 20);
+            lblName.Location = new Point(PAD, y + 50);
             canvas.Controls.Add(lblName);
 
             // Role badge sits on the same line as the name, just to the right
@@ -217,7 +217,7 @@ namespace TheByteClubPOS
             // Vertically align baseline with the 18pt name label:
             // name is at y+20, height ~36. 12pt label height ~20.
             // Centre it: y + 20 + (36-20)/2 = y + 28
-            lblRole.Location = new Point(roleX, y + 28);
+            lblRole.Location = new Point(roleX, y + 58);
             canvas.Controls.Add(lblRole);
 
             y += h + GAP;
