@@ -293,12 +293,12 @@ namespace TheByteClubPOS
             {
                 // If the password is valid, change it to White in Dark Mode, or system default in Light Mode
                 txtPassword.ForeColor = IsDarkMode ? Color.White : SystemColors.ControlText;
-                toolTip1.SetToolTip(txtPassword, string.Empty);
+                //toolTip1.SetToolTip(txtPassword, string.Empty);
             }
             else
             {
-                txtPassword.ForeColor = Color.Red;
-                toolTip1.SetToolTip(txtPassword, errors);
+                // txtPassword.ForeColor = Color.Red;
+                //toolTip1.SetToolTip(txtPassword, errors);
             }
         }
 
@@ -430,6 +430,11 @@ namespace TheByteClubPOS
                 quotes[currentQuoteIndex];
 
             tmrQuote.Start();
+        }
+
+        private void toolTip1_Popup(object sender, PopupEventArgs e)
+        {
+
         }
     }
 }

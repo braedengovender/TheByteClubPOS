@@ -61,6 +61,12 @@ namespace TheByteClubPOS
         private DashboardData currentData;
         private bool isLoaded = false;
 
+        private Label lblWelcome;
+        private Label lblName;
+        private Label lblRole;
+
+        private bool isDark = false;
+
         public DashboardForm()
         {
             employeeName = "Manager";
@@ -182,7 +188,7 @@ namespace TheByteClubPOS
         {
             // Labels placed directly on canvas — dark navy text that reads
             // clearly over the background image without any overlay panel.
-            Label lblWelcome = new Label();
+            lblWelcome = new Label();
             lblWelcome.Text = "Welcome back,";
             lblWelcome.Font = new Font("Microsoft Sans Serif", 10f, FontStyle.Regular);
             lblWelcome.ForeColor = Color.FromArgb(20, 20, 40);
@@ -190,7 +196,7 @@ namespace TheByteClubPOS
             lblWelcome.Bounds = new Rectangle(PAD, y + 30, 300, 20);
             canvas.Controls.Add(lblWelcome);
 
-            Label lblName = new Label();
+            lblName = new Label();
             lblName.Text = employeeName;
             lblName.Font = new Font("Microsoft Sans Serif", 18f, FontStyle.Bold | FontStyle.Underline);
             lblName.ForeColor = Color.FromArgb(20, 20, 60);
@@ -208,7 +214,7 @@ namespace TheByteClubPOS
                 new Font("Microsoft Sans Serif", 18f, FontStyle.Bold | FontStyle.Underline));
             int roleX = PAD + (int)nameSize.Width + 12;
 
-            Label lblRole = new Label();
+            lblRole = new Label();
             lblRole.Text = employeeRole + " - Dashboard";
             lblRole.Font = new Font("Microsoft Sans Serif", 12f, FontStyle.Bold);
             lblRole.ForeColor = navyBlue;
@@ -221,6 +227,7 @@ namespace TheByteClubPOS
             canvas.Controls.Add(lblRole);
 
             y += h + GAP;
+            ApplyHeaderColors(); // re-apply stored dark mode state now that labels exist
         }
 
         private void BuildStatCards(Panel canvas, ref int y, int h)
@@ -865,6 +872,8 @@ namespace TheByteClubPOS
 
         public void isDarkMode(bool dark)
         {
+            isDark = dark;
+
             //this.BackgroundImage = dark ? Properties.Resources.Dark_Background : Properties.Resources.POINT_OF_SALES;
             if (dark)
             {
@@ -875,6 +884,15 @@ namespace TheByteClubPOS
             {
                 this.BackgroundImage = Properties.Resources.POINT_OF_SALES;
             }
+
+            ApplyHeaderColors();
+        }
+
+        private void ApplyHeaderColors()
+        {
+            if (lblWelcome != null) lblWelcome.ForeColor = isDark ? Color.White : Color.FromArgb(20, 20, 40);
+            if (lblName != null) lblName.ForeColor = isDark ? Color.White : Color.FromArgb(20, 20, 60);
+            if (lblRole != null) lblRole.ForeColor = isDark ? Color.White : navyBlue;
         }
     }
 }

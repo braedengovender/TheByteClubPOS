@@ -87,6 +87,10 @@
             this.btnTestLoginManager.UseVisualStyleBackColor = true;
             this.btnTestLoginManager.Click += new System.EventHandler(this.button3_Click);
             // 
+            // toolTip1
+            // 
+            this.toolTip1.Popup += new System.Windows.Forms.PopupEventHandler(this.toolTip1_Popup);
+            // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.Anchor = System.Windows.Forms.AnchorStyles.None;
