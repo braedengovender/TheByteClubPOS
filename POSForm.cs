@@ -1103,31 +1103,36 @@ namespace TheByteClubPOS
                 }
             }
 
-            // Scan the cart to see if any item contains alcohol
-            bool cartContainsAlcohol = false;
+            //// Scan the cart to see if any item contains alcohol
+            //bool cartContainsAlcohol = false;
 
-            foreach (DataRow row in this.dsSamsLiqourShop.Cart.Rows)
+            //foreach (DataRow row in this.dsSamsLiqourShop.Cart.Rows)
+            //{
+            //    if (row.RowState == DataRowState.Deleted) continue;
+            //    // Safely parse the alcohol percentage field, handling potential nulls
+            //    decimal alcoholPercent = row["Product_AlcoholPercentage"] == DBNull.Value ? 0m : Convert.ToDecimal(row["Product_AlcoholPercentage"]);
+
+            //    if (alcoholPercent > 0m)
+            //    {
+            //        cartContainsAlcohol = true;
+            //        break; // We found at least one alcoholic item, no need to check the rest!
+            //    }
+            //}
+
+            //// Run Age Verification ONLY if an alcoholic item is present 
+            //if (cartContainsAlcohol)
+            //{
+            //    // Run Age Verification
+            //    // Pass the ID string. If it's empty (walk-in), it opens the input box. If it has the DB ID, it runs silently!
+            //    if (IsCustomerOfAge(customerIDFromDB) == false)
+            //    {
+            //        return; // Stops the sale immediately if underage or invalid ID
+            //    }
+            //}
+            // Age verification now applies to every sale, regardless of product type
+            if (IsCustomerOfAge(customerIDFromDB) == false)
             {
-                if (row.RowState == DataRowState.Deleted) continue;
-                // Safely parse the alcohol percentage field, handling potential nulls
-                decimal alcoholPercent = row["Product_AlcoholPercentage"] == DBNull.Value ? 0m : Convert.ToDecimal(row["Product_AlcoholPercentage"]);
-
-                if (alcoholPercent > 0m)
-                {
-                    cartContainsAlcohol = true;
-                    break; // We found at least one alcoholic item, no need to check the rest!
-                }
-            }
-
-            // Run Age Verification ONLY if an alcoholic item is present 
-            if (cartContainsAlcohol)
-            {
-                // Run Age Verification
-                // Pass the ID string. If it's empty (walk-in), it opens the input box. If it has the DB ID, it runs silently!
-                if (IsCustomerOfAge(customerIDFromDB) == false)
-                {
-                    return; // Stops the sale immediately if underage or invalid ID
-                }
+                return; // Stops the sale immediately if underage or invalid ID
             }
 
             btnCompleteSale.Enabled = false;
