@@ -108,6 +108,7 @@
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.paymentBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.paymentTableAdapter = new TheByteClubPOS.dsSamsLiqourShopTableAdapters.PaymentTableAdapter();
+            this.btnRemoveProduct = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.productDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsSamsLiqourShop)).BeginInit();
@@ -405,9 +406,9 @@
             // btnClearCart
             // 
             this.btnClearCart.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClearCart.Location = new System.Drawing.Point(959, 86);
+            this.btnClearCart.Location = new System.Drawing.Point(1011, 86);
             this.btnClearCart.Name = "btnClearCart";
-            this.btnClearCart.Size = new System.Drawing.Size(152, 40);
+            this.btnClearCart.Size = new System.Drawing.Size(100, 40);
             this.btnClearCart.TabIndex = 18;
             this.btnClearCart.Text = "Clear Cart";
             this.btnClearCart.UseVisualStyleBackColor = true;
@@ -578,11 +579,11 @@
             // btnRemoveItem
             // 
             this.btnRemoveItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRemoveItem.Location = new System.Drawing.Point(801, 86);
+            this.btnRemoveItem.Location = new System.Drawing.Point(878, 86);
             this.btnRemoveItem.Name = "btnRemoveItem";
-            this.btnRemoveItem.Size = new System.Drawing.Size(152, 40);
+            this.btnRemoveItem.Size = new System.Drawing.Size(127, 40);
             this.btnRemoveItem.TabIndex = 23;
-            this.btnRemoveItem.Text = "Remove Item";
+            this.btnRemoveItem.Text = "Remove 1 Item";
             this.btnRemoveItem.UseVisualStyleBackColor = true;
             this.btnRemoveItem.Click += new System.EventHandler(this.btnRemoveItem_Click);
             // 
@@ -875,6 +876,17 @@
             // 
             this.paymentTableAdapter.ClearBeforeFill = true;
             // 
+            // btnRemoveProduct
+            // 
+            this.btnRemoveProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRemoveProduct.Location = new System.Drawing.Point(720, 86);
+            this.btnRemoveProduct.Name = "btnRemoveProduct";
+            this.btnRemoveProduct.Size = new System.Drawing.Size(152, 40);
+            this.btnRemoveProduct.TabIndex = 34;
+            this.btnRemoveProduct.Text = "Remove Product";
+            this.btnRemoveProduct.UseVisualStyleBackColor = true;
+            this.btnRemoveProduct.Click += new System.EventHandler(this.btnRemoveProduct_Click);
+            // 
             // POSForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -882,6 +894,7 @@
             this.BackgroundImage = global::TheByteClubPOS.Properties.Resources.Background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1134, 670);
+            this.Controls.Add(this.btnRemoveProduct);
             this.Controls.Add(this.comboBox3);
             this.Controls.Add(this.tableLayoutPanel2);
             this.Controls.Add(this.tableLayoutPanel1);
@@ -1010,5 +1023,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Discount_ID;
         private System.Windows.Forms.BindingSource paymentBindingSource;
         private dsSamsLiqourShopTableAdapters.PaymentTableAdapter paymentTableAdapter;
+        private System.Windows.Forms.Button btnRemoveProduct;
     }
 }

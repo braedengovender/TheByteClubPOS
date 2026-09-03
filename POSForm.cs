@@ -291,6 +291,8 @@ namespace TheByteClubPOS
             this.productTableAdapter.Fill(this.dsSamsLiqourShop.Product);
             productBindingSource.Filter = "Product_Status = 'Active'";
 
+            SetupCartGridEditing();
+
             // 2. GRAB THE REAL EMPLOYEE ID FROM THE PARENT FORM
             if (this.MdiParent != null)
             {
@@ -488,26 +490,33 @@ namespace TheByteClubPOS
 
         private void btnRemoveItem_Click(object sender, EventArgs e)
         {
-            // Check if there is actually a row selected in the grid
-            if (cartDataGridView.CurrentRow != null)
+            try
             {
+                if (cartDataGridView.CurrentRow == null) return;
+
                 int rowIndex = cartDataGridView.CurrentRow.Index;
-                // Access the specific cell value directly
-                int currentQty = Convert.ToInt32(this.dsSamsLiqourShop.Cart.Rows[rowIndex]["SaleLine_Quantity"]);
+                if (rowIndex < 0 || rowIndex >= cartBindingSource.Count) return;
+
+                DataRowView drv = cartBindingSource[rowIndex] as DataRowView;
+                if (drv == null) return;
+
+                DataRow cartRow = drv.Row;
+                if (cartRow.RowState == DataRowState.Deleted || cartRow.RowState == DataRowState.Detached) return;
+
+                int currentQty = cartRow["SaleLine_Quantity"] == DBNull.Value ? 0 : Convert.ToInt32(cartRow["SaleLine_Quantity"]);
 
                 if (currentQty > 1)
                 {
-                    // Just decrease the quantity directly in the table
                     int newQty = currentQty - 1;
-                    this.dsSamsLiqourShop.Cart.Rows[rowIndex]["SaleLine_Quantity"] = newQty;
+                    cartRow["SaleLine_Quantity"] = newQty;
 
-                    decimal unitPriceAfterDiscount = Convert.ToDecimal(this.dsSamsLiqourShop.Cart.Rows[rowIndex]["SaleLine_UnitPriceAfterDiscount"]);
-                    this.dsSamsLiqourShop.Cart.Rows[rowIndex]["SaleLine_Subtotal"] = unitPriceAfterDiscount * newQty;
+                    decimal unitPriceAfterDiscount = cartRow["SaleLine_UnitPriceAfterDiscount"] == DBNull.Value ? 0m : Convert.ToDecimal(cartRow["SaleLine_UnitPriceAfterDiscount"]);
+                    cartRow["SaleLine_Subtotal"] = unitPriceAfterDiscount * newQty;
                 }
                 else
                 {
-                    // Quantity is 1, so remove the row
-                    this.dsSamsLiqourShop.Cart.Rows[rowIndex].Delete();
+                    cartRow.Delete();
+                    this.dsSamsLiqourShop.Cart.AcceptChanges();
                 }
 
                 cartDataGridView.Refresh();
@@ -518,6 +527,10 @@ namespace TheByteClubPOS
                 lblTotalAmount.Text = getTotal().ToString("C2");
                 lblVatAmount.Text = getVat().ToString("C2");
                 lblCount.Text = getItemCount().ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Could not update that item: " + ex.Message, "Update Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -866,6 +879,7 @@ namespace TheByteClubPOS
 
                 foreach (System.Data.DataRow row in this.dsSamsLiqourShop.Cart.Rows)
                 {
+                    if (row.RowState == DataRowState.Deleted) continue;
                     string productName = row["Product_Name"] != DBNull.Value ? row["Product_Name"].ToString() : "Item";
                     int qty = row["SaleLine_Quantity"] != DBNull.Value ? Convert.ToInt32(row["SaleLine_Quantity"]) : 1;
 
@@ -1081,6 +1095,7 @@ namespace TheByteClubPOS
 
             foreach (DataRow row in this.dsSamsLiqourShop.Cart.Rows)
             {
+                if (row.RowState == DataRowState.Deleted) continue;
                 // Safely parse the alcohol percentage field, handling potential nulls
                 decimal alcoholPercent = row["Product_AlcoholPercentage"] == DBNull.Value ? 0m : Convert.ToDecimal(row["Product_AlcoholPercentage"]);
 
@@ -1238,6 +1253,7 @@ namespace TheByteClubPOS
                 int totalItemsCount = 0;
                 foreach (DataRow row in this.dsSamsLiqourShop.Cart.Rows)
                 {
+                    if (row.RowState == DataRowState.Deleted) continue;
                     totalItemsCount += row["SaleLine_Quantity"] != DBNull.Value ? Convert.ToInt32(row["SaleLine_Quantity"]) : 1;
                 }
 
@@ -1340,166 +1356,375 @@ namespace TheByteClubPOS
 
         private void PrintReceiptPage(object sender, PrintPageEventArgs e)
         {
-            Graphics graphic = e.Graphics;
-
-            // Set up text font stylings
-            Font fontNormal = new Font("Courier New", 10, FontStyle.Regular);
-            Font fontBold = new Font("Courier New", 10, FontStyle.Bold);
-            Font fontHeader = new Font("Courier New", 14, FontStyle.Bold);
-
-            float leading = 16; // Space between rows
-            float startX = 10;  // Left border margin
-            float startY = 10;  // Top border margin
-            float offset = 0;   // Rolling vertical offset marker
-
-            // 1. BUSINESS METADATA HEADER
-            graphic.DrawString("SAM'S LIQUOR SHOP", fontHeader, Brushes.Black, startX, startY + offset);
-            offset += leading + 4;
-            graphic.DrawString("21 Coronation Road, Mithangar, Tongaat, 4399", fontNormal, Brushes.Black, startX, startY + offset);
-            offset += leading;
-            graphic.DrawString("Contact Number: +27 82 405 5932", fontNormal, Brushes.Black, startX, startY + offset);
-            offset += leading * 2;
-
-            // 2. TRANSACTION METADATA
-            string invoiceNum = "INV-" + Convert.ToString(saleID);
-            graphic.DrawString($"INVOICE: {invoiceNum}", fontBold, Brushes.Black, startX, startY + offset);
-            offset += leading;
-            graphic.DrawString($"DATE: {DateTime.Now.ToString("G")}", fontNormal, Brushes.Black, startX, startY + offset);
-            offset += leading;
-            graphic.DrawString($"SALE TYPE: {comboBox2.Text.Trim()}", fontNormal, Brushes.Black, startX, startY + offset);
-            offset += leading * 2;
-
-            // 3. CART COLUMN GRID HEADER
-            graphic.DrawString("----------------------------------------------------------------------", fontNormal, Brushes.Black, startX, startY + offset);
-            offset += leading;
-
-            // WIDER COLUMNS: Item column extended to 280px to prevent wrapping
-            graphic.DrawString("Item", fontBold, Brushes.Black, startX, startY + offset);
-            graphic.DrawString("Qty", fontBold, Brushes.Black, startX + 280, startY + offset);
-            graphic.DrawString("Price", fontBold, Brushes.Black, startX + 330, startY + offset);
-            graphic.DrawString("Disc", fontBold, Brushes.Black, startX + 390, startY + offset);
-            graphic.DrawString("Total", fontBold, Brushes.Black, startX + 460, startY + offset);
-            offset += leading;
-            graphic.DrawString("----------------------------------------------------------------------", fontNormal, Brushes.Black, startX, startY + offset);
-            offset += leading;
-
-            // 4. ITERATE ITEMS IN THE CART
-            int totalItemCount = 0;
-            decimal totalDiscountGiven = 0m;
-
-            foreach (DataRow row in this.dsSamsLiqourShop.Cart.Rows)
+            try
             {
-                string name = row["Product_Name"].ToString();
-                int qty = Convert.ToInt32(row["SaleLine_Quantity"]);
-                decimal originalPrice = Convert.ToDecimal(row["SaleLine_OriginalUnitPrice"]);
-                decimal discountPrice = row["SaleLine_UnitPriceAfterDiscount"] == DBNull.Value ? originalPrice : Convert.ToDecimal(row["SaleLine_UnitPriceAfterDiscount"]);
-                decimal lineTotal = (qty * discountPrice);
+                Graphics graphic = e.Graphics;
 
-                decimal unitDiscountAmount = originalPrice - discountPrice;
-                decimal totalLineSavings = unitDiscountAmount * qty;
+                // Set up text font stylings
+                Font fontNormal = new Font("Courier New", 10, FontStyle.Regular);
+                Font fontBold = new Font("Courier New", 10, FontStyle.Bold);
+                Font fontHeader = new Font("Courier New", 14, FontStyle.Bold);
 
-                totalItemCount += qty;
-                totalDiscountGiven += totalLineSavings;
+                float leading = 16; // Space between rows
+                float startX = 10;  // Left border margin
+                float startY = 10;  // Top border margin
+                float offset = 0;   // Rolling vertical offset marker
 
-                // Truncate long product names (increased to 35 chars for wider column)
-                if (name.Length > 35) name = name.Substring(0, 32) + "...";
+                // 1. BUSINESS METADATA HEADER
+                graphic.DrawString("SAM'S LIQUOR SHOP", fontHeader, Brushes.Black, startX, startY + offset);
+                offset += leading + 4;
+                graphic.DrawString("21 Coronation Road, Mithangar, Tongaat, 4399", fontNormal, Brushes.Black, startX, startY + offset);
+                offset += leading;
+                graphic.DrawString("Contact Number: +27 82 405 5932", fontNormal, Brushes.Black, startX, startY + offset);
+                offset += leading * 2;
 
-                graphic.DrawString(name, fontNormal, Brushes.Black, startX, startY + offset);
-                graphic.DrawString(qty.ToString(), fontNormal, Brushes.Black, startX + 280, startY + offset);
-                graphic.DrawString(originalPrice.ToString("F2"), fontNormal, Brushes.Black, startX + 330, startY + offset);
-                graphic.DrawString(unitDiscountAmount.ToString("F2"), fontNormal, Brushes.Black, startX + 390, startY + offset);
-                graphic.DrawString(lineTotal.ToString("F2"), fontNormal, Brushes.Black, startX + 460, startY + offset);
+                // 2. TRANSACTION METADATA
+                string invoiceNum = "INV-" + Convert.ToString(saleID);
+                graphic.DrawString($"INVOICE: {invoiceNum}", fontBold, Brushes.Black, startX, startY + offset);
+                offset += leading;
+                graphic.DrawString($"DATE: {DateTime.Now.ToString("G")}", fontNormal, Brushes.Black, startX, startY + offset);
+                offset += leading;
+                graphic.DrawString($"SALE TYPE: {comboBox2.Text.Trim()}", fontNormal, Brushes.Black, startX, startY + offset);
+                offset += leading * 2;
+
+                // 3. CART COLUMN GRID HEADER
+                graphic.DrawString("----------------------------------------------------------------------", fontNormal, Brushes.Black, startX, startY + offset);
                 offset += leading;
 
-                if (totalLineSavings > 0m)
+                // WIDER COLUMNS: Item column extended to 280px to prevent wrapping
+                graphic.DrawString("Item", fontBold, Brushes.Black, startX, startY + offset);
+                graphic.DrawString("Qty", fontBold, Brushes.Black, startX + 280, startY + offset);
+                graphic.DrawString("Price", fontBold, Brushes.Black, startX + 330, startY + offset);
+                graphic.DrawString("Disc", fontBold, Brushes.Black, startX + 390, startY + offset);
+                graphic.DrawString("Total", fontBold, Brushes.Black, startX + 460, startY + offset);
+                offset += leading;
+                graphic.DrawString("----------------------------------------------------------------------", fontNormal, Brushes.Black, startX, startY + offset);
+                offset += leading;
+
+                // 4. ITERATE ITEMS IN THE CART
+                int totalItemCount = 0;
+                decimal totalDiscountGiven = 0m;
+
+                foreach (DataRow row in this.dsSamsLiqourShop.Cart.Rows)
                 {
-                    graphic.DrawString($"  * Promo Savings: -R {totalLineSavings.ToString("F2")}", fontNormal, Brushes.Gray, startX, startY + offset);
+                    if (row.RowState == DataRowState.Deleted) continue;
+                    string name = row["Product_Name"].ToString();
+                    int qty = Convert.ToInt32(row["SaleLine_Quantity"]);
+                    decimal originalPrice = Convert.ToDecimal(row["SaleLine_OriginalUnitPrice"]);
+                    decimal discountPrice = row["SaleLine_UnitPriceAfterDiscount"] == DBNull.Value ? originalPrice : Convert.ToDecimal(row["SaleLine_UnitPriceAfterDiscount"]);
+                    decimal lineTotal = (qty * discountPrice);
+
+                    decimal unitDiscountAmount = originalPrice - discountPrice;
+                    decimal totalLineSavings = unitDiscountAmount * qty;
+
+                    totalItemCount += qty;
+                    totalDiscountGiven += totalLineSavings;
+
+                    // Truncate long product names (increased to 35 chars for wider column)
+                    if (name.Length > 35) name = name.Substring(0, 32) + "...";
+
+                    graphic.DrawString(name, fontNormal, Brushes.Black, startX, startY + offset);
+                    graphic.DrawString(qty.ToString(), fontNormal, Brushes.Black, startX + 280, startY + offset);
+                    graphic.DrawString(originalPrice.ToString("F2"), fontNormal, Brushes.Black, startX + 330, startY + offset);
+                    graphic.DrawString(unitDiscountAmount.ToString("F2"), fontNormal, Brushes.Black, startX + 390, startY + offset);
+                    graphic.DrawString(lineTotal.ToString("F2"), fontNormal, Brushes.Black, startX + 460, startY + offset);
+                    offset += leading;
+
+                    if (totalLineSavings > 0m)
+                    {
+                        graphic.DrawString($"  * Promo Savings: -R {totalLineSavings.ToString("F2")}", fontNormal, Brushes.Gray, startX, startY + offset);
+                        offset += leading;
+                    }
+                }
+
+                graphic.DrawString("----------------------------------------------------------------------", fontNormal, Brushes.Black, startX, startY + offset);
+                offset += leading;
+
+                // ====== SECTION 5: BALANCES ======
+                decimal subtotalAmount = getSubtotal();
+                decimal vatAmount = getVat();
+                decimal totalFinalAmount = getTotal();
+
+                string paymentMethod = comboBox1.Text.Trim();
+                string rawInput = txtAmountTendered.Text.Trim();
+
+                // Safe numeric parsing for payment
+                decimal.TryParse(rawInput, out decimal numericTendered);
+                decimal changeDue = (paymentMethod.Equals("Cash", StringComparison.OrdinalIgnoreCase)) ? (numericTendered - totalFinalAmount) : 0;
+                if (changeDue < 0) changeDue = 0;
+
+                // Draw financial aggregations with indentations
+                graphic.DrawString($"Total Items Count: {totalItemCount}", fontNormal, Brushes.Black, startX, startY + offset);
+                offset += leading;
+                graphic.DrawString($"Subtotal Amount:    R {subtotalAmount.ToString("F2")}", fontNormal, Brushes.Black, startX, startY + offset);
+                offset += leading;
+
+                if (totalDiscountGiven > 0m)
+                {
+                    graphic.DrawString($"Total Discount:    -R {totalDiscountGiven.ToString("F2")}", fontNormal, Brushes.Black, startX, startY + offset);
                     offset += leading;
                 }
-            }
 
-            graphic.DrawString("----------------------------------------------------------------------", fontNormal, Brushes.Black, startX, startY + offset);
-            offset += leading;
-
-            // ====== SECTION 5: BALANCES ======
-            decimal subtotalAmount = getSubtotal();
-            decimal vatAmount = getVat();
-            decimal totalFinalAmount = getTotal();
-
-            string paymentMethod = comboBox1.Text.Trim();
-            string rawInput = txtAmountTendered.Text.Trim();
-
-            // Safe numeric parsing for payment
-            decimal.TryParse(rawInput, out decimal numericTendered);
-            decimal changeDue = (paymentMethod.Equals("Cash", StringComparison.OrdinalIgnoreCase)) ? (numericTendered - totalFinalAmount) : 0;
-            if (changeDue < 0) changeDue = 0;
-
-            // Draw financial aggregations with indentations
-            graphic.DrawString($"Total Items Count: {totalItemCount}", fontNormal, Brushes.Black, startX, startY + offset);
-            offset += leading;
-            graphic.DrawString($"Subtotal Amount:    R {subtotalAmount.ToString("F2")}", fontNormal, Brushes.Black, startX, startY + offset);
-            offset += leading;
-
-            if (totalDiscountGiven > 0m)
-            {
-                graphic.DrawString($"Total Discount:    -R {totalDiscountGiven.ToString("F2")}", fontNormal, Brushes.Black, startX, startY + offset);
+                // Indented VAT
+                graphic.DrawString($"  VAT (15%):        R {vatAmount.ToString("F2")}", fontNormal, Brushes.Black, startX, startY + offset);
                 offset += leading;
-            }
+                graphic.DrawString($"Total Final Price:  R {totalFinalAmount.ToString("F2")}", fontBold, Brushes.Black, startX, startY + offset);
+                offset += leading;
+                graphic.DrawString($"Payment Method:     {paymentMethod}", fontNormal, Brushes.Black, startX, startY + offset);
+                offset += leading;
 
-            // Indented VAT
-            graphic.DrawString($"  VAT (15%):        R {vatAmount.ToString("F2")}", fontNormal, Brushes.Black, startX, startY + offset);
-            offset += leading;
-            graphic.DrawString($"Total Final Price:  R {totalFinalAmount.ToString("F2")}", fontBold, Brushes.Black, startX, startY + offset);
-            offset += leading;
-            graphic.DrawString($"Payment Method:     {paymentMethod}", fontNormal, Brushes.Black, startX, startY + offset);
-            offset += leading;
+                if (paymentMethod.Equals("Loyalty Points", StringComparison.OrdinalIgnoreCase))
+                {
+                    graphic.DrawString($"Points Redeemed:    {rawInput} pts", fontNormal, Brushes.Black, startX, startY + offset);
+                    offset += leading;
+                }
+                else if (paymentMethod.Equals("Voucher", StringComparison.OrdinalIgnoreCase))
+                {
+                    graphic.DrawString($"Voucher Ref Num:    {rawInput}", fontNormal, Brushes.Black, startX, startY + offset);
+                    offset += leading;
+                }
+                else if (paymentMethod.Equals("Cash", StringComparison.OrdinalIgnoreCase))
+                {
+                    graphic.DrawString($"Cash Tendered:      R {numericTendered.ToString("F2")}", fontNormal, Brushes.Black, startX, startY + offset);
+                    offset += leading;
+                    graphic.DrawString($"Change Amount:      R {changeDue.ToString("F2")}", fontBold, Brushes.Black, startX, startY + offset);
+                    offset += leading;
+                }
 
-            if (paymentMethod.Equals("Loyalty Points", StringComparison.OrdinalIgnoreCase))
-            {
-                graphic.DrawString($"Points Redeemed:    {rawInput} pts", fontNormal, Brushes.Black, startX, startY + offset);
-                offset += leading;
-            }
-            else if (paymentMethod.Equals("Voucher", StringComparison.OrdinalIgnoreCase))
-            {
-                graphic.DrawString($"Voucher Ref Num:    {rawInput}", fontNormal, Brushes.Black, startX, startY + offset);
-                offset += leading;
-            }
-            else if (paymentMethod.Equals("Cash", StringComparison.OrdinalIgnoreCase))
-            {
-                graphic.DrawString($"Cash Tendered:      R {numericTendered.ToString("F2")}", fontNormal, Brushes.Black, startX, startY + offset);
-                offset += leading;
-                graphic.DrawString($"Change Amount:      R {changeDue.ToString("F2")}", fontBold, Brushes.Black, startX, startY + offset);
-                offset += leading;
-            }
+                offset += leading * 2;
 
-            offset += leading * 2;
+                // 6. TAILORED DYNAMIC FOOTER
+                if (currentCustomerID != null && this.dsSamsLiqourShop.Customer.Rows.Count > 0)
+                {
+                    graphic.DrawString($"Hi {lblName.Text},", fontBold, Brushes.Black, startX, startY + offset);
+                    offset += leading;
+                    graphic.DrawString("Thank you for shopping at Sam's Liquor Shop!", fontNormal, Brushes.Black, startX, startY + offset);
+                    offset += leading;
+                    graphic.DrawString($"Your new loyalty points balance is: {newCustLoyaltyPointsBalance}", fontBold, Brushes.Black, startX, startY + offset);
+                    offset += leading * 1.5f;
+                }
 
-            // 6. TAILORED DYNAMIC FOOTER
-            if (currentCustomerID != null && this.dsSamsLiqourShop.Customer.Rows.Count > 0)
-            {
-                graphic.DrawString($"Hi {lblName.Text},", fontBold, Brushes.Black, startX, startY + offset);
-                offset += leading;
-                graphic.DrawString("Thank you for shopping at Sam's Liquor Shop!", fontNormal, Brushes.Black, startX, startY + offset);
-                offset += leading;
-                graphic.DrawString($"Your new loyalty points balance is: {newCustLoyaltyPointsBalance}", fontBold, Brushes.Black, startX, startY + offset);
+                graphic.DrawString("Please keep this receipt as proof of purchase.", fontNormal, Brushes.Black, startX, startY + offset);
                 offset += leading * 1.5f;
-            }
 
-            graphic.DrawString("Please keep this receipt as proof of purchase.", fontNormal, Brushes.Black, startX, startY + offset);
-            offset += leading * 1.5f;
+                string employeeName = "Cashier";
+                Form parentForm = this.MdiParent ?? this.Owner;
+                if (parentForm is MainForm mainForm)
+                {
+                    employeeName = mainForm.employeeFullName;
+                }
+                graphic.DrawString($"You were helped by: {employeeName}", fontNormal, Brushes.Black, startX, startY + offset);
 
-            string employeeName = "Cashier";
-            Form parentForm = this.MdiParent ?? this.Owner;
-            if (parentForm is MainForm mainForm)
+            } catch (Exception ex)
             {
-                employeeName = mainForm.employeeFullName;
+                MessageBox.Show("Could not generate the receipt: " + ex.Message, "Print Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            graphic.DrawString($"You were helped by: {employeeName}", fontNormal, Brushes.Black, startX, startY + offset);
+            
         }
 
         private void cartDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void SetupCartGridEditing()
+        {
+            cartDataGridView.ReadOnly = false;
+            cartDataGridView.AllowUserToAddRows = false;     // no blank phantom row
+            cartDataGridView.AllowUserToDeleteRows = false;  // no Delete-key removal bypassing recalculation
+
+            foreach (DataGridViewColumn col in cartDataGridView.Columns)
+            {
+                col.ReadOnly = (col.DataPropertyName != "SaleLine_Quantity");
+                col.SortMode = DataGridViewColumnSortMode.NotSortable; // keeps grid row index == binding source index, guaranteed
+            }
+
+            cartDataGridView.EditMode = DataGridViewEditMode.EditOnKeystrokeOrF2;
+
+            cartDataGridView.CellValidating += cartDataGridView_CellValidating;
+            cartDataGridView.CellEndEdit += cartDataGridView_CellEndEdit;
+
+            cartDataGridView.DataError += (s, e) => { e.ThrowException = false; };
+        }
+
+        private void cartDataGridView_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
+        {
+            try
+            {
+                // Guard: bail out safely on header row, phantom "new row", or an out-of-range index
+                if (e.RowIndex < 0 || e.RowIndex >= cartBindingSource.Count) return;
+                if (e.ColumnIndex < 0 || e.ColumnIndex >= cartDataGridView.Columns.Count) return;
+                if (cartDataGridView.Columns[e.ColumnIndex].DataPropertyName != "SaleLine_Quantity")
+                    return;
+
+                string input = e.FormattedValue?.ToString().Trim();
+
+                if (string.IsNullOrWhiteSpace(input))
+                {
+                    MessageBox.Show("Quantity cannot be empty.", "Invalid Quantity", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    e.Cancel = true;
+                    return;
+                }
+
+                if (!int.TryParse(input, out int newQty))
+                {
+                    MessageBox.Show("Quantity must be a whole number.", "Invalid Quantity", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    e.Cancel = true;
+                    return;
+                }
+
+                if (newQty <= 0)
+                {
+                    MessageBox.Show("Quantity must be at least 1. Use the Remove button to take an item out.", "Invalid Quantity", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    e.Cancel = true;
+                    return;
+                }
+
+                if (newQty > 100000) // sane ceiling so a fat-fingered typo can't corrupt totals/printing
+                {
+                    MessageBox.Show("That quantity looks too large. Please enter a realistic amount.", "Invalid Quantity", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    e.Cancel = true;
+                    return;
+                }
+
+                DataRowView drv = cartBindingSource[e.RowIndex] as DataRowView;
+                if (drv == null || drv.Row["Product_ID"] == DBNull.Value)
+                {
+                    MessageBox.Show("Could not verify this item's stock. Edit was cancelled.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    e.Cancel = true;
+                    return;
+                }
+
+                int productID = Convert.ToInt32(drv["Product_ID"]);
+                int? stockAvailable = GetAvailableStockForProduct(productID);
+
+                if (stockAvailable == null)
+                {
+                    MessageBox.Show("Could not find current stock levels for this item. Edit was cancelled.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    e.Cancel = true;
+                    return;
+                }
+
+                if (newQty > stockAvailable.Value)
+                {
+                    MessageBox.Show($"Only {stockAvailable.Value} unit(s) of this item are in stock.", "Insufficient Stock", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    e.Cancel = true;
+                    return;
+                }
+            }
+            catch (Exception ex)
+            {
+                // Last-resort net: never let an exception escape a grid event — cancel instead of crashing
+                MessageBox.Show("Could not validate that quantity: " + ex.Message, "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                e.Cancel = true;
+            }
+        }
+
+        // Returns null if the product can't be found or stock can't be determined, so the caller
+        // can block the edit instead of wrongly treating "unknown" as "0 in stock".
+        private int? GetAvailableStockForProduct(int productID)
+        {
+            try
+            {
+                DataRow[] matches = this.dsSamsLiqourShop.Product.Select($"Product_ID = {productID}");
+                if (matches.Length == 0) return null;
+
+                DataRow productRow = matches[0];
+
+                // ⚠️ Confirm this exact string against your dsSamsLiqourShop.xsd designer.
+                // Your product grid binds stock via "productQuantityInStockDataGridViewTextBoxColumn",
+                // which usually means the real column is "Product_QuantityInStock" — adjust if yours differs.
+                const string stockColumnName = "Product_QuantityInStock";
+
+                if (!productRow.Table.Columns.Contains(stockColumnName))
+                    return null; // column name mismatch — fail safe instead of throwing
+
+                return productRow[stockColumnName] == DBNull.Value
+                    ? 0
+                    : Convert.ToInt32(productRow[stockColumnName]);
+            }
+            catch
+            {
+                return null; // any unexpected cast/parse issue — treat as "can't verify," not a crash
+            }
+        }
+
+        private void cartDataGridView_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                if (e.RowIndex < 0 || e.RowIndex >= cartBindingSource.Count) return;
+                if (e.ColumnIndex < 0 || e.ColumnIndex >= cartDataGridView.Columns.Count) return;
+                if (cartDataGridView.Columns[e.ColumnIndex].DataPropertyName != "SaleLine_Quantity")
+                    return;
+
+                DataRowView drv = cartBindingSource[e.RowIndex] as DataRowView;
+                if (drv == null) return;
+
+                DataRow cartRow = drv.Row;
+                if (cartRow.RowState == DataRowState.Deleted || cartRow.RowState == DataRowState.Detached) return;
+
+                int newQty = cartRow["SaleLine_Quantity"] == DBNull.Value ? 0 : Convert.ToInt32(cartRow["SaleLine_Quantity"]);
+                decimal unitPriceAfterDiscount = cartRow["SaleLine_UnitPriceAfterDiscount"] == DBNull.Value ? 0m : Convert.ToDecimal(cartRow["SaleLine_UnitPriceAfterDiscount"]);
+                cartRow["SaleLine_Subtotal"] = newQty * unitPriceAfterDiscount;
+
+                cartDataGridView.Refresh();
+                cartBindingSource.ResetBindings(false);
+
+                lblSubtotalAmount.Text = getSubtotal().ToString("C2");
+                lblDiscountAmount.Text = getDiscountAmount().ToString("C2");
+                lblTotalAmount.Text = getTotal().ToString("C2");
+                lblVatAmount.Text = getVat().ToString("C2");
+                lblCount.Text = getItemCount().ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Could not update the cart totals: " + ex.Message, "Update Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void btnRemoveProduct_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (cartDataGridView.CurrentRow == null)
+                {
+                    MessageBox.Show("Please select an item in the cart to remove.", "No Item Selected", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+
+                int rowIndex = cartDataGridView.CurrentRow.Index;
+                if (rowIndex < 0 || rowIndex >= cartBindingSource.Count) return;
+
+                DataRowView drv = cartBindingSource[rowIndex] as DataRowView;
+                if (drv == null) return;
+
+                string productName = drv.Row["Product_Name"] != DBNull.Value ? drv.Row["Product_Name"].ToString() : "this item";
+
+                DialogResult confirm = MessageBox.Show(
+                    $"Remove all of \"{productName}\" from the cart?",
+                    "Confirm Removal",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question);
+
+                if (confirm != DialogResult.Yes) return;
+
+                drv.Row.Delete();
+                this.dsSamsLiqourShop.Cart.AcceptChanges();
+
+                cartDataGridView.Refresh();
+                cartBindingSource.ResetBindings(false);
+
+                lblSubtotalAmount.Text = getSubtotal().ToString("C2");
+                lblDiscountAmount.Text = getDiscountAmount().ToString("C2");
+                lblTotalAmount.Text = getTotal().ToString("C2");
+                lblVatAmount.Text = getVat().ToString("C2");
+                lblCount.Text = getItemCount().ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Could not remove that item: " + ex.Message, "Removal Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
     }
 }
