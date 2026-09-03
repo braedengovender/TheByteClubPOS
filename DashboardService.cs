@@ -218,13 +218,14 @@ namespace TheByteClubPOS
 
             var bestSpend = monthSales
                 .Where(s => !s.IsCustomer_IDNull() &&
+                             s.Customer_ID != 999999 &&
                              customerDict.ContainsKey(s.Customer_ID))
                 .GroupBy(s => s.Customer_ID)
                 .Select(g => new
                 {
                     CustomerId = g.Key,
                     TotalSpent = g.Sum(s => s.Sale_TotalAmount),
-                    TxCount    = g.Count()
+                    TxCount = g.Count()
                 })
                 .OrderByDescending(x => x.TotalSpent)
                 .FirstOrDefault();
