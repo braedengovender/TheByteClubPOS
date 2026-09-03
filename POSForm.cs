@@ -29,7 +29,8 @@ namespace TheByteClubPOS
         int saleID;
         int newCustLoyaltyPointsBalance;
 
-        
+        private const int WalkInCustomerID = 999999;
+
         public System.Windows.Forms.Button btnChangeTheme
         { 
             get {  return btnToggleTheme; }
@@ -696,8 +697,20 @@ namespace TheByteClubPOS
                 if (this.dsSamsLiqourShop.Customer.Rows.Count > 0)
                 {
                     DataRow customerRow = this.dsSamsLiqourShop.Customer.Rows[0];
+                    int foundCustomerId = Convert.ToInt32(customerRow["Customer_ID"]);
+
+                    // Block the walk-in placeholder record from being loaded as a "real" loyalty customer
+                    if (foundCustomerId == WalkInCustomerID)
+                    {
+                        lblName.Text = "Walk-in Customer";
+                        lblPointsAmount.Text = "0";
+                        currentCustomerID = null;
+                        MessageBox.Show("That ID belongs to the default walk-in account and can't be used for loyalty lookup.", "Lookup Blocked", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return;
+                    }
+
                     string customerStatus = customerRow["Customer_Status"].ToString();
-                    currentCustomerID = Convert.ToInt32(customerRow["Customer_ID"]);
+                    currentCustomerID = foundCustomerId;
                     lblName.Text = customerRow["Customer_FirstName"].ToString() + " " + customerRow["Customer_LastName"].ToString();
                     lblPointsAmount.Text = customerRow["Customer_LoyaltyPointsBalance"].ToString();
 
@@ -1161,7 +1174,11 @@ namespace TheByteClubPOS
                 int chosenSaleTypeID = Convert.ToInt32(comboBox2.SelectedValue);
                 string saleTypeText = comboBox2.Text.Trim();
                 string paymentMethodUsed = comboBox1.Text.Trim();
-                saleID = (int)saleTableAdapter.InsertQueryNewSale(currentCustomerID, currentEmployeeID, chosenSaleTypeID, null, DateTime.Now, getSubtotal(), getDiscountAmount(), getTotal(), loyaltyPointsEarned, "Completed");
+
+                // Anonymous/walk-in sales must reference the default customer record, never NULL
+                int customerIdForSale = currentCustomerID ?? WalkInCustomerID;
+
+                saleID = (int)saleTableAdapter.InsertQueryNewSale(customerIdForSale, currentEmployeeID, chosenSaleTypeID, null, DateTime.Now, getSubtotal(), getDiscountAmount(), getTotal(), loyaltyPointsEarned, "Completed");
                 
                 saveSaleLines(saleID);
                 updateStockQuantityInDatabase();
