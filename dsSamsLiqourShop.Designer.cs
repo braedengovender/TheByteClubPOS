@@ -14290,7 +14290,7 @@ SELECT Customer_ID, Customer_FirstName, Customer_LastName, Customer_EmailAddress
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[11];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[12];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = @"SELECT Customer_ID, Customer_FirstName, Customer_LastName, Customer_EmailAddress, Customer_IDNumber, Customer_PhoneNumber, Customer_UnitNumber, Customer_UnitName, Customer_StreetNumber, Customer_StreetName, Customer_Suburb, Customer_PostalCode, Customer_City, Customer_Province, Customer_Country, Customer_RegistrationDateTime, Customer_LoyaltyPointsBalance, Customer_Status, Customer_Username, Customer_Password FROM dbo.Customer";
@@ -14342,49 +14342,58 @@ WHERE        (Customer_IDNumber LIKE @Customer_IDNumber + '%')";
                          Customer_StreetName, Customer_Suburb, Customer_PostalCode, Customer_City, Customer_Province, Customer_Country, Customer_RegistrationDateTime, Customer_LoyaltyPointsBalance, Customer_Status, 
                          Customer_Username, Customer_Password
 FROM            Customer
-WHERE        (Customer_PhoneNumber = @IDOrPhoneNumber) OR
-                         (Customer_IDNumber = @IDOrPhoneNumber)";
+WHERE        (Customer_IDNumber LIKE @Customer_Parameter + '%') OR (Customer_FirstName LIKE '%' + @Customer_Parameter + '%') OR (Customer_LastName LIKE '%' + @Customer_Parameter + '%') OR (Customer_FirstName + ' ' + Customer_LastName LIKE '%' + @Customer_Parameter + '%')";
             this._commandCollection[5].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IDOrPhoneNumber", global::System.Data.SqlDbType.VarChar, 12, global::System.Data.ParameterDirection.Input, 0, 0, "Customer_PhoneNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Customer_Parameter", global::System.Data.SqlDbType.VarChar, 13, global::System.Data.ParameterDirection.Input, 0, 0, "Customer_IDNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[6] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[6].Connection = this.Connection;
-            this._commandCollection[6].CommandText = "SELECT        Customer_LoyaltyPointsBalance\r\nFROM            Customer\r\nWHERE     " +
-                "   (Customer_ID = @custID)";
+            this._commandCollection[6].CommandText = @"SELECT        Customer_ID, Customer_FirstName, Customer_LastName, Customer_EmailAddress, Customer_IDNumber, Customer_PhoneNumber, Customer_UnitNumber, Customer_UnitName, Customer_StreetNumber, 
+                         Customer_StreetName, Customer_Suburb, Customer_PostalCode, Customer_City, Customer_Province, Customer_Country, Customer_RegistrationDateTime, Customer_LoyaltyPointsBalance, Customer_Status, 
+                         Customer_Username, Customer_Password
+FROM            Customer
+WHERE        (Customer_PhoneNumber = @IDOrPhoneNumber) OR
+                         (Customer_IDNumber = @IDOrPhoneNumber)";
             this._commandCollection[6].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@custID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Customer_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IDOrPhoneNumber", global::System.Data.SqlDbType.VarChar, 12, global::System.Data.ParameterDirection.Input, 0, 0, "Customer_PhoneNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[7] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[7].Connection = this.Connection;
-            this._commandCollection[7].CommandText = @"INSERT INTO [dbo].[Customer] ([Customer_FirstName], [Customer_LastName], [Customer_EmailAddress], [Customer_IDNumber], [Customer_PhoneNumber], [Customer_UnitNumber], [Customer_UnitName], [Customer_StreetNumber], [Customer_StreetName], [Customer_Suburb], [Customer_PostalCode], [Customer_City], [Customer_Province], [Customer_Country], [Customer_RegistrationDateTime], [Customer_LoyaltyPointsBalance], [Customer_Status], [Customer_Username], [Customer_Password]) VALUES (@Customer_FirstName, @Customer_LastName, @Customer_EmailAddress, @Customer_IDNumber, @Customer_PhoneNumber, @Customer_UnitNumber, @Customer_UnitName, @Customer_StreetNumber, @Customer_StreetName, @Customer_Suburb, @Customer_PostalCode, @Customer_City, @Customer_Province, @Customer_Country, @Customer_RegistrationDateTime, @Customer_LoyaltyPointsBalance, @Customer_Status, @Customer_Username, @Customer_Password);";
+            this._commandCollection[7].CommandText = "SELECT        Customer_LoyaltyPointsBalance\r\nFROM            Customer\r\nWHERE     " +
+                "   (Customer_ID = @custID)";
             this._commandCollection[7].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Customer_FirstName", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Customer_FirstName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Customer_LastName", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Customer_LastName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Customer_EmailAddress", global::System.Data.SqlDbType.VarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "Customer_EmailAddress", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Customer_IDNumber", global::System.Data.SqlDbType.VarChar, 13, global::System.Data.ParameterDirection.Input, 0, 0, "Customer_IDNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Customer_PhoneNumber", global::System.Data.SqlDbType.VarChar, 12, global::System.Data.ParameterDirection.Input, 0, 0, "Customer_PhoneNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Customer_UnitNumber", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "Customer_UnitNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Customer_UnitName", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Customer_UnitName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Customer_StreetNumber", global::System.Data.SqlDbType.VarChar, 10, global::System.Data.ParameterDirection.Input, 0, 0, "Customer_StreetNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Customer_StreetName", global::System.Data.SqlDbType.VarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "Customer_StreetName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Customer_Suburb", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Customer_Suburb", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Customer_PostalCode", global::System.Data.SqlDbType.VarChar, 10, global::System.Data.ParameterDirection.Input, 0, 0, "Customer_PostalCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Customer_City", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Customer_City", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Customer_Province", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Customer_Province", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Customer_Country", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Customer_Country", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Customer_RegistrationDateTime", global::System.Data.SqlDbType.DateTime2, 8, global::System.Data.ParameterDirection.Input, 0, 0, "Customer_RegistrationDateTime", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Customer_LoyaltyPointsBalance", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Customer_LoyaltyPointsBalance", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Customer_Status", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "Customer_Status", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Customer_Username", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Customer_Username", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Customer_Password", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Customer_Password", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@custID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Customer_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[8] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[8].Connection = this.Connection;
-            this._commandCollection[8].CommandText = "UPDATE       Customer\r\nSET                Customer_LoyaltyPointsBalance = Custome" +
-                "r_LoyaltyPointsBalance + @loyaltyPoints\r\nWHERE        (Customer_ID = @custID)";
+            this._commandCollection[8].CommandText = @"INSERT INTO [dbo].[Customer] ([Customer_FirstName], [Customer_LastName], [Customer_EmailAddress], [Customer_IDNumber], [Customer_PhoneNumber], [Customer_UnitNumber], [Customer_UnitName], [Customer_StreetNumber], [Customer_StreetName], [Customer_Suburb], [Customer_PostalCode], [Customer_City], [Customer_Province], [Customer_Country], [Customer_RegistrationDateTime], [Customer_LoyaltyPointsBalance], [Customer_Status], [Customer_Username], [Customer_Password]) VALUES (@Customer_FirstName, @Customer_LastName, @Customer_EmailAddress, @Customer_IDNumber, @Customer_PhoneNumber, @Customer_UnitNumber, @Customer_UnitName, @Customer_StreetNumber, @Customer_StreetName, @Customer_Suburb, @Customer_PostalCode, @Customer_City, @Customer_Province, @Customer_Country, @Customer_RegistrationDateTime, @Customer_LoyaltyPointsBalance, @Customer_Status, @Customer_Username, @Customer_Password);";
             this._commandCollection[8].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[8].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@loyaltyPoints", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Customer_LoyaltyPointsBalance", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[8].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@custID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Customer_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._commandCollection[8].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Customer_FirstName", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Customer_FirstName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[8].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Customer_LastName", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Customer_LastName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[8].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Customer_EmailAddress", global::System.Data.SqlDbType.VarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "Customer_EmailAddress", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[8].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Customer_IDNumber", global::System.Data.SqlDbType.VarChar, 13, global::System.Data.ParameterDirection.Input, 0, 0, "Customer_IDNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[8].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Customer_PhoneNumber", global::System.Data.SqlDbType.VarChar, 12, global::System.Data.ParameterDirection.Input, 0, 0, "Customer_PhoneNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[8].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Customer_UnitNumber", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "Customer_UnitNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[8].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Customer_UnitName", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Customer_UnitName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[8].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Customer_StreetNumber", global::System.Data.SqlDbType.VarChar, 10, global::System.Data.ParameterDirection.Input, 0, 0, "Customer_StreetNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[8].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Customer_StreetName", global::System.Data.SqlDbType.VarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "Customer_StreetName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[8].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Customer_Suburb", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Customer_Suburb", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[8].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Customer_PostalCode", global::System.Data.SqlDbType.VarChar, 10, global::System.Data.ParameterDirection.Input, 0, 0, "Customer_PostalCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[8].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Customer_City", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Customer_City", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[8].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Customer_Province", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Customer_Province", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[8].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Customer_Country", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Customer_Country", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[8].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Customer_RegistrationDateTime", global::System.Data.SqlDbType.DateTime2, 8, global::System.Data.ParameterDirection.Input, 0, 0, "Customer_RegistrationDateTime", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[8].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Customer_LoyaltyPointsBalance", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Customer_LoyaltyPointsBalance", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[8].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Customer_Status", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "Customer_Status", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[8].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Customer_Username", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Customer_Username", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[8].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Customer_Password", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Customer_Password", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[9] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[9].Connection = this.Connection;
-            this._commandCollection[9].CommandText = @"UPDATE       Customer
+            this._commandCollection[9].CommandText = "UPDATE       Customer\r\nSET                Customer_LoyaltyPointsBalance = Custome" +
+                "r_LoyaltyPointsBalance + @loyaltyPoints\r\nWHERE        (Customer_ID = @custID)";
+            this._commandCollection[9].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[9].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@loyaltyPoints", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Customer_LoyaltyPointsBalance", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[9].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@custID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Customer_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._commandCollection[10] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[10].Connection = this.Connection;
+            this._commandCollection[10].CommandText = @"UPDATE       Customer
 SET                Customer_FirstName = @Customer_FirstName, Customer_LastName = @Customer_LastName, Customer_EmailAddress = @Customer_EmailAddress, Customer_IDNumber = @Customer_IDNumber, 
                          Customer_PhoneNumber = @Customer_PhoneNumber, Customer_UnitNumber = @Customer_UnitNumber, Customer_UnitName = @Customer_UnitName, Customer_StreetNumber = @Customer_StreetNumber, 
                          Customer_StreetName = @Customer_StreetName, Customer_Suburb = @Customer_Suburb, Customer_PostalCode = @Customer_PostalCode, Customer_City = @Customer_City, Customer_Province = @Customer_Province, 
@@ -14392,36 +14401,36 @@ SET                Customer_FirstName = @Customer_FirstName, Customer_LastName =
                          Customer_Username = @Customer_Username, Customer_Password = @Customer_Password
 WHERE        (Customer_ID = @Customer_ID); 
 SELECT Customer_ID, Customer_FirstName, Customer_LastName, Customer_EmailAddress, Customer_IDNumber, Customer_PhoneNumber, Customer_UnitNumber, Customer_UnitName, Customer_StreetNumber, Customer_StreetName, Customer_Suburb, Customer_PostalCode, Customer_City, Customer_Province, Customer_Country, Customer_RegistrationDateTime, Customer_LoyaltyPointsBalance, Customer_Status, Customer_Username, Customer_Password FROM Customer WHERE (Customer_ID = @Customer_ID)";
-            this._commandCollection[9].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[9].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Customer_FirstName", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Customer_FirstName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[9].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Customer_LastName", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Customer_LastName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[9].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Customer_EmailAddress", global::System.Data.SqlDbType.VarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "Customer_EmailAddress", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[9].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Customer_IDNumber", global::System.Data.SqlDbType.VarChar, 13, global::System.Data.ParameterDirection.Input, 0, 0, "Customer_IDNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[9].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Customer_PhoneNumber", global::System.Data.SqlDbType.VarChar, 12, global::System.Data.ParameterDirection.Input, 0, 0, "Customer_PhoneNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[9].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Customer_UnitNumber", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "Customer_UnitNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[9].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Customer_UnitName", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Customer_UnitName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[9].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Customer_StreetNumber", global::System.Data.SqlDbType.VarChar, 10, global::System.Data.ParameterDirection.Input, 0, 0, "Customer_StreetNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[9].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Customer_StreetName", global::System.Data.SqlDbType.VarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "Customer_StreetName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[9].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Customer_Suburb", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Customer_Suburb", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[9].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Customer_PostalCode", global::System.Data.SqlDbType.VarChar, 10, global::System.Data.ParameterDirection.Input, 0, 0, "Customer_PostalCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[9].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Customer_City", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Customer_City", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[9].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Customer_Province", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Customer_Province", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[9].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Customer_Country", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Customer_Country", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[9].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Customer_RegistrationDateTime", global::System.Data.SqlDbType.DateTime2, 8, global::System.Data.ParameterDirection.Input, 0, 0, "Customer_RegistrationDateTime", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[9].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Customer_LoyaltyPointsBalance", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Customer_LoyaltyPointsBalance", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[9].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Customer_Status", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "Customer_Status", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[9].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Customer_Username", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Customer_Username", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[9].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Customer_Password", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Customer_Password", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[9].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Customer_ID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Customer_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._commandCollection[10] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[10].Connection = this.Connection;
-            this._commandCollection[10].CommandText = @"UPDATE       Customer
+            this._commandCollection[10].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[10].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Customer_FirstName", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Customer_FirstName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[10].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Customer_LastName", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Customer_LastName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[10].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Customer_EmailAddress", global::System.Data.SqlDbType.VarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "Customer_EmailAddress", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[10].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Customer_IDNumber", global::System.Data.SqlDbType.VarChar, 13, global::System.Data.ParameterDirection.Input, 0, 0, "Customer_IDNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[10].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Customer_PhoneNumber", global::System.Data.SqlDbType.VarChar, 12, global::System.Data.ParameterDirection.Input, 0, 0, "Customer_PhoneNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[10].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Customer_UnitNumber", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "Customer_UnitNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[10].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Customer_UnitName", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Customer_UnitName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[10].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Customer_StreetNumber", global::System.Data.SqlDbType.VarChar, 10, global::System.Data.ParameterDirection.Input, 0, 0, "Customer_StreetNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[10].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Customer_StreetName", global::System.Data.SqlDbType.VarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "Customer_StreetName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[10].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Customer_Suburb", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Customer_Suburb", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[10].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Customer_PostalCode", global::System.Data.SqlDbType.VarChar, 10, global::System.Data.ParameterDirection.Input, 0, 0, "Customer_PostalCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[10].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Customer_City", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Customer_City", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[10].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Customer_Province", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Customer_Province", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[10].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Customer_Country", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Customer_Country", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[10].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Customer_RegistrationDateTime", global::System.Data.SqlDbType.DateTime2, 8, global::System.Data.ParameterDirection.Input, 0, 0, "Customer_RegistrationDateTime", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[10].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Customer_LoyaltyPointsBalance", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Customer_LoyaltyPointsBalance", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[10].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Customer_Status", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "Customer_Status", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[10].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Customer_Username", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Customer_Username", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[10].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Customer_Password", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Customer_Password", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[10].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Customer_ID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Customer_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._commandCollection[11] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[11].Connection = this.Connection;
+            this._commandCollection[11].CommandText = @"UPDATE       Customer
 SET                Customer_Status = 'Inactive'
 WHERE        (Customer_ID = @CustomerID); 
 SELECT Customer_ID, Customer_FirstName, Customer_LastName, Customer_EmailAddress, Customer_IDNumber, Customer_PhoneNumber, Customer_UnitNumber, Customer_UnitName, Customer_StreetNumber, Customer_StreetName, Customer_Suburb, Customer_PostalCode, Customer_City, Customer_Province, Customer_Country, Customer_RegistrationDateTime, Customer_LoyaltyPointsBalance, Customer_Status, Customer_Username, Customer_Password FROM Customer WHERE (Customer_ID = @Customer_ID)";
-            this._commandCollection[10].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[10].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CustomerID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Customer_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._commandCollection[10].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Customer_ID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Customer_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._commandCollection[11].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[11].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CustomerID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Customer_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._commandCollection[11].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Customer_ID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Customer_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -14596,8 +14605,44 @@ SELECT Customer_ID, Customer_FirstName, Customer_LastName, Customer_EmailAddress
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillByIDOrPhoneNumber(dsSamsLiqourShop.CustomerDataTable dataTable, string IDOrPhoneNumber) {
+        public virtual int FillByIDNumOrFirstOrLastOrFullName(dsSamsLiqourShop.CustomerDataTable dataTable, string Customer_Parameter) {
             this.Adapter.SelectCommand = this.CommandCollection[5];
+            if ((Customer_Parameter == null)) {
+                throw new global::System.ArgumentNullException("Customer_Parameter");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(Customer_Parameter));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual dsSamsLiqourShop.CustomerDataTable GetDataBy8(string Customer_Parameter) {
+            this.Adapter.SelectCommand = this.CommandCollection[5];
+            if ((Customer_Parameter == null)) {
+                throw new global::System.ArgumentNullException("Customer_Parameter");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(Customer_Parameter));
+            }
+            dsSamsLiqourShop.CustomerDataTable dataTable = new dsSamsLiqourShop.CustomerDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByIDOrPhoneNumber(dsSamsLiqourShop.CustomerDataTable dataTable, string IDOrPhoneNumber) {
+            this.Adapter.SelectCommand = this.CommandCollection[6];
             if ((IDOrPhoneNumber == null)) {
                 throw new global::System.ArgumentNullException("IDOrPhoneNumber");
             }
@@ -14616,7 +14661,7 @@ SELECT Customer_ID, Customer_FirstName, Customer_LastName, Customer_EmailAddress
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual dsSamsLiqourShop.CustomerDataTable GetDataByIDOrPhoneNumber(string IDOrPhoneNumber) {
-            this.Adapter.SelectCommand = this.CommandCollection[5];
+            this.Adapter.SelectCommand = this.CommandCollection[6];
             if ((IDOrPhoneNumber == null)) {
                 throw new global::System.ArgumentNullException("IDOrPhoneNumber");
             }
@@ -15285,7 +15330,7 @@ SELECT Customer_ID, Customer_FirstName, Customer_LastName, Customer_EmailAddress
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         public virtual global::System.Nullable<int> getCustomerLoyaltyPointsBalance(int custID) {
-            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[6];
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[7];
             command.Parameters[0].Value = ((int)(custID));
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -15334,7 +15379,7 @@ SELECT Customer_ID, Customer_FirstName, Customer_LastName, Customer_EmailAddress
                     string Customer_Status, 
                     string Customer_Username, 
                     string Customer_Password) {
-            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[7];
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[8];
             if ((Customer_FirstName == null)) {
                 throw new global::System.ArgumentNullException("Customer_FirstName");
             }
@@ -15466,7 +15511,7 @@ SELECT Customer_ID, Customer_FirstName, Customer_LastName, Customer_EmailAddress
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
         public virtual int UpdateQueryCustLoyaltyPoints(int loyaltyPoints, int custID) {
-            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[8];
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[9];
             command.Parameters[0].Value = ((int)(loyaltyPoints));
             command.Parameters[1].Value = ((int)(custID));
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
@@ -15511,7 +15556,7 @@ SELECT Customer_ID, Customer_FirstName, Customer_LastName, Customer_EmailAddress
                     string Customer_Username, 
                     string Customer_Password, 
                     int Customer_ID) {
-            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[9];
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[10];
             if ((Customer_FirstName == null)) {
                 throw new global::System.ArgumentNullException("Customer_FirstName");
             }
@@ -15644,7 +15689,7 @@ SELECT Customer_ID, Customer_FirstName, Customer_LastName, Customer_EmailAddress
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
         public virtual int UpdateQueryStatus(int CustomerID, int Customer_ID) {
-            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[10];
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[11];
             command.Parameters[0].Value = ((int)(CustomerID));
             command.Parameters[1].Value = ((int)(Customer_ID));
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
